@@ -1,8 +1,8 @@
 {
-  "protocol": "superni_generation7_v1",
+  "protocol": "superni_generation7_v2",
   "source_commit": "55a365637381ce7f3748fa2eac7aef1a113bbb82",
   "split_seed": "20261006",
-  "algorithm": "sha256(seed + LF + task_id + LF + instance_id), sort by (digest, instance_id); train[:1000], dev[1000:1200], test[1200:1700]; remainder unused",
+  "algorithm": "exclude instances without a nonempty string input or a nonempty list/string of entirely nonempty string references; sha256(seed + LF + task_id + LF + instance_id), sort by (digest, instance_id); train[:1000], dev[1000:1200], test[1200:1700]; remainder unused",
   "tasks": [
     {
       "task_id": "task002_quoref_answer_generation",
@@ -23,7 +23,9 @@
           "ordered_ids_sha256": "7ac4460a03d98518efb6eb3794ed6938afb2f855e8b57f7e9e32587ba025c5e4"
         }
       },
-      "unused_instances": 4800
+      "unused_instances": 4800,
+      "excluded_instance_ids": [],
+      "valid_instances": 6500
     },
     {
       "task_id": "task1290_xsum_summarization",
@@ -44,7 +46,9 @@
           "ordered_ids_sha256": "d5aeb57a45c55d91de065f46b6f791256bb14e328a1c09d505717cd655921761"
         }
       },
-      "unused_instances": 4793
+      "unused_instances": 4793,
+      "excluded_instance_ids": [],
+      "valid_instances": 6493
     },
     {
       "task_id": "task1510_evalution_relation_extraction",
@@ -65,7 +69,9 @@
           "ordered_ids_sha256": "612522050ec5d813169ab564276d02a90bc3ec0d307a730970ec71d0c7eb49d8"
         }
       },
-      "unused_instances": 4794
+      "unused_instances": 4794,
+      "excluded_instance_ids": [],
+      "valid_instances": 6494
     },
     {
       "task_id": "task1729_personachat_generate_next",
@@ -86,7 +92,9 @@
           "ordered_ids_sha256": "735e446dc44b8fbbb17b463b23560de661a329de90bba6ee29aa34824967a09a"
         }
       },
-      "unused_instances": 4799
+      "unused_instances": 4799,
+      "excluded_instance_ids": [],
+      "valid_instances": 6499
     },
     {
       "task_id": "task511_reddit_tifu_long_text_summarization",
@@ -96,18 +104,66 @@
       "splits": {
         "train": {
           "count": 1000,
-          "ordered_ids_sha256": "35b14a5590aab7a5b5f1d9aacc6284530c22554d428dbb862d656ca10b73b795"
+          "ordered_ids_sha256": "31f0c442e3f518123260276f8de91fb783966b3e5eda306462193e102ab785ad"
         },
         "dev": {
           "count": 200,
-          "ordered_ids_sha256": "45552b33c513894c8086ad6968e91a3bf26408c96ba597e5603948a25ef5e0c2"
+          "ordered_ids_sha256": "562a20b7e9294470404f022340d895c1344b0eb9e095420b50ecdf97b28e96aa"
         },
         "test": {
           "count": 500,
-          "ordered_ids_sha256": "d9aa32841c94f4c79c85a7255247f0d1382e43cdb271d6f7bc37d23540dd09e6"
+          "ordered_ids_sha256": "c00a2c4302be44419276a51caae4fd1d11455a84fe5d97ef400bcf92a7a7f84f"
         }
       },
-      "unused_instances": 4800
+      "unused_instances": 4755,
+      "excluded_instance_ids": [
+        "task511-f6a236a54f9a45e2aacf79a2750ee3a4",
+        "task511-3322d8c941d1477cadbb36f95b4921fe",
+        "task511-30bd11c789b4495788b464a9bbea34d5",
+        "task511-66504550eac9491c95fb300cf5bc1ded",
+        "task511-d03f49ea574f404d9d80d80f4ef6a945",
+        "task511-ef4e7927fe3140869a732f3a3b89f25d",
+        "task511-8ee4f9bd11004c9eb4b3d58f00bee2fa",
+        "task511-9b9eb80689e84c2981cf400a39fcd06b",
+        "task511-4996a3f212bd4719ba5e8c1523d48207",
+        "task511-0da337b81e9e483f805186e74efa96ac",
+        "task511-fcb4b3f56b294aa8b62f175c2648f9f6",
+        "task511-1e3dd266a2bd4ac383ec60d7fd69baaf",
+        "task511-fe35d1788ed1427e82dfccd0fcf7fabe",
+        "task511-70939c0d5447411e82c906ce6a8f1a0c",
+        "task511-29f2f4326de44aa99df936c7cedd6763",
+        "task511-bdba5e84828a4f5bb7ce10b22fe9d9c9",
+        "task511-7c1a00dbd4e14d83b92ffcc02807be33",
+        "task511-6cc3b6d6167c4a21a30a42e1cc3224ff",
+        "task511-273803398a9446b78cbf681af531d71c",
+        "task511-5f3b4951bf524c8687f49234ab66c20b",
+        "task511-a7cbcb7d385348e792c7d5c373e7c1bd",
+        "task511-c3f3b71d1c074ee98e8e64390970a9f4",
+        "task511-7f244f6012be465786a7433073efba2a",
+        "task511-ebc92804698a44f3983510582506a696",
+        "task511-405993abd09c41d59e06d5fc4f436a20",
+        "task511-7645f146aacf474ca7298f3ef07293d4",
+        "task511-94c4d23470554757b08563cfe4325959",
+        "task511-1ae068ba3bd14b979122e149f707468b",
+        "task511-06bfc999603643eca8398f635dcdfb8f",
+        "task511-04a7fe1945464954b371361fa2b5d3fd",
+        "task511-65485e80cd2343e2b1ffade6a5202d4a",
+        "task511-4128469fed584d2b8d80b1dbc6040b0f",
+        "task511-add623b2ba1045cebe6007a755e8ed60",
+        "task511-407f0f9a905f4b80b3be1aa159f53988",
+        "task511-1842bd0943ab47bba7cc23bf19a4354d",
+        "task511-a8b6c0aac5e646cb98a4617cb605fb29",
+        "task511-f963cfcfb71642ddba4ad8b01fc2197b",
+        "task511-603bc891116e4d9bab35779a365f8a51",
+        "task511-627171649997426bb6e7ec5b329b4610",
+        "task511-5f8753a85d3147d8b90c2cedaa6740d4",
+        "task511-f15511f5b8ac437bbb28784cf56a50a2",
+        "task511-aa385c5313e94d69a8208f872ccf492a",
+        "task511-18cba55921ca4fcb992b33130547a391",
+        "task511-2eb1195ef1e84445972cdfb020ef0ff9",
+        "task511-5d98dd5b6db941318d53e32d7c678813"
+      ],
+      "valid_instances": 6455
     },
     {
       "task_id": "task591_sciq_answer_generation",
@@ -128,7 +184,9 @@
           "ordered_ids_sha256": "5a70e7f5ed434c5064b49e1e6c4f9165bc71718766d1600c2de020ae9032e688"
         }
       },
-      "unused_instances": 4800
+      "unused_instances": 4800,
+      "excluded_instance_ids": [],
+      "valid_instances": 6500
     },
     {
       "task_id": "task748_glucose_reverse_cause_event_detection",
@@ -149,7 +207,9 @@
           "ordered_ids_sha256": "b423bf24e84c6e87375cb5ac26b4fc1654d4af04ed305caea005311021ed35ba"
         }
       },
-      "unused_instances": 4797
+      "unused_instances": 4797,
+      "excluded_instance_ids": [],
+      "valid_instances": 6497
     }
   ],
   "audit": {

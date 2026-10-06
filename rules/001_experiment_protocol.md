@@ -1,8 +1,8 @@
 # 001：SuperNI 七任务持续学习实验设置
 
-协议标识：`superni_generation7_v1`  
+协议标识：`superni_generation7_v2`
 更新日期：2026-10-06  
-状态：数据任务和配额已确认；训练配置部分待锁定；尚未训练。
+状态：数据任务和配额已确认；用户已授权首篇论文实现与启动；首跑配置见第 13 节。
 
 ## 1. 范围与确认状态
 
@@ -10,7 +10,7 @@
 
 用户已确定：统一 Llama 基座；七个生成任务，每任务 1000/200/500；直接使用完整官方 SuperNI 原始任务；学一个任务、测试全部任务；暂不做 MixLoRA；归档原始源码；每篇论文一个方法文件和一个实验入口；结果保存至 `exp/result/`，由 `summary/` 汇总。
 
-本文件给出确定性数据划分、可执行核验命令及训练流程规格。数据版本和划分指纹已核验，但训练用派生文件和实验执行器尚未生成。两个任务顺序、三个训练种子、具体训练参数作为建议记录；实际模型版本、精度、方法参数和环境仍需锁定，不能宣称训练已完整可复现。
+本文件给出确定性数据划分、可执行核验命令及训练流程规格。数据和划分指纹已核验，O-LoRA 执行器及数据清单生成已实现。第 5–12 节描述完整研究方案，其中未落实部分仍为建议；第 13 节锁定用户随后授权的首轮配置，首轮以第 13 节为准。模型权重尚需就绪，不能宣称已有 Llama 训练结果。
 
 SAPT 仅作为方法、指标及任务顺序的参考，不使用其现成样本划分。之前讨论的 900/100/100 方案不适用。
 
@@ -50,11 +50,11 @@ SuperNI 官方 `splits/default/train_tasks.txt`、`test_tasks.txt` 按任务划�
 | XSUM | task1290_xsum_summarization | 新闻摘要 | 6493 | 1000 | 200 | 500 | 4793 |
 | EVALution | task1510_evalution_relation_extraction | 词汇关系抽取 | 6494 | 1000 | 200 | 500 | 4794 |
 | PersonaChat | task1729_personachat_generate_next | 对话回复生成 | 6499 | 1000 | 200 | 500 | 4799 |
-| Reddit TIFU | task511_reddit_tifu_long_text_summarization | 帖子摘要 | 6500 | 1000 | 200 | 500 | 4800 |
+| Reddit TIFU | task511_reddit_tifu_long_text_summarization | 帖子摘要 | 6500 | 1000 | 200 | 500 | 4755 |
 | SciQ | task591_sciq_answer_generation | 科学问答 | 6500 | 1000 | 200 | 500 | 4800 |
 | GLUCOSE | task748_glucose_reverse_cause_event_detection | 因果事件关系生成 | 6497 | 1000 | 200 | 500 | 4797 |
 
-合计 7000 条训练、1400 条验证、3500 条测试，共 11900 条。任务不是分类标签。训练多轮不增加独立样本数，未使用样本不能自动加入回放、额外预训练或调参。
+合计 7000 条训练、1400 条验证、3500 条测试，共 11900 条。Reddit TIFU 另有 45 条空参考答案被排除，故该行“未使用”仅计有效余量。任务不是分类标签。训练多轮不增加独立样本数，未使用样本不能自动加入回放、额外预训练或调参。
 
 五个任务在官方 default train_tasks 中，Reddit TIFU 和 GLUCOSE 在 excluded_tasks 中，涉及官方测试任务的同源隔离。它们可用于此自定义协议，但不直接追加官方测试任务并宣称来源独立。
 
@@ -65,7 +65,7 @@ SuperNI 官方 `splits/default/train_tasks.txt`、`test_tasks.txt` 按任务划�
 固定划分种子字符串 `20261006`，所有方法、顺序和训练 seed 共用。使用 SHA-256 排序，避免随机库版本改变抽样结果：
 
 1. 校验源 JSON 的 SHA-256 和 Instances 数量，必须符合 `001_data_manifest.json`。
-2. 对每条实例计算 `SHA256(UTF8("20261006\n" + task_id + "\n" + instance_id))`。
+2. 先排除空输入或无有效参考答案的实例：input 必须是非空字符串，output 统一为列表后须非空且每项均为非空字符串（以 strip 判断）。排除 ID 必须与清单一致。对有效实例计算 `SHA256(UTF8("20261006\n" + task_id + "\n" + instance_id))`。
 3. 按 `(哈希十六进制字符串, instance_id)` 升序排序。
 4. 使用左闭右开切片：Train=`[0:1000]`，Dev=`[1000:1200]`，Test=`[1200:1700]`，剩余不使用。
 5. 同一实例的全部参考答案保留在同一集合，不拆成不同实例。
@@ -107,6 +107,16 @@ for task in manifest['tasks']:
     assert len(rows) == task['total_instances']
     assert len({row['id'] for row in rows}) == len(rows)
     assert len({normalize(row['input']) for row in rows}) == len(rows)
+    valid, rejected = [], []
+    for row in rows:
+        refs = row['output'] if isinstance(row['output'], list) else [row['output']]
+        if not isinstance(row['input'], str) or not row['input'].strip() or not refs or any(not isinstance(value, str) or not value.strip() for value in refs):
+            rejected.append(row['id'])
+        else:
+            valid.append(row)
+    assert rejected == task['excluded_instance_ids']
+    assert len(valid) == task['valid_instances']
+    rows = valid
     def sort_key(row):
         value = manifest['split_seed'] + '\n' + task['task_id'] + '\n' + row['id']
         return hashlib.sha256(value.encode('utf-8')).hexdigest(), row['id']
@@ -287,4 +297,25 @@ provenance 至少记录 Git commit、dirty diff 哈希、协议/配置哈希、�
 
 尚需一次性落实：模型权重及可用性，量化/冻结/精度/分布式，两个顺序与三个 seed，各方法参数和 MAC 适配，20 epochs 等预算及调参安排，任务已知和未来任务推理规则，兼容依赖环境。
 
-用户要求构建实验流程前确认一次，因此本轮只完成文档和数据规范，不视为已确认其余训练建议。确认后实现方法整合、实验入口与汇总器，先做独立标记的小规模功能验证，再运行正式实验。
+最初的实施前确认要求已由后续“push，然后启动，先跑一个论文”授权推进首轮。完整多顺序多种子研究方案仍有待定部分；本次先执行第 13 节，不声称已完成整套研究。
+
+## 13. 已授权的 O-LoRA 首轮执行配置
+
+用户随后明确要求“push，然后启动，先跑一个论文的结果”。据此开始实现和启动首跑，不再等待整套六次重复实验配置的再次确认。
+
+- 方法：语言模型 O-LoRA，正确上游为 cmnfriend/O-LoRA，commit `07117e1fc4a5f5ad9308a815a42cee8f46502dc8`。原 `source_code/O-LoRA-src` 实为视觉 Online-LoRA，保留原归档；新增正确 `source_code/O-LoRA-language-src`。已核验该上游快照的 426 个文件。上游生成日志仅本地保留、Git 忽略。
+- 实现：`code/olora.py`。q_proj/v_proj 注入 rank=8、alpha=32、dropout=0.1 的低秩适配器。每任务新增一组，冻结历史组，推理时累加所有已学组。正交损失为历史 A 与当前 A 转置乘积的绝对值之和，系数 0.5；L2 系数 0。冻结 NF4 基座，adapter 参数 FP32，前向主要 FP16。
+- 配置：`exp/configs/olora_first.json`。order_1、seed 42、每任务 **1 epoch**、固定学习率峰值 1e-4、有效 batch 16、micro-batch 1、eval batch 2。其余输入长度、warmup、优化器、裁剪和生成设置沿用本文建议。1 epoch 参考原论文训练轮数，但固定学习率和生成任务等属于统一适配；这不是原始论文数值复现，也不是前文建议的 20-epoch 实验。
+- 当前答案损失按每实例有效目标 token 平均，再按实例平均；正交项随 micro-batch 权重一起累积，避免梯度累积次数隐式放大约束。
+- 首轮包含七阶段持续学习、基座初测及七个独立单任务对照，最终计算全部五项指标。它只代表一个顺序、一个 seed，不标为两顺序三种子的最终统计。
+- 四张 GPU 以独立作业使用：一张执行顺序学习，其余运行单任务对照，不合并显存、不改变有效 batch。若只提供一张卡则依次完成全部作业。
+- 数据 v2：实际读取时发现 Reddit TIFU 45 条空答案，列入清单后在排序前排除。保持用户指定 1000/200/500，更新 Reddit TIFU 指纹；其余任务指纹不变。v1 仅核查输入边界，未训练，不能与 v2 结果混用。
+- 模型权重需提供有效本地 Llama-2-7B 路径或已授权 Hugging Face 登录。启动器锁定下载 commit，或对本地权重逐文件计算 SHA-256。模型未就绪记录 blocked_model，不能声称已训练。
+
+启动：`bash exp/run_olora.sh --model /absolute/path/to/Llama-2-7b-hf`；使用已授权 Hugging Face 自动下载时省略 `--model`。可加 `--gpus 0,1,2,3`。仅数据准备：`bash exp/run_olora.sh --prepare-only`。汇总：`.conda-env/bin/python summary/collect.py`。
+
+环境使用项目独立 Conda 前缀 `.conda-env/`，Python 3.10.21、PyTorch 2.6.0+cu118；不继承现有 MM 环境。重建入口为 `bash exp/setup_env.sh`，Conda 定义见 `exp/environment.yml`，主要依赖见 `exp/requirements.txt`，完整版本锁见 `exp/requirements.lock`，执行时另保存 pip freeze。PyTorch 通过官方 cu118 索引安装，其余默认使用清华镜像，可用 LLMCL_PIP_INDEX_URL 覆盖。启动脚本禁用用户 site-packages 并清除 PYTHONPATH，避免外部包混入。早期功能验证用过共享系统包的 `.venv`，正式启动入口已切换，不使用该旧环境。
+
+当前支持每个任务结束的最佳 adapter 检查点与全套状态日志，不支持优化器级断点续训；中断需新建 run_id 重跑，不能宣称无缝恢复。功能小模型运行必须标记 smoke=true，汇总器排除其分数。
+
+验证记录：已用本地构造的小 Llama 完成 CPU 七阶段及七个单任务对照，验证指标解析、预测落盘、旧适配器冻结、正交损失和 smoke 排除；另在 RTX 2080 Ti 上通过 NF4/FP16 七阶段功能运行。AMP 初始 loss scale 为 1024，非有限 loss/gradient 立即报告失败。功能测试不验证 Llama-2-7B 的实际显存上限或论文效果，不能作为正式结果。
