@@ -44,6 +44,8 @@ def resolve_model(model_path, config):
 def launch(args):
     config_path = Path(args.config).resolve()
     config = json.loads(config_path.read_text())
+    if config['method'] not in {'olora', 'migu_lora', 'sapt_lora'}:
+        raise ValueError(f'Unsupported method: {config["method"]}')
     config['evaluation_protocol'] = 'cl_standard_fwt_v1'
     stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
     output = Path(args.output).resolve() if args.output else ROOT / 'exp/result' / config['protocol'] / config['run_label'] / stamp
@@ -67,7 +69,7 @@ def launch(args):
                        'action': 'Supply --model /path/to/Llama-2-7b-hf or configure authorized Hugging Face access; rerun with a fresh output directory.'})
             raise
         write_json(output / 'model_identity.json', identity)
-        code_files = [ROOT / 'code/olora.py', ROOT / 'exp/common.py', ROOT / 'exp/run_olora.py',
+        code_files = [ROOT / 'code' / f'{config["method"]}.py', ROOT / 'exp/common.py', ROOT / 'exp/run_olora.py',
                       ROOT / 'exp/launch_olora.py', ROOT / 'summary/collect.py']
         write_json(output / 'code_identity.json', {str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest() for path in code_files})
         gpus = [gpu.strip() for gpu in args.gpus.split(',') if gpu.strip()]

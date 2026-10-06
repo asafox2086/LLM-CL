@@ -1,5 +1,6 @@
 import argparse
 import csv
+import fcntl
 import json
 from pathlib import Path
 
@@ -10,6 +11,13 @@ FIELDS = ['run', 'protocol', 'evaluation_protocol', 'method', 'order', 'seed', '
 
 
 def collect(result_root, destination):
+    destination.mkdir(parents=True, exist_ok=True)
+    with (destination / '.collect.lock').open('w') as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        _collect(result_root, destination)
+
+
+def _collect(result_root, destination):
     rows = []
     for path in sorted(result_root.rglob('status.json')):
         config_path = path.parent / 'config.json'

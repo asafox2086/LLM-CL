@@ -2,6 +2,7 @@ import hashlib
 import json
 import re
 import string
+import tempfile
 import unicodedata
 from collections import Counter
 from pathlib import Path
@@ -21,9 +22,15 @@ def fingerprint(value):
 def write_json(path, value):
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
-    temporary = path.with_suffix(path.suffix + '.tmp')
-    temporary.write_text(json.dumps(value, indent=2, ensure_ascii=False, allow_nan=False) + '\n')
-    temporary.replace(path)
+    content = json.dumps(value, indent=2, ensure_ascii=False, allow_nan=False) + '\n'
+    with tempfile.NamedTemporaryFile(mode='w', dir=path.parent, prefix=path.name + '.', suffix='.tmp', delete=False) as handle:
+        temporary = Path(handle.name)
+        try:
+            handle.write(content)
+            handle.close()
+            temporary.replace(path)
+        finally:
+            temporary.unlink(missing_ok=True)
 
 
 def normalize_input(value):

@@ -7,6 +7,7 @@
 - [collect.py](collect.py)：读取 `exp/result/` 中各次运行的配置、状态和最终指标。
 - [results.csv](results.csv)：便于程序或表格软件读取的总表。
 - [results.md](results.md)：便于直接查看的总表。
+- [run_status.md](run_status.md)：本轮三个方法的运行汇报；技术实现与复现命令见 [exp/README.md](../exp/README.md)。
 - 本文：解释分数含义，并展示每个任务的真实测试样本。
 
 在项目根目录执行：
@@ -15,7 +16,7 @@
 .conda-env/bin/python summary/collect.py
 ```
 
-当前总表每一行是一轮独立尝试，不是多种子均值。首跑为 O-LoRA、order_1、seed 42、每任务 1 epoch，仅运行一条持续学习主线。评价口径为 `cl_standard_fwt_v1`；旧口径标记 `legacy_sapt_fwt`，不能直接比较两种 FWT。功能验证的 `smoke=true` 结果被排除。未完成或失败运行显示状态，指标为 N/A，不能当作零分。总表是生成时的快照，任务完成后由启动器更新，也可以手动刷新。
+当前总表每一行是一轮独立尝试，不是多种子均值。本轮包含 O-LoRA、MIGU-LoRA、SAPT-LoRA，均为 order_1、seed 42、每任务 1 epoch，每个方法仅运行一条持续学习主线。SAPT 为包含生成反思的统一协议适配，额外计算单独记录。评价口径为 `cl_standard_fwt_v1`；旧口径标记 `legacy_sapt_fwt`，不能直接比较两种 FWT。功能验证的 `smoke=true` 结果被排除。未完成或失败运行显示状态，指标为 N/A，不能当作零分。总表是生成时的快照，任务完成后由启动器更新，也可以手动刷新。
 
 比较时应核对模型及数据版本、精度、任务顺序、训练预算和评价口径；完整指纹见 CSV 和运行目录。不能把首轮单种子成绩称为最终“两顺序×三种子”统计。
 

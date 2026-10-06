@@ -153,6 +153,8 @@ split_seed: 20261006
 
 ## 6. 共同基座、方法与公平比较
 
+实施状态更新：O-LoRA、MIGU-LoRA、SAPT-LoRA 的首轮均使用第 13 节的固定公共设置，包括 NF4/FP16、1 epoch 和同一 Llama-2-7B；各方法适配及额外预算详见 [exp/README.md](../exp/README.md)。本节和第 7 节中的早期建议不覆盖已锁定的首轮配置。运行汇报统一放在 `summary/`。
+
 建议统一 `meta-llama/Llama-2-7b-hf` base 与同一 tokenizer，实际权重 revision/文件哈希待锁定。不得静默替换为 Chat、其他模型或参数规模。
 
 当前机器为 4 张 RTX 2080 Ti，各约 11 GiB。量化、计算精度、冻结范围、分布式方案需要方法兼容性和显存核验；NF4 4-bit / FP16 仍为候选，不是已确定设置。不同精度结果分组比较。

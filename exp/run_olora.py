@@ -17,9 +17,17 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 from common import ROOT, Scorer, continual_metrics, fingerprint, prepare_data, tokenize_examples, write_json
 
 
-spec = importlib.util.spec_from_file_location('llmcl_olora', ROOT / 'code/olora.py')
-method_module = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(method_module)
+def create_method(model, config):
+    constructors = {'olora': 'OLoRA', 'migu_lora': 'MIGULoRA', 'sapt_lora': 'SAPTLoRA'}
+    name = config['method']
+    if name not in constructors:
+        raise ValueError(f'Unsupported method: {name}')
+    spec = importlib.util.spec_from_file_location(f'llmcl_{name}', ROOT / 'code' / f'{name}.py')
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    if name == 'olora':
+        return module.OLoRA(model, config['rank'], config['alpha'], config['dropout'], config['targets'])
+    return getattr(module, constructors[name])(model, config)
 
 
 def batch_tensors(examples, tokenizer, device, training):
@@ -38,7 +46,7 @@ def batch_tensors(examples, tokenizer, device, training):
     return batch
 
 
-def evaluate(model, tokenizer, examples, config, output, metadata):
+def evaluate(model, tokenizer, examples, config, output, metadata, method=None):
     model.eval()
     scorer = Scorer()
     totals = {'rougeL': 0.0, 'exact_match': 0.0, 'token_f1': 0.0}
@@ -50,6 +58,8 @@ def evaluate(model, tokenizer, examples, config, output, metadata):
         for start in range(0, len(examples), config['eval_batch_size']):
             selected = examples[start:start + config['eval_batch_size']]
             batch = batch_tensors(selected, tokenizer, device, False)
+            if hasattr(method, 'prepare_batch'):
+                method.prepare_batch(selected, tokenizer, batch, training=False)
             generated = model.generate(**batch, do_sample=False, num_beams=1,
                                        max_new_tokens=config['target_tokens'], use_cache=True,
                                        pad_token_id=tokenizer.pad_token_id, eos_token_id=tokenizer.eos_token_id)
@@ -95,10 +105,14 @@ def train_task(method, tokenizer, task_data, config, destination, task_id):
             for offset in range(0, len(order), config['batch_size']):
                 indices = order[offset:offset + config['batch_size']]
                 optimizer.zero_grad(set_to_none=True)
+                if hasattr(method, 'before_update'):
+                    method.before_update(update)
                 loss_value = 0.0
                 for micro_start in range(0, len(indices), config['micro_batch_size']):
                     selected = [task_data['train'][index] for index in indices[micro_start:micro_start + config['micro_batch_size']]]
                     batch = batch_tensors(selected, tokenizer, device, True)
+                    if hasattr(method, 'prepare_batch'):
+                        method.prepare_batch(selected, tokenizer, batch, training=True)
                     with torch.autocast(device_type=device.type, dtype=torch.float16, enabled=use_amp):
                         logits = model(input_ids=batch['input_ids'], attention_mask=batch['attention_mask']).logits
                         shifted_logits = logits[:, :-1, :].float().contiguous()
@@ -109,11 +123,15 @@ def train_task(method, tokenizer, task_data, config, destination, task_id):
                         per_example = token_loss.sum(dim=1) / (shifted_labels != -100).sum(dim=1).clamp_min(1)
                         loss = per_example.mean() + method.penalty(config['orthogonal_weight'], config['l2_weight'])
                         loss = loss * len(selected) / len(indices)
+                    if hasattr(method, 'after_forward'):
+                        method.after_forward()
                     if not torch.isfinite(loss):
                         raise FloatingPointError(f'Nonfinite loss at {task_id}, epoch={epoch}, update={update}')
                     scaler.scale(loss).backward()
                     loss_value += loss.detach().item()
                 scaler.unscale_(optimizer)
+                if hasattr(method, 'before_step'):
+                    method.before_step()
                 grad_norm = torch.nn.utils.clip_grad_norm_(parameters, config['max_grad_norm'])
                 if not torch.isfinite(grad_norm):
                     raise FloatingPointError(f'Nonfinite gradient at {task_id}, update={update}')
@@ -127,8 +145,12 @@ def train_task(method, tokenizer, task_data, config, destination, task_id):
                 log.flush()
                 if update == 1 or update % 5 == 0:
                     print(json.dumps(record), flush=True)
+            if config.get('checkpoint_selection') == 'last_epoch':
+                method.save(checkpoint)
+                write_json(destination / 'selection.json', {'epoch': epoch + 1, 'selection': 'fixed_last_epoch'})
+                continue
             scores = evaluate(model, tokenizer, task_data['dev'], config,
-                              destination / f'dev_epoch_{epoch + 1:02d}.jsonl', {'split': 'dev', 'epoch': epoch + 1})
+                              destination / f'dev_epoch_{epoch + 1:02d}.jsonl', {'split': 'dev', 'epoch': epoch + 1}, method)
             write_json(destination / f'dev_epoch_{epoch + 1:02d}.json', scores)
             if scores['rougeL'] > best_score:
                 best_score = scores['rougeL']
@@ -140,7 +162,10 @@ def train_task(method, tokenizer, task_data, config, destination, task_id):
     model.config.use_cache = True
     return {'updates': update, 'seconds': time.monotonic() - started,
             'current_trainable_parameters': sum(parameter.numel() for parameter in parameters),
-            'total_adapter_parameters': sum(parameter.numel() for layer in method.layers.values() for parameter in layer.adapters.parameters())}
+            'total_adapter_parameters': sum(parameter.numel() for layer in method.layers.values() for parameter in layer.adapters.parameters()),
+            'generator_parameters': sum(parameter.numel() for layer in method.layers.values()
+                                        if getattr(layer, 'generator', None) is not None for parameter in layer.generator.parameters()),
+            'router_parameters': sum(parameter.numel() for parameter in method.router.parameters()) if hasattr(method, 'router') else 0}
 
 
 def run(args):
@@ -194,7 +219,7 @@ def run(args):
         else:
             raise ValueError('Unsupported precision')
         model = AutoModelForCausalLM.from_pretrained(model_path, **kwargs)
-        method = method_module.OLoRA(model, config['rank'], config['alpha'], config['dropout'], config['targets'])
+        method = create_method(model, config)
         provenance = {'config_sha256': fingerprint(config), 'split_sha256': fingerprint(split_manifest),
                       'code_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
                       'dirty_diff_sha256': fingerprint(subprocess.check_output(['git', 'diff', 'HEAD'], cwd=ROOT, text=True)),
@@ -216,12 +241,17 @@ def run(args):
                 write_json(output / 'status.json', {'status': 'running', 'phase': 'train', 'stage': stage, 'task': task_id, 'pid': os.getpid()})
                 resources.append(train_task(method, tokenizer, datasets[task_id], config,
                                             output / 'checkpoints' / f'stage_{stage:02d}', task_id))
+                if hasattr(method, 'finish_task') and stage < len(config['tasks']):
+                    write_json(output / 'status.json', {'status': 'running', 'phase': 'auxiliary_generator',
+                               'stage': stage, 'task': task_id, 'pid': os.getpid()})
+                    resources[-1]['auxiliary'] = method.finish_task(tokenizer, datasets[task_id]['train'],
+                                                                   output / 'reflection' / f'stage_{stage:02d}', train_task)
             row = []
             for task_id in config['tasks']:
                 write_json(output / 'status.json', {'status': 'running', 'phase': 'test', 'stage': stage, 'task': task_id, 'pid': os.getpid()})
                 scores = evaluate(model, tokenizer, datasets[task_id]['test'], config,
                                   output / 'predictions' / f'stage_{stage:02d}' / f'{task_id}.jsonl',
-                                  {**metadata, 'split': 'test', 'stage': stage, 'job': 'continual'})
+                                  {**metadata, 'split': 'test', 'stage': stage, 'job': 'continual'}, method)
                 row.append(scores['rougeL'])
                 write_json(output / 'scores' / f'stage_{stage:02d}' / f'{task_id}.json', scores)
             matrix.append(row)

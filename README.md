@@ -30,7 +30,7 @@ LLMCL/
 │   ├── ProgressivePrompts-src/
 │   ├── SAPT-src/
 │   └── UNLOCK-MIGU-src/
-├── code/                             每篇论文一个方法文件；目前有 olora.py
+├── code/                             olora.py、migu_lora.py、sapt_lora.py
 ├── data/
 │   ├── README.md                     数据来源和版本
 │   ├── SuperNI_full/                 完整官方数据，Git 忽略
@@ -42,12 +42,15 @@ LLMCL/
 │   ├── 001_experiment_protocol.md    实验设置和复现规范
 │   └── 001_data_manifest.json        源数据和固定划分指纹
 ├── exp/
+│   ├── README.md                      执行入口、参数、技术适配和验证记录
 │   ├── PROTOCOL_DRAFT.md             指向当前协议的迁移说明
 │   ├── configs/olora_first.json       首轮完整数据配置
 │   ├── common.py                     数据校验、划分、编码、计分
 │   ├── run_olora.py                   单个训练/评价作业
 │   ├── launch_olora.py                持续学习主线调度及结果汇总
 │   ├── run_olora.sh                   一条命令启动 O-LoRA
+│   ├── run_migu_lora.sh               一条命令启动 MIGU-LoRA
+│   ├── run_sapt_lora.sh               一条命令启动 SAPT-LoRA
 │   ├── requirements.txt              运行依赖
 │   └── result/                       待生成：预测、矩阵、配置、指标
 └── summary/                          collect.py、results.csv、results.md
@@ -63,7 +66,7 @@ LLMCL/
 
 共 7000 条训练、1400 条验证、3500 条测试。所有方法共享固定样本，切换顺序或训练种子不重新划分。确定性划分算法、指纹核验命令和下载命令见实验协议。这是基于官方原始数据的自定义持续学习划分，不是官方跨任务泛化测试划分。
 
-计划接入 O-LoRA、Progressive Prompts、SAPT-LoRA、UNLOCK/MIGU、MAC，建议增加 SeqLoRA 对照。保留各论文核心机制，记录统一基座适配，尤其需落实 MAC 从文档流问答到本实验的迁移。
+已接入 O-LoRA、MIGU-LoRA 和 SAPT-LoRA，使用统一基座与七任务协议。技术细节、原论文差异和辅助预算见 [exp/README.md](exp/README.md)，运行汇报见 [summary/run_status.md](summary/run_status.md)。Progressive Prompts、MAC 后续接入，MAC 从文档流问答到本实验的迁移仍需明确；MixLoRA 暂不实施。
 
 主指标为 ROUGE-L 上的 AP、F.Rate、FWT、BWT；问答另报 EM/token-F1。FWT 比较学习前序任务后与初始基座在尚未训练任务上的成绩，仅需一条持续学习主线。结果携带协议、数据、模型、代码、环境指纹，仅合并可比较的运行；失败或缺失显示 N/A，不填零。
 
