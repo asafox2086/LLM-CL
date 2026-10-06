@@ -137,7 +137,7 @@ class Scorer:
         }
 
 
-def continual_metrics(matrix, singles=None):
+def continual_metrics(matrix):
     task_count = len(matrix[0])
     if task_count < 2 or len(matrix) != task_count + 1 or any(len(row) != task_count for row in matrix):
         raise ValueError('Expected a complete (T+1) by T matrix with T >= 2')
@@ -149,11 +149,6 @@ def continual_metrics(matrix, singles=None):
         'F.Rate': sum(max(matrix[stage][task] for stage in range(task + 1, task_count)) - matrix[-1][task]
                       for task in range(task_count - 1)) / (task_count - 1),
         'BWT': sum(matrix[-1][task] - diagonal[task] for task in range(task_count - 1)) / (task_count - 1),
-        'FWT': None,
-        'FWT_zero_shot': sum(matrix[task][task] - matrix[0][task] for task in range(1, task_count)) / (task_count - 1),
+        'FWT': sum(matrix[task][task] - matrix[0][task] for task in range(1, task_count)) / (task_count - 1),
     }
-    if singles is not None:
-        if len(singles) != task_count or any(score is None for score in singles):
-            raise ValueError('Incomplete single-task controls')
-        scores['FWT'] = sum(diagonal[task] - singles[task] for task in range(task_count)) / task_count
     return scores

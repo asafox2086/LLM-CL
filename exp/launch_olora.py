@@ -4,7 +4,6 @@ import json
 import os
 import subprocess
 import sys
-import time
 import traceback
 from datetime import datetime, timezone
 from pathlib import Path
@@ -45,6 +44,7 @@ def resolve_model(model_path, config):
 def launch(args):
     config_path = Path(args.config).resolve()
     config = json.loads(config_path.read_text())
+    config['evaluation_protocol'] = 'cl_standard_fwt_v1'
     stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
     output = Path(args.output).resolve() if args.output else ROOT / 'exp/result' / config['protocol'] / config['run_label'] / stamp
     output.mkdir(parents=True, exist_ok=False)
@@ -73,58 +73,33 @@ def launch(args):
         gpus = [gpu.strip() for gpu in args.gpus.split(',') if gpu.strip()]
         if not gpus or len(set(gpus)) != len(gpus):
             raise ValueError('Supply a nonempty list of distinct GPU IDs')
-        jobs = [('continual', None)] + [('single', task) for task in config['tasks']]
-        pending = list(jobs)
-        active = {}
-        failures = []
-        write_json(output / 'status.json', {'status': 'running', 'pid': os.getpid(), 'jobs': len(jobs)})
-        while pending or active:
-            for gpu in gpus:
-                if gpu in active or not pending:
-                    continue
-                job, task = pending.pop(0)
-                relative = 'continual' if job == 'continual' else f'single/{task}'
-                log_path = output / 'logs' / (relative.replace('/', '_') + '.log')
-                log_path.parent.mkdir(parents=True, exist_ok=True)
-                handle = log_path.open('w')
-                handles.append(handle)
-                command = [sys.executable, '-u', str(ROOT / 'exp/run_olora.py'), '--config', str(output / 'config.json'),
-                           '--model', str(model_path), '--output', str(output / relative), '--job', job]
-                if task:
-                    command.extend(['--single-task', task])
-                environment = {**os.environ, 'CUDA_VISIBLE_DEVICES': gpu, 'TOKENIZERS_PARALLELISM': 'false',
-                               'PYTHONUNBUFFERED': '1'}
-                process = subprocess.Popen(command, cwd=ROOT, env=environment, stdout=handle, stderr=subprocess.STDOUT)
-                processes.append(process)
-                active[gpu] = (process, relative)
-                print(f'Started {relative} on GPU {gpu}, pid={process.pid}', flush=True)
-            for gpu, (process, relative) in list(active.items()):
-                code = process.poll()
-                if code is not None:
-                    print(f'Finished {relative}: exit={code}', flush=True)
-                    if code:
-                        failures.append({'job': relative, 'exit_code': code})
-                    del active[gpu]
-            write_json(output / 'status.json', {'status': 'running', 'pid': os.getpid(), 'pending': len(pending),
-                       'active': {gpu: {'job': relative, 'pid': process.pid} for gpu, (process, relative) in active.items()}, 'failures': failures})
-            if failures:
-                raise RuntimeError(f'Worker failed; stopping remaining jobs: {failures}')
-            if active:
-                time.sleep(5)
-        if failures:
-            write_json(output / 'status.json', {'status': 'failed', 'failures': failures})
-            raise RuntimeError(f'Worker failures: {failures}')
+        log_path = output / 'logs/continual.log'
+        log_path.parent.mkdir(parents=True, exist_ok=True)
+        handle = log_path.open('w')
+        handles.append(handle)
+        command = [sys.executable, '-u', str(ROOT / 'exp/run_olora.py'), '--config', str(output / 'config.json'),
+                   '--model', str(model_path), '--output', str(output / 'continual')]
+        environment = {**os.environ, 'CUDA_VISIBLE_DEVICES': gpus[0], 'TOKENIZERS_PARALLELISM': 'false',
+                       'PYTHONUNBUFFERED': '1'}
+        process = subprocess.Popen(command, cwd=ROOT, env=environment, stdout=handle, stderr=subprocess.STDOUT)
+        processes.append(process)
+        print(f'Started continual on GPU {gpus[0]}, pid={process.pid}', flush=True)
+        write_json(output / 'status.json', {'status': 'running', 'pid': os.getpid(), 'jobs': 1,
+                   'active': {gpus[0]: {'job': 'continual', 'pid': process.pid}}})
+        code = process.wait()
+        if code:
+            raise RuntimeError(f'Continual worker failed: exit={code}; see {log_path}')
         matrix = json.loads((output / 'continual/score_matrix.json').read_text())
         if matrix['tasks'] != config['tasks']:
             raise ValueError('Matrix columns differ from task order')
-        singles = [json.loads((output / 'single' / task / 'single_score.json').read_text())['rougeL'] for task in config['tasks']]
-        scores = continual_metrics(matrix['rows'], singles)
+        scores = continual_metrics(matrix['rows'])
         write_json(output / 'metrics.json', {'protocol': config['protocol'], 'method': config['method'], 'order': config['order'],
+                   'evaluation_protocol': config['evaluation_protocol'],
                    'seed': config['seed'], 'run_label': config['run_label'], 'smoke': config.get('smoke', False),
                    'config_sha256': fingerprint(config), 'model_fingerprint': identity['weights_fingerprint'],
-                   'single_scores': dict(zip(config['tasks'], singles)), **scores})
+                   **scores})
         write_json(output / 'status.json', {'status': 'completed', 'smoke': config.get('smoke', False),
-                                          'scope': 'one_order_one_seed_with_single_task_controls'})
+                                          'scope': 'one_order_one_seed_continual_only'})
         subprocess.run([sys.executable, str(ROOT / 'summary/collect.py')], cwd=ROOT, check=True)
     except BaseException as error:
         for process in processes:
@@ -150,7 +125,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--config', default=str(ROOT / 'exp/configs/olora_first.json'))
     parser.add_argument('--model', default=os.environ.get('LLAMA_MODEL_PATH'))
-    parser.add_argument('--gpus', default='0,1,2,3')
+    parser.add_argument('--gpus', default='0', help='Uses the first listed GPU for the single continual-learning stream')
     parser.add_argument('--output')
     parser.add_argument('--prepare-only', action='store_true')
     launch(parser.parse_args())

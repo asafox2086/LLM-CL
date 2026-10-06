@@ -224,11 +224,11 @@ Train 用于更新；Dev 用于选模及合法开发；Test 仅用于报告。�
 3. 训练当前任务，按当前 Dev 选择检查点。
 4. 所选状态评价全部七个 Test，包括未来任务，保存预测和矩阵行。
 5. 依序重复至七任务完成；下一任务不重置到初始基座。
-6. 每个方法/seed 另做七个独立单任务对照，每次从相同基座及空方法状态开始，得到 S[j]。
+6. 从完整矩阵直接计算 AP、F.Rate、FWT、BWT；不启动独立单任务训练。
 
 每次顺序运行产生 8×7 矩阵：行 0 为基座，行 1–7 为阶段；列按该运行顺序排列。每格 500 条预测，逻辑上共 28000 条。初测缓存不改变矩阵定义。
 
-单任务对照使用同一 Train/Dev/Test、seed、预算和评价器。每方法通常需 7×3=21 次单任务训练；配置完全一致时两个顺序可以共享对照，不同方法不能直接共享 S[j]。容量增长方法明确记录单任务与持续学习的容量差异。
+每个方法/顺序/seed 只有一条持续学习主线，保留上一阶段学到的方法状态。FWT 在任务 j 首次训练前取 R[j−1,j]，不会为计算指标提前训练该任务。
 
 恢复中断需要模型、优化器、调度器、RNG、sampler、阶段/epoch、记忆和路由状态；只恢复权重不称为无缝恢复。重复尝试使用不同 run_id。
 
@@ -244,19 +244,20 @@ Quoref、SciQ 另报 SQuAD 风格 EM/token-F1：小写、去 ASCII 标点、去�
 
 ### 9.2 持续学习指标
 
-T=7；R[i,j] 为学完第 i 个任务后在第 j 个 Test 的 ROUGE-L，R[0,j]=b[j]。j 表示当前运行顺序位置。S[j] 为同方法、同 seed 的独立单任务训练成绩。
+T=7；R[i,j] 为学完第 i 个任务后在第 j 个 Test 的 ROUGE-L，R[0,j]=b[j]。j 表示当前运行顺序位置。
 
 ```text
 AP = (1/T) × Σ[j=1..T] R[T,j]
 F.Rate = (1/(T-1)) × Σ[j=1..T-1] (max[i=j..T-1] R[i,j] - R[T,j])
 BWT = (1/(T-1)) × Σ[j=1..T-1] (R[T,j] - R[j,j])
-FWT = (1/T) × Σ[j=1..T] (R[j,j] - S[j])
-FWT_zero_shot = (1/(T-1)) × Σ[j=2..T] (R[j-1,j] - b[j])
+FWT = (1/(T-1)) × Σ[j=2..T] (R[j-1,j] - b[j])
 ```
 
-AP/FWT/BWT 越大越好，F.Rate 越小越好。差值单位为百分点；F.Rate 不除以历史最大，不截断负数。FWT 主列采用 SAPT 论文训练后单任务对照口径，零样本口径单列。仅基座初测不能得到训练式遗忘或迁移。
+AP/FWT/BWT 越大越好，F.Rate 越小越好。差值单位为百分点；F.Rate 不除以历史最大，不截断负数。FWT 采用 GEM（Lopez-Paz & Ranzato, 2017）§2 式 (4) 的训练前迁移口径。原文初始模型为随机初始化，本项目为固定预训练 Llama-2-7B；原文任务分数为准确率，本项目统一为 ROUGE-L。第一任务没有先前学习，排除于 FWT 平均。
 
-缺少必要矩阵项或对照则对应指标 N/A，不填零、不改分母。SAPT 原脚本中的固定 FWT 常数及不同 BWT 分母不直接沿用，以本文公式和真实对照为准。
+缺少必要矩阵项则对应指标 N/A，不填零、不改分母。评价协议标识为 `cl_standard_fwt_v1`，数据协议保持 `superni_generation7_v2`。SAPT §5.1.2 的 FWT 比较训练后分数和独立单任务训练分数，属于不同定义，本项目不采用。旧尝试保留原始记录，不与新口径混合汇总。
+
+依据：[GEM §2 式 (4)](https://arxiv.org/abs/1706.08840)；Progressive Prompts 附录引用该工作的 FWT/BWT；[SAPT §5.1.2](https://aclanthology.org/2024.acl-long.625/) 使用不同参照。并非所有论文都报告同一套指标；这里统一四项指标以便公平比较。
 
 ## 10. 汇总与统计
 
@@ -285,7 +286,7 @@ exp/result/<protocol>/<method>/<order>/seed_<seed>/<run_id>/
   checkpoints/
 ```
 
-每条预测包含协议、方法、顺序、seed、阶段、task_id、instance_id、prediction、references。矩阵记录行阶段和列 task_id；单任务对照另标运行类型及关联路径。
+每条预测包含协议、方法、顺序、seed、阶段、task_id、instance_id、prediction、references。矩阵记录行阶段和列 task_id，指标记录 evaluation_protocol。
 
 provenance 至少记录 Git commit、dirty diff 哈希、协议/配置哈希、源和派生数据哈希、模型/tokenizer revision、Python/PyTorch/Transformers/PEFT/Accelerate/bitsandbytes/CUDA/驱动版本、完整环境锁文件、GPU、命令、时间、恢复来源和确定性设置。当前不预填未经验证的依赖组合。
 
@@ -307,8 +308,8 @@ provenance 至少记录 Git commit、dirty diff 哈希、协议/配置哈希、�
 - 实现：`code/olora.py`。q_proj/v_proj 注入 rank=8、alpha=32、dropout=0.1 的低秩适配器。每任务新增一组，冻结历史组，推理时累加所有已学组。正交损失为历史 A 与当前 A 转置乘积的绝对值之和，系数 0.5；L2 系数 0。冻结 NF4 基座，adapter 参数 FP32，前向主要 FP16。
 - 配置：`exp/configs/olora_first.json`。order_1、seed 42、每任务 **1 epoch**、固定学习率峰值 1e-4、有效 batch 16、micro-batch 1、eval batch 2。其余输入长度、warmup、优化器、裁剪和生成设置沿用本文建议。1 epoch 参考原论文训练轮数，但固定学习率和生成任务等属于统一适配；这不是原始论文数值复现，也不是前文建议的 20-epoch 实验。
 - 当前答案损失按每实例有效目标 token 平均，再按实例平均；正交项随 micro-batch 权重一起累积，避免梯度累积次数隐式放大约束。
-- 首轮包含七阶段持续学习、基座初测及七个独立单任务对照，最终计算全部五项指标。它只代表一个顺序、一个 seed，不标为两顺序三种子的最终统计。
-- 四张 GPU 以独立作业使用：一张执行顺序学习，其余运行单任务对照，不合并显存、不改变有效 batch。若只提供一张卡则依次完成全部作业。
+- 首轮包含基座初测和七阶段持续学习，最终从同一矩阵计算四项指标。它只代表一个顺序、一个 seed，不标为两顺序三种子的最终统计。
+- 首轮使用一张 GPU 执行顺序学习，默认 GPU 0；若传入多个 GPU ID，仅使用第一个。其余卡不启动单任务对照，有效 batch 保持 16。
 - 数据 v2：实际读取时发现 Reddit TIFU 45 条空答案，列入清单后在排序前排除。保持用户指定 1000/200/500，更新 Reddit TIFU 指纹；其余任务指纹不变。v1 仅核查输入边界，未训练，不能与 v2 结果混用。
 - 模型权重需提供有效本地 Llama-2-7B 路径或已授权 Hugging Face 登录。启动器锁定下载 commit，或对本地权重逐文件计算 SHA-256。模型未就绪记录 blocked_model，不能声称已训练。
 
@@ -318,4 +319,4 @@ provenance 至少记录 Git commit、dirty diff 哈希、协议/配置哈希、�
 
 当前支持每个任务结束的最佳 adapter 检查点与全套状态日志，不支持优化器级断点续训；中断需新建 run_id 重跑，不能宣称无缝恢复。功能小模型运行必须标记 smoke=true，汇总器排除其分数。
 
-验证记录：已用本地构造的小 Llama 完成 CPU 七阶段及七个单任务对照，验证指标解析、预测落盘、旧适配器冻结、正交损失和 smoke 排除；另在 RTX 2080 Ti 上通过 NF4/FP16 七阶段功能运行。AMP 初始 loss scale 为 1024，非有限 loss/gradient 立即报告失败。功能测试不验证 Llama-2-7B 的实际显存上限或论文效果，不能作为正式结果。
+验证记录：`cl_standard_fwt_v1` 已通过本地小 Llama 的 CPU 单主线七阶段完整启动/汇总检查，得到 8×7 矩阵和四项指标，确认无单任务目录；另核对正/负 FWT 手算、缺失矩阵拒绝、未完成指标留空和 smoke 排除。历史版本还通过 RTX 2080 Ti 上的 NF4/FP16 七阶段功能运行。AMP 初始 loss scale 为 1024，非有限 loss/gradient 立即报告失败。小模型功能测试不能作为正式论文结果。

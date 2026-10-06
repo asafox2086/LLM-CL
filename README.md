@@ -46,7 +46,7 @@ LLMCL/
 │   ├── configs/olora_first.json       首轮完整数据配置
 │   ├── common.py                     数据校验、划分、编码、计分
 │   ├── run_olora.py                   单个训练/评价作业
-│   ├── launch_olora.py                多 GPU 作业调度及单任务对照
+│   ├── launch_olora.py                持续学习主线调度及结果汇总
 │   ├── run_olora.sh                   一条命令启动 O-LoRA
 │   ├── requirements.txt              运行依赖
 │   └── result/                       待生成：预测、矩阵、配置、指标
@@ -65,11 +65,11 @@ LLMCL/
 
 计划接入 O-LoRA、Progressive Prompts、SAPT-LoRA、UNLOCK/MIGU、MAC，建议增加 SeqLoRA 对照。保留各论文核心机制，记录统一基座适配，尤其需落实 MAC 从文档流问答到本实验的迁移。
 
-主指标为 ROUGE-L 上的 AP、F.Rate、FWT、BWT；问答另报 EM/token-F1。FWT 需要真实单任务训练对照。结果携带协议、数据、模型、代码、环境指纹，仅合并可比较的运行；失败或缺失显示 N/A，不填零。
+主指标为 ROUGE-L 上的 AP、F.Rate、FWT、BWT；问答另报 EM/token-F1。FWT 比较学习前序任务后与初始基座在尚未训练任务上的成绩，仅需一条持续学习主线。结果携带协议、数据、模型、代码、环境指纹，仅合并可比较的运行；失败或缺失显示 N/A，不填零。
 
 ## O-LoRA 首轮运行
 
-用户已授权先跑一个论文。首轮固定 order_1、seed 42、1 epoch、NF4 冻结基座/FP16 计算、rank 8、alpha 32、dropout 0.1、正交系数 0.5、学习率 1e-4、有效 batch 16。完整七任务各 1000/200/500，另做七个单任务对照。它是单顺序单种子首轮结果，不是最终多次重复实验统计。详细设置和对原论文的适配见协议第 13 节。
+用户已授权先跑一个论文。首轮固定 order_1、seed 42、1 epoch、NF4 冻结基座/FP16 计算、rank 8、alpha 32、dropout 0.1、正交系数 0.5、学习率 1e-4、有效 batch 16。完整七任务各 1000/200/500，仅运行一条七阶段持续学习主线。它是单顺序单种子首轮结果，不是最终多次重复实验统计。详细设置和对原论文的适配见协议第 13 节。
 
 数据协议已升级为 v2：Reddit TIFU 的 45 条空参考答案在排序前明确排除，更新其划分指纹，其余任务不变。配额仍为 1000/200/500。
 
@@ -77,7 +77,7 @@ LLMCL/
 
 ```bash
 bash exp/run_olora.sh --prepare-only
-bash exp/run_olora.sh --model /absolute/path/to/Llama-2-7b-hf --gpus 0,1,2,3
+bash exp/run_olora.sh --model /absolute/path/to/Llama-2-7b-hf --gpus 0
 .conda-env/bin/python summary/collect.py
 ```
 
@@ -85,4 +85,4 @@ bash exp/run_olora.sh --model /absolute/path/to/Llama-2-7b-hf --gpus 0,1,2,3
 
 需要登录时在服务器执行 `.conda-env/bin/huggingface-cli login`，交互输入已获得该模型访问资格的 read token。不要把 token 发到聊天中。也可以直接提供已有权重目录。
 
-多 GPU 分别运行独立作业：持续学习与单任务对照并行。运行日志在该次结果目录的 `logs/`，状态为 `status.json`。每次新建 run_id，当前不支持优化器级断点恢复。汇总排除 smoke 功能测试，不把小模型成绩作为论文结果。
+一条主线使用 `--gpus` 指定的第一张 GPU（默认 0），不启动单任务对照。运行日志在该次结果目录的 `logs/`，状态为 `status.json`。每次新建 run_id，当前不支持优化器级断点恢复。汇总排除 smoke 功能测试，不把小模型成绩作为论文结果。

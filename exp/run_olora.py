@@ -149,8 +149,8 @@ def run(args):
     if output.exists() and any(output.iterdir()):
         raise FileExistsError(f'Use a new run directory; refusing to overwrite {output}')
     output.mkdir(parents=True, exist_ok=True)
-    config['job'] = args.job
-    config['single_task'] = args.single_task
+    config['job'] = 'continual'
+    config['evaluation_protocol'] = 'cl_standard_fwt_v1'
     write_json(output / 'config.json', config)
     started = time.monotonic()
     write_json(output / 'status.json', {'status': 'running', 'phase': 'prepare_data', 'pid': os.getpid()})
@@ -209,37 +209,28 @@ def run(args):
         (output / 'environment.txt').write_text(subprocess.check_output([sys.executable, '-m', 'pip', 'freeze'], text=True))
         resources = []
         metadata = {'protocol': config['protocol'], 'method': config['method'], 'order': config['order'], 'seed': config['seed']}
-        if args.job == 'single':
-            if args.single_task not in config['tasks']:
-                raise ValueError('Single-task job needs a valid task ID')
-            task_id = args.single_task
-            resources.append(train_task(method, tokenizer, datasets[task_id], config, output / 'checkpoints' / task_id, task_id))
-            scores = evaluate(model, tokenizer, datasets[task_id]['test'], config, output / 'predictions' / f'{task_id}.jsonl',
-                              {**metadata, 'split': 'test', 'stage': 1, 'job': 'single'})
-            write_json(output / 'single_score.json', {'task_id': task_id, **scores})
-        else:
-            matrix = []
-            for stage in range(len(config['tasks']) + 1):
-                if stage:
-                    task_id = config['tasks'][stage - 1]
-                    write_json(output / 'status.json', {'status': 'running', 'phase': 'train', 'stage': stage, 'task': task_id, 'pid': os.getpid()})
-                    resources.append(train_task(method, tokenizer, datasets[task_id], config,
-                                                output / 'checkpoints' / f'stage_{stage:02d}', task_id))
-                row = []
-                for task_id in config['tasks']:
-                    write_json(output / 'status.json', {'status': 'running', 'phase': 'test', 'stage': stage, 'task': task_id, 'pid': os.getpid()})
-                    scores = evaluate(model, tokenizer, datasets[task_id]['test'], config,
-                                      output / 'predictions' / f'stage_{stage:02d}' / f'{task_id}.jsonl',
-                                      {**metadata, 'split': 'test', 'stage': stage, 'job': 'continual'})
-                    row.append(scores['rougeL'])
-                    write_json(output / 'scores' / f'stage_{stage:02d}' / f'{task_id}.json', scores)
-                matrix.append(row)
-                write_json(output / 'score_matrix.json', {'tasks': config['tasks'], 'rows': matrix})
-            write_json(output / 'metrics.json', continual_metrics(matrix))
+        matrix = []
+        for stage in range(len(config['tasks']) + 1):
+            if stage:
+                task_id = config['tasks'][stage - 1]
+                write_json(output / 'status.json', {'status': 'running', 'phase': 'train', 'stage': stage, 'task': task_id, 'pid': os.getpid()})
+                resources.append(train_task(method, tokenizer, datasets[task_id], config,
+                                            output / 'checkpoints' / f'stage_{stage:02d}', task_id))
+            row = []
+            for task_id in config['tasks']:
+                write_json(output / 'status.json', {'status': 'running', 'phase': 'test', 'stage': stage, 'task': task_id, 'pid': os.getpid()})
+                scores = evaluate(model, tokenizer, datasets[task_id]['test'], config,
+                                  output / 'predictions' / f'stage_{stage:02d}' / f'{task_id}.jsonl',
+                                  {**metadata, 'split': 'test', 'stage': stage, 'job': 'continual'})
+                row.append(scores['rougeL'])
+                write_json(output / 'scores' / f'stage_{stage:02d}' / f'{task_id}.json', scores)
+            matrix.append(row)
+            write_json(output / 'score_matrix.json', {'tasks': config['tasks'], 'rows': matrix})
+        write_json(output / 'metrics.json', {'evaluation_protocol': config['evaluation_protocol'], **continual_metrics(matrix)})
         write_json(output / 'resources.json', {'stages': resources, 'wall_seconds': time.monotonic() - started,
                    'peak_allocated_bytes': torch.cuda.max_memory_allocated() if torch.cuda.is_available() else 0,
                    'peak_reserved_bytes': torch.cuda.max_memory_reserved() if torch.cuda.is_available() else 0})
-        write_json(output / 'status.json', {'status': 'completed', 'job': args.job, 'smoke': smoke})
+        write_json(output / 'status.json', {'status': 'completed', 'job': 'continual', 'smoke': smoke})
     except BaseException as error:
         write_json(output / 'status.json', {'status': 'interrupted' if isinstance(error, KeyboardInterrupt) else 'failed',
                                           'error': str(error), 'traceback': traceback.format_exc()})
@@ -251,6 +242,4 @@ if __name__ == '__main__':
     parser.add_argument('--config', required=True)
     parser.add_argument('--model', required=True)
     parser.add_argument('--output', required=True)
-    parser.add_argument('--job', choices=['continual', 'single'], default='continual')
-    parser.add_argument('--single-task')
     run(parser.parse_args())
