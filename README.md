@@ -12,6 +12,8 @@
 
 当前实验设置见 [rules/001_experiment_protocol.md](rules/001_experiment_protocol.md)，数据版本及划分指纹见 [rules/001_data_manifest.json](rules/001_data_manifest.json)。
 
+指标定义、得分计算示意和七个任务的真实测试示例见 [summary/README.md](summary/README.md)。
+
 ## 目录构造
 
 ```text
