@@ -1,17 +1,29 @@
 # 首轮实验运行汇报
 
-更新时间：2026-10-06（北京时间）。这是运行状态快照，最终分数见 [results.md](results.md)。
+更新时间：2026-10-06 19:26（北京时间）。这是运行状态快照，最终分数见 [results.md](results.md)。
 
 ## 本轮跑什么
 
 | GPU | 方法 | 状态 |
 |---|---|---|
 | 0 | O-LoRA | 原运行继续，正在基座初测 |
-| 1 | MIGU-LoRA | 实现与验证完成，准备启动 |
-| 2 | SAPT-LoRA | 实现与验证完成，准备启动 |
+| 1 | MIGU-LoRA | 正式运行已启动，正在基座初测 |
+| 2 | SAPT-LoRA | 正式运行已启动，正在基座初测 |
 | 3 | 预留 | 空闲 |
 
 三种方法都用同一个 Llama-2-7B、相同七个任务和固定 1000/200/500 划分，使用相同任务顺序、seed 42 和主任务训练预算。每种方法都是一条连续学习主线：先测基座，再学一个任务、测全部，直到学完七个任务。不运行单任务 FWT 对照。
+
+已逐项核对三个正式运行的划分记录、权重指纹和公共超参数一致。O-LoRA 原进程 PID 1957172 保持运行；新增 MIGU-LoRA PID 1958338、SAPT-LoRA PID 1958339。
+
+结果根目录为 `exp/result/superni_generation7_v2/`：
+
+| 方法 | 本次运行目录 |
+|---|---|
+| O-LoRA | `olora_first_order1_seed42_epoch1/20261006T110916Z` |
+| MIGU-LoRA | `migu_lora_first_order1_seed42_epoch1/20261006T112422Z` |
+| SAPT-LoRA | `sapt_lora_first_order1_seed42_epoch1/20261006T112422Z` |
+
+各目录的 `continual/status.json` 给出当前阶段，`logs/continual.log` 记录进度。三个运行都保留在独立 screen 会话中，关闭当前终端不会停止。
 
 O-LoRA 保留历史适配器并约束新适配器；MIGU-LoRA 用激活幅度筛选梯度；SAPT-LoRA 学习共享路由并用生成的伪样本保持旧任务路由。SAPT 自带的辅助生成器有额外计算开销，已单独记录；它不是单任务成绩对照。
 
