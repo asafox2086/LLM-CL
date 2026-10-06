@@ -8,3 +8,4 @@ Compare only runs with matching evaluation protocols, experimental settings and 
 | superni_generation7_v2/olora_first_order1_seed42_epoch1/20261006T092908Z | superni_generation7_v2 | legacy_sapt_fwt | olora | order_1 | 42 | 1 | data_prepared | N/A | N/A | N/A | N/A |
 | superni_generation7_v2/olora_first_order1_seed42_epoch1/20261006T092949Z | superni_generation7_v2 | legacy_sapt_fwt | olora | order_1 | 42 | 1 | blocked_model | N/A | N/A | N/A | N/A |
 | superni_generation7_v2/olora_first_order1_seed42_epoch1/20261006T104244Z | superni_generation7_v2 | legacy_sapt_fwt | olora | order_1 | 42 | 1 | failed | N/A | N/A | N/A | N/A |
+| superni_generation7_v2/olora_first_order1_seed42_epoch1/20261006T110916Z | superni_generation7_v2 | cl_standard_fwt_v1 | olora | order_1 | 42 | 1 | running | N/A | N/A | N/A | N/A |
