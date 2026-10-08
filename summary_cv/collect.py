@@ -1,4 +1,5 @@
 """Collect and verify the multimodal run; choose examples by fixed test order."""
+from captions import add_captions
 import argparse
 import csv
 import json
@@ -126,7 +127,7 @@ def collect(run, output):
                     **{k:sum(scores[-1][t][k] for t in group)/len(group) for k in SCORES}})
     publish_samples(examples)
     lines = build_report(run, ROOT, examples, overview, domain_rows, rows, total_records, config)
-    (output/'README.md').write_text('\n'.join(lines)+'\n')
+    (output/'README.md').write_text(add_captions('\n'.join(lines)+'\n'))
     save_csv(output/'results.csv',overview,['method','status','AP','F.Rate','BWT','FWT'])
     save_csv(output/'stage_scores.csv',rows,['method','stage','learned_task','domain','evaluated_task','task_name',*SCORES,'count'])
     save_csv(output/'domain_scores.csv',domain_rows,['method','domain','task_count',*SCORES])
@@ -154,7 +155,7 @@ def collect(run, output):
                 scores = result['scores']
                 ex_lines += [f"**{label}（阶段 {stage}）**：ROUGE-L {scores['rougeL']:.3f}，EM {scores['exact_match']:.3f}，F1 {scores['token_f1']:.3f}。", '',
                              fence(result['prediction'])]
-    (output/'examples.md').write_text('\n'.join(ex_lines)+'\n')
+    (output/'examples.md').write_text(add_captions('\n'.join(ex_lines)+'\n'))
     write_json(output/'verification.json',{'run':str(run),'checks':checks,'total_test_records':total_records,
         'task_examples':sum(e['kind']=='task' for e in examples),'answer_category_examples':sum(e['kind']=='answer_type' for e in examples)})
     write_json(output/'latest.json',{'run':str(run),'model':'Qwen/Qwen2-VL-2B-Instruct','tasks':tasks})

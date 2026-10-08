@@ -1,4 +1,5 @@
 """Derive stage trajectories from existing scores; no additional training."""
+from captions import add_captions
 import csv
 import hashlib
 import json
@@ -89,7 +90,7 @@ def collect_process():
                 cells.append((text[:140]+('…' if len(text)>140 else '')).replace('|','\\|').replace('<','&lt;'))
             lines.append('| '+str(stage)+' | '+' | '.join(cells)+' |')
         lines.append('')
-    (ROOT/'summary_cv/answer_evolution.md').write_text('\n'.join(lines).rstrip()+'\n')
+    (ROOT/'summary_cv/answer_evolution.md').write_text(add_captions('\n'.join(lines).rstrip()+'\n'))
     return output
 
 if __name__=='__main__':collect_process()

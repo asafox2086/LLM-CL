@@ -1,4 +1,5 @@
 """Reconstruct all compatible paper metrics from per-stage task scores."""
+from captions import add_captions
 import csv,json,sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
@@ -102,7 +103,7 @@ def reconstruct():
             '```bash','.vision-env/bin/python summary_cv/process.py','.vision-env/bin/python summary_cv/reconstruct_metrics.py',
             '.plot-env/bin/python summary_cv/plot_process.py','```']
         filename='process.md' if folder=='summary_cv' else 'learning_process.md'
-        (ROOT/folder/filename).write_text('\n'.join(lines)+'\n')
+        (ROOT/folder/filename).write_text(add_captions('\n'.join(lines)+'\n'))
     print('Reconstructed 24 method/score metric rows and 108 per-task learning/retention rows.')
 
 if __name__=='__main__':reconstruct()

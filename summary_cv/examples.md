@@ -239,6 +239,12 @@ Negative for acute abnormality.
 
 ![自然图像问答（VQAv2）](../sample/natural_vqav2_COCO_val2014_000000388829.jpg)
 
+<!-- figure-caption:start -->
+**图 1｜自然图像问答的真实测试输入。**
+
+> 本图用于问题 “Is it cold outside?”（外面冷吗？）。参考答案来自十位标注者，包含 yes 与 no，因此不是单一一致标签。模型回答及评分需与该节参考一起阅读；这张输入图片本身不表示模型已经答对。
+<!-- figure-caption:end -->
+
 图片：[`natural/vqav2/images/COCO_val2014_000000388829.jpg`](../sample/natural_vqav2_COCO_val2014_000000388829.jpg)；视觉 token：117。
 
 输入：
@@ -271,6 +277,12 @@ yes
 任务：`natural_vqav2`；实例：`vqav2_343606000`。
 
 ![自然图像问答（VQAv2） / number](../sample/natural_vqav2_COCO_val2014_000000343606.jpg)
+
+<!-- figure-caption:start -->
+**图 2｜自然图像问答：数量问题的测试输入。**
+
+> 本图用于问题 “How many white birds?”（有几只白鸟？）。十位标注者给出的参考包含 0 和 1；报告按多参考匹配规则评分，不能把某一个标注直接当成唯一答案。
+<!-- figure-caption:end -->
 
 图片：[`natural/vqav2/images/COCO_val2014_000000343606.jpg`](../sample/natural_vqav2_COCO_val2014_000000343606.jpg)；视觉 token：117。
 
@@ -305,6 +317,12 @@ How many white birds?
 
 ![自然图像问答（VQAv2） / other](../sample/natural_vqav2_COCO_val2014_000000356949.jpg)
 
+<!-- figure-caption:start -->
+**图 3｜自然图像问答：描述问题的测试输入。**
+
+> 本图用于问题 “Is the zebra mane spiky or soft?”（斑马鬃毛是尖硬的还是柔软的？）。参考标注包含 spiky 和 soft；图片、提问与模型输出共同构成此测试例。
+<!-- figure-caption:end -->
+
 图片：[`natural/vqav2/images/COCO_val2014_000000356949.jpg`](../sample/natural_vqav2_COCO_val2014_000000356949.jpg)；视觉 token：117。
 
 输入：
@@ -337,6 +355,12 @@ spiky
 任务：`natural_vqav2`；实例：`vqav2_388829000`。
 
 ![自然图像问答（VQAv2） / yes/no](../sample/natural_vqav2_COCO_val2014_000000388829.jpg)
+
+<!-- figure-caption:start -->
+**图 4｜自然图像问答的真实测试输入。**
+
+> 本图用于问题 “Is it cold outside?”（外面冷吗？）。参考答案来自十位标注者，包含 yes 与 no，因此不是单一一致标签。模型回答及评分需与该节参考一起阅读；这张输入图片本身不表示模型已经答对。
+<!-- figure-caption:end -->
 
 图片：[`natural/vqav2/images/COCO_val2014_000000388829.jpg`](../sample/natural_vqav2_COCO_val2014_000000388829.jpg)；视觉 token：117。
 
@@ -371,6 +395,12 @@ yes
 
 ![医学图像问答（VQA-RAD）](../sample/medical_vqa_rad_synpic29265.jpg)
 
+<!-- figure-caption:start -->
+**图 5｜医学图像问答的真实测试输入。**
+
+> 这是 VQA-RAD 测试图片 synpic29265。同一图片用于不同问题，例如肺部外观是否正常、成像方向是什么；应以当前章节列出的具体问题和参考答案为准。图像未被修改，模型文字回答及对应分数列在后文。
+<!-- figure-caption:end -->
+
 图片：[`medical/vqa_rad/images/synpic29265.jpg`](../sample/medical_vqa_rad_synpic29265.jpg)；视觉 token：121。
 
 输入：
@@ -400,6 +430,12 @@ No
 
 ![医学图像问答（VQA-RAD） / CLOSED](../sample/medical_vqa_rad_synpic29265.jpg)
 
+<!-- figure-caption:start -->
+**图 6｜医学图像问答的真实测试输入。**
+
+> 这是 VQA-RAD 测试图片 synpic29265。同一图片用于不同问题，例如肺部外观是否正常、成像方向是什么；应以当前章节列出的具体问题和参考答案为准。图像未被修改，模型文字回答及对应分数列在后文。
+<!-- figure-caption:end -->
+
 图片：[`medical/vqa_rad/images/synpic29265.jpg`](../sample/medical_vqa_rad_synpic29265.jpg)；视觉 token：121。
 
 输入：
@@ -428,6 +464,12 @@ No
 任务：`medical_vqa_rad`；实例：`vqarad_0019`。
 
 ![医学图像问答（VQA-RAD） / OPEN](../sample/medical_vqa_rad_synpic29265.jpg)
+
+<!-- figure-caption:start -->
+**图 7｜医学图像问答的真实测试输入。**
+
+> 这是 VQA-RAD 测试图片 synpic29265。同一图片用于不同问题，例如肺部外观是否正常、成像方向是什么；应以当前章节列出的具体问题和参考答案为准。图像未被修改，模型文字回答及对应分数列在后文。
+<!-- figure-caption:end -->
 
 图片：[`medical/vqa_rad/images/synpic29265.jpg`](../sample/medical_vqa_rad_synpic29265.jpg)；视觉 token：121。
 

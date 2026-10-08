@@ -33,12 +33,18 @@ for p in mds:
     text=p.read_text();assert not any(ord(c)<32 and c not in '\n\t\r' for c in text)
     assert text.splitlines().count('$$')%2==0,p
     for block in re.findall(r'\$\$(.*?)\$\$',text,re.S):assert '\t' not in block,(p,block)
+    images = list(re.finditer(r'!\[[^\]]*\]\(([^)]+)\)',text))
+    assert text.count('<!-- figure-caption:start -->') == len(images),p
+    for index,match in enumerate(images):
+        end=images[index+1].start() if index+1<len(images) else len(text)
+        assert '<!-- figure-caption:start -->' in text[match.end():end],(p,match.group(1))
     for target in re.findall(r'!\[[^\]]*\]\(([^)]+)\)',text):
         if '://' in target:continue
         dst=(p.parent/target).resolve();assert dst.is_file(),(p,target)
         assert subprocess.run(['git','check-ignore','--quiet',str(dst)],cwd=root).returncode==1,(p,dst)
         image_count+=1
 checks['local_markdown_images_exist_and_publishable']=image_count
+checks['captioned_report_images']=image_count
 verify=json.loads((root/'summary_cv/verification.json').read_text());assert verify['total_test_records']==72000
 probe=json.loads((root/'summary_cv/knowledge_probe_verification.json').read_text());assert probe['total_predictions']==7920
 paired=list(csv.DictReader((root/'summary_cv/learning_answer_transition_items.csv').open()));assert len(paired)==7200

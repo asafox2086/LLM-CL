@@ -52,6 +52,16 @@ SeqLoRA 最终整体分数最高；SAPT-LoRA 遗忘最少，但整体分数较�
 
 ![Qwen2-VL 四方法全过程](sample/cv_trajectories.png)
 
+<!-- figure-caption:start -->
+**图 1｜Qwen2-VL 九任务：整体学习与保留过程。**
+
+> **坐标与阶段：** 横轴是已完成学习的任务数。阶段 0 是未训练基座；1–5 依次学习摘要、阅读理解、关系抽取、对话、因果推理；6–7 学习医学对话记录和影像报告；8–9 学习自然与医学图像问答。
+>
+> **四个子图：** 左上在固定全部任务上算平均 ROUGE-L（0–100），看整体水平；右上只平均已学任务，看已学表现，但任务集合会增加。左下是本阶段更新前后，同一组旧任务的平均分差，负值说明旧任务受损；右下是尚未学习任务相对基座的平均分差，正值说明前序学习可能有帮助。下面两个子图的单位是分数点，0 线表示无变化；没有可比较任务时留空。
+>
+> **方法与读法：** 蓝色实线圆点＝SeqLoRA；绿色虚线菱形＝MIGU-LoRA；红色点划线三角＝O-LoRA；紫色点线方块＝SAPT-LoRA。先看左上是否整体提高，再看左下在哪一步出现下降。右上和右下的任务构成随阶段变化，曲线起伏也可能来自构成变化，需结合逐任务曲线。ROUGE-L 衡量参考文字重合，不是事实正确率。
+<!-- figure-caption:end -->
+
 [学到了多少及保住多少](summary_cv/learning_gain.md) · [各报告阅读说明](summary_cv/README.md#每份报告能说明什么) · [Qwen 全过程与指标表](summary_cv/process.md) · [T5 全过程](summary/learning_process.md) · [回答演变](summary_cv/answer_evolution.md) · [各论文指标对应关系](paper/evaluation_and_process.md)。
 
 还用全部阶段 checkpoint 补测了固定 198 道外部 MMLU 题，形成通用与医学知识保留曲线，共 7,920 条预测。它们是小样本探针，不能代表模型全部知识。准确率及逐题变化见 [外部知识报告](summary_cv/knowledge_probe.md)。独立单任务训练、Oracle、多种子等缺失对照在报告中标为 N/A。

@@ -127,6 +127,12 @@
 
 ![自然图像问答（VQAv2）](../sample/natural_vqav2_COCO_val2014_000000388829.jpg)
 
+<!-- figure-caption:start -->
+**图 1｜自然图像问答的真实测试输入。**
+
+> 本图用于问题 “Is it cold outside?”（外面冷吗？）。参考答案来自十位标注者，包含 yes 与 no，因此不是单一一致标签。模型回答及评分需与该节参考一起阅读；这张输入图片本身不表示模型已经答对。
+<!-- figure-caption:end -->
+
 | 阶段 | SeqLoRA | MIGU-LoRA | O-LoRA | SAPT-LoRA |
 |---:|---|---|---|---|
 | 0 | yes | yes | yes | yes |
@@ -145,6 +151,12 @@
 实例：`vqarad_0001`；完整输入与参考见 [实例文档](examples.md)。
 
 ![医学图像问答（VQA-RAD）](../sample/medical_vqa_rad_synpic29265.jpg)
+
+<!-- figure-caption:start -->
+**图 2｜医学图像问答的真实测试输入。**
+
+> 这是 VQA-RAD 测试图片 synpic29265。同一图片用于不同问题，例如肺部外观是否正常、成像方向是什么；应以当前章节列出的具体问题和参考答案为准。图像未被修改，模型文字回答及对应分数列在后文。
+<!-- figure-caption:end -->
 
 | 阶段 | SeqLoRA | MIGU-LoRA | O-LoRA | SAPT-LoRA |
 |---:|---|---|---|---|

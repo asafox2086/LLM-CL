@@ -1,4 +1,5 @@
 """Verify and report fixed external knowledge probes across every saved stage."""
+from captions import add_captions
 import csv,hashlib,json,math
 from collections import defaultdict
 from pathlib import Path
@@ -82,7 +83,7 @@ def collect():
         '# CUDA_VISIBLE_DEVICES 指定 GPU；断开终端后继续运行，并可复用已保存的批次',
         'CUDA_VISIBLE_DEVICES=0 nohup setsid .plot-env/bin/python -u exp/evaluate_knowledge_probe.py --method seq_lora > /tmp/knowledge_probe.log 2>&1 < /dev/null &',
         '.vision-env/bin/python summary_cv/collect_knowledge_probe.py','.plot-env/bin/python summary_cv/plot_process.py','```']
-    (ROOT/'summary_cv/knowledge_probe.md').write_text('\n'.join(lines)+'\n')
+    (ROOT/'summary_cv/knowledge_probe.md').write_text(add_captions('\n'.join(lines)+'\n'))
     print('\n'.join(lines[8:15]))
 
 if __name__=='__main__':collect()
