@@ -2,26 +2,52 @@
 
 面向阅读结果的说明与进度放在 [summary](../summary/README.md)；本目录记录实现、参数、适配和复现步骤。数据/评价总协议为 [rules/001_experiment_protocol.md](../rules/001_experiment_protocol.md)。
 
-## 1. 三个并行实验
+## 当前试跑：T5-Large（2026-10-07）
+
+当前四个方法统一改用原版 `google-t5/t5-large`（通常称 770M），固定 revision `150ebc2c4b72291e770f58e6057481c8d2ed331a`。旧 Llama-2-7B 实验已按用户要求停止，结果、预测和当时的代码快照均保留；Phi-2 仅下载并准备配置，未启动正式实验。
+
+```bash
+bash exp/run_olora.sh --config exp/configs/olora_t5large.json --model model/t5-large --gpus 0
+bash exp/run_migu_lora.sh --config exp/configs/migu_lora_t5large.json --model model/t5-large --gpus 1
+bash exp/run_sapt_lora.sh --config exp/configs/sapt_lora_t5large.json --model model/t5-large --gpus 2
+bash exp/run_seq_lora.sh --config exp/configs/seq_lora_t5large.json --model model/t5-large --gpus 3
+```
+
+已经运行时不要重复执行。仍使用 nohup + setsid；每个方法独立目录 `exp/result/superni_generation7_v2/<method>_t5large_order1_seed42_epoch1/<UTC时间戳>/`，保留同样的日志、回答、逐条评分和恢复 checkpoint。
+
+本轮是统一协议适配试跑，数据成员、七任务顺序、1000/200/500 配额、seed 42、训练 batch 16/micro batch 1、1 epoch、lr=1e-4、rank=8、alpha=32、dropout=0.1 和 greedy 最大 256 新 token 均保持不变。模型和 tokenizer 已改变，不能把旧 7B 结果拼进新矩阵。具体差别如下：
+
+- T5 encoder 只接收 prompt（最多 768 token，末尾 EOS）；decoder 独立接收右移答案，目标最多 256 token，PAD=0、EOS=1，没有 BOS。T5 使用相对位置，不把模型的 `n_positions=512` 当作硬性位置表长度。
+- 使用 `AutoModelForSeq2SeqLM`，目标 loss 不再按 causal LM 方式额外移位；按实例平均保持原协议。生成输出只去除 decoder start token，不能按输入长度裁切。
+- 采用 GPU FP32，不量化、不启用 AMP，以避开 T5 的 FP16 数值稳定性风险；评价 batch=8。同一轮四方法设置完全一致。
+- LoRA 接入 encoder self-attention、decoder self-attention 和 cross-attention 的 `q/v`。固定 LoRA 共 2,359,296 参数，O-LoRA/SAPT 每阶段新增一组。MIGU 按每层输入来源使用 encoder 或 decoder 的有效 token mask；cross-attention 的 V 使用 encoder mask、Q 使用 decoder mask。
+- SAPT 保留现有 prompt embedding max-pool 路由与 ARM 适配；query/key 维度由 T5 的 1024 hidden size 确定。生成器输入 `[Gen] + EOS`，独立 decoder 重建 Train 原始 input，仍是 1000 样本×1 epoch 和 128 伪文本。不是 SAPT 官方 T5 实现的逐项数值复现。
+
+验证入口：`exp/tests/test_t5.py`（label/生成对齐、MIGU mask、第二任务中断恢复）、`exp/tests/smoke_t5.py`（四方法七阶段与 SAPT 六次 reflection）、`exp/tests/preflight_t5.py`（真实 T5-Large 长输入、阶段 6/7 更新、显存、SAPT 全预算生成器）。测试输出不进入正式成绩，验证记录归档于 `exp/result/validation/t5large_20261007/`。四方法均通过七阶段小模型及断点恢复；真实模型四方法均通过长输入更新/生成，SAPT 另通过 1000 样本、63 更新及 128 条非空伪文本的完整辅助预算检查。
+
+论文任务对照和本轮差异见 [T5 试跑协议](../rules/002_t5_large_trial.md)。下文 Llama/NF4 内容记录旧轮次。
+
+## 1. 历史配置：Llama-2-7B 四个并行实验
 
 | GPU | 方法 | 方法文件 | 启动脚本 | 配置 |
 |---|---|---|---|---|
 | 0 | O-LoRA | `code/olora.py` | `exp/run_olora.sh` | `exp/configs/olora_first.json` |
 | 1 | MIGU-LoRA | `code/migu_lora.py` | `exp/run_migu_lora.sh` | `exp/configs/migu_lora_first.json` |
 | 2 | SAPT-LoRA | `code/sapt_lora.py` | `exp/run_sapt_lora.sh` | `exp/configs/sapt_lora_first.json` |
-| 3 | 空闲预留 | — | — | — |
+| 3 | SeqLoRA 基础对照 | `code/seq_lora.py` | `exp/run_seq_lora.sh` | `exp/configs/seq_lora_first.json` |
 
-每个脚本只创建一条持续学习主线。三个方法独立使用同一份冻结基座权重，各自拥有方法状态，互不继承已训练参数。O-LoRA 原运行继续，不因新增方法而重新启动。
+每个脚本只创建一条持续学习主线。四个方法独立使用同一份冻结基座权重，各自拥有方法状态，互不继承已训练参数。三个已启动的论文方法继续运行，不因新增 SeqLoRA 而重新启动。
 
 ```bash
-bash exp/run_olora.sh --model models/Llama-2-7b-hf --gpus 0
-bash exp/run_migu_lora.sh --model models/Llama-2-7b-hf --gpus 1
-bash exp/run_sapt_lora.sh --model models/Llama-2-7b-hf --gpus 2
+bash exp/run_olora.sh --config exp/configs/olora_first.json --model model/Llama-2-7b-hf --gpus 0
+bash exp/run_migu_lora.sh --config exp/configs/migu_lora_first.json --model model/Llama-2-7b-hf --gpus 1
+bash exp/run_sapt_lora.sh --config exp/configs/sapt_lora_first.json --model model/Llama-2-7b-hf --gpus 2
+bash exp/run_seq_lora.sh --config exp/configs/seq_lora_first.json --model model/Llama-2-7b-hf --gpus 3
 ```
 
-这些命令各自占据一个终端；长期运行可放入独立 `screen`。已经运行的实验不要重复启动。脚本统一使用 `.conda-env/`。每次启动产生新的 run_id，当前不提供优化器级恢复。
+这些命令默认使用 `nohup + setsid` 后台启动，标准输入断开，输出写入日志，立即返回 PID 和日志路径。已经运行的实验不要重复启动。脚本统一使用 `.conda-env/`；新实验产生新 run_id，恢复时使用 `--resume`。调试时可用 `LLMCL_FOREGROUND=1` 前台运行。
 
-`launch_olora.py` / `run_olora.py` 现为三种方法共用的调度和训练引擎，保留原文件名以兼容已有入口。它们按配置的 `method` 加载对应单文件方法。模型指纹写入采用唯一临时文件和原子替换；汇总程序使用文件锁，支持多个方法并行结束。
+`launch_olora.py` / `run_olora.py` 现为四种方法共用的调度和训练引擎，保留原文件名以兼容已有入口。它们按配置的 `method` 加载对应单文件方法。模型指纹写入采用唯一临时文件和原子替换；汇总程序使用文件锁，支持多个方法并行结束。
 
 ## 2. 固定比较条件
 
@@ -88,7 +114,19 @@ KL 和当前任务 CE 一起按 micro-batch 权重累积，避免 16 次累积�
 
 ## 6. 检查点、资源与结果
 
-每次运行保存 config、model/code identity、split manifest、环境、状态及全部预测。主任务检查点在 `continual/checkpoints/`。MIGU 保存固定 LoRA；SAPT 保存 LoRA、router 和此前生成的 memory，反思完成后的 `stage_state.pt` 包含刚加入的 memory。优化器级无缝恢复仍不支持。
+### SeqLoRA 基础对照
+
+第四张 GPU 使用 SeqLoRA：标准 LoRA（Hu et al., *LoRA: Low-Rank Adaptation of Large Language Models*, https://arxiv.org/abs/2106.09685）在七个任务上连续训练，是 SAPT/MIGU 等论文中的顺序学习基础对照，不宣称是另一篇新持续学习算法。
+
+只在第一任务创建一组 q/v LoRA，A 用 Kaiming 初始化、B 为零；后续任务继续更新同一组参数，保持 4,194,304 个适配器参数。任务切换按公共协议重置优化器/调度器，但不重置 LoRA 权重。没有梯度遮罩、正交损失、回放或任务路由。基座始终冻结。
+
+rank、alpha、dropout、学习率、batch、epoch、数据、解码和评价口径均与另外三个方法保持一致。它特别适合与相同固定容量的 MIGU-LoRA 比较，判断梯度遮罩是否带来提升；也可作为 O-LoRA/SAPT 增加容量或辅助机制后的收益参照。所有方法仍各自只有一条主线；新增对照不是逐任务独立训练。
+
+继续优先 LoRA 方法，因此第四个选择 SeqLoRA；Progressive Prompts 属于软提示方法，尚未启动。
+
+### 保存与汇总
+
+每次运行保存 config、model/code identity、split manifest、环境、状态及全部预测。主任务检查点在 `continual/checkpoints/`。MIGU 保存固定 LoRA；SAPT 保存 LoRA、router 和此前生成的 memory，反思完成后的 `stage_state.pt` 包含刚加入的 memory。每个完整优化器更新后原子保存 `recovery.pt`，含方法权重、AdamW、scheduler、AMP scaler、随机状态、epoch 和样本游标。阶段完成后保存 `completed.pt`，恢复时跳过完成阶段。
 
 `continual/resources.json` 记录主训练更新、适配器/路由参数、辅助训练资源和峰值显存；反思阶段单独的 `resources.json` 在任务完成前就会落盘。阶段 7 时 O-LoRA/SAPT 的 LoRA 总参数约 2936 万，MIGU 约 419 万；SAPT 另有约 85.6 万路由参数，当前阶段可训练量约 502.6 万。参数量不同是方法差异，不应以相同 rank 推断相同容量。
 
@@ -102,3 +140,41 @@ KL 和当前任务 CE 一起按 micro-batch 权重累积，避免 16 次累积�
 - 真实 Llama-2-7B/NF4 在七阶段容量下各完成两个训练更新，使用真实 XSUM Train 中长度 846/834 的样本。MIGU 峰值 allocated 4.39 GiB / reserved 5.24 GiB；SAPT 4.69 / 5.50 GiB。该检查验证此形状的训练可行，不代表覆盖所有生成长度，也不构成论文结果。
 
 全部正式比较条件在启动前固定。后续若因错误必须改算法、数据或预算，应新建 run_id 并记录原因，不混合不同实现的矩阵行。
+
+## 后台运行与断点恢复
+
+四种 `run_*.sh` 均默认后台启动。例如：
+
+```bash
+bash exp/run_olora.sh --config exp/configs/olora_first.json --model model/Llama-2-7b-hf --gpus 0
+# RUN_DIRECTORY 为包含 config.json、status.json、continual/ 的原运行目录
+bash exp/run_olora.sh --config exp/configs/olora_first.json --model model/Llama-2-7b-hf --gpus 0 --resume RUN_DIRECTORY
+```
+
+也可使用 `bash exp/start_detached.sh METHOD GPU --model model/Llama-2-7b-hf`。
+启动返回的日志记录准备过程和 run directory；训练详细输出在 `RUN_DIRECTORY/logs/continual.log`，当前进度在 `continual/status.json`。后台启动成功不代表模型准备完成，应检查日志和状态文件。关闭终端/SSH 不会停止实验；断电或系统重启后需要手动执行恢复命令。不要删除 checkpoint；只恢复可信的本地文件。
+
+| 保存内容 | 运行目录下的位置 |
+|---|---|
+| 参数、数据划分、模型/代码指纹、环境 | `config.json`、`split_manifest.json`、`model_identity.json`、`code_identity.json`、`continual/provenance.json`、`continual/environment.txt` |
+| 每阶段各任务 ROUGE-L、Exact Match、Token F1、样本数和资源 | `continual/stages/stage_XX.json`、`continual/scores/stage_XX/` |
+| 每条输入、实际 prompt token、回答原文、生成 token、参考答案及各指标 | `continual/predictions/stage_XX/*.jsonl`；未结束为 `.jsonl.tmp` |
+| 每步 loss、学习率、梯度范数、AMP scale、样本 ID | `continual/checkpoints/stage_XX/training.jsonl` |
+| 训练恢复、Dev 选中权重、完整阶段状态 | `continual/checkpoints/stage_XX/{recovery,best,completed}.pt` |
+| Dev 逐条回答和指标 | `continual/checkpoints/stage_XX/dev_epoch_*.jsonl`、同名 `.json` |
+| SAPT 辅助训练、伪输入、memory | `continual/reflection/stage_XX/` |
+| 分数矩阵和最终持续学习指标 | `continual/score_matrix.json`、`metrics.json` |
+
+这些任务主要是文本生成，主指标为 ROUGE-L；Exact Match 是归一化完全匹配准确率，三种指标均按 0–100 记录，不混称为分类准确率。
+
+训练在完整更新边界恢复，尚未保存的更新重新执行；评价逐 batch 刷盘，校验缓存样本 ID/参考答案/阶段后复用，残缺尾 batch 重新生成。SAPT 生成器也保存优化器状态；中断的伪文本采样从生成器恢复后重新执行。历史版本未保存的 token IDs 等信息无法补回，不能声称旧记录包含这些字段。恢复事件保留在 `resume_events/`；开始训练后代码指纹改变会拒绝复用，避免混合实现。
+
+验证命令：`.conda-env/bin/python exp/tests/test_recovery.py`。覆盖四种方法的真实微型 Llama 更新、中断、恢复和逐参数/RNG 一致性；不构成正式实验成绩。
+
+## 医学生成任务续训
+
+在完成 SuperNI 七任务后，使用 `bash exp/start_medical_detached.sh METHOD GPU` 启动 MTS-Dialog → IU X-ray 两任务扩展。配置是 `exp/configs/<method>_t5large_medical2.json`，各方法加载自己原实验的第七阶段 checkpoint，新结果独立存放，旧运行不修改。
+
+恢复使用 `bash exp/start_medical_detached.sh METHOD GPU --resume RUN_DIRECTORY`。
+
+运行 `python summary/collect_medical.py` 更新医学汇总，`--watch` 每60秒更新直到四运行结束。医学指标和原七任务 AP/FWT/BWT 分开报告，详见 `rules/003_medical_continuation.md`。

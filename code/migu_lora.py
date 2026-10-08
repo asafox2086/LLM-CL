@@ -82,8 +82,12 @@ class MIGULoRA:
             layer.magnitudes = {}
 
     def prepare_batch(self, examples, tokenizer, batch, training):
-        for layer in self.layers.values():
-            layer.token_mask = batch['attention_mask'].bool()
+        for name, layer in self.layers.items():
+            # Cross-attention V reads encoder states; its Q reads decoder states.
+            decoder_tokens = (self.model.config.is_encoder_decoder and name.startswith('decoder.')
+                              and not ('.EncDecAttention.' in name and name.endswith('.v')))
+            mask_name = 'decoder_attention_mask' if training and decoder_tokens else 'attention_mask'
+            layer.token_mask = batch[mask_name].bool()
             layer.record = training and self.task_count > 1
 
     def after_forward(self):

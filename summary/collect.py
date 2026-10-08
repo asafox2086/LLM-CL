@@ -6,7 +6,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-FIELDS = ['run', 'protocol', 'evaluation_protocol', 'method', 'order', 'seed', 'epochs', 'status', 'AP', 'F.Rate', 'FWT', 'BWT',
+FIELDS = ['run', 'protocol', 'evaluation_protocol', 'model_id', 'precision', 'method', 'order', 'seed', 'epochs', 'status', 'AP', 'F.Rate', 'FWT', 'BWT',
           'config_sha256', 'model_fingerprint']
 
 
@@ -33,6 +33,7 @@ def _collect(result_root, destination):
             metrics = {}
         row = {'run': str(path.parent.relative_to(result_root)), 'protocol': config['protocol'],
                'evaluation_protocol': metrics.get('evaluation_protocol', config.get('evaluation_protocol', 'legacy_sapt_fwt')),
+               'model_id': config['model_id'], 'precision': config['precision'],
                'method': config['method'], 'order': config['order'], 'seed': config['seed'],
                'epochs': config['epochs'], 'status': status['status']}
         row.update({key: metrics.get(key) for key in FIELDS if key not in row})
@@ -42,7 +43,7 @@ def _collect(result_root, destination):
         writer = csv.DictWriter(handle, fieldnames=FIELDS, lineterminator='\n')
         writer.writeheader()
         writer.writerows(rows)
-    visible = FIELDS[:12]
+    visible = FIELDS[:14]
     lines = ['# Experiment results', '', 'Each row is a separate attempt, not a multi-seed aggregate. Smoke runs are excluded.',
              'Compare only runs with matching evaluation protocols, experimental settings and model fingerprints. Missing metrics are N/A.', '',
              '| ' + ' | '.join(visible) + ' |', '| ' + ' | '.join(['---'] * len(visible)) + ' |']

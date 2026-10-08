@@ -1,0 +1,61 @@
+{
+  "protocol": "medical_generation2_after_superni7_v1",
+  "evaluation_protocol": "medical_extension_retention_v1",
+  "run_label": "olora_t5large_after7_medical2_seed42_epoch1",
+  "method": "olora",
+  "model_id": "google-t5/t5-large",
+  "model_revision": "150ebc2c4b72291e770f58e6057481c8d2ed331a",
+  "precision": "fp32_cuda",
+  "seed": 42,
+  "order": "order_1",
+  "tasks": [
+    "task1290_xsum_summarization",
+    "task002_quoref_answer_generation",
+    "task1510_evalution_relation_extraction",
+    "task1729_personachat_generate_next",
+    "task748_glucose_reverse_cause_event_detection",
+    "task511_reddit_tifu_long_text_summarization",
+    "task591_sciq_answer_generation",
+    "medical_mts_dialog_note",
+    "medical_iu_xray_impression"
+  ],
+  "epochs": 1,
+  "learning_rate": 0.0001,
+  "batch_size": 16,
+  "micro_batch_size": 1,
+  "eval_batch_size": 8,
+  "prompt_tokens": 768,
+  "target_tokens": 256,
+  "warmup_ratio": 0.03,
+  "weight_decay": 0.0,
+  "max_grad_norm": 1.0,
+  "rank": 8,
+  "alpha": 32,
+  "dropout": 0.1,
+  "orthogonal_weight": 0.5,
+  "l2_weight": 0.0,
+  "targets": [
+    "q",
+    "v"
+  ],
+  "data_manifest": "rules/001_data_manifest.json",
+  "model_architecture": "seq2seq",
+  "old_tasks": [
+    "task1290_xsum_summarization",
+    "task002_quoref_answer_generation",
+    "task1510_evalution_relation_extraction",
+    "task1729_personachat_generate_next",
+    "task748_glucose_reverse_cause_event_detection",
+    "task511_reddit_tifu_long_text_summarization",
+    "task591_sciq_answer_generation"
+  ],
+  "medical_tasks": [
+    "medical_mts_dialog_note",
+    "medical_iu_xray_impression"
+  ],
+  "medical_manifest": "rules/003_medical_manifest.json",
+  "medical_manifest_sha256": "357cac1960523553a4ece5a889d6976f0ec7026b6858bec58e7ea23f5f66bde3",
+  "parent_run": "exp/result/superni_generation7_v2/olora_t5large_order1_seed42_epoch1/20261007T013544Z",
+  "parent_checkpoint_sha256": "b53489f44c61642ed5b4f1b2d49d8f4207467612235c6149f055d6a7fb846cd4",
+  "model_path": "model/t5-large"
+}

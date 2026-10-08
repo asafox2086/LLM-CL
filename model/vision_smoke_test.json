@@ -1,0 +1,105 @@
+{
+  "model": "Qwen/Qwen2-VL-2B-Instruct",
+  "device": "cuda:0",
+  "dtype": "torch.float16",
+  "max_pixels": 100352,
+  "max_new_tokens": 32,
+  "wall_seconds": 5.341769908554852,
+  "scope": "Two-image loading/inference smoke test, not an accuracy benchmark.",
+  "examples": [
+    {
+      "dataset": "natural/vqav2",
+      "id": "vqav2_388829000",
+      "image": "/data2/liyapeng_grp/program/LLMCL/CV_data/natural/vqav2/images/COCO_val2014_000000388829.jpg",
+      "question": "Is it cold outside?",
+      "references": [
+        "no",
+        "yes",
+        "yes",
+        "yes",
+        "yes",
+        "yes",
+        "yes",
+        "yes",
+        "no",
+        "yes"
+      ],
+      "prediction": "It is ambiguous whether it is cold outside.",
+      "seconds": 1.288216283544898,
+      "image_grid_thw": [
+        [
+          1,
+          18,
+          26
+        ]
+      ],
+      "image_tokens": 117,
+      "generated_token_ids": [
+        2132,
+        374,
+        54761,
+        3425,
+        432,
+        374,
+        9255,
+        4889,
+        13,
+        151645
+      ]
+    },
+    {
+      "dataset": "medical/vqa_rad",
+      "id": "vqarad_0001",
+      "image": "/data2/liyapeng_grp/program/LLMCL/CV_data/medical/vqa_rad/images/synpic29265.jpg",
+      "question": "Are the lungs normal appearing?",
+      "references": [
+        "No"
+      ],
+      "prediction": "The image you provided is a chest X-ray, which is a medical imaging technique used to visualize the structures inside the chest. The X-ray appears to be of",
+      "seconds": 1.0333274407312274,
+      "image_grid_thw": [
+        [
+          1,
+          22,
+          22
+        ]
+      ],
+      "image_tokens": 121,
+      "generated_token_ids": [
+        785,
+        2168,
+        498,
+        3897,
+        374,
+        264,
+        15138,
+        1599,
+        29530,
+        11,
+        892,
+        374,
+        264,
+        6457,
+        31658,
+        14762,
+        1483,
+        311,
+        50087,
+        279,
+        14389,
+        4766,
+        279,
+        15138,
+        13,
+        576,
+        1599,
+        29530,
+        7952,
+        311,
+        387,
+        315
+      ]
+    }
+  ],
+  "stored_parameter_count": 2208985600
+}

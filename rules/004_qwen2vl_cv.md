@@ -1,0 +1,27 @@
+# Qwen2-VL continual-learning pilot
+
+Model: local `model/Qwen2-VL-2B-Instruct`, 2,208,985,600 parameters. Fresh Qwen instruction base; T5 adapters are architecture-incompatible and are not transferred. All downloaded model files are SHA-256 checked against the official source manifest at launch.
+
+Order: XSum → Quoref → relation extraction → PersonaChat → GLUCOSE reverse cause → MTS-Dialog clinical note → IU-Xray findings-to-impression → VQAv2 → VQA-RAD. The second summarization task (Reddit TIFU) and second general QA task (SciQ) are omitted from the former seven-task language suite.
+
+Four independently stored runs: SeqLoRA, MIGU-LoRA, O-LoRA, SAPT-LoRA. Each receives identical ordered data and task budgets: 1,000 train / 100 dev / 200 test, one epoch, effective batch 16, micro-batch 1, evaluation batch 4, learning rate 1e-4, AdamW, linear schedule with 3% warmup, gradient norm cap 1, seed 42. LM q_proj/v_proj only, rank 8, alpha 32, dropout .1. Model/vision FP16; LoRA/router/optimizer FP32; AMP scaling; gradient checkpointing. Method-specific regularization settings inherit the earlier language experiments (see each config).
+
+A prompt has at most 768 tokens including image tokens and chat-template tokens; a training target or generated answer has at most 256 tokens. User text is truncated before constructing the template, preserving the assistant header and image markers. Vision min/max pixels are 4×28² / 128×28², at most 128 merged visual tokens. No augmentation. RGB preprocessing uses the official Qwen processor. The frozen visual encoder and merger are run on actual images once; their FP16 output features are cached, hashed and used at the original image-token positions. This is not caption-only training. Correct multimodal 3D rotary positions are computed for training; stock Qwen generation handles them for evaluation. Answer-only LM projection computes the same masked causal loss while reducing memory.
+
+The general language splits reuse locked SuperNI selections, retaining the first 100 dev and 200 test examples. Medical text uses the previous locked 1,000/100/200 splits. Vision selections take the first 1,000/100/200 examples from existing image/case-disjoint prepared splits. VQAv2 is a pilot subset, with test examples from official validation; VQA-RAD uses a custom image/case-group split. These are not full official benchmarks. All selected IDs, text, image identities, source hashes and truncation flags are saved.
+
+Before training and after every task, evaluate all nine test sets (10×9 matrix). Each epoch evaluates the current task's dev set and selects its best ROUGE-L adapter checkpoint. Report ROUGE-L, normalized exact match (%) and token F1 (%); visual tasks also have answer-type and medical-organ breakdowns. **Exact match on VQAv2 is maximum-reference normalized EM, not the official VQA consensus accuracy.** Full answers and all references are retained for alternative offline scoring. AP, forgetting, BWT and FWT use the full ROUGE-L matrix; individual task scores should be consulted because a cross-task mean mixes different output styles.
+
+SAPT-VL adaptation: prompt routing pools frozen fused text+image embeddings. At stages 1–8, an auxiliary generator reconstructs task inputs; on image tasks it is conditioned on each training image and generates pseudo questions. It generates 128 pseudo inputs, retaining their pooled frozen embeddings and mean training attention targets for router KL reflection. No test examples enter reflection. Pseudo text, paired training IDs/images, token IDs, teacher weights, memory size and separate generator cost are saved. Empty generations use an explicitly logged training-only fallback. This is a documented multimodal adaptation of the repository's SAPT implementation, not a claim to reproduce an original SAPT vision benchmark.
+
+Results: `exp/CV_result/qwen2vl2b_language5_medical2_vision2/<UTC run>/<method>/`. Every run has config, code snapshot/hashes, data/model manifest, environment, worker log, status, per-update CE/regularization/gradient/LR/scale/time/token/memory logs, per-example predictions, stage score CSV/Markdown/JSON, and checkpoints. Frozen features/data are shared in `exp/CV_result/shared/`. Validation is separate in `exp/CV_result/validation/`.
+
+Every optimizer update atomically saves adapter/router, optimizer, scheduler, scaler, RNG and next sample offset. Stage boundaries additionally save reflection memory and completed scores. Base weights are referenced by verified hash and are not duplicated into adapter checkpoints. Prediction output resumes from the last complete batch. Code/data/config changes are rejected on resume. A crash midway through an update repeats that uncommitted update. Launch uses nohup plus a new process session, with stdin detached, so closing the terminal does not terminate workers.
+
+Launch: `.vision-env/bin/python exp/start_cv_detached.py`
+
+Resume stopped workers in an existing run: `.vision-env/bin/python exp/start_cv_detached.py --resume exp/CV_result/qwen2vl2b_language5_medical2_vision2/<UTC run>`
+
+Locate the active run using `exp/CV_result/latest.json`; inspect each method's `status.json`, `worker.log`, and `scores.csv`. Completed workers are skipped when resuming. A live worker cannot be launched twice into the same output directory.
+
+Analysis summaries and fixed-order task/category examples: `summary_cv/`. Refresh with `.vision-env/bin/python summary_cv/collect.py`. Raw experiment artifacts remain under `exp/CV_result/`.

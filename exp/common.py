@@ -1,5 +1,6 @@
 import hashlib
 import json
+import os
 import re
 import string
 import tempfile
@@ -27,6 +28,8 @@ def write_json(path, value):
         temporary = Path(handle.name)
         try:
             handle.write(content)
+            handle.flush()
+            os.fsync(handle.fileno())
             handle.close()
             temporary.replace(path)
         finally:
@@ -103,17 +106,26 @@ def prepare_data(config):
     return datasets, split_manifest
 
 
+def encode_prompt(tokenizer, prompt, config):
+    tokens = tokenizer.encode(prompt, add_special_tokens=False)
+    if config.get('model_architecture') == 'seq2seq':
+        return tokens[:config['prompt_tokens'] - 1] + [tokenizer.eos_token_id]
+    return ([tokenizer.bos_token_id] + tokens)[:config['prompt_tokens']]
+
+
 def tokenize_examples(tokenizer, examples, config):
     tokenized, stats = [], {'count': len(examples), 'prompt_truncated': 0, 'target_truncated': 0}
+    seq2seq = config.get('model_architecture') == 'seq2seq'
     for example in examples:
-        prompt = [tokenizer.bos_token_id] + tokenizer.encode(example['prompt'], add_special_tokens=False)
+        prompt_tokens = tokenizer.encode(example['prompt'], add_special_tokens=False)
         target = tokenizer.encode(example['references'][0], add_special_tokens=False)
-        stats['prompt_truncated'] += int(len(prompt) > config['prompt_tokens'])
+        stats['prompt_truncated'] += int(len(prompt_tokens) + 1 > config['prompt_tokens'])
         stats['target_truncated'] += int(len(target) + 1 > config['target_tokens'])
-        prompt = prompt[:config['prompt_tokens']]
+        prompt = encode_prompt(tokenizer, example['prompt'], config)
         target = target[:config['target_tokens'] - 1] + [tokenizer.eos_token_id]
-        tokenized.append({**example, 'prompt_ids': prompt, 'input_ids': prompt + target,
-                          'labels': [-100] * len(prompt) + target})
+        tokenized.append({**example, 'prompt_ids': prompt,
+                          'input_ids': prompt if seq2seq else prompt + target,
+                          'labels': target if seq2seq else [-100] * len(prompt) + target})
     return tokenized, stats
 
 
@@ -159,3 +171,26 @@ def continual_metrics(matrix):
         'FWT': sum(matrix[task][task] - matrix[0][task] for task in range(1, task_count)) / (task_count - 1),
     }
     return scores
+
+
+def validate_model_config(model_config, config):
+    """Reject accidental model substitutions in formal experiments."""
+    expected = {
+        'google-t5/t5-large': {'model_type': 't5', 'd_model': 1024, 'num_layers': 24,
+                               'vocab_size': 32128, 'is_encoder_decoder': True},
+        'meta-llama/Llama-2-7b-hf': {'model_type': 'llama', 'hidden_size': 4096,
+                                  'num_hidden_layers': 32, 'vocab_size': 32000},
+        'microsoft/phi-2': {'model_type': 'phi', 'hidden_size': 2560,
+                            'num_hidden_layers': 32, 'vocab_size': 51200},
+    }
+    if config.get('smoke'):
+        return
+    spec = expected.get(config['model_id'])
+    if spec is None or any(model_config.get(key) != value for key, value in spec.items()):
+        raise ValueError(f"Model architecture does not match configured base: {config['model_id']}")
+    seq2seq = bool(model_config.get('is_encoder_decoder'))
+    if seq2seq != (config.get('model_architecture') == 'seq2seq'):
+        raise ValueError('Configured training architecture differs from the model')
+    # T5 uses relative position bias and has no hard absolute position embedding limit.
+    if not seq2seq and config['prompt_tokens'] + config['target_tokens'] > model_config['max_position_embeddings']:
+        raise ValueError('Prompt plus target exceeds the model context window')

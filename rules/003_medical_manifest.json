@@ -1,0 +1,51 @@
+{
+  "protocol": "medical_generation2_after_superni7_v1",
+  "tasks": [
+    {
+      "task_id": "medical_mts_dialog_note",
+      "splits": {
+        "test": {
+          "path": "data/prepared/medical_generation2_after_superni7_v1/medical_mts_dialog_note.test.jsonl",
+          "count": 200,
+          "sha256": "ff7c8b03d8dbb597a540faefccdb2ced17b876b1df525881adc52e78ade1cb8e"
+        },
+        "dev": {
+          "path": "data/prepared/medical_generation2_after_superni7_v1/medical_mts_dialog_note.dev.jsonl",
+          "count": 100,
+          "sha256": "339897286d0dbc6ddac34dc65a0ddfc3cbfd9befdb9c7a5ac3bc56eb0bf2e288"
+        },
+        "train": {
+          "path": "data/prepared/medical_generation2_after_superni7_v1/medical_mts_dialog_note.train.jsonl",
+          "count": 1000,
+          "sha256": "a791b01cf2f4ce25010cda3e7a24860687be1e52cd9e1143af38162da765e21c"
+        }
+      }
+    },
+    {
+      "task_id": "medical_iu_xray_impression",
+      "splits": {
+        "train": {
+          "path": "data/prepared/medical_generation2_after_superni7_v1/medical_iu_xray_impression.train.jsonl",
+          "count": 1000,
+          "sha256": "4d557a16eaf278b7d15104ccb2091d765119647727ba6a6061bda3aa1f8b12ab"
+        },
+        "dev": {
+          "path": "data/prepared/medical_generation2_after_superni7_v1/medical_iu_xray_impression.dev.jsonl",
+          "count": 100,
+          "sha256": "e27e78c8318a01c531c05ba1043340551c8c014ccd93bf795510f858693ce871"
+        },
+        "test": {
+          "path": "data/prepared/medical_generation2_after_superni7_v1/medical_iu_xray_impression.test.jsonl",
+          "count": 200,
+          "sha256": "3713dd0af5125ae953c2e2fa591d2c27992be4ff22cce6ebf137fc517b9c5731"
+        }
+      }
+    }
+  ],
+  "sources": {
+    "mts_dialog": "https://github.com/abachaa/MTS-Dialog",
+    "iu_xray": "https://openi.nlm.nih.gov/imgs/collections/NLMCXR_reports.tgz"
+  },
+  "audit": "data/prepared/medical_generation2_after_superni7_v1/audit.json",
+  "split_note": "MTS official train/dev/TestSet-1; deterministic training cap. IU custom report-level split with exact findings deduplication; patient identifiers are not available."
+}

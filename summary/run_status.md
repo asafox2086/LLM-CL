@@ -1,42 +1,12 @@
-# 首轮实验运行汇报
+# 当前实验状态
 
-更新时间：2026-10-06 19:26（北京时间）。这是运行状态快照，最终分数见 [results.md](results.md)。
+2026-10-07：四个 T5-Large 七任务实验全部完成。从各自第七阶段 checkpoint 延续的两个医学新任务（MTS-Dialog → IU X-ray）也已全部完成。
 
-## 本轮跑什么
+医学续训已在 GPU 0/1/2/3 完成，分别为 SeqLoRA、MIGU-LoRA、O-LoRA、SAPT-LoRA。每个医学任务 train/dev/test 为1000/100/200；每学完一个医学任务，完整复测原七任务，测试集不变。
 
-| GPU | 方法 | 状态 |
-|---|---|---|
-| 0 | O-LoRA | 原运行继续，正在基座初测 |
-| 1 | MIGU-LoRA | 正式运行已启动，正在基座初测 |
-| 2 | SAPT-LoRA | 正式运行已启动，正在基座初测 |
-| 3 | 预留 | 空闲 |
+- [医学续训实时进度及结果表](medical_continuation.md)
+- [原七任务对比表](t5_large_comparison.md)
+- [医学续训协议和恢复方法](../rules/003_medical_continuation.md)
+- [已下载论文](../paper/medical_papers.md)
 
-三种方法都用同一个 Llama-2-7B、相同七个任务和固定 1000/200/500 划分，使用相同任务顺序、seed 42 和主任务训练预算。每种方法都是一条连续学习主线：先测基座，再学一个任务、测全部，直到学完七个任务。不运行单任务 FWT 对照。
-
-已逐项核对三个正式运行的划分记录、权重指纹和公共超参数一致。O-LoRA 原进程 PID 1957172 保持运行；新增 MIGU-LoRA PID 1958338、SAPT-LoRA PID 1958339。
-
-结果根目录为 `exp/result/superni_generation7_v2/`：
-
-| 方法 | 本次运行目录 |
-|---|---|
-| O-LoRA | `olora_first_order1_seed42_epoch1/20261006T110916Z` |
-| MIGU-LoRA | `migu_lora_first_order1_seed42_epoch1/20261006T112422Z` |
-| SAPT-LoRA | `sapt_lora_first_order1_seed42_epoch1/20261006T112422Z` |
-
-各目录的 `continual/status.json` 给出当前阶段，`logs/continual.log` 记录进度。三个运行都保留在独立 screen 会话中，关闭当前终端不会停止。
-
-O-LoRA 保留历史适配器并约束新适配器；MIGU-LoRA 用激活幅度筛选梯度；SAPT-LoRA 学习共享路由并用生成的伪样本保持旧任务路由。SAPT 自带的辅助生成器有额外计算开销，已单独记录；它不是单任务成绩对照。
-
-## 目前可以得出什么
-
-三个方法的执行流程已验证；新方法还通过了真实 7B 权重的少量训练和显存检查。正式七阶段结果尚未完成，当前不能判断哪个方法最好。功能检查和少量试更新不计入成绩。
-
-最终比较 AP、F.Rate、FWT、BWT，FWT 为训练未来任务之前的分数减基座初始分数。首轮只是一个顺序、一个种子，不作为多次重复实验统计。
-
-## 去哪里看
-
-- [results.md](results.md) / [results.csv](results.csv)：所有正式尝试的总表，未完成成绩为空。
-- [README.md](README.md)：指标定义与七任务测试示例。
-- [exp/README.md](../exp/README.md)：参数、代码机制、与原论文的差异、辅助开销及复现命令。
-
-刷新成绩表：在仓库根目录执行 `.conda-env/bin/python summary/collect.py`。本报告为人工核实后的快照，不会随着训练实时变化。
+所有实验保持 nohup + setsid，参数、逐题回答、分数、日志及checkpoint按方法独立保存于 exp/result/medical_generation2_after_superni7_v1/。四方法已通过7→9任务集成测试、父checkpoint保持不变测试及优化步骤中断后精确恢复测试。

@@ -9,6 +9,8 @@ import json
 import math
 import time
 
+from common import encode_prompt, tokenize_examples
+
 import torch
 from torch import nn
 from torch.nn import functional
@@ -168,13 +170,13 @@ class SAPTLoRA:
                 attention_sum += self.router(self.pooled_inputs(sequences)).softmax(dim=-1).sum(dim=0)
             target = (attention_sum / len(examples)).cpu().tolist()
         generator = GeneratorMethod(self)
-        prompt_ids = [tokenizer.bos_token_id] + tokenizer.encode('[Gen]', add_special_tokens=False)
+        prompt_ids = encode_prompt(tokenizer, '[Gen]', self.config)
         reconstructed = []
         for example in examples:
             text = example['prompt'].split('\n\nInput: ', 1)[1].rsplit('\n\nResponse:\n', 1)[0]
-            target_ids = tokenizer.encode(text, add_special_tokens=False)[:self.config['target_tokens'] - 1] + [tokenizer.eos_token_id]
-            reconstructed.append({'prompt_ids': prompt_ids, 'input_ids': prompt_ids + target_ids,
-                                  'labels': [-100] * len(prompt_ids) + target_ids})
+            tokenized, _ = tokenize_examples(tokenizer, [{'prompt': '[Gen]', 'references': [text],
+                'instance_id': example.get('instance_id'), 'task_id': example['task_id']}], self.config)
+            reconstructed.extend(tokenized)
         auxiliary_config = {**self.config, 'epochs': self.config['sapt_generator_epochs'], 'checkpoint_selection': 'last_epoch'}
         device = self.model.get_input_embeddings().weight.device
         devices = [device.index] if device.type == 'cuda' else []
@@ -195,7 +197,8 @@ class SAPTLoRA:
                                                     max_new_tokens=self.config['target_tokens'], use_cache=True,
                                                     pad_token_id=tokenizer.pad_token_id, eos_token_id=tokenizer.eos_token_id)
                 attempts += batch_size
-                generated_inputs.extend(text.strip() for text in tokenizer.batch_decode(generated[:, len(prompt_ids):], skip_special_tokens=True)
+                start_token = 1 if self.model.config.is_encoder_decoder else len(prompt_ids)
+                generated_inputs.extend(text.strip() for text in tokenizer.batch_decode(generated[:, start_token:], skip_special_tokens=True)
                                         if text.strip())
                 print(json.dumps({'event': 'sapt_pseudo_generation', 'stage': self.task_count,
                                   'done': len(generated_inputs), 'total': count}), flush=True)
@@ -204,15 +207,16 @@ class SAPTLoRA:
         generator.release()
         instruction = examples[0]['prompt'].split('\n\nInput: ', 1)[0]
         pseudo_prompts = [f'{instruction}\n\nInput: {text}\n\nResponse:\n' for text in generated_inputs]
-        replay_ids = [([tokenizer.bos_token_id] + tokenizer.encode(prompt, add_special_tokens=False))[:self.config['prompt_tokens']]
-                      for prompt in pseudo_prompts]
+        replay_ids = [encode_prompt(tokenizer, prompt, self.config) for prompt in pseudo_prompts]
         self.memory.append({'task_id': examples[0]['task_id'], 'prompt_ids': replay_ids, 'attention': target})
         (destination / 'pseudo_inputs.json').write_text(json.dumps(generated_inputs, ensure_ascii=False, indent=2) + '\n')
         resources.update({'pseudo_count': count, 'unique_pseudo_count': len(set(generated_inputs)),
                           'generation_attempts': attempts, 'attention_target': target, 'attention_target_source': 'current_train_only',
                           'wall_seconds_including_generation': time.monotonic() - started})
         (destination / 'resources.json').write_text(json.dumps(resources, indent=2) + '\n')
-        self.save(destination / 'stage_state.pt')
+        temporary = destination / 'stage_state.pt.tmp'
+        self.save(temporary)
+        temporary.replace(destination / 'stage_state.pt')
         return resources
 
 
