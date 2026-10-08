@@ -9,8 +9,21 @@ def cell(text, limit=90):
     return text.replace('|','\\|').replace('<','&lt;').replace('>','&gt;')
 
 def build_report(run, root, examples, overview, domains, rows, total_records, config):
+    complete = bool(overview) and all(r['status'] == 'completed' for r in overview)
+    ready = [r for r in overview if isinstance(r.get('AP'), (int, float))]
+    effect = ('本轮 ' + NAMES[max(ready, key=lambda r: r['AP'])['method']] + ' 的最终平均分最高；'
+              + NAMES[min(ready, key=lambda r: r['F.Rate'])['method']] + ' 的平均遗忘幅度最小。'
+              if complete and ready else '目前只展示已记录的成绩；未完成运行的最终指标显示为 —。')
+    effect += ' 应同时看学习能力与保留能力。结果来自单个种子、固定顺序及短训练预算。'
+    ranges = []
+    for domain in ['自然图像', '医学图像']:
+        values = [r['exact_match'] for r in domains if r['domain'] == domain]
+        if values:
+            ranges.append(f"{domain}问答{'最终' if complete else '已记录阶段的'} EM 为 {min(values):.1f}%–{max(values):.1f}%")
+    domain_note = '；'.join(ranges) + '。' if ranges else '领域结果将在完成对应评价后展示。'
+    domain_note += ' 不同任务的答案长度和参考形式不同，应逐任务分析。'
     lines = ['# 含图像的持续学习实验报告', '',
-        '这轮观察同一个 Qwen2-VL-2B 模型先学习语言，再学习医学语言、自然图像和医学图像后，能学到多少、保留多少。四个方法的九任务实验均已完成。', '',
+        '这轮观察同一个 Qwen2-VL-2B 模型先学习语言，再学习医学语言、自然图像和医学图像后，能学到多少、保留多少。四方法的完成状态和成绩见下表。', '',
         '## 先看真实示例', '',
         '以下每任务取固定测试顺序的第一条，展示输入与回答的节选；示例选择不依赖得分。模型回答来自 SeqLoRA 学完全部任务的状态。', '',
         '| 领域 / 任务 | 输入节选 | 参考答案节选 | 模型最终回答节选 |',
@@ -23,7 +36,7 @@ def build_report(run, root, examples, overview, domains, rows, total_records, co
         lines.append('| '+ ' | '.join([cell(example['title']),cell(prompt),cell(source['references'][0]),cell(prediction)])+' |')
     lines += ['', '图像示例使用真实图片：[自然图像与医学图像、各答案类别以及四方法完整回答](examples.md)。该文档覆盖 9 个任务和 5 个图像答案类别，逐例对比基线、刚学完和最终回答。', '',
         '## 大体效果', '',
-        '本轮 SeqLoRA 的最终平均分最高；SAPT-LoRA 的平均遗忘幅度最小，但最终平均分较低。应同时看学习能力与保留能力。结果来自单个种子、固定顺序及短训练预算。', '',
+        effect, '',
         '| 方法 | 状态 | AP ↑ | 遗忘率 ↓ | BWT ↑ | FWT ↑ |', '|---|---|---:|---:|---:|---:|']
     for row in overview:
         values=[f'{row[k]:.3f}' if isinstance(row.get(k),(int,float)) else '—' for k in ['AP','F.Rate','BWT','FWT']]
@@ -44,7 +57,7 @@ def build_report(run, root, examples, overview, domains, rows, total_records, co
         '| 方法 | 最终领域 | ROUGE-L | EM (%) | Token F1 (%) |','|---|---|---:|---:|---:|']
     for row in domains:
         lines.append(f"| {NAMES[row['method']]} | {row['domain']} | {row['rougeL']:.3f} | {row['exact_match']:.3f} | {row['token_f1']:.3f} |")
-    lines += ['', '自然图像问答最终 EM 约 83.5%–86.0%，医学图像约 45.5%–49.5%。医学语言生成的得分明显低于自然图像短回答；不同任务的答案长度和参考形式不同，应逐任务分析。', '',
+    lines += ['', domain_note, '',
         '## 各任务效果', '',
         '| 方法 | 最终任务 | ROUGE-L | EM (%) | Token F1 (%) |','|---|---|---:|---:|---:|']
     for row in rows:
