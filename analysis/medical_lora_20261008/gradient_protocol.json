@@ -1,0 +1,108 @@
+{
+  "method": "SeqLoRA shared adapter",
+  "stages": [
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "ids": {
+    "task1290_xsum_summarization": [
+      "task1290-b588390b353b407cb67fa70d180946d1",
+      "task1290-d256c8cab15542308b230bc059d7c071",
+      "task1290-47baed5be0534571b9e15c65dbb6309b",
+      "task1290-79ad47f7eddd4938a03d8d24e6741182",
+      "task1290-8483c373dce34c80acad3833e9674520",
+      "task1290-52cf6bf2f2d34ec8b4f82a59ea9ea357",
+      "task1290-58162c2430944e4d8b646eb47978eb9d",
+      "task1290-e12c0dd28f6e4b9eacb3ca8016514049"
+    ],
+    "task002_quoref_answer_generation": [
+      "task002-7966bfdd1d0742f981ccd27d47969ff0",
+      "task002-493413880e90448a815504c25cf47f50",
+      "task002-efd638d05d0b43fd972cbfa8bed7c1c2",
+      "task002-15ea04bb35704e9bb75a682625d04f9f",
+      "task002-5e2ee5ea53da45adb3b8cee9f59e925d",
+      "task002-be352ae8c832406384b76724c591b84d",
+      "task002-bfe11cd423444ff9b8758cb2cb0b998a",
+      "task002-416ec4182bb04527aeede2812bd71359"
+    ],
+    "task1510_evalution_relation_extraction": [
+      "task1510-c834792c3fed49e398d4c5ee09be9341",
+      "task1510-5f6f81a16f9a40c1b6ad74a090ca492e",
+      "task1510-457212e230274e7b865a1edae85db447",
+      "task1510-8eb8e7a0148d4b259c9b8521246b4880",
+      "task1510-18c0a917619344f9a2333af81185b78b",
+      "task1510-72cac91a716c44d0b0adbf3f746fd258",
+      "task1510-d6c1e96aefc842338bda44c74d8fb2fd",
+      "task1510-508f595dbd234e7bba1c1f8d5de13229"
+    ],
+    "task1729_personachat_generate_next": [
+      "task1729-19db73113f17463792346a72f67d6896",
+      "task1729-07ee7c7b5f6e425bbd080f8fd4b1a825",
+      "task1729-165e240b46b8476bb965232309fe464c",
+      "task1729-84b90afb06584a188718ede73640154d",
+      "task1729-42aff878c1204569affd5ab167b1c39f",
+      "task1729-ccb290a148d248a9a3b79467eb4f5bca",
+      "task1729-df1187fc9f7f4f79b6397c1fb0ae8303",
+      "task1729-8f26242e7a0e409ea6429726874b448c"
+    ],
+    "task748_glucose_reverse_cause_event_detection": [
+      "task748-91131b6b1ad14404b969477a44ae3837",
+      "task748-750344bf27b1424396c4e97f0e5b3f0b",
+      "task748-737355ebec584ad192347b5637e76f34",
+      "task748-bf72c6d3955b4688abb7dc907b535fe3",
+      "task748-3d255d4fd1734d369b1b4ed44080096f",
+      "task748-83778252e98145d39a7f013f9c668796",
+      "task748-e832fe0895994a8682388145790a2dce",
+      "task748-485c4922524f4393a31864b42d15c765"
+    ],
+    "medical_mts_dialog_note": [
+      "mts_test_73",
+      "mts_test_89",
+      "mts_test_19",
+      "mts_test_189",
+      "mts_test_31",
+      "mts_test_123",
+      "mts_test_163",
+      "mts_test_85"
+    ],
+    "medical_iu_xray_impression": [
+      "CXR1290",
+      "CXR3369",
+      "CXR371",
+      "CXR2890",
+      "CXR2646",
+      "CXR2307",
+      "CXR2538",
+      "CXR2746"
+    ],
+    "natural_vqav2": [
+      "vqav2_391642000",
+      "vqav2_262987000",
+      "vqav2_248400000",
+      "vqav2_308235000",
+      "vqav2_194216000",
+      "vqav2_272718000",
+      "vqav2_305873000",
+      "vqav2_138124000"
+    ],
+    "medical_vqa_rad": [
+      "vqarad_0025",
+      "vqarad_0565",
+      "vqarad_0374",
+      "vqarad_0873",
+      "vqarad_0619",
+      "vqarad_0605",
+      "vqarad_0874",
+      "vqarad_0863"
+    ]
+  },
+  "loss": "exact exp/cv_runtime.py answer_loss; mean per example then mean 8 examples",
+  "dropout": "disabled",
+  "gradient_scale": 1024,
+  "optimizer_updates": 0,
+  "scope": "small held-out diagnostic; local gradients and finite updates, not causal attribution to all methods",
+  "code_sha256": "b31a127e8c0e33c47e3c2d3b1d4a3e2ba920cb732b123d859d63ac88b38977d5"
+}

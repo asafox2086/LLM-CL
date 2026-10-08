@@ -1,0 +1,87 @@
+`Qwen2VLRotaryEmbedding` can now be fully parameterized by passing the model config through the `config` argument. All other arguments will be removed in v4.46
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.60s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.31s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.50s/it]
+/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:590: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.01` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:595: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.001` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:612: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `1` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+{"stage": 0, "mode": "actual128", "done": 4}
+{"stage": 0, "mode": "actual128", "done": 8}
+{"stage": 0, "mode": "actual128", "done": 12}
+{"stage": 0, "mode": "actual128", "done": 16}
+{"stage": 0, "mode": "actual128", "done": 20}
+{"stage": 0, "mode": "actual128", "done": 24}
+{"stage": 0, "mode": "actual128", "done": 28}
+{"stage": 0, "mode": "actual128", "done": 32}
+{"stage": 0, "mode": "actual128", "done": 36}
+{"stage": 0, "mode": "actual128", "done": 40}
+{"stage": 0, "mode": "actual128", "done": 44}
+{"stage": 0, "mode": "actual128", "done": 48}
+{"stage": 0, "mode": "actual128", "done": 52}
+{"stage": 0, "mode": "actual128", "done": 56}
+{"stage": 0, "mode": "actual128", "done": 60}
+{"stage": 0, "mode": "wrong128", "done": 4}
+{"stage": 0, "mode": "wrong128", "done": 8}
+{"stage": 0, "mode": "wrong128", "done": 12}
+{"stage": 0, "mode": "wrong128", "done": 16}
+{"stage": 0, "mode": "wrong128", "done": 20}
+{"stage": 0, "mode": "wrong128", "done": 24}
+{"stage": 0, "mode": "wrong128", "done": 28}
+{"stage": 0, "mode": "wrong128", "done": 32}
+{"stage": 0, "mode": "wrong128", "done": 36}
+{"stage": 0, "mode": "wrong128", "done": 40}
+{"stage": 0, "mode": "wrong128", "done": 44}
+{"stage": 0, "mode": "wrong128", "done": 48}
+{"stage": 0, "mode": "wrong128", "done": 52}
+{"stage": 0, "mode": "wrong128", "done": 56}
+{"stage": 0, "mode": "wrong128", "done": 60}
+{"stage": 0, "mode": "no_image", "done": 4}
+{"stage": 0, "mode": "no_image", "done": 8}
+{"stage": 0, "mode": "no_image", "done": 12}
+{"stage": 0, "mode": "no_image", "done": 16}
+{"stage": 0, "mode": "no_image", "done": 20}
+{"stage": 0, "mode": "no_image", "done": 24}
+{"stage": 0, "mode": "no_image", "done": 28}
+{"stage": 0, "mode": "no_image", "done": 32}
+{"stage": 0, "mode": "no_image", "done": 36}
+{"stage": 0, "mode": "no_image", "done": 40}
+{"stage": 0, "mode": "no_image", "done": 44}
+{"stage": 0, "mode": "no_image", "done": 48}
+{"stage": 0, "mode": "no_image", "done": 52}
+{"stage": 0, "mode": "no_image", "done": 56}
+{"stage": 0, "mode": "no_image", "done": 60}
+Traceback (most recent call last):
+  File "/data2/liyapeng_grp/program/LLMCL/analysis/medical_lora_20261008/vision_ablation.py", line 59, in <module>
+    generated=model.generate(**packed,do_sample=False,num_beams=1,max_new_tokens=256,pad_token_id=proc.tokenizer.pad_token_id,eos_token_id=proc.tokenizer.eos_token_id)
+  File "/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/generation/utils.py", line 2215, in generate
+    result = self._sample(
+  File "/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/generation/utils.py", line 3206, in _sample
+    outputs = self(**model_inputs, return_dict=True)
+  File "/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py", line 1686, in forward
+    image_embeds = self.visual(pixel_values, grid_thw=image_grid_thw)
+  File "/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py", line 1049, in forward
+    hidden_states = blk(hidden_states, cu_seqlens=cu_seqlens, rotary_pos_emb=rotary_pos_emb)
+  File "/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py", line 431, in forward
+    hidden_states = hidden_states + self.attn(
+  File "/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py", line 404, in forward
+    attn_output = F.scaled_dot_product_attention(q, k, v, attention_mask, dropout_p=0.0)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.59 GiB. GPU 0 has a total capacity of 10.75 GiB of which 1.82 GiB is free. Process 2060870 has 156.00 MiB memory in use. Including non-PyTorch memory, this process has 8.77 GiB memory in use. Of the allocated memory 8.22 GiB is allocated by PyTorch, and 370.41 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
