@@ -1,0 +1,103 @@
+{
+  "seed": 42,
+  "sources": {
+    "medmcqa/data/train-00000-of-00001.parquet": {
+      "url": "https://hf-mirror.com/datasets/openlifescienceai/medmcqa/resolve/91c6572c454088bf71b679ad90aa8dffcd0d5868/data/train-00000-of-00001.parquet",
+      "revision": "91c6572c454088bf71b679ad90aa8dffcd0d5868",
+      "sha256": "b119434ba551517a6ec0ba1f7e0b4c029165ed284a4704f262ce37c791c493c5"
+    },
+    "medmcqa/data/validation-00000-of-00001.parquet": {
+      "url": "https://hf-mirror.com/datasets/openlifescienceai/medmcqa/resolve/91c6572c454088bf71b679ad90aa8dffcd0d5868/data/validation-00000-of-00001.parquet",
+      "revision": "91c6572c454088bf71b679ad90aa8dffcd0d5868",
+      "sha256": "b768a1ea34afc9f80d3106d9b21f80fa8a00ec450a1f6cd641af72ca9e591021"
+    },
+    "medqa/phrases_no_exclude_train.jsonl": {
+      "url": "https://hf-mirror.com/datasets/GBaker/MedQA-USMLE-4-options/resolve/0fb93dd23a7339b6dcd27e241cb9b5eca62d4d18/phrases_no_exclude_train.jsonl",
+      "revision": "0fb93dd23a7339b6dcd27e241cb9b5eca62d4d18",
+      "sha256": "3a65baf760f17c395058d6699315a7ce8aa767c50cb193fea87ceb94dd790324"
+    },
+    "medqa/phrases_no_exclude_test.jsonl": {
+      "url": "https://hf-mirror.com/datasets/GBaker/MedQA-USMLE-4-options/resolve/0fb93dd23a7339b6dcd27e241cb9b5eca62d4d18/phrases_no_exclude_test.jsonl",
+      "revision": "0fb93dd23a7339b6dcd27e241cb9b5eca62d4d18",
+      "sha256": "c3b905ccfa66152dc25afbcb2c10e86c0bdb208824f0658fcdb2c040f60a2beb"
+    }
+  },
+  "tasks": {
+    "medical_medmcqa": {
+      "test": {
+        "path": "data/medical_qa_med/medmcqa/test.jsonl",
+        "count": 200,
+        "sha256": "0a13a8dd0b9f4708ee7f398c9fb42bfb3992fd5a0250fa3e0ca90ec106afe530",
+        "answers": {
+          "B": 49,
+          "A": 71,
+          "C": 43,
+          "D": 37
+        }
+      },
+      "dev": {
+        "path": "data/medical_qa_med/medmcqa/dev.jsonl",
+        "count": 100,
+        "sha256": "cd70d8ae10a110e5838eb6db736e725690c8a97ddcb5b05c6ccd1c6948db873f",
+        "answers": {
+          "B": 31,
+          "A": 29,
+          "C": 24,
+          "D": 16
+        }
+      },
+      "train": {
+        "path": "data/medical_qa_med/medmcqa/train.jsonl",
+        "count": 1000,
+        "sha256": "6d60e11839f229e864f5086cfd1862105eb1e3aefc23ed22a35118d42b0dc636",
+        "answers": {
+          "B": 277,
+          "D": 170,
+          "C": 235,
+          "A": 318
+        }
+      }
+    },
+    "medical_medqa": {
+      "test": {
+        "path": "data/medical_qa_med/medqa/test.jsonl",
+        "count": 200,
+        "sha256": "6e18ef0a032b9b1e855a41d66bae74503a42d75dfe756d570b7cbbaa41ecfa01",
+        "answers": {
+          "D": 42,
+          "C": 54,
+          "A": 58,
+          "B": 46
+        }
+      },
+      "dev": {
+        "path": "data/medical_qa_med/medqa/dev.jsonl",
+        "count": 100,
+        "sha256": "d8bc895d1896a73478ec394641b016984c11541bfde537972122d96cdc7504e7",
+        "answers": {
+          "C": 22,
+          "D": 21,
+          "A": 30,
+          "B": 27
+        }
+      },
+      "train": {
+        "path": "data/medical_qa_med/medqa/train.jsonl",
+        "count": 1000,
+        "sha256": "cc4723b1ed8b2799a398c5cf1218f0ddf3e9737e3f6be6dfa5321217c23543d5",
+        "answers": {
+          "C": 252,
+          "A": 250,
+          "B": 273,
+          "D": 225
+        }
+      }
+    }
+  },
+  "selection": "single-answer only; seeded shuffle; global exact-question dedup; no repeated sampling",
+  "split_policy": {
+    "medmcqa": "train from official train; disjoint dev/test from labeled official validation (not unlabeled official test)",
+    "medqa": "train/dev from official train; test from official test; mirror has no separate dev"
+  },
+  "limitation": "Exact-question deduplication is not semantic or near-duplicate decontamination."
+}

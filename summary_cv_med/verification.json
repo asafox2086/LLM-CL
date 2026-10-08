@@ -1,0 +1,94 @@
+{
+  "passed": true,
+  "run": "/data2/liyapeng_grp/program/LLMCL/exp/CV_result_med/qwen2vl2b_pure_med/20261008T102912Z",
+  "data_sha256": "f54dc8165b5a9360ab6e17eff603ddcc7b49612f559805a3b40e42696d4d3bff",
+  "counts": {
+    "medical_medmcqa": {
+      "train": 1000,
+      "dev": 100,
+      "test": 200
+    },
+    "medical_medqa": {
+      "train": 1000,
+      "dev": 100,
+      "test": 200
+    },
+    "medical_vqa_rad_chest": {
+      "train": 362,
+      "dev": 28,
+      "test": 91
+    },
+    "medical_vqa_rad_head": {
+      "train": 319,
+      "dev": 34,
+      "test": 50
+    },
+    "medical_vqa_rad_abd": {
+      "train": 319,
+      "dev": 38,
+      "test": 59
+    }
+  },
+  "checks": [
+    "exact QA disjoint across datasets and splits",
+    "external probes excluded from training/dev/test QA",
+    "image/case split disjoint",
+    "long MCQ preserves all options",
+    "all cached features SHA match",
+    "official model file SHA match",
+    "old implementation files unchanged",
+    "four-method optimizer-step exact recovery",
+    "four-method GPU training/vision preflight",
+    "saved predictions and strict letter scores audited",
+    "shared available base predictions identical"
+  ],
+  "methods": {
+    "seq_lora": {
+      "recovery": true,
+      "preflight": true,
+      "peak_mib": 6104.1533203125
+    },
+    "migu_lora": {
+      "recovery": true,
+      "preflight": true,
+      "peak_mib": 6104.5361328125
+    },
+    "olora": {
+      "recovery": true,
+      "preflight": true,
+      "peak_mib": 6120.7783203125
+    },
+    "sapt_lora": {
+      "recovery": true,
+      "preflight": true,
+      "peak_mib": 6125.70947265625
+    },
+    "sapt_reflection": {
+      "image_conditioned_reflection": true,
+      "next_stage_kl": 0.23524227738380432,
+      "resources": {
+        "updates": 2,
+        "seconds": 1.478448810055852,
+        "recovery_checkpoint": "/data2/liyapeng_grp/program/LLMCL/exp/CV_result_med/validation/sapt_lora/two_updates/reflection_test/generator/recovery.pt",
+        "best_checkpoint": "/data2/liyapeng_grp/program/LLMCL/exp/CV_result_med/validation/sapt_lora/two_updates/reflection_test/generator/best.pt",
+        "current_trainable_parameters": 1089536,
+        "total_adapter_parameters": 5447680,
+        "generator_parameters": 1089536,
+        "router_parameters": 0,
+        "pseudo_count": 2,
+        "attention_target": [
+          0.32502686977386475,
+          0.16463564336299896,
+          0.19102463126182556,
+          0.20511263608932495,
+          0.11420023441314697
+        ],
+        "seconds_with_generation": 3.6143317678943276,
+        "memory_bytes": 12288,
+        "adaptation": "Image-conditioned pseudo questions; frozen text+image pools; train inputs only"
+      }
+    }
+  },
+  "current_saved_test_records": 2400,
+  "scope": "startup/interim audit; does not assert experiments have finished"
+}

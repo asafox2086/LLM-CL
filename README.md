@@ -2,6 +2,8 @@
 
 这组实验研究模型接着学习新任务时，是否能学会新内容，同时保留旧能力。四种方法为 SeqLoRA、MIGU-LoRA、O-LoRA 和 SAPT-LoRA；语言、医学语言及含图像实验均已完成。
 
+新增的 [纯医学 QA 持续学习实验](summary_cv_med/README.md) 从原始 Qwen2-VL-2B 开始，依次学习 MedMCQA、MedQA，以及胸部、头部、腹部图像问答；独立保存在 `exp/CV_result_med`，阶段效果、真实示例及外部知识变化会自动更新。
+
 ## 先看模型实际做什么
 
 以下是 Qwen2-VL 九任务测试样本的节选，回答来自 SeqLoRA 的最终模型；每任务取固定顺序第一条，示例未按得分挑选。
