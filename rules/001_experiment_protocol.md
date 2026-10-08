@@ -248,12 +248,14 @@ Quoref、SciQ 另报 SQuAD 风格 EM/token-F1：小写、去 ASCII 标点、去�
 
 T=7；R[i,j] 为学完第 i 个任务后在第 j 个 Test 的 ROUGE-L，R[0,j]=b[j]。j 表示当前运行顺序位置。
 
-```text
-AP = (1/T) × Σ[j=1..T] R[T,j]
-F.Rate = (1/(T-1)) × Σ[j=1..T-1] (max[i=j..T-1] R[i,j] - R[T,j])
-BWT = (1/(T-1)) × Σ[j=1..T-1] (R[T,j] - R[j,j])
-FWT = (1/(T-1)) × Σ[j=2..T] (R[j-1,j] - b[j])
-```
+$$
+\begin{aligned}
+\mathrm{AP} &= \frac{1}{T}\sum_{j=1}^{T}R_{T,j},\\
+\mathrm{F.Rate} &= \frac{1}{T-1}\sum_{j=1}^{T-1}\left(\max_{j\le i\le T-1}R_{i,j}-R_{T,j}\right),\\
+\mathrm{BWT} &= \frac{1}{T-1}\sum_{j=1}^{T-1}\left(R_{T,j}-R_{j,j}\right),\\
+\mathrm{FWT}_{\mathrm{GEM}} &= \frac{1}{T-1}\sum_{j=2}^{T}\left(R_{j-1,j}-R_{0,j}\right).
+\end{aligned}
+$$
 
 AP/FWT/BWT 越大越好，F.Rate 越小越好。差值单位为百分点；F.Rate 不除以历史最大，不截断负数。FWT 采用 GEM（Lopez-Paz & Ranzato, 2017）§2 式 (4) 的训练前迁移口径。原文初始模型为随机初始化，本项目为固定预训练 Llama-2-7B；原文任务分数为准确率，本项目统一为 ROUGE-L。第一任务没有先前学习，排除于 FWT 平均。
 

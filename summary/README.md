@@ -201,6 +201,10 @@ Texas was very fun >Causes/Enables> I want to go back
 主指标 ROUGE-L；没有单独的因果逻辑判定器，文本匹配不保证逻辑正确。
 
 
+完整训练过程、矩阵热图和按论文口径重算的 MFT / MFN / MAA 等指标见 [全过程报告](learning_process.md)。
+
+![T5 学习与保留全过程](../sample/t5_trajectories.png)
+
 ## 本轮大体效果
 
 | 方法 | 最终均分 AP ↑ | 遗忘幅度 ↓ | BWT ↑ | FWT ↑ |
@@ -235,14 +239,14 @@ SeqLoRA 的最终平均分最高，O-LoRA 的遗忘幅度最小。SAPT-LoRA 的�
 
 ROUGE-L 使用生成文本与参考文本的最长公共子序列（LCS）。它保留词的相对顺序，允许中间存在其他词。
 
-设生成文本分词后有 m 个词，参考有 n 个词，LCS 长度为 L：
+设生成文本分词后有 $m$ 个词，参考有 $n$ 个词，LCS 长度为 $L$：
 
-```text
-Precision = L / m
-Recall = L / n
-ROUGE-L F1 = 2 × Precision × Recall / (Precision + Recall)
-报告分数 = 100 × ROUGE-L F1
-```
+$$
+\begin{aligned}
+P_{\mathrm{LCS}} &= \frac{L}{m}, & R_{\mathrm{LCS}} &= \frac{L}{n},\\
+\operatorname{ROUGE-L} &= 100\cdot\frac{2P_{\mathrm{LCS}}R_{\mathrm{LCS}}}{P_{\mathrm{LCS}}+R_{\mathrm{LCS}}}.
+\end{aligned}
+$$
 
 无匹配时记 0。大小写、标点和词干处理采用固定规则，各方法一致。
 
@@ -258,17 +262,24 @@ EM（Exact Match）用于补充观察问答是否准确命中参考答案：
 4. 合并空白；
 5. 规范化后完全相同记 100，否则记 0。
 
+$$
+\mathrm{EM}(\widehat y,y)=100\cdot\mathbf{1}\!\left[\nu(\widehat y)=\nu(y)\right],
+$$
+
+其中 $\nu$ 表示上述文本归一化。
+
 任务级 EM 是这些 0/100 分的平均值，可解释为该规范化规则下的完全匹配比例。
 
 ### token-F1：答案词覆盖情况
 
 这里的 token 是上述问答规范化后按空白分出的词，不是模型 tokenizer 的子词。设 C 为生成答案与参考答案 token 多重集合的交集数量；重复词按出现次数计数：
 
-```text
-Precision = C / 生成答案 token 数
-Recall = C / 参考答案 token 数
-token-F1 = 100 × 2 × Precision × Recall / (Precision + Recall)
-```
+$$
+\begin{aligned}
+P_{\mathrm{tok}} &= \frac{C}{|\widehat{Y}|}, & R_{\mathrm{tok}} &= \frac{C}{|Y|},\\
+F_{1,\mathrm{tok}} &= 100\cdot\frac{2P_{\mathrm{tok}}R_{\mathrm{tok}}}{P_{\mathrm{tok}}+R_{\mathrm{tok}}}.
+\end{aligned}
+$$
 
 没有交集记 0；两边都为空记 100，仅一边为空记 0。该指标不要求词序一致。当前计分器会保存三项分数；主比较使用 ROUGE-L，Quoref 和 SciQ 重点补充 EM/token-F1，不把三种分数混合求平均。
 
@@ -288,17 +299,17 @@ token-F1 = 100 × 2 × Precision × Recall / (Precision + Recall)
 
 对任务 j，在训练阶段 i 结束时生成其全部 500 条测试答案，得到：
 
-```text
-R[i,j] = 该任务 500 条测试实例的 ROUGE-L 平均分
-```
+$$
+R_{i,j}=\frac{1}{N_j}\sum_{n=1}^{N_j}\max_{y\in\mathcal{Y}_{j,n}}\operatorname{ROUGE-L}\!\left(\widehat{y}_{i,j,n},y\right),\qquad N_j=500.
+$$
 
-设 T=7。R 有 8 行、7 列：第 0 行是未经任务训练的基座，后面七行是各阶段；列对应当前运行的任务顺序。成绩全部采用 0–100 尺度。测试对象一直是同一批样本，阶段之间不重新抽样。
+设 $T=7$，$\mathbf{R}\in[0,100]^{8\times7}$。矩阵有 8 行、7 列：第 0 行是未经任务训练的基座，后面七行是各阶段；列对应当前运行的任务顺序。成绩全部采用 0–100 尺度。测试对象一直是同一批样本，阶段之间不重新抽样。
 
 另定义：
 
-- `b[j] = R[0,j]`：基座在任务 j 上的初始分数。
-- `R[j,j]`：刚学完任务 j 时，在该任务上的分数。
-- `R[T,j]`：学完全部任务后，在任务 j 上的最终分数。
+- $b_j=R_{0,j}$：基座在任务 j 上的初始分数。
+- $R_{j,j}$：刚学完任务 j 时，在该任务上的分数。
+- $R_{T,j}$：学完全部任务后，在任务 j 上的最终分数。
 
 公式中的 j 是运行顺序里的位置，不是任务名称中的数字编号。
 
@@ -306,19 +317,17 @@ R[i,j] = 该任务 500 条测试实例的 ROUGE-L 平均分
 
 ### AP：Average Performance，最终平均表现 ↑
 
-```text
-AP = (1/T) × Σ[j=1..T] R[T,j]
-```
+$$
+\mathrm{AP}=\frac{1}{T}\sum_{j=1}^{T}R_{T,j}.
+$$
 
 看模型全部学完后还能完成各个任务的平均水平。七个任务同权，不按文章长度或生成 token 数加权。当前 AP 是平均 ROUGE-L，不是分类准确率或 Precision–Recall 曲线面积。
 
 ### F.Rate：Forgetting Rate，平均遗忘幅度 ↓
 
-```text
-F.Rate = (1/(T-1)) × Σ[j=1..T-1] (
-    max[i=j..T-1] R[i,j] - R[T,j]
-)
-```
+$$
+\mathrm{F.Rate}=\frac{1}{T-1}\sum_{j=1}^{T-1}\left(\max_{j\le i\le T-1}R_{i,j}-R_{T,j}\right).
+$$
 
 对每个旧任务，取“从学会它开始，到最终阶段之前”的历史最好成绩，再减去最终成绩，最后对前 T−1 个任务平均。最后一个任务没有后续任务，所以不计入。
 
@@ -326,9 +335,9 @@ F.Rate = (1/(T-1)) × Σ[j=1..T-1] (
 
 ### BWT：Backward Transfer，后向迁移 ↑
 
-```text
-BWT = (1/(T-1)) × Σ[j=1..T-1] (R[T,j] - R[j,j])
-```
+$$
+\mathrm{BWT}=\frac{1}{T-1}\sum_{j=1}^{T-1}\left(R_{T,j}-R_{j,j}\right).
+$$
 
 衡量后续任务学习对旧任务的影响。正数表示旧任务提高，负数表示下降。
 
@@ -338,9 +347,9 @@ BWT 与 F.Rate 的参照点不同：BWT 比较“刚学完时”，F.Rate 比较
 
 采用 [GEM（2017）§2 式 (4)](https://arxiv.org/abs/1706.08840) 的标准定义，仅需主线：
 
-```text
-FWT = (1/(T-1)) × Σ[j=2..T] (R[j-1,j] - b[j])
-```
+$$
+\mathrm{FWT}_{\mathrm{GEM}}=\frac{1}{T-1}\sum_{j=2}^{T}\left(R_{j-1,j}-b_j\right),\qquad b_j=R_{0,j}.
+$$
 
 在还没有训练任务 j 时，比较“已学前面任务的模型”和“初始基座”在 j 上的成绩。第一任务没有先前学习经历，所以排除。
 

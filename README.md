@@ -46,6 +46,16 @@ SeqLoRA 最终整体分数最高；SAPT-LoRA 遗忘最少，但整体分数较�
 
 两轮模型、任务数量和测试配额不同，以上表格分别解读。均为一个种子、一个任务顺序的先导实验，尚没有多次重复的均值和误差范围。
 
+## 过程中的能力变化
+
+阶段记录已复原为完整任务矩阵、领域与逐任务曲线、旧任务切换冲击和同一道题的回答演变，同时重算 MFT、MFN、MAA、AP、遗忘、BWT 与 GEM FWT，分别保留 ROUGE-L / EM / Token F1 口径。
+
+![Qwen2-VL 四方法全过程](sample/cv_trajectories.png)
+
+[学到了多少及保住多少](summary_cv/learning_gain.md) · [各报告阅读说明](summary_cv/README.md#每份报告能说明什么) · [Qwen 全过程与指标表](summary_cv/process.md) · [T5 全过程](summary/learning_process.md) · [回答演变](summary_cv/answer_evolution.md) · [各论文指标对应关系](paper/evaluation_and_process.md)。
+
+还用全部阶段 checkpoint 补测了固定 198 道外部 MMLU 题，形成通用与医学知识保留曲线，共 7,920 条预测。它们是小样本探针，不能代表模型全部知识。准确率及逐题变化见 [外部知识报告](summary_cv/knowledge_probe.md)。独立单任务训练、Oracle、多种子等缺失对照在报告中标为 N/A。
+
 ## 指标怎样理解
 
 | 指标 | 含义 | 怎样读 |
@@ -85,6 +95,7 @@ SeqLoRA 最终整体分数最高；SAPT-LoRA 遗忘最少，但整体分数较�
 | `code/` | 四方法实现 |
 | `exp/`、`rules/` | 训练/评价入口、协议、参数和锁定数据清单 |
 | `exp/result/`、`exp/CV_result/` | 独立运行、逐题回答、日志、checkpoint 与实现快照 |
+| `sample/` | GitHub 报告展示的少量真实图片与过程图 |
 | `source_code/` | 原论文代码及许可证，供方法核对 |
 
 在仓库根目录刷新汇总：
@@ -93,6 +104,11 @@ SeqLoRA 最终整体分数最高；SAPT-LoRA 遗忘最少，但整体分数较�
 .conda-env/bin/python summary/collect.py
 .conda-env/bin/python summary/collect_medical.py
 .vision-env/bin/python summary_cv/collect.py
+.vision-env/bin/python summary_cv/process.py
+.vision-env/bin/python summary_cv/reconstruct_metrics.py
+.vision-env/bin/python summary_cv/learning_gain.py
+.vision-env/bin/python summary_cv/collect_knowledge_probe.py
+.plot-env/bin/python summary_cv/plot_process.py
 ```
 
 创建新的 Qwen2-VL 实验运行：

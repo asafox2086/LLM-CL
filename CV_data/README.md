@@ -9,9 +9,9 @@
 | 自然图像问答（VQAv2） | Answer the question briefly using the image. Is it cold outside? | no | yes |
 | 医学图像问答（VQA-RAD） | Answer the question briefly using the image. Are the lungs normal appearing? | No | No |
 
-![自然图像问答（VQAv2）](natural/vqav2/images/COCO_val2014_000000388829.jpg)
+![自然图像问答（VQAv2）](../sample/natural_vqav2_COCO_val2014_000000388829.jpg)
 
-![医学图像问答（VQA-RAD）](medical/vqa_rad/images/synpic29265.jpg)
+![医学图像问答（VQA-RAD）](../sample/medical_vqa_rad_synpic29265.jpg)
 
 问题、参考和模型回答保持原始英文；这是固定测试顺序的真实例子。自然图像的 yes/no、number、other 和医学的 OPEN/CLOSED 各类完整示例见 [实例报告](../summary_cv/examples.md)。
 

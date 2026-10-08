@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'exp'))
 from common import continual_metrics, write_json
 from render_report import build_report
+from publish_samples import publish_samples
 
 METHODS = ['seq_lora', 'migu_lora', 'olora', 'sapt_lora']
 NAMES = {'seq_lora': 'SeqLoRA', 'migu_lora': 'MIGU-LoRA', 'olora': 'O-LoRA', 'sapt_lora': 'SAPT-LoRA'}
@@ -123,6 +124,7 @@ def collect(run, output):
                 group = [t for t in tasks if TASK_NAMES[t][0]==domain]
                 domain_rows.append({'method':method,'domain':domain,'task_count':len(group),
                     **{k:sum(scores[-1][t][k] for t in group)/len(group) for k in SCORES}})
+    publish_samples(examples)
     lines = build_report(run, ROOT, examples, overview, domain_rows, rows, total_records, config)
     (output/'README.md').write_text('\n'.join(lines)+'\n')
     save_csv(output/'results.csv',overview,['method','status','AP','F.Rate','BWT','FWT'])
@@ -138,8 +140,8 @@ def collect(run, output):
         ex_lines += [f"## {index}. {example['category']}：{example['title']}", '',
             f"任务：`{task}`；实例：`{example['instance_id']}`。", '']
         if record.get('image'):
-            ex_lines += [f"![{example['title']}](../CV_data/{record['image']})", '',
-                f"图片：[`{record['image']}`](../CV_data/{record['image']})；视觉 token：{record['image_tokens']}。", '']
+            ex_lines += [f"![{example['title']}](../{example['display_image']})", '',
+                f"图片：[`{record['image']}`](../{example['display_image']})；视觉 token：{record['image_tokens']}。", '']
         ex_lines += ['输入：', '', fence(record['prompt']), '参考答案（去除完全重复的文字）：', '']
         for reference in dict.fromkeys(record['references']):ex_lines.append(fence(reference))
         if record.get('prompt_truncated'):

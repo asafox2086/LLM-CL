@@ -41,6 +41,14 @@ def build_report(run, root, examples, overview, domains, rows, total_records, co
     for row in overview:
         values=[f'{row[k]:.3f}' if isinstance(row.get(k),(int,float)) else '—' for k in ['AP','F.Rate','BWT','FWT']]
         lines.append(f"| {NAMES[row['method']]} | {row['status']} | "+' | '.join(values)+' |')
+    lines += ['', '## 每份报告能说明什么', '', '| 报告 | 能回答的问题 | 阅读时的边界 |', '|---|---|---|', '| [学习收益与保留](learning_gain.md) | 相同测试题学前→学后提高多少，新增答对的题后来保住多少？ | 量化测试集表现；区分恢复旧能力和超越基座，不给内部知识计数 |', '| [全过程](process.md) | 哪个阶段提高或退化，哪些任务/领域受影响？ | 曲线能定位变化，单条主线不能证明算法因果效果 |', '| [外部知识](knowledge_probe.md) | 未参与本次训练的通用/医学题表现是否变化？ | 固定 198 题小样本，非完整 MMLU 或全局知识量 |', '| [回答演变](answer_evolution.md) | 同一道题的文字回答怎样变化，分数变化是否合理？ | 每任务固定首例，用于解释，不代表任务平均 |', '| [完整实例](examples.md) | 每个任务和图像答案类别的输入、参考、实际回答是什么？ | 示例用于理解任务，不能代替总体指标 |', '| [论文指标对照](../paper/evaluation_and_process.md) | 哪些论文分析已复原，哪些还缺对照？ | 同计算结构不代表同数据、同评分或论文原始数值 |', '', '最终分数偏向“最后擅长什么”；学习量应先读学前→学后收益，再看相对基座的净收益与后续保留。上述报告按这三个问题分开呈现。', '']
+    lines += ['', '## 学习全过程与外部知识', '',
+        '每个阶段都复测同一批任务。下面同时展示固定全部任务、已学任务、旧任务切换冲击及未来任务变化，避免只看最终 FWT。', '',
+        '![四方法的完整学习轨迹](../sample/cv_trajectories.png)', '',
+        '[完整矩阵、领域与逐任务曲线](process.md) · [同一道题的十阶段回答](answer_evolution.md) · [论文指标对照](../paper/evaluation_and_process.md)', '',
+        '另外已用四方法的全部阶段 checkpoint 补测固定的 198 道外部 MMLU 学科题，共 7,920 条预测。它们不参与本次训练，作为通用与医学知识保留的小样本探针；不代表完整 MMLU 或全部知识。', '',
+        '![外部通用与医学知识逐阶段准确率](../sample/cv_external_knowledge.png)', '',
+        '[外部知识准确率、逐题答对/答错变化与固定评测协议](knowledge_probe.md)。', '']
     lines += ['', '## 指标怎样理解', '',
         '所有任务分数均为 0–100；多参考答案时，每项取与参考比较的最大值，再对固定测试样本平均。', '',
         '| 指标 | 含义 | 阅读方式 |', '|---|---|---|',
@@ -72,6 +80,6 @@ def build_report(run, root, examples, overview, domains, rows, total_records, co
         f'原始运行：[本次运行](../{run.relative_to(root)})。完整参数和方法适配见 [实验协议](../rules/004_qwen2vl_cv.md)。', '',
         '初始基座及每个学习阶段结束后，均复测全部九个任务，形成 10×9 矩阵。模型基座和视觉编码器冻结，训练 LoRA；图像的冻结特征缓存复用。每个训练更新保存优化器、学习率调度器、随机状态和样本游标，阶段 checkpoint 另含方法记忆。', '',
         '各方法目录内的 `config.json`、`data_manifest.json`、`environment.json` 和 `source/` 保留参数及实现指纹；`predictions/` 保留回答，`checkpoints/` 保留训练日志和恢复状态。', '',
-        '在仓库根目录刷新此报告：', '', '```bash', '.vision-env/bin/python summary_cv/collect.py', '```', '',
+        '在仓库根目录刷新此报告：', '', '```bash', '.vision-env/bin/python summary_cv/collect.py', '.vision-env/bin/python summary_cv/process.py', '.vision-env/bin/python summary_cv/reconstruct_metrics.py', '.vision-env/bin/python summary_cv/learning_gain.py', '.vision-env/bin/python summary_cv/collect_knowledge_probe.py', '.plot-env/bin/python summary_cv/plot_process.py', '.vision-env/bin/python summary_cv/verify_reports.py', '```', '',
         '启动与恢复命令、实现文件及日志位置见 [实验说明](../exp/README.md#实现流程与复现)。']
     return lines

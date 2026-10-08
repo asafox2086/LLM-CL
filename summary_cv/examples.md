@@ -237,9 +237,9 @@ Negative for acute abnormality.
 
 任务：`natural_vqav2`；实例：`vqav2_388829000`。
 
-![自然图像问答（VQAv2）](../CV_data/natural/vqav2/images/COCO_val2014_000000388829.jpg)
+![自然图像问答（VQAv2）](../sample/natural_vqav2_COCO_val2014_000000388829.jpg)
 
-图片：[`natural/vqav2/images/COCO_val2014_000000388829.jpg`](../CV_data/natural/vqav2/images/COCO_val2014_000000388829.jpg)；视觉 token：117。
+图片：[`natural/vqav2/images/COCO_val2014_000000388829.jpg`](../sample/natural_vqav2_COCO_val2014_000000388829.jpg)；视觉 token：117。
 
 输入：
 
@@ -270,9 +270,9 @@ yes
 
 任务：`natural_vqav2`；实例：`vqav2_343606000`。
 
-![自然图像问答（VQAv2） / number](../CV_data/natural/vqav2/images/COCO_val2014_000000343606.jpg)
+![自然图像问答（VQAv2） / number](../sample/natural_vqav2_COCO_val2014_000000343606.jpg)
 
-图片：[`natural/vqav2/images/COCO_val2014_000000343606.jpg`](../CV_data/natural/vqav2/images/COCO_val2014_000000343606.jpg)；视觉 token：117。
+图片：[`natural/vqav2/images/COCO_val2014_000000343606.jpg`](../sample/natural_vqav2_COCO_val2014_000000343606.jpg)；视觉 token：117。
 
 输入：
 
@@ -303,9 +303,9 @@ How many white birds?
 
 任务：`natural_vqav2`；实例：`vqav2_356949000`。
 
-![自然图像问答（VQAv2） / other](../CV_data/natural/vqav2/images/COCO_val2014_000000356949.jpg)
+![自然图像问答（VQAv2） / other](../sample/natural_vqav2_COCO_val2014_000000356949.jpg)
 
-图片：[`natural/vqav2/images/COCO_val2014_000000356949.jpg`](../CV_data/natural/vqav2/images/COCO_val2014_000000356949.jpg)；视觉 token：117。
+图片：[`natural/vqav2/images/COCO_val2014_000000356949.jpg`](../sample/natural_vqav2_COCO_val2014_000000356949.jpg)；视觉 token：117。
 
 输入：
 
@@ -336,9 +336,9 @@ spiky
 
 任务：`natural_vqav2`；实例：`vqav2_388829000`。
 
-![自然图像问答（VQAv2） / yes/no](../CV_data/natural/vqav2/images/COCO_val2014_000000388829.jpg)
+![自然图像问答（VQAv2） / yes/no](../sample/natural_vqav2_COCO_val2014_000000388829.jpg)
 
-图片：[`natural/vqav2/images/COCO_val2014_000000388829.jpg`](../CV_data/natural/vqav2/images/COCO_val2014_000000388829.jpg)；视觉 token：117。
+图片：[`natural/vqav2/images/COCO_val2014_000000388829.jpg`](../sample/natural_vqav2_COCO_val2014_000000388829.jpg)；视觉 token：117。
 
 输入：
 
@@ -369,9 +369,9 @@ yes
 
 任务：`medical_vqa_rad`；实例：`vqarad_0001`。
 
-![医学图像问答（VQA-RAD）](../CV_data/medical/vqa_rad/images/synpic29265.jpg)
+![医学图像问答（VQA-RAD）](../sample/medical_vqa_rad_synpic29265.jpg)
 
-图片：[`medical/vqa_rad/images/synpic29265.jpg`](../CV_data/medical/vqa_rad/images/synpic29265.jpg)；视觉 token：121。
+图片：[`medical/vqa_rad/images/synpic29265.jpg`](../sample/medical_vqa_rad_synpic29265.jpg)；视觉 token：121。
 
 输入：
 
@@ -398,9 +398,9 @@ No
 
 任务：`medical_vqa_rad`；实例：`vqarad_0001`。
 
-![医学图像问答（VQA-RAD） / CLOSED](../CV_data/medical/vqa_rad/images/synpic29265.jpg)
+![医学图像问答（VQA-RAD） / CLOSED](../sample/medical_vqa_rad_synpic29265.jpg)
 
-图片：[`medical/vqa_rad/images/synpic29265.jpg`](../CV_data/medical/vqa_rad/images/synpic29265.jpg)；视觉 token：121。
+图片：[`medical/vqa_rad/images/synpic29265.jpg`](../sample/medical_vqa_rad_synpic29265.jpg)；视觉 token：121。
 
 输入：
 
@@ -427,9 +427,9 @@ No
 
 任务：`medical_vqa_rad`；实例：`vqarad_0019`。
 
-![医学图像问答（VQA-RAD） / OPEN](../CV_data/medical/vqa_rad/images/synpic29265.jpg)
+![医学图像问答（VQA-RAD） / OPEN](../sample/medical_vqa_rad_synpic29265.jpg)
 
-图片：[`medical/vqa_rad/images/synpic29265.jpg`](../CV_data/medical/vqa_rad/images/synpic29265.jpg)；视觉 token：121。
+图片：[`medical/vqa_rad/images/synpic29265.jpg`](../sample/medical_vqa_rad_synpic29265.jpg)；视觉 token：121。
 
 输入：
 
