@@ -119,7 +119,7 @@ parts = ['# 医学实验：基线性能与训练过程对照',
     '所有表格由服务器已完成实验的原始结果生成。准确率单位为 %；增益、迁移和遗忘单位为百分点。不同题组各自比较固定基线。',
     '## 1. OmniMedVQA 诊断适配：与基线对比',
     'Qwen2-VL-2B-Instruct；视觉编码器冻结。原医学 LoRA 使用此前的 VQA-RAD 80 张训练图；新诊断 LoRA 从基础模型开始，使用本轮372张训练图、127张验证图，三个种子42/43/44。测试集为三个来源的131张留出图，每个来源选定四类。线性读出使用同一批标签，按来源各拟合一个分类器；LoRA 联合训练三个来源。',
-    table(['数据来源', '测试图', '基础模型', '原医学 LoRA', '新诊断 LoRA', '线性读出', '新−基础', '新−原 LoRA（95%区间）'],
+    table(['数据来源', '测试图', '基础模型', '原医学 LoRA', '本研究：诊断监督 LoRA', '本研究：线性读出', '新−基础', '新−原 LoRA（95%区间）'],
           [[r['source'],r['test_images'],num(r['base_accuracy']),num(r['old_medical_lora_accuracy']),num(r['adapted_lora_accuracy']),
             num(r['linear_readout_accuracy']),f"{r['gain_vs_base_pp']:+.2f}",
             f"{r['gain_vs_old_lora_pp']:+.2f} [{r['gain_vs_old_ci_low']:.2f}, {r['gain_vs_old_ci_high']:.2f}]" ] for r in baseline_rows]),
@@ -151,7 +151,7 @@ parts = ['# 医学实验：基线性能与训练过程对照',
     table(['方法','遗忘幅度 ↓','BWT ↑','FWT ↑'],[[r['method'],num(r['forgetting_pp']),num(r['BWT_pp']),num(r['FWT_pp'])] for r in cl_rows]),
     '遗忘幅度比较旧任务的历史最好成绩与最终成绩；负值表示最终成绩超过此前最好成绩。BWT比较刚学完与最终，FWT比较任务训练之前与基础模型。单种子结果按本轮观察解释。',
     '### 逐阶段：任务能力与外部知识变化',
-    '阶段0＝基础模型，1＝MedMCQA，2＝MedQA，3＝胸部，4＝头部，5＝腹部。旧任务变化比较相邻阶段中同一组此前已学任务，阶段0／1留空。',
+    '阶段0＝基础模型，1＝MedMCQA，2＝MedQA，3＝胸部，4＝头部，5＝腹部。旧任务变化比较相邻阶段中同一组此前已学任务，阶段0／1留空。每次先评测阶段s−1模型，按各方法设置学习当前任务，再评测阶段s模型；SAPT还有任务边界反思。两次使用相同旧任务测试题，先算逐任务“训练后−训练前”，再对旧任务等权平均。阶段2／3／4／5分别重测200／400／491／541道旧题，集合随阶段扩展。SeqLoRA阶段2：MedMCQA由45.00%降到44.00%，即同一200题由90题答对变成88题答对，对应−1.00个百分点。',
     table(['方法','阶段','五任务 AP','文字均分','图像均分','旧任务变化','医学知识','通用知识'],
         [[methods[r['method']],r['stage'],num(r['all_task_em']),num(r['medical_text_em']),num(r['medical_image_em']),
           num(r['old_task_delta']),num(r['medical_probe']),num(r['general_probe'])] for r in process]),
@@ -169,6 +169,28 @@ parts = ['# 医学实验：基线性能与训练过程对照',
     '\n'.join(f'- [{name}]({name})' for name in ['omnimed_baseline_comparison.csv','omnimed_training_process.csv',
         'omnimed_task_comparison.csv','medical_cl_baseline_comparison.csv','medical_cl_training_process.csv','medical_cl_learning_retention.csv']),
     '在服务器仓库根目录运行：\n\n```bash\n.plot-env/bin/python summary/build_medical_comparison.py\n```',
+]
+overall = baseline_rows[-1]
+assert overall['source'] == 'ALL'
+parts[2:2] = [
+    '## 方法名称、来源与训练设置',
+    table(['方法','来源／作用','训练设置','131图测试准确率'],[
+        ['基础模型','Qwen2-VL-2B-Instruct，固定初始基线','本轮无训练',num(overall['base_accuracy'])],
+        ['原医学 LoRA','前期 VQA-RAD 训练基线','80张图，普通rank-8',num(overall['old_medical_lora_accuracy'])],
+        ['本研究：诊断标签监督 LoRA','诊断语言端适配对照；普通LoRA结构','372张图，冻结视觉，语言q/v rank-8；3轮、3种子',num(overall['adapted_lora_accuracy'])],
+        ['本研究：冻结特征线性读出','检验固定视觉表示中的诊断标签可读出性','同372张图；视觉merger token均值，1536维；每来源一个岭回归四分类器',num(overall['linear_readout_accuracy'])]]),
+    'OmniMedVQA（CVPR 2024）提供医学图像、问答、标签和评测基准。诊断标签监督LoRA、线性读出及本轮数据划分由本研究设计。医学LoRA论文方法的完整复现对照尚未完成。rank-8指LoRA更新使用宽度为8的低秩分解。',
+    '诊断适配使用普通LoRA，改善来自本轮诊断标签监督与适配设置。它与四方法持续学习采用不同数据、预算和评测协议。下面分别呈现相应基线和能力变化。',
+]
+parts += [
+    '## A–D图与旧任务变化的核对入口',
+    '![纯医学持续学习A–D图](../sample/med/process_med.png)',
+    table(['面板／位置','指标及题组'],[
+        ['A／左上','固定600题的五任务等权平均准确率'],
+        ['B／右上','固定96道外部医学知识题准确率'],
+        ['C／左下','学习当前任务前后，同一组旧测试任务的平均准确率差；单位为百分点'],
+        ['D／右下','固定102道外部通用知识题准确率']]),
+    'C图的训练前后模型、每阶段旧任务列表、题数和实际数值见 [纯医学报告：C图实验设置](../summary_cv_med/README.md#c图的实验设置怎样测量旧任务受损)；[逐任务明细CSV](../summary_cv_med/old_task_impact_details.csv)。诊断适配的三个种子训练曲线和131图测试成绩列于本报告第2节；该实验的逐轮旧任务保留尚未测量。',
 ]
 (OUT / 'medical_research_comparison.md').write_text('\n\n'.join(parts)+'\n', encoding='utf-8')
 entry = OUT / 'README.md'

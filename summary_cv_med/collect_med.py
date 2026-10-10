@@ -41,14 +41,14 @@ def plot(process):
     for i,m in enumerate(METHODS):
         rows=[r for r in process if r['method']==m]
         if not rows:continue
-        for ax,key in zip(axes.flat,['all_task_em','old_task_delta','medical_probe','general_probe']):
+        for ax,key in zip(axes.flat,['all_task_em','medical_probe','old_task_delta','general_probe']):
             valid=[r for r in rows if r.get(key) is not None]
             if not valid:continue
             ax.plot([r['stage'] for r in valid],[r[key] for r in valid],color=colors[i],
                     marker=styles[i][0],linestyle=styles[i][1],label=NAMES[i],markersize=5)
-    for ax,title,ylabel in zip(axes.flat,['(a) Fixed five-task mean','(b) Previously learned task impact',
-                                          '(c) Held-out medical knowledge','(d) Held-out general knowledge'],
-                                 ['EM (%)','Change (percentage points)','Accuracy (%)','Accuracy (%)']):
+    for ax,title,ylabel in zip(axes.flat,['A  Fixed five-task mean','B  Held-out medical knowledge',
+                                          'C  Old-task change after current training','D  Held-out general knowledge'],
+                                 ['EM (%)','Accuracy (%)','Change (percentage points)','Accuracy (%)']):
         ax.set_title(title,fontsize=14);ax.set_xlabel('Completed medical tasks');ax.set_ylabel(ylabel)
         ax.set_xlim(-.15,5.15);ax.set_xticks(range(6));polish_axes(ax)
         if 'Change' in ylabel:
@@ -67,7 +67,7 @@ def collect():
     latest=read(ROOT/'exp/CV_result_med/latest.json');run=Path(latest['run']) if latest else None
     manifest=read(ROOT/'exp/CV_result_med/shared/manifest.json')
     OUT.mkdir(parents=True,exist_ok=True)
-    statusrows=[];allresults={};process=[];score_rows=[];gains=[];probe_rows=[]
+    statusrows=[];allresults={};process=[];score_rows=[];gains=[];probe_rows=[];impact_rows=[];impact_stages=[]
     for method,name in zip(METHODS,NAMES):
         output=run/method if run else None
         status=read(output/'status.json',{}) if output else {}
@@ -87,6 +87,20 @@ def collect():
             if stage>1 and len(results[stage-1])==5:
                 old=TASKS[:stage-1]
                 old_delta=sum(scores[t]['exact_match']-results[stage-1][t]['exact_match'] for t in old)/len(old)
+                details=[]
+                for t in old:
+                    before=results[stage-1][t]['exact_match'];after=scores[t]['exact_match']
+                    detail={'method':method,'stage':stage,'current_training_task':TASKS[stage-1],
+                            'old_test_task':t,'test_count':scores[t]['count'],
+                            'before_accuracy':before,'after_accuracy':after,'change_pp':after-before}
+                    impact_rows.append(detail);details.append(detail)
+                assert abs(sum(r['change_pp'] for r in details)/len(details)-old_delta)<1e-10
+                impact_stages.append({'method':method,'stage':stage,'current_training_task':TASKS[stage-1],
+                    'before_stage':stage-1,'after_stage':stage,'old_test_tasks':' ; '.join(old),
+                    'old_test_questions':sum(r['test_count'] for r in details),
+                    'old_task_macro_before':sum(r['before_accuracy'] for r in details)/len(details),
+                    'old_task_macro_after':sum(r['after_accuracy'] for r in details)/len(details),
+                    'old_task_delta_pp':old_delta})
             process.append({'method':method,'stage':stage,'all_task_em':sum(scores[t]['exact_match'] for t in TASKS)/5,
                             'medical_text_em':sum(scores[t]['exact_match'] for t in TASKS[:2])/2,
                             'medical_image_em':sum(scores[t]['exact_match'] for t in TASKS[2:])/3,
@@ -106,14 +120,33 @@ def collect():
     for filename,rows,fields in [('stage_scores.csv',score_rows,['method','stage','learned_task','task','exact_match','token_f1','rougeL','count']),
                                  ('process_metrics.csv',process,['method','stage','all_task_em','medical_text_em','medical_image_em','old_task_delta','medical_probe','general_probe']),
                                  ('learning_gain.csv',gains,['method','task','latest_stage','base','just_learned','latest','learning_gain','retained_gain','change_after_learning']),
-                                 ('knowledge_probe.csv',probe_rows,['method','stage','group','count','accuracy'])]:
+                                 ('knowledge_probe.csv',probe_rows,['method','stage','group','count','accuracy']),
+                                 ('old_task_impact_details.csv',impact_rows,['method','stage','current_training_task','old_test_task','test_count','before_accuracy','after_accuracy','change_pp']),
+                                 ('old_task_impact_stages.csv',impact_stages,['method','stage','current_training_task','before_stage','after_stage','old_test_tasks','old_test_questions','old_task_macro_before','old_task_macro_after','old_task_delta_pp'])]:
         with (OUT/filename).open('w') as handle:
             writer=csv.DictWriter(handle,fieldnames=fields,lineterminator='\n');writer.writeheader();writer.writerows(rows)
     write_json(OUT/'process_data.json',{'run':str(run) if run else None,'tasks':TASKS,'methods':METHODS,'rows':process})
     write_json(OUT/'latest.json',{'run':str(run) if run else None,'updated_utc':time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime())})
-    lines=['# 纯医学文字问答与图像问答 CL\n',
+    lines=['# 医学实验：持续学习与诊断读出适配\n',
            '从原始 Qwen2-VL-2B-Instruct 开始，依次学习 MedMCQA → MedQA → 胸部图像 → 头部图像 → 腹部图像。四方法使用同一数据和上一轮 LoRA 参数。只用医学 QA 训练；外部通用题仅用于测量知识变化。\n',
-           '## 先看五类真实示例\n']
+           '**总对照入口：** [基线性能、训练过程与方法来源](../summary/medical_research_comparison.md)。本页先列本研究的诊断适配，再列四方法纯医学持续学习；两组实验各有固定测试集。\n']
+    adaptation=read(ROOT/'analysis/omnimed_20261009/adaptation_summary.json',{})
+    if adaptation.get('results'):
+        overall=next(r for r in adaptation['results'] if r['source']=='ALL')
+        a=overall['image'];b=overall['no_image']
+        base=a['base_accuracy']
+        lines.extend(['## 本研究方法：诊断读出与语言端适配\n',
+            '数据来自 **OmniMedVQA（CVPR 2024）**。固定131张测试图，来自 ISIC2019、Retinal OCT-C8、Fitzpatrick17k，每个来源四类。所有方法共享视觉基座；准确率为 %，提升为百分点。\n',
+            table(['方法／来源','训练设置','测试准确率','相对基础模型','去图像准确率'],[
+                ['基础模型／Qwen2-VL','本轮无训练',number(base),'0.00',number(b['base_accuracy'])],
+                ['原医学 LoRA／前期实验','VQA-RAD 80张训练图；普通rank-8',number(a['old_medical_lora_accuracy']),number(a['old_medical_lora_accuracy']-base),number(b['old_medical_lora_accuracy'])],
+                ['本研究：诊断标签监督 LoRA','372张图；语言q/v普通rank-8；冻结视觉；3轮；3种子',number(a['new_lora_accuracy']),number(a['new_lora_accuracy']-base),number(b['new_lora_accuracy'])],
+                ['本研究：冻结特征线性读出','同372张图；每来源一个线性分类器；冻结视觉',number(a['linear_accuracy']),number(a['linear_accuracy']-base),'不适用：输入是图像特征']]),
+            '诊断标签监督 LoRA 使用普通 LoRA 结构，本研究改变的是诊断标签监督和适配实验设置。线性读出用于检验固定视觉特征中可恢复的类别信息。新 LoRA 相对原 LoRA 提升17.05个百分点，95%区间[7.38, 26.72]。线性读出按来源单独训练，LoRA联合训练，结构差异纳入结果解释。\n',
+            '**论文与方法的对应：** OmniMedVQA 论文提供数据和问答基准；上述线性读出、诊断监督 LoRA 及划分由本研究设计。医学 LoRA 论文方法的复现对照尚未完成。\n',
+            '**训练过程：** 同一127张验证图上，第1／2／3轮的三种子均值为40.16%／42.26%／44.09%；各种子由验证集选择第3轮后，在131张测试图得到47.84%。本轮诊断适配尚未测量逐轮旧任务保留和外部知识，因此A–D图展示下面的四方法持续学习实验。\n',
+            '[完整诊断实验报告](../analysis/omnimed_20261009/README.md) · [逐轮训练CSV](../summary/omnimed_training_process.csv)\n'])
+    lines.append('## 纯医学持续学习：五类真实示例\n')
     examples=[]
     # Fixed first test row per task, independently of model score.
     if manifest:
@@ -160,7 +193,28 @@ def collect():
                   table(['方法','阶段','医学 (%)','通用 (%)'],[[NAMES[METHODS.index(r['method'])],r['stage'],number(r['medical_probe']),number(r['general_probe'])] for r in process])])
     if plot(process):
         lines.extend(['![纯医学 CL 全过程](../sample/med/process_med.png)\n',
-                      '**图注｜纯医学 CL 全过程。** 横轴是已学医学任务数（0＝基座，1＝MedMCQA，2＝MedQA，3＝胸部，4＝头部，5＝腹部）。左上是固定五任务宏平均 EM；左下是切换到新任务后、同一组此前已学任务的平均准确率变化，负值表示受损；右上和右下分别为固定医学、通用知识题的准确率。准确率单位为 %，变化单位为百分点。蓝色圆点＝SeqLoRA，绿色菱形＝MIGU，红色三角＝O-LoRA，紫色方块＝SAPT。只画已完成评估，不插值；单种子无误差带。[矢量 PDF](figures/process_med.pdf)。\n'])
+                      '**图注｜A–D：四种方法在纯医学持续学习中的变化。** 横轴0＝基础模型，1＝学完MedMCQA，2＝学完MedQA，3＝学完胸部，4＝学完头部，5＝学完腹部。\n',
+                      table(['面板／位置','测量什么','如何读'],[
+                          ['A／左上：总体任务表现','固定600题，先算五个任务各自准确率，再等权平均','纵轴为准确率%；越高表示固定任务平均表现越好'],
+                          ['B／右上：医学知识','每阶段重测固定96道外部医学MMLU题','纵轴为准确率%；观察医学知识题的变化'],
+                          ['C／左下：旧任务变化','训练当前任务之后−之前，在同一组已学任务测试题上的宏平均准确率','纵轴为百分点；负值表示本次训练后旧任务准确率下降'],
+                          ['D／右下：通用知识','每阶段重测固定102道外部通用MMLU题','纵轴为准确率%；观察通用知识题的变化']]),
+                      '曲线：蓝色圆点＝SeqLoRA，绿色菱形＝MIGU-LoRA，红色三角＝O-LoRA，紫色方块＝SAPT-LoRA。折线连接已测阶段，单种子；[矢量PDF](figures/process_med.pdf)。\n',
+                      '### C图的实验设置：怎样测量旧任务受损\n',
+                      '对每种方法，在阶段s−1保存模型并评测固定测试题；按各方法设置学习当前任务的训练集，完成阶段s，再用更新后的模型重测完全相同的旧任务测试题。SAPT还按其实现执行任务边界反思。测试题不参与训练。取每个旧任务准确率的“训练后−训练前”，再对旧任务等权平均。训练超参数及各任务样本量见本页“数据规模、实现与恢复”。\n',
+                      table(['横轴阶段','本次训练','比较模型状态','测量哪些旧任务','固定旧测试题数'],[
+                          [2,'MedQA','学完MedMCQA → 学完MedQA','MedMCQA',200],
+                          [3,'胸部图像','学完MedQA → 学完胸部','MedMCQA、MedQA',400],
+                          [4,'头部图像','学完胸部 → 学完头部','MedMCQA、MedQA、胸部',491],
+                          [5,'腹部图像','学完头部 → 学完腹部','MedMCQA、MedQA、胸部、头部',541]]),
+                      '阶段0／1尚无可测的旧任务训练前后变化，C图留空。不同阶段的旧任务集合随学习增加，各点对应表中各自的集合。\n',
+                      r'$$\Delta_{\mathrm{old}}(s)=\frac{1}{s-1}\sum_{t=1}^{s-1}\left[R_{s,t}-R_{s-1,t}\right],\quad s=2,3,4,5.$$'+'\n',
+                      '**具体例子：** SeqLoRA 在阶段2训练MedQA；旧任务只有MedMCQA的同一200道测试题。训练前准确率45.00%（90题正确），训练后44.00%（88题正确），所以C图阶段2为44.00−45.00＝**−1.00个百分点**。这测量本次更新后旧任务的准确率下降；因果解释受单种子和固定题组范围限制。\n',
+                      table(['方法','本次训练','旧任务平均：训练前','训练后','C图变化／百分点'],
+                          [[NAMES[METHODS.index(r['method'])],SHORT[TASKS.index(r['current_training_task'])],
+                            number(r['old_task_macro_before']),number(r['old_task_macro_after']),number(r['old_task_delta_pp'])]
+                           for r in impact_stages]),
+                      '[逐任务训练前后明细CSV](old_task_impact_details.csv) · [C图每阶段汇总CSV](old_task_impact_stages.csv)。\n'])
     lines.extend(['## 指标与实验边界\n',
                   'MedMCQA/MedQA 主指标为严格答案字母准确率（允许末尾句点或右括号）；图像主指标为规范化 EM，并另存 Token F1、ROUGE-L 及 OPEN/CLOSED 分组。图像短答案同义表达可能被 EM 判错，ROUGE-L 只是文字重合。AP 为五任务等权均分；图像三个器官共享一个数据集，因此也分别报告文字/图像领域均分，不能称为三个独立数据集。\n',
                   r'令 $R_{s,t}$ 为学完 $s$ 个任务后在任务 $t$ 上的准确率（百分数），$T=5$。'+'\n',
