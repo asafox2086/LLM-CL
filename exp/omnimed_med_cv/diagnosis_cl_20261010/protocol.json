@@ -1,0 +1,18 @@
+{
+  "id": "diagnosis_cl_20261010",
+  "base": "Qwen/Qwen2-VL-2B-Instruct, original local weights",
+  "sequence": ["ISIC2019", "Retinal OCT-C8", "Fitzpatrick 17k"],
+  "selection": "analysis/omnimed_20261009/selection.json",
+  "train_dev_test_counts": [[137,46,48],[129,45,46],[106,36,37]],
+  "seeds": [42,43,44],
+  "lora": {"rank":8,"alpha":32,"dropout":0.1,"targets":["q_proj","v_proj"]},
+  "main_training": {"epochs_per_task":3,"effective_batch":8,"micro_batch":2,"lr":0.0001,"scheduler":"linear decay reset each task, zero warmup","weight_decay":0,"gradient_clip":1,"precision":"fp16, float32 adapters","seeded_sample_order_shared":true},
+  "selection_rule": "earliest epoch with highest current-task dev candidate accuracy; no test-based selection",
+  "metrics": ["same four-candidate accuracy","balanced accuracy","case-insensitive raw first-token accuracy","task acquisition","retention","backward transfer","peak forgetting"],
+  "evaluation": "all three fixed test tasks at stages 0,1,2,3; paired image and no-image conditions for language methods",
+  "extra_compute": {"EWC":"32 balanced train-example backward passes after tasks 1 and 2, lambda=5000", "KD":"previous-stage full-vocabulary teacher outputs on current training examples, temperature=2, lambda=0.5", "SAPT":"existing implementation, 1 generator epoch and 128 pseudo examples at first two boundaries"},
+  "MedQwen_port": {"experts":8,"top_k":2,"total_rank":8,"expert_rank":1,"rho":10,"eta":0.1,"scaling":"sqrt(3*input_dim*eta/expert_rank)","residual":"mean initialized expert contribution, equation 21","balance_weight":0.001,"targets":"same q_proj/v_proj as all language methods","source":"paper equations; independent implementation","capacity_controls":["same 8-expert zero-initialized MoELoRA","ordinary rank-13 LoRA, near matched total adapter parameters"]},
+  "RA_LDL_port": {"features":"mean frozen Qwen merger tokens, 1536 dimensions; same images and visual resolution","optional_backbone_adapter":"omitted to preserve common frozen vision encoder","random_anchor_dimension":3840,"projection_rank":64,"first_session_epochs":3,"incremental_update":"cumulative Gram and class statistics, closed form ridge","candidate_set":"same four source-specific options for primary metric; all seen classes also recorded","source":"official code at pinned revision; feature-level port","test_selection":false},
+  "interpretation_limits": "one three-task sequence, 372 train images, synthetic diagnosis questions, no patient identifiers; algorithm ports rather than original-paper reproduction",
+  "implementation_freeze": "record hashes of code and data before first execution; modifications require auditable new version and rerun affected comparisons"
+}

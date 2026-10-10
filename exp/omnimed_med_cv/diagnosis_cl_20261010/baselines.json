@@ -24,7 +24,7 @@
       "implementation": "independent paper-based port to Qwen2-VL-2B; official repository currently contains README only",
       "required_components": ["spectral expert initialization", "sparse routing", "residual compensation", "optimization scaling", "paper load-balancing objective"],
       "fairness_control": "ordinary LoRA control matched to measured adapter capacity; report router overhead and active capacity separately",
-      "measurement_status": "not_run"
+      "measurement_status": "running"
     },
     {
       "method": "RA-LDL",
@@ -35,7 +35,7 @@
       "implementation": "port official algorithm to Qwen image features; declare pooling and feature extractor changes",
       "required_components": ["random anchors", "first-session low-rank projection", "decorrelated analytic classifier", "incremental sufficient statistics"],
       "fairness_control": "same source images and labels; same task-specific candidate set as LoRA evaluation; report classifier predictions separately from language token predictions",
-      "measurement_status": "not_run"
+      "measurement_status": "completed_three_seeds"
     }
   ]
 }
