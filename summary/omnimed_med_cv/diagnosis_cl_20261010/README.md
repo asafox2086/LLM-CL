@@ -2,6 +2,21 @@
 
 2026-10-10 已在服务器启动。运行快照见 [run_status.json](run_status.json)，完成种子的指标见 [baseline_comparison.csv](baseline_comparison.csv)，逐阶段成绩见 [stage_scores.csv](stage_scores.csv)。`completed_seeds < 3` 的行仅为阶段性结果。
 
+## 本研究的方法与数据来源
+
+此前诊断标签监督 LoRA 在本次顺序训练中对应 `seq_lora`。这是本研究的诊断监督设置与普通顺序 LoRA 基准。此前逐来源线性读出另扩展为 `own_inc_readout`：一个共享 12 类线性读出，累积训练数据的二阶统计量，解析更新；均值、标准差和正则系数只在首任务训练/验证集确定，之后冻结。该方法使用标准增量岭回归，本报告不据此主张算法新颖性。它是确定性方法，执行一次，表中的 `planned_seeds=1`；其他方法执行三个种子。其优化器、输出形式和存储统计量分别报告。
+
+数据由 [OmniMedVQA（CVPR 2024）](https://openaccess.thecvf.com/content/CVPR2024/html/Hu_OmniMedVQA_A_New_Large-Scale_Comprehensive_Evaluation_Benchmark_for_Medical_LVLM_CVPR_2024_paper.html) 中三个图像来源构造，使用现有已核对官方标注的固定子集；任务问题为诊断类别四选一。
+
+| 顺序 | 图像来源 | 图像类型 | 训练 | 验证 | 测试 |
+|---|---|---|---:|---:|---:|
+| 1 | ISIC2019 | 皮肤镜 | 137 | 46 | 48 |
+| 2 | Retinal OCT-C8 | 视网膜 OCT | 129 | 45 | 46 |
+| 3 | Fitzpatrick17k | 皮肤临床照片 | 106 | 36 | 37 |
+| 合计 | 每来源选取四类 | 固定子集 | 372 | 127 | 131 |
+
+具体类别及每张图的划分保存于 `analysis/omnimed_20261009/selection.json`。这些样本数量是本实验实际规模；三个原始数据集的完整版具有各自更大的规模。
+
 ## 方法与统一设置
 
 基座为同一份 Qwen2-VL-2B-Instruct。图像编码器冻结，使用同一缓存、同一视觉分辨率和 1536 维图像特征。任务顺序固定为 ISIC2019 → Retinal OCT-C8 → Fitzpatrick17k。训练/验证/测试数量分别为 137/46/48、129/45/46、106/36/37；图像哈希跨划分重叠为零。这是现有固定子集上的算法对照。

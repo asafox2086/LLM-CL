@@ -3,12 +3,13 @@ from pathlib import Path
 import numpy as np
 exp=Path(__file__).resolve().parent;root=exp.parents[2]
 dest=root/'summary/omnimed_med_cv/diagnosis_cl_20261010';dest.mkdir(parents=True,exist_ok=True)
-methods=['seq_lora','migu_lora','olora','sapt_lora','ewc_lora','kd_lora','medqwen','moe_lora','seq_capacity','ra_ldl']
+methods=['seq_lora','migu_lora','olora','sapt_lora','ewc_lora','kd_lora','medqwen','moe_lora','seq_capacity','ra_ldl','own_inc_readout']
 names=['ISIC2019','Retinal OCT-C8','Fitzpatrick 17k']
 progress=[];table=[];stage_table=[]
 for method in methods:
     complete=[];parameter_counts=[]
-    for seed in [42,43,44]:
+    planned=[42] if method=='own_inc_readout' else [42,43,44]
+    for seed in planned:
         out=exp/'runs'/f'{method}_seed{seed}';status_path=out/'status.json'
         status=json.loads(status_path.read_text()) if status_path.exists() else {'status':'queued'}
         progress.append({**status,'method':method,'seed':seed})
@@ -26,7 +27,8 @@ for method in methods:
                                  acquisition=np.mean(diag),backward_transfer=np.mean(np.array(final[:2])-diag[:2]),forgetting=np.mean(forgetting)))
         param=out/'selection_stage3.json'
         if param.exists():parameter_counts.append(json.loads(param.read_text()))
-    row=dict(method=method,completed_seeds=len(complete),planned_seeds=3,status='completed' if len(complete)==3 else 'in_progress')
+    row=dict(method=method,completed_seeds=len(complete),planned_seeds=len(planned),status='completed' if len(complete)==len(planned) else 'in_progress',
+             role='本研究：增量线性读出（确定性）' if method=='own_inc_readout' else '本研究诊断监督的顺序LoRA / CL基准' if method=='seq_lora' else '论文方法基线或容量对照')
     for key in ['macro_accuracy','balanced_accuracy','acquisition','backward_transfer','forgetting']:
         vals=[r[key] for r in complete]
         row[key+'_mean']=float(np.mean(vals)) if vals else ''

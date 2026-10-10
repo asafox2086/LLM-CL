@@ -1,5 +1,5 @@
 {
-  "snapshot_unix_time": 1791616245.8969505,
+  "snapshot_unix_time": 1791616591.5953054,
   "runs": [
     {
       "status": "completed",
@@ -10,21 +10,24 @@
       "stages": 3
     },
     {
-      "status": "running",
+      "status": "completed",
       "pid": 2296440,
       "method": "seq_lora",
       "seed": 43,
-      "time": 1791616240.4836092,
-      "phase": "training",
-      "stage": 1,
-      "epoch": 2,
-      "step": 35,
-      "total": 54
+      "time": 1791616489.1523767,
+      "stages": 3
     },
     {
-      "status": "queued",
+      "status": "running",
+      "pid": 2298076,
       "method": "seq_lora",
-      "seed": 44
+      "seed": 44,
+      "time": 1791616585.566221,
+      "phase": "training",
+      "stage": 1,
+      "epoch": 3,
+      "step": 40,
+      "total": 54
     },
     {
       "status": "completed",
@@ -35,21 +38,22 @@
       "stages": 3
     },
     {
-      "status": "running",
+      "status": "completed",
       "pid": 2296419,
       "method": "migu_lora",
       "seed": 43,
-      "time": 1791616238.1665246,
-      "phase": "training",
-      "stage": 1,
-      "epoch": 3,
-      "step": 45,
-      "total": 54
+      "time": 1791616460.7464497,
+      "stages": 3
     },
     {
-      "status": "queued",
+      "status": "running",
+      "pid": 2297937,
       "method": "migu_lora",
-      "seed": 44
+      "seed": 44,
+      "time": 1791616586.4962745,
+      "phase": "training",
+      "stage": 2,
+      "task": "Retinal OCT-C8"
     },
     {
       "status": "queued",
@@ -67,19 +71,24 @@
       "seed": 44
     },
     {
-      "status": "running",
+      "status": "completed",
       "pid": 2295256,
       "method": "sapt_lora",
       "seed": 42,
-      "time": 1791616241.1266987,
-      "phase": "training",
-      "stage": 3,
-      "task": "Fitzpatrick 17k"
+      "time": 1791616364.1252704,
+      "stages": 3
     },
     {
-      "status": "queued",
+      "status": "running",
+      "pid": 2297660,
       "method": "sapt_lora",
-      "seed": 43
+      "seed": 43,
+      "time": 1791616580.7038112,
+      "phase": "training",
+      "stage": 2,
+      "epoch": 1,
+      "step": 5,
+      "total": 51
     },
     {
       "status": "queued",
@@ -121,12 +130,11 @@
       "pid": 2295710,
       "method": "medqwen",
       "seed": 42,
-      "time": 1791616238.592179,
-      "phase": "training",
-      "stage": 1,
-      "epoch": 3,
-      "step": 40,
-      "total": 54
+      "time": 1791616589.5813203,
+      "phase": "evaluation",
+      "stage": 2,
+      "task": "Fitzpatrick 17k",
+      "condition": "image"
     },
     {
       "status": "queued",
@@ -188,6 +196,14 @@
       "seed": 44,
       "time": 1791616013.570837,
       "stages": 3
+    },
+    {
+      "status": "completed",
+      "method": "own_inc_readout",
+      "seed": 42,
+      "deterministic": true,
+      "stages": 3,
+      "time": 1791616540.4815493
     }
   ]
 }
