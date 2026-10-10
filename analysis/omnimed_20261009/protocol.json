@@ -1,0 +1,30 @@
+{
+  "dataset": "OmniMedVQA, CVPR 2024",
+  "official_archive": "https://huggingface.co/datasets/foreverbeliever/OmniMedVQA",
+  "image_transport": "mtybilly/OmniMedVQA question_type/test, all 16 shards; every question/options/answer/image_path must match official metadata exactly",
+  "pool_n": 17919,
+  "pool_unique_images": 17601,
+  "official_metadata_n": 127995,
+  "primary_n": 1024,
+  "primary_counts": {
+    "Disease Diagnosis": 512,
+    "Anatomy Identification": 128,
+    "Modality Recognition": 128,
+    "Other Biological Attributes": 128,
+    "Lesion Grading": 128
+  },
+  "checkpoint": "base Qwen2-VL-2B-Instruct plus existing VQA-RAD SFT_r8 seeds42/43/44; no OmniMedVQA tuning of these models",
+  "visual_tokens": 128,
+  "primary_metric": "candidate letter accuracy; casefold greedy first answer token accuracy separately",
+  "image_control": "same questions and options, remove image",
+  "matched_n": 128,
+  "readout": "frozen mean pooled 1536-dimensional merger output; ridge classifier, lambda selected on custom dev; balanced per-class deterministic image SHA splits; label-shuffle control",
+  "hypothesis_scope": "A successful readout shows recoverable dataset-label information in frozen features. It does not establish that the language model already recognizes clinically sufficient findings.",
+  "limitations": [
+    "Repacked test subset, not full official benchmark",
+    "Patient IDs unavailable; SHA split cannot guarantee patient separation",
+    "Synthetic questions based on source classification labels; some ask non-image-determinable diagnoses/stages",
+    "Readout is fitted with extra labeled examples; adaptation benefit is not an equal-data algorithm comparison"
+  ],
+  "script_sha256": "b3ffaea049797a1ee26eb59e9ddc452b2337272dd3d7adec199b06fbe924b574"
+}

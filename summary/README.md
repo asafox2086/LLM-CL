@@ -1,5 +1,8 @@
 # 语言实验报告：示例、效果与指标
 
+<!-- medical-research-comparison -->
+**医学研究对照表：** [基线性能、逐轮训练能力、四种 LoRA 持续学习与知识保留](medical_research_comparison.md)。含可下载CSV和原始结果链接。
+
 这里报告 T5-Large 在七个通用语言任务上连续学习，以及接着学习两个医学语言任务的效果。四方法均已完成；含图像的 Qwen2-VL 实验见 [summary_cv](../summary_cv/README.md)。
 
 ## 先看七个任务的真实示例

@@ -1,0 +1,29 @@
+{
+  "script_sha256": "0993706f914d4a051e66faa655d914281bde63c345bf21776d2cb7f878e54a32",
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "epochs": 3,
+  "train_n": 372,
+  "dev_n": 127,
+  "test_n": 131,
+  "rank": 8,
+  "alpha": 32,
+  "targets": [
+    "q_proj",
+    "v_proj"
+  ],
+  "lr": 0.0001,
+  "weight_decay": 0.0,
+  "clip": 1.0,
+  "batch": 8,
+  "microbatch": 4,
+  "loss": "CE option letter plus EOS",
+  "selection": "best pooled dev candidate accuracy among epochs1/2/3, ties earliest",
+  "training_labels": "Exactly the same images and diagnostic category labels used by linear readouts; joint LoRA over three sources",
+  "test_scope": "Only custom held-out image split; no claim about the full benchmark or patient separation",
+  "timing": "Follow-up initiated after inspecting frozen readout results; exploratory confirmation, no test hyperparameter selection",
+  "execution_repair": "Microbatch-1 execution pilot stopped during first epoch; restarted all seeds from base with microbatch4 for throughput, effective batch unchanged; pilot logs retained separately"
+}
