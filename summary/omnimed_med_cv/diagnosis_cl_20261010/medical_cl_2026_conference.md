@@ -2,6 +2,15 @@
 
 核对日期：2026-10-10。
 
+用户已确定 **MedQwen、RA-LDL 均作为本实验基线**。注册信息保存在 `exp/omnimed_med_cv/diagnosis_cl_20261010/baselines.json`，源码版本与文件校验记录保存在同目录 `source_audit.json`。
+
+| 新增基线 | 对照实现 | 本三任务序列成绩 |
+|---|---|---|
+| MedQwen（CVPR 2026） | 在统一 Qwen2-VL-2B 上按论文移植谱 LoRA 专家；增加容量匹配的普通 LoRA 对照 | 未测 |
+| RA-LDL（ICLR 2026） | 官方算法移植到同一 Qwen 的图像特征；明确特征池化和分类读出变化 | 未测 |
+
+两行均加入主对比表，分别标明输出形式、参数容量和额外计算；测试时使用同一批图像和候选标签。原论文成绩与本实验成绩分栏保存。
+
 ## 与 Qwen＋LoRA 最贴近的论文：MedQwen
 
 **Sparse Spectral LoRA: Routed Experts for Medical VLMs**，CVPR 2026 主会议，35351–35362 页。

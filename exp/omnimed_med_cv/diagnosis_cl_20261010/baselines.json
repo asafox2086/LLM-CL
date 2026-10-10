@@ -1,0 +1,41 @@
+{
+  "experiment": "diagnosis_cl_20261010",
+  "base_model": "Qwen/Qwen2-VL-2B-Instruct",
+  "data_manifest": "analysis/omnimed_20261009/selection.json",
+  "task_order": ["ISIC2019", "Retinal OCT-C8", "Fitzpatrick 17k"],
+  "comparison_rules": {
+    "identical_splits": true,
+    "identical_test_images_and_candidate_labels": true,
+    "evaluate_all_tasks_after_each_task": true,
+    "test_set_used_for_selection": false,
+    "report_accuracy_and_balanced_accuracy": true,
+    "report_acquisition_retention_and_forgetting": true,
+    "report_trainable_stored_and_active_parameters": true,
+    "report_extra_training_compute_and_memory": true,
+    "implementation_changes_require_explicit_labels": true
+  },
+  "added_baselines": [
+    {
+      "method": "MedQwen",
+      "paper": "Sparse Spectral LoRA: Routed Experts for Medical VLMs",
+      "venue": "CVPR 2026 main conference",
+      "repository": "https://github.com/IMPACT-L/MedQwen.git",
+      "revision": "96e57b932ab0ed49b77f0249ec49f1e86a00d30e",
+      "implementation": "independent paper-based port to Qwen2-VL-2B; official repository currently contains README only",
+      "required_components": ["spectral expert initialization", "sparse routing", "residual compensation", "optimization scaling", "paper load-balancing objective"],
+      "fairness_control": "ordinary LoRA control matched to measured adapter capacity; report router overhead and active capacity separately",
+      "measurement_status": "not_run"
+    },
+    {
+      "method": "RA-LDL",
+      "paper": "Random Anchors with Low-rank Decorrelated Learning: A Minimalist Pipeline for Class-Incremental Medical Image Classification",
+      "venue": "ICLR 2026 conference",
+      "repository": "https://github.com/CUHK-BMEAI/RA-LDL.git",
+      "revision": "3630a3d2ff894e9bf5bc34fff8f3d6468d242327",
+      "implementation": "port official algorithm to Qwen image features; declare pooling and feature extractor changes",
+      "required_components": ["random anchors", "first-session low-rank projection", "decorrelated analytic classifier", "incremental sufficient statistics"],
+      "fairness_control": "same source images and labels; same task-specific candidate set as LoRA evaluation; report classifier predictions separately from language token predictions",
+      "measurement_status": "not_run"
+    }
+  ]
+}
