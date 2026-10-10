@@ -139,11 +139,12 @@ def collect():
             '数据来自 **OmniMedVQA（CVPR 2024）**。固定131张测试图，来自 ISIC2019、Retinal OCT-C8、Fitzpatrick17k，每个来源四类。所有方法共享视觉基座；准确率为 %，提升为百分点。\n',
             table(['方法／来源','训练设置','测试准确率','相对基础模型','去图像准确率'],[
                 ['基础模型／Qwen2-VL','本轮无训练',number(base),'0.00',number(b['base_accuracy'])],
-                ['原医学 LoRA／前期实验','VQA-RAD 80张训练图；普通rank-8',number(a['old_medical_lora_accuracy']),number(a['old_medical_lora_accuracy']-base),number(b['old_medical_lora_accuracy'])],
+                ['自训练医学 LoRA 对照／前期实验','VQA-RAD 80张训练图；普通rank-8',number(a['old_medical_lora_accuracy']),number(a['old_medical_lora_accuracy']-base),number(b['old_medical_lora_accuracy'])],
+                ['医学论文方法基线／缺失','具体方法尚未选定并复现','未测','未测','未测'],
                 ['本研究：诊断标签监督 LoRA','372张图；语言q/v普通rank-8；冻结视觉；3轮；3种子',number(a['new_lora_accuracy']),number(a['new_lora_accuracy']-base),number(b['new_lora_accuracy'])],
                 ['本研究：冻结特征线性读出','同372张图；每来源一个线性分类器；冻结视觉',number(a['linear_accuracy']),number(a['linear_accuracy']-base),'不适用：输入是图像特征']]),
             '诊断标签监督 LoRA 使用普通 LoRA 结构，本研究改变的是诊断标签监督和适配实验设置。线性读出用于检验固定视觉特征中可恢复的类别信息。新 LoRA 相对原 LoRA 提升17.05个百分点，95%区间[7.38, 26.72]。线性读出按来源单独训练，LoRA联合训练，结构差异纳入结果解释。\n',
-            '**论文与方法的对应：** OmniMedVQA 论文提供数据和问答基准；上述线性读出、诊断监督 LoRA 及划分由本研究设计。医学 LoRA 论文方法的复现对照尚未完成。\n',
+            '**医学基线的来源与缺失：** 表中的30.79%来自本研究前期训练的VQA-RAD LoRA。OmniMedVQA论文提供数据和问答基准；医学论文方法在同一131张图上的复现基线尚未完成，表中明确记为“未测”。47.84%和63.36%分别对应本研究的诊断监督LoRA和线性读出。当前提升参照的是基础模型或自训练医学LoRA对照，对医学论文方法的提升尚无测量。\n',
             '**训练过程：** 同一127张验证图上，第1／2／3轮的三种子均值为40.16%／42.26%／44.09%；各种子由验证集选择第3轮后，在131张测试图得到47.84%。本轮诊断适配尚未测量逐轮旧任务保留和外部知识，因此A–D图展示下面的四方法持续学习实验。\n',
             '[完整诊断实验报告](../analysis/omnimed_20261009/README.md) · [逐轮训练CSV](../summary/omnimed_training_process.csv)\n'])
     lines.append('## 纯医学持续学习：五类真实示例\n')
