@@ -1,136 +1,163 @@
-# 2024–2026 顶会持续学习论文索引
+# 2024–2026 顶会大语言模型持续学习论文
 
-检索及下载核验日期：2026-10-11。收录 28 篇已在正式会议主会发表的论文：持续预训练 6 篇、持续微调 20 篇、持续对齐 2 篇；其中 CVPR 21 篇、ICCV 1 篇、ICML 1 篇、ICLR 4 篇、NeurIPS 1 篇。仅收录经 CVF / 正式会议 proceedings 页面核实的主会论文，不将 workshop、Findings 或未录用预印本当成主会论文。年份按会议发表年份。
+逐篇检索与正文核验日期：**2026-10-11**。年份按正式会议届次，而非 arXiv 首次上传年份或网站上线年份。仅收录已进入正式主会论文集的论文，不含 workshop、Findings、仅录用名单或未发表预印本。
 
-## 目录与分类口径
+共 **29 篇**：持续预训练 6 篇、持续微调 **20 篇**、持续对齐 3 篇。年份：2026 年 21 篇、2025 年 7 篇、2024 年 1 篇。会议：CVPR 4 篇、ICCV 4 篇、ACL 7 篇、ICML 6 篇、ICLR 6 篇、NeurIPS 1 篇、AAAI 1 篇。各列按年份降序，同年优先 CVPR / ICCV。
+
+## 目录
 
 ```text
 paper/
 ├── README.md
+├── verification_audit.md          # 逐篇发表与任务核验；旧清单处理记录
 ├── continual_learning_manifest.json
 ├── collect_cl_papers.py
-├── pre_training/                  # 持续预训练：6
-├── pre_finetuning/                # 持续微调：20
-│   ├── method_replay/             # 回放：6
-│   ├── method_regularization/     # 正则化：8
-│   └── method_architecture/       # 架构：6
-└── pre_alignment/                # 持续偏好／奖励对齐：2
+├── pre_training/                  # 6
+├── pre_finetuning/                # 20
+│   ├── method_replay/             # 4
+│   ├── method_regularization/     # 6
+│   └── method_architecture/       # 10
+└── pre_alignment/                # 3
 ```
 
-这里的 `/paper` 指仓库内的 `paper/`；服务器实际路径为 `/data2/liyapeng_grp/program/LLMCL/paper`。原有医学论文文件保留，未计入本次 28 篇。
+服务器路径：`/data2/liyapeng_grp/program/LLMCL/paper`。原有顶层医学论文不计入本清单。
 
-- **持续预训练**：用自监督／语言建模／图文对比目标继续训练。区分严格序贯多域预训练与领域、上下文、模型范式扩展型 continued pretraining；后者不能直接视为抗遗忘算法。
-- **持续微调**：广义任务监督的序贯适配，包括 LLM、VLM、ViT、扩散模型、压缩、分割和在线 CL。并非全部为 LLM 指令微调；表格逐条标出适用对象。通用在线训练策略作为方法参考单独注明。
-- **持续对齐**：偏好／奖励／RLHF 的持续或迭代更新。CPPO 是明确的动态偏好持续学习；SeRA 是论文明确描述的 continual alignment 迭代自举扩展阅读，不等价于标准多任务遗忘评测。普通视觉特征／跨模态表征对齐不据此归入本类。本轮未收录已核验的 2026 主会偏好持续对齐论文，避免以同名表征对齐或审稿稿件补数。
-- **微调小类**按主要抗遗忘机制单选归档：回放涵盖真实样本／实例／生成样本；正则化涵盖权重约束、蒸馏、梯度投影和子空间约束；架构涵盖参数隔离、专家／Adapter／Prompt 和动态容量分配。混合方法在机制栏列次要机制。该归档是整理者基于摘要及方法的判断，不是作者统一分类。
+## 收录与分类口径
+
+- **模型与任务**：文本 LLM 或带 LLM 解码器的生成式 MLLM，实际研究持续适配、序贯指令学习或持续能力保持。排除 CLIP / ViT 分类、图像分割、扩散模型、普通视觉自监督，以及仅把分类标签转成文本的 LLM 实验。混合评测论文必须包含实质性的生成实验；本表只以生成、代码、数学、开放式问答、摘要或描述任务为收录依据。
+- **持续预训练**：使用语言建模或知识蒸馏目标继续训练。Diffract、Data Mixing Agent 等研究领域适配与能力保持；藏语 CPT、Cite Pretrain、Glyph 属语言、知识或上下文扩展型 CPT，**不能据此宣称具有标准序贯多任务抗遗忘实验**。DiSC 是对已后训练模型进行文档知识更新，按训练目标归入此类。
+- **持续微调**：序贯监督指令或任务适配。回放、正则化、架构按主要抗遗忘机制归档，每篇只存一份；混合机制在详情中注明。ECA 的 alignment 是跨模态映射适配，归入微调的架构类。
+- **持续对齐**：LifeAlign / CPPO 是序贯偏好或奖励对齐；HPA 研究已安全对齐模型在持续视觉指令微调中的安全保持，属于持续安全对齐保持，**不是新的 RLHF 算法**。
+- **较新优先**：优先 2026，适当保留 2025 的代表方法。2024 仅保留明确研究动态偏好持续 RLHF 的 CPPO。
 
 ## 方法 × 方向二维表
 
-横轴按方向分组：持续微调下分三类；各列从上到下列出方法与论文。同一行中的不同列不代表配对或性能比较。点击方法名打开正式论文页面。
+横轴为方向，持续微调下设三个子类；纵向列出方法（点击方法名查看正式发表页面）。同一行不同列之间没有对应关系。
 
 <table>
 <thead>
-<tr><th rowspan="2">持续预训练（6）</th><th colspan="3">持续微调（20）</th><th rowspan="2">持续对齐（2）</th></tr>
-<tr><th>基于回放（6）</th><th>基于正则化（8）</th><th>基于架构（6）</th></tr>
+<tr><th rowspan="2">持续预训练（6）</th><th colspan="3">持续微调（20）</th><th rowspan="2">持续对齐（3）</th></tr>
+<tr><th>基于回放（4）</th><th>基于正则化（6）</th><th>基于架构（10）</th></tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="https://openaccess.thecvf.com/content/CVPR2024/html/Ye_Continual_Self-supervised_Learning_Towards_Universal_Multi-modal_Medical_Data_Representation_Learning_CVPR_2024_paper.html" title="Continual Self-supervised Learning: Towards Universal Multi-modal Medical Data Representation Learning"><strong>MedCoSS</strong></a><br>CVPR 2024<br><a href="pre_training/2024_CVPR_MedCoSS.pdf">PDF</a></td>
-<td><a href="https://openaccess.thecvf.com/content/CVPR2024/html/Duan_Towards_Backward-Compatible_Continual_Learning_of_Image_Compression_CVPR_2024_paper.html" title="Towards Backward-Compatible Continual Learning of Image Compression"><strong>Knowledge replay</strong></a><br>CVPR 2024<br><a href="pre_finetuning/method_replay/2024_CVPR_Knowledge_replay.pdf">PDF</a></td>
-<td><a href="https://openaccess.thecvf.com/content/CVPR2024/html/Liang_InfLoRA_Interference-Free_Low-Rank_Adaptation_for_Continual_Learning_CVPR_2024_paper.html" title="InfLoRA: Interference-Free Low-Rank Adaptation for Continual Learning"><strong>InfLoRA</strong></a><br>CVPR 2024<br><a href="pre_finetuning/method_regularization/2024_CVPR_InfLoRA.pdf">PDF</a></td>
-<td><a href="https://openaccess.thecvf.com/content/CVPR2024/html/Yu_Boosting_Continual_Learning_of_Vision-Language_Models_via_Mixture-of-Experts_Adapters_CVPR_2024_paper.html" title="Boosting Continual Learning of Vision-Language Models via Mixture-of-Experts Adapters"><strong>MoE-Adapters / DDAS</strong></a><br>CVPR 2024<br><a href="pre_finetuning/method_architecture/2024_CVPR_MoE_Adapters_DDAS.pdf">PDF</a></td>
+<td><a href="https://aclanthology.org/2026.acl-long.427/" title="Data Mixing Agent: Learning to Re-weight Domains for Continual Pre-training"><strong>Data Mixing Agent</strong></a><br>ACL 2026<br><a href="pre_training/2026_ACL_Data_Mixing_Agent.pdf">PDF</a></td>
+<td><a href="https://openaccess.thecvf.com/content/CVPR2026/html/Gao_Re-evaluating_Continual_VQA_Toward_Fair_and_Robust_Evaluation_for_Multimodal_CVPR_2026_paper.html" title="Re-evaluating Continual VQA: Toward Fair and Robust Evaluation for Multimodal Continual Learning"><strong>MaDQ / UCo-VQA</strong></a><br>CVPR 2026<br><a href="pre_finetuning/method_replay/2026_CVPR_MaDQ_UCo_VQA.pdf">PDF</a></td>
+<td><a href="https://openaccess.thecvf.com/content/CVPR2026/html/Li_Multimodal_Continual_Instruction_Tuning_with_Dynamic_Gradient_Guidance_CVPR_2026_paper.html" title="Multimodal Continual Instruction Tuning with Dynamic Gradient Guidance"><strong>DGG</strong></a><br>CVPR 2026<br><a href="pre_finetuning/method_regularization/2026_CVPR_DGG.pdf">PDF</a></td>
+<td><a href="https://aclanthology.org/2026.acl-long.1474/" title="PASs-MoE: Mitigating Misaligned Co-drift among Router and Experts via Pathway Activation Subspaces for Continual Learning"><strong>PASs-MoE</strong></a><br>ACL 2026<br><a href="pre_finetuning/method_architecture/2026_ACL_PASs_MoE.pdf">PDF</a></td>
+<td><a href="https://openaccess.thecvf.com/content/CVPR2026/html/Wang_Harmonious_Parameter_Adaptation_in_Continual_Visual_Instruction_Tuning_for_Safety-Aligned_CVPR_2026_paper.html" title="Harmonious Parameter Adaptation in Continual Visual Instruction Tuning for Safety-Aligned MLLMs"><strong>HPA</strong></a><br>CVPR 2026<br><a href="pre_alignment/2026_CVPR_HPA.pdf">PDF</a></td>
+</tr>
+<tr>
+<td><a href="https://aclanthology.org/2026.acl-long.1722/" title="Glyph: Scaling Context Windows via Visual-Text Compression"><strong>Glyph</strong></a><br>ACL 2026<br><a href="pre_training/2026_ACL_Glyph.pdf">PDF</a></td>
+<td><a href="https://aclanthology.org/2026.acl-long.1144/" title="FOREVER: Forgetting Curve-Inspired Memory Replay for Language Model Continual Learning"><strong>FOREVER</strong></a><br>ACL 2026<br><a href="pre_finetuning/method_replay/2026_ACL_FOREVER.pdf">PDF</a></td>
+<td><a href="https://aclanthology.org/2026.acl-long.1244/" title="Harmonizing the Past, Present, and Future: A Null-Space Constrained Region-Specific Method for Continual Learning in LLMs"><strong>PaRSP</strong></a><br>ACL 2026<br><a href="pre_finetuning/method_regularization/2026_ACL_PaRSP.pdf">PDF</a></td>
+<td><a href="https://proceedings.iclr.cc/paper_files/paper/2026/hash/0dedca10992d34035c9a9776254cfa8c-Abstract-Conference.html" title="Merge before Forget: A Single LoRA Continual Learning via Continual Merging"><strong>SLAO / Merge before Forget</strong></a><br>ICLR 2026<br><a href="pre_finetuning/method_architecture/2026_ICLR_SLAO_Merge_before_Forget.pdf">PDF</a></td>
+<td><a href="https://ojs.aaai.org/index.php/AAAI/article/view/40428" title="LifeAlign: Lifelong Alignment for Large Language Models with Memory-Augmented Focalized Preference Optimization"><strong>LifeAlign</strong></a><br>AAAI 2026<br><a href="pre_alignment/2026_AAAI_LifeAlign.pdf">PDF</a><br>作者扩展版</td>
+</tr>
+<tr>
+<td><a href="https://aclanthology.org/2026.acl-long.1866/" title="From Curated Data to Scalable Models: Continual Pre-training of Dense and MoE Large Language Models for Tibetan"><strong>Tibetan Dense / MoE CPT</strong></a><br>ACL 2026<br><a href="pre_training/2026_ACL_Tibetan_Dense_MoE_CPT.pdf">PDF</a></td>
+<td><a href="https://proceedings.iclr.cc/paper_files/paper/2026/hash/17fc58b1ba92abbb72c5f457e140d851-Abstract-Conference.html" title="Forget Forgetting: Continual Learning in a World of Abundant Memory"><strong>Weight Space Consolidation</strong></a><br>ICLR 2026<br><a href="pre_finetuning/method_replay/2026_ICLR_Weight_Space_Consolidation.pdf">PDF</a></td>
+<td><a href="https://aclanthology.org/2026.acl-long.334/" title="Spectral Disentanglement: Rank-Aware Task Adaptation for Rehearsal-free Continual Learning in LLMs"><strong>SpaRTA</strong></a><br>ACL 2026<br><a href="pre_finetuning/method_regularization/2026_ACL_SpaRTA.pdf">PDF</a></td>
+<td><a href="https://proceedings.mlr.press/v306/wang26le.html" title="CoPE: Continual Probe-guided Expansion for Large Vision-Language Models"><strong>CoPE</strong></a><br>ICML 2026<br><a href="pre_finetuning/method_architecture/2026_ICML_CoPE.pdf">PDF</a></td>
 <td><a href="https://proceedings.iclr.cc/paper_files/paper/2024/hash/6246f93ebf4f2d76ad2bcb3158220d34-Abstract-Conference.html" title="CPPO: Continual Learning for Reinforcement Learning with Human Feedback"><strong>CPPO</strong></a><br>ICLR 2024<br><a href="pre_alignment/2024_ICLR_CPPO.pdf">PDF</a></td>
 </tr>
 <tr>
-<td><a href="https://openaccess.thecvf.com/content/ICCV2025/html/Liu_CoSMIC_Continual_Self-supervised_Learning_for_Multi-Domain_Medical_Imaging_via_Conditional_ICCV_2025_paper.html" title="CoSMIC: Continual Self-supervised Learning for Multi-Domain Medical Imaging via Conditional Mutual Information Maximization"><strong>CoSMIC</strong></a><br>ICCV 2025<br><a href="pre_training/2025_ICCV_CoSMIC.pdf">PDF</a></td>
-<td><a href="https://openaccess.thecvf.com/content/CVPR2025/html/Yin_Beyond_Background_Shift_Rethinking_Instance_Replay_in_Continual_Semantic_Segmentation_CVPR_2025_paper.html" title="Beyond Background Shift: Rethinking Instance Replay in Continual Semantic Segmentation"><strong>EIR</strong></a><br>CVPR 2025<br><a href="pre_finetuning/method_replay/2025_CVPR_EIR.pdf">PDF</a></td>
-<td><a href="https://openaccess.thecvf.com/content/CVPR2025/html/Li_One-for-More_Continual_Diffusion_Model_for_Anomaly_Detection_CVPR_2025_paper.html" title="One-for-More: Continual Diffusion Model for Anomaly Detection"><strong>One-for-More</strong></a><br>CVPR 2025<br><a href="pre_finetuning/method_regularization/2025_CVPR_One_for_More.pdf">PDF</a></td>
-<td><a href="https://openaccess.thecvf.com/content/CVPR2024/html/Gao_Consistent_Prompting_for_Rehearsal-Free_Continual_Learning_CVPR_2024_paper.html" title="Consistent Prompting for Rehearsal-Free Continual Learning"><strong>CPrompt</strong></a><br>CVPR 2024<br><a href="pre_finetuning/method_architecture/2024_CVPR_CPrompt.pdf">PDF</a></td>
-<td><a href="https://proceedings.iclr.cc/paper_files/paper/2025/hash/fdcf2565ea86530d65b3622c06d90841-Abstract-Conference.html" title="SeRA: Self-Reviewing and Alignment of LLMs using Implicit Reward Margins"><strong>SeRA</strong></a><br>ICLR 2025<br><a href="pre_alignment/2025_ICLR_SeRA.pdf">PDF</a></td>
-</tr>
-<tr>
-<td><a href="https://openaccess.thecvf.com/content/CVPR2026/html/Zhuang_CHIPS_Efficient_CLIP_Adaptation_via_Curvature-aware_Hybrid_Influence-based_Data_Selection_CVPR_2026_paper.html" title="CHIPS: Efficient CLIP Adaptation via Curvature-aware Hybrid Influence-based Data Selection"><strong>CHIPS</strong></a><br>CVPR 2026<br><a href="pre_training/2026_CVPR_CHIPS.pdf">PDF</a></td>
-<td><a href="https://openaccess.thecvf.com/content/CVPR2025/html/Kang_Do_Your_Best_and_Get_Enough_Rest_for_Continual_Learning_CVPR_2025_paper.html" title="Do Your Best and Get Enough Rest for Continual Learning"><strong>View-batch model</strong></a><br>CVPR 2025<br><a href="pre_finetuning/method_replay/2025_CVPR_View_batch_model.pdf">PDF</a></td>
-<td><a href="https://openaccess.thecvf.com/content/CVPR2025/html/Guo_ConceptGuard_Continual_Personalized_Text-to-Image_Generation_with_Forgetting_and_Confusion_Mitigation_CVPR_2025_paper.html" title="ConceptGuard: Continual Personalized Text-to-Image Generation with Forgetting and Confusion Mitigation"><strong>ConceptGuard</strong></a><br>CVPR 2025<br><a href="pre_finetuning/method_regularization/2025_CVPR_ConceptGuard.pdf">PDF</a></td>
-<td><a href="https://openaccess.thecvf.com/content/CVPR2025/html/Liu_Enhancing_Online_Continual_Learning_with_Plug-and-Play_State_Space_Model_and_CVPR_2025_paper.html" title="Enhancing Online Continual Learning with Plug-and-Play State Space Model and Class-Conditional Mixture of Discretization"><strong>S6MOD</strong></a><br>CVPR 2025<br><a href="pre_finetuning/method_architecture/2025_CVPR_S6MOD.pdf">PDF</a></td>
+<td><a href="https://proceedings.iclr.cc/paper_files/paper/2026/hash/528f0a943a54903939e77509f874d8e8-Abstract-Conference.html" title="Cite Pretrain: Retrieval-Free Knowledge Attribution for Large Language Models"><strong>Cite Pretrain / Active Indexing</strong></a><br>ICLR 2026<br><a href="pre_training/2026_ICLR_Cite_Pretrain_Active_Indexing.pdf">PDF</a></td>
+<td><a href="https://proceedings.neurips.cc/paper_files/paper/2025/hash/087b346ca4d6dd6fcd0663ff6c9a6b69-Abstract-Conference.html" title="Self-Evolving Pseudo-Rehearsal for Catastrophic Forgetting with Task Similarity in LLMs"><strong>SERS</strong></a><br>NeurIPS 2025<br><a href="pre_finetuning/method_replay/2025_NeurIPS_SERS.pdf">PDF</a></td>
+<td><a href="https://proceedings.iclr.cc/paper_files/paper/2026/hash/22620cccae29bbb3f18d226ea0320ff5-Abstract-Conference.html" title="Sculpting Subspaces: Constrained Full Fine-Tuning in LLMs for Continual Learning"><strong>OSFT</strong></a><br>ICLR 2026<br><a href="pre_finetuning/method_regularization/2026_ICLR_OSFT.pdf">PDF</a></td>
+<td><a href="https://proceedings.mlr.press/v306/kong26h.html" title="ECA: Efficient Continual Alignment for Open-Ended Image-to-Text Generation"><strong>ECA</strong></a><br>ICML 2026<br><a href="pre_finetuning/method_architecture/2026_ICML_ECA.pdf">PDF</a></td>
 <td>—</td>
 </tr>
 <tr>
-<td><a href="https://proceedings.mlr.press/v235/fu24d.html" title="Data Engineering for Scaling Language Models to 128K Context"><strong>128K CPT</strong></a><br>ICML 2024<br><a href="pre_training/2024_ICML_128K_CPT.pdf">PDF</a></td>
-<td><a href="https://openaccess.thecvf.com/content/CVPR2025/html/Wu_Synthetic_Data_is_an_Elegant_GIFT_for_Continual_Vision-Language_Models_CVPR_2025_paper.html" title="Synthetic Data is an Elegant GIFT for Continual Vision-Language Models"><strong>GIFT</strong></a><br>CVPR 2025<br><a href="pre_finetuning/method_replay/2025_CVPR_GIFT.pdf">PDF</a></td>
-<td><a href="https://openaccess.thecvf.com/content/CVPR2024/html/Gong_Continual_Segmentation_with_Disentangled_Objectness_Learning_and_Class_Recognition_CVPR_2024_paper.html" title="Continual Segmentation with Disentangled Objectness Learning and Class Recognition"><strong>CoMasTRe</strong></a><br>CVPR 2024<br><a href="pre_finetuning/method_regularization/2024_CVPR_CoMasTRe.pdf">PDF</a></td>
-<td><a href="https://openaccess.thecvf.com/content/CVPR2026/html/Savadikar_CHEEM_Continual_Learning_by_Reuse_New_Adapt_and_Skip_-_CVPR_2026_paper.html" title="CHEEM: Continual Learning by Reuse, New, Adapt and Skip - A Hierarchical Exploration-Exploitation Approach"><strong>CHEEM</strong></a><br>CVPR 2026<br><a href="pre_finetuning/method_architecture/2026_CVPR_CHEEM.pdf">PDF</a></td>
+<td><a href="https://proceedings.mlr.press/v306/padmanabhan26a.html" title="Updating Parametric Knowledge with Context Distillation Retains Post-Training Capabilities"><strong>DiSC</strong></a><br>ICML 2026<br><a href="pre_training/2026_ICML_DiSC.pdf">PDF</a></td>
+<td>—</td>
+<td><a href="https://proceedings.mlr.press/v306/xia26j.html" title="Adversarial Latent Embedding Repair for LLM Continual Learning"><strong>ALER</strong></a><br>ICML 2026<br><a href="pre_finetuning/method_regularization/2026_ICML_ALER.pdf">PDF</a></td>
+<td><a href="https://proceedings.mlr.press/v306/xu26cj.html" title="Hyper-LLaVA: Hyperbolic Uncertainty-aware Modality-Balanced Routing for Multimodal Continual Instruction Tuning"><strong>Hyper-LLaVA</strong></a><br>ICML 2026<br><a href="pre_finetuning/method_architecture/2026_ICML_Hyper_LLaVA.pdf">PDF</a></td>
 <td>—</td>
 </tr>
 <tr>
-<td><a href="https://proceedings.iclr.cc/paper_files/paper/2025/hash/0fa81c3f0d57f95b8776de3a248ef0ed-Abstract-Conference.html" title="Scaling Diffusion Language Models via Adaptation from Autoregressive Models"><strong>DiffuGPT / DiffuLLaMA</strong></a><br>ICLR 2025<br><a href="pre_training/2025_ICLR_DiffuGPT_DiffuLLaMA.pdf">PDF</a></td>
-<td><a href="https://openaccess.thecvf.com/content/CVPR2026/html/Chen_Smart_Replay_Adaptive_Scheduling_of_Memory_Rehearsal_for_Computational_Resource-Aware_CVPR_2026_paper.html" title="Smart Replay: Adaptive Scheduling of Memory Rehearsal for Computational Resource-Aware Incremental Learning"><strong>Smart Replay</strong></a><br>CVPR 2026<br><a href="pre_finetuning/method_replay/2026_CVPR_Smart_Replay.pdf">PDF</a></td>
-<td><a href="https://openaccess.thecvf.com/content/CVPR2026/html/Gong_Learning_from_Itself_Mining_Internal_Knowledge_from_Vision_Language_Models_CVPR_2026_paper.html" title="Learning from Itself: Mining Internal Knowledge from Vision Language Models for Continual Learning"><strong>LfI</strong></a><br>CVPR 2026<br><a href="pre_finetuning/method_regularization/2026_CVPR_LfI.pdf">PDF</a></td>
-<td><a href="https://openaccess.thecvf.com/content/CVPR2026/html/Chen_Parameter-efficient_Continual_Learning_for_Enhancing_Plasticity_without_Forgetting_under_Limited_CVPR_2026_paper.html" title="Parameter-efficient Continual Learning for Enhancing Plasticity without Forgetting under Limited Model Capacity"><strong>GRAPA</strong></a><br>CVPR 2026<br><a href="pre_finetuning/method_architecture/2026_CVPR_GRAPA.pdf">PDF</a></td>
+<td><a href="https://proceedings.mlr.press/v306/borodin26a.html" title="Diffract: Spectral View of LLM Domain Adaptation"><strong>Diffract</strong></a><br>ICML 2026<br><a href="pre_training/2026_ICML_Diffract.pdf">PDF</a></td>
 <td>—</td>
-</tr>
-<tr>
-<td><a href="https://proceedings.iclr.cc/paper_files/paper/2025/hash/cc721384c26c0bdff3ec31a7de31d8d5-Abstract-Conference.html" title="Mix-CPT: A Domain Adaptation Framework via Decoupling Knowledge Learning and Format Alignment"><strong>Mix-CPT</strong></a><br>ICLR 2025<br><a href="pre_training/2025_ICLR_Mix_CPT.pdf">PDF</a></td>
-<td><a href="https://openaccess.thecvf.com/content/CVPR2026/html/Gao_Re-evaluating_Continual_VQA_Toward_Fair_and_Robust_Evaluation_for_Multimodal_CVPR_2026_paper.html" title="Re-evaluating Continual VQA: Toward Fair and Robust Evaluation for Multimodal Continual Learning"><strong>UCo-VQA baseline</strong></a><br>CVPR 2026<br><a href="pre_finetuning/method_replay/2026_CVPR_UCo_VQA_baseline.pdf">PDF</a></td>
-<td><a href="https://openaccess.thecvf.com/content/CVPR2026/html/Liu_Elastic_Weight_Consolidation_Done_Right_for_Continual_Learning_CVPR_2026_paper.html" title="Elastic Weight Consolidation Done Right for Continual Learning"><strong>EWC Done Right</strong></a><br>CVPR 2026<br><a href="pre_finetuning/method_regularization/2026_CVPR_EWC_Done_Right.pdf">PDF</a></td>
-<td><a href="https://openaccess.thecvf.com/content/CVPR2026/html/Nejatimanzari_Sparse_Spectral_LoRA_Routed_Experts_for_Medical_VLMs_CVPR_2026_paper.html" title="Sparse Spectral LoRA: Routed Experts for Medical VLMs"><strong>MedQwen / Sparse Spectral LoRA</strong></a><br>CVPR 2026<br><a href="pre_finetuning/method_architecture/2026_CVPR_MedQwen_Sparse_Spectral_LoRA.pdf">PDF</a></td>
+<td><a href="https://proceedings.iclr.cc/paper_files/paper/2025/hash/74fc5575632191d96881d8015f79dde3-Abstract-Conference.html" title="Unlocking the Power of Function Vectors for Characterizing and Mitigating Catastrophic Forgetting in Continual Instruction Tuning"><strong>FV-guided Training</strong></a><br>ICLR 2025<br><a href="pre_finetuning/method_regularization/2025_ICLR_FV_guided_Training.pdf">PDF</a></td>
+<td><a href="https://openaccess.thecvf.com/content/CVPR2025/html/Huai_CL-MoE_Enhancing_Multimodal_Large_Language_Model_with_Dual_Momentum_Mixture-of-Experts_CVPR_2025_paper.html" title="CL-MoE: Enhancing Multimodal Large Language Model with Dual Momentum Mixture-of-Experts for Continual Visual Question Answering"><strong>CL-MoE</strong></a><br>CVPR 2025<br><a href="pre_finetuning/method_architecture/2025_CVPR_CL_MoE.pdf">PDF</a></td>
 <td>—</td>
 </tr>
 <tr>
 <td>—</td>
 <td>—</td>
-<td><a href="https://openaccess.thecvf.com/content/CVPR2024/html/Wang_Improving_Plasticity_in_Online_Continual_Learning_via_Collaborative_Learning_CVPR_2024_paper.html" title="Improving Plasticity in Online Continual Learning via Collaborative Learning"><strong>CCL-DC</strong></a><br>CVPR 2024<br><a href="pre_finetuning/method_regularization/2024_CVPR_CCL_DC.pdf">PDF</a></td>
 <td>—</td>
+<td><a href="https://openaccess.thecvf.com/content/ICCV2025/html/Tong_Any-SSR_How_Recursive_Least_Squares_Works_in_Continual_Learning_of_ICCV_2025_paper.html" title="Any-SSR: How Recursive Least Squares Works in Continual Learning of Large Language Model"><strong>Any-SSR</strong></a><br>ICCV 2025<br><a href="pre_finetuning/method_architecture/2025_ICCV_Any_SSR.pdf">PDF</a></td>
 <td>—</td>
 </tr>
 <tr>
 <td>—</td>
 <td>—</td>
-<td><a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/b0bc711f48724237b38823c4d9cee10b-Abstract-Conference.html" title="Learn more, but bother less: parameter efficient continual learning"><strong>Learn more, but bother less</strong></a><br>NeurIPS 2024<br><a href="pre_finetuning/method_regularization/2024_NeurIPS_Learn_more_but_bother_less.pdf">PDF</a></td>
 <td>—</td>
+<td><a href="https://openaccess.thecvf.com/content/ICCV2025/html/Guo_Federated_Continual_Instruction_Tuning_ICCV_2025_paper.html" title="Federated Continual Instruction Tuning"><strong>FCIT</strong></a><br>ICCV 2025<br><a href="pre_finetuning/method_architecture/2025_ICCV_FCIT.pdf">PDF</a></td>
+<td>—</td>
+</tr>
+<tr>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td><a href="https://openaccess.thecvf.com/content/ICCV2025/html/Jin_Instruction-Grounded_Visual_Projectors_for_Continual_Learning_of_Generative_Vision-Language_Models_ICCV_2025_paper.html" title="Instruction-Grounded Visual Projectors for Continual Learning of Generative Vision-Language Models"><strong>MVP / Instruction-Grounded Visual Projectors</strong></a><br>ICCV 2025<br><a href="pre_finetuning/method_architecture/2025_ICCV_MVP_Instruction_Grounded_Visual_Projectors.pdf">PDF</a></td>
+<td>—</td>
+</tr>
+<tr>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td><a href="https://openaccess.thecvf.com/content/ICCV2025/html/Wang_SMoLoRA_Exploring_and_Defying_Dual_Catastrophic_Forgetting_in_Continual_Visual_ICCV_2025_paper.html" title="SMoLoRA: Exploring and Defying Dual Catastrophic Forgetting in Continual Visual Instruction Tuning"><strong>SMoLoRA</strong></a><br>ICCV 2025<br><a href="pre_finetuning/method_architecture/2025_ICCV_SMoLoRA.pdf">PDF</a></td>
 <td>—</td>
 </tr>
 </tbody>
 </table>
 
-<details>
-<summary>展开论文完整标题、分类依据与适用对象</summary>
+## 逐篇详情
 
-| 方法 / 论文 | 会议·年份 | 分类依据 / 适用对象 |
-|---|---|---|
-| **MedCoSS** — [Continual Self-supervised Learning: Towards Universal Multi-modal Medical Data Representation Learning](https://openaccess.thecvf.com/content/CVPR2024/html/Ye_Continual_Self-supervised_Learning_Towards_Universal_Multi-modal_Medical_Data_Representation_Learning_CVPR_2024_paper.html) | CVPR 2024 | 跨模态自监督预训练；回放、特征蒸馏和 mixup；医学多模态序贯预训练 |
-| **CoSMIC** — [CoSMIC: Continual Self-supervised Learning for Multi-Domain Medical Imaging via Conditional Mutual Information Maximization](https://openaccess.thecvf.com/content/ICCV2025/html/Liu_CoSMIC_Continual_Self-supervised_Learning_for_Multi-Domain_Medical_Imaging_via_Conditional_ICCV_2025_paper.html) | ICCV 2025 | 条件互信息最大化和 Anatomy-Guided Calibration；医学多域序贯自监督预训练 |
-| **CHIPS** — [CHIPS: Efficient CLIP Adaptation via Curvature-aware Hybrid Influence-based Data Selection](https://openaccess.thecvf.com/content/CVPR2026/html/Zhuang_CHIPS_Efficient_CLIP_Adaptation_via_Curvature-aware_Hybrid_Influence-based_Data_Selection_CVPR_2026_paper.html) | CVPR 2026 | 曲率和影响函数驱动的数据选择；CLIP 域持续预训练；单域扩展型 CPT |
-| **128K CPT** — [Data Engineering for Scaling Language Models to 128K Context](https://proceedings.mlr.press/v235/fu24d.html) | ICML 2024 | 领域平衡与长文本上采样；长上下文能力扩展型 CPT，非多任务遗忘专用方法 |
-| **DiffuGPT / DiffuLLaMA** — [Scaling Diffusion Language Models via Adaptation from Autoregressive Models](https://proceedings.iclr.cc/paper_files/paper/2025/hash/0fa81c3f0d57f95b8776de3a248ef0ed-Abstract-Conference.html) | ICLR 2025 | 通过持续预训练从自回归模型适配扩散语言模型；模型范式转换型 CPT，非多任务遗忘专用方法 |
-| **Mix-CPT** — [Mix-CPT: A Domain Adaptation Framework via Decoupling Knowledge Learning and Format Alignment](https://proceedings.iclr.cc/paper_files/paper/2025/hash/cc721384c26c0bdff3ec31a7de31d8d5-Abstract-Conference.html) | ICLR 2025 | 混合领域文本、通用指令和对齐数据，解耦知识与格式；领域适配型 CPT |
-| **Knowledge replay** — [Towards Backward-Compatible Continual Learning of Image Compression](https://openaccess.thecvf.com/content/CVPR2024/html/Duan_Towards_Backward-Compatible_Continual_Learning_of_Image_Compression_CVPR_2024_paper.html) | CVPR 2024 | 知识回放；兼有模型架构设计；预训练图像压缩模型的序贯微调 |
-| **EIR** — [Beyond Background Shift: Rethinking Instance Replay in Continual Semantic Segmentation](https://openaccess.thecvf.com/content/CVPR2025/html/Yin_Beyond_Background_Shift_Rethinking_Instance_Replay_in_Continual_Semantic_Segmentation_CVPR_2025_paper.html) | CVPR 2025 | 实例存储与粘贴回放，缓解背景漂移；持续语义分割 |
-| **View-batch model** — [Do Your Best and Get Enough Rest for Continual Learning](https://openaccess.thecvf.com/content/CVPR2025/html/Kang_Do_Your_Best_and_Get_Enough_Rest_for_Continual_Learning_CVPR_2025_paper.html) | CVPR 2025 | 调节样本再训练间隔；兼有自监督学习；通用持续学习训练策略（非专门 LLM 微调） |
-| **GIFT** — [Synthetic Data is an Elegant GIFT for Continual Vision-Language Models](https://openaccess.thecvf.com/content/CVPR2025/html/Wu_Synthetic_Data_is_an_Elegant_GIFT_for_Continual_Vision-Language_Models_CVPR_2025_paper.html) | CVPR 2025 | 扩散生成合成样本；兼有蒸馏和权重正则化；VLM 持续微调 |
-| **Smart Replay** — [Smart Replay: Adaptive Scheduling of Memory Rehearsal for Computational Resource-Aware Incremental Learning](https://openaccess.thecvf.com/content/CVPR2026/html/Chen_Smart_Replay_Adaptive_Scheduling_of_Memory_Rehearsal_for_Computational_Resource-Aware_CVPR_2026_paper.html) | CVPR 2026 | 在计算预算下自适应调度回放比例；资源受限增量学习（通用训练策略） |
-| **UCo-VQA baseline** — [Re-evaluating Continual VQA: Toward Fair and Robust Evaluation for Multimodal Continual Learning](https://openaccess.thecvf.com/content/CVPR2026/html/Gao_Re-evaluating_Continual_VQA_Toward_Fair_and_Robust_Evaluation_for_Multimodal_CVPR_2026_paper.html) | CVPR 2026 | 仅问题回放；兼有双层蒸馏；持续 VQA；论文兼含评测基准 |
-| **InfLoRA** — [InfLoRA: Interference-Free Low-Rank Adaptation for Continual Learning](https://openaccess.thecvf.com/content/CVPR2024/html/Liang_InfLoRA_Interference-Free_Low-Rank_Adaptation_for_Continual_Learning_CVPR_2024_paper.html) | CVPR 2024 | 限制低秩更新子空间，抑制任务干扰；兼有 LoRA 架构；ViT 参数高效持续微调 |
-| **One-for-More** — [One-for-More: Continual Diffusion Model for Anomaly Detection](https://openaccess.thecvf.com/content/CVPR2025/html/Li_One-for-More_Continual_Diffusion_Model_for_Anomaly_Detection_CVPR_2025_paper.html) | CVPR 2025 | 梯度投影约束保护历史知识；扩散模型持续异常检测 |
-| **ConceptGuard** — [ConceptGuard: Continual Personalized Text-to-Image Generation with Forgetting and Confusion Mitigation](https://openaccess.thecvf.com/content/CVPR2025/html/Guo_ConceptGuard_Continual_Personalized_Text-to-Image_Generation_with_Forgetting_and_Confusion_Mitigation_CVPR_2025_paper.html) | CVPR 2025 | 记忆保持正则；兼有 shift embedding 和概念绑定提示；扩散模型持续个性化 |
-| **CoMasTRe** — [Continual Segmentation with Disentangled Objectness Learning and Class Recognition](https://openaccess.thecvf.com/content/CVPR2024/html/Gong_Continual_Segmentation_with_Disentangled_Objectness_Learning_and_Class_Recognition_CVPR_2024_paper.html) | CVPR 2024 | objectness 蒸馏、多标签类别蒸馏；兼有两阶段结构；持续语义分割 |
-| **LfI** — [Learning from Itself: Mining Internal Knowledge from Vision Language Models for Continual Learning](https://openaccess.thecvf.com/content/CVPR2026/html/Gong_Learning_from_Itself_Mining_Internal_Knowledge_from_Vision_Language_Models_CVPR_2026_paper.html) | CVPR 2026 | 自适应双向蒸馏；兼有伪字幕生成；CLIP 持续微调 |
-| **EWC Done Right** — [Elastic Weight Consolidation Done Right for Continual Learning](https://openaccess.thecvf.com/content/CVPR2026/html/Liu_Elastic_Weight_Consolidation_Done_Right_for_Continual_Learning_CVPR_2026_paper.html) | CVPR 2026 | 修正权重重要性估计的权重正则化；通用持续学习正则方法 |
-| **CCL-DC** — [Improving Plasticity in Online Continual Learning via Collaborative Learning](https://openaccess.thecvf.com/content/CVPR2024/html/Wang_Improving_Plasticity_in_Online_Continual_Learning_via_Collaborative_Learning_CVPR_2024_paper.html) | CVPR 2024 | 蒸馏链和协同学习；可与回放方法结合；在线持续学习（非专门 LLM 微调） |
-| **Learn more, but bother less** — [Learn more, but bother less: parameter efficient continual learning](https://proceedings.neurips.cc/paper_files/paper/2024/hash/b0bc711f48724237b38823c4d9cee10b-Abstract-Conference.html) | NeurIPS 2024 | 梯度投影保持低秩子空间正交；兼有敏感度初始化；LLM 持续任务微调 |
-| **MoE-Adapters / DDAS** — [Boosting Continual Learning of Vision-Language Models via Mixture-of-Experts Adapters](https://openaccess.thecvf.com/content/CVPR2024/html/Yu_Boosting_Continual_Learning_of_Vision-Language_Models_via_Mixture-of-Experts_Adapters_CVPR_2024_paper.html) | CVPR 2024 | 动态专家 Adapter 扩展和输入路由；CLIP 持续微调 |
-| **CPrompt** — [Consistent Prompting for Rehearsal-Free Continual Learning](https://openaccess.thecvf.com/content/CVPR2024/html/Gao_Consistent_Prompting_for_Rehearsal-Free_Continual_Learning_CVPR_2024_paper.html) | CVPR 2024 | 任务提示与分类器；兼有一致性学习；冻结预训练模型的持续提示微调 |
-| **S6MOD** — [Enhancing Online Continual Learning with Plug-and-Play State Space Model and Class-Conditional Mixture of Discretization](https://openaccess.thecvf.com/content/CVPR2025/html/Liu_Enhancing_Online_Continual_Learning_with_Plug-and-Play_State_Space_Model_and_CVPR_2025_paper.html) | CVPR 2025 | 附加状态空间分支与类别条件路由；兼有对比损失；在线持续学习结构插件 |
-| **CHEEM** — [CHEEM: Continual Learning by Reuse, New, Adapt and Skip - A Hierarchical Exploration-Exploitation Approach](https://openaccess.thecvf.com/content/CVPR2026/html/Savadikar_CHEEM_Continual_Learning_by_Reuse_New_Adapt_and_Skip_-_CVPR_2026_paper.html) | CVPR 2026 | 架构搜索选择复用、新建、适配和跳过；预训练 ViT 持续适配 |
-| **GRAPA** — [Parameter-efficient Continual Learning for Enhancing Plasticity without Forgetting under Limited Model Capacity](https://openaccess.thecvf.com/content/CVPR2026/html/Chen_Parameter-efficient_Continual_Learning_for_Enhancing_Plasticity_without_Forgetting_under_Limited_CVPR_2026_paper.html) | CVPR 2026 | 梯度引导参数复用和强化学习参数分配；有限容量下参数高效持续学习 |
-| **MedQwen / Sparse Spectral LoRA** — [Sparse Spectral LoRA: Routed Experts for Medical VLMs](https://openaccess.thecvf.com/content/CVPR2026/html/Nejatimanzari_Sparse_Spectral_LoRA_Routed_Experts_for_Medical_VLMs_CVPR_2026_paper.html) | CVPR 2026 | 谱分段 LoRA 专家和路由；医学 VLM 序贯微调 |
-| **CPPO** — [CPPO: Continual Learning for Reinforcement Learning with Human Feedback](https://proceedings.iclr.cc/paper_files/paper/2024/hash/6246f93ebf4f2d76ad2bcb3158220d34-Abstract-Conference.html) | ICLR 2024 | 按奖励和生成概率加权学习及知识保持，持续奖励模型；动态人类偏好下持续 RLHF（核心持续对齐） |
-| **SeRA** — [SeRA: Self-Reviewing and Alignment of LLMs using Implicit Reward Margins](https://proceedings.iclr.cc/paper_files/paper/2025/hash/fdcf2565ea86530d65b3622c06d90841-Abstract-Conference.html) | ICLR 2025 | 隐式奖励边际筛样与迭代偏好数据自举；迭代持续偏好优化（扩展阅读，非序贯多任务遗忘基准） |
+<details>
+<summary>展开完整标题、模型、生成任务和分类依据</summary>
+
+| 方法与正式论文 | 会议 | 模型及生成任务 | 主要机制与归类 |
+|---|---|---|---|
+| **Data Mixing Agent** — [Data Mixing Agent: Learning to Re-weight Domains for Continual Pre-training](https://aclanthology.org/2026.acl-long.427/) | ACL 2026 | LLaMA-DCLM、LLaMA-FWE、LLaMA-Nemo；领域数据混合持续预训练，评测领域、数学等能力与通用知识保持 | 持续预训练：通过强化学习训练数据域混合策略；LLM 领域持续预训练与通用能力保持 |
+| **Glyph** — [Glyph: Scaling Context Windows via Visual-Text Compression](https://aclanthology.org/2026.acl-long.1722/) | ACL 2026 | GLM-4.1V-9B-Base → Glyph；视觉化长文 CPT，长上下文问答、摘要与文本生成；上下文扩展型 CPT | 持续预训练：将长文本渲染为视觉页，持续预训练压缩表征；生成式 VLM 长上下文扩展；能力扩展型 CPT |
+| **Tibetan Dense / MoE CPT** — [From Curated Data to Scalable Models: Continual Pre-training of Dense and MoE Large Language Models for Tibetan](https://aclanthology.org/2026.acl-long.1866/) | ACL 2026 | Qwen2.5-7B、50B-A10B MoE；藏／中／英混合语料 CPT，藏语理解与生成；语言扩展型 CPT | 持续预训练：藏／中／英平衡混合预训练及 MoE 扩展；Qwen2.5-7B 与 50B-A10B 藏语生成模型；语言扩展型 CPT |
+| **Cite Pretrain / Active Indexing** — [Cite Pretrain: Retrieval-Free Knowledge Attribution for Large Language Models](https://proceedings.iclr.cc/paper_files/paper/2026/hash/528f0a943a54903939e77509f874d8e8-Abstract-Conference.html) | ICLR 2026 | Qwen2.5-3B/7B；知识语料 CPT，短／长答案生成与来源引用；知识扩展型 CPT | 持续预训练：以双向合成数据建立事实与来源 ID 的参数化绑定；Qwen2.5 3B/7B 持续知识预训练，短／长文本引用生成 |
+| **DiSC** — [Updating Parametric Knowledge with Context Distillation Retains Post-Training Capabilities](https://proceedings.mlr.press/v306/padmanabhan26a.html) | ICML 2026 | Qwen2.5-3B/7B-Instruct、Llama3.1-8B-Instruct、Qwen3-8B；文档知识更新（KUP / BioASQ）；保留代码、数学及指令能力 | 持续预训练：分割上下文产生师生分布，KL 蒸馏语言建模；post-trained LLM 以文档语料持续知识适配，保留指令／推理能力 |
+| **Diffract** — [Diffract: Spectral View of LLM Domain Adaptation](https://proceedings.mlr.press/v306/borodin26a.html) | ICML 2026 | 1B / 7B / 13B 生成式 LLM；领域持续预训练，数学、代码与文本领域能力适配及保持 | 持续预训练：CPT 参数谱分析与低重要性注意力头回退；十亿参数 LLM 数学／代码／文本领域持续预训练 |
+| **MaDQ / UCo-VQA** — [Re-evaluating Continual VQA: Toward Fair and Robust Evaluation for Multimodal Continual Learning](https://openaccess.thecvf.com/content/CVPR2026/html/Gao_Re-evaluating_Continual_VQA_Toward_Fair_and_Robust_Evaluation_for_Multimodal_CVPR_2026_paper.html) | CVPR 2026 | BLIP-2（冻结视觉编码器与通用 LLM 解码器）；UCo-VQA 生成式序贯 VQA；采用大模型扩展实验（表 3），非仅 BLIP 小模型 | 基于回放：仅问题回放；兼有答案蒸馏和动量适配器；仅采用 BLIP-2 大模型生成式序贯 VQA 实验，非固定答案分类 |
+| **FOREVER** — [FOREVER: Forgetting Curve-Inspired Memory Replay for Language Model Continual Learning](https://aclanthology.org/2026.acl-long.1144/) | ACL 2026 | Qwen3-0.6B/4B、LLaMA-3.1-8B 等；SuperNI 序贯生成任务（摘要、对话等）；不以分类流为依据 | 基于回放：按优化器更新幅度定义模型时间，按遗忘曲线调度回放；LLM 持续指令微调，生成任务与知识保持 |
+| **Weight Space Consolidation** — [Forget Forgetting: Continual Learning in a World of Abundant Memory](https://proceedings.iclr.cc/paper_files/paper/2026/hash/17fc58b1ba92abbb72c5f457e140d851-Abstract-Conference.html) | ICLR 2026 | LLaMA-3.2-1B；TRACE 序贯指令任务，含会议摘要、代码与数学；不取图像分类实验 | 基于回放：充足历史样本回放；兼有秩重置与权重平均；仅取本文 LLM 持续指令微调实验，排除图像分类实验 |
+| **SERS** — [Self-Evolving Pseudo-Rehearsal for Catastrophic Forgetting with Task Similarity in LLMs](https://proceedings.neurips.cc/paper_files/paper/2025/hash/087b346ca4d6dd6fcd0663ff6c9a6b69-Abstract-Conference.html) | NeurIPS 2025 | LLaMA2-7B、ChatGLM-6B；SuperNI 摘要、翻译等生成任务序列 | 基于回放：自生成伪输入和自演化标签回放；兼有任务相似性正则；LLM 持续任务微调 |
+| **DGG** — [Multimodal Continual Instruction Tuning with Dynamic Gradient Guidance](https://openaccess.thecvf.com/content/CVPR2026/html/Li_Multimodal_Continual_Instruction_Tuning_with_Dynamic_Gradient_Guidance_CVPR_2026_paper.html) | CVPR 2026 | LLaVA-7B；CoIN / UCIT 多模态序贯指令，含开放式 VQA 和图像描述 | 基于正则化：历史最优参数方向近似旧任务梯度；兼有小回放缓冲和 Bernoulli 采样；MLLM 多模态生成式持续指令微调 |
+| **PaRSP** — [Harmonizing the Past, Present, and Future: A Null-Space Constrained Region-Specific Method for Continual Learning in LLMs](https://aclanthology.org/2026.acl-long.1244/) | ACL 2026 | Llama-3.1-8B、Qwen2.5-7B；TRACE 序贯生成任务、代码、摘要和推理能力保持；另含分类流 | 基于正则化：任务区域划分和零空间约束；兼有参数分区；LLM 序贯任务适配 |
+| **SpaRTA** — [Spectral Disentanglement: Rank-Aware Task Adaptation for Rehearsal-free Continual Learning in LLMs](https://aclanthology.org/2026.acl-long.334/) | ACL 2026 | LLaMA2、LLaMA3.1、Qwen2.5（另有 T5）；TRACE 的 MeetingBank 摘要及其他生成任务；数学能力保持 | 基于正则化：秩谱分解隔离共享／任务特定子空间；兼有自适应 LoRA；LLM rehearsal-free 持续微调 |
+| **OSFT** — [Sculpting Subspaces: Constrained Full Fine-Tuning in LLMs for Continual Learning](https://proceedings.iclr.cc/paper_files/paper/2026/hash/22620cccae29bbb3f18d226ea0320ff5-Abstract-Conference.html) | ICLR 2026 | LLaMA-2-7B、Mistral-7B（另有 T5）；TRACE 指令、数学推理及领域微调；不以文本分类为依据 | 基于正则化：自适应 SVD 保留重要子空间，约束参数更新；LLM 持续领域适配和生成能力保持 |
+| **ALER** — [Adversarial Latent Embedding Repair for LLM Continual Learning](https://proceedings.mlr.press/v306/xia26j.html) | ICML 2026 | Qwen3-4B-Instruct-2507（另有 8B 实验）；化学等领域 SFT 后保留 GSM8K 数学、HumanEval 代码和 IFEval 指令能力 | 基于正则化：对抗搜索潜在提示嵌入，参考模型在线蒸馏；LLM 领域微调与通用生成／推理能力保持 |
+| **FV-guided Training** — [Unlocking the Power of Function Vectors for Characterizing and Mitigating Catastrophic Forgetting in Continual Instruction Tuning](https://proceedings.iclr.cc/paper_files/paper/2025/hash/74fc5575632191d96881d8015f79dde3-Abstract-Conference.html) | ICLR 2025 | 多种 decoder-only LLM；SuperNI 纯生成和混合任务序列；功能激活与通用生成能力保持 | 基于正则化：正则约束任务 function vector，稳定功能激活；LLM 持续指令微调与生成能力保持 |
+| **PASs-MoE** — [PASs-MoE: Mitigating Misaligned Co-drift among Router and Experts via Pathway Activation Subspaces for Continual Learning](https://aclanthology.org/2026.acl-long.1474/) | ACL 2026 | LLaVA-v1.5-7B；多模态序贯视觉问答指令任务与遗忘评测 | 基于架构：基于专家通路激活子空间的路由；兼有秩方向稳定约束；MLLM 持续指令微调 |
+| **SLAO / Merge before Forget** — [Merge before Forget: A Single LoRA Continual Learning via Continual Merging](https://proceedings.iclr.cc/paper_files/paper/2026/hash/0dedca10992d34035c9a9776254cfa8c-Abstract-Conference.html) | ICLR 2026 | Llama-2-7B/13B、Llama-3.2-3B、Qwen2.5-3B/7B；SuperNI 对话生成、摘要、问答序列；不取另行分类实验 | 基于架构：保持单 LoRA 的序贯合并；兼有正交初始化及时间缩放；LLM 持续微调 |
+| **CoPE** — [CoPE: Continual Probe-guided Expansion for Large Vision-Language Models](https://proceedings.mlr.press/v306/wang26le.html) | ICML 2026 | LLaVA-v1.5-7B（另有 13B）；CoIN 八种生成式 VQA 任务序列 | 基于架构：探针引导专家扩展与概率任务定位；大视觉语言模型，CoIN 多任务生成式 VQA |
+| **ECA** — [ECA: Efficient Continual Alignment for Open-Ended Image-to-Text Generation](https://proceedings.mlr.press/v306/kong26h.html) | ICML 2026 | BLIP-2 / OPT-2.7B，补充 LLaVA-v0 实验；按主题序贯训练 COCO / TextCaps 图像描述、VQAv2 / TextVQA 开放式问答 | 基于架构：查询专家混合与 Fisher 信息引导扩展；兼有字典回放；生成式图像到文本持续适配；此处 alignment 指跨模态对齐而非偏好对齐 |
+| **Hyper-LLaVA** — [Hyper-LLaVA: Hyperbolic Uncertainty-aware Modality-Balanced Routing for Multimodal Continual Instruction Tuning](https://proceedings.mlr.press/v306/xu26cj.html) | ICML 2026 | LLaVA-v1.5-7B / Vicuna-7B；CoIN / UCIT 开放式 VQA、描述、数学等多模态持续指令任务 | 基于架构：双曲空间不确定性建模和模态平衡参数路由；MLLM 多模态持续指令微调 |
+| **CL-MoE** — [CL-MoE: Enhancing Multimodal Large Language Model with Dual Momentum Mixture-of-Experts for Continual Visual Question Answering](https://openaccess.thecvf.com/content/CVPR2025/html/Huai_CL-MoE_Enhancing_Multimodal_Large_Language_Model_with_Dual_Momentum_Mixture-of-Experts_CVPR_2025_paper.html) | CVPR 2025 | LLaVA / Vicuna-7B；多模态序贯生成式 VQA 任务 | 基于架构：双层路由和动量专家；MLLM 持续视觉问答 |
+| **Any-SSR** — [Any-SSR: How Recursive Least Squares Works in Continual Learning of Large Language Model](https://openaccess.thecvf.com/content/ICCV2025/html/Tong_Any-SSR_How_Recursive_Least_Squares_Works_in_Continual_Learning_of_ICCV_2025_paper.html) | ICCV 2025 | Llama2-7B-chat、Qwen2.5-7B、GLM-4-9B；TRACE 的 MeetingBank 摘要、Py150 代码生成等序贯任务 | 基于架构：解析子空间路由和递归最小二乘路由更新；LLM 序贯任务微调 |
+| **FCIT** — [Federated Continual Instruction Tuning](https://openaccess.thecvf.com/content/ICCV2025/html/Guo_Federated_Continual_Instruction_Tuning_ICCV_2025_paper.html) | ICCV 2025 | LLaVA-1.5-7B；联邦序贯图像描述（Flickr30k）、数学和视觉问答；不以 ImageNet-R 为依据 | 基于架构：动态知识组织和子空间选择性激活；MLLM 联邦持续指令微调；图像描述、开放式视觉问答与推理 |
+| **MVP / Instruction-Grounded Visual Projectors** — [Instruction-Grounded Visual Projectors for Continual Learning of Generative Vision-Language Models](https://openaccess.thecvf.com/content/ICCV2025/html/Jin_Instruction-Grounded_Visual_Projectors_for_Continual_Learning_of_Generative_Vision-Language_Models_ICCV_2025_paper.html) | ICCV 2025 | Vicuna-7B，补充 LLaMA-2-7B；Flickr30k / COCO 图像描述与视觉问答序列；不取分类实验 | 基于架构：指令语义驱动投影器专家推荐与剪枝；生成式 VLM 持续多任务学习 |
+| **SMoLoRA** — [SMoLoRA: Exploring and Defying Dual Catastrophic Forgetting in Continual Visual Instruction Tuning](https://openaccess.thecvf.com/content/ICCV2025/html/Wang_SMoLoRA_Exploring_and_Defying_Dual_Catastrophic_Forgetting_in_Continual_Visual_ICCV_2025_paper.html) | ICCV 2025 | LLaVA-v1.5-7B；持续视觉指令，含 TextCaps / Flickr30k 图像描述与开放式问答；另有识别任务 | 基于架构：视觉／语言专家路由和低秩适配；MLLM 生成式持续视觉指令微调 |
+| **HPA** — [Harmonious Parameter Adaptation in Continual Visual Instruction Tuning for Safety-Aligned MLLMs](https://openaccess.thecvf.com/content/CVPR2026/html/Wang_Harmonious_Parameter_Adaptation_in_Continual_Visual_Instruction_Tuning_for_Safety-Aligned_CVPR_2026_paper.html) | CVPR 2026 | LLaVA-v1.5-7B；六种视觉指令任务序列中保持安全拒答和任务表现；安全对齐保持 | 持续对齐：参数分区、平衡选择和正交调整；安全已对齐 MLLM 的持续视觉指令微调，保持安全对齐与任务性能 |
+| **LifeAlign** — [LifeAlign: Lifelong Alignment for Large Language Models with Memory-Augmented Focalized Preference Optimization](https://ojs.aaai.org/index.php/AAAI/article/view/40428) | AAAI 2026 | Qwen2.5-7B-Instruct（另有 Llama3.1 / Mistral）；跨领域、偏好类型及安全偏好序贯对齐 | 持续对齐：focalized preference optimization 与短到长期偏好记忆；LLM 跨领域／偏好类型序贯对齐 |
+| **CPPO** — [CPPO: Continual Learning for Reinforcement Learning with Human Feedback](https://proceedings.iclr.cc/paper_files/paper/2024/hash/6246f93ebf4f2d76ad2bcb3158220d34-Abstract-Conference.html) | ICLR 2024 | Llama-7B 策略与奖励模型（附录扩展实验）；主实验另用 GPT2-XL；Reddit TL;DR 摘要与 SHP 跨域人类偏好序列 RLHF | 持续对齐：奖励／生成概率加权持续 PPO 与知识保持；生成式 LLM 动态偏好序贯 RLHF |
 
 </details>
 
-## 数据与复现
+## 核验与下载
 
-`continual_learning_manifest.json` 保存标题、方法、会议、年份、归类、分类依据、正式来源页、原始 PDF URL、本地相对路径、字节数及 SHA-256。每个下载文件验证 `%PDF-` 文件头，并通过 `pdftotext` 完整解析。`collect_cl_papers.py` 可在服务器使用 Python 3、requests 和 Poppler 的 pdftotext 重新收集；运行会更新本索引及 manifest，不删除原有文件。
+每篇的正式来源、发表年份依据、正文模型／任务定位、SHA-256 和本地 PDF 路径见 [逐篇核验记录](verification_audit.md) 及 [manifest](continual_learning_manifest.json)。旧清单 28 篇全部重新检索，保留和移除理由逐项记录。归类由整理者按方法正文判断。
 
-本清单是有明确筛选口径的精选阅读列表，非 2024–2026 全量系统综述。建议先阅读 InfLoRA、MoE-Adapters、GIFT 和 CPPO，再按模型与场景比较其他方法。
+**LifeAlign** 已通过 [AAAI 正式论文页](https://ojs.aaai.org/index.php/AAAI/article/view/40428) 核实发表（2026-03-14，DOI: 10.1609/aaai.v40i37.40428）。服务器无法访问 AAAI 下载端点，本地保存正式页面注明的 arXiv 作者扩展版，表中明确标记；并非将未发表预印本计入。其余 PDF 均来自正式会议论文集或 PMLR 官方资产仓库。
+
+复现：Python 3 与 Poppler 的 `pdftotext`，下载时另需 requests。运行 `python3 collect_cl_papers.py` 校验所有 PDF；`--download` 补充缺失文件，`--render` 从人工核验过的 manifest 重建 README。脚本不会自动认定录用、替换筛选标准或删除其他文件。
+
+这是按上述口径整理的精选清单，不是全部相关论文的穷尽性综述。

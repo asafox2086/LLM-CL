@@ -1,422 +1,1387 @@
 [
   {
-    "method": "Knowledge replay",
-    "year": 2024,
-    "venue": "CVPR",
-    "page": "https://openaccess.thecvf.com/content/CVPR2024/html/Duan_Towards_Backward-Compatible_Continual_Learning_of_Image_Compression_CVPR_2024_paper.html",
-    "category": "replay",
-    "mechanism": "知识回放；兼有模型架构设计",
-    "scope": "预训练图像压缩模型的序贯微调",
-    "title": "Towards Backward-Compatible Continual Learning of Image Compression",
-    "pdf": "https://openaccess.thecvf.com/content/CVPR2024/papers/Duan_Towards_Backward-Compatible_Continual_Learning_of_Image_Compression_CVPR_2024_paper.pdf",
-    "file": "pre_finetuning/method_replay/2024_CVPR_Knowledge_replay.pdf",
-    "bytes": 1618604,
-    "sha256": "54d8f360083294e39f7f4e2feb140f36b741546361b017ddf0b0b5db26ce0a5b",
-    "verified_on": "2026-10-11"
-  },
-  {
-    "method": "EIR",
-    "year": 2025,
-    "venue": "CVPR",
-    "page": "https://openaccess.thecvf.com/content/CVPR2025/html/Yin_Beyond_Background_Shift_Rethinking_Instance_Replay_in_Continual_Semantic_Segmentation_CVPR_2025_paper.html",
-    "category": "replay",
-    "mechanism": "实例存储与粘贴回放，缓解背景漂移",
-    "scope": "持续语义分割",
-    "title": "Beyond Background Shift: Rethinking Instance Replay in Continual Semantic Segmentation",
-    "pdf": "https://openaccess.thecvf.com/content/CVPR2025/papers/Yin_Beyond_Background_Shift_Rethinking_Instance_Replay_in_Continual_Semantic_Segmentation_CVPR_2025_paper.pdf",
-    "file": "pre_finetuning/method_replay/2025_CVPR_EIR.pdf",
-    "bytes": 1564803,
-    "sha256": "aabae37468a293af7a762fedd40e55afa801af7603afd17c81c264b7fa6eea43",
-    "verified_on": "2026-10-11"
-  },
-  {
-    "method": "View-batch model",
-    "year": 2025,
-    "venue": "CVPR",
-    "page": "https://openaccess.thecvf.com/content/CVPR2025/html/Kang_Do_Your_Best_and_Get_Enough_Rest_for_Continual_Learning_CVPR_2025_paper.html",
-    "category": "replay",
-    "mechanism": "调节样本再训练间隔；兼有自监督学习",
-    "scope": "通用持续学习训练策略（非专门 LLM 微调）",
-    "title": "Do Your Best and Get Enough Rest for Continual Learning",
-    "pdf": "https://openaccess.thecvf.com/content/CVPR2025/papers/Kang_Do_Your_Best_and_Get_Enough_Rest_for_Continual_Learning_CVPR_2025_paper.pdf",
-    "file": "pre_finetuning/method_replay/2025_CVPR_View_batch_model.pdf",
-    "bytes": 1014634,
-    "sha256": "5da89658b893911cbb0882e6376fcbf61415bb010579d4884a930158c1b2b523",
-    "verified_on": "2026-10-11"
-  },
-  {
-    "method": "GIFT",
-    "year": 2025,
-    "venue": "CVPR",
-    "page": "https://openaccess.thecvf.com/content/CVPR2025/html/Wu_Synthetic_Data_is_an_Elegant_GIFT_for_Continual_Vision-Language_Models_CVPR_2025_paper.html",
-    "category": "replay",
-    "mechanism": "扩散生成合成样本；兼有蒸馏和权重正则化",
-    "scope": "VLM 持续微调",
-    "title": "Synthetic Data is an Elegant GIFT for Continual Vision-Language Models",
-    "pdf": "https://openaccess.thecvf.com/content/CVPR2025/papers/Wu_Synthetic_Data_is_an_Elegant_GIFT_for_Continual_Vision-Language_Models_CVPR_2025_paper.pdf",
-    "file": "pre_finetuning/method_replay/2025_CVPR_GIFT.pdf",
-    "bytes": 2231882,
-    "sha256": "0f7da2d744b54ef33df6ff92651c6afced904b2681f8d58f74570abfe3d70faa",
-    "verified_on": "2026-10-11"
-  },
-  {
-    "method": "Smart Replay",
+    "method": "DGG",
     "year": 2026,
     "venue": "CVPR",
-    "page": "https://openaccess.thecvf.com/content/CVPR2026/html/Chen_Smart_Replay_Adaptive_Scheduling_of_Memory_Rehearsal_for_Computational_Resource-Aware_CVPR_2026_paper.html",
-    "category": "replay",
-    "mechanism": "在计算预算下自适应调度回放比例",
-    "scope": "资源受限增量学习（通用训练策略）",
-    "title": "Smart Replay: Adaptive Scheduling of Memory Rehearsal for Computational Resource-Aware Incremental Learning",
-    "pdf": "https://openaccess.thecvf.com/content/CVPR2026/papers/Chen_Smart_Replay_Adaptive_Scheduling_of_Memory_Rehearsal_for_Computational_Resource-Aware_CVPR_2026_paper.pdf",
-    "file": "pre_finetuning/method_replay/2026_CVPR_Smart_Replay.pdf",
-    "bytes": 3398619,
-    "sha256": "84ae36b946028310116d88c00a947e18a44cbfbb6174156d089edfa9d7fb38bb",
-    "verified_on": "2026-10-11"
+    "page": "https://openaccess.thecvf.com/content/CVPR2026/html/Li_Multimodal_Continual_Instruction_Tuning_with_Dynamic_Gradient_Guidance_CVPR_2026_paper.html",
+    "category": "regularization",
+    "mechanism": "历史最优参数方向近似旧任务梯度；兼有小回放缓冲和 Bernoulli 采样",
+    "scope": "MLLM 多模态生成式持续指令微调",
+    "pdf": "https://openaccess.thecvf.com/content/CVPR2026/papers/Li_Multimodal_Continual_Instruction_Tuning_with_Dynamic_Gradient_Guidance_CVPR_2026_paper.pdf",
+    "title": "Multimodal Continual Instruction Tuning with Dynamic Gradient Guidance",
+    "publication_status": "published proceedings",
+    "verified_on": "2026-10-11",
+    "year_evidence": "2026",
+    "bytes": 2842265,
+    "sha256": "4803213a04c5ff8490db9b0b388b14d15fdd20d9bf61704af3b15a1045295eaa",
+    "model": "LLaVA-7B",
+    "generation_tasks": "CoIN / UCIT 多模态序贯指令，含开放式 VQA 和图像描述",
+    "body_review": {
+      "decision": "manual inclusion review completed",
+      "locators": [
+        {
+          "indicator": "LLaVA-7B",
+          "pdf_pages": [
+            6
+          ]
+        },
+        {
+          "indicator": "UCIT",
+          "pdf_pages": [
+            6,
+            7,
+            8
+          ]
+        }
+      ],
+      "note": "PDF 页码；定位词仅帮助复核，收录依据为模型、训练设置及生成任务正文。"
+    },
+    "taxonomy_basis": "主要机制人工归档；混合机制详见 mechanism",
+    "file": "pre_finetuning/method_regularization/2026_CVPR_DGG.pdf",
+    "publication_evidence": "正式 CVPR 2026 主会论文集页面；会议年份按来源页/BibTeX 的届次核验。页面日期：2026。"
   },
   {
-    "method": "UCo-VQA baseline",
+    "method": "HPA",
+    "year": 2026,
+    "venue": "CVPR",
+    "page": "https://openaccess.thecvf.com/content/CVPR2026/html/Wang_Harmonious_Parameter_Adaptation_in_Continual_Visual_Instruction_Tuning_for_Safety-Aligned_CVPR_2026_paper.html",
+    "category": "alignment",
+    "mechanism": "参数分区、平衡选择和正交调整",
+    "scope": "安全已对齐 MLLM 的持续视觉指令微调，保持安全对齐与任务性能",
+    "pdf": "https://openaccess.thecvf.com/content/CVPR2026/papers/Wang_Harmonious_Parameter_Adaptation_in_Continual_Visual_Instruction_Tuning_for_Safety-Aligned_CVPR_2026_paper.pdf",
+    "title": "Harmonious Parameter Adaptation in Continual Visual Instruction Tuning for Safety-Aligned MLLMs",
+    "publication_status": "published proceedings",
+    "verified_on": "2026-10-11",
+    "year_evidence": "2026",
+    "bytes": 1239851,
+    "sha256": "ba739913b53d3b1e8f632c4f1b474e7e0dffdd2aeafcbc7391ac0554e3b0373d",
+    "model": "LLaVA-v1.5-7B",
+    "generation_tasks": "六种视觉指令任务序列中保持安全拒答和任务表现；安全对齐保持",
+    "body_review": {
+      "decision": "manual inclusion review completed",
+      "locators": [
+        {
+          "indicator": "LLaVA-v1.5-7B",
+          "pdf_pages": [
+            6
+          ]
+        },
+        {
+          "indicator": "safety",
+          "pdf_pages": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ]
+        }
+      ],
+      "note": "PDF 页码；定位词仅帮助复核，收录依据为模型、训练设置及生成任务正文。"
+    },
+    "taxonomy_basis": "主要机制人工归档；混合机制详见 mechanism",
+    "file": "pre_alignment/2026_CVPR_HPA.pdf",
+    "publication_evidence": "正式 CVPR 2026 主会论文集页面；会议年份按来源页/BibTeX 的届次核验。页面日期：2026。"
+  },
+  {
+    "method": "MaDQ / UCo-VQA",
     "year": 2026,
     "venue": "CVPR",
     "page": "https://openaccess.thecvf.com/content/CVPR2026/html/Gao_Re-evaluating_Continual_VQA_Toward_Fair_and_Robust_Evaluation_for_Multimodal_CVPR_2026_paper.html",
     "category": "replay",
-    "mechanism": "仅问题回放；兼有双层蒸馏",
-    "scope": "持续 VQA；论文兼含评测基准",
-    "title": "Re-evaluating Continual VQA: Toward Fair and Robust Evaluation for Multimodal Continual Learning",
+    "mechanism": "仅问题回放；兼有答案蒸馏和动量适配器",
+    "scope": "仅采用 BLIP-2 大模型生成式序贯 VQA 实验，非固定答案分类",
     "pdf": "https://openaccess.thecvf.com/content/CVPR2026/papers/Gao_Re-evaluating_Continual_VQA_Toward_Fair_and_Robust_Evaluation_for_Multimodal_CVPR_2026_paper.pdf",
-    "file": "pre_finetuning/method_replay/2026_CVPR_UCo_VQA_baseline.pdf",
+    "title": "Re-evaluating Continual VQA: Toward Fair and Robust Evaluation for Multimodal Continual Learning",
+    "publication_status": "published proceedings",
+    "verified_on": "2026-10-11",
+    "year_evidence": "2026",
     "bytes": 3644726,
     "sha256": "2ac777caa659db8ce0380ae3c4793a02a1f5b94e63f2a7970b6f86b0669feb1a",
-    "verified_on": "2026-10-11"
+    "model": "BLIP-2（冻结视觉编码器与通用 LLM 解码器）",
+    "generation_tasks": "UCo-VQA 生成式序贯 VQA；采用大模型扩展实验（表 3），非仅 BLIP 小模型",
+    "body_review": {
+      "decision": "manual inclusion review completed",
+      "locators": [
+        {
+          "indicator": "BLIP2",
+          "pdf_pages": [
+            8
+          ]
+        },
+        {
+          "indicator": "classification-based",
+          "pdf_pages": [
+            5
+          ]
+        },
+        {
+          "indicator": "Tab. 3",
+          "pdf_pages": [
+            8
+          ]
+        }
+      ],
+      "note": "PDF 页码；定位词仅帮助复核，收录依据为模型、训练设置及生成任务正文。"
+    },
+    "taxonomy_basis": "主要机制人工归档；混合机制详见 mechanism",
+    "file": "pre_finetuning/method_replay/2026_CVPR_MaDQ_UCo_VQA.pdf",
+    "publication_evidence": "正式 CVPR 2026 主会论文集页面；会议年份按来源页/BibTeX 的届次核验。页面日期：2026。"
   },
   {
-    "method": "InfLoRA",
-    "year": 2024,
-    "venue": "CVPR",
-    "page": "https://openaccess.thecvf.com/content/CVPR2024/html/Liang_InfLoRA_Interference-Free_Low-Rank_Adaptation_for_Continual_Learning_CVPR_2024_paper.html",
-    "category": "regularization",
-    "mechanism": "限制低秩更新子空间，抑制任务干扰；兼有 LoRA 架构",
-    "scope": "ViT 参数高效持续微调",
-    "title": "InfLoRA: Interference-Free Low-Rank Adaptation for Continual Learning",
-    "pdf": "https://openaccess.thecvf.com/content/CVPR2024/papers/Liang_InfLoRA_Interference-Free_Low-Rank_Adaptation_for_Continual_Learning_CVPR_2024_paper.pdf",
-    "file": "pre_finetuning/method_regularization/2024_CVPR_InfLoRA.pdf",
-    "bytes": 743368,
-    "sha256": "4cca68dafc3e1bdbb2c02a0c3e055b33ca271ae37d7c1dfe282497c871439059",
-    "verified_on": "2026-10-11"
-  },
-  {
-    "method": "One-for-More",
-    "year": 2025,
-    "venue": "CVPR",
-    "page": "https://openaccess.thecvf.com/content/CVPR2025/html/Li_One-for-More_Continual_Diffusion_Model_for_Anomaly_Detection_CVPR_2025_paper.html",
-    "category": "regularization",
-    "mechanism": "梯度投影约束保护历史知识",
-    "scope": "扩散模型持续异常检测",
-    "title": "One-for-More: Continual Diffusion Model for Anomaly Detection",
-    "pdf": "https://openaccess.thecvf.com/content/CVPR2025/papers/Li_One-for-More_Continual_Diffusion_Model_for_Anomaly_Detection_CVPR_2025_paper.pdf",
-    "file": "pre_finetuning/method_regularization/2025_CVPR_One_for_More.pdf",
-    "bytes": 2072675,
-    "sha256": "da2c570b99bc85b5f448cd7f7163c0e29debbfd38d87f3c73ad3ce61da54cc1b",
-    "verified_on": "2026-10-11"
-  },
-  {
-    "method": "ConceptGuard",
-    "year": 2025,
-    "venue": "CVPR",
-    "page": "https://openaccess.thecvf.com/content/CVPR2025/html/Guo_ConceptGuard_Continual_Personalized_Text-to-Image_Generation_with_Forgetting_and_Confusion_Mitigation_CVPR_2025_paper.html",
-    "category": "regularization",
-    "mechanism": "记忆保持正则；兼有 shift embedding 和概念绑定提示",
-    "scope": "扩散模型持续个性化",
-    "title": "ConceptGuard: Continual Personalized Text-to-Image Generation with Forgetting and Confusion Mitigation",
-    "pdf": "https://openaccess.thecvf.com/content/CVPR2025/papers/Guo_ConceptGuard_Continual_Personalized_Text-to-Image_Generation_with_Forgetting_and_Confusion_Mitigation_CVPR_2025_paper.pdf",
-    "file": "pre_finetuning/method_regularization/2025_CVPR_ConceptGuard.pdf",
-    "bytes": 4908650,
-    "sha256": "85289ef5f841f3a6c775b9f9fb1169a459b4fd2586d6473a0dadf38484140530",
-    "verified_on": "2026-10-11"
-  },
-  {
-    "method": "CoMasTRe",
-    "year": 2024,
-    "venue": "CVPR",
-    "page": "https://openaccess.thecvf.com/content/CVPR2024/html/Gong_Continual_Segmentation_with_Disentangled_Objectness_Learning_and_Class_Recognition_CVPR_2024_paper.html",
-    "category": "regularization",
-    "mechanism": "objectness 蒸馏、多标签类别蒸馏；兼有两阶段结构",
-    "scope": "持续语义分割",
-    "title": "Continual Segmentation with Disentangled Objectness Learning and Class Recognition",
-    "pdf": "https://openaccess.thecvf.com/content/CVPR2024/papers/Gong_Continual_Segmentation_with_Disentangled_Objectness_Learning_and_Class_Recognition_CVPR_2024_paper.pdf",
-    "file": "pre_finetuning/method_regularization/2024_CVPR_CoMasTRe.pdf",
-    "bytes": 2332283,
-    "sha256": "010a491c2abea5400bed51646fe7442777ffd6b34f07925e2bfc92e5c4d93431",
-    "verified_on": "2026-10-11"
-  },
-  {
-    "method": "LfI",
+    "method": "LifeAlign",
     "year": 2026,
-    "venue": "CVPR",
-    "page": "https://openaccess.thecvf.com/content/CVPR2026/html/Gong_Learning_from_Itself_Mining_Internal_Knowledge_from_Vision_Language_Models_CVPR_2026_paper.html",
-    "category": "regularization",
-    "mechanism": "自适应双向蒸馏；兼有伪字幕生成",
-    "scope": "CLIP 持续微调",
-    "title": "Learning from Itself: Mining Internal Knowledge from Vision Language Models for Continual Learning",
-    "pdf": "https://openaccess.thecvf.com/content/CVPR2026/papers/Gong_Learning_from_Itself_Mining_Internal_Knowledge_from_Vision_Language_Models_CVPR_2026_paper.pdf",
-    "file": "pre_finetuning/method_regularization/2026_CVPR_LfI.pdf",
-    "bytes": 5629947,
-    "sha256": "d20ae9ed1a59efffd9a0485923d3cb8f3bbfd8bd561a57ccb1407030a15a9264",
-    "verified_on": "2026-10-11"
+    "venue": "AAAI",
+    "page": "https://ojs.aaai.org/index.php/AAAI/article/view/40428",
+    "category": "alignment",
+    "mechanism": "focalized preference optimization 与短到长期偏好记忆",
+    "scope": "LLM 跨领域／偏好类型序贯对齐",
+    "pdf": "https://arxiv.org/pdf/2509.17183",
+    "title": "LifeAlign: Lifelong Alignment for Large Language Models with Memory-Augmented Focalized Preference Optimization",
+    "doi": "10.1609/aaai.v40i37.40428",
+    "official_pdf": "https://ojs.aaai.org/index.php/AAAI/article/download/40428/44389",
+    "pdf_version": "作者扩展版；正式 AAAI 页面由网页检索核验，服务器无法访问 AAAI PDF，故下载该页注明的 arXiv 扩展版",
+    "publication_status": "published proceedings",
+    "verified_on": "2026-10-11",
+    "year_evidence": "2026-03-14",
+    "bytes": 7818221,
+    "sha256": "f3a505580969a8bbdb86af668697a1b1d80b3ca65104fa89804bcaa48c4692e5",
+    "model": "Qwen2.5-7B-Instruct（另有 Llama3.1 / Mistral）",
+    "generation_tasks": "跨领域、偏好类型及安全偏好序贯对齐",
+    "body_review": {
+      "decision": "manual inclusion review completed",
+      "locators": [
+        {
+          "indicator": "Qwen-2.5-7b",
+          "pdf_pages": [
+            5,
+            7
+          ]
+        },
+        {
+          "indicator": "preference",
+          "pdf_pages": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8,
+            9,
+            10,
+            11,
+            17
+          ]
+        }
+      ],
+      "note": "PDF 页码；定位词仅帮助复核，收录依据为模型、训练设置及生成任务正文。"
+    },
+    "taxonomy_basis": "主要机制人工归档；混合机制详见 mechanism",
+    "file": "pre_alignment/2026_AAAI_LifeAlign.pdf",
+    "publication_evidence": "AAAI 正式主会论文页，卷 40(37)，31618–31626，DOI 10.1609/aaai.v40i37.40428；2026-03-14 已发表，网页工具核验。"
   },
   {
-    "method": "EWC Done Right",
+    "method": "Data Mixing Agent",
     "year": 2026,
-    "venue": "CVPR",
-    "page": "https://openaccess.thecvf.com/content/CVPR2026/html/Liu_Elastic_Weight_Consolidation_Done_Right_for_Continual_Learning_CVPR_2026_paper.html",
-    "category": "regularization",
-    "mechanism": "修正权重重要性估计的权重正则化",
-    "scope": "通用持续学习正则方法",
-    "title": "Elastic Weight Consolidation Done Right for Continual Learning",
-    "pdf": "https://openaccess.thecvf.com/content/CVPR2026/papers/Liu_Elastic_Weight_Consolidation_Done_Right_for_Continual_Learning_CVPR_2026_paper.pdf",
-    "file": "pre_finetuning/method_regularization/2026_CVPR_EWC_Done_Right.pdf",
-    "bytes": 872543,
-    "sha256": "7211d9d1ceea066d82bfdd862e4131aa2fa539741a1f659697f17770d20ab497",
-    "verified_on": "2026-10-11"
-  },
-  {
-    "method": "CCL-DC",
-    "year": 2024,
-    "venue": "CVPR",
-    "page": "https://openaccess.thecvf.com/content/CVPR2024/html/Wang_Improving_Plasticity_in_Online_Continual_Learning_via_Collaborative_Learning_CVPR_2024_paper.html",
-    "category": "regularization",
-    "mechanism": "蒸馏链和协同学习；可与回放方法结合",
-    "scope": "在线持续学习（非专门 LLM 微调）",
-    "title": "Improving Plasticity in Online Continual Learning via Collaborative Learning",
-    "pdf": "https://openaccess.thecvf.com/content/CVPR2024/papers/Wang_Improving_Plasticity_in_Online_Continual_Learning_via_Collaborative_Learning_CVPR_2024_paper.pdf",
-    "file": "pre_finetuning/method_regularization/2024_CVPR_CCL_DC.pdf",
-    "bytes": 1716781,
-    "sha256": "831e7519d06a30f46d1b8151d344d9aa3a4c7d7ba759fbb9a3bb570b5c1db14b",
-    "verified_on": "2026-10-11"
-  },
-  {
-    "method": "MoE-Adapters / DDAS",
-    "year": 2024,
-    "venue": "CVPR",
-    "page": "https://openaccess.thecvf.com/content/CVPR2024/html/Yu_Boosting_Continual_Learning_of_Vision-Language_Models_via_Mixture-of-Experts_Adapters_CVPR_2024_paper.html",
-    "category": "architecture",
-    "mechanism": "动态专家 Adapter 扩展和输入路由",
-    "scope": "CLIP 持续微调",
-    "title": "Boosting Continual Learning of Vision-Language Models via Mixture-of-Experts Adapters",
-    "pdf": "https://openaccess.thecvf.com/content/CVPR2024/papers/Yu_Boosting_Continual_Learning_of_Vision-Language_Models_via_Mixture-of-Experts_Adapters_CVPR_2024_paper.pdf",
-    "file": "pre_finetuning/method_architecture/2024_CVPR_MoE_Adapters_DDAS.pdf",
-    "bytes": 2874803,
-    "sha256": "92390503e147f163566fe603893bbe2ae129815eced447312be2352f601e71af",
-    "verified_on": "2026-10-11"
-  },
-  {
-    "method": "CPrompt",
-    "year": 2024,
-    "venue": "CVPR",
-    "page": "https://openaccess.thecvf.com/content/CVPR2024/html/Gao_Consistent_Prompting_for_Rehearsal-Free_Continual_Learning_CVPR_2024_paper.html",
-    "category": "architecture",
-    "mechanism": "任务提示与分类器；兼有一致性学习",
-    "scope": "冻结预训练模型的持续提示微调",
-    "title": "Consistent Prompting for Rehearsal-Free Continual Learning",
-    "pdf": "https://openaccess.thecvf.com/content/CVPR2024/papers/Gao_Consistent_Prompting_for_Rehearsal-Free_Continual_Learning_CVPR_2024_paper.pdf",
-    "file": "pre_finetuning/method_architecture/2024_CVPR_CPrompt.pdf",
-    "bytes": 1078973,
-    "sha256": "d36ade6e674d780952c0a77e3c5471ecf0e3350228b94ec4dd1f60d4c46fdcf6",
-    "verified_on": "2026-10-11"
-  },
-  {
-    "method": "S6MOD",
-    "year": 2025,
-    "venue": "CVPR",
-    "page": "https://openaccess.thecvf.com/content/CVPR2025/html/Liu_Enhancing_Online_Continual_Learning_with_Plug-and-Play_State_Space_Model_and_CVPR_2025_paper.html",
-    "category": "architecture",
-    "mechanism": "附加状态空间分支与类别条件路由；兼有对比损失",
-    "scope": "在线持续学习结构插件",
-    "title": "Enhancing Online Continual Learning with Plug-and-Play State Space Model and Class-Conditional Mixture of Discretization",
-    "pdf": "https://openaccess.thecvf.com/content/CVPR2025/papers/Liu_Enhancing_Online_Continual_Learning_with_Plug-and-Play_State_Space_Model_and_CVPR_2025_paper.pdf",
-    "file": "pre_finetuning/method_architecture/2025_CVPR_S6MOD.pdf",
-    "bytes": 2350353,
-    "sha256": "d5f4b03fea1c3081c88f460dd612bc5870b9446a3c715554f5893f50ccbaff1c",
-    "verified_on": "2026-10-11"
-  },
-  {
-    "method": "CHEEM",
-    "year": 2026,
-    "venue": "CVPR",
-    "page": "https://openaccess.thecvf.com/content/CVPR2026/html/Savadikar_CHEEM_Continual_Learning_by_Reuse_New_Adapt_and_Skip_-_CVPR_2026_paper.html",
-    "category": "architecture",
-    "mechanism": "架构搜索选择复用、新建、适配和跳过",
-    "scope": "预训练 ViT 持续适配",
-    "title": "CHEEM: Continual Learning by Reuse, New, Adapt and Skip - A Hierarchical Exploration-Exploitation Approach",
-    "pdf": "https://openaccess.thecvf.com/content/CVPR2026/papers/Savadikar_CHEEM_Continual_Learning_by_Reuse_New_Adapt_and_Skip_-_CVPR_2026_paper.pdf",
-    "file": "pre_finetuning/method_architecture/2026_CVPR_CHEEM.pdf",
-    "bytes": 2697842,
-    "sha256": "c2cb8a802644b2451aad2f80f46e5b2e24e57005e8cd30990c0689c65318608f",
-    "verified_on": "2026-10-11"
-  },
-  {
-    "method": "GRAPA",
-    "year": 2026,
-    "venue": "CVPR",
-    "page": "https://openaccess.thecvf.com/content/CVPR2026/html/Chen_Parameter-efficient_Continual_Learning_for_Enhancing_Plasticity_without_Forgetting_under_Limited_CVPR_2026_paper.html",
-    "category": "architecture",
-    "mechanism": "梯度引导参数复用和强化学习参数分配",
-    "scope": "有限容量下参数高效持续学习",
-    "title": "Parameter-efficient Continual Learning for Enhancing Plasticity without Forgetting under Limited Model Capacity",
-    "pdf": "https://openaccess.thecvf.com/content/CVPR2026/papers/Chen_Parameter-efficient_Continual_Learning_for_Enhancing_Plasticity_without_Forgetting_under_Limited_CVPR_2026_paper.pdf",
-    "file": "pre_finetuning/method_architecture/2026_CVPR_GRAPA.pdf",
-    "bytes": 7143057,
-    "sha256": "c439fc84bf986860c591410882c28d0c19b364dbfe0b5ac8b6c79eb6f869a777",
-    "verified_on": "2026-10-11"
-  },
-  {
-    "method": "MedQwen / Sparse Spectral LoRA",
-    "year": 2026,
-    "venue": "CVPR",
-    "page": "https://openaccess.thecvf.com/content/CVPR2026/html/Nejatimanzari_Sparse_Spectral_LoRA_Routed_Experts_for_Medical_VLMs_CVPR_2026_paper.html",
-    "category": "architecture",
-    "mechanism": "谱分段 LoRA 专家和路由",
-    "scope": "医学 VLM 序贯微调",
-    "title": "Sparse Spectral LoRA: Routed Experts for Medical VLMs",
-    "pdf": "https://openaccess.thecvf.com/content/CVPR2026/papers/Nejatimanzari_Sparse_Spectral_LoRA_Routed_Experts_for_Medical_VLMs_CVPR_2026_paper.pdf",
-    "file": "pre_finetuning/method_architecture/2026_CVPR_MedQwen_Sparse_Spectral_LoRA.pdf",
-    "bytes": 1266380,
-    "sha256": "4c46360ee765222a9ff2d1cf26b5549944c51f61d1d4bd2eb3b357cedb0f2c49",
-    "verified_on": "2026-10-11"
-  },
-  {
-    "method": "Learn more, but bother less",
-    "title": "Learn more, but bother less: parameter efficient continual learning",
-    "year": 2024,
-    "venue": "NeurIPS",
-    "page": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/b0bc711f48724237b38823c4d9cee10b-Abstract-Conference.html",
-    "pdf": "https://proceedings.neurips.cc/paper_files/paper/2024/file/b0bc711f48724237b38823c4d9cee10b-Paper-Conference.pdf",
-    "category": "regularization",
-    "mechanism": "梯度投影保持低秩子空间正交；兼有敏感度初始化",
-    "scope": "LLM 持续任务微调",
-    "file": "pre_finetuning/method_regularization/2024_NeurIPS_Learn_more_but_bother_less.pdf",
-    "bytes": 966087,
-    "sha256": "6d8a2e0d32d1d5fdd6dc67f8f836067897919aa5dd492ebf0d99ba24e45a813f",
-    "verified_on": "2026-10-11"
-  },
-  {
-    "method": "MedCoSS",
-    "year": 2024,
-    "venue": "CVPR",
-    "page": "https://openaccess.thecvf.com/content/CVPR2024/html/Ye_Continual_Self-supervised_Learning_Towards_Universal_Multi-modal_Medical_Data_Representation_Learning_CVPR_2024_paper.html",
+    "venue": "ACL",
+    "page": "https://aclanthology.org/2026.acl-long.427/",
     "category": "pretraining",
-    "mechanism": "跨模态自监督预训练；回放、特征蒸馏和 mixup",
-    "scope": "医学多模态序贯预训练",
-    "title": "Continual Self-supervised Learning: Towards Universal Multi-modal Medical Data Representation Learning",
-    "pdf": "https://openaccess.thecvf.com/content/CVPR2024/papers/Ye_Continual_Self-supervised_Learning_Towards_Universal_Multi-modal_Medical_Data_Representation_Learning_CVPR_2024_paper.pdf",
-    "file": "pre_training/2024_CVPR_MedCoSS.pdf",
-    "bytes": 2052033,
-    "sha256": "ec928f67d2d5af68df0585d90f3ea8ec67b59c6df40cba7b13db9b1a778f7d1c",
-    "verified_on": "2026-10-11"
+    "mechanism": "通过强化学习训练数据域混合策略",
+    "scope": "LLM 领域持续预训练与通用能力保持",
+    "pdf": "https://aclanthology.org/2026.acl-long.427.pdf",
+    "title": "Data Mixing Agent: Learning to Re-weight Domains for Continual Pre-training",
+    "publication_status": "published proceedings",
+    "verified_on": "2026-10-11",
+    "year_evidence": "2026/7",
+    "bytes": 11208642,
+    "sha256": "7c76c2705a073ed488c436f67e5bae4bace414bcd53976b93e52c2ced9521121",
+    "model": "LLaMA-DCLM、LLaMA-FWE、LLaMA-Nemo",
+    "generation_tasks": "领域数据混合持续预训练，评测领域、数学等能力与通用知识保持",
+    "body_review": {
+      "decision": "manual inclusion review completed",
+      "locators": [
+        {
+          "indicator": "LLaMA-DCLM",
+          "pdf_pages": [
+            5,
+            6,
+            7,
+            8,
+            17,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26
+          ]
+        },
+        {
+          "indicator": "continual pre-training",
+          "pdf_pages": [
+            1,
+            2,
+            3,
+            5,
+            9,
+            10,
+            11,
+            19,
+            22,
+            26
+          ]
+        }
+      ],
+      "note": "PDF 页码；定位词仅帮助复核，收录依据为模型、训练设置及生成任务正文。"
+    },
+    "taxonomy_basis": "主要机制人工归档；混合机制详见 mechanism",
+    "file": "pre_training/2026_ACL_Data_Mixing_Agent.pdf",
+    "publication_evidence": "正式 ACL 2026 主会论文集页面；会议年份按来源页/BibTeX 的届次核验。页面日期：2026/7。"
   },
   {
-    "method": "CoSMIC",
+    "method": "FOREVER",
+    "year": 2026,
+    "venue": "ACL",
+    "page": "https://aclanthology.org/2026.acl-long.1144/",
+    "category": "replay",
+    "mechanism": "按优化器更新幅度定义模型时间，按遗忘曲线调度回放",
+    "scope": "LLM 持续指令微调，生成任务与知识保持",
+    "pdf": "https://aclanthology.org/2026.acl-long.1144.pdf",
+    "title": "FOREVER: Forgetting Curve-Inspired Memory Replay for Language Model Continual Learning",
+    "publication_status": "published proceedings",
+    "verified_on": "2026-10-11",
+    "year_evidence": "2026/7",
+    "bytes": 5476854,
+    "sha256": "df4d741d4f5de400930467b1e4410937aa2e05bafc4c3614ae412735c82b4f78",
+    "model": "Qwen3-0.6B/4B、LLaMA-3.1-8B 等",
+    "generation_tasks": "SuperNI 序贯生成任务（摘要、对话等）；不以分类流为依据",
+    "body_review": {
+      "decision": "manual inclusion review completed",
+      "locators": [
+        {
+          "indicator": "SuperNI",
+          "pdf_pages": [
+            5,
+            6,
+            7,
+            8,
+            13,
+            14,
+            15,
+            16,
+            18,
+            19,
+            20,
+            21
+          ]
+        },
+        {
+          "indicator": "Qwen3",
+          "pdf_pages": [
+            5,
+            6,
+            8,
+            13,
+            14,
+            15,
+            16
+          ]
+        }
+      ],
+      "note": "PDF 页码；定位词仅帮助复核，收录依据为模型、训练设置及生成任务正文。"
+    },
+    "taxonomy_basis": "主要机制人工归档；混合机制详见 mechanism",
+    "file": "pre_finetuning/method_replay/2026_ACL_FOREVER.pdf",
+    "publication_evidence": "正式 ACL 2026 主会论文集页面；会议年份按来源页/BibTeX 的届次核验。页面日期：2026/7。"
+  },
+  {
+    "method": "Glyph",
+    "year": 2026,
+    "venue": "ACL",
+    "page": "https://aclanthology.org/2026.acl-long.1722/",
+    "category": "pretraining",
+    "mechanism": "将长文本渲染为视觉页，持续预训练压缩表征",
+    "scope": "生成式 VLM 长上下文扩展；能力扩展型 CPT",
+    "pdf": "https://aclanthology.org/2026.acl-long.1722.pdf",
+    "title": "Glyph: Scaling Context Windows via Visual-Text Compression",
+    "publication_status": "published proceedings",
+    "verified_on": "2026-10-11",
+    "year_evidence": "2026/7",
+    "bytes": 5118064,
+    "sha256": "f8453f102e644a29ffefc6a0c4591bfc2b4d16c44aa52bcd69ca2798e3f8b5cb",
+    "model": "GLM-4.1V-9B-Base → Glyph",
+    "generation_tasks": "视觉化长文 CPT，长上下文问答、摘要与文本生成；上下文扩展型 CPT",
+    "body_review": {
+      "decision": "manual inclusion review completed",
+      "locators": [
+        {
+          "indicator": "GLM-4.1V-9B",
+          "pdf_pages": [
+            8,
+            12
+          ]
+        },
+        {
+          "indicator": "continual pre-training",
+          "pdf_pages": [
+            1,
+            3,
+            4,
+            5,
+            9,
+            12
+          ]
+        }
+      ],
+      "note": "PDF 页码；定位词仅帮助复核，收录依据为模型、训练设置及生成任务正文。"
+    },
+    "taxonomy_basis": "主要机制人工归档；混合机制详见 mechanism",
+    "file": "pre_training/2026_ACL_Glyph.pdf",
+    "publication_evidence": "正式 ACL 2026 主会论文集页面；会议年份按来源页/BibTeX 的届次核验。页面日期：2026/7。"
+  },
+  {
+    "method": "PASs-MoE",
+    "year": 2026,
+    "venue": "ACL",
+    "page": "https://aclanthology.org/2026.acl-long.1474/",
+    "category": "architecture",
+    "mechanism": "基于专家通路激活子空间的路由；兼有秩方向稳定约束",
+    "scope": "MLLM 持续指令微调",
+    "pdf": "https://aclanthology.org/2026.acl-long.1474.pdf",
+    "title": "PASs-MoE: Mitigating Misaligned Co-drift among Router and Experts via Pathway Activation Subspaces for Continual Learning",
+    "publication_status": "published proceedings",
+    "verified_on": "2026-10-11",
+    "year_evidence": "2026/7",
+    "bytes": 1781787,
+    "sha256": "813e150b6031483179c18a8bc512b7ab472dc0e93658ede96ac933f6d9ce46f2",
+    "model": "LLaVA-v1.5-7B",
+    "generation_tasks": "多模态序贯视觉问答指令任务与遗忘评测",
+    "body_review": {
+      "decision": "manual inclusion review completed",
+      "locators": [
+        {
+          "indicator": "LLaVA-v1.5",
+          "pdf_pages": [
+            6
+          ]
+        },
+        {
+          "indicator": "VQA",
+          "pdf_pages": [
+            5,
+            6,
+            7,
+            13,
+            14
+          ]
+        }
+      ],
+      "note": "PDF 页码；定位词仅帮助复核，收录依据为模型、训练设置及生成任务正文。"
+    },
+    "taxonomy_basis": "主要机制人工归档；混合机制详见 mechanism",
+    "file": "pre_finetuning/method_architecture/2026_ACL_PASs_MoE.pdf",
+    "publication_evidence": "正式 ACL 2026 主会论文集页面；会议年份按来源页/BibTeX 的届次核验。页面日期：2026/7。"
+  },
+  {
+    "method": "PaRSP",
+    "year": 2026,
+    "venue": "ACL",
+    "page": "https://aclanthology.org/2026.acl-long.1244/",
+    "category": "regularization",
+    "mechanism": "任务区域划分和零空间约束；兼有参数分区",
+    "scope": "LLM 序贯任务适配",
+    "pdf": "https://aclanthology.org/2026.acl-long.1244.pdf",
+    "title": "Harmonizing the Past, Present, and Future: A Null-Space Constrained Region-Specific Method for Continual Learning in LLMs",
+    "publication_status": "published proceedings",
+    "verified_on": "2026-10-11",
+    "year_evidence": "2026/7",
+    "bytes": 869067,
+    "sha256": "6fe650754fb08ed93f5951c6c72e77b7a79011b70cceb17e993bf6fc3c4c016b",
+    "model": "Llama-3.1-8B、Qwen2.5-7B",
+    "generation_tasks": "TRACE 序贯生成任务、代码、摘要和推理能力保持；另含分类流",
+    "body_review": {
+      "decision": "manual inclusion review completed",
+      "locators": [
+        {
+          "indicator": "TRACE",
+          "pdf_pages": [
+            2,
+            6,
+            7,
+            11,
+            15,
+            24,
+            25,
+            26,
+            30
+          ]
+        },
+        {
+          "indicator": "GSM8K",
+          "pdf_pages": [
+            7,
+            11,
+            24,
+            28
+          ]
+        }
+      ],
+      "note": "PDF 页码；定位词仅帮助复核，收录依据为模型、训练设置及生成任务正文。"
+    },
+    "taxonomy_basis": "主要机制人工归档；混合机制详见 mechanism",
+    "file": "pre_finetuning/method_regularization/2026_ACL_PaRSP.pdf",
+    "publication_evidence": "正式 ACL 2026 主会论文集页面；会议年份按来源页/BibTeX 的届次核验。页面日期：2026/7。"
+  },
+  {
+    "method": "SpaRTA",
+    "year": 2026,
+    "venue": "ACL",
+    "page": "https://aclanthology.org/2026.acl-long.334/",
+    "category": "regularization",
+    "mechanism": "秩谱分解隔离共享／任务特定子空间；兼有自适应 LoRA",
+    "scope": "LLM rehearsal-free 持续微调",
+    "pdf": "https://aclanthology.org/2026.acl-long.334.pdf",
+    "title": "Spectral Disentanglement: Rank-Aware Task Adaptation for Rehearsal-free Continual Learning in LLMs",
+    "publication_status": "published proceedings",
+    "verified_on": "2026-10-11",
+    "year_evidence": "2026/7",
+    "bytes": 2597901,
+    "sha256": "3f55d76afb0bd8eafcf4c4de5a5276326869ec3faf7727860378047e4a8f4545",
+    "model": "LLaMA2、LLaMA3.1、Qwen2.5（另有 T5）",
+    "generation_tasks": "TRACE 的 MeetingBank 摘要及其他生成任务；数学能力保持",
+    "body_review": {
+      "decision": "manual inclusion review completed",
+      "locators": [
+        {
+          "indicator": "MeetingBank",
+          "pdf_pages": [
+            3,
+            10,
+            13,
+            14
+          ]
+        },
+        {
+          "indicator": "GSM8K",
+          "pdf_pages": [
+            7,
+            8,
+            12
+          ]
+        }
+      ],
+      "note": "PDF 页码；定位词仅帮助复核，收录依据为模型、训练设置及生成任务正文。"
+    },
+    "taxonomy_basis": "主要机制人工归档；混合机制详见 mechanism",
+    "file": "pre_finetuning/method_regularization/2026_ACL_SpaRTA.pdf",
+    "publication_evidence": "正式 ACL 2026 主会论文集页面；会议年份按来源页/BibTeX 的届次核验。页面日期：2026/7。"
+  },
+  {
+    "method": "Tibetan Dense / MoE CPT",
+    "year": 2026,
+    "venue": "ACL",
+    "page": "https://aclanthology.org/2026.acl-long.1866/",
+    "category": "pretraining",
+    "mechanism": "藏／中／英平衡混合预训练及 MoE 扩展",
+    "scope": "Qwen2.5-7B 与 50B-A10B 藏语生成模型；语言扩展型 CPT",
+    "pdf": "https://aclanthology.org/2026.acl-long.1866.pdf",
+    "title": "From Curated Data to Scalable Models: Continual Pre-training of Dense and MoE Large Language Models for Tibetan",
+    "publication_status": "published proceedings",
+    "verified_on": "2026-10-11",
+    "year_evidence": "2026/7",
+    "bytes": 474944,
+    "sha256": "880f83a1e9ddd48e046678d4004ff88ebb241db66a2cdd67e71b4a06b57332e8",
+    "model": "Qwen2.5-7B、50B-A10B MoE",
+    "generation_tasks": "藏／中／英混合语料 CPT，藏语理解与生成；语言扩展型 CPT",
+    "body_review": {
+      "decision": "manual inclusion review completed",
+      "locators": [
+        {
+          "indicator": "Qwen2.5-7B",
+          "pdf_pages": [
+            1,
+            2,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "indicator": "continual pre-training",
+          "pdf_pages": [
+            1,
+            2,
+            3,
+            5,
+            6,
+            15
+          ]
+        }
+      ],
+      "note": "PDF 页码；定位词仅帮助复核，收录依据为模型、训练设置及生成任务正文。"
+    },
+    "taxonomy_basis": "主要机制人工归档；混合机制详见 mechanism",
+    "file": "pre_training/2026_ACL_Tibetan_Dense_MoE_CPT.pdf",
+    "publication_evidence": "正式 ACL 2026 主会论文集页面；会议年份按来源页/BibTeX 的届次核验。页面日期：2026/7。"
+  },
+  {
+    "method": "Cite Pretrain / Active Indexing",
+    "year": 2026,
+    "venue": "ICLR",
+    "page": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/528f0a943a54903939e77509f874d8e8-Abstract-Conference.html",
+    "category": "pretraining",
+    "mechanism": "以双向合成数据建立事实与来源 ID 的参数化绑定",
+    "scope": "Qwen2.5 3B/7B 持续知识预训练，短／长文本引用生成",
+    "pdf": "https://proceedings.iclr.cc/paper_files/paper/2026/file/528f0a943a54903939e77509f874d8e8-Paper-Conference.pdf",
+    "title": "Cite Pretrain: Retrieval-Free Knowledge Attribution for Large Language Models",
+    "publication_status": "published proceedings",
+    "verified_on": "2026-10-11",
+    "year_evidence": "2026-04-20",
+    "bytes": 1108700,
+    "sha256": "13e7928ed384e1e4970167df00de4491dbb89cd9c3e10943460ce69f27a0386d",
+    "model": "Qwen2.5-3B/7B",
+    "generation_tasks": "知识语料 CPT，短／长答案生成与来源引用；知识扩展型 CPT",
+    "body_review": {
+      "decision": "manual inclusion review completed",
+      "locators": [
+        {
+          "indicator": "Qwen-2.5-7B",
+          "pdf_pages": [
+            1,
+            3,
+            23,
+            28
+          ]
+        },
+        {
+          "indicator": "continual pretraining",
+          "pdf_pages": [
+            2,
+            3,
+            4,
+            5,
+            7,
+            8,
+            9,
+            10,
+            18,
+            22,
+            23,
+            24
+          ]
+        }
+      ],
+      "note": "PDF 页码；定位词仅帮助复核，收录依据为模型、训练设置及生成任务正文。"
+    },
+    "taxonomy_basis": "主要机制人工归档；混合机制详见 mechanism",
+    "file": "pre_training/2026_ICLR_Cite_Pretrain_Active_Indexing.pdf",
+    "publication_evidence": "正式 ICLR 2026 主会论文集页面；会议年份按来源页/BibTeX 的届次核验。页面日期：2026-04-20。"
+  },
+  {
+    "method": "OSFT",
+    "year": 2026,
+    "venue": "ICLR",
+    "page": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/22620cccae29bbb3f18d226ea0320ff5-Abstract-Conference.html",
+    "category": "regularization",
+    "mechanism": "自适应 SVD 保留重要子空间，约束参数更新",
+    "scope": "LLM 持续领域适配和生成能力保持",
+    "pdf": "https://proceedings.iclr.cc/paper_files/paper/2026/file/22620cccae29bbb3f18d226ea0320ff5-Paper-Conference.pdf",
+    "title": "Sculpting Subspaces: Constrained Full Fine-Tuning in LLMs for Continual Learning",
+    "publication_status": "published proceedings",
+    "verified_on": "2026-10-11",
+    "year_evidence": "2026-04-20",
+    "bytes": 824765,
+    "sha256": "e7abe0695b8a287d9acd9292791fb22b6d5621c6cce5eae2964a33b767287b68",
+    "model": "LLaMA-2-7B、Mistral-7B（另有 T5）",
+    "generation_tasks": "TRACE 指令、数学推理及领域微调；不以文本分类为依据",
+    "body_review": {
+      "decision": "manual inclusion review completed",
+      "locators": [
+        {
+          "indicator": "TRACE",
+          "pdf_pages": [
+            2,
+            8,
+            9,
+            10,
+            14,
+            28,
+            30,
+            32
+          ]
+        },
+        {
+          "indicator": "GSM8K",
+          "pdf_pages": [
+            10,
+            23,
+            24,
+            26,
+            27
+          ]
+        }
+      ],
+      "note": "PDF 页码；定位词仅帮助复核，收录依据为模型、训练设置及生成任务正文。"
+    },
+    "taxonomy_basis": "主要机制人工归档；混合机制详见 mechanism",
+    "file": "pre_finetuning/method_regularization/2026_ICLR_OSFT.pdf",
+    "publication_evidence": "正式 ICLR 2026 主会论文集页面；会议年份按来源页/BibTeX 的届次核验。页面日期：2026-04-20。"
+  },
+  {
+    "method": "SLAO / Merge before Forget",
+    "year": 2026,
+    "venue": "ICLR",
+    "page": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/0dedca10992d34035c9a9776254cfa8c-Abstract-Conference.html",
+    "category": "architecture",
+    "mechanism": "保持单 LoRA 的序贯合并；兼有正交初始化及时间缩放",
+    "scope": "LLM 持续微调",
+    "pdf": "https://proceedings.iclr.cc/paper_files/paper/2026/file/0dedca10992d34035c9a9776254cfa8c-Paper-Conference.pdf",
+    "title": "Merge before Forget: A Single LoRA Continual Learning via Continual Merging",
+    "publication_status": "published proceedings",
+    "verified_on": "2026-10-11",
+    "year_evidence": "2026-04-20",
+    "bytes": 2072823,
+    "sha256": "f02810589790c21eb03266e6919737386d1dbdb3fc430f2469e72c24b72f344e",
+    "model": "Llama-2-7B/13B、Llama-3.2-3B、Qwen2.5-3B/7B",
+    "generation_tasks": "SuperNI 对话生成、摘要、问答序列；不取另行分类实验",
+    "body_review": {
+      "decision": "manual inclusion review completed",
+      "locators": [
+        {
+          "indicator": "SuperNI",
+          "pdf_pages": [
+            8,
+            9,
+            10,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27
+          ]
+        },
+        {
+          "indicator": "dialogue generation",
+          "pdf_pages": [
+            8,
+            26
+          ]
+        }
+      ],
+      "note": "PDF 页码；定位词仅帮助复核，收录依据为模型、训练设置及生成任务正文。"
+    },
+    "taxonomy_basis": "主要机制人工归档；混合机制详见 mechanism",
+    "file": "pre_finetuning/method_architecture/2026_ICLR_SLAO_Merge_before_Forget.pdf",
+    "publication_evidence": "正式 ICLR 2026 主会论文集页面；会议年份按来源页/BibTeX 的届次核验。页面日期：2026-04-20。"
+  },
+  {
+    "method": "Weight Space Consolidation",
+    "year": 2026,
+    "venue": "ICLR",
+    "page": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/17fc58b1ba92abbb72c5f457e140d851-Abstract-Conference.html",
+    "category": "replay",
+    "mechanism": "充足历史样本回放；兼有秩重置与权重平均",
+    "scope": "仅取本文 LLM 持续指令微调实验，排除图像分类实验",
+    "pdf": "https://proceedings.iclr.cc/paper_files/paper/2026/file/17fc58b1ba92abbb72c5f457e140d851-Paper-Conference.pdf",
+    "title": "Forget Forgetting: Continual Learning in a World of Abundant Memory",
+    "publication_status": "published proceedings",
+    "verified_on": "2026-10-11",
+    "year_evidence": "2026-04-20",
+    "bytes": 746062,
+    "sha256": "6318dd76b17d3f7288367a8ff76eb3babee6a96cd4bc7b5f7c14724bd4b951d8",
+    "model": "LLaMA-3.2-1B",
+    "generation_tasks": "TRACE 序贯指令任务，含会议摘要、代码与数学；不取图像分类实验",
+    "body_review": {
+      "decision": "manual inclusion review completed",
+      "locators": [
+        {
+          "indicator": "TRACE",
+          "pdf_pages": [
+            2,
+            7,
+            8,
+            14,
+            20,
+            22,
+            23,
+            25,
+            26
+          ]
+        },
+        {
+          "indicator": "Llama-3.2",
+          "pdf_pages": [
+            7,
+            25
+          ]
+        }
+      ],
+      "note": "PDF 页码；定位词仅帮助复核，收录依据为模型、训练设置及生成任务正文。"
+    },
+    "taxonomy_basis": "主要机制人工归档；混合机制详见 mechanism",
+    "file": "pre_finetuning/method_replay/2026_ICLR_Weight_Space_Consolidation.pdf",
+    "publication_evidence": "正式 ICLR 2026 主会论文集页面；会议年份按来源页/BibTeX 的届次核验。页面日期：2026-04-20。"
+  },
+  {
+    "method": "ALER",
+    "year": 2026,
+    "venue": "ICML",
+    "page": "https://proceedings.mlr.press/v306/xia26j.html",
+    "category": "regularization",
+    "mechanism": "对抗搜索潜在提示嵌入，参考模型在线蒸馏",
+    "scope": "LLM 领域微调与通用生成／推理能力保持",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v306/main/assets/xia26j/xia26j.pdf",
+    "title": "Adversarial Latent Embedding Repair for LLM Continual Learning",
+    "publication_status": "published proceedings",
+    "verified_on": "2026-10-11",
+    "year_evidence": "2026/09/29",
+    "bytes": 2797812,
+    "sha256": "0ecfbeda2f20e3eda7ab35972d8ab88d1411fea15c83ac7d2163ec936d6de54d",
+    "model": "Qwen3-4B-Instruct-2507（另有 8B 实验）",
+    "generation_tasks": "化学等领域 SFT 后保留 GSM8K 数学、HumanEval 代码和 IFEval 指令能力",
+    "body_review": {
+      "decision": "manual inclusion review completed",
+      "locators": [
+        {
+          "indicator": "Qwen3-4B",
+          "pdf_pages": [
+            18,
+            19,
+            20,
+            22
+          ]
+        },
+        {
+          "indicator": "HumanEval",
+          "pdf_pages": [
+            6,
+            7,
+            8,
+            17,
+            22,
+            23,
+            24,
+            25
+          ]
+        }
+      ],
+      "note": "PDF 页码；定位词仅帮助复核，收录依据为模型、训练设置及生成任务正文。"
+    },
+    "taxonomy_basis": "主要机制人工归档；混合机制详见 mechanism",
+    "file": "pre_finetuning/method_regularization/2026_ICML_ALER.pdf",
+    "publication_evidence": "正式 ICML 2026 主会论文集页面；会议年份按来源页/BibTeX 的届次核验。页面日期：2026/09/29。"
+  },
+  {
+    "method": "CoPE",
+    "year": 2026,
+    "venue": "ICML",
+    "page": "https://proceedings.mlr.press/v306/wang26le.html",
+    "category": "architecture",
+    "mechanism": "探针引导专家扩展与概率任务定位",
+    "scope": "大视觉语言模型，CoIN 多任务生成式 VQA",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v306/main/assets/wang26le/wang26le.pdf",
+    "title": "CoPE: Continual Probe-guided Expansion for Large Vision-Language Models",
+    "publication_status": "published proceedings",
+    "verified_on": "2026-10-11",
+    "year_evidence": "2026/09/29",
+    "bytes": 3046747,
+    "sha256": "3f085e2cc7262d9fcf79bdf17e241c34b88ea8249a9e7380aafe8fc3600e1923",
+    "model": "LLaVA-v1.5-7B（另有 13B）",
+    "generation_tasks": "CoIN 八种生成式 VQA 任务序列",
+    "body_review": {
+      "decision": "manual inclusion review completed",
+      "locators": [
+        {
+          "indicator": "LLaVA-v1.5",
+          "pdf_pages": [
+            20,
+            21
+          ]
+        },
+        {
+          "indicator": "CoIN",
+          "pdf_pages": [
+            1,
+            2,
+            3,
+            5,
+            6,
+            7,
+            9,
+            14
+          ]
+        }
+      ],
+      "note": "PDF 页码；定位词仅帮助复核，收录依据为模型、训练设置及生成任务正文。"
+    },
+    "taxonomy_basis": "主要机制人工归档；混合机制详见 mechanism",
+    "file": "pre_finetuning/method_architecture/2026_ICML_CoPE.pdf",
+    "publication_evidence": "正式 ICML 2026 主会论文集页面；会议年份按来源页/BibTeX 的届次核验。页面日期：2026/09/29。"
+  },
+  {
+    "method": "DiSC",
+    "year": 2026,
+    "venue": "ICML",
+    "page": "https://proceedings.mlr.press/v306/padmanabhan26a.html",
+    "category": "pretraining",
+    "mechanism": "分割上下文产生师生分布，KL 蒸馏语言建模",
+    "scope": "post-trained LLM 以文档语料持续知识适配，保留指令／推理能力",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v306/main/assets/padmanabhan26a/padmanabhan26a.pdf",
+    "title": "Updating Parametric Knowledge with Context Distillation Retains Post-Training Capabilities",
+    "publication_status": "published proceedings",
+    "verified_on": "2026-10-11",
+    "year_evidence": "2026/09/29",
+    "bytes": 596144,
+    "sha256": "60dbe3f3294e3072dfc59fcc184510a2d7afcf73ffeb0d59b59ee74a620f5232",
+    "model": "Qwen2.5-3B/7B-Instruct、Llama3.1-8B-Instruct、Qwen3-8B",
+    "generation_tasks": "文档知识更新（KUP / BioASQ）；保留代码、数学及指令能力",
+    "body_review": {
+      "decision": "manual inclusion review completed",
+      "locators": [
+        {
+          "indicator": "BioASQ",
+          "pdf_pages": [
+            2,
+            5,
+            6,
+            7,
+            8,
+            11,
+            13,
+            14,
+            15,
+            16
+          ]
+        },
+        {
+          "indicator": "IFEval",
+          "pdf_pages": [
+            2,
+            5,
+            6,
+            7,
+            8,
+            9,
+            13,
+            14
+          ]
+        }
+      ],
+      "note": "PDF 页码；定位词仅帮助复核，收录依据为模型、训练设置及生成任务正文。"
+    },
+    "taxonomy_basis": "主要机制人工归档；混合机制详见 mechanism",
+    "file": "pre_training/2026_ICML_DiSC.pdf",
+    "publication_evidence": "正式 ICML 2026 主会论文集页面；会议年份按来源页/BibTeX 的届次核验。页面日期：2026/09/29。"
+  },
+  {
+    "method": "Diffract",
+    "year": 2026,
+    "venue": "ICML",
+    "page": "https://proceedings.mlr.press/v306/borodin26a.html",
+    "category": "pretraining",
+    "mechanism": "CPT 参数谱分析与低重要性注意力头回退",
+    "scope": "十亿参数 LLM 数学／代码／文本领域持续预训练",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v306/main/assets/borodin26a/borodin26a.pdf",
+    "title": "Diffract: Spectral View of LLM Domain Adaptation",
+    "publication_status": "published proceedings",
+    "verified_on": "2026-10-11",
+    "year_evidence": "2026/09/29",
+    "bytes": 8997533,
+    "sha256": "1d94f4063baa197eff7f1fa73be811f6f8769ec801a678324d767ea65debb8db",
+    "model": "1B / 7B / 13B 生成式 LLM",
+    "generation_tasks": "领域持续预训练，数学、代码与文本领域能力适配及保持",
+    "body_review": {
+      "decision": "manual inclusion review completed",
+      "locators": [
+        {
+          "indicator": "continual pre-training",
+          "pdf_pages": [
+            1,
+            2,
+            3,
+            7,
+            8,
+            9,
+            10,
+            12,
+            15,
+            22,
+            24
+          ]
+        },
+        {
+          "indicator": "13B",
+          "pdf_pages": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            14,
+            15,
+            17
+          ]
+        }
+      ],
+      "note": "PDF 页码；定位词仅帮助复核，收录依据为模型、训练设置及生成任务正文。"
+    },
+    "taxonomy_basis": "主要机制人工归档；混合机制详见 mechanism",
+    "file": "pre_training/2026_ICML_Diffract.pdf",
+    "publication_evidence": "正式 ICML 2026 主会论文集页面；会议年份按来源页/BibTeX 的届次核验。页面日期：2026/09/29。"
+  },
+  {
+    "method": "ECA",
+    "year": 2026,
+    "venue": "ICML",
+    "page": "https://proceedings.mlr.press/v306/kong26h.html",
+    "category": "architecture",
+    "mechanism": "查询专家混合与 Fisher 信息引导扩展；兼有字典回放",
+    "scope": "生成式图像到文本持续适配；此处 alignment 指跨模态对齐而非偏好对齐",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v306/main/assets/kong26h/kong26h.pdf",
+    "title": "ECA: Efficient Continual Alignment for Open-Ended Image-to-Text Generation",
+    "publication_status": "published proceedings",
+    "verified_on": "2026-10-11",
+    "year_evidence": "2026/09/29",
+    "bytes": 3686893,
+    "sha256": "a7488ad4190a22cc5eb70eabe6a3799198f81d7606ee5747a08b67a89934cb97",
+    "model": "BLIP-2 / OPT-2.7B，补充 LLaVA-v0 实验",
+    "generation_tasks": "按主题序贯训练 COCO / TextCaps 图像描述、VQAv2 / TextVQA 开放式问答",
+    "body_review": {
+      "decision": "manual inclusion review completed",
+      "locators": [
+        {
+          "indicator": "OPT-2.7B",
+          "pdf_pages": [
+            15
+          ]
+        },
+        {
+          "indicator": "ToS-COCO",
+          "pdf_pages": [
+            2,
+            6,
+            7,
+            8,
+            14,
+            15,
+            16,
+            18,
+            19
+          ]
+        }
+      ],
+      "note": "PDF 页码；定位词仅帮助复核，收录依据为模型、训练设置及生成任务正文。"
+    },
+    "taxonomy_basis": "主要机制人工归档；混合机制详见 mechanism",
+    "file": "pre_finetuning/method_architecture/2026_ICML_ECA.pdf",
+    "publication_evidence": "正式 ICML 2026 主会论文集页面；会议年份按来源页/BibTeX 的届次核验。页面日期：2026/09/29。"
+  },
+  {
+    "method": "Hyper-LLaVA",
+    "year": 2026,
+    "venue": "ICML",
+    "page": "https://proceedings.mlr.press/v306/xu26cj.html",
+    "category": "architecture",
+    "mechanism": "双曲空间不确定性建模和模态平衡参数路由",
+    "scope": "MLLM 多模态持续指令微调",
+    "pdf": "https://raw.githubusercontent.com/mlresearch/v306/main/assets/xu26cj/xu26cj.pdf",
+    "title": "Hyper-LLaVA: Hyperbolic Uncertainty-aware Modality-Balanced Routing for Multimodal Continual Instruction Tuning",
+    "publication_status": "published proceedings",
+    "verified_on": "2026-10-11",
+    "year_evidence": "2026/09/29",
+    "bytes": 1575828,
+    "sha256": "31aff53f5284c05dc2b6b501306ea526feb7d741ad6330f2cf7fad707b2d4d09",
+    "model": "LLaVA-v1.5-7B / Vicuna-7B",
+    "generation_tasks": "CoIN / UCIT 开放式 VQA、描述、数学等多模态持续指令任务",
+    "body_review": {
+      "decision": "manual inclusion review completed",
+      "locators": [
+        {
+          "indicator": "Vicuna-7B",
+          "pdf_pages": [
+            6
+          ]
+        },
+        {
+          "indicator": "UCIT",
+          "pdf_pages": [
+            6,
+            7,
+            8,
+            17,
+            18
+          ]
+        }
+      ],
+      "note": "PDF 页码；定位词仅帮助复核，收录依据为模型、训练设置及生成任务正文。"
+    },
+    "taxonomy_basis": "主要机制人工归档；混合机制详见 mechanism",
+    "file": "pre_finetuning/method_architecture/2026_ICML_Hyper_LLaVA.pdf",
+    "publication_evidence": "正式 ICML 2026 主会论文集页面；会议年份按来源页/BibTeX 的届次核验。页面日期：2026/09/29。"
+  },
+  {
+    "method": "CL-MoE",
+    "year": 2025,
+    "venue": "CVPR",
+    "page": "https://openaccess.thecvf.com/content/CVPR2025/html/Huai_CL-MoE_Enhancing_Multimodal_Large_Language_Model_with_Dual_Momentum_Mixture-of-Experts_CVPR_2025_paper.html",
+    "category": "architecture",
+    "mechanism": "双层路由和动量专家",
+    "scope": "MLLM 持续视觉问答",
+    "pdf": "https://openaccess.thecvf.com/content/CVPR2025/papers/Huai_CL-MoE_Enhancing_Multimodal_Large_Language_Model_with_Dual_Momentum_Mixture-of-Experts_CVPR_2025_paper.pdf",
+    "title": "CL-MoE: Enhancing Multimodal Large Language Model with Dual Momentum Mixture-of-Experts for Continual Visual Question Answering",
+    "publication_status": "published proceedings",
+    "verified_on": "2026-10-11",
+    "year_evidence": "2025",
+    "bytes": 678753,
+    "sha256": "cbcd632f3806dbb1d2acc0f456f6c255878d13fb8ce2a50812e297b1ac7f1cae",
+    "model": "LLaVA / Vicuna-7B",
+    "generation_tasks": "多模态序贯生成式 VQA 任务",
+    "body_review": {
+      "decision": "manual inclusion review completed",
+      "locators": [
+        {
+          "indicator": "Vicuna",
+          "pdf_pages": [
+            6,
+            9
+          ]
+        },
+        {
+          "indicator": "VQA",
+          "pdf_pages": [
+            1,
+            2,
+            3,
+            6,
+            7,
+            8,
+            9,
+            10
+          ]
+        }
+      ],
+      "note": "PDF 页码；定位词仅帮助复核，收录依据为模型、训练设置及生成任务正文。"
+    },
+    "taxonomy_basis": "主要机制人工归档；混合机制详见 mechanism",
+    "file": "pre_finetuning/method_architecture/2025_CVPR_CL_MoE.pdf",
+    "publication_evidence": "正式 CVPR 2025 主会论文集页面；会议年份按来源页/BibTeX 的届次核验。页面日期：2025。"
+  },
+  {
+    "method": "Any-SSR",
     "year": 2025,
     "venue": "ICCV",
-    "page": "https://openaccess.thecvf.com/content/ICCV2025/html/Liu_CoSMIC_Continual_Self-supervised_Learning_for_Multi-Domain_Medical_Imaging_via_Conditional_ICCV_2025_paper.html",
-    "category": "pretraining",
-    "mechanism": "条件互信息最大化和 Anatomy-Guided Calibration",
-    "scope": "医学多域序贯自监督预训练",
-    "title": "CoSMIC: Continual Self-supervised Learning for Multi-Domain Medical Imaging via Conditional Mutual Information Maximization",
-    "pdf": "https://openaccess.thecvf.com/content/ICCV2025/papers/Liu_CoSMIC_Continual_Self-supervised_Learning_for_Multi-Domain_Medical_Imaging_via_Conditional_ICCV_2025_paper.pdf",
-    "file": "pre_training/2025_ICCV_CoSMIC.pdf",
-    "bytes": 8225455,
-    "sha256": "935afe76bcd046fbbef69910132711a0c335497d08b093c9cf8f26b632fab1b3",
-    "verified_on": "2026-10-11"
+    "page": "https://openaccess.thecvf.com/content/ICCV2025/html/Tong_Any-SSR_How_Recursive_Least_Squares_Works_in_Continual_Learning_of_ICCV_2025_paper.html",
+    "category": "architecture",
+    "mechanism": "解析子空间路由和递归最小二乘路由更新",
+    "scope": "LLM 序贯任务微调",
+    "pdf": "https://openaccess.thecvf.com/content/ICCV2025/papers/Tong_Any-SSR_How_Recursive_Least_Squares_Works_in_Continual_Learning_of_ICCV_2025_paper.pdf",
+    "title": "Any-SSR: How Recursive Least Squares Works in Continual Learning of Large Language Model",
+    "publication_status": "published proceedings",
+    "verified_on": "2026-10-11",
+    "year_evidence": "2025",
+    "bytes": 1103597,
+    "sha256": "6a46b5d9c42fbae5c71d058f467401eb084474d11c298a5e70c3b313df4b104e",
+    "model": "Llama2-7B-chat、Qwen2.5-7B、GLM-4-9B",
+    "generation_tasks": "TRACE 的 MeetingBank 摘要、Py150 代码生成等序贯任务",
+    "body_review": {
+      "decision": "manual inclusion review completed",
+      "locators": [
+        {
+          "indicator": "summarization",
+          "pdf_pages": [
+            6
+          ]
+        },
+        {
+          "indicator": "Py150",
+          "pdf_pages": [
+            6,
+            8
+          ]
+        }
+      ],
+      "note": "PDF 页码；定位词仅帮助复核，收录依据为模型、训练设置及生成任务正文。"
+    },
+    "taxonomy_basis": "主要机制人工归档；混合机制详见 mechanism",
+    "file": "pre_finetuning/method_architecture/2025_ICCV_Any_SSR.pdf",
+    "publication_evidence": "正式 ICCV 2025 主会论文集页面；会议年份按来源页/BibTeX 的届次核验。页面日期：2025。"
   },
   {
-    "method": "CHIPS",
-    "year": 2026,
-    "venue": "CVPR",
-    "page": "https://openaccess.thecvf.com/content/CVPR2026/html/Zhuang_CHIPS_Efficient_CLIP_Adaptation_via_Curvature-aware_Hybrid_Influence-based_Data_Selection_CVPR_2026_paper.html",
-    "category": "pretraining",
-    "mechanism": "曲率和影响函数驱动的数据选择",
-    "scope": "CLIP 域持续预训练；单域扩展型 CPT",
-    "title": "CHIPS: Efficient CLIP Adaptation via Curvature-aware Hybrid Influence-based Data Selection",
-    "pdf": "https://openaccess.thecvf.com/content/CVPR2026/papers/Zhuang_CHIPS_Efficient_CLIP_Adaptation_via_Curvature-aware_Hybrid_Influence-based_Data_Selection_CVPR_2026_paper.pdf",
-    "file": "pre_training/2026_CVPR_CHIPS.pdf",
-    "bytes": 1767272,
-    "sha256": "f23801f0608127f5cae67977fb7545092bb639d9dac621b92cb9a90a7888f529",
-    "verified_on": "2026-10-11"
+    "method": "FCIT",
+    "year": 2025,
+    "venue": "ICCV",
+    "page": "https://openaccess.thecvf.com/content/ICCV2025/html/Guo_Federated_Continual_Instruction_Tuning_ICCV_2025_paper.html",
+    "category": "architecture",
+    "mechanism": "动态知识组织和子空间选择性激活",
+    "scope": "MLLM 联邦持续指令微调；图像描述、开放式视觉问答与推理",
+    "pdf": "https://openaccess.thecvf.com/content/ICCV2025/papers/Guo_Federated_Continual_Instruction_Tuning_ICCV_2025_paper.pdf",
+    "title": "Federated Continual Instruction Tuning",
+    "publication_status": "published proceedings",
+    "verified_on": "2026-10-11",
+    "year_evidence": "2025",
+    "bytes": 1053816,
+    "sha256": "661779cf1771d3fd79a22446e0bd9d6b4a58413170ccfcc0913c24bc28aeaeb8",
+    "model": "LLaVA-1.5-7B",
+    "generation_tasks": "联邦序贯图像描述（Flickr30k）、数学和视觉问答；不以 ImageNet-R 为依据",
+    "body_review": {
+      "decision": "manual inclusion review completed",
+      "locators": [
+        {
+          "indicator": "LLaVA-1.5-7b",
+          "pdf_pages": [
+            7
+          ]
+        },
+        {
+          "indicator": "Flickr30k",
+          "pdf_pages": [
+            2,
+            4,
+            10
+          ]
+        }
+      ],
+      "note": "PDF 页码；定位词仅帮助复核，收录依据为模型、训练设置及生成任务正文。"
+    },
+    "taxonomy_basis": "主要机制人工归档；混合机制详见 mechanism",
+    "file": "pre_finetuning/method_architecture/2025_ICCV_FCIT.pdf",
+    "publication_evidence": "正式 ICCV 2025 主会论文集页面；会议年份按来源页/BibTeX 的届次核验。页面日期：2025。"
   },
   {
-    "method": "128K CPT",
-    "title": "Data Engineering for Scaling Language Models to 128K Context",
-    "year": 2024,
-    "venue": "ICML",
-    "page": "https://proceedings.mlr.press/v235/fu24d.html",
-    "pdf": "https://raw.githubusercontent.com/mlresearch/v235/main/assets/fu24d/fu24d.pdf",
-    "category": "pretraining",
-    "mechanism": "领域平衡与长文本上采样",
-    "scope": "长上下文能力扩展型 CPT，非多任务遗忘专用方法",
-    "file": "pre_training/2024_ICML_128K_CPT.pdf",
-    "bytes": 2607529,
-    "sha256": "eb8ca79d2312eacb8839bd75103333575dcba581555410f93d089e70b40fd7a0",
-    "verified_on": "2026-10-11"
+    "method": "MVP / Instruction-Grounded Visual Projectors",
+    "year": 2025,
+    "venue": "ICCV",
+    "page": "https://openaccess.thecvf.com/content/ICCV2025/html/Jin_Instruction-Grounded_Visual_Projectors_for_Continual_Learning_of_Generative_Vision-Language_Models_ICCV_2025_paper.html",
+    "category": "architecture",
+    "mechanism": "指令语义驱动投影器专家推荐与剪枝",
+    "scope": "生成式 VLM 持续多任务学习",
+    "pdf": "https://openaccess.thecvf.com/content/ICCV2025/papers/Jin_Instruction-Grounded_Visual_Projectors_for_Continual_Learning_of_Generative_Vision-Language_Models_ICCV_2025_paper.pdf",
+    "title": "Instruction-Grounded Visual Projectors for Continual Learning of Generative Vision-Language Models",
+    "publication_status": "published proceedings",
+    "verified_on": "2026-10-11",
+    "year_evidence": "2025",
+    "bytes": 2741468,
+    "sha256": "2590ef73e78b595663bdf44eff3d0c87f285b1ef29e782b1ef7010931698ed20",
+    "model": "Vicuna-7B，补充 LLaMA-2-7B",
+    "generation_tasks": "Flickr30k / COCO 图像描述与视觉问答序列；不取分类实验",
+    "body_review": {
+      "decision": "manual inclusion review completed",
+      "locators": [
+        {
+          "indicator": "Vicuna-7B",
+          "pdf_pages": [
+            5
+          ]
+        },
+        {
+          "indicator": "Flickr",
+          "pdf_pages": [
+            5,
+            10
+          ]
+        }
+      ],
+      "note": "PDF 页码；定位词仅帮助复核，收录依据为模型、训练设置及生成任务正文。"
+    },
+    "taxonomy_basis": "主要机制人工归档；混合机制详见 mechanism",
+    "file": "pre_finetuning/method_architecture/2025_ICCV_MVP_Instruction_Grounded_Visual_Projectors.pdf",
+    "publication_evidence": "正式 ICCV 2025 主会论文集页面；会议年份按来源页/BibTeX 的届次核验。页面日期：2025。"
   },
   {
-    "method": "DiffuGPT / DiffuLLaMA",
-    "title": "Scaling Diffusion Language Models via Adaptation from Autoregressive Models",
+    "method": "SMoLoRA",
+    "year": 2025,
+    "venue": "ICCV",
+    "page": "https://openaccess.thecvf.com/content/ICCV2025/html/Wang_SMoLoRA_Exploring_and_Defying_Dual_Catastrophic_Forgetting_in_Continual_Visual_ICCV_2025_paper.html",
+    "category": "architecture",
+    "mechanism": "视觉／语言专家路由和低秩适配",
+    "scope": "MLLM 生成式持续视觉指令微调",
+    "pdf": "https://openaccess.thecvf.com/content/ICCV2025/papers/Wang_SMoLoRA_Exploring_and_Defying_Dual_Catastrophic_Forgetting_in_Continual_Visual_ICCV_2025_paper.pdf",
+    "title": "SMoLoRA: Exploring and Defying Dual Catastrophic Forgetting in Continual Visual Instruction Tuning",
+    "publication_status": "published proceedings",
+    "verified_on": "2026-10-11",
+    "year_evidence": "2025",
+    "bytes": 1141839,
+    "sha256": "f698b9818bea4678da0231acf079e0c67653d50313bb07acfeea3629cf6ca38b",
+    "model": "LLaVA-v1.5-7B",
+    "generation_tasks": "持续视觉指令，含 TextCaps / Flickr30k 图像描述与开放式问答；另有识别任务",
+    "body_review": {
+      "decision": "manual inclusion review completed",
+      "locators": [
+        {
+          "indicator": "TextCaps",
+          "pdf_pages": [
+            5,
+            7,
+            8,
+            10
+          ]
+        },
+        {
+          "indicator": "Flickr",
+          "pdf_pages": [
+            5,
+            6,
+            7,
+            8,
+            10
+          ]
+        }
+      ],
+      "note": "PDF 页码；定位词仅帮助复核，收录依据为模型、训练设置及生成任务正文。"
+    },
+    "taxonomy_basis": "主要机制人工归档；混合机制详见 mechanism",
+    "file": "pre_finetuning/method_architecture/2025_ICCV_SMoLoRA.pdf",
+    "publication_evidence": "正式 ICCV 2025 主会论文集页面；会议年份按来源页/BibTeX 的届次核验。页面日期：2025。"
+  },
+  {
+    "method": "FV-guided Training",
     "year": 2025,
     "venue": "ICLR",
-    "page": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/0fa81c3f0d57f95b8776de3a248ef0ed-Abstract-Conference.html",
-    "pdf": "https://proceedings.iclr.cc/paper_files/paper/2025/file/0fa81c3f0d57f95b8776de3a248ef0ed-Paper-Conference.pdf",
-    "category": "pretraining",
-    "mechanism": "通过持续预训练从自回归模型适配扩散语言模型",
-    "scope": "模型范式转换型 CPT，非多任务遗忘专用方法",
-    "file": "pre_training/2025_ICLR_DiffuGPT_DiffuLLaMA.pdf",
-    "bytes": 853713,
-    "sha256": "5a4accf3759b12f8b5750a446f00dd5299f8c034596b99a7d0fbe51660f71d17",
-    "verified_on": "2026-10-11"
+    "page": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/74fc5575632191d96881d8015f79dde3-Abstract-Conference.html",
+    "category": "regularization",
+    "mechanism": "正则约束任务 function vector，稳定功能激活",
+    "scope": "LLM 持续指令微调与生成能力保持",
+    "pdf": "https://proceedings.iclr.cc/paper_files/paper/2025/file/74fc5575632191d96881d8015f79dde3-Paper-Conference.pdf",
+    "title": "Unlocking the Power of Function Vectors for Characterizing and Mitigating Catastrophic Forgetting in Continual Instruction Tuning",
+    "publication_status": "published proceedings",
+    "verified_on": "2026-10-11",
+    "year_evidence": "2025-05-01",
+    "bytes": 2327584,
+    "sha256": "78948e80e574f0d7965131e894966865b2dd426b0550db8a3f5e1992a9b2baa6",
+    "model": "多种 decoder-only LLM",
+    "generation_tasks": "SuperNI 纯生成和混合任务序列；功能激活与通用生成能力保持",
+    "body_review": {
+      "decision": "manual inclusion review completed",
+      "locators": [
+        {
+          "indicator": "SuperNI",
+          "pdf_pages": [
+            3,
+            4,
+            18,
+            19,
+            21
+          ]
+        },
+        {
+          "indicator": "pure generation",
+          "pdf_pages": [
+            3
+          ]
+        }
+      ],
+      "note": "PDF 页码；定位词仅帮助复核，收录依据为模型、训练设置及生成任务正文。"
+    },
+    "taxonomy_basis": "主要机制人工归档；混合机制详见 mechanism",
+    "file": "pre_finetuning/method_regularization/2025_ICLR_FV_guided_Training.pdf",
+    "publication_evidence": "正式 ICLR 2025 主会论文集页面；会议年份按来源页/BibTeX 的届次核验。页面日期：2025-05-01。"
   },
   {
-    "method": "Mix-CPT",
-    "title": "Mix-CPT: A Domain Adaptation Framework via Decoupling Knowledge Learning and Format Alignment",
+    "method": "SERS",
     "year": 2025,
-    "venue": "ICLR",
-    "page": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/cc721384c26c0bdff3ec31a7de31d8d5-Abstract-Conference.html",
-    "pdf": "https://proceedings.iclr.cc/paper_files/paper/2025/file/cc721384c26c0bdff3ec31a7de31d8d5-Paper-Conference.pdf",
-    "category": "pretraining",
-    "mechanism": "混合领域文本、通用指令和对齐数据，解耦知识与格式",
-    "scope": "领域适配型 CPT",
-    "file": "pre_training/2025_ICLR_Mix_CPT.pdf",
-    "bytes": 990930,
-    "sha256": "3ca557806282f9389f234242d4c7913834d08247ed1000f08f1847dc999c1e0e",
-    "verified_on": "2026-10-11"
+    "venue": "NeurIPS",
+    "page": "https://proceedings.neurips.cc/paper_files/paper/2025/hash/087b346ca4d6dd6fcd0663ff6c9a6b69-Abstract-Conference.html",
+    "category": "replay",
+    "mechanism": "自生成伪输入和自演化标签回放；兼有任务相似性正则",
+    "scope": "LLM 持续任务微调",
+    "pdf": "https://proceedings.neurips.cc/paper_files/paper/2025/file/087b346ca4d6dd6fcd0663ff6c9a6b69-Paper-Conference.pdf",
+    "title": "Self-Evolving Pseudo-Rehearsal for Catastrophic Forgetting with Task Similarity in LLMs",
+    "publication_status": "published proceedings",
+    "verified_on": "2026-10-11",
+    "year_evidence": "2026-04-23",
+    "bytes": 5005970,
+    "sha256": "c51f8b967e687dff99a2c7a4178655cb1d1b97d98897d7a37fe9115b1ee0af12",
+    "model": "LLaMA2-7B、ChatGLM-6B",
+    "generation_tasks": "SuperNI 摘要、翻译等生成任务序列",
+    "body_review": {
+      "decision": "manual inclusion review completed",
+      "locators": [
+        {
+          "indicator": "SuperNI",
+          "pdf_pages": [
+            2,
+            6,
+            22
+          ]
+        },
+        {
+          "indicator": "ChatGLM",
+          "pdf_pages": [
+            2,
+            6,
+            7,
+            8,
+            9,
+            17,
+            29,
+            31,
+            32
+          ]
+        }
+      ],
+      "note": "PDF 页码；定位词仅帮助复核，收录依据为模型、训练设置及生成任务正文。"
+    },
+    "taxonomy_basis": "主要机制人工归档；混合机制详见 mechanism",
+    "file": "pre_finetuning/method_replay/2025_NeurIPS_SERS.pdf",
+    "publication_evidence": "正式 NeurIPS 2025 主会论文集页面；会议年份按来源页/BibTeX 的届次核验。页面日期：2026-04-23。"
   },
   {
     "method": "CPPO",
-    "title": "CPPO: Continual Learning for Reinforcement Learning with Human Feedback",
     "year": 2024,
     "venue": "ICLR",
     "page": "https://proceedings.iclr.cc/paper_files/paper/2024/hash/6246f93ebf4f2d76ad2bcb3158220d34-Abstract-Conference.html",
-    "pdf": "https://proceedings.iclr.cc/paper_files/paper/2024/file/6246f93ebf4f2d76ad2bcb3158220d34-Paper-Conference.pdf",
     "category": "alignment",
-    "mechanism": "按奖励和生成概率加权学习及知识保持，持续奖励模型",
-    "scope": "动态人类偏好下持续 RLHF（核心持续对齐）",
-    "file": "pre_alignment/2024_ICLR_CPPO.pdf",
+    "mechanism": "奖励／生成概率加权持续 PPO 与知识保持",
+    "scope": "生成式 LLM 动态偏好序贯 RLHF",
+    "pdf": "https://proceedings.iclr.cc/paper_files/paper/2024/file/6246f93ebf4f2d76ad2bcb3158220d34-Paper-Conference.pdf",
+    "title": "CPPO: Continual Learning for Reinforcement Learning with Human Feedback",
+    "publication_status": "published proceedings",
+    "verified_on": "2026-10-11",
+    "year_evidence": "2024-05-31",
     "bytes": 2705011,
     "sha256": "6c1acf6b53265278c8905f7bb5330584ff76c56631f70ed7c0261000c73c1cd7",
-    "verified_on": "2026-10-11"
-  },
-  {
-    "method": "SeRA",
-    "title": "SeRA: Self-Reviewing and Alignment of LLMs using Implicit Reward Margins",
-    "year": 2025,
-    "venue": "ICLR",
-    "page": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/fdcf2565ea86530d65b3622c06d90841-Abstract-Conference.html",
-    "pdf": "https://proceedings.iclr.cc/paper_files/paper/2025/file/fdcf2565ea86530d65b3622c06d90841-Paper-Conference.pdf",
-    "category": "alignment",
-    "mechanism": "隐式奖励边际筛样与迭代偏好数据自举",
-    "scope": "迭代持续偏好优化（扩展阅读，非序贯多任务遗忘基准）",
-    "file": "pre_alignment/2025_ICLR_SeRA.pdf",
-    "bytes": 2795700,
-    "sha256": "b75917e29d028bc3c86af9b5374713dc14b9caa0a63e13b1e6bd47dcf946d586",
-    "verified_on": "2026-10-11"
+    "model": "Llama-7B 策略与奖励模型（附录扩展实验）；主实验另用 GPT2-XL",
+    "generation_tasks": "Reddit TL;DR 摘要与 SHP 跨域人类偏好序列 RLHF",
+    "body_review": {
+      "decision": "manual inclusion review completed",
+      "locators": [
+        {
+          "indicator": "Llama-7B",
+          "pdf_pages": [
+            21,
+            22,
+            23
+          ]
+        },
+        {
+          "indicator": "SHP",
+          "pdf_pages": [
+            19,
+            21,
+            22,
+            23
+          ]
+        }
+      ],
+      "note": "PDF 页码；定位词仅帮助复核，收录依据为模型、训练设置及生成任务正文。"
+    },
+    "taxonomy_basis": "主要机制人工归档；混合机制详见 mechanism",
+    "file": "pre_alignment/2024_ICLR_CPPO.pdf",
+    "publication_evidence": "正式 ICLR 2024 主会论文集页面；会议年份按来源页/BibTeX 的届次核验。页面日期：2024-05-31。"
   }
 ]
