@@ -1,0 +1,57 @@
+{
+  "version": "20261011-open-vqa-v1",
+  "source_revision": "9c0699cd19768ac5ab97568f6b3cbac4c0062884",
+  "dataset": "TextVQA",
+  "domain": "自然场景／文字读取",
+  "raw_question_rows_seen": {
+    "train": 34602,
+    "validation": 5000
+  },
+  "open_ended_counts": {
+    "train": 31802,
+    "validation": 4623
+  },
+  "excluded": {
+    "boolean_yes_no": 3176,
+    "missing_answer": 1
+  },
+  "image_count": 24211,
+  "image_bytes": 6841398912,
+  "files": [
+    {
+      "file": "open_ended/train.jsonl",
+      "rows": 31802,
+      "bytes": 14409570,
+      "sha256": "f64bdd37644e909e40328adf98d8ccb6297010181f5f6473ab1cf6e08f2cffac"
+    },
+    {
+      "file": "open_ended/validation.jsonl",
+      "rows": 4623,
+      "bytes": 2146438,
+      "sha256": "e10a942fcdec6b391bdd364b23de1f379f3b1ca0eaf279db7994777026d89c70"
+    }
+  ],
+  "images_manifest": "open_ended/images_manifest.jsonl",
+  "image_verification": "Every exported image: SHA-256 and Pillow format/size/verify; every JSONL image reference exists.",
+  "filter": "No boolean/yes-no answers, no upstream CLOSED tags, no option-letter prompts, no GQA choose/verify questions. Short textual and numeric answers remain generation targets.",
+  "example": {
+    "id": "train-00000-of-00020-0",
+    "dataset": "TextVQA",
+    "domain": "自然场景／文字读取",
+    "source_split": "train",
+    "images": [
+      "images/8b/8b334f00cd80b51fcc109e1cfe3643ee35d479981110ea6b6986719eea546779.jpg"
+    ],
+    "question": "what is the brand of phone?",
+    "answer": "nokia",
+    "answers": [
+      "nokia",
+      "toshiba"
+    ],
+    "metadata": {
+      "answer_type": "",
+      "upstream_question_id": 0,
+      "upstream_image_id": "0054c91397f2fe05"
+    }
+  }
+}

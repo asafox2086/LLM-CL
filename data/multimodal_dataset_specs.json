@@ -1,0 +1,174 @@
+[
+  {
+    "repo": "lmms-lab/VQAv2",
+    "folder": "VQAv2",
+    "domain": "自然图像／日常场景",
+    "include": [
+      "README.md",
+      "data/train-*.parquet",
+      "data/validation-*.parquet"
+    ],
+    "task": "自由生成 VQA 答案，准备版排除 yes/no",
+    "role": "selected_papers_dataset",
+    "paper_methods": [
+      "DGG",
+      "ECA",
+      "Hyper-LLaVA",
+      "CoPE",
+      "SMoLoRA"
+    ],
+    "upstream": "https://visualqa.org/",
+    "coverage": "完整公开有标注 train / validation；未下载无公开答案的 test/testdev",
+    "revision": "32665d35052eb4a6d4414851c3c829a72754915a"
+  },
+  {
+    "repo": "lmms-lab/GQA",
+    "folder": "GQA",
+    "domain": "自然图像／关系与组合推理",
+    "include": [
+      "README.md",
+      "train_balanced_images/*.parquet",
+      "train_balanced_instructions/*.parquet",
+      "val_balanced_images/*.parquet",
+      "val_balanced_instructions/*.parquet",
+      "test_balanced_images/*.parquet",
+      "test_balanced_instructions/*.parquet",
+      "testdev_balanced_images/*.parquet",
+      "testdev_balanced_instructions/*.parquet"
+    ],
+    "task": "图像关系、属性、数量问答，排除 yes/no",
+    "role": "selected_papers_dataset",
+    "paper_methods": [
+      "MaDQ / UCo-VQA",
+      "Hyper-LLaVA",
+      "CoPE",
+      "SMoLoRA"
+    ],
+    "upstream": "https://cs.stanford.edu/people/dorarad/gqa/",
+    "coverage": "官方 balanced 版本公开 train/val/test/testdev；不重复下载 all 版",
+    "revision": "a6e72d6e1b912da88af8b2f9eba05d5ea8ec2dd8"
+  },
+  {
+    "repo": "lmms-lab/textvqa",
+    "folder": "TextVQA",
+    "domain": "自然场景／文字读取",
+    "include": [
+      "README.md",
+      "data/train-*.parquet",
+      "data/validation-*.parquet"
+    ],
+    "task": "从真实场景图像读取文字并自由回答",
+    "role": "selected_papers_dataset",
+    "paper_methods": [
+      "DGG",
+      "ECA",
+      "Hyper-LLaVA",
+      "CoPE",
+      "SMoLoRA",
+      "HPA"
+    ],
+    "upstream": "https://textvqa.org/",
+    "coverage": "完整公开有标注 train / validation；无标注 test 不用于训练",
+    "revision": "9c0699cd19768ac5ab97568f6b3cbac4c0062884"
+  },
+  {
+    "repo": "HuggingFaceM4/ChartQA",
+    "folder": "ChartQA",
+    "domain": "图表／数据与数量推理",
+    "include": [
+      "README.md",
+      "data/*.parquet"
+    ],
+    "task": "图表文字、数值计算与自由问答，排除 yes/no",
+    "role": "domain_extension",
+    "paper_methods": [],
+    "upstream": "https://github.com/vis-nlp/ChartQA",
+    "coverage": "公开 train / val / test；领域扩展，不伪称在这 29 篇中直接使用",
+    "revision": "b605b6e08b57faf4359aeb2fe6a3ca595f99b6c5"
+  },
+  {
+    "repo": "lmms-lab/DocVQA",
+    "folder": "DocVQA",
+    "domain": "文档／商业与行政材料",
+    "include": [
+      "README.md",
+      "DocVQA/train-*.parquet",
+      "DocVQA/validation-*.parquet"
+    ],
+    "task": "文档图像开放式信息问答",
+    "role": "domain_extension",
+    "paper_methods": [],
+    "upstream": "https://www.docvqa.org/datasets/docvqa",
+    "coverage": "公开有标注 train / validation；一般文档数据，不等同法律数据",
+    "revision": "539088ef8a8ada01ac8e2e6d4e372586748a265e"
+  },
+  {
+    "repo": "flaviagiammarino/vqa-rad",
+    "folder": "VQA_RAD",
+    "domain": "医学／放射影像",
+    "include": [
+      "README.md",
+      "data/*.parquet"
+    ],
+    "task": "放射影像开放式医学问答；准备版过滤 yes/no",
+    "role": "selected_papers_dataset",
+    "paper_methods": [
+      "PASs-MoE"
+    ],
+    "upstream": "https://osf.io/89kps/",
+    "coverage": "公开 train / test；第三方格式化镜像，保留来源说明",
+    "revision": "bcf91e7654fb9d51c8ab6a5b82cacf3fafd2fae9"
+  },
+  {
+    "repo": "flaviagiammarino/path-vqa",
+    "folder": "PathVQA",
+    "domain": "医学／病理影像",
+    "include": [
+      "README.md",
+      "data/*.parquet"
+    ],
+    "task": "病理图像开放式医学问答；准备版过滤 yes/no",
+    "role": "selected_papers_dataset",
+    "paper_methods": [
+      "PASs-MoE"
+    ],
+    "upstream": "https://github.com/UCSD-AI4H/PathVQA",
+    "coverage": "公开 train / validation / test；第三方格式化镜像，保留来源说明",
+    "revision": "1685832883334b5bb5beaf4e4b333fdeecaa4ad9"
+  },
+  {
+    "repo": "BoKelvin/SLAKE",
+    "folder": "SLAKE",
+    "domain": "医学／多器官多影像模态",
+    "include": [
+      "README.md",
+      "imgs.zip",
+      "train.json",
+      "validation.json",
+      "test.json",
+      "KG.zip",
+      "mask.txt"
+    ],
+    "task": "中英双语医学图像问答；准备版仅保留 answer_type=OPEN",
+    "role": "domain_extension",
+    "paper_methods": [],
+    "upstream": "https://www.med-vqa.com/slake",
+    "coverage": "完整公开图像与 train / validation / test；补充医学域，不伪称这 29 篇直接使用",
+    "revision": "a9083ce6c34ac3ffb17671a605962924d8a8f9e9"
+  },
+  {
+    "repo": "chenghao/sec-material-contracts-qa",
+    "folder": "SEC_Contracts_VQA",
+    "domain": "法律／商业合同",
+    "include": [
+      "README.md",
+      "data/*.parquet"
+    ],
+    "task": "合同页图像信息抽取转开放式问答；排除布尔字段",
+    "role": "domain_extension",
+    "paper_methods": [],
+    "upstream": "https://huggingface.co/datasets/chenghao/sec-material-contracts-qa",
+    "coverage": "全部 804 份含页图像合同；基于上游 GPT-4o 提取字段生成确定性 QA 模板，非人工审校金标准；不使用混入 DUDE 的 splitted 版本",
+    "revision": "1c7df19940c150e4511d9a53bb313bc06fb56c94"
+  }
+]

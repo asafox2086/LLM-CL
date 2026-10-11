@@ -1,4 +1,33 @@
-# 本地模型：能力示例与实验效果
+# 0.5B–3B 多模态持续学习基座
+
+服务器目录：`/data2/liyapeng_grp/program/LLMCL/model/`。新增下载 5 个多模态模型，另复用并重新核验已有 Qwen2-VL-2B-Instruct。原有文本与医学模型保留。
+
+4 个是真正的 pretrained Base；2 个为 Instruct 版，用作持续指令微调的起点，表中明确区分。所有模型都带视觉编码器，可处理图像；不把纯文本 LLM 当作能直接接收图像的模型。
+
+| 独立模型目录与官方来源 | 阶段 | 标称 B | 实际存储张量参数 B（含视觉） | 下载 GB | 状态 |
+|---|---|---|---|---|---|
+| [SmolVLM-500M-Base](https://huggingface.co/HuggingFaceTB/SmolVLM-500M-Base) | 预训练 Base | 0.5 | 0.507 | 1.02 | 完整新增下载 |
+| [Qwen3.5-0.8B-Base](https://huggingface.co/Qwen/Qwen3.5-0.8B-Base) | 预训练 Base | 0.8 | 0.873 | 1.77 | 完整新增下载 |
+| [Qwen3.5-2B-Base](https://huggingface.co/Qwen/Qwen3.5-2B-Base) | 预训练 Base | 2 | 2.274 | 4.57 | 完整新增下载 |
+| [SmolVLM-Base](https://huggingface.co/HuggingFaceTB/SmolVLM-Base) | 预训练 Base | 2.25 | 2.246 | 4.50 | 完整新增下载 |
+| [Qwen3-VL-2B-Instruct](https://huggingface.co/Qwen/Qwen3-VL-2B-Instruct) | Instruct：持续微调起点 | 2 | 2.128 | 4.27 | 完整新增下载 |
+| [Qwen2-VL-2B-Instruct](https://modelscope.cn/models/Qwen/Qwen2-VL-2B-Instruct) | Instruct：持续微调起点 | 2 | 2.209 | 4.43 | 已有模型重新核验 |
+
+实际参数量按 safetensors 头部的存储张量形状计算，包含视觉部分；绑定／未重复存储的权重按存储记录计数。所有表中模型均落在约 0.5B–3B 范围。
+
+每个文件夹包含完整权重、config、tokenizer 和 image processor 配置，不是仅下载卡片或空目录。权重大小及上游 SHA-256 已核验，分片 index 引用全部存在，视觉配置存在。模型文件没有用于新的训练，未对下载后的问答性能作实验结论。
+
+建议以 Qwen3.5-0.8B-Base / Qwen3.5-2B-Base 做同系列规模比较，以 SmolVLM-500M-Base / SmolVLM-Base 做另一系列对照。已有 Qwen2-VL-2B-Instruct 和新增 Qwen3-VL-2B-Instruct 可作为指令微调起点。Base 版本应经过任务微调后使用，不把预训练 Base 与 Instruct 的初始指令能力混为一谈。
+
+加载需要匹配模型版本的 Transformers；尤其 Qwen3.5 应使用支持其架构的较新版本。没有为下载修改已有训练环境或占用 GPU。逐文件哈希、源版本和许可证声明见各模型 `asset_manifest.json` 和 [完整机器索引](multimodal_manifest.json)。官方模型卡链接见上表。
+
+复现新增五个模型：`python data/download_multimodal_assets.py --models`；按本索引固定 revision 下载。Qwen2-VL 复用原有官方 ModelScope 下载，单独记录并重新核验每个文件版本及 SHA-256。大权重在服务器本地，GitHub 仅保存索引与核验元数据。
+
+---
+
+## 已有实验与加载记录
+
+### 本地模型：能力示例与实验效果
 
 本仓库的语言实验使用 T5-Large，含图像的连续学习实验使用 Qwen2-VL-2B-Instruct。模型根据任务说明生成文字；Qwen 还接收真实图片。
 

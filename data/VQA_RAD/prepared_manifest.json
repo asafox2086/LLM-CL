@@ -1,0 +1,56 @@
+{
+  "version": "20261011-open-vqa-v1",
+  "source_revision": "bcf91e7654fb9d51c8ab6a5b82cacf3fafd2fae9",
+  "dataset": "VQA_RAD",
+  "domain": "医学／放射影像",
+  "raw_question_rows_seen": {
+    "test": 451,
+    "train": 1793
+  },
+  "open_ended_counts": {
+    "test": 200,
+    "train": 852
+  },
+  "excluded": {
+    "boolean_yes_no": 1191,
+    "missing_answer": 1
+  },
+  "image_count": 275,
+  "image_bytes": 14404596,
+  "files": [
+    {
+      "file": "open_ended/test.jsonl",
+      "rows": 200,
+      "bytes": 87008,
+      "sha256": "22dbd69d510ff16fa06ac8a91a9e45af2867173d59108c96e0df20d65fa6c2df"
+    },
+    {
+      "file": "open_ended/train.jsonl",
+      "rows": 852,
+      "bytes": 371982,
+      "sha256": "4f9f80ee38d81044883338301f283cbeee1846de174797c83b762e4b0d69e9e6"
+    }
+  ],
+  "images_manifest": "open_ended/images_manifest.jsonl",
+  "image_verification": "Every exported image: SHA-256 and Pillow format/size/verify; every JSONL image reference exists.",
+  "filter": "No boolean/yes-no answers, no upstream CLOSED tags, no option-letter prompts, no GQA choose/verify questions. Short textual and numeric answers remain generation targets.",
+  "example": {
+    "id": "test-00000-of-00001-e5bc3d208bb4deeb-3",
+    "dataset": "VQA_RAD",
+    "domain": "医学／放射影像",
+    "source_split": "test",
+    "images": [
+      "images/5f/5fba95a3daf214a26d3fd00615411d1c4846d6b3369051241db182c55e61d933.jpg"
+    ],
+    "question": "which side of the heart border is obscured?",
+    "answer": "right",
+    "answers": [
+      "right"
+    ],
+    "metadata": {
+      "answer_type": "",
+      "upstream_question_id": null,
+      "upstream_image_id": null
+    }
+  }
+}

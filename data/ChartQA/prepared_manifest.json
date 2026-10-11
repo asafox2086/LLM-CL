@@ -1,0 +1,64 @@
+{
+  "version": "20261011-open-vqa-v1",
+  "source_revision": "b605b6e08b57faf4359aeb2fe6a3ca595f99b6c5",
+  "dataset": "ChartQA",
+  "domain": "图表／数据与数量推理",
+  "raw_question_rows_seen": {
+    "test": 2500,
+    "train": 28299,
+    "validation": 1920
+  },
+  "open_ended_counts": {
+    "test": 2396,
+    "train": 27703,
+    "validation": 1864
+  },
+  "excluded": {
+    "boolean_yes_no": 754,
+    "missing_answer": 2
+  },
+  "image_count": 20778,
+  "image_bytes": 919314508,
+  "files": [
+    {
+      "file": "open_ended/test.jsonl",
+      "rows": 2396,
+      "bytes": 1068590,
+      "sha256": "4e1534e65265908e156f994747818ca77a7e0506a18b033d776a145b8f78db87"
+    },
+    {
+      "file": "open_ended/train.jsonl",
+      "rows": 27703,
+      "bytes": 12496772,
+      "sha256": "263eb8a785063322d659a74459f1775fcc06a8bbd284e782ff90f8573fe934b8"
+    },
+    {
+      "file": "open_ended/validation.jsonl",
+      "rows": 1864,
+      "bytes": 843762,
+      "sha256": "6b58f21826b29e6316b9bd26cf622316aa4478729e3252bf52aae6beaff07861"
+    }
+  ],
+  "images_manifest": "open_ended/images_manifest.jsonl",
+  "image_verification": "Every exported image: SHA-256 and Pillow format/size/verify; every JSONL image reference exists.",
+  "filter": "No boolean/yes-no answers, no upstream CLOSED tags, no option-letter prompts, no GQA choose/verify questions. Short textual and numeric answers remain generation targets.",
+  "example": {
+    "id": "test-00000-of-00001-e2cd0b7a0f9eb20d-0",
+    "dataset": "ChartQA",
+    "domain": "图表／数据与数量推理",
+    "source_split": "test",
+    "images": [
+      "images/b9/b986643f98b6195fa7176bb6591d256daa4dfb906ea706d4f487c123ff3486ad.png"
+    ],
+    "question": "How many food item is shown in the bar graph?",
+    "answer": "14",
+    "answers": [
+      "14"
+    ],
+    "metadata": {
+      "answer_type": "",
+      "upstream_question_id": null,
+      "upstream_image_id": null
+    }
+  }
+}

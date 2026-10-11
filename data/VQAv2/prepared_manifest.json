@@ -1,0 +1,58 @@
+{
+  "version": "20261011-open-vqa-v1",
+  "source_revision": "32665d35052eb4a6d4414851c3c829a72754915a",
+  "dataset": "VQAv2",
+  "domain": "自然图像／日常场景",
+  "raw_question_rows_seen": {
+    "train": 443757,
+    "validation": 214354
+  },
+  "open_ended_counts": {
+    "train": 266660,
+    "validation": 128856
+  },
+  "excluded": {
+    "boolean_yes_no": 262588,
+    "missing_answer": 7
+  },
+  "image_count": 118740,
+  "image_bytes": 19375168481,
+  "files": [
+    {
+      "file": "open_ended/train.jsonl",
+      "rows": 266660,
+      "bytes": 117377194,
+      "sha256": "1ab38688cb534e1a7bffc5bab3810b281515344693c2b7b0c37ec8701d102db0"
+    },
+    {
+      "file": "open_ended/validation.jsonl",
+      "rows": 128856,
+      "bytes": 58042896,
+      "sha256": "65ee9a91706231c6968d62026dfebad62de4465ba7859346f338007591c46508"
+    }
+  ],
+  "images_manifest": "open_ended/images_manifest.jsonl",
+  "image_verification": "Every exported image: SHA-256 and Pillow format/size/verify; every JSONL image reference exists.",
+  "filter": "No boolean/yes-no answers, no upstream CLOSED tags, no option-letter prompts, no GQA choose/verify questions. Short textual and numeric answers remain generation targets.",
+  "example": {
+    "id": "train-00000-of-00136-0",
+    "dataset": "VQAv2",
+    "domain": "自然图像／日常场景",
+    "source_split": "train",
+    "images": [
+      "images/a9/a9937cde53e6d295f82067a5aa41a2d0bc1b146a522c48268b2df877b38d8b89.jpg"
+    ],
+    "question": "What is this photo taken looking through?",
+    "answer": "net",
+    "answers": [
+      "net",
+      "netting",
+      "mesh"
+    ],
+    "metadata": {
+      "answer_type": "other",
+      "upstream_question_id": 458752000,
+      "upstream_image_id": 458752
+    }
+  }
+}

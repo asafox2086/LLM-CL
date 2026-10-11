@@ -1,0 +1,64 @@
+{
+  "version": "20261011-open-vqa-v1",
+  "source_revision": "a9083ce6c34ac3ffb17671a605962924d8a8f9e9",
+  "dataset": "SLAKE",
+  "domain": "医学／多器官多影像模态",
+  "raw_question_rows_seen": {
+    "train": 9835,
+    "validation": 2099,
+    "test": 2094
+  },
+  "open_ended_counts": {
+    "train": 5924,
+    "validation": 1249,
+    "test": 1249
+  },
+  "excluded": {
+    "upstream_closed_type": 5561,
+    "missing_answer": 44,
+    "missing_question_or_answer": 1
+  },
+  "image_count": 642,
+  "image_bytes": 55895191,
+  "files": [
+    {
+      "file": "open_ended/train.jsonl",
+      "rows": 5924,
+      "bytes": 2163010,
+      "sha256": "294f141c39746950e520b6de5369cd5944762c024f9f6b1d0070e988810a7cd7"
+    },
+    {
+      "file": "open_ended/validation.jsonl",
+      "rows": 1249,
+      "bytes": 472587,
+      "sha256": "b7406e968e381a42c9c0f3b97b9bc065f0434cfbc2cafcddcc657a6ade6d2c88"
+    },
+    {
+      "file": "open_ended/test.jsonl",
+      "rows": 1249,
+      "bytes": 457356,
+      "sha256": "fa8516b2f6b7ec1dd246378a2435a24858515e953bb3519bead59dbec814c349"
+    }
+  ],
+  "images_manifest": "open_ended/images_manifest.jsonl",
+  "image_verification": "Every exported image: SHA-256 and Pillow format/size/verify; every JSONL image reference exists.",
+  "filter": "No boolean/yes-no answers, no upstream CLOSED tags, no option-letter prompts, no GQA choose/verify questions. Short textual and numeric answers remain generation targets.",
+  "example": {
+    "id": "train-0",
+    "dataset": "SLAKE",
+    "domain": "医学／多器官多影像模态",
+    "source_split": "train",
+    "images": [
+      "images/4e/4e591a1ace76cbf3e539069b73e848f9fde485879a24b95f212bbe0ac1d84609.jpg"
+    ],
+    "question": "What modality is used to take this image?",
+    "answer": "MRI",
+    "answers": [
+      "MRI"
+    ],
+    "metadata": {
+      "q_lang": "en",
+      "answer_type": "OPEN"
+    }
+  }
+}

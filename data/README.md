@@ -61,3 +61,8 @@ MTS-Dialog 医患对话与 IU-Xray findings-to-impression 的固定划分在 `pr
 ```bash
 .conda-env/bin/python exp/prepare_medical.py
 ```
+<!-- multimodal-collection-20261011 -->
+
+## 新增多领域图像开放式问答
+
+已下载 9 个数据集，并整理开放式问答版本；目录、论文对应关系及核验见 [多模态数据索引](README_multimodal.md)。

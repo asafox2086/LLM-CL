@@ -1,0 +1,57 @@
+{
+  "version": "20261011-open-vqa-v1",
+  "source_revision": "539088ef8a8ada01ac8e2e6d4e372586748a265e",
+  "dataset": "DocVQA",
+  "domain": "文档／商业与行政材料",
+  "raw_question_rows_seen": {
+    "train": 39463,
+    "validation": 5349
+  },
+  "open_ended_counts": {
+    "train": 39346,
+    "validation": 5301
+  },
+  "excluded": {
+    "missing_answer": 41,
+    "multiple_choice_prompt": 4,
+    "boolean_yes_no": 120
+  },
+  "image_count": 11466,
+  "image_bytes": 7721581203,
+  "files": [
+    {
+      "file": "open_ended/train.jsonl",
+      "rows": 39346,
+      "bytes": 17267766,
+      "sha256": "fa27845d4851de98f35ff92a104698425dadbbc72ab21db59fb3e6e9be091c91"
+    },
+    {
+      "file": "open_ended/validation.jsonl",
+      "rows": 5301,
+      "bytes": 2406536,
+      "sha256": "5b01a7e4fff965bd40f1aa2fac0d539ee38244aeadc021b2d98fa9f50b851115"
+    }
+  ],
+  "images_manifest": "open_ended/images_manifest.jsonl",
+  "image_verification": "Every exported image: SHA-256 and Pillow format/size/verify; every JSONL image reference exists.",
+  "filter": "No boolean/yes-no answers, no upstream CLOSED tags, no option-letter prompts, no GQA choose/verify questions. Short textual and numeric answers remain generation targets.",
+  "example": {
+    "id": "train-00000-of-00012-0",
+    "dataset": "DocVQA",
+    "domain": "文档／商业与行政材料",
+    "source_split": "train",
+    "images": [
+      "images/1c/1c4e39df87d50aff47577a3bbb721166a41cad51ec6c8e002d07a55ed15d8b22.png"
+    ],
+    "question": "what is the date mentioned in this letter?",
+    "answer": "1/8/93",
+    "answers": [
+      "1/8/93"
+    ],
+    "metadata": {
+      "answer_type": "",
+      "upstream_question_id": "337",
+      "upstream_image_id": 279
+    }
+  }
+}

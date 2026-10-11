@@ -1,0 +1,65 @@
+{
+  "version": "20261011-open-vqa-v1",
+  "source_revision": "a6e72d6e1b912da88af8b2f9eba05d5ea8ec2dd8",
+  "dataset": "GQA",
+  "domain": "自然图像／关系与组合推理",
+  "raw_question_rows_seen": {
+    "test": 95336,
+    "testdev": 12578,
+    "train": 943000,
+    "validation": 132062
+  },
+  "open_ended_counts": {
+    "testdev": 6924,
+    "train": 494675,
+    "validation": 69083
+  },
+  "excluded": {
+    "missing_question_or_answer": 95336,
+    "boolean_yes_no": 383173,
+    "gqa_choice_or_verification": 133785
+  },
+  "image_count": 85758,
+  "image_bytes": 12202882185,
+  "files": [
+    {
+      "file": "open_ended/testdev.jsonl",
+      "rows": 6924,
+      "bytes": 2685778,
+      "sha256": "b718f8c0e14a87c2bf4029f47bb43336c93d2733421eae70c6ba92e813b2c85d"
+    },
+    {
+      "file": "open_ended/train.jsonl",
+      "rows": 494675,
+      "bytes": 188326408,
+      "sha256": "baa719ff3afac117ea39a0b3b914884370ea4e502f553396265c8ad7d2224e22"
+    },
+    {
+      "file": "open_ended/validation.jsonl",
+      "rows": 69083,
+      "bytes": 26998128,
+      "sha256": "b297e8bcaa5fedf6cc473f828613e752fbd315b1d0476bb73b383e94008f8116"
+    }
+  ],
+  "images_manifest": "open_ended/images_manifest.jsonl",
+  "image_verification": "Every exported image: SHA-256 and Pillow format/size/verify; every JSONL image reference exists.",
+  "filter": "No boolean/yes-no answers, no upstream CLOSED tags, no option-letter prompts, no GQA choose/verify questions. Short textual and numeric answers remain generation targets.",
+  "example": {
+    "id": "testdev-201640614",
+    "dataset": "GQA",
+    "domain": "自然图像／关系与组合推理",
+    "source_split": "testdev",
+    "images": [
+      "images/8f/8fe7eaae0b629a9c3264abdd44f2eb886e14eaf254b4ac16b0ee64a633b78317.jpg"
+    ],
+    "question": "Who is wearing the dress?",
+    "answer": "women",
+    "answers": [
+      "women"
+    ],
+    "metadata": {
+      "upstream_image_id": "n235859",
+      "structural_type": "query"
+    }
+  }
+}

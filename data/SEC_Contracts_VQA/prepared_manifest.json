@@ -1,0 +1,69 @@
+{
+  "version": "20261011-open-vqa-v1",
+  "source_revision": "1c7df19940c150e4511d9a53bb313bc06fb56c94",
+  "dataset": "SEC_Contracts_VQA",
+  "domain": "法律／商业合同",
+  "raw_question_rows_seen": {
+    "train": 11988,
+    "validation": 1296,
+    "test": 1188
+  },
+  "open_ended_counts": {
+    "train": 5234,
+    "validation": 602,
+    "test": 571
+  },
+  "excluded": {
+    "missing_answer": 8065
+  },
+  "image_count": 6280,
+  "image_bytes": 1333809607,
+  "files": [
+    {
+      "file": "open_ended/train.jsonl",
+      "rows": 5234,
+      "bytes": 7094255,
+      "sha256": "0be9d731cd85259b90a7313cee198eeff877f0cd9678f9e6edca38bbbbd3cc27"
+    },
+    {
+      "file": "open_ended/validation.jsonl",
+      "rows": 602,
+      "bytes": 873171,
+      "sha256": "7686c80135c597380036950c0592e1892eab17c218a3935160e23aface7fefc8"
+    },
+    {
+      "file": "open_ended/test.jsonl",
+      "rows": 571,
+      "bytes": 797782,
+      "sha256": "a3b8d6db732e0a280dbcb10fac4290e65dcfeb6e53f35986777cd1a30efadfe4"
+    }
+  ],
+  "images_manifest": "open_ended/images_manifest.jsonl",
+  "image_verification": "Every exported image: SHA-256 and Pillow format/size/verify; every JSONL image reference exists.",
+  "filter": "No boolean/yes-no answers, no upstream CLOSED tags, no option-letter prompts, no GQA choose/verify questions. Short textual and numeric answers remain generation targets.",
+  "example": {
+    "id": "train-00000-of-00004-0-agreement_date",
+    "dataset": "SEC_Contracts_VQA",
+    "domain": "法律／商业合同",
+    "source_split": "train",
+    "images": [
+      "images/be/bead0cc36dbfedbc17d1ebb86a50914d9cf2c712be4356b5b8389f052af7db98.png",
+      "images/e6/e6897efb23802756583bd5712dec4d1c7019af033e5b34c0a6120f6597b122cf.png",
+      "images/f6/f6fe190521ecf1c85d77e5919e43b0daa891b31bbc8cd6c6e1b4973d2f1520f8.png",
+      "images/90/90fae5a97a2dfa1656d22e9c5512f0b1d34e81ef709cd70235feb8cd8481d323.png"
+    ],
+    "question": "What is the agreement signing date of this contract?",
+    "answer": "2024-01-08",
+    "answers": [
+      "2024-01-08"
+    ],
+    "metadata": {
+      "cik": 1915328,
+      "document_id": "https://www.sec.gov/Archives/edgar/data/1915328/000110465924003366/tm243135d1_ex10-1.htm",
+      "field": "agreement_date",
+      "original_url": "https://www.sec.gov/Archives/edgar/data/1915328/000110465924003366/tm243135d1_ex10-1.htm",
+      "label_origin": "upstream GPT-4o field extraction; deterministic question template",
+      "split_group": "CIK"
+    }
+  }
+}

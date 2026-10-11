@@ -1,0 +1,64 @@
+{
+  "version": "20261011-open-vqa-v1",
+  "source_revision": "1685832883334b5bb5beaf4e4b333fdeecaa4ad9",
+  "dataset": "PathVQA",
+  "domain": "医学／病理影像",
+  "raw_question_rows_seen": {
+    "test": 6719,
+    "train": 19654,
+    "validation": 6259
+  },
+  "open_ended_counts": {
+    "test": 3357,
+    "train": 9899,
+    "validation": 3134
+  },
+  "excluded": {
+    "boolean_yes_no": 16238,
+    "missing_answer": 4
+  },
+  "image_count": 4246,
+  "image_bytes": 771662821,
+  "files": [
+    {
+      "file": "open_ended/test.jsonl",
+      "rows": 3357,
+      "bytes": 1441506,
+      "sha256": "556eb42000aec2a1a062b3172754250df2545af4aa5ce0efb86e3e1612b00b7c"
+    },
+    {
+      "file": "open_ended/train.jsonl",
+      "rows": 9899,
+      "bytes": 4282468,
+      "sha256": "2d5f6dc9934d8cb16a1858e687dbf408729eb5bfc4c4e1afd3b8d853dd2387f0"
+    },
+    {
+      "file": "open_ended/validation.jsonl",
+      "rows": 3134,
+      "bytes": 1383811,
+      "sha256": "8a767d820910a4f76bacc31ad3382a34ede57647db49afe595134b94b47e1f6e"
+    }
+  ],
+  "images_manifest": "open_ended/images_manifest.jsonl",
+  "image_verification": "Every exported image: SHA-256 and Pillow format/size/verify; every JSONL image reference exists.",
+  "filter": "No boolean/yes-no answers, no upstream CLOSED tags, no option-letter prompts, no GQA choose/verify questions. Short textual and numeric answers remain generation targets.",
+  "example": {
+    "id": "test-00000-of-00003-e9adadb4799f44d3-0",
+    "dataset": "PathVQA",
+    "domain": "医学／病理影像",
+    "source_split": "test",
+    "images": [
+      "images/69/697364a3492fbb1473afc982242084714cedb2f0f2b1c2077af3e80663797c4e.jpg"
+    ],
+    "question": "what are positively charged, thus allowing the compaction of the negatively charged dna?",
+    "answer": "the histone subunits",
+    "answers": [
+      "the histone subunits"
+    ],
+    "metadata": {
+      "answer_type": "",
+      "upstream_question_id": null,
+      "upstream_image_id": null
+    }
+  }
+}
