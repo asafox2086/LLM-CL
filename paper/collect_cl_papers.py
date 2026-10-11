@@ -42,6 +42,24 @@ other('CPPO','CPPO: Continual Learning for Reinforcement Learning with Human Fee
 other('SeRA','SeRA: Self-Reviewing and Alignment of LLMs using Implicit Reward Margins',2025,'ICLR','https://proceedings.iclr.cc/paper_files/paper/2025/hash/fdcf2565ea86530d65b3622c06d90841-Abstract-Conference.html','https://proceedings.iclr.cc/paper_files/paper/2025/file/fdcf2565ea86530d65b3622c06d90841-Paper-Conference.pdf','alignment','隐式奖励边际筛样与迭代偏好数据自举','迭代持续偏好优化（扩展阅读，非序贯多任务遗忘基准）')
 
 folders={'pretraining':'pre_training','alignment':'pre_alignment','replay':'pre_finetuning/method_replay','regularization':'pre_finetuning/method_regularization','architecture':'pre_finetuning/method_architecture'}
+def render_table(verified):
+    categories=['pretraining','replay','regularization','architecture','alignment']
+    groups=[[r for r in verified if r['category']==c] for c in categories]
+    lines=['横轴按方向分组：持续微调下分三类；各列从上到下列出方法与论文。同一行中的不同列不代表配对或性能比较。点击方法名打开正式论文页面。', '', '<table>', '<thead>', '<tr><th rowspan="2">持续预训练（6）</th><th colspan="3">持续微调（20）</th><th rowspan="2">持续对齐（2）</th></tr>', '<tr><th>基于回放（6）</th><th>基于正则化（8）</th><th>基于架构（6）</th></tr>', '</thead>', '<tbody>']
+    for i in range(max(map(len,groups))):
+        lines.append('<tr>')
+        for group in groups:
+            if i>=len(group):
+                lines.append('<td>—</td>'); continue
+            r=group[i]
+            lines.append(f'<td><a href="{html.escape(r["page"],quote=True)}" title="{html.escape(r["title"],quote=True)}"><strong>{html.escape(r["method"])}</strong></a><br>{r["venue"]} {r["year"]}<br><a href="{html.escape(r["file"],quote=True)}">PDF</a></td>')
+        lines.append('</tr>')
+    lines.extend(['</tbody>','</table>','','<details>','<summary>展开论文完整标题、分类依据与适用对象</summary>','','| 方法 / 论文 | 会议·年份 | 分类依据 / 适用对象 |','|---|---|---|'])
+    for group in groups:
+        for r in group:
+            lines.append(f'| **{r["method"]}** — [{r["title"]}]({r["page"]}) | {r["venue"]} {r["year"]} | {r["mechanism"]}；{r["scope"]} |')
+    lines.extend(['','</details>',''])
+    return '\n'.join(lines)
 def get(url):
     for attempt in range(4):
         try:
@@ -104,15 +122,8 @@ paper/
 
 ## 方法 × 方向二维表
 
-✓ 表示所属大类或归档小类；横轴同时列三大方向及持续微调的三小类。每行提供正式论文链接和本地 PDF。
-
-| 方法 / 论文超链接 | 会议·年份 | 持续预训练 | 持续微调 | 微调·回放 | 微调·正则化 | 微调·架构 | 持续对齐 | 分类依据 / 适用对象 | PDF |
-|---|---|:---:|:---:|:---:|:---:|:---:|:---:|---|---|
 '''
-    for r in verified:
-        c=r['category']; ft=c in ['replay','regularization','architecture']
-        flags=['✓' if v else '—' for v in [c=='pretraining',ft,c=='replay',c=='regularization',c=='architecture',c=='alignment']]
-        text+=f"| **{r['method']}** — [{r['title']}]({r['page']}) | {r['venue']} {r['year']} | "+' | '.join(flags)+f" | {r['mechanism']}；{r['scope']} | [PDF]({r['file']}) |\n"
+    text+=render_table(verified)
     text+='''
 ## 数据与复现
 
