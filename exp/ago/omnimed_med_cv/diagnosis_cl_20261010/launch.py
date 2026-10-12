@@ -1,6 +1,6 @@
 import argparse,hashlib,json,os,subprocess,sys,time
 from pathlib import Path
-exp=Path(__file__).resolve().parent;root=exp.parents[2]
+exp=Path(__file__).resolve().parent;root=next(p for p in exp.parents if (p/'.git').exists())
 p=argparse.ArgumentParser();p.add_argument('--group',choices=['standard','medical'],required=True);args=p.parse_args()
 selection_path=root/'analysis/omnimed_20261009/selection.json'
 selection=json.loads(selection_path.read_text())

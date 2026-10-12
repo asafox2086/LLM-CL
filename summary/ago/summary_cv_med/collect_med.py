@@ -9,7 +9,7 @@ import signal
 import sys
 import time
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[1]
+ROOT=next(p for p in Path(__file__).resolve().parents if (p/'.git').exists())
 sys.path.insert(0,str(ROOT/'exp'))
 from common import continual_metrics, write_json
 

@@ -3,7 +3,7 @@ import hashlib
 import json
 import sys
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'exp'))
+ROOT=next(p for p in Path(__file__).resolve().parents if (p/'.git').exists());sys.path.insert(0,str(ROOT/'exp'))
 import torch
 from common import digest_bytes, fingerprint, write_json
 from cv_metrics_med import letter_correct

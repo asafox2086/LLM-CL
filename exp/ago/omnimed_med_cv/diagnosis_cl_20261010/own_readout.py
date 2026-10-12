@@ -9,7 +9,7 @@ from pathlib import Path
 import numpy as np
 import torch
 torch.set_num_threads(4)
-exp=Path(__file__).resolve().parent;root=exp.parents[2]
+exp=Path(__file__).resolve().parent;root=next(p for p in exp.parents if (p/'.git').exists())
 out=exp/'runs/own_inc_readout_seed42';out.mkdir(parents=True,exist_ok=True)
 def write(path,data):path.write_text(json.dumps(data,indent=2))
 def status(phase,**kw):write(out/'status.json',dict(status='running',phase=phase,time=time.time(),**kw))

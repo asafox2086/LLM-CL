@@ -235,3 +235,8 @@ bash exp/run_olora.sh --config exp/configs/olora_first.json --model model/Llama-
 恢复使用 `bash exp/start_medical_detached.sh METHOD GPU --resume RUN_DIRECTORY`。
 
 运行 `python summary/collect_medical.py` 更新医学汇总，`--watch` 每60秒更新直到四运行结束。医学指标和原七任务 AP/FWT/BWT 分开报告，详见 `rules/003_medical_continuation.md`。
+
+
+## 当前实验与历史归档
+
+当前五领域十任务：[ten_task_cl_20261012](ten_task_cl_20261012/README.md)。运行日志与分阶段检查点在该目录的 runs 下，报告在 `summary/ten_task_cl_20261012/`。旧实验结果与医学实验代码位于 [ago](ago/README.md)，旧路径保留兼容链接。根目录的旧通用脚本保留供历史复现使用。

@@ -1,6 +1,6 @@
 import hashlib,json
 from pathlib import Path
-exp=Path(__file__).resolve().parent;root=exp.parents[2]
+exp=Path(__file__).resolve().parent;root=next(p for p in exp.parents if (p/'.git').exists())
 paths=[root/'exp'/name for name in ['common.py','cv_data.py','cv_runtime.py','cv_reflection_med.py','run_olora.py','recovery.py']]
 paths += [root/'code'/f'{method}.py' for method in ['seq_lora','migu_lora','olora','sapt_lora']]
 paths += [root/'exp/configs'/f'{method}_qwen2vl_med.json' for method in ['seq_lora','migu_lora','olora','sapt_lora']]

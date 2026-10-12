@@ -1,7 +1,7 @@
 import csv,json,time
 from pathlib import Path
 import numpy as np
-exp=Path(__file__).resolve().parent;root=exp.parents[2]
+exp=Path(__file__).resolve().parent;root=next(p for p in exp.parents if (p/'.git').exists())
 dest=root/'summary/omnimed_med_cv/diagnosis_cl_20261010';dest.mkdir(parents=True,exist_ok=True)
 methods=['seq_lora','migu_lora','olora','sapt_lora','ewc_lora','kd_lora','medqwen','moe_lora','seq_capacity','ra_ldl','own_inc_readout']
 names=['ISIC2019','Retinal OCT-C8','Fitzpatrick 17k']

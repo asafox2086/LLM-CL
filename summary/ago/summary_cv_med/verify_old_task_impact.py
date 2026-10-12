@@ -4,7 +4,7 @@ import json
 import re
 from pathlib import Path
 
-root = Path(__file__).resolve().parents[1]
+root = next(p for p in Path(__file__).resolve().parents if (p/'.git').exists())
 out = root/'summary_cv_med'
 run = Path(json.loads((out/'latest.json').read_text())['run'])
 def csvrows(name):

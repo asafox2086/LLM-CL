@@ -5,7 +5,7 @@ import numpy as np
 import torch
 from transformers import Qwen2VLForConditionalGeneration
 
-ROOT=Path(__file__).resolve().parents[3]
+ROOT=next(p for p in Path(__file__).resolve().parents if (p/'.git').exists())
 EXP=Path(__file__).resolve().parent
 DATA=ROOT/'analysis/omnimed_20261009'
 sys.path.insert(0,str(ROOT/'exp'))

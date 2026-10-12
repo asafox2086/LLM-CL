@@ -13,7 +13,7 @@ import numpy as np
 import torch
 from torch import nn
 torch.set_num_threads(4)
-exp=Path(__file__).resolve().parent;root=exp.parents[2]
+exp=Path(__file__).resolve().parent;root=next(p for p in exp.parents if (p/'.git').exists())
 def write(path,value):path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(value,indent=2))
 def main(args):
     out=exp/'runs'/f'{args.method}_seed{args.seed}';out.mkdir(parents=True,exist_ok=True)
