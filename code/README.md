@@ -6,7 +6,7 @@
 
 原源码位置为 `code/<method>/source/`。源码、配置和文档按固定 Git commit 保存，捆绑数据、模型权重和二进制不重复下载；逐文件 SHA-256 与 Git blob SHA-1 已核验。作者修改版 DGG 两个依赖按父仓库 gitlink 下载。
 
-第一批按源码核验和适配优先级选择：**FOREVER、DGG、PaRSP、SMoLoRA、PASs-MoE、Hyper-LLaVA**。SeqLoRA/Frozen 作为基础对照；旧 MIGU/O-LoRA/SAPT 不作这轮主要比较方法。适配仍待完成，详见 [方法选择](method_selection.json) 与 [任务和方法协议](../rules/008_current_task_counts_and_methods.md)。
+第一批按源码核验和适配优先级选择：**DGG、PaRSP、SMoLoRA、PASs-MoE、Hyper-LLaVA**（去掉回放类比较方法；其他方法保留作者原设置）。SeqLoRA/Frozen 作为基础对照；旧 MIGU/O-LoRA/SAPT 不作这轮主要比较方法。适配仍待完成，详见 [方法选择](method_selection.json) 与 [任务和方法协议](../rules/008_current_task_counts_and_methods.md)。
 
 | 方法 | 分类 / 发表 | 作者仓库 | 下载与实现状态 | 复现说明 |
 |---|---|---|---|---|

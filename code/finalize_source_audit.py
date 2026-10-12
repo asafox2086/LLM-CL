@@ -14,7 +14,7 @@ NOTES={
  'DGG':'含作者定制 Transformers/DeepSpeed；官方原实现提示单卡 >=80GB，尚未做本机预检。',
  'FCIT':'原设定是联邦持续学习，不能直接当集中式方法。',
  'ECA':'以视觉对齐/Q-Former 为核心，十任务纯文本阶段需核验。'}
-first=['FOREVER','DGG','PaRSP','SMoLoRA','PASs_MoE','Hyper_LLaVA']
+first=['DGG','PaRSP','SMoLoRA','PASs_MoE','Hyper_LLaVA']
 verified=0;source_bytes=0
 for rec in records:
  folder=BASE/rec['folder'];source=folder/'source';rec['usage_note']=NOTES.get(rec['folder'],'原作者模型和任务需适配；未运行新实验。')
@@ -50,13 +50,13 @@ for rec in records:
 
 manifest={'verified_on':'2026-10-12','expected_methods':20,'completed_audits':20,'status_counts':{s:sum(r['status']==s for r in records) for s in STATUS},'verified_files_including_custom_dependencies':verified,'source_bytes_including_custom_dependencies':source_bytes,'methods':records}
 (BASE/'finetuning_source_manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
-selection={'updated_on':'2026-10-12','paper_scope':'paper/pre_finetuning, 20 papers','base_model':'Qwen2-VL-2B-Instruct','baseline_controls':['SeqLoRA','Frozen'],'first_adaptation_batch':first,'historical_only':['MIGU-LoRA','O-LoRA','SAPT-LoRA'],'training_started':False,'require_before_formal_training':['Preserve author core mechanism, log upstream commit and adaptation diff','Support real text-only and image tasks without dummy-image replacement','Train/dev smoke test and memory preflight','Fixed data manifest and 11x10 evaluation matrix','Report trainable parameters, replay/auxiliary tokens and compute differences'],'rule':'A public repository or source snapshot is not evidence that the ten-task adaptation already runs.'}
+selection={'updated_on':'2026-10-12','paper_scope':'paper/pre_finetuning, 20 papers','base_model':'Qwen2-VL-2B-Instruct','baseline_controls':['SeqLoRA','Frozen'],'first_adaptation_batch':first,'historical_only':['MIGU-LoRA','O-LoRA','SAPT-LoRA'],'excluded_main_comparison_categories':['replay'],'retain_author_replay_in_other_methods':True,'budget_protocol':'data/TenTaskCL/small_budget_protocol.json','training_started':False,'require_before_formal_training':['Preserve author core mechanism, log upstream commit and adaptation diff','Support real text-only and image tasks without dummy-image replacement','Train/dev smoke test and memory preflight','Fixed data manifest and 11x10 evaluation matrix','Report trainable parameters, replay/auxiliary tokens and compute differences'],'rule':'A public repository or source snapshot is not evidence that the ten-task adaptation already runs.'}
 for name in first:assert any(r['folder']==name and r['status']=='downloaded_source_snapshot' for r in records)
 (BASE/'method_selection.json').write_text(json.dumps(selection,ensure_ascii=False,indent=2)+'\n')
 lines=['# 持续微调论文作者源码','', '核验：2026-10-12。对应论文二维表的 **20 篇持续微调方法**，各方法分目录存放。源码在服务器，GitHub 保存索引、版本、哈希及获取脚本；没有安装包或启动正式训练。', '',
  f"已下载 {manifest['status_counts']['downloaded_source_snapshot']} 个方法的源码快照；{manifest['status_counts']['author_source_not_found']} 个未找到作者实现；{manifest['status_counts']['repository_downloaded_but_no_python_implementation']} 个仓库只有 README。源码下载失败剩余 {manifest['status_counts']['download_failed']} 个。",'',
  '原源码位置为 `code/<method>/source/`。源码、配置和文档按固定 Git commit 保存，捆绑数据、模型权重和二进制不重复下载；逐文件 SHA-256 与 Git blob SHA-1 已核验。作者修改版 DGG 两个依赖按父仓库 gitlink 下载。', '',
- '第一批按源码核验和适配优先级选择：**FOREVER、DGG、PaRSP、SMoLoRA、PASs-MoE、Hyper-LLaVA**。SeqLoRA/Frozen 作为基础对照；旧 MIGU/O-LoRA/SAPT 不作这轮主要比较方法。适配仍待完成，详见 [方法选择](method_selection.json) 与 [任务和方法协议](../rules/008_current_task_counts_and_methods.md)。','',
+ '第一批按源码核验和适配优先级选择：**DGG、PaRSP、SMoLoRA、PASs-MoE、Hyper-LLaVA**（去掉回放类比较方法；其他方法保留作者原设置）。SeqLoRA/Frozen 作为基础对照；旧 MIGU/O-LoRA/SAPT 不作这轮主要比较方法。适配仍待完成，详见 [方法选择](method_selection.json) 与 [任务和方法协议](../rules/008_current_task_counts_and_methods.md)。','',
  '| 方法 | 分类 / 发表 | 作者仓库 | 下载与实现状态 | 复现说明 |','|---|---|---|---|---|']
 for r in sorted(records,key=lambda r:(r['category'],-r['year'],r['method'])):
  link=f"[{r['repo_url'].split('github.com/',1)[1]}]({r['repo_url']})" if r['repo_url'] else '未找到作者源码'

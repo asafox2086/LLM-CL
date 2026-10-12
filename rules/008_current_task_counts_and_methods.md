@@ -1,6 +1,6 @@
 # 当前十任务样本量与论文源码方案
 
-核验日期：2026-10-12。本文件更新 006 中的数据量和方法选择；007 的领域与真实性要求继续有效。没有启动正式训练。
+核验日期：2026-10-12。本文件更新 006 中的数据量和方法选择；007 的领域与真实性要求继续有效。没有启动正式训练。训练预算和当前方法选择由 [009 小预算协议](009_small_budget_no_replay_baselines.md) 覆盖。
 
 ## 1. 当前源划分计数
 
@@ -33,11 +33,10 @@ CUAD 的 `train_separate_questions.json` 会把多个标注 span 展开为多个
 
 本轮主要方法从 `paper/pre_finetuning/` 中选择，采用可验证作者源码作为适配依据。此前 MIGU-LoRA、O-LoRA、SAPT-LoRA 只保留为历史实验，不继续作为这轮主要比较方法。SeqLoRA 与 Frozen 作为基础对照仍保留。
 
-第一批优先适配以下六个方法，**尚未运行十任务**：
+第一批优先适配以下五个方法，**尚未运行十任务**：
 
 | 方法 | 论文 / 分类 | 作者源码 | 适配重点 |
 |---|---|---|---|
-| FOREVER | ACL 2026 / 回放 | [WoodScene/FOREVER](https://github.com/WoodScene/FOREVER) | 沿用原始回放时间与调度逻辑，接入文本/图像统一样本；不替换成普通 ER。 |
 | DGG | CVPR 2026 / 正则化 | [lisongze/DGG](https://github.com/lisongze/DGG) | 保留历史梯度近似、Bernoulli 调度；作者修改版 Transformers/DeepSpeed 按 gitlink 版本获取。原实现单卡大显存要求不能直接套到 11GB 卡。 |
 | PaRSP | ACL 2026 / 正则化 | [JinhuiBot/PaRSP](https://github.com/JinhuiBot/PaRSP) | 保留区域和零空间约束，核验 Qwen2-VL 层映射、激活统计与多模态输入。 |
 | SMoLoRA | ICCV 2025 / 架构 | [Minato-Zackie/SMoLoRA](https://github.com/Minato-Zackie/SMoLoRA) | 保留视觉/语言专家和路由；核验纯文本阶段，不能用伪图像替代文本任务。 |
