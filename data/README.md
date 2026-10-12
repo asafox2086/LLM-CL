@@ -66,3 +66,9 @@ MTS-Dialog 医患对话与 IU-Xray findings-to-impression 的固定划分在 `pr
 ## 新增多领域图像开放式问答
 
 已下载 9 个数据集，并整理开放式问答版本；目录、论文对应关系及核验见 [多模态数据索引](README_multimodal.md)。
+
+<!-- dataset-provenance-20261012 -->
+
+## 数据集提出者与后续实际使用证据
+
+见 [来源总表](DATASET_PROVENANCE.md)、[机器可读记录](dataset_provenance.json) 和 [BibTeX](dataset_references.bib)。记录原始提出者、发表年份与 venue、后续实际训练/评测依据、子集和划分限制；不将格式化镜像上传者当作提出者。当前十任务仍在准备，备选资源的状态在总表中单列。
