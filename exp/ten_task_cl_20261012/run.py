@@ -78,8 +78,12 @@ def input_batch(row,task,processor,device):
     # Both methods preserve the author's effective frozen-visual setting.
     total_visual=512 if len(images)==1 else 1024
     pixel_budget=max(16,total_visual//max(1,len(images)))*28*28
-    batch=processor(text=[prompt],images=images or None,return_tensors='pt',
-                    min_pixels=4*28*28,max_pixels=pixel_budget)
+    # Transformers 4.46 reads these limits from the image processor;
+    # passing them to the combined processor forwards them to the tokenizer.
+    processor.image_processor.min_pixels=4*28*28
+    processor.image_processor.max_pixels=pixel_budget
+    processor.image_processor.size={'min_pixels':4*28*28,'max_pixels':pixel_budget}
+    batch=processor(text=[prompt],images=images or None,return_tensors='pt')
     if batch['input_ids'].shape[1]>2304:
         raise ValueError('prompt over budget; do not truncate image placeholder sequences silently')
     batch={key:value.to(device) for key,value in batch.items()}

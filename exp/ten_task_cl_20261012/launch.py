@@ -104,6 +104,8 @@ def worker(run_id):
                     if attempt==2:
                         raise
                     time.sleep(30)
+        command(TRAIN_PYTHON,'verify_scoring.py',log_dir/'scoring_cpu_test.log')
+        command(TRAIN_PYTHON,'verify_inputs.py',log_dir/'input_cpu_test.log')
         for name in METHODS:
             jobs[name]['status']='waiting_gpu'
         status['phase']='waiting_for_idle_gpus'
