@@ -3,7 +3,18 @@
   "runs_root": "exp/ten_task_cl_20261012/runs",
   "reports_root": "summary/ten_task_cl_20261012",
   "run_path_template": "<method>/seed_<seed>/<run_id>",
-  "stage_ids": [1,2,3,4,5,6,7,8,9,10],
+  "stage_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
   "retain_all_stage_checkpoints": true,
   "save_all_changed_model_parameters": true,
   "save_optimizer_scheduler_scaler_method_rng_state": true,
@@ -12,5 +23,15 @@
   "require_complete_marker_to_resume": true,
   "within_stage_last_checkpoint_required": true,
   "training_integration_verified": false,
-  "training_started": false
+  "training_started": false,
+  "execution_seeds": [
+    42
+  ],
+  "save_last_every_optimizer_updates": 25,
+  "implemented_adapters": [
+    "SeqLoRA",
+    "SMoLoRA"
+  ],
+  "tiny_model_resume_verified": true,
+  "full_2b_gpu_preflight_required": true
 }

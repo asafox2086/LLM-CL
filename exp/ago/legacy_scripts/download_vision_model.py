@@ -7,7 +7,7 @@ import signal
 import subprocess
 import time
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[1]
+ROOT = next(p for p in Path(__file__).resolve().parents if (p/'.git').exists())
 DEST=ROOT/'model/Qwen2-VL-2B-Instruct'
 
 def sha(path):

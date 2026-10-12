@@ -1,16 +1,24 @@
-# 本轮执行状态
+# 本轮运行进度
 
-更新时间：2026-10-12T18:44:23.077309+08:00
+更新时间：2026-10-12T20:07:25.901883+08:00
 
-已执行启动预检，未启动正式训练。
+当前阶段：**preparing**。
 
-## 阻塞项
+seed 42；每任务 train/dev/test = 2000/100/200；十任务一轮。
 
-- No idle GPU: do not interrupt or contend with other users training.
-- Final ten-task sample manifest absent; legal-image and art input protocols and fixed selections remain unresolved.
-- Author methods have source snapshots, but some ten-task training adapters or per-method resume checks are unverified.
+| 方法 | 状态 | GPU | 已完成训练阶段 |
+|---|---|---|---|
+| SeqLoRA | waiting_preparation | — | 0 |
+| SMoLoRA | waiting_preparation | — | 0 |
+| DGG | adapter_pending | — | 0 |
+| PaRSP | adapter_pending | — | 0 |
+| PASs_MoE | adapter_pending | — | 0 |
+| Hyper_LLaVA | adapter_pending | — | 0 |
 
-日志：`exp/ten_task_cl_20261012/preflight/20261012_184423/preflight.log`。
+待适配方法：DGG、PaRSP、PASs-MoE、Hyper-LLaVA；不以简化实现冒充作者方法。
 
-四卡并行优先用于不同方法/种子；只有已锁定数据、通过适配和恢复验证的运行才可调度。
-不会停止其他用户进程，也不会用历史分类实验或简化方法替代本轮方法。
+总日志：`exp/ten_task_cl_20261012/pipeline_logs/20261012_200725/launcher.log`。
+运行日志与阶段检查点：`exp/ten_task_cl_20261012/runs/<method>/seed_42/<run_id>/`。
+
+正式训练已开始：False。
+仅在 GPU 空闲时分配不同方法，不停止其他用户进程。

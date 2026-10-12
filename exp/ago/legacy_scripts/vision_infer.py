@@ -7,7 +7,7 @@ import torch
 from PIL import Image
 from transformers import AutoProcessor,Qwen2VLForConditionalGeneration
 
-ROOT=Path(__file__).resolve().parents[1]
+ROOT = next(p for p in Path(__file__).resolve().parents if (p/'.git').exists())
 
 def main():
  p=argparse.ArgumentParser()

@@ -10,7 +10,7 @@ import zipfile
 import requests
 from PIL import Image
 
-ROOT=Path(__file__).resolve().parents[1]
+ROOT = next(p for p in Path(__file__).resolve().parents if (p/'.git').exists())
 BASE=ROOT/'CV_data'
 
 def digest(value):return hashlib.sha256(value).hexdigest()

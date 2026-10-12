@@ -34,3 +34,5 @@
 主索引：[finetuning_source_manifest.json](finetuning_source_manifest.json)。每个方法目录记录完整 commit、源文件数、许可证、获取依据和 SHA-256。尚未公开源码的方法如实记录，不把 README 或第三方重写当作者实现。
 
 复现对同一 2B 基座和十任务的适配需要保留各方法机制。不能统一删掉视觉专家、路由或重要性约束，也不能把回放法替换成普通 ER。新模型上的结果属于适配实验，不能写成原论文原模型的精确复现。
+
+当前实际启动队列是 SeqLoRA 与 SMoLoRA，仅 seed 42；其余四个候选仍待适配。等量样本与运行说明见 [010](../rules/010_equal_budget_execution.md)。SMoLoRA 已通过小型 Qwen2-VL 文本/图像更新和恢复检查，完整 2B GPU 预检仍是训练前置条件。

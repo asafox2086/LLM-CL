@@ -34,7 +34,7 @@ paper/
 
 横轴为方向，持续微调下设三个子类；纵向列出方法（点击方法名查看正式发表页面）。同一行不同列之间没有对应关系。
 
-**文献收录与实验选择分开记录：回放类论文继续完整保留在此二维表、PDF 目录和源码索引中，仅不参加本轮实验比较。** 当前实验方法及小预算见 [009 实验协议](../rules/009_small_budget_no_replay_baselines.md)。
+**文献收录与实验选择分开记录：回放类论文继续完整保留在此二维表、PDF 目录和源码索引中，仅不参加本轮实验比较。** 当前实验方法及小预算见 [010 执行协议](../rules/010_equal_budget_execution.md)。
 
 <table>
 <thead>
@@ -156,7 +156,7 @@ paper/
 
 <!-- finetuning-author-source-20261012 -->
 
-持续微调方法的作者源码、固定版本和可用性见 [源码索引](../code/README.md)。各方法独立存放在服务器 `code/<method>/source/`；未公开源码或只有 README 的项目如实标注。源样本量见 [实验准备报告](../rules/008_current_task_counts_and_methods.md)，当前预算与实验选择见 [009](../rules/009_small_budget_no_replay_baselines.md)。
+持续微调方法的作者源码、固定版本和可用性见 [源码索引](../code/README.md)。各方法独立存放在服务器 `code/<method>/source/`；未公开源码或只有 README 的项目如实标注。源样本量见 [实验准备报告](../rules/008_current_task_counts_and_methods.md)，当前预算与实验选择见 [010](../rules/010_equal_budget_execution.md)。
 
 ## 核验与下载
 

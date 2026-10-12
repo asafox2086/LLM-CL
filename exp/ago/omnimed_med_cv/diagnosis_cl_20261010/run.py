@@ -8,7 +8,7 @@ from transformers import Qwen2VLForConditionalGeneration
 ROOT=next(p for p in Path(__file__).resolve().parents if (p/'.git').exists())
 EXP=Path(__file__).resolve().parent
 DATA=ROOT/'analysis/omnimed_20261009'
-sys.path.insert(0,str(ROOT/'exp'))
+sys.path.insert(0,str(ROOT/'exp/ago/legacy_scripts'))
 import cv_data as D, cv_runtime as C
 from run_olora import create_method
 from cv_reflection_med import finish_task
