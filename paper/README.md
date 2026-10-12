@@ -34,6 +34,8 @@ paper/
 
 横轴为方向，持续微调下设三个子类；纵向列出方法（点击方法名查看正式发表页面）。同一行不同列之间没有对应关系。
 
+**文献收录与实验选择分开记录：回放类论文继续完整保留在此二维表、PDF 目录和源码索引中，仅不参加本轮实验比较。当前实验方法及小预算见 [009 实验协议](../rules/009_small_budget_no_replay_baselines.md)。
+
 <table>
 <thead>
 <tr><th rowspan="2">持续预训练（6）</th><th colspan="3">持续微调（20）</th><th rowspan="2">持续对齐（3）</th></tr>
@@ -151,10 +153,6 @@ paper/
 | **CPPO** — [CPPO: Continual Learning for Reinforcement Learning with Human Feedback](https://proceedings.iclr.cc/paper_files/paper/2024/hash/6246f93ebf4f2d76ad2bcb3158220d34-Abstract-Conference.html) | ICLR 2024 | Llama-7B 策略与奖励模型（附录扩展实验）；主实验另用 GPT2-XL；Reddit TL;DR 摘要与 SHP 跨域人类偏好序列 RLHF | 持续对齐：奖励／生成概率加权持续 PPO 与知识保持；生成式 LLM 动态偏好序贯 RLHF |
 
 </details>
-
-<!-- finetuning-author-source-20261012 -->
-
-持续微调方法的作者源码、固定版本和可用性见 [源码索引](../code/README.md)。各方法独立存放在服务器 `code/<method>/source/`；未公开源码或只有 README 的项目如实标注。当前样本量与本轮方法选择见 [实验准备报告](../rules/008_current_task_counts_and_methods.md)。
 
 ## 核验与下载
 
