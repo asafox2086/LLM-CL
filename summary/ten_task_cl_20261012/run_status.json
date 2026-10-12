@@ -1,0 +1,96 @@
+{
+  "experiment_id": "ten_task_cl_20261012",
+  "updated_at": "2026-10-12T18:44:23.077309+08:00",
+  "status": "preflight_blocked",
+  "training_started": false,
+  "preflight_log": "exp/ten_task_cl_20261012/preflight/20261012_184423/preflight.log",
+  "gpu_snapshot": [
+    {
+      "index": 0,
+      "name": "NVIDIA GeForce RTX 2080 Ti",
+      "total_mib": 11264,
+      "used_mib": 6664,
+      "utilization_percent": 100,
+      "available_for_preflight": false
+    },
+    {
+      "index": 1,
+      "name": "NVIDIA GeForce RTX 2080 Ti",
+      "total_mib": 11264,
+      "used_mib": 6356,
+      "utilization_percent": 100,
+      "available_for_preflight": false
+    },
+    {
+      "index": 2,
+      "name": "NVIDIA GeForce RTX 2080 Ti",
+      "total_mib": 11264,
+      "used_mib": 6342,
+      "utilization_percent": 100,
+      "available_for_preflight": false
+    },
+    {
+      "index": 3,
+      "name": "NVIDIA GeForce RTX 2080 Ti",
+      "total_mib": 11264,
+      "used_mib": 6356,
+      "utilization_percent": 100,
+      "available_for_preflight": false
+    }
+  ],
+  "available_gpus": [],
+  "methods": [
+    {
+      "method": "DGG",
+      "source_status": "downloaded_source_snapshot",
+      "source_revision": "f0c7d20552c00e33b05f15ff638894c0c34440bb",
+      "training_started": false,
+      "ten_task_adaptation_verified": false,
+      "stage_completed": 0,
+      "status": "awaiting_ten_task_adapter_and_resume_verification"
+    },
+    {
+      "method": "PaRSP",
+      "source_status": "downloaded_source_snapshot",
+      "source_revision": "00685fe4f9086f03ac1d1a725dcb280714e6125a",
+      "training_started": false,
+      "ten_task_adaptation_verified": false,
+      "stage_completed": 0,
+      "status": "awaiting_ten_task_adapter_and_resume_verification"
+    },
+    {
+      "method": "SMoLoRA",
+      "source_status": "downloaded_source_snapshot",
+      "source_revision": "ba50e074f7468e18f0e6d512360acebe8e213424",
+      "training_started": false,
+      "ten_task_adaptation_verified": false,
+      "stage_completed": 0,
+      "status": "awaiting_ten_task_adapter_and_resume_verification"
+    },
+    {
+      "method": "PASs_MoE",
+      "source_status": "downloaded_source_snapshot",
+      "source_revision": "eb0d571173fcaa21db5f7231d63a64f0db7529c8",
+      "training_started": false,
+      "ten_task_adaptation_verified": false,
+      "stage_completed": 0,
+      "status": "awaiting_ten_task_adapter_and_resume_verification"
+    },
+    {
+      "method": "Hyper_LLaVA",
+      "source_status": "downloaded_source_snapshot",
+      "source_revision": "ea4fb8a7871e524607d87e684b2b6ac58d7cf688",
+      "training_started": false,
+      "ten_task_adaptation_verified": false,
+      "stage_completed": 0,
+      "status": "awaiting_ten_task_adapter_and_resume_verification"
+    }
+  ],
+  "blockers": [
+    "No idle GPU: do not interrupt or contend with other users training.",
+    "Final ten-task sample manifest absent; legal-image and art input protocols and fixed selections remain unresolved.",
+    "Author methods have source snapshots, but some ten-task training adapters or per-method resume checks are unverified."
+  ],
+  "stopped_other_processes": false,
+  "formal_task_manifest_exists": false
+}
