@@ -1,0 +1,54 @@
+{
+  "method": "DGG",
+  "category": "regularization",
+  "year": 2026,
+  "venue": "CVPR",
+  "page": "https://openaccess.thecvf.com/content/CVPR2026/html/Li_Multimodal_Continual_Instruction_Tuning_with_Dynamic_Gradient_Guidance_CVPR_2026_paper.html",
+  "file": "pre_finetuning/method_regularization/2026_CVPR_DGG.pdf",
+  "model": "LLaVA-7B",
+  "folder": "DGG",
+  "repo_url": "https://github.com/lisongze/DGG",
+  "source_evidence": "paper first-page URL; official README",
+  "verified_on": "2026-10-12",
+  "network": "direct only; no proxy fallback",
+  "training_status": "source acquisition only; Qwen2-VL/ten-task port and smoke test not yet done",
+  "revision": "f0c7d20552c00e33b05f15ff638894c0c34440bb",
+  "status": "downloaded_source_snapshot",
+  "source_files": 174,
+  "source_bytes": 601723,
+  "python_files": 74,
+  "lfs_pointer_files": [],
+  "excluded_asset_files": 14,
+  "snapshot_policy": "All tracked Python/C++/CUDA source retained; source/config/docs retained; bundled datasets, model binaries, images and Git LFS assets not downloaded",
+  "submodule_status": "Both author custom source dependencies downloaded at exact parent gitlinks; packages not installed",
+  "files_manifest": "files_sha256.json",
+  "license_files": [
+    "LICENSE"
+  ],
+  "usage_note": "含作者定制 Transformers/DeepSpeed；官方原实现提示单卡 >=80GB，尚未做本机预检。",
+  "integrity": "Every source file matches its recorded SHA-256 and pinned upstream Git blob SHA-1",
+  "custom_dependencies": [
+    {
+      "name": "DGG-transformers",
+      "source_url": "https://github.com/lisongze/DGG-transformers.git",
+      "revision": "b73b600919dde4a48533f5b375c14c13fb91ce12",
+      "matches_parent_gitlink": true,
+      "source_files": 3976,
+      "source_bytes": 68222128,
+      "python_files": 2807,
+      "network": "direct only",
+      "installed": false
+    },
+    {
+      "name": "DGG-DeepSpeed",
+      "source_url": "https://github.com/lisongze/DGG-DeepSpeed.git",
+      "revision": "11d998afb3922b571b72413f12d7d247eb1ecf24",
+      "matches_parent_gitlink": true,
+      "source_files": 1164,
+      "source_bytes": 9249826,
+      "python_files": 696,
+      "network": "direct only",
+      "installed": false
+    }
+  ]
+}

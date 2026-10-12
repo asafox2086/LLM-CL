@@ -68,7 +68,7 @@ dataset('SQuAD11','自然/通用阅读','text','rajpurkar2016squad','https://raj
 dataset('MedQuAD','医学','text','benabacha2019medquad','https://github.com/abachaa/MedQuAD',[
  use('cho2025kcomp','medical QA training and evaluation','Appendix A.2','MedQuAD has no provided split in this protocol; authors randomly split 80/10/10.'),
  use('vazhentsev2025truth','uncertainty estimation training/evaluation','Appendix dataset descriptions; tables 20/21','MedQuAD is a long-answer QA dataset, with a 500 training / 1000 evaluation budget in this work.')],
- '可参考 K-COMP 的 80/10/10；随机种子未核实，不能声称逐条精确复现。',
+ '已按 K-COMP 随机 80/10/10 思路建立 seed 42 版本：13,125 / 1,641 / 1,641。论文种子与逐条 ID 未核实，不能声称精确相同；本项目 QA 行字节不变，清单单列。',
  '原论文 collection 47,457 QA 不等于当前公开有答案数量；部分答案因版权移除，当前约 16,407 非空公开回答，不能补造。')
 med1=use('liang2025expertcfg','medical VQA fine-tuning and reliability evaluation','Experiments; section 5.2 figure 3; official repository datasets','VQA-RAD, SLAKE and PathVQA are evaluated; open and closed questions have separate evaluation treatment.','https://github.com/ecoxial2007/Expert-CFG')
 med2=use('pan2026ducor','medical VQA and cross-domain adaptation','Section 4.1; open/closed per-dataset results table, proceedings p.17219','All three datasets are evaluated. Standard split and cross-domain adaptation are distinct settings; pseudo-label adaptation is not our default evaluation protocol.','https://openaccess.thecvf.com/content/CVPR2026/papers/Pan_Dual-Level_Confidence_based_Implicit_Self-Refinement_for_Medical_Visual_Question_Answering_CVPR_2026_paper.pdf')

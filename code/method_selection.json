@@ -1,0 +1,31 @@
+{
+  "updated_on": "2026-10-12",
+  "paper_scope": "paper/pre_finetuning, 20 papers",
+  "base_model": "Qwen2-VL-2B-Instruct",
+  "baseline_controls": [
+    "SeqLoRA",
+    "Frozen"
+  ],
+  "first_adaptation_batch": [
+    "FOREVER",
+    "DGG",
+    "PaRSP",
+    "SMoLoRA",
+    "PASs_MoE",
+    "Hyper_LLaVA"
+  ],
+  "historical_only": [
+    "MIGU-LoRA",
+    "O-LoRA",
+    "SAPT-LoRA"
+  ],
+  "training_started": false,
+  "require_before_formal_training": [
+    "Preserve author core mechanism, log upstream commit and adaptation diff",
+    "Support real text-only and image tasks without dummy-image replacement",
+    "Train/dev smoke test and memory preflight",
+    "Fixed data manifest and 11x10 evaluation matrix",
+    "Report trainable parameters, replay/auxiliary tokens and compute differences"
+  ],
+  "rule": "A public repository or source snapshot is not evidence that the ten-task adaptation already runs."
+}

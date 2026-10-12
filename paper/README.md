@@ -152,6 +152,10 @@ paper/
 
 </details>
 
+<!-- finetuning-author-source-20261012 -->
+
+持续微调方法的作者源码、固定版本和可用性见 [源码索引](../code/README.md)。各方法独立存放在服务器 `code/<method>/source/`；未公开源码或只有 README 的项目如实标注。当前样本量与本轮方法选择见 [实验准备报告](../rules/008_current_task_counts_and_methods.md)。
+
 ## 核验与下载
 
 每篇的正式来源、发表年份依据、正文模型／任务定位、SHA-256 和本地 PDF 路径见 [逐篇核验记录](verification_audit.md) 及 [manifest](continual_learning_manifest.json)。旧清单 28 篇全部重新检索，保留和移除理由逐项记录。归类由整理者按方法正文判断。

@@ -1,0 +1,170 @@
+{
+  "VQAv2": {
+    "raw_question_rows_seen": {
+      "train": 443757,
+      "validation": 214354
+    },
+    "open_ended_counts": {
+      "train": 266660,
+      "validation": 128856
+    }
+  },
+  "GQA": {
+    "raw_question_rows_seen": {
+      "test": 95336,
+      "testdev": 12578,
+      "train": 943000,
+      "validation": 132062
+    },
+    "open_ended_counts": {
+      "testdev": 6924,
+      "train": 494675,
+      "validation": 69083
+    }
+  },
+  "TextVQA": {
+    "raw_question_rows_seen": {
+      "train": 34602,
+      "validation": 5000
+    },
+    "open_ended_counts": {
+      "train": 31802,
+      "validation": 4623
+    }
+  },
+  "MedQuAD": {
+    "counts": {
+      "rows": 16407
+    },
+    "extra": {
+      "filter_stats": {
+        "missing_or_closed": 31034
+      },
+      "answer_origin": "public NIH source answers only; blank copyright-removed answers excluded",
+      "conditioning": "question only; source answer is not an input context"
+    },
+    "prepared_split_counts": {
+      "train": 13125,
+      "dev": 1641,
+      "test": 1641
+    },
+    "split_manifest": "../MedQuAD/paper_split_seed42/split_manifest.json"
+  },
+  "VQA_RAD": {
+    "raw_question_rows_seen": {
+      "test": 451,
+      "train": 1793
+    },
+    "open_ended_counts": {
+      "test": 200,
+      "train": 852
+    }
+  },
+  "PathVQA": {
+    "raw_question_rows_seen": {
+      "test": 6719,
+      "train": 19654,
+      "validation": 6259
+    },
+    "open_ended_counts": {
+      "test": 3357,
+      "train": 9899,
+      "validation": 3134
+    }
+  },
+  "SLAKE": {
+    "raw_question_rows_seen": {
+      "train": 9835,
+      "validation": 2099,
+      "test": 2094
+    },
+    "open_ended_counts": {
+      "train": 5924,
+      "validation": 1249,
+      "test": 1249
+    }
+  },
+  "CUAD": {
+    "counts": {
+      "rows": 6702
+    },
+    "extra": {
+      "filter_stats": {
+        "unanswerable": 14208
+      },
+      "multi_span_policy": "all nonempty evidence spans in document order joined; not alternative references",
+      "long_context": "full contract retained, requires question-only retrieval/long-context preflight"
+    },
+    "prepared_split_counts": {
+      "train": 5458,
+      "test": 1244
+    },
+    "official_split_id_audit": {
+      "train": {
+        "unique_ids": 22450,
+        "entries": 408,
+        "answerable_questions": 11180
+      },
+      "test": {
+        "unique_ids": 4182,
+        "entries": 102,
+        "answerable_questions": 1244
+      }
+    }
+  },
+  "FinQA": {
+    "counts": {
+      "rows": 8055
+    },
+    "extra": {
+      "filter_stats": {
+        "closed_missing": 226
+      },
+      "target": "source human-readable answer; exe_ans retained separately because scale may differ",
+      "input": "full original pre_text + table_ori + post_text, no oracle gold/retrieved context"
+    },
+    "prepared_split_counts": {
+      "train": 6083,
+      "dev": 861,
+      "test": 1111
+    }
+  },
+  "TAT_DQA": {
+    "counts": {
+      "rows": 16555,
+      "image_rows": 16555
+    },
+    "extra": {
+      "filter_stats": {
+        "missing_or_closed": 3
+      },
+      "images": 2492,
+      "multi_span_policy": "all answer parts joined, scale retained separately"
+    },
+    "prepared_split_counts": {
+      "train": 13248,
+      "dev": 1644,
+      "test": 1663
+    }
+  },
+  "AQUA": {
+    "train": {
+      "visual": 29568,
+      "knowledge": 40244
+    },
+    "val": {
+      "visual": 1507,
+      "knowledge": 3617
+    },
+    "test": {
+      "visual": 1270,
+      "knowledge": 3642
+    }
+  },
+  "SQuAD11": {
+    "train": 87599,
+    "dev": 10570
+  },
+  "audit_date": "2026-10-12",
+  "unit": "QA samples; source split counts; not final ten-task readiness or unique-image counts"
+}
