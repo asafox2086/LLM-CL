@@ -1,5 +1,6 @@
 """Sequential open-answer Qwen2-VL experiment; real images and full stage recovery."""
 import argparse
+from contextlib import nullcontext
 import hashlib
 import json
 import math
@@ -196,6 +197,12 @@ def make_optimizer(method):
                               for (lr,decay),parameters in groups.items()],eps=1e-8,betas=(.9,.999))
 
 
+def activation_storage(method):
+    # Keep the original expert computation and parameter precision. Transfer saved
+    # autograd tensors to host RAM until backward instead of retaining them on GPU.
+    return torch.autograd.graph.save_on_cpu(pin_memory=True) if method.name=='SMoLoRA' else nullcontext()
+
+
 def save_last(path,method,optimizer,scheduler,scaler,stage,offset,step,manifest_sha):
     temporary=path.with_suffix('.pt.tmp')
     torch.save({'weights':method.changed_state(),'optimizer':optimizer.state_dict(),'scheduler':scheduler.state_dict(),
@@ -243,17 +250,23 @@ def main():
     method.model.gradient_checkpointing_enable(gradient_checkpointing_kwargs={'use_reentrant':False})
     method.model.enable_input_require_grads()
     if args.preflight_only:
+        # from_pretrained defaults to eval mode; checkpointing is active only
+        # in train mode. Preflight must exercise the actual training memory path.
+        model.train()
         method.begin_stage(1)
         optimizer=make_optimizer(method)
         scaler=torch.amp.GradScaler('cuda',init_scale=1024)
         losses=[]
+        print(json.dumps({'event':'gpu_preflight_start','model_training':model.training,
+            'trainable_parameters':sum(p.numel() for p in model.parameters() if p.requires_grad),
+            'allocated_mib':torch.cuda.memory_allocated()/1024**2}),flush=True)
         for task_id in [1,2,3,5,6,8]:
             method.set_instruction(task_id)
             optimizer.zero_grad(set_to_none=True)
             row=max(data[(task_id,'dev')],key=lambda value:len(value.get('context','')[:6000])
                     +len(value['answer'][:4000])+len(value.get('images',[]))*1000)
             batch,_=input_batch(row,manifest['tasks'][task_id-1],processor,device)
-            with torch.autocast('cuda',dtype=torch.float16):
+            with activation_storage(method),torch.autocast('cuda',dtype=torch.float16):
                 loss,_=answer_loss(model,batch,row['answer'],processor)
             if not torch.isfinite(loss):
                 raise FloatingPointError('GPU preflight loss')
@@ -265,6 +278,8 @@ def main():
             scaler.step(optimizer)
             scaler.update()
             losses.append(float(loss.detach()))
+            print(json.dumps({'event':'gpu_preflight_case','task':task_id,'loss':losses[-1],
+                'peak_allocated_mib':torch.cuda.max_memory_allocated()/1024**2}),flush=True)
         write(run/'gpu_preflight.json',{'method':args.method,'tasks_checked':[1,2,3,5,6,8],'losses':losses,
               'peak_allocated_mib':torch.cuda.max_memory_allocated()/1024**2,'passed':True,
               'formal_training_started':False,'preflight_weights_discarded':True})
@@ -275,7 +290,10 @@ def main():
     config={'method':args.method,'seed':args.seed,'base_model':str(model_path),'manifest_sha256':manifest_sha,
             'batch_size':16,'micro_batch_size':1,'epochs':1,'learning_rate':1e-4,'target_token_cap':512,
             'primary_score':'ROUGE-L F1, 0..100; generated-answer comparison, not original benchmark leaderboard metric',
-            'smolora_upstream_revision':method.original_revision,'training_started':True}
+            'smolora_upstream_revision':method.original_revision,'training_started':True,
+            'saved_autograd_tensors_on_cpu':args.method=='SMoLoRA',
+            'execution_source_sha256':{name:hashlib.sha256((Path(__file__).parent/name).read_bytes()).hexdigest()
+                for name in ['run.py','methods.py','frozen_vision.py','stage_checkpoint.py']}}
     write(run/'config.json',config)
     write(run/'environment.json',{'torch':torch.__version__,'gpu':torch.cuda.get_device_name(0),
           'cuda_visible_devices':os.environ.get('CUDA_VISIBLE_DEVICES'),'precision':'fp16 base, fp32 adapters'})
@@ -329,7 +347,7 @@ def main():
                     batch,details=input_batch(row,manifest['tasks'][stage-1],processor,device)
                     from frozen_vision import prepare
                     cache_hit=prepare(batch,row,model,method.vision_original)
-                    with torch.autocast('cuda',dtype=torch.float16):
+                    with activation_storage(method),torch.autocast('cuda',dtype=torch.float16):
                         loss,length=answer_loss(model,batch,row['answer'],processor)
                     if not torch.isfinite(loss):
                         raise FloatingPointError('nonfinite loss')

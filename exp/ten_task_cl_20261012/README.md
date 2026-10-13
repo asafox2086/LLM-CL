@@ -34,4 +34,4 @@ exp/ten_task_cl_20261012/
 
 启动：`/tmp/llmcl-assets-env/bin/python exp/ten_task_cl_20261012/launch.py`。准备日志在 `pipeline_logs/<run_id>/`，每阶段内每 25 个 update 保存 last，全部 T1–T10 完整阶段保留。
 
-2026-10-13 实际运行：SeqLoRA 已完成 seed 42 的全部十阶段，保存 stage_01–stage_10 和 11×10 评测矩阵。SMoLoRA 的完整 2B 模型预检发生 CUDA OOM，尚未正式训练；加入投影内部激活重计算后，CPU 输出和梯度与原作者 forward 完全一致，但 11 GiB GPU 重试仍 OOM。该优化保持八个专家、路由和 dropout RNG，不改变任务、采样或答案。`retry_smolora.py` 仅重试 SMoLoRA 并保留 SeqLoRA 已完成结果；需要先解决显存问题再重试。真实状态与指标见 `summary/ten_task_cl_20261012/`，不能将 CPU 验证等同于完整模型预检通过。
+2026-10-13 实际运行：SeqLoRA 已完成 seed 42 的全部十阶段，保存 stage_01–stage_10 和 11×10 评测矩阵。SMoLoRA 的早期完整 2B 预检发生 CUDA OOM；修复预检训练模式并在专家投影内部将反向传播暂存张量移入 CPU 后，六个真实任务的完整模型前向、反向及 AdamW 更新全部通过，峰值显存 9437.99 MiB，证明见 `smolora_gpu_verification.json`。该工程设置保持八个专家、路由、rank 和精度，CPU 输出、梯度及恢复一致性检查通过，不改变任务、采样或答案。`retry_smolora.py` 已在 GPU 0 启动正式 SMoLoRA 实验，先执行初始十任务评测，再顺序训练；保留 SeqLoRA 已完成结果。实际阶段进度见 `summary/ten_task_cl_20261012/`，预检权重已丢弃，不计入正式训练。

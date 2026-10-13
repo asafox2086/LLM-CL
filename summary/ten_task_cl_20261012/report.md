@@ -1,15 +1,15 @@
 # 本轮运行进度
 
-更新时间：2026-10-13T23:30:50.968189+08:00
+更新时间：2026-10-13T23:44:37.093642+08:00
 
-当前阶段：**run_failed**。
+当前阶段：**running_or_waiting_gpu**。
 
 seed 42；每任务 train/dev/test = 2000/100/200；十任务一轮。
 
 | 方法 | 状态 | GPU | 已完成训练阶段 |
 |---|---|---|---|
 | SeqLoRA | completed | 0 | 10 |
-| SMoLoRA | failed | 0 | 0 |
+| SMoLoRA | running | 0 | 0 |
 | DGG | adapter_pending | — | 0 |
 | PaRSP | adapter_pending | — | 0 |
 | PASs_MoE | adapter_pending | — | 0 |

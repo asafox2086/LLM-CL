@@ -5,7 +5,7 @@ from pathlib import Path
 import torch
 from transformers import Qwen2VLConfig,Qwen2VLForConditionalGeneration
 from methods import Method,ROOT
-from run import answer_loss
+from run import answer_loss,activation_storage
 from stage_checkpoint import save_stage,load_stage
 from frozen_vision import install
 
@@ -35,6 +35,8 @@ def main():
         with torch.no_grad():
             baseline=model(**text).logits.clone()
         method=Method(model,name,['instruction']*10,embedding=[[.1]*384]*10)
+        model.gradient_checkpointing_enable(gradient_checkpointing_kwargs={'use_reentrant':False})
+        model.enable_input_require_grads()
         assert not any(p.requires_grad for p in model.visual.parameters())
         method.begin_stage(1)
         model.eval()
@@ -49,7 +51,8 @@ def main():
         def step(batch):
             model.train()
             optimizer.zero_grad()
-            loss,_=answer_loss(model,batch,'answer',Processor())
+            with activation_storage(method):
+                loss,_=answer_loss(model,batch,'answer',Processor())
             assert torch.isfinite(loss)
             loss.backward()
             assert any(p.grad is not None and torch.count_nonzero(p.grad) for p in params)
@@ -65,7 +68,8 @@ def main():
             reference_input=actual_input.detach().clone().requires_grad_(True)
             layer.zero_grad(set_to_none=True)
             rng=torch.get_rng_state()
-            actual=layer(actual_input)
+            with activation_storage(method):
+                actual=layer(actual_input)
             actual.square().sum().backward()
             actual_grads={key:param.grad.clone() if param.grad is not None else None
                           for key,param in layer.named_parameters()}
@@ -103,7 +107,8 @@ def main():
                        'text_loss':text_loss,'image_loss':image_loss,
                        'full_2b_gpu_preflight_verified':False}
         if name=='SMoLoRA':
-            results[name]['projection_recompute_matches_author_output_and_gradients']=True
+            results[name]['projection_saved_tensor_offload_matches_author_output_and_gradients']=True
+            results[name]['cpu_saved_tensor_storage_matches_author_output_and_gradients']=True
     (ROOT/'exp/ten_task_cl_20261012/adapter_verification.json').write_text(json.dumps(results,indent=2)+'\n')
     print(json.dumps(results,indent=2))
 

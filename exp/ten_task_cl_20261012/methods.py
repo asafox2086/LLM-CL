@@ -72,13 +72,15 @@ class AuthorSMoLinear(nn.Module):
         self._author_forward=components['forward']
     def forward(self,x,**kwargs):
         # The upstream forward materializes all eight experts, including those
-        # masked by hard routing. Recompute these intermediate activations during
-        # backward to fit the original mechanism on 11 GiB cards. Preserve dropout
-        # RNG and retain the unchanged author forward and all expert parameters.
+        # masked by hard routing. Offload their saved autograd tensors to host RAM
+        # to fit the original mechanism on 11 GiB cards. Decoder checkpoints retain
+        # dropout RNG; the author forward and all expert parameters remain intact.
         if self.training and torch.is_grad_enabled() and x.requires_grad:
-            from torch.utils.checkpoint import checkpoint
-            return checkpoint(lambda value:self._author_forward(self,value,**kwargs),x,
-                              use_reentrant=False,preserve_rng_state=True)
+            # Place the hook inside the projection: an outer save_on_cpu context
+            # is overridden by decoder checkpoint hooks during recomputation.
+            # This local hook also applies on that recomputation path.
+            with torch.autograd.graph.save_on_cpu(pin_memory=True):
+                return self._author_forward(self,x,**kwargs)
         return self._author_forward(self,x,**kwargs)
 
 
