@@ -71,6 +71,14 @@ class AuthorSMoLinear(nn.Module):
         self.to(base.weight.device)
         self._author_forward=components['forward']
     def forward(self,x,**kwargs):
+        # The upstream forward materializes all eight experts, including those
+        # masked by hard routing. Recompute these intermediate activations during
+        # backward to fit the original mechanism on 11 GiB cards. Preserve dropout
+        # RNG and retain the unchanged author forward and all expert parameters.
+        if self.training and torch.is_grad_enabled() and x.requires_grad:
+            from torch.utils.checkpoint import checkpoint
+            return checkpoint(lambda value:self._author_forward(self,value,**kwargs),x,
+                              use_reentrant=False,preserve_rng_state=True)
         return self._author_forward(self,x,**kwargs)
 
 

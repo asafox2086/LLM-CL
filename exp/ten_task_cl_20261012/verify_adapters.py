@@ -57,6 +57,28 @@ def main():
             return float(loss)
         text_loss=step(text)
         image_loss=step(image)
+        if name=='SMoLoRA':
+            # Compare the memory-saving wrapper against the unchanged authored
+            # forward after nonzero expert updates, with identical dropout RNG.
+            layer=method.layers[0]
+            actual_input=torch.randn(1,7,layer.in_features,requires_grad=True)
+            reference_input=actual_input.detach().clone().requires_grad_(True)
+            layer.zero_grad(set_to_none=True)
+            rng=torch.get_rng_state()
+            actual=layer(actual_input)
+            actual.square().sum().backward()
+            actual_grads={key:param.grad.clone() if param.grad is not None else None
+                          for key,param in layer.named_parameters()}
+            layer.zero_grad(set_to_none=True)
+            torch.set_rng_state(rng)
+            expected=layer._author_forward(layer,reference_input)
+            expected.square().sum().backward()
+            assert torch.equal(actual,expected)
+            assert torch.equal(actual_input.grad,reference_input.grad)
+            for key,param in layer.named_parameters():
+                assert (param.grad is None)==(actual_grads[key] is None),key
+                if param.grad is not None:
+                    assert torch.equal(param.grad,actual_grads[key]),key
         model.eval()
         with torch.no_grad():
             raw_loss,_=answer_loss(model,image,'answer',Processor())
@@ -80,6 +102,8 @@ def main():
                        'frozen_visual_cache_loss_matches_raw_image':True,
                        'text_loss':text_loss,'image_loss':image_loss,
                        'full_2b_gpu_preflight_verified':False}
+        if name=='SMoLoRA':
+            results[name]['projection_recompute_matches_author_output_and_gradients']=True
     (ROOT/'exp/ten_task_cl_20261012/adapter_verification.json').write_text(json.dumps(results,indent=2)+'\n')
     print(json.dumps(results,indent=2))
 
