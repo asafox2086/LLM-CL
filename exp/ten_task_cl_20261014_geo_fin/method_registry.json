@@ -1,0 +1,38 @@
+{
+  "SMoLoRA": {
+    "status": "ready"
+  },
+  "PASs_MoE": {
+    "status": "ready"
+  },
+  "Hyper_LLaVA": {
+    "status": "ready",
+    "cpu_proof": "preflight/hyper_cpu.json",
+    "gpu_preflight_required": true,
+    "adaptation": "author top1 experts, geometry and BC kernels; native frozen Qwen visual + MiniLM text; available-modality handling for text-only tasks, no fake visual features"
+  },
+  "PaRSP": {
+    "status": "adapter_pending"
+  },
+  "OSFT": {
+    "status": "ready",
+    "cpu_proof": "preflight/osft_cpu.json",
+    "gpu_preflight_required": true,
+    "adaptation": "author SVD/projection kernels; Qwen2-VL decoder, URR=.25, CPU optimizer; per-stage subspace refresh"
+  },
+  "SpaRTA": {
+    "status": "ready",
+    "cpu_proof": "preflight/sparta_cpu.json",
+    "gpu_preflight_required": true,
+    "adaptation": "author dual-rank forward and context-router kernels, progressive isolation/orthogonality, 200-update stochastic restore schedule retained"
+  },
+  "FV_guided_Training": {
+    "status": "adapter_pending"
+  },
+  "ALER": {
+    "status": "ready",
+    "cpu_proof": "preflight/aler_cpu.json",
+    "gpu_preflight_required": true,
+    "adaptation": "author latent search and repair kernels; full Qwen2-VL decoder, previous-stage text reference in RAM; frozen visual encoder"
+  }
+}

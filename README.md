@@ -35,7 +35,7 @@
 
 新任务数据核验通过：T5 GeoQuestions1089 计数／人口文本问答、T6 GeoChat 遥感开放问答、T8 MME-Finance 原始图表开放问答。各任务训练 100／测试 50，详见 [逐项核验及划分依据](data/DATASET_VERIFICATION_20261014.md)。FinChart-Bench 未通过多篇已发表复用要求，保留候选记录，不进入本轮任务。
 
-**数据核验完成，方法适配／GPU 预检待完成。** 五个领域为自然／通用、医学、地理／遥感、金融、艺术文化。法律域已按用户授权替换。金融图像仅使用 K 线、技术指标和统计图表，排除文字文档页；无验证集，每任务 100／50，seed 42。
+**本轮独立划分已冻结，GPU1–3并发运行，GPU0按用户要求保留。** 五个领域为自然／通用、医学、地理／遥感、金融、艺术文化。法律域已按用户授权替换。金融图像仅使用 K 线、技术指标和统计图表，排除文字文档页；无验证集，每任务 100／50，seed 42。
 
 | 任务 | 领域 | 模态 | 数据集 | 训练／测试 |
 |---|---|---|---|---:|
@@ -58,7 +58,7 @@
 
 计划比较二维表中的 **SMoLoRA、PASs-MoE、Hyper-LLaVA、PaRSP、OSFT、SpaRTA、FV-guided Training、ALER** 八种非回放论文方法。不运行 SeqLoRA。必须保留作者核心机制，并公开 Qwen2-VL 与小数据适配差异；下载源码不等于完成适配或开始实验。
 
-当前状态以 [对比进度](summary/ten_task_cl_20261012/comparison_report.md) 为准；方法依据和固定源码版本见 [code/README.md](code/README.md)。多卡按空闲状态分配独立方法。
+当前状态以 [对比进度](summary/ten_task_cl_20261014_geo_fin/comparison_report.md) 为准；方法依据和固定源码版本见 [code/README.md](code/README.md)。最多三张卡按空闲状态分配独立方法；GPU0保留。六种方法已经实现，PaRSP／FV-guided Training尚在适配，不冒称八种均已运行。统一划分及训练顺序见 [本轮划分记录](data/TenTaskCL/ten_task_cl_20261014_geo_fin/README.md)。
 
 ## 本轮数据集 sample 示例
 
@@ -93,20 +93,20 @@ LLMCL/
 ├── data/                             # 数据资产、来源依据与固定样本清单
 ├── model/                            # 固定模型资产
 ├── exp/
-│   ├── ten_task_cl_20261012/          # 当前入口、运行日志和逐题结果
+│   ├── ten_task_cl_20261014_geo_fin/ # 当前入口、运行日志和逐题结果
 │   └── ago/                         # 历史实验与旧脚本
 ├── summary/
-│   ├── ten_task_cl_20261012/          # 当前汇总、指标和图
+│   ├── ten_task_cl_20261014_geo_fin/ # 当前汇总、指标和图
 │   └── ago/                         # 历史报告（含旧 CV 与医学实验）
 └── rules/                            # 实验协议与调整记录
 ```
 
-[当前运行说明](exp/ten_task_cl_20261012/README.md) · [执行策略](exp/ten_task_cl_20261012/execution_policy.json) · [固定样本 ID 与校验值](data/TenTaskCL/current_small_manifest.json) · [历史报告](summary/ago/README.md) · [历史实验](exp/ago/README.md)
+[当前运行说明](exp/ten_task_cl_20261014_geo_fin/README.md) · [执行策略](exp/ten_task_cl_20261014_geo_fin/execution_policy.json) · [固定样本 ID 与校验值](data/TenTaskCL/ten_task_cl_20261014_geo_fin/split_lock.json) · [历史报告](summary/ago/README.md) · [历史实验](exp/ago/README.md)
 
 服务器仓库迁移目标：`/data1/liyapeng/program/LLMCL`。确认没有现有队列后启动：
 
 ```bash
-.vision-env/bin/python exp/ten_task_cl_20261012/comparison_queue.py
+.vision-env/bin/python exp/ten_task_cl_20261014_geo_fin/parallel_queue.py
 ```
 
 论文表依据已核验的清单生成；只更新根 README、无需重新下载：

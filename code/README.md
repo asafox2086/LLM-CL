@@ -36,4 +36,4 @@
 复现对同一 2B 基座和十任务的适配需要保留各方法机制。不能统一删掉视觉专家、路由或重要性约束，也不能把回放法替换成普通 ER。新模型上的结果属于适配实验，不能写成原论文原模型的精确复现。
 
 
-八种论文方法与两个基础对照的具体范围见 [012](../rules/012_small_data_results_only.md)，实时适配/排队/运行状态见 [对比进度](../summary/ten_task_cl_20261012/comparison_report.md)。SMoLoRA 完整 2B 预检已通过并在运行；PASs-MoE CPU 原作者机制和恢复检查通过，已排队等待 GPU；其余六种适配尚未完成。
+八种论文方法与初始基座参考的具体范围见 [012](../rules/012_small_data_results_only.md)，实时适配/排队/运行状态见 [对比进度](../summary/ten_task_cl_20261014_geo_fin/comparison_report.md)。本轮已有SMoLoRA、PASs-MoE、Hyper-LLaVA、OSFT、SpaRTA、ALER六种适配；PaRSP／FV-guided尚未完成。每方法仍需通过新任务GPU预检。GPU0保留，仅GPU1–3并发；源差异见 [适配记录](../exp/ten_task_cl_20261014_geo_fin/METHOD_ADAPTATIONS.md)。

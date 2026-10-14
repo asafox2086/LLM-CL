@@ -1,4 +1,4 @@
-> 数据修订核验完成：T5 地理文本 GeoQuestions1089、T6 遥感 GeoChat、T8 金融原图 MME-Finance。当前训练尚未启动，待作者方法适配／GPU 预检。详见 data/DATASET_VERIFICATION_20261014.md。
+> 本轮已冻结独立划分并启动已通过GPU预检的方法；最多GPU1–3并发，GPU0保留。划分与运行：data/TenTaskCL/ten_task_cl_20261014_geo_fin/README.md；exp/ten_task_cl_20261014_geo_fin/execution_policy.json。
 
 # 小模型、小数据、轻量化：本轮固定协议
 
@@ -16,7 +16,7 @@
 
 数据来源保持原协议：SQuAD；VQAv2/GQA/TextVQA；MedQuAD；VQA-RAD/PathVQA/SLAKE；GeoQuestions1089 计数／人口文本；GeoChat 遥感开放 QA；FinQA；MME-Finance 原图表 QA；AQUA 知识文本及视觉问答。科学论文域没有重新加入。原问题、答案、图片和标注不改。七个既有任务保留原清单；新三任务按核验报告的论文问题类型／作者类别及研究 holdout 划分，各 100／50。不复制样本补齐。
 
-当前清单为 `data/TenTaskCL/equal_budget_100_0_50_geo_fin_seed42_20261014/manifest.json`；执行策略为 `exp/ten_task_cl_20261012/execution_policy.json`。旧 2000/100/200 和 500/50/50 训练结果不与本轮混算。
+当前清单为 `data/TenTaskCL/equal_budget_100_0_50_geo_fin_seed42_20261014/manifest.json`；执行策略为 `exp/ten_task_cl_20261014_geo_fin/execution_policy.json`。旧 2000/100/200 和 500/50/50 训练结果不与本轮混算。
 
 训练前和每阶段完成后，评测 **全部十个任务，各 50 条**，共 11×10 矩阵、5500 条测试预测／方法；取消验证集，不做验证推理或模型选择。每条保留 ID、所属数据集、预测、原参考答案、EM、Token F1、ROUGE-L、生成 token 数和耗时；每个任务和混合任务内每个源数据集分别统计分数、正确数、样本数。
 
@@ -33,3 +33,5 @@
 按实测旧运行参考：SMoLoRA 约 30–40 小时，主要耗时为十轮全任务生成评测。只是单卡估算，训练后回答长度及图像输入会改变耗时，排队等待另计。其他方法在实测首阶段后更新估算。
 
 四卡队列按空闲状态分配不同方法；其他三卡在占用期间不抢停。新任务尚未开始训练；SMoLoRA、PASs-MoE 的新任务 GPU 预检待做，其余六种适配未完成。SeqLoRA 已移除，不能将准备状态计作已运行。当前状态以 comparison_status.json 为准。
+
+本轮 ten_task_cl_20261014_geo_fin 明确禁用任何旧日期初始预测缓存；所有20个视图和训练ID顺序新目录冻结，统一SHA验证。只用GPU1–3，GPU0按最新用户要求保留。当前可执行6方法，2方法未适配完成；状态如实报告。
