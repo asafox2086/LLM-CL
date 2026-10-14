@@ -229,6 +229,8 @@ def main():
     run.mkdir(parents=True,exist_ok=True)
     (run/'logs').mkdir(exist_ok=True)
     policy=json.loads((Path(__file__).parent/'execution_policy.json').read_text())
+    if policy.get('training_enabled',True) is False and not args.preflight_only:
+        raise RuntimeError('Training disabled pending user-requested domain/image dataset revision')
     manifest_path=ROOT/policy['manifest']
     manifest_sha=hashlib.sha256(manifest_path.read_bytes()).hexdigest()
     manifest=json.loads(manifest_path.read_text())

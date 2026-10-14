@@ -69,6 +69,10 @@ def report(jobs):
 
 
 def worker(adopt=False):
+    from pathlib import Path
+    policy=json.loads((HERE/'execution_policy.json').read_text())
+    if policy.get('training_enabled',True) is False:
+        raise RuntimeError('Training queue disabled pending verified replacement of T5/T6 and T8')
     lock=(HERE/'.comparison_queue.lock').open('a')
     fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
     run_id='small_100_0_50_'+datetime.now(ZoneInfo('Asia/Shanghai')).strftime('%Y%m%d_%H%M%S')

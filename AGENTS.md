@@ -12,3 +12,5 @@
 - The authoritative Git checkout is /data2/liyapeng_grp/program/LLMCL on the SSH server. The local Windows workspace mirrors documents and scripts. Preserve unrelated remote changes when committing.
 
 Later explicit user instructions override this context.
+
+- Latest domain revision (2026-10-14): user rejected CUAD PDF-page visual QA and TAT-DQA document visual QA. Law domain may be replaced, prioritizing geography/remote sensing; art remains. Verify both text and genuine image tasks and multiple published uses. Training is disabled until these replacements are verified. Keep old GeoChat raw data available while evaluating candidates; do not bulk-transfer it yet.

@@ -29,16 +29,18 @@
 
 ## 本轮实验
 
+**任务修订中，训练暂不启动。** 用户要求图像任务体现真正视觉理解：T5/T6 法学整体允许替换，优先核验地理／遥感；T8 金融合同／报表页问答需重新筛选图表任务。艺术文化保留，其他领域及 100／50、seed 42、无验证集预算不变。下表相关旧数据已明确标记，尚未确定替代数据时不冒充最终方案。
+
 | 任务 | 领域 | 模态 | 数据集 | 训练／测试 |
 |---|---|---|---|---:|
 | T1 | 自然／通用 | 文本 | SQuAD 1.1 | 100／50 |
 | T2 | 自然／通用 | 图像 | VQAv2、GQA、TextVQA | 100／50 |
 | T3 | 医学 | 文本 | MedQuAD | 100／50 |
 | T4 | 医学 | 图像 | VQA-RAD、PathVQA、SLAKE | 100／50 |
-| T5 | 法学 | 文本 | CUAD | 100／50 |
-| T6 | 法学 | 图像 | CUAD 原始合同 PDF 页 | 100／50 |
+| T5 | 待定，优先地理 | 文本 | 待核验替代数据；旧 CUAD 停用 | 100／50 |
+| T6 | 待定，优先遥感 | 图像 | 待核验；旧 CUAD 合同页停用 | 100／50 |
 | T7 | 金融 | 文本 | FinQA | 100／50 |
-| T8 | 金融 | 图像 | TAT-DQA | 100／50 |
+| T8 | 金融 | 图像 | 重新筛选真正图表问答；旧 TAT-DQA 停用 | 100／50 |
 | T9 | 艺术文化 | 文本 | AQUA 知识问答子集 | 100／50 |
 | T10 | 艺术文化 | 图像 | AQUA 视觉问答子集 | 100／50 |
 
@@ -62,10 +64,10 @@
 | [T02](data/TenTaskCL/samples.md#t02) · GQA | What animal is on the table? | kitten | <img src="sample/ten_task_cl_20261012/T02_image_1.jpg" width="180" alt="T02 原始输入图像"> |
 | [T03](data/TenTaskCL/samples.md#t03) · MedQuAD | What are the symptoms of Hairy nose tip ? | What are the signs and symptoms of Hairy nose tip? The Human Phenotype Ontology provides the following list of signs and symptoms for Hairy …（节选） | 文本输入，完整上下文见样例页 |
 | [T04](data/TenTaskCL/samples.md#t04) · PathVQA | what appears to have changed into a blast crisis? | total effacement case | <img src="sample/ten_task_cl_20261012/T04_image_1.jpg" width="180" alt="T04 原始输入图像"> |
-| [T05](data/TenTaskCL/samples.md#t05) · CUAD | Highlight the parts (if any) of this contract related to &quot;Document Name&quot; that should be reviewed by a lawyer. Details: The name of the contr…（节选） | SUPPORT AND MAINTENANCE AGREEMENT | 文本输入，完整上下文见样例页 |
-| [T06](data/TenTaskCL/samples.md#t06) · CUAD | Highlight the parts (if any) of this contract related to &quot;Parties&quot; that should be reviewed by a lawyer. Details: The two or more parties who…（节选） | ELECTRAMECCANICA VEHICLES CORP. ; ELECTRAMECCANICA VEHICLES CORP ; EMV ; CHONGQING ZONGSHEN AUTOMOBILE INDUSTRY CO., LTD. ; Manufacturer | <img src="sample/ten_task_cl_20261012/T06_image_1.png" width="180" alt="T06 原始输入图像"> |
+| T05 | 数据集修订中 | 暂不展示已停用的旧样例 | 等待核验新样例 |
+| T06 | 数据集修订中 | 暂不展示已停用的旧样例 | 等待核验新样例 |
 | [T07](data/TenTaskCL/samples.md#t07) · FinQA | what was the percentage change in pro forma revenue from 2001 to 2002? | 44% | 文本输入，完整上下文见样例页 |
-| [T08](data/TenTaskCL/samples.md#t08) · TAT_DQA | What is the change in share of annual sales between first quarter and second quarter? | 2 | <img src="sample/ten_task_cl_20261012/T08_image_1.png" width="180" alt="T08 原始输入图像"> |
+| T08 | 数据集修订中 | 暂不展示已停用的旧样例 | 等待核验新样例 |
 | [T09](data/TenTaskCL/samples.md#t09) · AQUA | what are part of a polyptych executed for the church of the convent of san francesco at borgo san sepolcro | these panels | 文本输入，完整上下文见样例页 |
 | [T10](data/TenTaskCL/samples.md#t10) · AQUA | what is the location of the picture | street | <img src="sample/ten_task_cl_20261012/T10_image_1.jpg" width="180" alt="T10 原始输入图像"> |
 

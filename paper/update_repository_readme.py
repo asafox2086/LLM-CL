@@ -30,15 +30,16 @@ def render():
     text+=['</tbody>','</table>','',
       '归类按主要机制，混合机制、原论文模型及生成任务见 [论文完整索引](paper/README.md)。预训练条目包含语言／知识／上下文扩展型 CPT，不全部具有序贯抗遗忘实验；HPA 归入持续安全对齐保持。**回放方法仍保留在论文表中，本轮不做回放实验；DGG 含历史样本回放，也不参与本轮。**','',
       '## 本轮实验','',
+      '**任务修订中，训练暂不启动。** 用户要求图像任务体现真正视觉理解：T5/T6 法学整体允许替换，优先核验地理／遥感；T8 金融合同／报表页问答需重新筛选图表任务。艺术文化保留，其他领域及 100／50、seed 42、无验证集预算不变。下表相关旧数据已明确标记，尚未确定替代数据时不冒充最终方案。','',
       '| 任务 | 领域 | 模态 | 数据集 | 训练／测试 |','|---|---|---|---|---:|',
       '| T1 | 自然／通用 | 文本 | SQuAD 1.1 | 100／50 |',
       '| T2 | 自然／通用 | 图像 | VQAv2、GQA、TextVQA | 100／50 |',
       '| T3 | 医学 | 文本 | MedQuAD | 100／50 |',
       '| T4 | 医学 | 图像 | VQA-RAD、PathVQA、SLAKE | 100／50 |',
-      '| T5 | 法学 | 文本 | CUAD | 100／50 |',
-      '| T6 | 法学 | 图像 | CUAD 原始合同 PDF 页 | 100／50 |',
+      '| T5 | 待定，优先地理 | 文本 | 待核验替代数据；旧 CUAD 停用 | 100／50 |',
+      '| T6 | 待定，优先遥感 | 图像 | 待核验；旧 CUAD 合同页停用 | 100／50 |',
       '| T7 | 金融 | 文本 | FinQA | 100／50 |',
-      '| T8 | 金融 | 图像 | TAT-DQA | 100／50 |',
+      '| T8 | 金融 | 图像 | 重新筛选真正图表问答；旧 TAT-DQA 停用 | 100／50 |',
       '| T9 | 艺术文化 | 文本 | AQUA 知识问答子集 | 100／50 |',
       '| T10 | 艺术文化 | 图像 | AQUA 视觉问答子集 | 100／50 |','',
       '均使用原始问题、答案和标注；图像任务使用真实图像／原始文档页，不将分类标签包装成开放问答。CUAD 图像视图和 AQUA 文本视图的适配口径、采样及检索细节见 [固定协议](rules/012_small_data_results_only.md) 与 [数据溯源](data/DATASET_PROVENANCE.md)。不同方法共享相同的训练／测试样本 ID。','',
@@ -64,6 +65,9 @@ def render():
         return html.escape(value[:limit])+('…（节选）' if len(value)>limit else '')
     for example in samples:
         task=example['task'];row=example['raw_example']
+        if task in [5,6,8]:
+            sample_lines.append(f'| T{task:02d} | 数据集修订中 | 暂不展示已停用的旧样例 | 等待核验新样例 |')
+            continue
         answers=row.get('answers',[row['answer']])
         image=(f'<img src="{example["sample_images"][0]}" width="180" alt="T{task:02d} 原始输入图像">' if example['sample_images'] else '文本输入，完整上下文见样例页')
         sample_lines.append(f'| [T{task:02d}](data/TenTaskCL/samples.md#t{task:02d}) · {example["dataset"]} | {excerpt(row["question"],140)} | {excerpt(answers[0],140)} | {image} |')
