@@ -1,3 +1,5 @@
-# 历史实验归档
+# 历史实验与脚本
 
-2026-10-12 整理。旧实验与报告放在此目录；必要的旧目录路径保留符号链接供历史脚本访问。原文件内容和未提交修改保持不变。当前实验是 `ten_task_cl_20261012`。
+当前实验入口为 [comparison_queue.py](../ten_task_cl_20261012/comparison_queue.py)。
+
+旧 result、CV_result、CV_result_med、omnimed_med_cv、logs 和 legacy_scripts 保存在本目录。2026-10-14 已移除 exp 根层的旧兼容符号链接，归档目标内容保留。历史脚本保留原实现，重跑前应检查旧硬编码路径；不作为当前启动入口。

@@ -1,8 +1,9 @@
 # 实验目录
 
-当前唯一启动入口：[ten_task_cl_20261012/launch.py](ten_task_cl_20261012/launch.py)。固定十任务 2000/100/200，只用 seed 42。
+当前入口：[ten_task_cl_20261012/comparison_queue.py](ten_task_cl_20261012/comparison_queue.py)。Qwen2-VL-2B-Instruct；五领域十任务；每任务训练 100 条／测试 50 条，无验证集，seed 42，一轮，不保存 checkpoint。
 
-- 当前运行说明：[ten_task_cl_20261012](ten_task_cl_20261012/README.md)。
-- 历史实验、脚本、配置和测试：[ago](ago/README.md)。
-- 数据溯源与固定 MedQuAD 划分辅助脚本保留在根目录；其他旧入口已归档。
-- 本轮报告：`summary/ten_task_cl_20261012/`。
+- [当前实验说明](ten_task_cl_20261012/README.md)
+- [历史实验与旧脚本](ago/README.md)
+- 当前报告位于 `summary/ten_task_cl_20261012/`。
+
+旧实验已归入 ago；已移除旧目录的兼容符号链接。

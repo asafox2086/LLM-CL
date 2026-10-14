@@ -156,7 +156,7 @@ paper/
 
 <!-- finetuning-author-source-20261012 -->
 
-持续微调方法的作者源码、固定版本和可用性见 [源码索引](../code/README.md)。各方法独立存放在服务器 `code/<method>/source/`；未公开源码或只有 README 的项目如实标注。源样本量见 [实验准备报告](../rules/008_current_task_counts_and_methods.md)，当前预算与实验选择见 [010](../rules/010_equal_budget_execution.md)。
+持续微调方法的作者源码、固定版本和可用性见 [源码索引](../code/README.md)。各方法独立存放在服务器 `code/<method>/source/`；未公开源码或只有 README 的项目如实标注。源样本量见 [实验准备报告](../rules/008_current_task_counts_and_methods.md)，当前预算与实验选择见 [012](../rules/012_small_data_results_only.md)。
 
 ## 核验与下载
 

@@ -125,7 +125,7 @@
 
 实例：`vqav2_388829000`；完整输入与参考见 [实例文档](examples.md)。
 
-![自然图像问答（VQAv2）](../sample/natural_vqav2_COCO_val2014_000000388829.jpg)
+![自然图像问答（VQAv2）](../../../sample/natural_vqav2_COCO_val2014_000000388829.jpg)
 
 <!-- figure-caption:start -->
 **图 1｜自然图像问答的真实测试输入。**
@@ -150,7 +150,7 @@
 
 实例：`vqarad_0001`；完整输入与参考见 [实例文档](examples.md)。
 
-![医学图像问答（VQA-RAD）](../sample/medical_vqa_rad_synpic29265.jpg)
+![医学图像问答（VQA-RAD）](../../../sample/medical_vqa_rad_synpic29265.jpg)
 
 <!-- figure-caption:start -->
 **图 2｜医学图像问答的真实测试输入。**

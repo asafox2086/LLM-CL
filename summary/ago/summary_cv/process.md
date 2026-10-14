@@ -4,7 +4,7 @@
 
 ## 先看全过程
 
-![学习和保留过程](../sample/cv_trajectories.png)
+![学习和保留过程](../../../sample/cv_trajectories.png)
 
 <!-- figure-caption:start -->
 **图 1｜Qwen2-VL 九任务：整体学习与保留过程。**
@@ -31,7 +31,7 @@ MFT、MFN、MAA 对应 MLLM-CL 的计算结构；本实验以生成任务 ROUGE-
 
 ## 各任务相对基线的变化
 
-![相对基线变化](../sample/cv_delta_baseline.png)
+![相对基线变化](../../../sample/cv_delta_baseline.png)
 
 <!-- figure-caption:start -->
 **图 2｜Qwen2-VL 九任务：每个任务相对基座的变化。**
@@ -47,7 +47,7 @@ MFT、MFN、MAA 对应 MLLM-CL 的计算结构；本实验以生成任务 ROUGE-
 
 ## 四个领域如何变化
 
-![领域曲线](../sample/cv_domain_trajectories.png)
+![领域曲线](../../../sample/cv_domain_trajectories.png)
 
 <!-- figure-caption:start -->
 **图 3｜四个领域的表现如何随学习变化。**
@@ -63,7 +63,7 @@ MFT、MFN、MAA 对应 MLLM-CL 的计算结构；本实验以生成任务 ROUGE-
 
 ## 哪一次任务切换影响了旧能力
 
-![逐次任务切换变化](../sample/cv_delta_transition.png)
+![逐次任务切换变化](../../../sample/cv_delta_transition.png)
 
 <!-- figure-caption:start -->
 **图 4｜每次任务切换带来了什么变化。**
@@ -77,7 +77,7 @@ MFT、MFN、MAA 对应 MLLM-CL 的计算结构；本实验以生成任务 ROUGE-
 
 这里每个格子是本阶段减去上一阶段，可同时看新任务收益、旧任务下降与未来任务变化。它定位变化发生的阶段，不单凭一张图证明某个训练机制的因果效果。
 
-![逐任务曲线](../sample/cv_task_trajectories.png)
+![逐任务曲线](../../../sample/cv_task_trajectories.png)
 
 <!-- figure-caption:start -->
 **图 5｜同一任务从基座到最终的完整轨迹。**
@@ -212,7 +212,7 @@ $$
 
 ## 来源、实现与重算
 
-[论文指标对照](../paper/evaluation_and_process.md) 逐项说明可复原和缺少对照的项目。一个种子无法重建多种子标准差；没有 oracle、外部 OOD 测试和中间激活时，相关项目标 N/A，不能从最终数字反推。
+[论文指标对照](../../../paper/evaluation_and_process.md) 逐项说明可复原和缺少对照的项目。一个种子无法重建多种子标准差；没有 oracle、外部 OOD 测试和中间激活时，相关项目标 N/A，不能从最终数字反推。
 
 精确数据及指标在本目录的过程 JSON / CSV，绘图不做平滑或填补。300 DPI PNG 位于 `sample/`，矢量 PDF 位于 `summary_cv/figures/`。
 

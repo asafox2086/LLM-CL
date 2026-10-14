@@ -1,134 +1,112 @@
-# LLMCL：持续学习实验报告
+# LLMCL：小模型、小数据的多模态持续学习
 
-这组实验研究模型接着学习新任务时，是否能学会新内容，同时保留旧能力。四种方法为 SeqLoRA、MIGU-LoRA、O-LoRA 和 SAPT-LoRA；语言、医学语言及含图像实验均已完成。
+本仓库整理生成式大语言模型／多模态大模型的持续学习论文、作者源码和数据依据，并开展五领域十任务的轻量化持续微调实验。当前协议为 **Qwen2-VL-2B-Instruct、每任务训练 100 条／测试 50 条、无验证集、seed 42、每任务训练 1 轮、不保存 checkpoint**。
 
-新增的 [纯医学 QA 持续学习实验](summary_cv_med/README.md) 从原始 Qwen2-VL-2B 开始，依次学习 MedMCQA、MedQA，以及胸部、头部、腹部图像问答；独立保存在 `exp/CV_result_med`，阶段效果、真实示例及外部知识变化会自动更新。
+## 方法 × 方向二维表
 
-## 先看模型实际做什么
+已整理 **29 篇** 2024–2026 年正式会议论文：持续预训练 6 篇、持续微调 20 篇、持续对齐 3 篇。每行一个方法，横轴为研究方向，持续微调细分回放、正则化和架构；**●** 表示归档方向。点击方法名进入正式论文页，点击 PDF 查看仓库文件。年份按正式会议届次；逐篇核验记录见 [paper/verification_audit.md](paper/verification_audit.md)。
 
-以下是 Qwen2-VL 九任务测试样本的节选，回答来自 SeqLoRA 的最终模型；每任务取固定顺序第一条，示例未按得分挑选。
+<table>
+<thead>
+<tr><th rowspan="2">方法／论文</th><th rowspan="2">会议</th><th rowspan="2">持续预训练</th><th colspan="3">持续微调</th><th rowspan="2">持续对齐</th></tr>
+<tr><th>基于回放</th><th>基于正则化</th><th>基于架构</th></tr>
+</thead>
+<tbody>
+<tr><td><a href="https://aclanthology.org/2026.acl-long.427/" title="Data Mixing Agent: Learning to Re-weight Domains for Continual Pre-training"><strong>Data Mixing Agent</strong></a><br><a href="paper/pre_training/2026_ACL_Data_Mixing_Agent.pdf">PDF</a></td><td>ACL 2026</td><td>●</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><a href="https://aclanthology.org/2026.acl-long.1722/" title="Glyph: Scaling Context Windows via Visual-Text Compression"><strong>Glyph</strong></a><br><a href="paper/pre_training/2026_ACL_Glyph.pdf">PDF</a></td><td>ACL 2026</td><td>●</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><a href="https://aclanthology.org/2026.acl-long.1866/" title="From Curated Data to Scalable Models: Continual Pre-training of Dense and MoE Large Language Models for Tibetan"><strong>Tibetan Dense / MoE CPT</strong></a><br><a href="paper/pre_training/2026_ACL_Tibetan_Dense_MoE_CPT.pdf">PDF</a></td><td>ACL 2026</td><td>●</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><a href="https://proceedings.iclr.cc/paper_files/paper/2026/hash/528f0a943a54903939e77509f874d8e8-Abstract-Conference.html" title="Cite Pretrain: Retrieval-Free Knowledge Attribution for Large Language Models"><strong>Cite Pretrain / Active Indexing</strong></a><br><a href="paper/pre_training/2026_ICLR_Cite_Pretrain_Active_Indexing.pdf">PDF</a></td><td>ICLR 2026</td><td>●</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><a href="https://proceedings.mlr.press/v306/padmanabhan26a.html" title="Updating Parametric Knowledge with Context Distillation Retains Post-Training Capabilities"><strong>DiSC</strong></a><br><a href="paper/pre_training/2026_ICML_DiSC.pdf">PDF</a></td><td>ICML 2026</td><td>●</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><a href="https://proceedings.mlr.press/v306/borodin26a.html" title="Diffract: Spectral View of LLM Domain Adaptation"><strong>Diffract</strong></a><br><a href="paper/pre_training/2026_ICML_Diffract.pdf">PDF</a></td><td>ICML 2026</td><td>●</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><a href="https://openaccess.thecvf.com/content/CVPR2026/html/Gao_Re-evaluating_Continual_VQA_Toward_Fair_and_Robust_Evaluation_for_Multimodal_CVPR_2026_paper.html" title="Re-evaluating Continual VQA: Toward Fair and Robust Evaluation for Multimodal Continual Learning"><strong>MaDQ / UCo-VQA</strong></a><br><a href="paper/pre_finetuning/method_replay/2026_CVPR_MaDQ_UCo_VQA.pdf">PDF</a></td><td>CVPR 2026</td><td>—</td><td>●</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><a href="https://aclanthology.org/2026.acl-long.1144/" title="FOREVER: Forgetting Curve-Inspired Memory Replay for Language Model Continual Learning"><strong>FOREVER</strong></a><br><a href="paper/pre_finetuning/method_replay/2026_ACL_FOREVER.pdf">PDF</a></td><td>ACL 2026</td><td>—</td><td>●</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><a href="https://proceedings.iclr.cc/paper_files/paper/2026/hash/17fc58b1ba92abbb72c5f457e140d851-Abstract-Conference.html" title="Forget Forgetting: Continual Learning in a World of Abundant Memory"><strong>Weight Space Consolidation</strong></a><br><a href="paper/pre_finetuning/method_replay/2026_ICLR_Weight_Space_Consolidation.pdf">PDF</a></td><td>ICLR 2026</td><td>—</td><td>●</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><a href="https://proceedings.neurips.cc/paper_files/paper/2025/hash/087b346ca4d6dd6fcd0663ff6c9a6b69-Abstract-Conference.html" title="Self-Evolving Pseudo-Rehearsal for Catastrophic Forgetting with Task Similarity in LLMs"><strong>SERS</strong></a><br><a href="paper/pre_finetuning/method_replay/2025_NeurIPS_SERS.pdf">PDF</a></td><td>NeurIPS 2025</td><td>—</td><td>●</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><a href="https://openaccess.thecvf.com/content/CVPR2026/html/Li_Multimodal_Continual_Instruction_Tuning_with_Dynamic_Gradient_Guidance_CVPR_2026_paper.html" title="Multimodal Continual Instruction Tuning with Dynamic Gradient Guidance"><strong>DGG</strong></a><br><a href="paper/pre_finetuning/method_regularization/2026_CVPR_DGG.pdf">PDF</a></td><td>CVPR 2026</td><td>—</td><td>—</td><td>●</td><td>—</td><td>—</td></tr>
+<tr><td><a href="https://aclanthology.org/2026.acl-long.1244/" title="Harmonizing the Past, Present, and Future: A Null-Space Constrained Region-Specific Method for Continual Learning in LLMs"><strong>PaRSP</strong></a><br><a href="paper/pre_finetuning/method_regularization/2026_ACL_PaRSP.pdf">PDF</a></td><td>ACL 2026</td><td>—</td><td>—</td><td>●</td><td>—</td><td>—</td></tr>
+<tr><td><a href="https://aclanthology.org/2026.acl-long.334/" title="Spectral Disentanglement: Rank-Aware Task Adaptation for Rehearsal-free Continual Learning in LLMs"><strong>SpaRTA</strong></a><br><a href="paper/pre_finetuning/method_regularization/2026_ACL_SpaRTA.pdf">PDF</a></td><td>ACL 2026</td><td>—</td><td>—</td><td>●</td><td>—</td><td>—</td></tr>
+<tr><td><a href="https://proceedings.iclr.cc/paper_files/paper/2026/hash/22620cccae29bbb3f18d226ea0320ff5-Abstract-Conference.html" title="Sculpting Subspaces: Constrained Full Fine-Tuning in LLMs for Continual Learning"><strong>OSFT</strong></a><br><a href="paper/pre_finetuning/method_regularization/2026_ICLR_OSFT.pdf">PDF</a></td><td>ICLR 2026</td><td>—</td><td>—</td><td>●</td><td>—</td><td>—</td></tr>
+<tr><td><a href="https://proceedings.mlr.press/v306/xia26j.html" title="Adversarial Latent Embedding Repair for LLM Continual Learning"><strong>ALER</strong></a><br><a href="paper/pre_finetuning/method_regularization/2026_ICML_ALER.pdf">PDF</a></td><td>ICML 2026</td><td>—</td><td>—</td><td>●</td><td>—</td><td>—</td></tr>
+<tr><td><a href="https://proceedings.iclr.cc/paper_files/paper/2025/hash/74fc5575632191d96881d8015f79dde3-Abstract-Conference.html" title="Unlocking the Power of Function Vectors for Characterizing and Mitigating Catastrophic Forgetting in Continual Instruction Tuning"><strong>FV-guided Training</strong></a><br><a href="paper/pre_finetuning/method_regularization/2025_ICLR_FV_guided_Training.pdf">PDF</a></td><td>ICLR 2025</td><td>—</td><td>—</td><td>●</td><td>—</td><td>—</td></tr>
+<tr><td><a href="https://aclanthology.org/2026.acl-long.1474/" title="PASs-MoE: Mitigating Misaligned Co-drift among Router and Experts via Pathway Activation Subspaces for Continual Learning"><strong>PASs-MoE</strong></a><br><a href="paper/pre_finetuning/method_architecture/2026_ACL_PASs_MoE.pdf">PDF</a></td><td>ACL 2026</td><td>—</td><td>—</td><td>—</td><td>●</td><td>—</td></tr>
+<tr><td><a href="https://proceedings.iclr.cc/paper_files/paper/2026/hash/0dedca10992d34035c9a9776254cfa8c-Abstract-Conference.html" title="Merge before Forget: A Single LoRA Continual Learning via Continual Merging"><strong>SLAO / Merge before Forget</strong></a><br><a href="paper/pre_finetuning/method_architecture/2026_ICLR_SLAO_Merge_before_Forget.pdf">PDF</a></td><td>ICLR 2026</td><td>—</td><td>—</td><td>—</td><td>●</td><td>—</td></tr>
+<tr><td><a href="https://proceedings.mlr.press/v306/wang26le.html" title="CoPE: Continual Probe-guided Expansion for Large Vision-Language Models"><strong>CoPE</strong></a><br><a href="paper/pre_finetuning/method_architecture/2026_ICML_CoPE.pdf">PDF</a></td><td>ICML 2026</td><td>—</td><td>—</td><td>—</td><td>●</td><td>—</td></tr>
+<tr><td><a href="https://proceedings.mlr.press/v306/kong26h.html" title="ECA: Efficient Continual Alignment for Open-Ended Image-to-Text Generation"><strong>ECA</strong></a><br><a href="paper/pre_finetuning/method_architecture/2026_ICML_ECA.pdf">PDF</a></td><td>ICML 2026</td><td>—</td><td>—</td><td>—</td><td>●</td><td>—</td></tr>
+<tr><td><a href="https://proceedings.mlr.press/v306/xu26cj.html" title="Hyper-LLaVA: Hyperbolic Uncertainty-aware Modality-Balanced Routing for Multimodal Continual Instruction Tuning"><strong>Hyper-LLaVA</strong></a><br><a href="paper/pre_finetuning/method_architecture/2026_ICML_Hyper_LLaVA.pdf">PDF</a></td><td>ICML 2026</td><td>—</td><td>—</td><td>—</td><td>●</td><td>—</td></tr>
+<tr><td><a href="https://openaccess.thecvf.com/content/CVPR2025/html/Huai_CL-MoE_Enhancing_Multimodal_Large_Language_Model_with_Dual_Momentum_Mixture-of-Experts_CVPR_2025_paper.html" title="CL-MoE: Enhancing Multimodal Large Language Model with Dual Momentum Mixture-of-Experts for Continual Visual Question Answering"><strong>CL-MoE</strong></a><br><a href="paper/pre_finetuning/method_architecture/2025_CVPR_CL_MoE.pdf">PDF</a></td><td>CVPR 2025</td><td>—</td><td>—</td><td>—</td><td>●</td><td>—</td></tr>
+<tr><td><a href="https://openaccess.thecvf.com/content/ICCV2025/html/Tong_Any-SSR_How_Recursive_Least_Squares_Works_in_Continual_Learning_of_ICCV_2025_paper.html" title="Any-SSR: How Recursive Least Squares Works in Continual Learning of Large Language Model"><strong>Any-SSR</strong></a><br><a href="paper/pre_finetuning/method_architecture/2025_ICCV_Any_SSR.pdf">PDF</a></td><td>ICCV 2025</td><td>—</td><td>—</td><td>—</td><td>●</td><td>—</td></tr>
+<tr><td><a href="https://openaccess.thecvf.com/content/ICCV2025/html/Guo_Federated_Continual_Instruction_Tuning_ICCV_2025_paper.html" title="Federated Continual Instruction Tuning"><strong>FCIT</strong></a><br><a href="paper/pre_finetuning/method_architecture/2025_ICCV_FCIT.pdf">PDF</a></td><td>ICCV 2025</td><td>—</td><td>—</td><td>—</td><td>●</td><td>—</td></tr>
+<tr><td><a href="https://openaccess.thecvf.com/content/ICCV2025/html/Jin_Instruction-Grounded_Visual_Projectors_for_Continual_Learning_of_Generative_Vision-Language_Models_ICCV_2025_paper.html" title="Instruction-Grounded Visual Projectors for Continual Learning of Generative Vision-Language Models"><strong>MVP / Instruction-Grounded Visual Projectors</strong></a><br><a href="paper/pre_finetuning/method_architecture/2025_ICCV_MVP_Instruction_Grounded_Visual_Projectors.pdf">PDF</a></td><td>ICCV 2025</td><td>—</td><td>—</td><td>—</td><td>●</td><td>—</td></tr>
+<tr><td><a href="https://openaccess.thecvf.com/content/ICCV2025/html/Wang_SMoLoRA_Exploring_and_Defying_Dual_Catastrophic_Forgetting_in_Continual_Visual_ICCV_2025_paper.html" title="SMoLoRA: Exploring and Defying Dual Catastrophic Forgetting in Continual Visual Instruction Tuning"><strong>SMoLoRA</strong></a><br><a href="paper/pre_finetuning/method_architecture/2025_ICCV_SMoLoRA.pdf">PDF</a></td><td>ICCV 2025</td><td>—</td><td>—</td><td>—</td><td>●</td><td>—</td></tr>
+<tr><td><a href="https://openaccess.thecvf.com/content/CVPR2026/html/Wang_Harmonious_Parameter_Adaptation_in_Continual_Visual_Instruction_Tuning_for_Safety-Aligned_CVPR_2026_paper.html" title="Harmonious Parameter Adaptation in Continual Visual Instruction Tuning for Safety-Aligned MLLMs"><strong>HPA</strong></a><br><a href="paper/pre_alignment/2026_CVPR_HPA.pdf">PDF</a></td><td>CVPR 2026</td><td>—</td><td>—</td><td>—</td><td>—</td><td>●</td></tr>
+<tr><td><a href="https://ojs.aaai.org/index.php/AAAI/article/view/40428" title="LifeAlign: Lifelong Alignment for Large Language Models with Memory-Augmented Focalized Preference Optimization"><strong>LifeAlign</strong></a><br><a href="paper/pre_alignment/2026_AAAI_LifeAlign.pdf">PDF</a>（作者扩展版）</td><td>AAAI 2026</td><td>—</td><td>—</td><td>—</td><td>—</td><td>●</td></tr>
+<tr><td><a href="https://proceedings.iclr.cc/paper_files/paper/2024/hash/6246f93ebf4f2d76ad2bcb3158220d34-Abstract-Conference.html" title="CPPO: Continual Learning for Reinforcement Learning with Human Feedback"><strong>CPPO</strong></a><br><a href="paper/pre_alignment/2024_ICLR_CPPO.pdf">PDF</a></td><td>ICLR 2024</td><td>—</td><td>—</td><td>—</td><td>—</td><td>●</td></tr>
+</tbody>
+</table>
 
-| 任务 | 输入节选 | 参考答案节选 | SeqLoRA 最终回答节选 |
-|---|---|---|---|
-| 新闻摘要（XSum） | Cross, who has admitted to the murders, said he hoped to "die a martyr" after the verdict … | White supremacist Frazier Glenn Cross has been found guilty of murdering three people at t… | A white supremacist who shot dead three people at a Jewish community center in Kansas City… |
-| 阅读理解（Quoref） | Passage: It was probably William the Conqueror who gave the city and its castle to Bishop … | Rochester. | William the Conqueror |
-| 关系抽取 | radio can be used as the opposite of tv | radio Antonym tv | radio Antonym tv |
-| 对话续写（PersonaChat） | Personality: I try to limit how much I eat. I whine a lot. I've a golden retriever puppy. … | I like being at home with the puppy. I eat a lot and should really limit that. | I do not have a job. |
-| 因果推理（GLUCOSE） | story: All the towels in the house are wet. There are only four of us living here. There a… | The towels are wet &gt;Causes/Enables&gt; The towels dry out | All the towels are wet &gt;Causes/Enables&gt; Someone is extra dry |
-| 医患对话转临床记录（MTS-Dialog） | Doctor: I spoke with Poison Control regarding the possible ingestion of the liquid. They l… | I discussed the case with Poison Control and apparently this is actually relatively small … | No further action. |
-| 影像 Findings 转 Impression（IU-Xray） | The cardiomediastinal silhouette is normal in size and contour. Hyperexpanded lungs withou… | Negative for acute abnormality. | No acute cardiopulmonary abnormality. |
-| 自然图像问答（VQAv2） | Answer the question briefly using the image. Is it cold outside? | no | yes |
-| 医学图像问答（VQA-RAD） | Answer the question briefly using the image. Are the lungs normal appearing? | No | No |
+归类按主要机制，混合机制、原论文模型及生成任务见 [论文完整索引](paper/README.md)。预训练条目包含语言／知识／上下文扩展型 CPT，不全部具有序贯抗遗忘实验；HPA 归入持续安全对齐保持。**回放方法仍保留在论文表中，本轮不做回放实验；DGG 含历史样本回放，也不参与本轮。**
 
-完整输入、参考、图片，以及四方法在学习前、刚学完和最终的回答见 [含图像实验实例](summary_cv/examples.md)。T5 七任务的数据示例见 [语言实验报告](summary/README.md#先看七个任务的真实示例)。
+## 本轮实验
 
-## 大体效果
+| 任务 | 领域 | 模态 | 数据集 | 训练／测试 |
+|---|---|---|---|---:|
+| T1 | 自然／通用 | 文本 | SQuAD 1.1 | 100／50 |
+| T2 | 自然／通用 | 图像 | VQAv2、GQA、TextVQA | 100／50 |
+| T3 | 医学 | 文本 | MedQuAD | 100／50 |
+| T4 | 医学 | 图像 | VQA-RAD、PathVQA、SLAKE | 100／50 |
+| T5 | 法学 | 文本 | CUAD | 100／50 |
+| T6 | 法学 | 图像 | CUAD 原始合同 PDF 页 | 100／50 |
+| T7 | 金融 | 文本 | FinQA | 100／50 |
+| T8 | 金融 | 图像 | TAT-DQA | 100／50 |
+| T9 | 艺术文化 | 文本 | AQUA 知识问答子集 | 100／50 |
+| T10 | 艺术文化 | 图像 | AQUA 视觉问答子集 | 100／50 |
 
-### Qwen2-VL-2B：语言 → 医学语言 → 自然图像 → 医学图像
+均使用原始问题、答案和标注；图像任务使用真实图像／原始文档页，不将分类标签包装成开放问答。CUAD 图像视图和 AQUA 文本视图的适配口径、采样及检索细节见 [固定协议](rules/012_small_data_results_only.md) 与 [数据溯源](data/DATASET_PROVENANCE.md)。不同方法共享相同的训练／测试样本 ID。
 
-| 方法 | 最终均分 AP ↑ | 遗忘幅度 ↓ | BWT ↑ | FWT ↑ |
-|---|---:|---:|---:|---:|
-| SeqLoRA | 48.799 | 3.890 | -3.864 | -3.397 |
-| MIGU-LoRA | 43.964 | 4.871 | -4.586 | -2.559 |
-| O-LoRA | 47.239 | 0.736 | -0.498 | -2.050 |
-| SAPT-LoRA | 42.247 | 0.084 | -0.030 | -1.206 |
+每个方法从同一基座开始，先评测全部十任务，再按 **T1→T10** 连续训练；每训练完一个任务，评测全部十任务，各 50 条，形成 **11×10** 测试矩阵。验证集已取消，不进行验证推理或最佳 checkpoint 选择。阶段间模型和方法必需的历史参考留在内存中；进程中断需从基座重跑，旧预测保留但不与新运行混算。
 
-SeqLoRA 最终整体分数最高；SAPT-LoRA 遗忘最少，但整体分数较低。自然图像问答最终 EM 约 83.5%–86.0%，医学图像问答约 45.5%–49.5%。领域、逐任务结果和例子见 [summary_cv](summary_cv/README.md)。
+保存逐题预测与参考答案、训练日志、每任务及每源数据集的 EM 正确数／总数、Token F1、ROUGE-L。完整运行后分别计算 **AP、ForgetRate、FWT、BWT**，输出热图和性能曲线（PNG／PDF／绘图数据）。统一 EM 与词面分数不冒称各数据集的官方指标。
 
-### T5-Large：七个通用语言任务
+计划比较二维表中的 **SMoLoRA、PASs-MoE、Hyper-LLaVA、PaRSP、OSFT、SpaRTA、FV-guided Training、ALER** 八种非回放论文方法。不运行 SeqLoRA。必须保留作者核心机制，并公开 Qwen2-VL 与小数据适配差异；下载源码不等于完成适配或开始实验。
 
-| 方法 | 最终均分 AP ↑ | 遗忘幅度 ↓ | BWT ↑ | FWT ↑ |
-|---|---:|---:|---:|---:|
-| SeqLoRA | 25.634 | 5.352 | -4.943 | 2.340 |
-| MIGU-LoRA | 23.084 | 1.944 | 1.213 | -2.864 |
-| O-LoRA | 21.926 | 0.297 | 4.603 | -3.882 |
-| SAPT-LoRA | 12.030 | 0.810 | 0.969 | -0.652 |
+当前状态以 [对比进度](summary/ten_task_cl_20261012/comparison_report.md) 为准；方法依据和固定源码版本见 [code/README.md](code/README.md)。多卡按空闲状态分配独立方法。
 
-本轮 SeqLoRA 的最终均分最高，O-LoRA 的遗忘幅度最小。七任务成绩和阶段矩阵见 [T5 报告](summary/t5_large_comparison.md)；随后学习医学语言的效果见 [医学续训报告](summary/medical_continuation.md)。
+## 目录与入口
 
-两轮模型、任务数量和测试配额不同，以上表格分别解读。均为一个种子、一个任务顺序的先导实验，尚没有多次重复的均值和误差范围。
-
-## 过程中的能力变化
-
-阶段记录已复原为完整任务矩阵、领域与逐任务曲线、旧任务切换冲击和同一道题的回答演变，同时重算 MFT、MFN、MAA、AP、遗忘、BWT 与 GEM FWT，分别保留 ROUGE-L / EM / Token F1 口径。
-
-![Qwen2-VL 四方法全过程](sample/cv_trajectories.png)
-
-<!-- figure-caption:start -->
-**图 1｜Qwen2-VL 九任务：整体学习与保留过程。**
-
-> **坐标与阶段：** 横轴是已完成学习的任务数。阶段 0 是未训练基座；1–5 依次学习摘要、阅读理解、关系抽取、对话、因果推理；6–7 学习医学对话记录和影像报告；8–9 学习自然与医学图像问答。
->
-> **四个子图：** 左上在固定全部任务上算平均 ROUGE-L（0–100），看整体水平；右上只平均已学任务，看已学表现，但任务集合会增加。左下是本阶段更新前后，同一组旧任务的平均分差，负值说明旧任务受损；右下是尚未学习任务相对基座的平均分差，正值说明前序学习可能有帮助。下面两个子图的单位是分数点，0 线表示无变化；没有可比较任务时留空。
->
-> **方法与读法：** 蓝色实线圆点＝SeqLoRA；绿色虚线菱形＝MIGU-LoRA；红色点划线三角＝O-LoRA；紫色点线方块＝SAPT-LoRA。先看左上是否整体提高，再看左下在哪一步出现下降。右上和右下的任务构成随阶段变化，曲线起伏也可能来自构成变化，需结合逐任务曲线。ROUGE-L 衡量参考文字重合，不是事实正确率。
-<!-- figure-caption:end -->
-
-[学到了多少及保住多少](summary_cv/learning_gain.md) · [各报告阅读说明](summary_cv/README.md#每份报告能说明什么) · [Qwen 全过程与指标表](summary_cv/process.md) · [T5 全过程](summary/learning_process.md) · [回答演变](summary_cv/answer_evolution.md) · [各论文指标对应关系](paper/evaluation_and_process.md)。
-
-还用全部阶段 checkpoint 补测了固定 198 道外部 MMLU 题，形成通用与医学知识保留曲线，共 7,920 条预测。它们是小样本探针，不能代表模型全部知识。准确率及逐题变化见 [外部知识报告](summary_cv/knowledge_probe.md)。独立单任务训练、Oracle、多种子等缺失对照在报告中标为 N/A。
-
-医学语言与图像为什么学不好、是否扰动其他能力，见 [医学 LoRA 专项分析](analysis/medical_lora_20261008/README.md)：包含原图对照、模板基线、路由和梯度实测，以及换图/去图/分辨率干预。
-
-## 指标怎样理解
-
-| 指标 | 含义 | 怎样读 |
-|---|---|---|
-| ROUGE-L ↑ | 答案与参考文字的最长公共子序列 F1 | 看词面重合；不等同于事实或医学正确率 |
-| EM ↑ | 答案规范化后的完全匹配比例 | 0–100，可读作精确匹配百分比 |
-| Token F1 ↑ | 答案与参考的词覆盖精确率、召回率的调和平均 | 可反映部分答对，不要求词序一致 |
-| AP ↑ | 全部学完后的任务 ROUGE-L 等权平均 | 看最终整体表现 |
-| F.Rate ↓ | 旧任务历史最好分到最终分的平均下降 | 看遗忘幅度，单位为分数点，允许负值 |
-| BWT ↑ | 旧任务最终分相对刚学完时分数的平均变化 | 正值为改善，负值为下降 |
-| FWT ↑ | 尚未训练任务相对初始基座的平均分数变化 | 看前序学习是否帮助未来任务 |
-
-任务分数与 AP 采用 0–100。AP 基于 ROUGE-L；差值指标的单位是分数点，可以为负。多参考答案时每项取最大匹配分，再对固定测试样本平均。VQAv2 的 EM 是归一化多参考精确匹配，不能当作官方 VQA 共识准确率。
-
-完整定义和手算例子见 [指标说明](summary/README.md#指标定义)。摘要、对话和医学记录可能有多个合理表达，文字重合分数需要结合真实回答理解。
-
-## 数据与报告范围
-
-| 实验 | 学习内容 | 每任务 Train / Dev / Test | 报告 |
-|---|---|---|---|
-| T5-Large 七任务 | 摘要、阅读理解、关系、对话、因果、科学问答 | 1000 / 200 / 500 | [语言报告](summary/README.md) |
-| T5-Large 医学续训 | 医患对话转记录、Findings 转 Impression | 新任务 1000 / 100 / 200，旧任务保留 500 测试 | [医学续训](summary/medical_continuation.md) |
-| Qwen2-VL 九任务 | 5 通用语言 + 2 医学语言 + 2 图像问答 | 1000 / 100 / 200 | [含图像报告](summary_cv/README.md) |
-
-数据使用固定划分；视觉任务按图像或病例分组避免划分交叉，属于本地先导子集。模型权重统一在 `model/`，论文统一在 `paper/`。
-
-## 实现流程与复现
-
-训练前先测全部任务的基线，之后依次学习，每学完一个任务复测全部任务。Dev 用于选择 checkpoint，Test 用于报告；各方法独立保存状态。完整实现、原论文适配、参数和恢复说明见 [exp/README.md](exp/README.md#实现流程与复现)。
-
-| 路径 | 用途 |
-|---|---|
-| `summary/` | 语言和医学语言报告、指标与示例 |
-| `summary_cv/` | 含图像实验报告、领域/任务/类别分数及示例 |
-| `data/`、`CV_data/` | 文本与图像原始数据、固定划分 |
-| `model/`、`paper/` | 统一模型权重与论文 |
-| `code/` | 四方法实现 |
-| `exp/`、`rules/` | 训练/评价入口、协议、参数和锁定数据清单 |
-| `exp/result/`、`exp/CV_result/` | 独立运行、逐题回答、日志、checkpoint 与实现快照 |
-| `sample/` | GitHub 报告展示的少量真实图片与过程图 |
-| `source_code/` | 原论文代码及许可证，供方法核对 |
-
-在仓库根目录刷新汇总：
-
-```bash
-.conda-env/bin/python summary/collect.py
-.conda-env/bin/python summary/collect_medical.py
-.vision-env/bin/python summary_cv/collect.py
-.vision-env/bin/python summary_cv/process.py
-.vision-env/bin/python summary_cv/reconstruct_metrics.py
-.vision-env/bin/python summary_cv/learning_gain.py
-.vision-env/bin/python summary_cv/collect_knowledge_probe.py
-.plot-env/bin/python summary_cv/plot_process.py
+```text
+LLMCL/
+├── README.md                         # 当前实验与论文二维表
+├── paper/                            # 论文、PDF、发表核验
+│   ├── pre_training/
+│   ├── pre_finetuning/
+│   │   ├── method_replay/
+│   │   ├── method_regularization/
+│   │   └── method_architecture/
+│   └── pre_alignment/
+├── code/                             # 各方法作者源码与适配依据
+├── data/                             # 数据资产、来源依据与固定样本清单
+├── model/                            # 固定模型资产
+├── exp/
+│   ├── ten_task_cl_20261012/          # 当前入口、运行日志和逐题结果
+│   └── ago/                         # 历史实验与旧脚本
+├── summary/
+│   ├── ten_task_cl_20261012/          # 当前汇总、指标和图
+│   └── ago/                         # 历史报告（含旧 CV 与医学实验）
+└── rules/                            # 实验协议与调整记录
 ```
 
-创建新的 Qwen2-VL 实验运行：
+[当前运行说明](exp/ten_task_cl_20261012/README.md) · [执行策略](exp/ten_task_cl_20261012/execution_policy.json) · [固定样本 ID 与校验值](data/TenTaskCL/current_small_manifest.json) · [历史报告](summary/ago/README.md) · [历史实验](exp/ago/README.md)
+
+服务器仓库：`/data2/liyapeng_grp/program/LLMCL`。确认没有现有队列后启动：
 
 ```bash
-.vision-env/bin/python exp/start_cv_detached.py
+.vision-env/bin/python exp/ten_task_cl_20261012/comparison_queue.py
 ```
 
-实验启动采用 nohup 和独立进程会话；每次训练更新保存恢复状态，关闭终端可继续运行。旧实验来源、模型与代码指纹保留在运行目录；恢复要求参数、实现与数据一致。详细协议：[T5](rules/002_t5_large_trial.md)、[医学续训](rules/003_medical_continuation.md)、[Qwen2-VL](rules/004_qwen2vl_cv.md)。
+论文表依据已核验的清单生成；只更新根 README、无需重新下载：
+
+```bash
+python3 paper/update_repository_readme.py
+```
+
+根目录不再保留旧医学报告的兼容符号链接。旧实验保存在 `exp/ago/`，旧报告保存在 `summary/ago/`；历史实验的模型、配额和结论与本轮分别解读。`CV_data/`、`source_code/`、`sample/` 为保留的历史数据、源码与展示资产，尚未并入当前实验目录。
