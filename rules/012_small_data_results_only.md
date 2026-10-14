@@ -1,4 +1,4 @@
-> 当前任务修订：T5/T6 法学允许整体替换，优先核验地理／遥感；T8 重选真正金融图表问答。艺术保留。下文旧 CUAD/TAT-DQA 仅作历史配置，training_enabled=false，核验新数据及使用依据后再恢复训练。
+> 数据修订核验完成：T5 地理文本 GeoQuestions1089、T6 遥感 GeoChat、T8 金融原图 MME-Finance。当前训练尚未启动，待作者方法适配／GPU 预检。详见 data/DATASET_VERIFICATION_20261014.md。
 
 # 小模型、小数据、轻量化：本轮固定协议
 
@@ -7,16 +7,16 @@
 | 项目 | 本轮设置 |
 |---|---|
 | 基座 | Qwen2-VL-2B-Instruct，同一固定版本 |
-| 任务顺序 | 自然文本→自然图像→医学文本→医学图像→法律文本→法律图像→金融文本→金融图像→艺术文化文本→艺术文化图像 |
+| 任务顺序 | 自然文本→自然图像→医学文本→医学图像→地理文本→遥感图像→金融文本→金融图像→艺术文化文本→艺术文化图像 |
 | 每任务训练／验证／测试 | **100／0／50**，所有方法等量；一轮；seed 42 |
 | 主比较（8 种） | SMoLoRA、PASs-MoE、Hyper-LLaVA、PaRSP、OSFT、SpaRTA、FV-guided Training、ALER |
 | 额外对照 | 初始未训练模型仅用于初始性能与 FWT；不运行 SeqLoRA |
 | 历史 QA 回放 | 不使用；DGG 原作者流程含回放，本轮排除，论文二维表保留 |
 | checkpoint | **不保存权重、优化器、last 或恢复快照**；方法必需的历史参考在运行内存中保留 |
 
-数据来源保持原协议：SQuAD；VQAv2/GQA/TextVQA；MedQuAD；VQA-RAD/PathVQA/SLAKE；CUAD 文本及原始 PDF 图像；FinQA；TAT-DQA；AQUA 知识文本及视觉问答。科学论文域没有重新加入。原问题、答案、图片、标注和源划分不改；从已验证的源清单按 seed 42 的 SHA256 排名、源数据集比例配额抽取子集。不复制样本补齐。
+数据来源保持原协议：SQuAD；VQAv2/GQA/TextVQA；MedQuAD；VQA-RAD/PathVQA/SLAKE；GeoQuestions1089 计数／人口文本；GeoChat 遥感开放 QA；FinQA；MME-Finance 原图表 QA；AQUA 知识文本及视觉问答。科学论文域没有重新加入。原问题、答案、图片和标注不改。七个既有任务保留原清单；新三任务按核验报告的论文问题类型／作者类别及研究 holdout 划分，各 100／50。不复制样本补齐。
 
-当前清单为 `data/TenTaskCL/equal_budget_100_0_50_seed42/manifest.json`；执行策略为 `exp/ten_task_cl_20261012/execution_policy.json`。旧 2000/100/200 和 500/50/50 训练结果不与本轮混算。
+当前清单为 `data/TenTaskCL/equal_budget_100_0_50_geo_fin_seed42_20261014/manifest.json`；执行策略为 `exp/ten_task_cl_20261012/execution_policy.json`。旧 2000/100/200 和 500/50/50 训练结果不与本轮混算。
 
 训练前和每阶段完成后，评测 **全部十个任务，各 50 条**，共 11×10 矩阵、5500 条测试预测／方法；取消验证集，不做验证推理或模型选择。每条保留 ID、所属数据集、预测、原参考答案、EM、Token F1、ROUGE-L、生成 token 数和耗时；每个任务和混合任务内每个源数据集分别统计分数、正确数、样本数。
 
@@ -32,4 +32,4 @@
 
 按实测旧运行参考：SMoLoRA 约 30–40 小时，主要耗时为十轮全任务生成评测。只是单卡估算，训练后回答长度及图像输入会改变耗时，排队等待另计。其他方法在实测首阶段后更新估算。
 
-四卡队列按空闲状态分配不同方法；其他三卡在占用期间不抢停。SMoLoRA 已运行，PASs-MoE 等待 GPU；SeqLoRA 已移除，其余六种适配未完成，不能计作已运行。当前状态以 comparison_status.json 为准。
+四卡队列按空闲状态分配不同方法；其他三卡在占用期间不抢停。新任务尚未开始训练；SMoLoRA、PASs-MoE 的新任务 GPU 预检待做，其余六种适配未完成。SeqLoRA 已移除，不能将准备状态计作已运行。当前状态以 comparison_status.json 为准。

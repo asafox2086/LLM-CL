@@ -9,7 +9,7 @@ def main():
     examples=[]
     lines=['# 本轮十任务真实数据示例','',
       '每个任务展示固定训练清单中的第一条样本（index 0），按同一规则选取，不按答案内容或模型分数挑选。问题、上下文、答案和图像来自当前实际训练输入；示例不是模型预测。完整原始字段另存 [samples.json](samples.json)。原始数据文件保持不变。','']
-    domains={'natural':'自然／通用','medical':'医学','medicine':'医学','law':'法学','legal':'法学','finance':'金融','art':'艺术文化','culture':'艺术文化','art_culture':'艺术文化'}
+    domains={'natural':'自然／通用','medical':'医学','medicine':'医学','geography':'地理／遥感','law':'法学','legal':'法学','finance':'金融','art':'艺术文化','culture':'艺术文化','art_culture':'艺术文化'}
     for task in manifest['tasks']:
         info=task['files']['train'];path=ROOT/info['path']
         before=hashlib.sha256(path.read_bytes()).hexdigest();assert before==info['sha256']
@@ -34,6 +34,6 @@ def main():
         lines+=['']
         assert hashlib.sha256(path.read_bytes()).hexdigest()==before
     (ROOT/'data/TenTaskCL/samples.json').write_text(json.dumps({'selection_rule':'first example in each frozen training view, index 0','question_answer_annotations_unchanged':True,'examples':examples},ensure_ascii=False,indent=2)+'\n')
-    (ROOT/'data/TenTaskCL/samples.md').write_text('\n'.join(lines))
+    (ROOT/'data/TenTaskCL/samples.md').write_text('\n'.join(line.rstrip() for line in lines)+'\n')
     return examples
 if __name__=='__main__':main()

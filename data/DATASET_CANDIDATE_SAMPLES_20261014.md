@@ -14,7 +14,7 @@
 There is only one airport present in the image.
 ```
 
-![GeoChat 原始图像](../../sample/dataset_candidates_20261014/geochat.png)
+![GeoChat 原始图像](../summary/ago/dataset_candidates_20261014/geochat.png)
 
 ## FinChart 金融图表
 
@@ -27,7 +27,7 @@ What is the percentage increase in Net Bookings from Q3 '14 to Q4 '14?
 145
 ```
 
-![FinChart 原始图像](../../sample/dataset_candidates_20261014/finchart.jpg)
+![FinChart 原始图像](../summary/ago/dataset_candidates_20261014/finchart.jpg)
 
 原始 reasoning 字段只保存在标注中，不作为模型输入。
 

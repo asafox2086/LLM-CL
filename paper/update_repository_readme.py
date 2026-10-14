@@ -31,20 +31,20 @@ def render():
     text+=['</tbody>','</table>','',
       '归类按主要机制，混合机制、原论文模型及生成任务见 [论文完整索引](paper/README.md)。预训练条目包含语言／知识／上下文扩展型 CPT，不全部具有序贯抗遗忘实验；HPA 归入持续安全对齐保持。**回放方法仍保留在论文表中，本轮不做回放实验；DGG 含历史样本回放，也不参与本轮。**','',
       '## 本轮实验','',
-      '新候选资源已下载：GeoQuestions1089 官方 1089 条问题／答案、GeoChat 150 张遥感图像及原始问答、FinChart-Bench 150 张图表及原始 QA。正式任务子集与论文使用口径仍在核验，详见 [下载进度](data/DOWNLOAD_PROGRESS_20261014.md) 和 [真实候选样例](data/DATASET_CANDIDATE_SAMPLES_20261014.md)。','',
-      '**任务修订中，训练暂不启动。** 用户要求图像任务体现真正视觉理解：T5/T6 法学整体允许替换，优先核验地理／遥感；T8 金融合同／报表页问答需重新筛选图表任务。艺术文化保留，其他领域及 100／50、seed 42、无验证集预算不变。下表相关旧数据已明确标记，尚未确定替代数据时不冒充最终方案。','',
+      '新任务数据核验通过：T5 GeoQuestions1089 计数／人口文本问答、T6 GeoChat 遥感开放问答、T8 MME-Finance 原始图表开放问答。各任务训练 100／测试 50，详见 [逐项核验及划分依据](data/DATASET_VERIFICATION_20261014.md)。FinChart-Bench 未通过多篇已发表复用要求，保留候选记录，不进入本轮任务。','',
+      '**数据核验完成，方法适配／GPU 预检待完成。** 五个领域为自然／通用、医学、地理／遥感、金融、艺术文化。法律域已按用户授权替换。金融图像仅使用 K 线、技术指标和统计图表，排除文字文档页；无验证集，每任务 100／50，seed 42。','',
       '| 任务 | 领域 | 模态 | 数据集 | 训练／测试 |','|---|---|---|---|---:|',
       '| T1 | 自然／通用 | 文本 | SQuAD 1.1 | 100／50 |',
       '| T2 | 自然／通用 | 图像 | VQAv2、GQA、TextVQA | 100／50 |',
       '| T3 | 医学 | 文本 | MedQuAD | 100／50 |',
       '| T4 | 医学 | 图像 | VQA-RAD、PathVQA、SLAKE | 100／50 |',
-      '| T5 | 待定，优先地理 | 文本 | 待核验替代数据；旧 CUAD 停用 | 100／50 |',
-      '| T6 | 待定，优先遥感 | 图像 | 待核验；旧 CUAD 合同页停用 | 100／50 |',
+      '| T5 | 地理／遥感 | 文本 | GeoQuestions1089：计数／人口问答 | 100／50 |',
+      '| T6 | 地理／遥感 | 图像 | GeoChat_Instruct：开放 QA | 100／50 |',
       '| T7 | 金融 | 文本 | FinQA | 100／50 |',
-      '| T8 | 金融 | 图像 | 重新筛选真正图表问答；旧 TAT-DQA 停用 | 100／50 |',
+      '| T8 | 金融 | 图像 | MME-Finance：PC 原始图表 QA | 100／50 |',
       '| T9 | 艺术文化 | 文本 | AQUA 知识问答子集 | 100／50 |',
       '| T10 | 艺术文化 | 图像 | AQUA 视觉问答子集 | 100／50 |','',
-      '均使用原始问题、答案和标注；图像任务使用真实图像／原始文档页，不将分类标签包装成开放问答。CUAD 图像视图和 AQUA 文本视图的适配口径、采样及检索细节见 [固定协议](rules/012_small_data_results_only.md) 与 [数据溯源](data/DATASET_PROVENANCE.md)。不同方法共享相同的训练／测试样本 ID。','',
+      '原始问题、答案和图像保持不变；新任务采用论文支持的问答类型和作者图像类别。新数据没有官方训练／测试划分，因此本研究按 seed 42 构造固定小数据划分，明确披露，绝不称为作者官方划分。T6 按图像隔离，T8 按底层图表隔离；不同方法共享相同的样本 ID。见 [核验报告](data/DATASET_VERIFICATION_20261014.md) 与 [固定协议](rules/012_small_data_results_only.md)。','',
       '每个方法从同一基座开始，先评测全部十任务，再按 **T1→T10** 连续训练；每训练完一个任务，评测全部十任务，各 50 条，形成 **11×10** 测试矩阵。验证集已取消，不进行验证推理或最佳 checkpoint 选择。阶段间模型和方法必需的历史参考留在内存中；进程中断需从基座重跑，旧预测保留但不与新运行混算。','',
       '保存逐题预测与参考答案、训练日志、每任务及每源数据集的 EM 正确数／总数、Token F1、ROUGE-L。完整运行后分别计算 **AP、ForgetRate、FWT、BWT**，输出热图和性能曲线（PNG／PDF／绘图数据）。统一 EM 与词面分数不冒称各数据集的官方指标。','',
       '计划比较二维表中的 **SMoLoRA、PASs-MoE、Hyper-LLaVA、PaRSP、OSFT、SpaRTA、FV-guided Training、ALER** 八种非回放论文方法。不运行 SeqLoRA。必须保留作者核心机制，并公开 Qwen2-VL 与小数据适配差异；下载源码不等于完成适配或开始实验。','',
@@ -67,7 +67,7 @@ def render():
         return html.escape(value[:limit])+('…（节选）' if len(value)>limit else '')
     for example in samples:
         task=example['task'];row=example['raw_example']
-        if task in [5,6,8]:
+        if False: # All ten current tasks now verified; no pending placeholders.
             sample_lines.append(f'| T{task:02d} | 数据集修订中 | 暂不展示已停用的旧样例 | 等待核验新样例 |')
             continue
         answers=row.get('answers',[row['answer']])

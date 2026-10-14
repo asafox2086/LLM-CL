@@ -1,7 +1,7 @@
 # Research context and current experiment
 
 - The research setting is **small models, small datasets, lightweight continual learning**. This was explicitly confirmed by the user on 2026-10-14.
-- Main backbone: Qwen2-VL-2B-Instruct. Five independent domains in this order: natural/general, medicine, law, finance, art/culture. Each domain has text then image QA, for ten tasks.
+- Main backbone: Qwen2-VL-2B-Instruct. Five independent domains in this order: natural/general, medicine, geography/remote sensing, finance, art/culture. Each domain has text then image QA, for ten tasks.
 - Current fixed budget is **100 training / no validation / 50 test QA per task**, one epoch, **seed 42 only**. Every method uses the same frozen sample IDs. Do not revert to 500 or 2000 training examples.
 - Preserve original questions, answers, image assets and annotation semantics. Use the fixed source splits and source-stratified subsets. Do not add classification or fake-image tasks.
 - **Do not save model, optimizer or recovery checkpoints for the current experiment.** Retain training logs, per-example predictions and references, stage/task/dataset score tables, full evaluation matrices and final figures.
@@ -14,3 +14,5 @@
 Later explicit user instructions override this context.
 
 - Latest domain revision (2026-10-14): user rejected CUAD PDF-page visual QA and TAT-DQA document visual QA. Law domain may be replaced, prioritizing geography/remote sensing; art remains. Verify both text and genuine image tasks and multiple published uses. Training is disabled until these replacements are verified. Keep old GeoChat raw data available while evaluating candidates; do not bulk-transfer it yet.
+
+- Dataset revision verified on 2026-10-14: T5 GeoQuestions1089 count/population numeric QA; T6 original GeoChat open QA; T8 MME-Finance PC candlestick/indicator/statistic open QA. All 100/0/50. These are explicit research holdouts, not author official splits. FinChart-Bench not selected due insufficient published reuse. Data audit: data/DATASET_VERIFICATION_20261014.md. Training remains disabled for remaining method adapters and new-task GPU preflight, not dataset verification. Old initial cache is incompatible with revised tasks; do not reuse it.

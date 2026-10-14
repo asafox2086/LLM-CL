@@ -1072,5 +1072,41 @@
       "dataset": "SQuAD11_General / SQuAD11_Geography",
       "reason": "Our former manual derived subsets are not standalone author-proposed benchmarks and are not the current formal protocol."
     }
-  ]
+  ],
+  "current_revision_20261014": {
+    "verification_report": "data/DATASET_VERIFICATION_20261014.md",
+    "current_manifest": "data/TenTaskCL/equal_budget_100_0_50_geo_fin_seed42_20261014/manifest.json",
+    "T5": {
+      "dataset": "GeoQuestions1089",
+      "origin": "ISWC 2023",
+      "actual_published_reuse": [
+        "GeoQA2 2024",
+        "GeoBenchmark LREC 2026 Appendix B"
+      ],
+      "adaptation": "count/population free numeric QA; research seed42 holdout"
+    },
+    "T6": {
+      "dataset": "GeoChat_Instruct",
+      "origin": "CVPR 2024",
+      "actual_published_reuse": [
+        "TEOChat ICLR 2025 training"
+      ],
+      "adaptation": "original open QA image-disjoint seed42 research holdout"
+    },
+    "T8": {
+      "dataset": "MME_Finance",
+      "origin": "ACM MM 2025",
+      "actual_published_reuse": [
+        {
+          "paper": "OCR-Reasoning ICLR 2026",
+          "reuse_type": "source images used with new annotations in that paper; not full original QA evaluation"
+        }
+      ],
+      "additional_preprint_reuse": [
+        "BICR 2026 original benchmark eval"
+      ],
+      "adaptation": "original PC chart QA; chart-group-disjoint research holdout"
+    },
+    "excluded_candidate": "FinChart-Bench: independent formal reuse not verified"
+  }
 }

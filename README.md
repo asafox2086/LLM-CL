@@ -33,9 +33,9 @@
 
 ## 本轮实验
 
-新候选资源已下载：GeoQuestions1089 官方 1089 条问题／答案、GeoChat 150 张遥感图像及原始问答、FinChart-Bench 150 张图表及原始 QA。正式任务子集与论文使用口径仍在核验，详见 [下载进度](data/DOWNLOAD_PROGRESS_20261014.md) 和 [真实候选样例](data/DATASET_CANDIDATE_SAMPLES_20261014.md)。
+新任务数据核验通过：T5 GeoQuestions1089 计数／人口文本问答、T6 GeoChat 遥感开放问答、T8 MME-Finance 原始图表开放问答。各任务训练 100／测试 50，详见 [逐项核验及划分依据](data/DATASET_VERIFICATION_20261014.md)。FinChart-Bench 未通过多篇已发表复用要求，保留候选记录，不进入本轮任务。
 
-**任务修订中，训练暂不启动。** 用户要求图像任务体现真正视觉理解：T5/T6 法学整体允许替换，优先核验地理／遥感；T8 金融合同／报表页问答需重新筛选图表任务。艺术文化保留，其他领域及 100／50、seed 42、无验证集预算不变。下表相关旧数据已明确标记，尚未确定替代数据时不冒充最终方案。
+**数据核验完成，方法适配／GPU 预检待完成。** 五个领域为自然／通用、医学、地理／遥感、金融、艺术文化。法律域已按用户授权替换。金融图像仅使用 K 线、技术指标和统计图表，排除文字文档页；无验证集，每任务 100／50，seed 42。
 
 | 任务 | 领域 | 模态 | 数据集 | 训练／测试 |
 |---|---|---|---|---:|
@@ -43,14 +43,14 @@
 | T2 | 自然／通用 | 图像 | VQAv2、GQA、TextVQA | 100／50 |
 | T3 | 医学 | 文本 | MedQuAD | 100／50 |
 | T4 | 医学 | 图像 | VQA-RAD、PathVQA、SLAKE | 100／50 |
-| T5 | 待定，优先地理 | 文本 | 待核验替代数据；旧 CUAD 停用 | 100／50 |
-| T6 | 待定，优先遥感 | 图像 | 待核验；旧 CUAD 合同页停用 | 100／50 |
+| T5 | 地理／遥感 | 文本 | GeoQuestions1089：计数／人口问答 | 100／50 |
+| T6 | 地理／遥感 | 图像 | GeoChat_Instruct：开放 QA | 100／50 |
 | T7 | 金融 | 文本 | FinQA | 100／50 |
-| T8 | 金融 | 图像 | 重新筛选真正图表问答；旧 TAT-DQA 停用 | 100／50 |
+| T8 | 金融 | 图像 | MME-Finance：PC 原始图表 QA | 100／50 |
 | T9 | 艺术文化 | 文本 | AQUA 知识问答子集 | 100／50 |
 | T10 | 艺术文化 | 图像 | AQUA 视觉问答子集 | 100／50 |
 
-均使用原始问题、答案和标注；图像任务使用真实图像／原始文档页，不将分类标签包装成开放问答。CUAD 图像视图和 AQUA 文本视图的适配口径、采样及检索细节见 [固定协议](rules/012_small_data_results_only.md) 与 [数据溯源](data/DATASET_PROVENANCE.md)。不同方法共享相同的训练／测试样本 ID。
+原始问题、答案和图像保持不变；新任务采用论文支持的问答类型和作者图像类别。新数据没有官方训练／测试划分，因此本研究按 seed 42 构造固定小数据划分，明确披露，绝不称为作者官方划分。T6 按图像隔离，T8 按底层图表隔离；不同方法共享相同的样本 ID。见 [核验报告](data/DATASET_VERIFICATION_20261014.md) 与 [固定协议](rules/012_small_data_results_only.md)。
 
 每个方法从同一基座开始，先评测全部十任务，再按 **T1→T10** 连续训练；每训练完一个任务，评测全部十任务，各 50 条，形成 **11×10** 测试矩阵。验证集已取消，不进行验证推理或最佳 checkpoint 选择。阶段间模型和方法必需的历史参考留在内存中；进程中断需从基座重跑，旧预测保留但不与新运行混算。
 
@@ -70,10 +70,10 @@
 | [T02](data/TenTaskCL/samples.md#t02) · GQA | What animal is on the table? | kitten | <img src="sample/ten_task_cl_20261012/T02_image_1.jpg" width="180" alt="T02 原始输入图像"> |
 | [T03](data/TenTaskCL/samples.md#t03) · MedQuAD | What are the symptoms of Hairy nose tip ? | What are the signs and symptoms of Hairy nose tip? The Human Phenotype Ontology provides the following list of signs and symptoms for Hairy …（节选） | 文本输入，完整上下文见样例页 |
 | [T04](data/TenTaskCL/samples.md#t04) · PathVQA | what appears to have changed into a blast crisis? | total effacement case | <img src="sample/ten_task_cl_20261012/T04_image_1.jpg" width="180" alt="T04 原始输入图像"> |
-| T05 | 数据集修订中 | 暂不展示已停用的旧样例 | 等待核验新样例 |
-| T06 | 数据集修订中 | 暂不展示已停用的旧样例 | 等待核验新样例 |
+| [T05](data/TenTaskCL/samples.md#t05) · GeoQuestions1089 | What is the population of the Greek region of Epirus? | 350679 | 文本输入，完整上下文见样例页 |
+| [T06](data/TenTaskCL/samples.md#t06) · GeoChat_Instruct | How many airports are present in the image? | There is only one airport present in the image. | <img src="sample/ten_task_cl_20261012/T06_image_1.png" width="180" alt="T06 原始输入图像"> |
 | [T07](data/TenTaskCL/samples.md#t07) · FinQA | what was the percentage change in pro forma revenue from 2001 to 2002? | 44% | 文本输入，完整上下文见样例页 |
-| T08 | 数据集修订中 | 暂不展示已停用的旧样例 | 等待核验新样例 |
+| [T08](data/TenTaskCL/samples.md#t08) · MME_Finance | What does this image show? | The image displays a financial chart focusing on the key indicators of a company over a period from the first quarter of 2018 (2018 Q1) to t…（节选） | <img src="sample/ten_task_cl_20261012/T08_image_1.jpg" width="180" alt="T08 原始输入图像"> |
 | [T09](data/TenTaskCL/samples.md#t09) · AQUA | what are part of a polyptych executed for the church of the convent of san francesco at borgo san sepolcro | these panels | 文本输入，完整上下文见样例页 |
 | [T10](data/TenTaskCL/samples.md#t10) · AQUA | what is the location of the picture | street | <img src="sample/ten_task_cl_20261012/T10_image_1.jpg" width="180" alt="T10 原始输入图像"> |
 

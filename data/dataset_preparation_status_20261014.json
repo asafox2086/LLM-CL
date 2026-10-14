@@ -1,9 +1,20 @@
 {
   "server": "100.87.141.22:8666",
   "datasets": {
+    "GeoQuestions1089": {
+      "status": "official_raw_files_downloaded_verified_candidate",
+      "original_questions": 1089,
+      "original_answer_records": 1089,
+      "revision": "b23ded0dd321c45b421be21f907d05929dbc20d8",
+      "candidate_only": false,
+      "task_selection_pending": true,
+      "original_qa_modified": false,
+      "verification_status": "accepted_for_revised_tasks",
+      "formal_task": 5
+    },
     "GeoChat_Instruct": {
       "status": "selected_assets_downloaded_verified_candidate",
-      "candidate_only": true,
+      "candidate_only": false,
       "seed": 42,
       "counts": {
         "train": 100,
@@ -22,7 +33,20 @@
       "transferred_direct_server_to_server": true,
       "proxy_used": false,
       "cross_split_image_hash_overlap": 0,
-      "all_selected_raw_answers_preserved": true
+      "all_selected_raw_answers_preserved": true,
+      "verification_status": "accepted_for_revised_tasks",
+      "formal_task": 6
+    },
+    "MME_Finance": {
+      "status": "official_english_raw_downloaded",
+      "source_revision": "715793a723bbd05a3b9de291f9032d1576833fbf",
+      "proxy_used": false,
+      "candidate_only": false,
+      "started_unix": 1791979945.3588753,
+      "last_completed_file": "MMfin.zip",
+      "completed_unix": 1791979959.9361424,
+      "verification_status": "accepted_for_revised_tasks",
+      "formal_task": 8
     },
     "FinChart_Bench": {
       "status": "selected_assets_downloaded_verified_candidate",
@@ -44,18 +68,13 @@
       "distinct_selected_charts": 150,
       "completed_unix": 1791979104.60032,
       "cross_split_image_hash_overlap": 0,
-      "all_selected_raw_answers_preserved": true
-    },
-    "GeoQuestions1089": {
-      "status": "official_raw_files_downloaded_verified_candidate",
-      "original_questions": 1089,
-      "original_answer_records": 1089,
-      "revision": "b23ded0dd321c45b421be21f907d05929dbc20d8",
-      "candidate_only": true,
-      "task_selection_pending": true,
-      "original_qa_modified": false
+      "all_selected_raw_answers_preserved": true,
+      "verification_status": "not_selected_insufficient_published_reuse",
+      "formal_task": null
     }
   },
   "training_enabled": false,
-  "formal_ten_task_manifest_replaced": false
+  "formal_ten_task_manifest_replaced": true,
+  "datasets_verified": true,
+  "current_manifest": "data/TenTaskCL/equal_budget_100_0_50_geo_fin_seed42_20261014/manifest.json"
 }
