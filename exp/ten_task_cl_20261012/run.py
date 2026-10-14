@@ -8,6 +8,7 @@ import os
 import random
 import re
 import time
+import shutil
 from collections import Counter
 from pathlib import Path
 import numpy as np
@@ -153,7 +154,8 @@ def evaluate(method,processor,tasks,data,run,stage,split='test',only_task=None):
                             pad_token_id=processor.tokenizer.pad_token_id,eos_token_id=processor.tokenizer.eos_token_id)
                     response=generated[0,batch['input_ids'].shape[1]:]
                     prediction=processor.tokenizer.decode(response,skip_special_tokens=True)
-                    record={'id':row['id'],'prediction':prediction,'references':row['answers'],
+                    record={'id':row['id'],'dataset':row.get('dataset',row['id'].split(':',1)[0]),
+                            'prediction':prediction,'references':row['answers'],
                             'scores':score(prediction,row['answers']),'generation_seconds':time.monotonic()-started,
                             'output_tokens':len(response),'generation_cap':limit[task_id],**details}
                     existing.append(record)
@@ -221,11 +223,13 @@ def main():
     parser.add_argument('--seed',type=int,default=42)
     parser.add_argument('--run-dir',type=Path,required=True)
     parser.add_argument('--preflight-only',action='store_true')
+    parser.add_argument('--save-checkpoints',action='store_true',help='Opt in; results-only is the default')
     args=parser.parse_args()
     run=args.run_dir.resolve()
     run.mkdir(parents=True,exist_ok=True)
     (run/'logs').mkdir(exist_ok=True)
-    manifest_path=ROOT/'data/TenTaskCL/final_task_manifest.json'
+    policy=json.loads((Path(__file__).parent/'execution_policy.json').read_text())
+    manifest_path=ROOT/policy['manifest']
     manifest_sha=hashlib.sha256(manifest_path.read_bytes()).hexdigest()
     manifest=json.loads(manifest_path.read_text())
     if not manifest.get('formal_ready') or len(manifest['tasks'])!=10:
@@ -251,6 +255,7 @@ def main():
     method=Method(model,args.method,[task['instruction'] for task in manifest['tasks']])
     if hasattr(method,'state_root'):
         method.state_root=run/'method_state'
+        method.save_checkpoints=args.save_checkpoints
     method.model.gradient_checkpointing_enable(gradient_checkpointing_kwargs={'use_reentrant':False})
     method.model.enable_input_require_grads()
     if args.preflight_only:
@@ -299,10 +304,12 @@ def main():
     method.vision_original=install(model)
     config={'method':args.method,'seed':args.seed,'base_model':str(model_path),'manifest_sha256':manifest_sha,
             'batch_size':16,'micro_batch_size':1,'epochs':1,'learning_rate':1e-4,'target_token_cap':512,
+            'counts_per_task':manifest['counts_per_task'],
             'primary_score':'ROUGE-L F1, 0..100; generated-answer comparison, not original benchmark leaderboard metric',
             'smolora_upstream_revision':method.original_revision,'training_started':True,
             'saved_autograd_tensors_on_cpu':args.method in ['SMoLoRA','PASs_MoE'],
             'optimizer_moments_on_cpu':args.method=='PASs_MoE',
+            'save_checkpoints':args.save_checkpoints,
             'execution_source_sha256':{name:hashlib.sha256((Path(__file__).parent/name).read_bytes()).hexdigest()
                 for name in ['run.py','methods.py','frozen_vision.py','stage_checkpoint.py']+
                     (['pass_adapter.py','host_adam.py'] if args.method=='PASs_MoE' else [])}}
@@ -310,6 +317,24 @@ def main():
     write(run/'environment.json',{'torch':torch.__version__,'gpu':torch.cuda.get_device_name(0),
           'cuda_visible_devices':os.environ.get('CUDA_VISIBLE_DEVICES'),'precision':'fp16 base, fp32 adapters'})
     matrix=[]
+    if manifest.get('initial_evaluation_cache') and args.method in ['SeqLoRA','SMoLoRA','PASs_MoE']:
+        # Only the untrained base can be reused, never a trained-stage result.
+        zero=[value for key,value in model.state_dict().items() if '.B.weight' in key or '.lora_B.' in key]
+        if not zero or any(torch.count_nonzero(value).item() for value in zero):
+            raise ValueError('Initial frozen-base cache requires exactly zero LoRA B weights')
+        cache=ROOT/manifest['initial_evaluation_cache']
+        proof=json.loads((cache.parent/'initial_cache_proof.json').read_text())
+        if proof['model_asset_manifest_sha256']!=hashlib.sha256((model_path/'asset_manifest.json').read_bytes()).hexdigest():
+            raise ValueError('Initial evaluation base model changed')
+        destination=run/'evaluations/stage_00'
+        destination.mkdir(parents=True,exist_ok=True)
+        for item in proof['tasks']:
+            name=f'T{item["task"]:02d}_test_predictions.jsonl'
+            if hashlib.sha256((cache/name).read_bytes()).hexdigest()!=item['cache_sha256']:
+                raise ValueError('Frozen initial evaluation cache changed')
+            if not (destination/name).exists():
+                shutil.copy2(cache/name,destination/name)
+        write(run/'initial_evaluation_reuse.json',proof)
     initial=evaluate(method,processor,manifest['tasks'],data,run,0)
     matrix.append(initial)
     write(run/'score_matrix.json',matrix)
@@ -317,7 +342,7 @@ def main():
     collect()
     for stage in range(1,11):
         checkpoint=run/'checkpoints'/f'stage_{stage:02d}'
-        if checkpoint.exists():
+        if checkpoint.exists() and args.save_checkpoints:
             metadata,_=load_stage(checkpoint,method.restore)
             if metadata['manifest_sha256']!=manifest_sha:
                 raise ValueError('stage manifest changed')
@@ -327,14 +352,13 @@ def main():
         method.begin_stage(stage)
         parameters=[parameter for parameter in model.parameters() if parameter.requires_grad]
         optimizer=make_optimizer(method)
-        updates=math.ceil(2000/16)
+        updates=math.ceil(len(data[(stage,'train')])/16)
         scheduler=get_cosine_schedule_with_warmup(optimizer,math.ceil(.03*updates),updates)
         scaler=torch.amp.GradScaler('cuda',init_scale=1024)
         rows=data[(stage,'train')]
         order=list(range(len(rows)))
         random.Random(args.seed+stage).shuffle(order)
         last=run/'checkpoints'/f'stage_{stage:02d}_last.pt'
-        last.parent.mkdir(exist_ok=True)
         offset,step=0,0
         if last.exists():
             state=torch.load(last,map_location='cpu',weights_only=False)
@@ -348,6 +372,11 @@ def main():
             if hasattr(method,'restore_method_state'):
                 method.restore_method_state(state['method_state'])
             offset,step=state['next_offset'],state['global_step']
+            if not args.save_checkpoints:
+                # One-time migration of the active run, then no new snapshots.
+                del state
+                last.unlink()
+                print('RESUMED_EXISTING_CHECKPOINT_THEN_REMOVED',stage,step,flush=True)
         model.train()
         method.set_instruction(stage)
         with (run/'logs'/'events.jsonl').open('a') as events:
@@ -394,7 +423,8 @@ def main():
                 events.write(json.dumps(record)+'\n')
                 events.flush()
                 print(json.dumps(record),flush=True)
-                if step%25==0 or start+len(indexes)==len(order):
+                if args.save_checkpoints and (step%25==0 or start+len(indexes)==len(order)):
+                    last.parent.mkdir(exist_ok=True)
                     save_last(last,method,optimizer,scheduler,scaler,stage,start+len(indexes),step,manifest_sha)
         if hasattr(method,'end_stage'):
             method.end_stage(stage)
@@ -402,15 +432,18 @@ def main():
         test=evaluate(method,processor,manifest['tasks'],data,run,stage)
         evaluation={'task_scores':test,'current_task_dev_rougeL':dev[0],'primary_score':'rougeL'}
         metadata={'method':args.method,'seed':args.seed,'manifest_sha256':manifest_sha,
-                  'base_model':str(model_path),'current_task_training_qa':2000,'global_step':step,
+                  'base_model':str(model_path),'current_task_training_qa':len(rows),'global_step':step,
                   'trainable_parameters':sum(parameter.numel() for parameter in parameters)}
-        save_stage(run,stage,method.export,{'optimizer':optimizer.state_dict(),'scheduler':scheduler.state_dict(),
-              'scaler':scaler.state_dict(),'method_state':method.method_state(stage),'global_step':step},metadata,evaluation)
+        if args.save_checkpoints:
+            save_stage(run,stage,method.export,{'optimizer':optimizer.state_dict(),'scheduler':scheduler.state_dict(),
+                  'scaler':scaler.state_dict(),'method_state':method.method_state(stage),'global_step':step},metadata,evaluation)
+        write(run/'stages'/f'stage_{stage:02d}.json',{'metadata':metadata,'evaluation':evaluation,
+              'complete':True,'weights_saved':args.save_checkpoints})
         matrix.append(test)
         write(run/'score_matrix.json',matrix)
         write(run/'run_status.json',{'status':'stage_complete','completed_stage':stage,'method':args.method,'seed':args.seed})
         collect()
-        print('STAGE_COMPLETE',stage,str(checkpoint),flush=True)
+        print('STAGE_RESULTS_COMPLETE',stage,str(run/'stages'/f'stage_{stage:02d}.json'),flush=True)
         # Complete stage snapshot already contains recovery state; redundant last can be removed.
         last.unlink(missing_ok=True)
         del optimizer,scheduler,scaler

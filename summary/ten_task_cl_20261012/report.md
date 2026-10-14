@@ -1,24 +1,19 @@
-# 本轮运行进度
+# 八种非回放论文方法的对比进度
 
-更新时间：2026-10-13T23:44:37.093642+08:00
+2026-10-14T12:19:10.270495+08:00
 
-当前阶段：**running_or_waiting_gpu**。
+小模型、小数据、轻量化；五领域十任务；每任务 100/50/50；seed 42；不保存 checkpoint。Frozen/SeqLoRA 不计入八种论文方法。
 
-seed 42；每任务 train/dev/test = 2000/100/200；十任务一轮。
-
-| 方法 | 状态 | GPU | 已完成训练阶段 |
-|---|---|---|---|
-| SeqLoRA | completed | 0 | 10 |
+| 方法 | 状态 | 完成阶段 | GPU |
+|---|---|---:|---|
 | SMoLoRA | running | 0 | 0 |
-| DGG | adapter_pending | — | 0 |
-| PaRSP | adapter_pending | — | 0 |
-| PASs_MoE | adapter_pending | — | 0 |
-| Hyper_LLaVA | adapter_pending | — | 0 |
+| PASs_MoE | waiting_gpu | 0 | — |
+| Hyper_LLaVA | adapter_pending | 0 | — |
+| PaRSP | adapter_pending | 0 | — |
+| OSFT | adapter_pending | 0 | — |
+| SpaRTA | adapter_pending | 0 | — |
+| FV_guided_Training | adapter_pending | 0 | — |
+| ALER | adapter_pending | 0 | — |
 
-待适配方法：DGG、PaRSP、PASs-MoE、Hyper-LLaVA；不以简化实现冒充作者方法。
-
-总日志：`exp/ten_task_cl_20261012/runs/SMoLoRA/seed_42/20261012_200725/logs/retry_supervisor.log`。
-运行日志与阶段检查点：`exp/ten_task_cl_20261012/runs/<method>/seed_42/<run_id>/`。
-
-正式训练已开始：True。
-仅在 GPU 空闲时分配不同方法，不停止其他用户进程。
+adapter_pending 表示适配未完成，不能算成已排队或已启动。
+DGG 作者流程含历史样本回放，本轮不参加；论文二维表和源码保留。

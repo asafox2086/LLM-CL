@@ -107,6 +107,17 @@ class PASMethod(Method):
         if self.state_root is None:
             raise ValueError('PASs-MoE state output directory is not configured')
         self.state_root.mkdir(parents=True,exist_ok=True)
+        if not getattr(self,'save_checkpoints',False):
+            # Keep mandatory references and importance in RAM between stages;
+            # the authored persistence callback does not affect their update.
+            save=self.learner._save_cl_state
+            self.learner._save_cl_state=lambda task:None
+            self.learner._cl_state_root=str(self.state_root)
+            try:
+                self.learner.after_train(stage,self.model)
+            finally:
+                self.learner._save_cl_state=save
+            return
         # The atomic stage snapshot stores these full states. The author's
         # redundant latest/task copies are temporary to avoid tripling disk use.
         with __import__('tempfile').TemporaryDirectory(dir=self.state_root,prefix='author_state_') as temp:

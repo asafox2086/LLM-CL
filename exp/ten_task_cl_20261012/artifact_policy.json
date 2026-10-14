@@ -1,37 +1,30 @@
 {
   "experiment_id": "ten_task_cl_20261012",
-  "runs_root": "exp/ten_task_cl_20261012/runs",
-  "reports_root": "summary/ten_task_cl_20261012",
-  "run_path_template": "<method>/seed_<seed>/<run_id>",
-  "stage_ids": [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
+  "research_context": "Small models, small datasets, lightweight continual learning",
+  "counts_per_task": {
+    "train": 100,
+    "dev": 50,
+    "test": 50
+  },
+  "seed": 42,
+  "retain_all_stage_checkpoints": false,
+  "save_all_changed_model_parameters": false,
+  "save_optimizer_scheduler_scaler_method_rng_state": false,
+  "within_stage_last_checkpoint_required": false,
+  "save_all_task_evaluation_per_stage": true,
+  "save_per_example_predictions": true,
+  "save_per_task_and_source_dataset_metrics": true,
+  "atomic_stage_result_publish": true,
+  "save_final_png_pdf_and_plot_data": true,
+  "scores": [
+    "exact_match",
+    "token_f1",
+    "rougeL"
+  ],
+  "full_matrices_shape": [
+    11,
     10
   ],
-  "retain_all_stage_checkpoints": true,
-  "save_all_changed_model_parameters": true,
-  "save_optimizer_scheduler_scaler_method_rng_state": true,
-  "save_all_task_evaluation_per_stage": true,
-  "atomic_stage_directory_publish": true,
-  "require_complete_marker_to_resume": true,
-  "within_stage_last_checkpoint_required": true,
-  "training_integration_verified": false,
-  "training_started": false,
-  "execution_seeds": [
-    42
-  ],
-  "save_last_every_optimizer_updates": 25,
-  "implemented_adapters": [
-    "SeqLoRA",
-    "SMoLoRA"
-  ],
-  "tiny_model_resume_verified": true,
-  "full_2b_gpu_preflight_required": true
+  "reports_root": "summary/ten_task_cl_20261012",
+  "training_integration_verified": true
 }

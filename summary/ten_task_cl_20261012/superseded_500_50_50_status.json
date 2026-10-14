@@ -1,0 +1,66 @@
+{
+  "experiment_id": "ten_task_cl_20261012",
+  "experiment_budget_id": "500_50_50_seed42",
+  "updated_at": "2026-10-14T11:55:09.572509+08:00",
+  "phase": "running_or_waiting_gpu",
+  "launcher_pid": 3442594,
+  "launcher_log": "exp/ten_task_cl_20261012/pipeline_logs/comparison_queue.log",
+  "seed": 42,
+  "task_counts": {
+    "train": 500,
+    "dev": 50,
+    "test": 50
+  },
+  "save_checkpoints": false,
+  "training_started": true,
+  "jobs": {
+    "SMoLoRA": {
+      "status": "running",
+      "completed_stage": 0,
+      "seed": 42,
+      "gpu": 0,
+      "pid": 3443624,
+      "run_dir": "exp/ten_task_cl_20261012/runs/SMoLoRA/seed_42/small_500_50_50_20261014_115138",
+      "physical_run_dir": "/data2/liyapeng_grp/program/LLMCL/exp/ten_task_cl_20261012/runs/SMoLoRA/seed_42/small_500_50_50_20261014_115138"
+    },
+    "PASs_MoE": {
+      "status": "waiting_gpu",
+      "completed_stage": 0,
+      "seed": 42
+    },
+    "Hyper_LLaVA": {
+      "status": "adapter_pending",
+      "seed": 42,
+      "completed_stage": 0
+    },
+    "PaRSP": {
+      "status": "adapter_pending",
+      "seed": 42,
+      "completed_stage": 0
+    },
+    "OSFT": {
+      "status": "adapter_pending",
+      "completed_stage": 0
+    },
+    "SpaRTA": {
+      "status": "adapter_pending",
+      "completed_stage": 0
+    },
+    "FV_guided_Training": {
+      "status": "adapter_pending",
+      "completed_stage": 0
+    },
+    "ALER": {
+      "status": "adapter_pending",
+      "completed_stage": 0
+    },
+    "SeqLoRA": {
+      "status": "waiting_gpu",
+      "completed_stage": 0,
+      "seed": 42
+    },
+    "Frozen": {
+      "status": "derived_from_stage_00"
+    }
+  }
+}

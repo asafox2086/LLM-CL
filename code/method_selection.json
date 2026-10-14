@@ -25,7 +25,7 @@
     "replay"
   ],
   "retain_author_replay_in_other_methods": false,
-  "budget_protocol": "data/TenTaskCL/small_budget_protocol.json",
+  "budget_protocol": "rules/012_small_data_results_only.md",
   "training_started": true,
   "require_before_formal_training": [
     "Preserve author core mechanism, log upstream commit and adaptation diff",
@@ -51,7 +51,7 @@
     "FV_guided_Training",
     "ALER"
   ],
-  "execution_protocol": "rules/010_equal_budget_execution.md",
+  "execution_protocol": "rules/012_small_data_results_only.md",
   "main_comparison_methods": [
     "SMoLoRA",
     "PASs_MoE",
@@ -67,5 +67,13 @@
   "excluded_methods": {
     "DGG": "Author default continual training includes historical QA replay; excluded under latest user request."
   },
-  "execution_status_source": "summary/ten_task_cl_20261012/comparison_status.json"
+  "execution_status_source": "summary/ten_task_cl_20261012/comparison_status.json",
+  "per_task_counts": {
+    "train": 100,
+    "dev": 50,
+    "test": 50
+  },
+  "save_checkpoints": false,
+  "execution_policy": "exp/ten_task_cl_20261012/execution_policy.json",
+  "research_context": "Small models, small datasets, lightweight continual learning"
 }
