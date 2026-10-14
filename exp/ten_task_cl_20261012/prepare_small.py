@@ -6,8 +6,8 @@ from collections import Counter
 from pathlib import Path
 from methods import ROOT
 
-COUNTS={'train':100,'dev':50,'test':50}
-OUT=ROOT/'data/TenTaskCL/equal_budget_100_50_50_seed42'
+COUNTS={'train':100,'test':50}
+OUT=ROOT/'data/TenTaskCL/equal_budget_100_0_50_seed42'
 
 
 def main():
@@ -67,7 +67,7 @@ def main():
                     'source_sha256':hashlib.sha256(cached_path.read_bytes()).hexdigest(),
                     'cache_sha256':hashlib.sha256(cached_target.read_bytes()).hexdigest()})
         tasks.append(updated)
-    assert not any(all_ids[a]&all_ids[b] for a,b in [('train','dev'),('train','test'),('dev','test')])
+    assert not any(all_ids[a]&all_ids[b] for a,b in [('train','test')])
     manifest=dict(original,tasks=tasks,counts_per_task=COUNTS,seed=42,
         protocol='Nested deterministic source-stratified subset; official/source splits and original QA/images unchanged',
         parent_manifest_sha256=hashlib.sha256(source.read_bytes()).hexdigest(),
@@ -78,10 +78,10 @@ def main():
         'model_asset_manifest_sha256':hashlib.sha256((ROOT/'model/Qwen2-VL-2B-Instruct/asset_manifest.json').read_bytes()).hexdigest(),
         'trained_stage_results_are_not_reused':True,'verified_nested_source_rows_and_answer_references':True,'tasks':proof},indent=2)+'\n')
     policy={'manifest':str(target.relative_to(ROOT)),'counts_per_task':COUNTS,'seed':42,
-        'save_checkpoints':False,'experiment_budget_id':'100_50_50_seed42','reuse_initial_base_predictions_only':True,
+        'save_checkpoints':False,'validation_enabled':False,'experiment_budget_id':'100_0_50_seed42','reuse_initial_base_predictions_only':True,
         'research_context':'Small models, small datasets, lightweight continual learning'}
     (ROOT/'exp/ten_task_cl_20261012/execution_policy.json').write_text(json.dumps(policy,indent=2)+'\n')
-    print('READY: all 10 tasks 100/50/50; 500 verified untrained-base test predictions reusable; original QA unchanged')
+    print('READY: all 10 tasks 100 train / no validation / 50 test; 500 verified untrained-base test predictions reusable; original QA unchanged')
 
 
 if __name__=='__main__':

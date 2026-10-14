@@ -272,7 +272,7 @@ def main():
         for task_id in [1,2,3,5,6,8]:
             method.set_instruction(task_id)
             optimizer.zero_grad(set_to_none=True)
-            row=max(data[(task_id,'dev')],key=lambda value:len(value.get('context','')[:6000])
+            row=max(data[(task_id,'train')],key=lambda value:len(value.get('context','')[:6000])
                     +len(value['answer'][:4000])+len(value.get('images',[]))*1000)
             batch,_=input_batch(row,manifest['tasks'][task_id-1],processor,device)
             if hasattr(method,'recording'):
@@ -428,9 +428,8 @@ def main():
                     save_last(last,method,optimizer,scheduler,scaler,stage,start+len(indexes),step,manifest_sha)
         if hasattr(method,'end_stage'):
             method.end_stage(stage)
-        dev=evaluate(method,processor,manifest['tasks'],data,run,stage,'dev',stage)
         test=evaluate(method,processor,manifest['tasks'],data,run,stage)
-        evaluation={'task_scores':test,'current_task_dev_rougeL':dev[0],'primary_score':'rougeL'}
+        evaluation={'task_scores':test,'validation_enabled':False,'primary_score':'rougeL'}
         metadata={'method':args.method,'seed':args.seed,'manifest_sha256':manifest_sha,
                   'base_model':str(model_path),'current_task_training_qa':len(rows),'global_step':step,
                   'trainable_parameters':sum(parameter.numel() for parameter in parameters)}

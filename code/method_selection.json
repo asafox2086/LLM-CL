@@ -3,8 +3,7 @@
   "paper_scope": "paper/pre_finetuning, 20 papers",
   "base_model": "Qwen2-VL-2B-Instruct",
   "baseline_controls": [
-    "Frozen",
-    "SeqLoRA"
+    "Frozen"
   ],
   "first_adaptation_batch": [
     "SMoLoRA",
@@ -30,7 +29,7 @@
   "require_before_formal_training": [
     "Preserve author core mechanism, log upstream commit and adaptation diff",
     "Support real text-only and image tasks without dummy-image replacement",
-    "Train/dev smoke test and memory preflight",
+    "Training smoke test and memory preflight",
     "Fixed data manifest and 11x10 evaluation matrix",
     "Report trainable parameters, replay/auxiliary tokens and compute differences"
   ],
@@ -39,7 +38,6 @@
     42
   ],
   "first_launch_batch": [
-    "SeqLoRA",
     "SMoLoRA",
     "PASs_MoE"
   ],
@@ -65,15 +63,17 @@
   "main_paper_method_count": 8,
   "historical_qa_replay": false,
   "excluded_methods": {
-    "DGG": "Author default continual training includes historical QA replay; excluded under latest user request."
+    "DGG": "Author default continual training includes historical QA replay; excluded under latest user request.",
+    "SeqLoRA": "User requested only selected published paper methods; removed from execution queue."
   },
   "execution_status_source": "summary/ten_task_cl_20261012/comparison_status.json",
   "per_task_counts": {
     "train": 100,
-    "dev": 50,
+    "dev": 0,
     "test": 50
   },
   "save_checkpoints": false,
   "execution_policy": "exp/ten_task_cl_20261012/execution_policy.json",
-  "research_context": "Small models, small datasets, lightweight continual learning"
+  "research_context": "Small models, small datasets, lightweight continual learning",
+  "validation_enabled": false
 }
