@@ -11,6 +11,7 @@ def render():
     ft=sum(counts[c] for c in CATS[1:4])
     text=['# LLMCL：小模型、小数据的多模态持续学习','',
       '本仓库整理生成式大语言模型／多模态大模型的持续学习论文、作者源码和数据依据，并开展五领域十任务的轻量化持续微调实验。当前协议为 **Qwen2-VL-2B-Instruct、每任务训练 100 条／测试 50 条、无验证集、seed 42、每任务训练 1 轮、不保存 checkpoint**。','',
+      '## 当前服务器与迁移状态','','主仓库已迁移至 `/data1/liyapeng/program/LLMCL`，通过 Tailscale `liyapeng@100.87.141.22:8666` 工作。资源内容与环境检查已通过；约 177 GiB 的旧重复仓库已清理。未整包迁移的 GeoChat 原始数据及维持旧端连接的 Tailscale 环境暂时保留。详见 [迁移与清理报告](summary/ten_task_cl_20261012/migration_report.md)。','',
       '## 方法 × 方向二维表','',
       f'已整理 **{len(records)} 篇** 2024–2026 年正式会议论文：持续预训练 {counts["pretraining"]} 篇、持续微调 {ft} 篇、持续对齐 {counts["alignment"]} 篇。各方向列直接列出方法名，持续微调细分回放、正则化和架构；列内优先较新论文，同年优先 CVPR／ICCV。横向同一行的方法之间没有对应关系。点击方法名进入正式论文页，点击 PDF 查看仓库文件。年份按正式会议届次；逐篇核验记录见 [paper/verification_audit.md](paper/verification_audit.md)。','',
       '<table>','<thead>',
