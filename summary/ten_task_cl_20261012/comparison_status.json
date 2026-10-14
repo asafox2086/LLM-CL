@@ -1,34 +1,19 @@
 {
-  "updated_at": "2026-10-14T12:19:10.270495+08:00",
-  "seed": 42,
-  "task_counts": {
-    "train": 100,
-    "dev": 50,
-    "test": 50
-  },
   "paper_methods": {
     "SMoLoRA": {
-      "status": "running",
-      "completed_stage": 0,
-      "seed": 42,
-      "gpu": 0,
-      "pid": 3445427,
-      "run_dir": "exp/ten_task_cl_20261012/runs/SMoLoRA/seed_42/small_100_50_50_20261014_115518",
-      "physical_run_dir": "/data2/liyapeng_grp/program/LLMCL/exp/ten_task_cl_20261012/runs/SMoLoRA/seed_42/small_100_50_50_20261014_115518"
+      "status": "adapter_prepared",
+      "completed_stage": 0
     },
     "PASs_MoE": {
-      "status": "waiting_gpu",
-      "completed_stage": 0,
-      "seed": 42
+      "status": "adapter_prepared",
+      "completed_stage": 0
     },
     "Hyper_LLaVA": {
       "status": "adapter_pending",
-      "seed": 42,
       "completed_stage": 0
     },
     "PaRSP": {
       "status": "adapter_pending",
-      "seed": 42,
       "completed_stage": 0
     },
     "OSFT": {
@@ -48,16 +33,11 @@
       "completed_stage": 0
     }
   },
-  "controls": {
-    "SeqLoRA": {
-      "status": "waiting_gpu",
-      "completed_stage": 0,
-      "seed": 42
-    },
-    "Frozen": {
-      "status": "derived_from_stage_00"
-    }
-  },
-  "historical_qa_replay": false,
-  "supervisor_pid": 3448890
+  "training_started": false,
+  "phase": "awaiting_dataset_revision",
+  "task_counts": {
+    "train": 100,
+    "dev": 0,
+    "test": 50
+  }
 }

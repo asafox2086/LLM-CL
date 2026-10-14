@@ -1,19 +1,9 @@
-# 八种非回放论文方法的对比进度
+# 新服务器实验准备状态
 
-2026-10-14T12:19:10.270495+08:00
+资源已迁移并完成内容校验；当前没有实验训练进程。
 
-小模型、小数据、轻量化；五领域十任务；每任务 100/50/50；seed 42；不保存 checkpoint。Frozen/SeqLoRA 不计入八种论文方法。
+T5/T6 法学允许替换，优先核验地理／遥感；T8 重新筛选真正金融图表问答。艺术保留。预算 100 条训练／50 条测试，seed 42，无验证集，不保存 checkpoint。
 
-| 方法 | 状态 | 完成阶段 | GPU |
-|---|---|---:|---|
-| SMoLoRA | running | 0 | 0 |
-| PASs_MoE | waiting_gpu | 0 | — |
-| Hyper_LLaVA | adapter_pending | 0 | — |
-| PaRSP | adapter_pending | 0 | — |
-| OSFT | adapter_pending | 0 | — |
-| SpaRTA | adapter_pending | 0 | — |
-| FV_guided_Training | adapter_pending | 0 | — |
-| ALER | adapter_pending | 0 | — |
+SMoLoRA、PASs-MoE 作者适配已准备，仍需在最终新任务上进行 GPU 预检；其余六个方法仍待适配。
 
-adapter_pending 表示适配未完成，不能算成已排队或已启动。
-DGG 作者流程含历史样本回放，本轮不参加；论文二维表和源码保留。
+迁移前报告保存在 summary/ago/old_server_before_migration_20261014，原逐题输出与日志仍在 exp/ten_task_cl_20261012/runs 对应旧运行目录。不得把这些旧任务结果标为修订后的新实验结果。

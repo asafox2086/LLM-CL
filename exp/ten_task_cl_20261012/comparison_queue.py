@@ -130,7 +130,7 @@ def worker(adopt=False):
                 jobs[name]['status']='completed' if result.get('status')=='completed' else 'failed'
                 if jobs[name]['status']=='completed':
                     with (run/'logs/figures.log').open('a') as graph_log:
-                        graph=subprocess.run(['/tmp/llmcl-assets-env/bin/python',str(HERE/'plot_results.py'),
+                        graph=subprocess.run([str(ROOT/'.plot-env/bin/python'),str(HERE/'plot_results.py'),
                             '--run-dir',str(run)],cwd=ROOT,env=env(),stdout=graph_log,stderr=subprocess.STDOUT)
                     jobs[name]['figures_status']='completed' if graph.returncode==0 else 'failed'
                 active.pop(name)

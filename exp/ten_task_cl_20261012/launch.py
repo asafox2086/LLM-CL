@@ -15,7 +15,7 @@ from zoneinfo import ZoneInfo
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
 REPORT=ROOT/'summary/ten_task_cl_20261012'
-ASSET_PYTHON='/tmp/llmcl-assets-env/bin/python'
+ASSET_PYTHON=str(ROOT/'.assets-env/bin/python')
 TRAIN_PYTHON=str(ROOT/'.vision-env/bin/python')
 METHODS=['SeqLoRA','SMoLoRA']
 PENDING=['DGG','PaRSP','PASs_MoE','Hyper_LLaVA']

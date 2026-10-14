@@ -9,7 +9,7 @@
 - The eight selected paper comparisons are SMoLoRA, PASs-MoE, Hyper-LLaVA, PaRSP, OSFT, SpaRTA, FV-guided Training and ALER. Only the unchanged initial model is retained as a reference; SeqLoRA is excluded by user instruction. Exclude replay methods and historical-QA replay. DGG remains in the paper table but is excluded from this experiment.
 - Preserve author mechanisms. Do not label downloaded code, unverified ports, or plain LoRA renamed after a paper as running methods. Report trainable parameters and auxiliary compute, particularly for intrinsically heavier full-tuning references.
 - Run methods on idle GPUs; do not stop other users' jobs. Current code and reports are under exp/ten_task_cl_20261012 and summary/ten_task_cl_20261012. Current protocol: rules/012_small_data_results_only.md; execution policy: exp/ten_task_cl_20261012/execution_policy.json.
-- The authoritative Git checkout is /data2/liyapeng_grp/program/LLMCL on the SSH server. The local Windows workspace mirrors documents and scripts. Preserve unrelated remote changes when committing.
+- The authoritative Git checkout is /data1/liyapeng/program/LLMCL on the new server (liyapeng@100.87.141.22, SSH port 8666; LAN 10.254.25.46). The local Windows workspace mirrors documents and scripts. Preserve unrelated remote changes when committing.
 
 Later explicit user instructions override this context.
 
