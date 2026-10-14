@@ -4,7 +4,7 @@
 
 ## 先看整体变化
 
-![固定外部知识题的逐阶段表现](../../../sample/cv_external_knowledge.png)
+![固定外部知识题的逐阶段表现](../sample_assets/cv_external_knowledge.png)
 
 <!-- figure-caption:start -->
 **图 1｜训练之外的通用与医学知识题是否受到影响。**

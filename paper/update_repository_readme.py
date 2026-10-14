@@ -12,17 +12,21 @@ def render():
     text=['# LLMCL：小模型、小数据的多模态持续学习','',
       '本仓库整理生成式大语言模型／多模态大模型的持续学习论文、作者源码和数据依据，并开展五领域十任务的轻量化持续微调实验。当前协议为 **Qwen2-VL-2B-Instruct、每任务训练 100 条／测试 50 条、无验证集、seed 42、每任务训练 1 轮、不保存 checkpoint**。','',
       '## 方法 × 方向二维表','',
-      f'已整理 **{len(records)} 篇** 2024–2026 年正式会议论文：持续预训练 {counts["pretraining"]} 篇、持续微调 {ft} 篇、持续对齐 {counts["alignment"]} 篇。每行一个方法，横轴为研究方向，持续微调细分回放、正则化和架构；**●** 表示归档方向。点击方法名进入正式论文页，点击 PDF 查看仓库文件。年份按正式会议届次；逐篇核验记录见 [paper/verification_audit.md](paper/verification_audit.md)。','',
+      f'已整理 **{len(records)} 篇** 2024–2026 年正式会议论文：持续预训练 {counts["pretraining"]} 篇、持续微调 {ft} 篇、持续对齐 {counts["alignment"]} 篇。各方向列直接列出方法名，持续微调细分回放、正则化和架构；列内优先较新论文，同年优先 CVPR／ICCV。横向同一行的方法之间没有对应关系。点击方法名进入正式论文页，点击 PDF 查看仓库文件。年份按正式会议届次；逐篇核验记录见 [paper/verification_audit.md](paper/verification_audit.md)。','',
       '<table>','<thead>',
-      '<tr><th rowspan="2">方法／论文</th><th rowspan="2">会议</th><th rowspan="2">持续预训练</th><th colspan="3">持续微调</th><th rowspan="2">持续对齐</th></tr>',
+      '<tr><th rowspan="2">持续预训练</th><th colspan="3">持续微调</th><th rowspan="2">持续对齐</th></tr>',
       '<tr><th>基于回放</th><th>基于正则化</th><th>基于架构</th></tr>',
       '</thead>','<tbody>']
-    for p in ordered:
-        esc=lambda x:html.escape(str(x),quote=True)
-        pdfnote='（作者扩展版）' if p.get('pdf_version') else ''
-        name=f'<a href="{esc(p["page"])}" title="{esc(p["title"])}"><strong>{esc(p["method"])}</strong></a><br><a href="paper/{esc(p["file"])}">PDF</a>{pdfnote}'
-        cells=[name,f'{esc(p["venue"])} {p["year"]}']+['●' if p['category']==c else '—' for c in CATS]
-        text.append('<tr>'+''.join('<td>'+c+'</td>' for c in cells)+'</tr>')
+    columns=[[p for p in ordered if p['category']==category] for category in CATS]
+    for index in range(max(map(len,columns))):
+        cells=[]
+        for column in columns:
+            if index>=len(column):cells.append('');continue
+            p=column[index]
+            esc=lambda x:html.escape(str(x),quote=True)
+            pdfnote='（作者扩展版）' if p.get('pdf_version') else ''
+            cells.append(f'<a href="{esc(p["page"])}" title="{esc(p["title"])}"><strong>{esc(p["method"])}</strong></a><br>{esc(p["venue"])} {p["year"]}<br><a href="paper/{esc(p["file"])}">PDF</a>{pdfnote}')
+        text.append('<tr>'+''.join('<td>'+cell+'</td>' for cell in cells)+'</tr>')
     text+=['</tbody>','</table>','',
       '归类按主要机制，混合机制、原论文模型及生成任务见 [论文完整索引](paper/README.md)。预训练条目包含语言／知识／上下文扩展型 CPT，不全部具有序贯抗遗忘实验；HPA 归入持续安全对齐保持。**回放方法仍保留在论文表中，本轮不做回放实验；DGG 含历史样本回放，也不参与本轮。**','',
       '## 本轮实验','',
@@ -46,11 +50,25 @@ def render():
       '```text','LLMCL/','├── README.md                         # 当前实验与论文二维表','├── paper/                            # 论文、PDF、发表核验','│   ├── pre_training/','│   ├── pre_finetuning/','│   │   ├── method_replay/','│   │   ├── method_regularization/','│   │   └── method_architecture/','│   └── pre_alignment/',
       '├── code/                             # 各方法作者源码与适配依据','├── data/                             # 数据资产、来源依据与固定样本清单','├── model/                            # 固定模型资产','├── exp/','│   ├── ten_task_cl_20261012/          # 当前入口、运行日志和逐题结果','│   └── ago/                         # 历史实验与旧脚本','├── summary/','│   ├── ten_task_cl_20261012/          # 当前汇总、指标和图','│   └── ago/                         # 历史报告（含旧 CV 与医学实验）','└── rules/                            # 实验协议与调整记录','```','',
       '[当前运行说明](exp/ten_task_cl_20261012/README.md) · [执行策略](exp/ten_task_cl_20261012/execution_policy.json) · [固定样本 ID 与校验值](data/TenTaskCL/current_small_manifest.json) · [历史报告](summary/ago/README.md) · [历史实验](exp/ago/README.md)','',
-      '服务器仓库：`/data2/liyapeng_grp/program/LLMCL`。确认没有现有队列后启动：','',
+      '服务器仓库迁移目标：`/data1/liyapeng/program/LLMCL`。确认没有现有队列后启动：','',
       '```bash','.vision-env/bin/python exp/ten_task_cl_20261012/comparison_queue.py','```','',
       '论文表依据已核验的清单生成；只更新根 README、无需重新下载：','',
       '```bash','python3 paper/update_repository_readme.py','```','',
-      '根目录不再保留旧医学报告的兼容符号链接。旧实验保存在 `exp/ago/`，旧报告保存在 `summary/ago/`；历史实验的模型、配额和结论与本轮分别解读。`CV_data/`、`source_code/`、`sample/` 为保留的历史数据、源码与展示资产，尚未并入当前实验目录。']
+      '根目录不再保留旧医学报告的兼容符号链接。旧实验保存在 `exp/ago/`，旧报告保存在 `summary/ago/`；历史实验的模型、配额和结论与本轮分别解读。`sample/` 只展示本轮十任务数据；旧示例资产归档至 `summary/ago/sample_assets/`。`CV_data/`、`source_code/` 保留历史数据与源码。']
+    samples=json.loads((ROOT/'data/TenTaskCL/samples.json').read_text())['examples']
+    sample_lines=['## 本轮数据集 sample 示例','',
+      '每个任务取固定训练清单的第一条，展示真实问题和参考答案；这是数据样例，不是模型回答。表中长文本仅作展示节选，原始问题／答案未修改。点击任务编号查看完整问题、所有参考答案、上下文及图像。','',
+      '| 任务／来源 | 问题（原文节选） | 参考答案（原文节选） | 图像输入 |','|---|---|---|---|']
+    def excerpt(value,limit):
+        value=str(value).replace('\n',' ').replace('|','／')
+        return html.escape(value[:limit])+('…（节选）' if len(value)>limit else '')
+    for example in samples:
+        task=example['task'];row=example['raw_example']
+        answers=row.get('answers',[row['answer']])
+        image=(f'<img src="{example["sample_images"][0]}" width="180" alt="T{task:02d} 原始输入图像">' if example['sample_images'] else '文本输入，完整上下文见样例页')
+        sample_lines.append(f'| [T{task:02d}](data/TenTaskCL/samples.md#t{task:02d}) · {example["dataset"]} | {excerpt(row["question"],140)} | {excerpt(answers[0],140)} | {image} |')
+    position=text.index('## 目录与入口')
+    text[position:position]=sample_lines+['']
     return '\n'.join(text)+'\n'
 if __name__=='__main__':
     (ROOT/'README.md').write_text(render(),encoding='utf-8')

@@ -51,7 +51,7 @@
 
 每个阶段都复测同一批任务。下面同时展示固定全部任务、已学任务、旧任务切换冲击及未来任务变化，避免只看最终 FWT。
 
-![四方法的完整学习轨迹](../../../sample/cv_trajectories.png)
+![四方法的完整学习轨迹](../sample_assets/cv_trajectories.png)
 
 <!-- figure-caption:start -->
 **图 1｜Qwen2-VL 九任务：整体学习与保留过程。**
@@ -67,7 +67,7 @@
 
 另外已用四方法的全部阶段 checkpoint 补测固定的 198 道外部 MMLU 学科题，共 7,920 条预测。它们不参与本次训练，作为通用与医学知识保留的小样本探针；不代表完整 MMLU 或全部知识。
 
-![外部通用与医学知识逐阶段准确率](../../../sample/cv_external_knowledge.png)
+![外部通用与医学知识逐阶段准确率](../sample_assets/cv_external_knowledge.png)
 
 <!-- figure-caption:start -->
 **图 2｜训练之外的通用与医学知识题是否受到影响。**
