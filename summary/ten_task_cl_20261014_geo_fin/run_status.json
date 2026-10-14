@@ -3,7 +3,7 @@
   "experiment_budget_id": "ten_task_cl_20261014_geo_fin_100_0_50_seed42",
   "manifest_sha256": "dab25e3940758cfac3e1bb16da5305ce6393dfa4eb22e1c39d4f99a28fdc4208",
   "split_lock": "data/TenTaskCL/ten_task_cl_20261014_geo_fin/split_lock.json",
-  "updated_unix": 1791985570.452562,
+  "updated_unix": 1791994202.1694143,
   "phase": "parallel_preflight_or_training",
   "launcher_pid": 1250455,
   "task_counts": {
@@ -24,9 +24,13 @@
   "training_started": true,
   "jobs": {
     "SMoLoRA": {
-      "status": "waiting_gpu",
+      "status": "running",
       "completed_stage": 0,
-      "seed": 42
+      "seed": 42,
+      "gpu": 3,
+      "pid": 1382037,
+      "run_dir": "exp/ten_task_cl_20261014_geo_fin/runs/SMoLoRA/seed_42/ten_task_cl_20261014_geo_fin_20261014_214151",
+      "preflight_passed": true
     },
     "PASs_MoE": {
       "status": "waiting_gpu",
@@ -45,7 +49,7 @@
     },
     "OSFT": {
       "status": "running",
-      "completed_stage": 1,
+      "completed_stage": 6,
       "seed": 42,
       "gpu": 2,
       "pid": 1169930,
@@ -54,7 +58,7 @@
     },
     "SpaRTA": {
       "status": "running",
-      "completed_stage": 0,
+      "completed_stage": 7,
       "seed": 42,
       "gpu": 1,
       "pid": 1187187,
@@ -67,13 +71,14 @@
       "seed": 42
     },
     "ALER": {
-      "status": "running",
-      "completed_stage": 2,
+      "status": "completed",
+      "completed_stage": 10,
       "seed": 42,
       "gpu": 3,
       "pid": 1171114,
       "run_dir": "exp/ten_task_cl_20261014_geo_fin/runs/ALER/seed_42/ten_task_cl_20261014_geo_fin_20261014_205644",
-      "preflight_passed": true
+      "preflight_passed": true,
+      "figures_requested": true
     }
   }
 }

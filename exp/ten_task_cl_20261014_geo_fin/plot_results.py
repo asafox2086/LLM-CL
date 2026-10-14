@@ -1,5 +1,6 @@
 """Final actual result matrices -> reproducible PNG/PDF scientific figures."""
 import argparse
+import csv
 import json
 import sys
 import os
@@ -37,6 +38,13 @@ def main():
         array=np.asarray(matrices[key])
         if array.shape!=(11,10) or not np.isfinite(array).all():
             raise ValueError('Final plot requires complete real 11 x 10 matrices')
+        # Final CSV has eleven actual stage rows; incomplete matrices are rejected above.
+        tables=ROOT/'summary/ten_task_cl_20261014_geo_fin/tables'/config['method']/args.run_dir.name
+        tables.mkdir(parents=True,exist_ok=True)
+        with (tables/(key+'_11x10.csv')).open('w',encoding='utf-8',newline='') as stream:
+            writer=csv.writer(stream,lineterminator="\n")
+            writer.writerow(['completed_training_stage']+[f'T{i:02d}' for i in range(1,11)])
+            writer.writerows([[i]+row for i,row in enumerate(array.tolist())])
         plot_heatmap(array,[f'T{i}' for i in range(1,11)],[f'S{i}' for i in range(11)],
             title=config['method']+' — '+title,xlabel='Test task',ylabel='Completed training stage',
             out_base=str(output/(key+'_matrix')))
