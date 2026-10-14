@@ -1,0 +1,76 @@
+{
+  "reason": "User explicitly cancelled validation and SeqLoRA",
+  "previous_jobs": {
+    "SMoLoRA": {
+      "status": "running",
+      "completed_stage": 1,
+      "seed": 42,
+      "gpu": 0,
+      "pid": 3445427,
+      "run_dir": "exp/ten_task_cl_20261012/runs/SMoLoRA/seed_42/small_100_50_50_20261014_115518",
+      "physical_run_dir": "/data2/liyapeng_grp/program/LLMCL/exp/ten_task_cl_20261012/runs/SMoLoRA/seed_42/small_100_50_50_20261014_115518"
+    },
+    "PASs_MoE": {
+      "status": "waiting_gpu",
+      "completed_stage": 0,
+      "seed": 42
+    },
+    "Hyper_LLaVA": {
+      "status": "adapter_pending",
+      "seed": 42,
+      "completed_stage": 0
+    },
+    "PaRSP": {
+      "status": "adapter_pending",
+      "seed": 42,
+      "completed_stage": 0
+    },
+    "OSFT": {
+      "status": "adapter_pending",
+      "completed_stage": 0
+    },
+    "SpaRTA": {
+      "status": "adapter_pending",
+      "completed_stage": 0
+    },
+    "FV_guided_Training": {
+      "status": "adapter_pending",
+      "completed_stage": 0
+    },
+    "ALER": {
+      "status": "adapter_pending",
+      "completed_stage": 0
+    },
+    "SeqLoRA": {
+      "status": "waiting_gpu",
+      "completed_stage": 0,
+      "seed": 42
+    },
+    "Frozen": {
+      "status": "derived_from_stage_00"
+    }
+  },
+  "stopped_owned_pids": [
+    3456074,
+    3445427
+  ],
+  "old_results_archive": "summary/ago/validation_cancelled_20261014_143639",
+  "old_run_files_preserved": true,
+  "old_trained_scores_reused": false,
+  "train_test_samples_unchanged": true,
+  "new_policy": {
+    "manifest": "data/TenTaskCL/equal_budget_100_0_50_seed42/manifest.json",
+    "counts_per_task": {
+      "train": 100,
+      "dev": 0,
+      "test": 50
+    },
+    "seed": 42,
+    "save_checkpoints": false,
+    "experiment_budget_id": "100_0_50_seed42",
+    "reuse_initial_base_predictions_only": true,
+    "research_context": "Small models, small datasets, lightweight continual learning",
+    "validation_enabled": false
+  },
+  "restart_required": "No model checkpoints exist; all trained-stage results are recalculated"
+}

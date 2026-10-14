@@ -1,0 +1,74 @@
+{
+  "previous_state": {
+    "experiment_id": "ten_task_cl_20261012",
+    "experiment_budget_id": "100_0_50_seed42",
+    "updated_at": "2026-10-14T16:03:05.206132+08:00",
+    "phase": "running_or_waiting_gpu",
+    "launcher_pid": 3518108,
+    "launcher_log": "exp/ten_task_cl_20261012/pipeline_logs/comparison_queue.log",
+    "seed": 42,
+    "task_counts": {
+      "train": 100,
+      "dev": 0,
+      "test": 50
+    },
+    "save_checkpoints": false,
+    "training_started": true,
+    "jobs": {
+      "SMoLoRA": {
+        "status": "running",
+        "completed_stage": 0,
+        "seed": 42,
+        "gpu": 0,
+        "pid": 3520458,
+        "run_dir": "exp/ten_task_cl_20261012/runs/SMoLoRA/seed_42/small_100_0_50_20261014_143639",
+        "physical_run_dir": "/data2/liyapeng_grp/program/LLMCL/exp/ten_task_cl_20261012/runs/SMoLoRA/seed_42/small_100_0_50_20261014_143639"
+      },
+      "PASs_MoE": {
+        "status": "running",
+        "completed_stage": 1,
+        "seed": 42,
+        "gpu": 1,
+        "pid": 3545366,
+        "run_dir": "exp/ten_task_cl_20261012/runs/PASs_MoE/seed_42/small_100_0_50_20261014_143639",
+        "physical_run_dir": "/data2/liyapeng_grp/program/LLMCL/exp/ten_task_cl_20261012/runs/PASs_MoE/seed_42/small_100_0_50_20261014_143639"
+      },
+      "Hyper_LLaVA": {
+        "status": "adapter_pending",
+        "completed_stage": 0
+      },
+      "PaRSP": {
+        "status": "adapter_pending",
+        "completed_stage": 0
+      },
+      "OSFT": {
+        "status": "adapter_pending",
+        "completed_stage": 0
+      },
+      "SpaRTA": {
+        "status": "adapter_pending",
+        "completed_stage": 0
+      },
+      "FV_guided_Training": {
+        "status": "adapter_pending",
+        "completed_stage": 0
+      },
+      "ALER": {
+        "status": "adapter_pending",
+        "completed_stage": 0
+      },
+      "Frozen": {
+        "status": "derived_from_stage_00"
+      }
+    }
+  },
+  "stopped_owned_pids": [
+    3518108,
+    3520458,
+    3545366
+  ],
+  "reason": "User moved all resources to new server",
+  "destination": "/data1/liyapeng/program/LLMCL",
+  "training_parameters_recoverable": false,
+  "results_preserved": true
+}
