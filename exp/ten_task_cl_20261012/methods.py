@@ -10,6 +10,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 
 
+def make_method(model,name,instructions,embedding=None):
+    if name=='PASs_MoE':
+        from pass_adapter import PASMethod
+        return PASMethod(model,name,instructions,embedding)
+    return Method(model,name,instructions,embedding)
+
+
 class SeqLinear(nn.Module):
     def __init__(self, base, rank=8, alpha=32):
         super().__init__()

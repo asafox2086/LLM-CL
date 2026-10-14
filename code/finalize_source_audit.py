@@ -50,8 +50,13 @@ for rec in records:
 
 manifest={'verified_on':'2026-10-12','expected_methods':20,'completed_audits':20,'status_counts':{s:sum(r['status']==s for r in records) for s in STATUS},'verified_files_including_custom_dependencies':verified,'source_bytes_including_custom_dependencies':source_bytes,'methods':records}
 (BASE/'finetuning_source_manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
-selection={'updated_on':'2026-10-12','paper_scope':'paper/pre_finetuning, 20 papers','base_model':'Qwen2-VL-2B-Instruct','baseline_controls':['SeqLoRA','Frozen'],'first_adaptation_batch':first,'historical_only':['MIGU-LoRA','O-LoRA','SAPT-LoRA'],'excluded_main_comparison_categories':['replay'],'retain_author_replay_in_other_methods':True,'budget_protocol':'data/TenTaskCL/small_budget_protocol.json','execution_seeds':[42],'first_launch_batch':['SeqLoRA','SMoLoRA'],'pending_adaptation':['DGG','PaRSP','PASs_MoE','Hyper_LLaVA'],'execution_protocol':'rules/010_equal_budget_execution.md','training_started':False,'require_before_formal_training':['Preserve author core mechanism, log upstream commit and adaptation diff','Support real text-only and image tasks without dummy-image replacement','Train/dev smoke test and memory preflight','Fixed data manifest and 11x10 evaluation matrix','Report trainable parameters, replay/auxiliary tokens and compute differences'],'rule':'A public repository or source snapshot is not evidence that the ten-task adaptation already runs.'}
-for name in first:assert any(r['folder']==name and r['status']=='downloaded_source_snapshot' for r in records)
+selection={'updated_on':'2026-10-12','paper_scope':'paper/pre_finetuning, 20 papers','base_model':'Qwen2-VL-2B-Instruct','baseline_controls':['SeqLoRA','Frozen'],'first_adaptation_batch':first,'historical_only':['MIGU-LoRA','O-LoRA','SAPT-LoRA'],'excluded_main_comparison_categories':['replay'],'retain_author_replay_in_other_methods':True,'budget_protocol':'data/TenTaskCL/small_budget_protocol.json','training_started':False,'require_before_formal_training':['Preserve author core mechanism, log upstream commit and adaptation diff','Support real text-only and image tasks without dummy-image replacement','Train/dev smoke test and memory preflight','Fixed data manifest and 11x10 evaluation matrix','Report trainable parameters, replay/auxiliary tokens and compute differences'],'rule':'A public repository or source snapshot is not evidence that the ten-task adaptation already runs.'}
+selection_path=BASE/'method_selection.json'
+if selection_path.is_file():
+ existing=json.loads(selection_path.read_text())
+ if existing.get('main_paper_method_count')==8:
+  selection.update(existing)
+for name in selection['first_adaptation_batch']:assert any(r['folder']==name and r['status']=='downloaded_source_snapshot' for r in records)
 (BASE/'method_selection.json').write_text(json.dumps(selection,ensure_ascii=False,indent=2)+'\n')
 lines=['# 持续微调论文作者源码','', '核验：2026-10-12。对应论文二维表的 **20 篇持续微调方法**，各方法分目录存放。源码在服务器，GitHub 保存索引、版本、哈希及获取脚本；没有安装包或启动正式训练。', '',
  f"已下载 {manifest['status_counts']['downloaded_source_snapshot']} 个方法的源码快照；{manifest['status_counts']['author_source_not_found']} 个未找到作者实现；{manifest['status_counts']['repository_downloaded_but_no_python_implementation']} 个仓库只有 README。源码下载失败剩余 {manifest['status_counts']['download_failed']} 个。",'',
@@ -63,7 +68,8 @@ for r in sorted(records,key=lambda r:(r['category'],-r['year'],r['method'])):
  lines.append(f"| [{r['method']}]({r['folder']}/README.md) | {r['category']} / {r['venue']} {r['year']} | {link} | {STATUS[r['status']]} | {r['usage_note']} |")
 lines+=['','主索引：[finetuning_source_manifest.json](finetuning_source_manifest.json)。每个方法目录记录完整 commit、源文件数、许可证、获取依据和 SHA-256。尚未公开源码的方法如实记录，不把 README 或第三方重写当作者实现。','',
  '复现对同一 2B 基座和十任务的适配需要保留各方法机制。不能统一删掉视觉专家、路由或重要性约束，也不能把回放法替换成普通 ER。新模型上的结果属于适配实验，不能写成原论文原模型的精确复现。','']
-(BASE/'README.md').write_text('\n'.join(lines),encoding='utf-8')
+if selection.get('main_paper_method_count')!=8:
+ (BASE/'README.md').write_text('\n'.join(lines),encoding='utf-8')
 metadata=['code/README.md','code/finetuning_source_manifest.json','code/method_selection.json','rules/008_current_task_counts_and_methods.md','data/TenTaskCL/task_counts_audit.json']
 for folder in [BASE/r['folder'] for r in records]:
  for f in folder.glob('*.json'):metadata.append(str(f.relative_to(ROOT)))

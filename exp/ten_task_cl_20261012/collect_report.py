@@ -22,6 +22,9 @@ def collect():
     if not status_path.is_file():
         return
     status=json.loads(status_path.read_text())
+    comparison_path=REPORT/'comparison_status.json'
+    if comparison_path.is_file():
+        status['jobs'].update(json.loads(comparison_path.read_text())['paper_methods'])
     stages,metrics,compute=[],[],[]
     for method,job in status['jobs'].items():
         if not job.get('run_dir'):

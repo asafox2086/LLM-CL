@@ -1,17 +1,20 @@
 {
-  "updated_on": "2026-10-12",
+  "updated_on": "2026-10-14",
   "paper_scope": "paper/pre_finetuning, 20 papers",
   "base_model": "Qwen2-VL-2B-Instruct",
   "baseline_controls": [
-    "SeqLoRA",
-    "Frozen"
+    "Frozen",
+    "SeqLoRA"
   ],
   "first_adaptation_batch": [
-    "DGG",
-    "PaRSP",
     "SMoLoRA",
     "PASs_MoE",
-    "Hyper_LLaVA"
+    "Hyper_LLaVA",
+    "PaRSP",
+    "OSFT",
+    "SpaRTA",
+    "FV_guided_Training",
+    "ALER"
   ],
   "historical_only": [
     "MIGU-LoRA",
@@ -21,9 +24,9 @@
   "excluded_main_comparison_categories": [
     "replay"
   ],
-  "retain_author_replay_in_other_methods": true,
+  "retain_author_replay_in_other_methods": false,
   "budget_protocol": "data/TenTaskCL/small_budget_protocol.json",
-  "training_started": false,
+  "training_started": true,
   "require_before_formal_training": [
     "Preserve author core mechanism, log upstream commit and adaptation diff",
     "Support real text-only and image tasks without dummy-image replacement",
@@ -37,13 +40,32 @@
   ],
   "first_launch_batch": [
     "SeqLoRA",
-    "SMoLoRA"
+    "SMoLoRA",
+    "PASs_MoE"
   ],
   "pending_adaptation": [
-    "DGG",
+    "Hyper_LLaVA",
     "PaRSP",
-    "PASs_MoE",
-    "Hyper_LLaVA"
+    "OSFT",
+    "SpaRTA",
+    "FV_guided_Training",
+    "ALER"
   ],
-  "execution_protocol": "rules/010_equal_budget_execution.md"
+  "execution_protocol": "rules/010_equal_budget_execution.md",
+  "main_comparison_methods": [
+    "SMoLoRA",
+    "PASs_MoE",
+    "Hyper_LLaVA",
+    "PaRSP",
+    "OSFT",
+    "SpaRTA",
+    "FV_guided_Training",
+    "ALER"
+  ],
+  "main_paper_method_count": 8,
+  "historical_qa_replay": false,
+  "excluded_methods": {
+    "DGG": "Author default continual training includes historical QA replay; excluded under latest user request."
+  },
+  "execution_status_source": "summary/ten_task_cl_20261012/comparison_status.json"
 }

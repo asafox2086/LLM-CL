@@ -1,10 +1,11 @@
 """Tiny genuine Qwen2-VL text/image updates and exact resume checks, CPU only."""
 import json
+import argparse
 import tempfile
 from pathlib import Path
 import torch
 from transformers import Qwen2VLConfig,Qwen2VLForConditionalGeneration
-from methods import Method,ROOT
+from methods import make_method as Method,ROOT
 from run import answer_loss,activation_storage
 from stage_checkpoint import save_stage,load_stage
 from frozen_vision import install
@@ -20,8 +21,11 @@ class Processor:
 
 def main():
     torch.set_num_threads(2)
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--methods',nargs='+',default=['SeqLoRA','SMoLoRA','PASs_MoE'])
+    args=parser.parse_args()
     results={}
-    for name in ['SeqLoRA','SMoLoRA']:
+    for name in args.methods:
         torch.manual_seed(42)
         config=Qwen2VLConfig(vocab_size=256,hidden_size=32,intermediate_size=64,
             num_hidden_layers=2,num_attention_heads=4,num_key_value_heads=2,
@@ -44,22 +48,37 @@ def main():
             initial=model(**text).logits
         assert torch.allclose(baseline,initial,atol=1e-6,rtol=1e-5)
         params=[p for p in model.parameters() if p.requires_grad]
-        optimizer=torch.optim.AdamW(params,lr=1e-3)
+        from host_adam import HostAdamW
+        optimizer=(HostAdamW if name=='PASs_MoE' else torch.optim.AdamW)(params,lr=1e-3)
         image={'input_ids':torch.tensor([[197,200,200,200,200,198,2,3]]),
                'attention_mask':torch.ones(1,8,dtype=torch.long),
                'pixel_values':torch.randn(16,3*2*14*14),'image_grid_thw':torch.tensor([[1,4,4]])}
         def step(batch):
             model.train()
             optimizer.zero_grad()
+            if hasattr(method,'recording'):
+                method.recording(True)
             with activation_storage(method):
                 loss,_=answer_loss(model,batch,'answer',Processor())
+            if hasattr(method,'recording'):
+                method.recording(False)
             assert torch.isfinite(loss)
             loss.backward()
+            if hasattr(method,'post_backward'):
+                method.post_backward(1.,.5)
             assert any(p.grad is not None and torch.count_nonzero(p.grad) for p in params)
             optimizer.step()
             return float(loss)
         text_loss=step(text)
         image_loss=step(image)
+        if name=='PASs_MoE':
+            with tempfile.TemporaryDirectory(prefix='llmcl_pass_state_') as temp:
+                method.state_root=Path(temp)
+                method.end_stage(1)
+            assert method.learner._I_agg and any(value.sum()>0 for value in method.learner._I_agg.values())
+            method.begin_stage(2)
+            step(text)
+            assert method.learner._reg_active_msg_printed
         if name=='SMoLoRA':
             # Compare the memory-saving wrapper against the unchanged authored
             # forward after nonzero expert updates, with identical dropout RNG.
@@ -109,7 +128,12 @@ def main():
         if name=='SMoLoRA':
             results[name]['projection_saved_tensor_offload_matches_author_output_and_gradients']=True
             results[name]['cpu_saved_tensor_storage_matches_author_output_and_gradients']=True
-    (ROOT/'exp/ten_task_cl_20261012/adapter_verification.json').write_text(json.dumps(results,indent=2)+'\n')
+        if name=='PASs_MoE':
+            results[name]['author_rank_importance_and_stage2_regularizer_active']=True
+    output=ROOT/'exp/ten_task_cl_20261012/adapter_verification.json'
+    old=json.loads(output.read_text()) if output.is_file() else {}
+    old.update(results)
+    output.write_text(json.dumps(old,indent=2)+'\n')
     print(json.dumps(results,indent=2))
 
 

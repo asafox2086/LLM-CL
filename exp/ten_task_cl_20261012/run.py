@@ -14,7 +14,7 @@ import numpy as np
 import torch
 from PIL import Image
 from transformers import AutoProcessor,Qwen2VLForConditionalGeneration,get_cosine_schedule_with_warmup
-from methods import ROOT,Method
+from methods import ROOT,make_method as Method
 from prepare_assets import retrieve
 from stage_checkpoint import save_stage,load_stage
 
@@ -193,7 +193,9 @@ def make_optimizer(method):
         decay=method.name=='SMoLoRA' and parameter.ndim>=2 and not name.endswith('.bias')
         key=(1e-4,.01 if decay else 0.)
         groups.setdefault(key,[]).append(parameter)
-    return torch.optim.AdamW([{'params':parameters,'lr':lr,'weight_decay':decay}
+    from host_adam import HostAdamW
+    optimizer=HostAdamW if method.name=='PASs_MoE' else torch.optim.AdamW
+    return optimizer([{'params':parameters,'lr':lr,'weight_decay':decay}
                               for (lr,decay),parameters in groups.items()],eps=1e-8,betas=(.9,.999))
 
 
@@ -215,7 +217,7 @@ def save_last(path,method,optimizer,scheduler,scaler,stage,offset,step,manifest_
 
 def main():
     parser=argparse.ArgumentParser()
-    parser.add_argument('--method',choices=['SeqLoRA','SMoLoRA'],required=True)
+    parser.add_argument('--method',choices=['SeqLoRA','SMoLoRA','PASs_MoE'],required=True)
     parser.add_argument('--seed',type=int,default=42)
     parser.add_argument('--run-dir',type=Path,required=True)
     parser.add_argument('--preflight-only',action='store_true')
@@ -247,6 +249,8 @@ def main():
     model=Qwen2VLForConditionalGeneration.from_pretrained(model_path,torch_dtype=torch.float16,
         attn_implementation='sdpa',local_files_only=True).to(device)
     method=Method(model,args.method,[task['instruction'] for task in manifest['tasks']])
+    if hasattr(method,'state_root'):
+        method.state_root=run/'method_state'
     method.model.gradient_checkpointing_enable(gradient_checkpointing_kwargs={'use_reentrant':False})
     method.model.enable_input_require_grads()
     if args.preflight_only:
@@ -266,11 +270,17 @@ def main():
             row=max(data[(task_id,'dev')],key=lambda value:len(value.get('context','')[:6000])
                     +len(value['answer'][:4000])+len(value.get('images',[]))*1000)
             batch,_=input_batch(row,manifest['tasks'][task_id-1],processor,device)
+            if hasattr(method,'recording'):
+                method.recording(True)
             with activation_storage(method),torch.autocast('cuda',dtype=torch.float16):
                 loss,_=answer_loss(model,batch,row['answer'],processor)
+            if hasattr(method,'recording'):
+                method.recording(False)
             if not torch.isfinite(loss):
                 raise FloatingPointError('GPU preflight loss')
             scaler.scale(loss).backward()
+            if hasattr(method,'post_backward'):
+                method.post_backward(scaler.get_scale(),.5)
             scaler.unscale_(optimizer)
             norm=torch.nn.utils.clip_grad_norm_([p for p in model.parameters() if p.requires_grad],1.)
             if not torch.isfinite(norm):
@@ -291,9 +301,11 @@ def main():
             'batch_size':16,'micro_batch_size':1,'epochs':1,'learning_rate':1e-4,'target_token_cap':512,
             'primary_score':'ROUGE-L F1, 0..100; generated-answer comparison, not original benchmark leaderboard metric',
             'smolora_upstream_revision':method.original_revision,'training_started':True,
-            'saved_autograd_tensors_on_cpu':args.method=='SMoLoRA',
+            'saved_autograd_tensors_on_cpu':args.method in ['SMoLoRA','PASs_MoE'],
+            'optimizer_moments_on_cpu':args.method=='PASs_MoE',
             'execution_source_sha256':{name:hashlib.sha256((Path(__file__).parent/name).read_bytes()).hexdigest()
-                for name in ['run.py','methods.py','frozen_vision.py','stage_checkpoint.py']}}
+                for name in ['run.py','methods.py','frozen_vision.py','stage_checkpoint.py']+
+                    (['pass_adapter.py','host_adam.py'] if args.method=='PASs_MoE' else [])}}
     write(run/'config.json',config)
     write(run/'environment.json',{'torch':torch.__version__,'gpu':torch.cuda.get_device_name(0),
           'cuda_visible_devices':os.environ.get('CUDA_VISIBLE_DEVICES'),'precision':'fp16 base, fp32 adapters'})
@@ -333,6 +345,8 @@ def main():
             scheduler.load_state_dict(state['scheduler'])
             scaler.load_state_dict(state['scaler'])
             restore_rng(state['rng'])
+            if hasattr(method,'restore_method_state'):
+                method.restore_method_state(state['method_state'])
             offset,step=state['next_offset'],state['global_step']
         model.train()
         method.set_instruction(stage)
@@ -347,11 +361,17 @@ def main():
                     batch,details=input_batch(row,manifest['tasks'][stage-1],processor,device)
                     from frozen_vision import prepare
                     cache_hit=prepare(batch,row,model,method.vision_original)
+                    if hasattr(method,'recording'):
+                        method.recording(True)
                     with activation_storage(method),torch.autocast('cuda',dtype=torch.float16):
                         loss,length=answer_loss(model,batch,row['answer'],processor)
+                    if hasattr(method,'recording'):
+                        method.recording(False)
                     if not torch.isfinite(loss):
                         raise FloatingPointError('nonfinite loss')
                     scaler.scale(loss/len(indexes)).backward()
+                    if hasattr(method,'post_backward'):
+                        method.post_backward(scaler.get_scale(),start/len(order))
                     loss_sum+=float(loss.detach())/len(indexes)
                     target_tokens+=length
                     prompt_tokens+=details['prompt_tokens']
@@ -366,6 +386,8 @@ def main():
                     raise FloatingPointError('optimizer step skipped; refusing silent sample loss')
                 scheduler.step()
                 step+=1
+                if hasattr(method,'after_update'):
+                    method.after_update(step,updates)
                 record={'event':'train_update','stage':stage,'step':step,'qa_seen':start+len(indexes),
                         'loss':loss_sum,'seconds':time.monotonic()-tick,'prompt_tokens':prompt_tokens,
                         'target_tokens':target_tokens,'peak_allocated_mib':torch.cuda.max_memory_allocated()/1024**2}
@@ -374,6 +396,8 @@ def main():
                 print(json.dumps(record),flush=True)
                 if step%25==0 or start+len(indexes)==len(order):
                     save_last(last,method,optimizer,scheduler,scaler,stage,start+len(indexes),step,manifest_sha)
+        if hasattr(method,'end_stage'):
+            method.end_stage(stage)
         dev=evaluate(method,processor,manifest['tasks'],data,run,stage,'dev',stage)
         test=evaluate(method,processor,manifest['tasks'],data,run,stage)
         evaluation={'task_scores':test,'current_task_dev_rougeL':dev[0],'primary_score':'rougeL'}

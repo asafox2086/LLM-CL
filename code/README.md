@@ -1,12 +1,12 @@
 # 持续微调论文作者源码
 
-核验：2026-10-12。对应论文二维表的 **20 篇持续微调方法**，各方法分目录存放。源码在服务器，GitHub 保存索引、版本、哈希及获取脚本；没有安装包或启动正式训练。
+核验：2026-10-12。对应论文二维表的 **20 篇持续微调方法**，各方法分目录存放。源码在服务器，GitHub 保存索引、版本、哈希及获取脚本。实际适配与运行状态以 comparison_status.json 为准。
 
 已下载 17 个方法的源码快照；2 个未找到作者实现；1 个仓库只有 README。源码下载失败剩余 0 个。
 
 原源码位置为 `code/<method>/source/`。源码、配置和文档按固定 Git commit 保存，捆绑数据、模型权重和二进制不重复下载；逐文件 SHA-256 与 Git blob SHA-1 已核验。作者修改版 DGG 两个依赖按父仓库 gitlink 下载。
 
-第一批按源码核验和适配优先级选择：**DGG、PaRSP、SMoLoRA、PASs-MoE、Hyper-LLaVA**（去掉回放类比较方法；其他方法保留作者原设置）。SeqLoRA/Frozen 作为基础对照；旧 MIGU/O-LoRA/SAPT 不作这轮主要比较方法。适配仍待完成，详见 [方法选择](method_selection.json) 与 [任务和方法协议](../rules/008_current_task_counts_and_methods.md)。
+当前主比较八种：**SMoLoRA、PASs-MoE、Hyper-LLaVA、PaRSP、OSFT、SpaRTA、FV-guided Training、ALER**。回放类以及包含历史 QA 回放的 DGG 不参加。SeqLoRA/Frozen 作为基础对照；旧 MIGU/O-LoRA/SAPT 不作这轮主要比较方法。适配仍待完成，详见 [方法选择](method_selection.json) 与 [任务和方法协议](../rules/008_current_task_counts_and_methods.md)。
 
 | 方法 | 分类 / 发表 | 作者仓库 | 下载与实现状态 | 复现说明 |
 |---|---|---|---|---|
@@ -35,4 +35,5 @@
 
 复现对同一 2B 基座和十任务的适配需要保留各方法机制。不能统一删掉视觉专家、路由或重要性约束，也不能把回放法替换成普通 ER。新模型上的结果属于适配实验，不能写成原论文原模型的精确复现。
 
-当前实际启动队列是 SeqLoRA 与 SMoLoRA，仅 seed 42；其余四个候选仍待适配。等量样本与运行说明见 [010](../rules/010_equal_budget_execution.md)。SMoLoRA 已通过小型 Qwen2-VL 文本/图像更新和恢复检查，完整 2B GPU 预检仍是训练前置条件。
+
+八种论文方法与两个基础对照的具体范围见 [011](../rules/011_eight_non_replay_comparisons.md)，实时适配/排队/运行状态见 [对比进度](../summary/ten_task_cl_20261012/comparison_report.md)。SMoLoRA 完整 2B 预检已通过并在运行；PASs-MoE CPU 原作者机制和恢复检查通过，已排队等待 GPU；其余六种适配尚未完成。
