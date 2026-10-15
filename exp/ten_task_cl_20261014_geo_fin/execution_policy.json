@@ -35,5 +35,16 @@
   ],
   "reserved_gpus": [
     0
-  ]
+  ],
+  "low_load_gpu_admission": {
+    "methods": [
+      "PaRSP",
+      "FV_guided_Training"
+    ],
+    "max_existing_util_percent": 10,
+    "minimum_free_mib": 19000,
+    "pytorch_memory_fraction": 0.75,
+    "preserve_existing_processes": true,
+    "reason": "Additional user-requested baselines on allowed GPU1/2/3 only; bounded memory on low-load GPUs; GPU0 excluded"
+  }
 }

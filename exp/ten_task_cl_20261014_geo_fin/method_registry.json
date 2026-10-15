@@ -12,7 +12,12 @@
     "adaptation": "author top1 experts, geometry and BC kernels; native frozen Qwen visual + MiniLM text; available-modality handling for text-only tasks, no fake visual features"
   },
   "PaRSP": {
-    "status": "adapter_pending"
+    "status": "ready",
+    "cpu_proof": "preflight/parsp_cpu.json",
+    "gpu_preflight_required": true,
+    "adaptation": "author Qwen attribution .38/.4, region masks then author nullspace; native image tokens intact; original GQA valid-index behavior; 100 current-task auxiliary rows, history covariance RAM only; no external MMLU; stage1 has no old-task projection, later stages protect stored past-task covariance; throwaway preflight alone seeds projection to test hardware",
+    "upstream_revision": "00685fe4f9086f03ac1d1a725dcb280714e6125a",
+    "adapter_sha256": "5f933a0d2e2348e2cea94f7df1d91d383d90a76f1c52e4d6651d821363ffb529"
   },
   "OSFT": {
     "status": "ready",
@@ -27,7 +32,13 @@
     "adaptation": "author dual-rank forward and context-router kernels, progressive isolation/orthogonality, 200-update stochastic restore schedule retained"
   },
   "FV_guided_Training": {
-    "status": "adapter_pending"
+    "status": "ready",
+    "cpu_proof": "preflight/fv_cpu.json",
+    "gpu_preflight_required": true,
+    "adaptation": "author dynamic causal-NLL head_score path on Qwen; 100 mean trials /25 causal trials, ten-shot current train-only probes; original FV additive intervention and two KL (20/.1) plus head PR(1); q/v rank8 alpha16, stage merging; prefix cache equivalence CPU-verified",
+    "upstream_revision": "f9f219450c6b7fdadc7b62d89feeeab9aa93968a",
+    "adapter_sha256": "151ae7ddc5b7a1a1a3c8ec2b3dc69437afdcc9859b225dc04f0c744428f39f26",
+    "gpu_proof": "preflight/fv_2b_gpu.json"
   },
   "ALER": {
     "status": "ready",

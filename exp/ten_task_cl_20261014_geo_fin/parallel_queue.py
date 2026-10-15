@@ -18,7 +18,9 @@ def spawn(name,run,gpu,preflight):
  h=(run/"logs"/("gpu_preflight.log" if preflight else "train.log")).open("a")
  cmd=[PY,str(HERE/"run.py"),"--method",name,"--seed","42","--run-dir",str(run)]
  if preflight:cmd.append("--preflight-only")
- return subprocess.Popen(cmd,cwd=ROOT,env=environment(gpu),stdout=h,stderr=subprocess.STDOUT),h
+ env=environment(gpu)
+ if name=="PaRSP":env.update(OMP_NUM_THREADS="8",MKL_NUM_THREADS="8")
+ return subprocess.Popen(cmd,cwd=ROOT,env=env,stdout=h,stderr=subprocess.STDOUT),h
 class AttachedProcess:
  def __init__(self,pid,run,phase):self.pid,self.run,self.phase=pid,run,phase
  def poll(self):
@@ -69,13 +71,17 @@ while True:
     log=(run/"logs/plots.log").open("a",encoding="utf-8")
     subprocess.Popen([str(ROOT/".plot-env/bin/python"),str(HERE/"plot_results.py"),"--run-dir",str(run)],cwd=ROOT,env=environment(),stdout=log,stderr=subprocess.STDOUT)
     log.close();jobs[name]["figures_requested"]=True
- inventory=subprocess.check_output(["nvidia-smi","--query-gpu=index,memory.used,utilization.gpu","--format=csv,noheader,nounits"],text=True)
- for i,used,util in csv.reader(io.StringIO(inventory)):
+ inventory=subprocess.check_output(["nvidia-smi","--query-gpu=index,memory.total,memory.used,utilization.gpu","--format=csv,noheader,nounits"],text=True)
+ for i,total,used,util in csv.reader(io.StringIO(inventory)):
   gpu=int(i)
   if gpu not in policy.get("allowed_gpus",[1,2,3]):continue
-  if int(used)>=1024 or int(util)>=10 or gpu in {v[3] for v in active.values()}:continue
+  if gpu in {v[3] for v in active.values()}:continue
   name=next((n for n in METHODS if jobs[n]["status"]=="waiting_gpu"),None)
   if not name:break
+  admission=policy.get("low_load_gpu_admission",{})
+  if int(used)>=1024:
+   if name not in admission.get("methods",[]) or int(total)-int(used)<admission.get("minimum_free_mib",19000) or int(util)>=admission.get("max_existing_util_percent",10):continue
+  elif int(util)>=10:continue
   run=HERE/"runs"/name/"seed_42"/runid;(run/"logs").mkdir(parents=True,exist_ok=False)
   write(run/"split_identity.json",{"experiment_id":HERE.name,"manifest_sha256":policy["manifest_sha256"],"split_lock":policy["split_lock"],"seed":42,"training_order_shared":True})
   proc,h=spawn(name,run,gpu,True);active[name]=(proc,h,run,gpu,"preflight");jobs[name].update(status="gpu_preflight",gpu=gpu,pid=proc.pid,run_dir=str(run.relative_to(ROOT)))

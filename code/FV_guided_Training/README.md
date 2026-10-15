@@ -11,3 +11,5 @@
 备注：原作者模型和任务需适配；未运行新实验。
 
 `source/` 保存作者源码，未安装或执行上游代码；源文件和许可证哈希见 manifest。 尚未完成 Qwen2-VL/十任务适配和 smoke test。
+
+本轮Qwen2-VL适配已在2026-10-15补齐，作者源码快照未修改。实际GPU预检与运行状态见 [本轮报告](../../summary/ten_task_cl_20261014_geo_fin/report.md)，适配边界见 [METHOD_ADAPTATIONS](../../exp/ten_task_cl_20261014_geo_fin/METHOD_ADAPTATIONS.md)。

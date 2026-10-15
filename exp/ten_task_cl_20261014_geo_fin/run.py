@@ -261,6 +261,8 @@ def main():
     torch.manual_seed(args.seed)
     torch.cuda.manual_seed_all(args.seed)
     device=torch.device('cuda:0')
+    if args.method in policy.get('low_load_gpu_admission',{}).get('methods',[]):
+        torch.cuda.set_per_process_memory_fraction(policy['low_load_gpu_admission']['pytorch_memory_fraction'],device)
     model_path=ROOT/'model/Qwen2-VL-2B-Instruct'
     processor=AutoProcessor.from_pretrained(model_path,local_files_only=True)
     model=Qwen2VLForConditionalGeneration.from_pretrained(model_path,torch_dtype=torch.float16,
@@ -271,6 +273,7 @@ def main():
         method.save_checkpoints=args.save_checkpoints
     method.model.gradient_checkpointing_enable(gradient_checkpointing_kwargs={'use_reentrant':False})
     method.model.enable_input_require_grads()
+    if hasattr(method,'bind_context'):method.bind_context(processor,manifest,data,run,args.preflight_only)
     if args.preflight_only:
         # from_pretrained defaults to eval mode; checkpointing is active only
         # in train mode. Preflight must exercise the actual training memory path.
@@ -293,7 +296,7 @@ def main():
             if hasattr(method,'recording'):
                 method.recording(True)
             with activation_storage(method),torch.autocast('cuda',dtype=torch.float16):
-                loss,_=answer_loss(model,batch,row['answer'],processor)
+                loss,_=method.training_loss(batch,row,processor) if hasattr(method,'training_loss') else answer_loss(model,batch,row['answer'],processor)
                 if hasattr(method,'extra_loss'):loss=loss+method.extra_loss()
             if hasattr(method,'recording'):
                 method.recording(False)
@@ -330,10 +333,10 @@ def main():
             'save_checkpoints':args.save_checkpoints,
             'execution_source_sha256':{name:hashlib.sha256((Path(__file__).parent/name).read_bytes()).hexdigest()
                 for name in ['run.py','methods.py','frozen_vision.py','stage_checkpoint.py']+
-                    ([{'PASs_MoE':'pass_adapter.py','Hyper_LLaVA':'hyper_adapter.py','OSFT':'osft_adapter.py','SpaRTA':'sparta_adapter.py','ALER':'aler_adapter.py'}[args.method],'host_adam.py'] if args.method!='SMoLoRA' else [])}}
+                    ([{'PASs_MoE':'pass_adapter.py','Hyper_LLaVA':'hyper_adapter.py','OSFT':'osft_adapter.py','SpaRTA':'sparta_adapter.py','ALER':'aler_adapter.py','PaRSP':'parsp_adapter.py','FV_guided_Training':'fv_adapter.py'}[args.method],'host_adam.py']+(['native_auxiliary.py'] if args.method in ['PaRSP','FV_guided_Training'] else []) if args.method!='SMoLoRA' else [])}}
     write(run/'config.json',config)
     write(run/'environment.json',{'torch':torch.__version__,'gpu':torch.cuda.get_device_name(0),
-          'cuda_visible_devices':os.environ.get('CUDA_VISIBLE_DEVICES'),'precision':'fp16 base, fp32 adapters'})
+          'cuda_visible_devices':os.environ.get('CUDA_VISIBLE_DEVICES'),'cpu_intraop_threads':torch.get_num_threads(),'memory_fraction_limit':policy.get('low_load_gpu_admission',{}).get('pytorch_memory_fraction') if args.method in ['PaRSP','FV_guided_Training'] else None,'precision':'fp16 base, fp32 trainable parameters'})
     matrix=[]
     if manifest.get('initial_evaluation_cache') and args.method in ['SeqLoRA','SMoLoRA','PASs_MoE']:
         # Only the untrained base can be reused, never a trained-stage result.
@@ -414,7 +417,7 @@ def main():
                     if hasattr(method,'recording'):
                         method.recording(True)
                     with activation_storage(method),torch.autocast('cuda',dtype=torch.float16):
-                        loss,length=answer_loss(model,batch,row['answer'],processor)
+                        loss,length=method.training_loss(batch,row,processor) if hasattr(method,'training_loss') else answer_loss(model,batch,row['answer'],processor)
                         if hasattr(method,'extra_loss') and (getattr(method,'extra_loss_per_micro',False) or index==indexes[-1]):loss=loss+method.extra_loss()
                     if hasattr(method,'recording'):
                         method.recording(False)

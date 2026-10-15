@@ -11,6 +11,12 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 def make_method(model,name,instructions,embedding=None):
+    if name=='PaRSP':
+        from parsp_adapter import PaRSPMethod
+        return PaRSPMethod(model,name,instructions,embedding)
+    if name=='FV_guided_Training':
+        from fv_adapter import FVMethod
+        return FVMethod(model,name,instructions,embedding)
     if name=='Hyper_LLaVA':
         from hyper_adapter import HyperMethod
         return HyperMethod(model,name,instructions,embedding)

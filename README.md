@@ -58,7 +58,7 @@
 
 计划比较二维表中的 **SMoLoRA、PASs-MoE、Hyper-LLaVA、PaRSP、OSFT、SpaRTA、FV-guided Training、ALER** 八种非回放论文方法。不运行 SeqLoRA。必须保留作者核心机制，并公开 Qwen2-VL 与小数据适配差异；下载源码不等于完成适配或开始实验。
 
-当前状态以 [对比进度](summary/ten_task_cl_20261014_geo_fin/comparison_report.md) 为准；方法依据和固定源码版本见 [code/README.md](code/README.md)。最多三张卡按空闲状态分配独立方法；GPU0保留。六种方法已经实现，PaRSP／FV-guided Training尚在适配，不冒称八种均已运行。统一划分及训练顺序见 [本轮划分记录](data/TenTaskCL/ten_task_cl_20261014_geo_fin/README.md)。
+当前状态以 [对比进度](summary/ten_task_cl_20261014_geo_fin/comparison_report.md) 为准；方法依据和固定源码版本见 [code/README.md](code/README.md)。最多三张卡按空闲状态分配独立方法；GPU0保留。八种方法的作者机制适配均已实现；PaRSP／FV-guided在2026-10-15补齐并进入完整2B预检及正式队列，实际状态见对比进度。统一划分及训练顺序见 [本轮划分记录](data/TenTaskCL/ten_task_cl_20261014_geo_fin/README.md)。
 
 ## 本轮数据集 sample 示例
 

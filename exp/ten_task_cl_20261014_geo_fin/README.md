@@ -4,7 +4,7 @@
 
 只使用 GPU1、GPU2、GPU3；**GPU0 按用户要求保留，队列不会调度它**。每个方法占一张卡独立完成十阶段，阶段前及每阶段后都评测全部十任务。队列闲卡时才运行该方法的真实任务GPU前向／反向预检；预检权重丢弃，正式运行从统一基座重新加载。
 
-当前可执行方法：SMoLoRA、PASs-MoE、Hyper-LLaVA、OSFT、SpaRTA、ALER。另两种 PaRSP 和 FV-guided Training 尚未完成适配，注册为 adapter_pending，不能冒称已运行。具体差异见 [方法适配记录](METHOD_ADAPTATIONS.md)，实时状态见 [本轮汇总](../../summary/ten_task_cl_20261014_geo_fin/report.md)。
+八种作者机制均已实现并通过CPU检查；PaRSP／FV-guided在2026-10-15补齐原生图像接口，必须通过完整2B GPU预检后才正式启动。具体差异见 [方法适配记录](METHOD_ADAPTATIONS.md)，实时状态见 [本轮汇总](../../summary/ten_task_cl_20261014_geo_fin/report.md)。
 
 调度入口：`.vision-env/bin/python exp/ten_task_cl_20261014_geo_fin/parallel_queue.py`。现有后台调度器已经启动，不要再启动第二份；`.queue.lock` 防重复。allowed_gpus／reserved_gpus 写在 execution_policy.json。
 
@@ -13,3 +13,5 @@
 不保存模型、优化器或恢复 checkpoint，方法必需参考与统计只保存在运行RAM；冻结视觉输入缓存是固定基座的输入特征缓存，不是本轮训练权重。进程中断后必须从基座重新训练；保留失败／暂停运行的日志，不混入其他运行。
 
 GPU0 上的 SMoLoRA 在训练前初始评测阶段按用户要求暂停退回队列，没有丢弃已训练参数。PASs-MoE 初始评测曾因作者导入环境引起默认ASCII写文件失败；本轮明确使用UTF-8文件及进程环境，失败日志留存，后续独立重跑。旧 ten_task_cl_20261012 的队列和结果均不参与本轮。
+
+GPU1/2/3若被其他低负载进程部分占用，PaRSP／FV允许在空余≥19000MiB且利用率<10%时做有上限的GPU预检；PyTorch显存上限75%，不终止别人任务。作者机制与Qwen适配差异详见METHOD_ADAPTATIONS.md。
