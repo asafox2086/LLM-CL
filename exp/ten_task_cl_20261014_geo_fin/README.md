@@ -15,3 +15,5 @@
 GPU0 上的 SMoLoRA 在训练前初始评测阶段按用户要求暂停退回队列，没有丢弃已训练参数。PASs-MoE 初始评测曾因作者导入环境引起默认ASCII写文件失败；本轮明确使用UTF-8文件及进程环境，失败日志留存，后续独立重跑。旧 ten_task_cl_20261012 的队列和结果均不参与本轮。
 
 GPU1/2/3若被其他低负载进程部分占用，PaRSP／FV允许在空余≥19000MiB且利用率<10%时做有上限的GPU预检；PyTorch显存上限75%，不终止别人任务。作者机制与Qwen适配差异详见METHOD_ADAPTATIONS.md。
+
+2026-10-15 12:35:59（北京时间）主机重启后的三次未完成尝试已记录在summary本轮/interrupted_attempts.json，旧日志保留、独立run_id重跑，不复用旧预测。五个完成方法的27500条预测已再次核对。当前后台入口由`systemctl --user status llmcl-baseline-queue.service`查看；`systemctl --user restart llmcl-baseline-queue.service`只重启调度器并接管现有训练，不会停止训练进程。无需另开第二份队列。

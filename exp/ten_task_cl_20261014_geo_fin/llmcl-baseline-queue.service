@@ -1,0 +1,19 @@
+[Unit]
+Description=LLMCL frozen ten-task baseline queue
+After=basic.target
+StartLimitIntervalSec=3600
+StartLimitBurst=3
+
+[Service]
+Type=simple
+WorkingDirectory=/data1/liyapeng/program/LLMCL
+ExecStart=/data1/liyapeng/program/LLMCL/.vision-env/bin/python /data1/liyapeng/program/LLMCL/exp/ten_task_cl_20261014_geo_fin/parallel_queue.py
+Environment=PYTHONUTF8=1 PYTHONIOENCODING=utf-8 PYTHONUNBUFFERED=1 LANG=C.UTF-8 LC_ALL=C.UTF-8
+Restart=on-failure
+RestartSec=15
+KillMode=process
+StandardOutput=append:/data1/liyapeng/program/LLMCL/exp/ten_task_cl_20261014_geo_fin/pipeline_logs/queue_service.log
+StandardError=append:/data1/liyapeng/program/LLMCL/exp/ten_task_cl_20261014_geo_fin/pipeline_logs/queue_service.log
+
+[Install]
+WantedBy=default.target

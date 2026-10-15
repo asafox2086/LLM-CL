@@ -23,7 +23,7 @@ class Tokenizer:
 class ToyIO(NativeIO):
     def __init__(self,method):
         self.method,self.model=method,method.model;self.processor=SimpleNamespace(tokenizer=Tokenizer());self.cache={};self.run=Path(tempfile.mkdtemp(prefix='llmcl_cpu_aux_'));self.data={}
-        for stage in range(1,11):self.data[(stage,'train')]=[{'id':f'toy{stage}:{i}','answer':str(3+i%30),'question':'synthetic','image':bool(i%2)} for i in range(100)]
+        for stage in range(1,11):self.data[(stage,'train')]=[{'id':f'toy{stage}:{i}','answer':str(3+i%30),'question':'synthetic','image':bool(i%2) or stage==6} for i in range(100)]
     def batch(self,row,stage):
         number=int(row['id'].split(':')[1]);tokens=[5,6,7+number%50,8]
         if row['image']:

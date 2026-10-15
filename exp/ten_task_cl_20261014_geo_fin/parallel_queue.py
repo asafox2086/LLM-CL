@@ -1,9 +1,10 @@
 """New split only: one full sequential run per method, one GPU per run."""
 import os,json,time,subprocess,hashlib,fcntl,csv,io
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime,timezone,timedelta
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1];REPORT=ROOT/"summary"/HERE.name
 PY=str(ROOT/".vision-env/bin/python")
+BOOT_ID=Path("/proc/sys/kernel/random/boot_id").read_text().strip()
 METHODS=["SMoLoRA","PASs_MoE","Hyper_LLaVA","PaRSP","OSFT","SpaRTA","FV_guided_Training","ALER"]
 def write(path,obj):
  tmp=path.with_suffix(path.suffix+".tmp");tmp.write_text(json.dumps(obj,ensure_ascii=False,indent=2)+"\n");tmp.replace(path)
@@ -21,6 +22,10 @@ def spawn(name,run,gpu,preflight):
  env=environment(gpu)
  if name=="PaRSP":env.update(OMP_NUM_THREADS="8",MKL_NUM_THREADS="8")
  return subprocess.Popen(cmd,cwd=ROOT,env=env,stdout=h,stderr=subprocess.STDOUT),h
+def record_interruption(name,job,reason):
+ record={"method":name,"previous_run_dir":job["run_dir"],"previous_phase":job["status"],"last_completed_stage":job.get("completed_stage",0),"reason":reason,"restart_from_base_required":True,"checkpoint_saved":False,"boot_id":BOOT_ID,"detected_beijing":datetime.now(timezone(timedelta(hours=8))).isoformat(),"old_predictions_never_merged":True}
+ run=ROOT/job["run_dir"];write(run/"interruption.json",record)
+ path=REPORT/"interrupted_attempts.json";history=json.loads(path.read_text()) if path.exists() else [];write(path,history+[record])
 class AttachedProcess:
  def __init__(self,pid,run,phase):self.pid,self.run,self.phase=pid,run,phase
  def poll(self):
@@ -43,7 +48,10 @@ if old.exists():
    jobs[name]=job;continue
   if job["status"] not in ["running","gpu_preflight"]:continue
   pid=job["pid"];proc=Path("/proc")/str(pid)
-  if not proc.exists():continue
+  if prior.get("boot_id") and prior["boot_id"]!=BOOT_ID:
+   record_interruption(name,job,"host_reboot");continue
+  if not proc.exists():
+   record_interruption(name,job,"process_missing");continue
   run=ROOT/job["run_dir"];assert proc.stat().st_uid==os.getuid() and str(run).encode() in (proc/"cmdline").read_bytes()
   phase="training" if job["status"]=="running" else "preflight";handle=(run/"logs/supervisor_adoption.log").open("a");jobs[name]=job
   active[name]=(AttachedProcess(pid,run,phase),handle,run,job["gpu"],phase)
@@ -85,7 +93,7 @@ while True:
   run=HERE/"runs"/name/"seed_42"/runid;(run/"logs").mkdir(parents=True,exist_ok=False)
   write(run/"split_identity.json",{"experiment_id":HERE.name,"manifest_sha256":policy["manifest_sha256"],"split_lock":policy["split_lock"],"seed":42,"training_order_shared":True})
   proc,h=spawn(name,run,gpu,True);active[name]=(proc,h,run,gpu,"preflight");jobs[name].update(status="gpu_preflight",gpu=gpu,pid=proc.pid,run_dir=str(run.relative_to(ROOT)))
- status={"experiment_id":HERE.name,"experiment_budget_id":policy["experiment_budget_id"],"manifest_sha256":policy["manifest_sha256"],"split_lock":policy["split_lock"],"updated_unix":time.time(),"phase":"parallel_preflight_or_training","launcher_pid":os.getpid(),"task_counts":{"train":100,"dev":0,"test":50},"seed":42,"save_checkpoints":False,"allowed_gpus":policy.get("allowed_gpus",[1,2,3]),"reserved_gpus":policy.get("reserved_gpus",[0]),"training_started":any(x["status"]=="running" for x in jobs.values()),"jobs":jobs}
+ status={"experiment_id":HERE.name,"experiment_budget_id":policy["experiment_budget_id"],"manifest_sha256":policy["manifest_sha256"],"split_lock":policy["split_lock"],"updated_unix":time.time(),"boot_id":BOOT_ID,"phase":"parallel_preflight_or_training","launcher_pid":os.getpid(),"task_counts":{"train":100,"dev":0,"test":50},"seed":42,"save_checkpoints":False,"allowed_gpus":policy.get("allowed_gpus",[1,2,3]),"reserved_gpus":policy.get("reserved_gpus",[0]),"training_started":any(x["status"]=="running" for x in jobs.values()),"jobs":jobs}
  write(REPORT/"run_status.json",status);write(REPORT/"comparison_status.json",{"experiment_id":HERE.name,"paper_methods":jobs,"manifest_sha256":policy["manifest_sha256"]})
  lines=["# 本轮并发基线状态","",f"实验：{HERE.name}；同一划分 SHA-256：`{policy['manifest_sha256']}`。","", "GPU0保留；仅GPU1/2/3并发。每方法独立完成 T1→T10，阶段前／后评测全部十任务。100 训练／50 测试；seed42；无验证、无 checkpoint。","", "| 方法 | 状态 | GPU | 完成阶段 |","|---|---|---|---|"]
  lines += [f"| {n} | {v['status']} | {v.get('gpu', '')} | {v['completed_stage']} |" for n,v in jobs.items()]
@@ -93,4 +101,5 @@ while True:
  for n in ["report.md","comparison_report.md"]:(REPORT/n).write_text("\n".join(lines)+"\n")
  from collect_report import collect
  collect()
+ if all(job["status"]=="completed" for job in jobs.values()):break
  time.sleep(15)

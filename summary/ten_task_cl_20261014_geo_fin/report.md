@@ -6,13 +6,13 @@ GPU0保留；仅GPU1/2/3并发。每方法独立完成 T1→T10，阶段前／�
 
 | 方法 | 状态 | GPU | 完成阶段 |
 |---|---|---|---|
-| SMoLoRA | running | 3 | 5 |
+| SMoLoRA | running | 1 | 0 |
 | PASs_MoE | completed | 2 | 10 |
 | Hyper_LLaVA | completed | 1 | 10 |
-| PaRSP | adapter_pending |  | 0 |
+| PaRSP | running | 2 | 0 |
 | OSFT | completed | 2 | 10 |
 | SpaRTA | completed | 1 | 10 |
-| FV_guided_Training | adapter_pending |  | 0 |
+| FV_guided_Training | running | 3 | 0 |
 | ALER | completed | 3 | 10 |
 
 adapter_pending 不表示已排队或已启动；只有保留作者机制、通过新任务 GPU 预检的方法才能正式训练。

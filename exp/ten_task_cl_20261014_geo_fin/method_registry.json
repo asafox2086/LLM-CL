@@ -17,7 +17,10 @@
     "gpu_preflight_required": true,
     "adaptation": "author Qwen attribution .38/.4, region masks then author nullspace; native image tokens intact; original GQA valid-index behavior; 100 current-task auxiliary rows, history covariance RAM only; no external MMLU; stage1 has no old-task projection, later stages protect stored past-task covariance; throwaway preflight alone seeds projection to test hardware",
     "upstream_revision": "00685fe4f9086f03ac1d1a725dcb280714e6125a",
-    "adapter_sha256": "5f933a0d2e2348e2cea94f7df1d91d383d90a76f1c52e4d6651d821363ffb529"
+    "adapter_sha256": "2af39025b69b5a177ecc5966ba86a3bac004250c99bdff9a664c1c2775dac687",
+    "hardware_smoke_scope": "2 training QA and one qkv/o/gateup/down group; real full-size 1536/8960 matrices; all groups and 100 rows in formal training",
+    "gpu_proof": "preflight/parsp_2b_gpu.json",
+    "current_formal_run": "exp/ten_task_cl_20261014_geo_fin/runs/PaRSP/seed_42/ten_task_cl_20261014_geo_fin_20261015_124825"
   },
   "OSFT": {
     "status": "ready",
@@ -38,7 +41,8 @@
     "adaptation": "author dynamic causal-NLL head_score path on Qwen; 100 mean trials /25 causal trials, ten-shot current train-only probes; original FV additive intervention and two KL (20/.1) plus head PR(1); q/v rank8 alpha16, stage merging; prefix cache equivalence CPU-verified",
     "upstream_revision": "f9f219450c6b7fdadc7b62d89feeeab9aa93968a",
     "adapter_sha256": "151ae7ddc5b7a1a1a3c8ec2b3dc69437afdcc9859b225dc04f0c744428f39f26",
-    "gpu_proof": "preflight/fv_2b_gpu.json"
+    "gpu_proof": "preflight/fv_2b_gpu.json",
+    "current_formal_run": "exp/ten_task_cl_20261014_geo_fin/runs/FV_guided_Training/seed_42/ten_task_cl_20261014_geo_fin_20261015_124144"
   },
   "ALER": {
     "status": "ready",

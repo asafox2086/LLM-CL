@@ -45,8 +45,10 @@ class ProbeView(nn.Module):
     @property
     def device(self):return self.io.device
     def forward(self,ids,**kwargs):
-        hidden=self.io.forward(self.pending,ids)
-        return (self.lm_head(hidden[:,-1:]).float(),None)
+        with torch.autocast('cuda',dtype=torch.float16):
+            hidden=self.io.forward(self.pending,ids)
+            logits=self.lm_head(hidden[:,-1:]).float()
+        return (logits,None)
 
 class ProbeTokenizer:
     def __init__(self,io,view,rows,stage):self.io,self.view,self.rows,self.stage=io,view,{str(i):row for i,row in enumerate(rows)},stage
@@ -70,7 +72,7 @@ class PaRSPMethod:
             yield f'{i}:gateup',l.mlp.gate_proj,[l.mlp.gate_proj,l.mlp.up_proj]
             yield f'{i}:down',l.mlp.down_proj,[l.mlp.down_proj]
     @torch.no_grad()
-    def covariance(self,rows,stage):
+    def covariance(self,rows,stage,keys=None):
         sums={};counts=defaultdict(int);hooks=[]
         def hook(key):
             def capture(module,args):
@@ -81,7 +83,8 @@ class PaRSPMethod:
                 else:sums[key].add_(c)
                 counts[key]+=x.shape[0]
             return capture
-        for key,module,_ in self.group_modules():hooks.append(module.register_forward_pre_hook(hook(key)))
+        for key,module,_ in self.group_modules():
+            if keys is None or key in keys:hooks.append(module.register_forward_pre_hook(hook(key)))
         try:
             for i,row in enumerate(rows):
                 with torch.autocast('cuda',dtype=torch.float16):self.io.forward(self.io.batch(row,stage))
@@ -106,7 +109,13 @@ class PaRSPMethod:
         # No external MMLU/classification calibration is introduced. Formal stage1
         # has no previous task, so the author's missing-covariance branch is a no-op.
         # Hardware preflight seeds throwaway covariances to exercise projection too.
-        if self.preflight and not self.history:self.history=self.covariance(rows,stage)
+        if self.preflight and not self.history:
+            self.preflight_group_keys=set()
+            kinds=set()
+            for key,_,_ in self.group_modules():
+                index,kind=key.split(':');active=(int(index) in attn if kind in ['qkv','o'] else int(index) in ffn)
+                if active and kind not in kinds:self.preflight_group_keys.add(key);kinds.add(kind)
+            self.history=self.covariance(rows,stage,self.preflight_group_keys)
         for i,layer in enumerate(self.model.model.layers):
             if i in attn:layer.self_attn.float()
             if i in ffn:layer.mlp.float()
@@ -123,12 +132,22 @@ class PaRSPMethod:
         for key,_,modules in self.group_modules():
             selected=[m for m in modules if m.weight.requires_grad]
             if not selected or key not in self.history:continue
+            if self.preflight and key not in self.preflight_group_keys:continue
             P=self.kernel['common_null_space_projector_sum_method_qwen'](self.history[key],rcond=1e-6,min_ratio=.2,use_cache=False,layer_name=key)
             self.projectors[key]=P
             for module in selected:
                 def project(grad,P=P):
                     with torch.autocast('cuda',enabled=False):return grad@P.to(device=grad.device,dtype=grad.dtype)
                 self.handles.append(module.weight.register_hook(project))
+        if self.preflight:
+            # Exercise a later-task native image probe AFTER selected layers are FP32.
+            # This catches stage-boundary mixed-precision failures before formal training.
+            probe=self.io.stage_rows(6)[0]
+            with self.kernel['QwenIntermediatesWrapper'](ProbeView(self.io)) as wrapped:
+                tok=ProbeTokenizer(self.io,wrapped.model,[probe],6)
+                loc=self.kernel['NeuronLocalizationQwen'](wrapped,tok,str(self.model.device))
+                loc.get_top_attribute_layers(['0#'],[probe['answer']],layer_ratio=.38,max_length=4096)
+            self.io.record('parsp_mixed_precision_image_probe.json',{'passed':True,'task':6,'training_qa_id':probe['id'],'old_selected_layers_fp32':True,'native_image_tokens_intact':True})
         self.stage=stage;self.selection={'stage':stage,'attention_layers':attn,'ffn_layers':ffn,'ffn_neurons':neurons_ffn,'attention_neurons':neurons_attn,'auxiliary_train_ids':[x['id'] for x in rows],'seconds':time.monotonic()-started,'layer_ratio':.38,'neuron_ratio':.4,'probe_count':len(rows),'nullspace_min_ratio':.2,'preflight_only':self.preflight,'protected_history_covariance':bool(self.projectors),'historical_qa_replayed':0,'trainable_parameters':sum(p.numel() for p in self.model.parameters() if p.requires_grad)}
         self.io.record(f'parsp_stage_{stage:02d}.json',self.selection);self.model.train();print(json.dumps({'event':'parsp_localization_ready','stage':stage,'seconds':self.selection['seconds'],'trainable_parameters':self.selection['trainable_parameters']}),flush=True)
     @torch.no_grad()
