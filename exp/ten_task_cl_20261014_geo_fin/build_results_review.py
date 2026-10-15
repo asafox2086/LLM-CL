@@ -97,7 +97,9 @@ def main():
                 assert math.isclose(value, recorded[score][key], abs_tol=1e-7)
             final_rows.append({'method': DISPLAY.get(method, method),
                                'category': 'architecture' if method in ARCH else 'regularization',
-                               'score': score, **values, 'seed': 42, 'run_dir': job['run_dir']})
+                               'score': score,
+                               **{f'T{j+1:02d}': v for j, v in enumerate(matrices[score][10])},
+                               **values, 'seed': 42, 'run_dir': job['run_dir']})
             dump_csv(REVIEW / f'{method}_{score}_11x10.csv',
                      [dict(stage=i, **{f'T{j+1:02d}': v for j, v in enumerate(row)})
                       for i, row in enumerate(matrices[score])],
@@ -132,7 +134,8 @@ def main():
         save_png_pdf(fig, str(REVIEW / f'{method}_task_trajectories_rougeL'))
         plt.close(fig)
     dump_csv(REVIEW / 'final_metrics_all_scores.csv', final_rows,
-             ['method', 'category', 'score', 'AP', 'ForgetRate', 'FWT', 'BWT', 'seed', 'run_dir'])
+             ['method', 'category', 'score'] + [f'T{j:02d}' for j in range(1, 11)] +
+             ['AP', 'ForgetRate', 'FWT', 'BWT', 'seed', 'run_dir'])
     (REVIEW / 'verified_snapshot.json').write_text(json.dumps(snapshot, ensure_ascii=False, indent=2) + '\n')
     lines = ['# 已完成结果：逐阶段十任务性能与最终指标', '',
              f"生成时间：{snapshot['created_at']}。本报告是独立快照，实时队列不会覆盖。", '',
@@ -151,10 +154,15 @@ def main():
         lines.append(f"| {DISPLAY.get(m,m)} | 持续微调 → {'基于架构' if m in ARCH else '基于正则化'} | {MECHANISM[m]} | {state} |")
     lines += ['', '论文链接见[仓库二维表](../../README.md)，实现与原作者设置的差异见[方法适配记录](../../exp/' + EXP + '/METHOD_ADAPTATIONS.md)。以下是统一小模型、小样本设置下的适配结果，不是原论文排行榜数值。OSFT、ALER 包含更重的全量参数更新，不能据此假定各方法训练成本相同。', '', '## 最终指标汇总']
     for score, label in SCORES.items():
-        lines += ['', f'### {label}', '', '| 方法 | AP ↑ | ForgetRate ↓ | FWT ↑ | BWT ↑ |', '|---|---:|---:|---:|---:|']
+        lines += ['', f'### {label}', '',
+                  'T1–T10 均为**完成全部十阶段训练后（S10）**，在各任务固定 50 条测试 QA 上的分数。EM 为归一化答案完全匹配准确率（%）；Token F1、ROUGE-L 为对应分数（0–100）。AP 是本行十个任务最终分数的算术平均；其余持续学习指标仍由完整 11×10 矩阵计算。', '',
+                  '| 方法 | ' + ' | '.join(f'T{j}' for j in range(1, 11)) +
+                  ' | AP ↑ | ForgetRate ↓ | FWT ↑ | BWT ↑ |',
+                  '|---|' + '---:|' * 14]
         for row in final_rows:
             if row['score'] == score:
-                lines.append('| ' + row['method'] + ' | ' + ' | '.join(f"{row[k]:.3f}" for k in ['AP', 'ForgetRate', 'FWT', 'BWT']) + ' |')
+                columns = [f'T{j:02d}' for j in range(1, 11)] + ['AP', 'ForgetRate', 'FWT', 'BWT']
+                lines.append('| ' + row['method'] + ' | ' + ' | '.join(f"{row[k]:.3f}" for k in columns) + ' |')
     lines += ['', '### 指标定义与解释', '',
               '令 R[i,j] 为完成第 i 阶段后在任务 j 上的分数（i=0…10，j=1…10）。每一种评分分别从自己的完整 11×10 矩阵计算：', '',
               '- AP = mean(j=1…10) R[10,j]：最终平均性能。',
@@ -169,7 +177,7 @@ def main():
                   f'![{DISPLAY.get(m,m)} 的 10 条任务曲线，每条 11 个训练阶段节点](results_review/{m}_task_trajectories_rougeL.png)', '',
                   f'[矢量 PDF](results_review/{m}_task_trajectories_rougeL.pdf) · [ROUGE-L 11×10 数据](results_review/{m}_rougeL_11x10.csv) · [EM 矩阵](results_review/{m}_exact_match_11x10.csv) · [Token F1 矩阵](results_review/{m}_token_f1_11x10.csv)']
     lines += ['', '## 可追溯文件', '',
-              '- [全部最终指标 CSV](results_review/final_metrics_all_scores.csv)：三种评分各自的 AP、ForgetRate、FWT、BWT，保留完整精度。',
+              '- [完整主表 CSV](results_review/final_metrics_all_scores.csv)：三种评分各自的最终 T1–T10 分数及 AP、ForgetRate、FWT、BWT，保留完整精度。',
               '- [核验快照与绘图原始数值](results_review/verified_snapshot.json)：实际 run 路径、配置、完整矩阵、逐预测文件 SHA-256。',
               '- [按任务明细](task_metrics.csv)及[按来源数据集明细](dataset_metrics.csv)：EM 正确数／总数及其他分数；这两个文件随队列更新。',
               f'- [可复现生成脚本](../../exp/{EXP}/build_results_review.py)：CPU 绘图，不占用训练 GPU。', '',
