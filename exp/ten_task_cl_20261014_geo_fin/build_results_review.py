@@ -106,32 +106,30 @@ def main():
                                       'matrices': matrices, 'metrics': result,
                                       'verified_cells': 110, 'verified_predictions': 5500,
                                       'prediction_sha256': hashes}
-        # Adapt the repository's line-chart template; stage colors are shared across methods.
+        # Each line is one fixed test task across the eleven training stages.
         setup_style('line')
         fig, ax = plt.subplots(figsize=(11.8, 6.8), dpi=300)
-        colors = ['#777777'] + [matplotlib.colors.to_hex(plt.cm.viridis(x)) for x in np.linspace(.1, .92, 10)]
+        colors = [matplotlib.colors.to_hex(plt.cm.tab10(i)) for i in range(10)]
         markers = ['o', 'D', '^', 's', 'v', 'P', 'X', '<', '>', 'h', '*']
-        for stage, row in enumerate(matrices['rougeL']):
-            ax.plot(range(1, 11), row, color=colors[stage],
-                    label='S0: initial' if stage == 0 else f'S{stage}: after T{stage}',
-                    marker=markers[stage], markersize=5.8, markerfacecolor=colors[stage],
-                    markeredgecolor=darken_color(colors[stage], .65), markeredgewidth=.8,
-                    linewidth=2.6 if stage == 10 else 1.5,
-                    linestyle='--' if stage == 0 else '-', zorder=4 if stage == 10 else 3)
-        ax.set(xlim=(.75, 10.25), ylim=(0, 100), xticks=range(1, 11),
-               xticklabels=[f'T{i}' for i in range(1, 11)],
-               xlabel='Test task (text then image in each domain)', ylabel='ROUGE-L F1 (0–100)')
+        task_labels = ['General text', 'General image', 'Medical text', 'Medical image',
+                       'Geography text', 'Remote sensing image', 'Finance text',
+                       'Finance chart', 'Art/culture text', 'Art/culture image']
+        for task, row in enumerate(np.asarray(matrices['rougeL']).T):
+            ax.plot(range(11), row, color=colors[task],
+                    label=f'T{task+1}: {task_labels[task]}',
+                    marker=markers[task], markersize=5.8, markerfacecolor=colors[task],
+                    markeredgecolor=darken_color(colors[task], .65), markeredgewidth=.8,
+                    linewidth=1.8, linestyle='--' if task % 2 == 0 else '-', zorder=3)
+        ax.set(xlim=(-.25, 10.25), ylim=(0, 100), xticks=range(11),
+               xticklabels=[f'S{i}' for i in range(11)],
+               xlabel='Completed training stage (S0 = initial; Si = after training Ti)', ylabel='ROUGE-L F1 (0–100)')
         category = 'Architecture' if method in ARCH else 'Regularization'
         ax.set_title(f'{DISPLAY.get(method, method)} | Continual fine-tuning / {category}',
                      fontsize=16, fontweight='bold', pad=16)
         ax.legend(loc='center left', bbox_to_anchor=(1.01, .5), frameon=False, fontsize=10)
         polish_axes(ax)
-        for x, domain in zip([1.5, 3.5, 5.5, 7.5, 9.5],
-                             ['Natural/general', 'Medicine', 'Geography/RS', 'Finance', 'Art/culture']):
-            ax.text(x, -.19, domain, transform=ax.get_xaxis_transform(),
-                    ha='center', va='top', fontsize=9)
-        fig.subplots_adjust(left=.09, right=.78, bottom=.17, top=.89)
-        save_png_pdf(fig, str(REVIEW / f'{method}_stage_task_rougeL'))
+        fig.subplots_adjust(left=.09, right=.72, bottom=.17, top=.89)
+        save_png_pdf(fig, str(REVIEW / f'{method}_task_trajectories_rougeL'))
         plt.close(fig)
     dump_csv(REVIEW / 'final_metrics_all_scores.csv', final_rows,
              ['method', 'category', 'score', 'AP', 'ForgetRate', 'FWT', 'BWT', 'seed', 'run_dir'])
@@ -141,8 +139,8 @@ def main():
              f"已完成 **{len(snapshot['methods'])}/8** 个方法，每个方法核验 **110 个评测单元、5500 条逐题预测**，ID 与冻结测试集一致；逐题分数均值与矩阵、最终指标交叉核对通过。", '',
              '基座 Qwen2-VL-2B-Instruct；每任务训练 100／测试 50，无验证集；一轮训练；仅 seed 42；不保存 checkpoint。所有方法使用相同冻结样本及训练顺序。', '',
              '## 图怎么读', '',
-             '每个完成的方法一张图，**11 条折线，每条 10 个节点**。横轴 T1–T10 是测试任务；S0 是训练前，S1–S10 分别是完成相应训练阶段后的十任务评测。颜色和标记在所有方法间一致；纵轴统一为 0–100 的 ROUGE-L F1，越高越好。', '',
-             '同一条线连接的是不同测试任务；观察同一任务在 11 条线上的纵向变化，才是该任务随训练的性能变化。没有插值、平滑或缺失值补齐。', '',
+             '每个完成的方法一张图，**10 条折线分别代表 T1–T10，每条 11 个节点**。横轴 S0–S10 是训练阶段；S0 是训练前，Si 是完成任务 Ti 训练后的评测。颜色和标记在所有方法间一致；纵轴统一为 0–100 的 ROUGE-L F1，越高越好。', '',
+             '沿同一条线从左向右看，就是固定任务随持续学习的真实性能轨迹。Sj 是任务 Tj 刚学完的位置，之后的下降体现遗忘；之前的变化反映未学习任务的迁移。未学习任务也保留实际评测值。没有插值、平滑或缺失值补齐。此前以任务为横轴的阶段快照图不用于判断时间变化，主图现已纠正。', '',
              '| 任务 | 领域 | 模态 | 数据集 |', '|---|---|---|---|']
     lines += [f'| T{i} | {d} | {m} | {s} |' for i, (d, m, s) in enumerate(TASKS, 1)]
     lines += ['', '## 论文二维表中的定义', '',
@@ -168,8 +166,8 @@ def main():
     for m in snapshot['methods']:
         lines += ['', f'### {DISPLAY.get(m,m)}', '',
                   f"二维表定位：持续微调 → {'基于架构' if m in ARCH else '基于正则化'}。{MECHANISM[m]}", '',
-                  f'![{DISPLAY.get(m,m)} 的 11 条阶段曲线，每条 10 个测试任务节点](results_review/{m}_stage_task_rougeL.png)', '',
-                  f'[矢量 PDF](results_review/{m}_stage_task_rougeL.pdf) · [ROUGE-L 11×10 数据](results_review/{m}_rougeL_11x10.csv) · [EM 矩阵](results_review/{m}_exact_match_11x10.csv) · [Token F1 矩阵](results_review/{m}_token_f1_11x10.csv)']
+                  f'![{DISPLAY.get(m,m)} 的 10 条任务曲线，每条 11 个训练阶段节点](results_review/{m}_task_trajectories_rougeL.png)', '',
+                  f'[矢量 PDF](results_review/{m}_task_trajectories_rougeL.pdf) · [ROUGE-L 11×10 数据](results_review/{m}_rougeL_11x10.csv) · [EM 矩阵](results_review/{m}_exact_match_11x10.csv) · [Token F1 矩阵](results_review/{m}_token_f1_11x10.csv)']
     lines += ['', '## 可追溯文件', '',
               '- [全部最终指标 CSV](results_review/final_metrics_all_scores.csv)：三种评分各自的 AP、ForgetRate、FWT、BWT，保留完整精度。',
               '- [核验快照与绘图原始数值](results_review/verified_snapshot.json)：实际 run 路径、配置、完整矩阵、逐预测文件 SHA-256。',

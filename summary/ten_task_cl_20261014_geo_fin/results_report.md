@@ -1,6 +1,6 @@
 # 已完成结果：逐阶段十任务性能与最终指标
 
-生成时间：2026-10-15T13:34:47.621562+08:00。本报告是独立快照，实时队列不会覆盖。
+生成时间：2026-10-15T13:38:49.567116+08:00。本报告是独立快照，实时队列不会覆盖。
 
 已完成 **5/8** 个方法，每个方法核验 **110 个评测单元、5500 条逐题预测**，ID 与冻结测试集一致；逐题分数均值与矩阵、最终指标交叉核对通过。
 
@@ -8,9 +8,9 @@
 
 ## 图怎么读
 
-每个完成的方法一张图，**11 条折线，每条 10 个节点**。横轴 T1–T10 是测试任务；S0 是训练前，S1–S10 分别是完成相应训练阶段后的十任务评测。颜色和标记在所有方法间一致；纵轴统一为 0–100 的 ROUGE-L F1，越高越好。
+每个完成的方法一张图，**10 条折线分别代表 T1–T10，每条 11 个节点**。横轴 S0–S10 是训练阶段；S0 是训练前，Si 是完成任务 Ti 训练后的评测。颜色和标记在所有方法间一致；纵轴统一为 0–100 的 ROUGE-L F1，越高越好。
 
-同一条线连接的是不同测试任务；观察同一任务在 11 条线上的纵向变化，才是该任务随训练的性能变化。没有插值、平滑或缺失值补齐。
+沿同一条线从左向右看，就是固定任务随持续学习的真实性能轨迹。Sj 是任务 Tj 刚学完的位置，之后的下降体现遗忘；之前的变化反映未学习任务的迁移。未学习任务也保留实际评测值。没有插值、平滑或缺失值补齐。此前以任务为横轴的阶段快照图不用于判断时间变化，主图现已纠正。
 
 | 任务 | 领域 | 模态 | 数据集 |
 |---|---|---|---|
@@ -91,41 +91,41 @@
 
 二维表定位：持续微调 → 基于架构。路径激活子空间约束路由器与专家的协同变化。
 
-![PASs-MoE 的 11 条阶段曲线，每条 10 个测试任务节点](results_review/PASs_MoE_stage_task_rougeL.png)
+![PASs-MoE 的 10 条任务曲线，每条 11 个训练阶段节点](results_review/PASs_MoE_task_trajectories_rougeL.png)
 
-[矢量 PDF](results_review/PASs_MoE_stage_task_rougeL.pdf) · [ROUGE-L 11×10 数据](results_review/PASs_MoE_rougeL_11x10.csv) · [EM 矩阵](results_review/PASs_MoE_exact_match_11x10.csv) · [Token F1 矩阵](results_review/PASs_MoE_token_f1_11x10.csv)
+[矢量 PDF](results_review/PASs_MoE_task_trajectories_rougeL.pdf) · [ROUGE-L 11×10 数据](results_review/PASs_MoE_rougeL_11x10.csv) · [EM 矩阵](results_review/PASs_MoE_exact_match_11x10.csv) · [Token F1 矩阵](results_review/PASs_MoE_token_f1_11x10.csv)
 
 ### Hyper-LLaVA
 
 二维表定位：持续微调 → 基于架构。双曲不确定性与模态平衡驱动专家路由。
 
-![Hyper-LLaVA 的 11 条阶段曲线，每条 10 个测试任务节点](results_review/Hyper_LLaVA_stage_task_rougeL.png)
+![Hyper-LLaVA 的 10 条任务曲线，每条 11 个训练阶段节点](results_review/Hyper_LLaVA_task_trajectories_rougeL.png)
 
-[矢量 PDF](results_review/Hyper_LLaVA_stage_task_rougeL.pdf) · [ROUGE-L 11×10 数据](results_review/Hyper_LLaVA_rougeL_11x10.csv) · [EM 矩阵](results_review/Hyper_LLaVA_exact_match_11x10.csv) · [Token F1 矩阵](results_review/Hyper_LLaVA_token_f1_11x10.csv)
+[矢量 PDF](results_review/Hyper_LLaVA_task_trajectories_rougeL.pdf) · [ROUGE-L 11×10 数据](results_review/Hyper_LLaVA_rougeL_11x10.csv) · [EM 矩阵](results_review/Hyper_LLaVA_exact_match_11x10.csv) · [Token F1 矩阵](results_review/Hyper_LLaVA_token_f1_11x10.csv)
 
 ### OSFT
 
 二维表定位：持续微调 → 基于正则化。约束全量微调的可更新子空间，以正交约束保护已有知识。
 
-![OSFT 的 11 条阶段曲线，每条 10 个测试任务节点](results_review/OSFT_stage_task_rougeL.png)
+![OSFT 的 10 条任务曲线，每条 11 个训练阶段节点](results_review/OSFT_task_trajectories_rougeL.png)
 
-[矢量 PDF](results_review/OSFT_stage_task_rougeL.pdf) · [ROUGE-L 11×10 数据](results_review/OSFT_rougeL_11x10.csv) · [EM 矩阵](results_review/OSFT_exact_match_11x10.csv) · [Token F1 矩阵](results_review/OSFT_token_f1_11x10.csv)
+[矢量 PDF](results_review/OSFT_task_trajectories_rougeL.pdf) · [ROUGE-L 11×10 数据](results_review/OSFT_rougeL_11x10.csv) · [EM 矩阵](results_review/OSFT_exact_match_11x10.csv) · [Token F1 矩阵](results_review/OSFT_token_f1_11x10.csv)
 
 ### SpaRTA
 
 二维表定位：持续微调 → 基于正则化。秩感知的任务适配及正交约束，分离可塑与稳定部分。
 
-![SpaRTA 的 11 条阶段曲线，每条 10 个测试任务节点](results_review/SpaRTA_stage_task_rougeL.png)
+![SpaRTA 的 10 条任务曲线，每条 11 个训练阶段节点](results_review/SpaRTA_task_trajectories_rougeL.png)
 
-[矢量 PDF](results_review/SpaRTA_stage_task_rougeL.pdf) · [ROUGE-L 11×10 数据](results_review/SpaRTA_rougeL_11x10.csv) · [EM 矩阵](results_review/SpaRTA_exact_match_11x10.csv) · [Token F1 矩阵](results_review/SpaRTA_token_f1_11x10.csv)
+[矢量 PDF](results_review/SpaRTA_task_trajectories_rougeL.pdf) · [ROUGE-L 11×10 数据](results_review/SpaRTA_rougeL_11x10.csv) · [EM 矩阵](results_review/SpaRTA_exact_match_11x10.csv) · [Token F1 矩阵](results_review/SpaRTA_token_f1_11x10.csv)
 
 ### ALER
 
 二维表定位：持续微调 → 基于正则化。对抗潜在嵌入搜索及修复约束，抑制遗忘。
 
-![ALER 的 11 条阶段曲线，每条 10 个测试任务节点](results_review/ALER_stage_task_rougeL.png)
+![ALER 的 10 条任务曲线，每条 11 个训练阶段节点](results_review/ALER_task_trajectories_rougeL.png)
 
-[矢量 PDF](results_review/ALER_stage_task_rougeL.pdf) · [ROUGE-L 11×10 数据](results_review/ALER_rougeL_11x10.csv) · [EM 矩阵](results_review/ALER_exact_match_11x10.csv) · [Token F1 矩阵](results_review/ALER_token_f1_11x10.csv)
+[矢量 PDF](results_review/ALER_task_trajectories_rougeL.pdf) · [ROUGE-L 11×10 数据](results_review/ALER_rougeL_11x10.csv) · [EM 矩阵](results_review/ALER_exact_match_11x10.csv) · [Token F1 矩阵](results_review/ALER_token_f1_11x10.csv)
 
 ## 可追溯文件
 

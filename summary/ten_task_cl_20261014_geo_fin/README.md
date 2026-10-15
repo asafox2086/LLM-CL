@@ -1,6 +1,6 @@
 # 本轮独立实验报告
 
-[已完成结果报告：每方法 11 条×10 节点折线及最终指标](results_report.md)
+[已完成结果报告：每方法 10 条任务曲线×11 阶段节点及最终指标](results_report.md)
 
 实验 `ten_task_cl_20261014_geo_fin`；共同 manifest SHA `dab25e3940758cfac3e1bb16da5305ce6393dfa4eb22e1c39d4f99a28fdc4208`。样本划分见 [记录](../../data/TenTaskCL/ten_task_cl_20261014_geo_fin/README.md)。
 
