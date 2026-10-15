@@ -6,12 +6,12 @@ GPU0保留；仅GPU1/2/3并发。每方法独立完成 T1→T10，阶段前／�
 
 | 方法 | 状态 | GPU | 完成阶段 |
 |---|---|---|---|
-| SMoLoRA | running | 3 | 0 |
-| PASs_MoE | waiting_gpu |  | 0 |
-| Hyper_LLaVA | waiting_gpu |  | 0 |
+| SMoLoRA | running | 3 | 5 |
+| PASs_MoE | completed | 2 | 10 |
+| Hyper_LLaVA | completed | 1 | 10 |
 | PaRSP | adapter_pending |  | 0 |
-| OSFT | running | 2 | 6 |
-| SpaRTA | running | 1 | 7 |
+| OSFT | completed | 2 | 10 |
+| SpaRTA | completed | 1 | 10 |
 | FV_guided_Training | adapter_pending |  | 0 |
 | ALER | completed | 3 | 10 |
 
