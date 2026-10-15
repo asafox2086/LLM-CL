@@ -1,0 +1,238 @@
+{
+  "created_at": "2026-10-15T18:48:43.030456+08:00",
+  "manifest_sha256": "dab25e3940758cfac3e1bb16da5305ce6393dfa4eb22e1c39d4f99a28fdc4208",
+  "methods": [
+    "PASs_MoE",
+    "Hyper_LLaVA",
+    "OSFT",
+    "SpaRTA",
+    "FV_guided_Training",
+    "ALER"
+  ],
+  "status_snapshot": {
+    "experiment_id": "ten_task_cl_20261014_geo_fin",
+    "experiment_budget_id": "ten_task_cl_20261014_geo_fin_100_0_50_seed42",
+    "manifest_sha256": "dab25e3940758cfac3e1bb16da5305ce6393dfa4eb22e1c39d4f99a28fdc4208",
+    "split_lock": "data/TenTaskCL/ten_task_cl_20261014_geo_fin/split_lock.json",
+    "updated_unix": 1792061316.5953636,
+    "boot_id": "037af982-e1ba-4279-a125-0e2a41ba2d3c",
+    "phase": "parallel_preflight_or_training",
+    "launcher_pid": 4777,
+    "task_counts": {
+      "train": 100,
+      "dev": 0,
+      "test": 50
+    },
+    "seed": 42,
+    "save_checkpoints": false,
+    "allowed_gpus": [
+      1,
+      2,
+      3
+    ],
+    "reserved_gpus": [
+      0
+    ],
+    "training_started": true,
+    "jobs": {
+      "SMoLoRA": {
+        "status": "running",
+        "completed_stage": 1,
+        "seed": 42,
+        "gpu": 1,
+        "pid": 4428,
+        "run_dir": "exp/ten_task_cl_20261014_geo_fin/runs/SMoLoRA/seed_42/ten_task_cl_20261014_geo_fin_20261015_124144",
+        "preflight_passed": true
+      },
+      "PASs_MoE": {
+        "status": "completed",
+        "completed_stage": 10,
+        "seed": 42,
+        "gpu": 2,
+        "pid": 1533201,
+        "run_dir": "exp/ten_task_cl_20261014_geo_fin/runs/PASs_MoE/seed_42/ten_task_cl_20261014_geo_fin_20261014_214151",
+        "preflight_passed": true,
+        "figures_requested": true
+      },
+      "Hyper_LLaVA": {
+        "status": "completed",
+        "completed_stage": 10,
+        "seed": 42,
+        "gpu": 1,
+        "pid": 1691408,
+        "run_dir": "exp/ten_task_cl_20261014_geo_fin/runs/Hyper_LLaVA/seed_42/ten_task_cl_20261014_geo_fin_20261014_214151",
+        "preflight_passed": true,
+        "figures_requested": true
+      },
+      "PaRSP": {
+        "status": "running",
+        "completed_stage": 9,
+        "seed": 42,
+        "gpu": 2,
+        "pid": 4833,
+        "run_dir": "exp/ten_task_cl_20261014_geo_fin/runs/PaRSP/seed_42/ten_task_cl_20261014_geo_fin_20261015_124825",
+        "preflight_passed": true
+      },
+      "OSFT": {
+        "status": "completed",
+        "completed_stage": 10,
+        "seed": 42,
+        "gpu": 2,
+        "pid": 1169930,
+        "run_dir": "exp/ten_task_cl_20261014_geo_fin/runs/OSFT/seed_42/ten_task_cl_20261014_geo_fin_20261014_205644",
+        "preflight_passed": true,
+        "figures_requested": true
+      },
+      "SpaRTA": {
+        "status": "completed",
+        "completed_stage": 10,
+        "seed": 42,
+        "gpu": 1,
+        "pid": 1187187,
+        "run_dir": "exp/ten_task_cl_20261014_geo_fin/runs/SpaRTA/seed_42/ten_task_cl_20261014_geo_fin_20261014_205644",
+        "preflight_passed": true,
+        "figures_requested": true
+      },
+      "FV_guided_Training": {
+        "status": "completed",
+        "completed_stage": 10,
+        "seed": 42,
+        "gpu": 3,
+        "pid": 4311,
+        "run_dir": "exp/ten_task_cl_20261014_geo_fin/runs/FV_guided_Training/seed_42/ten_task_cl_20261014_geo_fin_20261015_124144",
+        "preflight_passed": true,
+        "figures_requested": true
+      },
+      "ALER": {
+        "status": "completed",
+        "completed_stage": 10,
+        "seed": 42,
+        "gpu": 3,
+        "pid": 1171114,
+        "run_dir": "exp/ten_task_cl_20261014_geo_fin/runs/ALER/seed_42/ten_task_cl_20261014_geo_fin_20261014_205644",
+        "preflight_passed": true,
+        "figures_requested": true
+      }
+    }
+  },
+  "verified_predictions": 33000,
+  "input_conditions": [
+    {
+      "task": 1,
+      "n": 50,
+      "with_context": 50,
+      "with_image": 0,
+      "context_over_6000": 0,
+      "reference_tokens_mean": 3.68,
+      "reference_tokens_max": 10,
+      "shortest_reference_over_generation_cap": 0,
+      "output_cap": 128
+    },
+    {
+      "task": 2,
+      "n": 50,
+      "with_context": 0,
+      "with_image": 50,
+      "context_over_6000": 0,
+      "reference_tokens_mean": 1.64,
+      "reference_tokens_max": 5,
+      "shortest_reference_over_generation_cap": 0,
+      "output_cap": 64
+    },
+    {
+      "task": 3,
+      "n": 50,
+      "with_context": 0,
+      "with_image": 0,
+      "context_over_6000": 0,
+      "reference_tokens_mean": 248.06,
+      "reference_tokens_max": 813,
+      "shortest_reference_over_generation_cap": 6,
+      "output_cap": 512
+    },
+    {
+      "task": 4,
+      "n": 50,
+      "with_context": 0,
+      "with_image": 50,
+      "context_over_6000": 0,
+      "reference_tokens_mean": 4.6,
+      "reference_tokens_max": 20,
+      "shortest_reference_over_generation_cap": 0,
+      "output_cap": 64
+    },
+    {
+      "task": 5,
+      "n": 50,
+      "with_context": 0,
+      "with_image": 0,
+      "context_over_6000": 0,
+      "reference_tokens_mean": 2.3,
+      "reference_tokens_max": 7,
+      "shortest_reference_over_generation_cap": 0,
+      "output_cap": 256
+    },
+    {
+      "task": 6,
+      "n": 50,
+      "with_context": 0,
+      "with_image": 50,
+      "context_over_6000": 0,
+      "reference_tokens_mean": 33.74,
+      "reference_tokens_max": 164,
+      "shortest_reference_over_generation_cap": 0,
+      "output_cap": 256
+    },
+    {
+      "task": 7,
+      "n": 50,
+      "with_context": 50,
+      "with_image": 0,
+      "context_over_6000": 2,
+      "reference_tokens_mean": 4.78,
+      "reference_tokens_max": 10,
+      "shortest_reference_over_generation_cap": 0,
+      "output_cap": 128
+    },
+    {
+      "task": 8,
+      "n": 50,
+      "with_context": 9,
+      "with_image": 50,
+      "context_over_6000": 7,
+      "reference_tokens_mean": 159.04,
+      "reference_tokens_max": 709,
+      "shortest_reference_over_generation_cap": 23,
+      "output_cap": 128
+    },
+    {
+      "task": 9,
+      "n": 50,
+      "with_context": 0,
+      "with_image": 0,
+      "context_over_6000": 0,
+      "reference_tokens_mean": 5.66,
+      "reference_tokens_max": 16,
+      "shortest_reference_over_generation_cap": 0,
+      "output_cap": 64
+    },
+    {
+      "task": 10,
+      "n": 50,
+      "with_context": 0,
+      "with_image": 50,
+      "context_over_6000": 0,
+      "reference_tokens_mean": 1.06,
+      "reference_tokens_max": 2,
+      "shortest_reference_over_generation_cap": 0,
+      "output_cap": 64
+    }
+  ],
+  "medical_group_rule": "question regex: organ|plane|器官|部位|哪个部分|加权方式|颜色; exploratory question-type grouping, not semantic grading",
+  "warnings": [
+    "No official scores changed",
+    "Reference containment is only a review flag, not semantic accuracy",
+    "No model checkpoints exist; post-training interventions cannot be reconstructed from predictions",
+    "Question groups are exploratory and combine different source distributions"
+  ]
+}

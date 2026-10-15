@@ -1,0 +1,817 @@
+{
+  "rule": "Last Answer: field, otherwise entire prediction; exactly one signed numeric literal; normalize comma and percent/million units; reference rounding half-unit tolerance; percent-reference raw ratio/percent ambiguity accepted. Exploratory optimistic numeric-equivalence flag, NOT FinQA official execution accuracy or replacement score.",
+  "summary": {
+    "finance_original": {
+      "n": 50,
+      "parseable": 47,
+      "numeric_equivalence_candidates": 0
+    },
+    "finance_oracle_program": {
+      "n": 50,
+      "parseable": 43,
+      "numeric_equivalence_candidates": 7
+    }
+  },
+  "details": [
+    {
+      "id": "FinQA:BKR/2017/page_56.pdf-4",
+      "arm": "finance_original",
+      "prediction": "Computations: (981 - 472)\nAnswer: 509.0.",
+      "reference": "-312",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:BKR/2017/page_56.pdf-4",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: (262 - 981)\nAnswer: -719.0.",
+      "reference": "-312",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:RSG/2013/page_123.pdf-1",
+      "arm": "finance_original",
+      "prediction": "Computations: ((28.9 - 27.8) / 27.8)\nAnswer: 0.0741.",
+      "reference": "3.95%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:RSG/2013/page_123.pdf-1",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: ((28.9 - 27.8) / 27.8)\nAnswer: 0.07419.",
+      "reference": "3.95%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:ETFC/2012/page_24.pdf-2",
+      "arm": "finance_original",
+      "prediction": "Computations: (254000 / 107000)\nAnswer: 2.3617.",
+      "reference": "2.37",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:ETFC/2012/page_24.pdf-2",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: (254000 / 107000)\nAnswer: 2.37143.",
+      "reference": "2.37",
+      "match_candidate": true,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:CDNS/2018/page_66.pdf-2",
+      "arm": "finance_original",
+      "prediction": "Computations: (91640 / 426932)\nAnswer: 0.2189.",
+      "reference": "25%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:CDNS/2018/page_66.pdf-2",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: (91640 / 426932)\nAnswer: 0.2189.",
+      "reference": "25%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:MRO/2017/page_96.pdf-3",
+      "arm": "finance_original",
+      "prediction": "Computations: ((8.00 + 8.25) + 8.00) / 3\nAnswer: 8.0.",
+      "reference": "8.08",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:MRO/2017/page_96.pdf-3",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: table_average(8.00%, 8.25%, 8.00%, none)\nAnswer: 8.0.",
+      "reference": "8.08",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:CME/2010/page_69.pdf-3",
+      "arm": "finance_original",
+      "prediction": "$ 4.46",
+      "reference": "28910000",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:CME/2010/page_69.pdf-3",
+      "arm": "finance_oracle_program",
+      "prediction": "To calculate the annual interest expense on the fixed rate notes due March 2018 after the hedge transaction, we need to first determine the effective interest rate on the notes. The effective interest rate is the interest rate that would be paid on the notes if the hedge transaction were not in place. We can use the reference computation program to calculate this rate.\n\n1. Calculate the effective interest rate on the notes:\n   - The interest rate on the notes is 4.40%.\n   - The effective interest rate is calculated as: 4.40% / (1 - 4.72% / 1",
+      "reference": "28910000",
+      "match_candidate": false,
+      "parseable": false
+    },
+    {
+      "id": "FinQA:MKTX/2004/page_99.pdf-1",
+      "arm": "finance_original",
+      "prediction": "110000000",
+      "reference": "120000000",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:MKTX/2004/page_99.pdf-1",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: (110000000 - 10000000)\nAnswer: 109000000.0.",
+      "reference": "120000000",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:WRK/2018/page_107.pdf-4",
+      "arm": "finance_original",
+      "prediction": "Computations: ((127.1 - 148.9) / 148.9)\nAnswer: -0.14444.",
+      "reference": "194.1%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:WRK/2018/page_107.pdf-4",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: ((127.1 / 148.9) * 100)\nAnswer: 85.11111.",
+      "reference": "194.1%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:AMT/2007/page_29.pdf-4",
+      "arm": "finance_original",
+      "prediction": "57,800",
+      "reference": "35.5%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:AMT/2007/page_29.pdf-4",
+      "arm": "finance_oracle_program",
+      "prediction": "To find the portion of the Woburn property used by the American Tower Corporation, we need to subtract the size of the lease administration office and the broadcast division from the total size of the Woburn property.\n\n1. Calculate the total size of the Woburn property: 57,800 square feet\n2. Subtract the size of the lease administration office and the broadcast division: 57,800 - 163,000 = -105,200 square feet\n\nSince the result is negative, it means that the lease administration office and the broadcast division are not",
+      "reference": "35.5%",
+      "match_candidate": false,
+      "parseable": false
+    },
+    {
+      "id": "FinQA:MRO/2003/page_84.pdf-3",
+      "arm": "finance_original",
+      "prediction": "Computations: ((57 - 41) / 41)\nAnswer: 0.38889.",
+      "reference": "39.0%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:MRO/2003/page_84.pdf-3",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: ((57 - 41) / 41)\nAnswer: 0.36842.",
+      "reference": "39.0%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:ABMD/2012/page_79.pdf-4",
+      "arm": "finance_original",
+      "prediction": "Computations: ((64350 - 40000) / 40000)\nAnswer: 1.0975.",
+      "reference": "2.6%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:ABMD/2012/page_79.pdf-4",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: ((66000 - 64350) / 64350)\nAnswer: 0.0244.",
+      "reference": "2.6%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:PNC/2012/page_68.pdf-1",
+      "arm": "finance_original",
+      "prediction": "Computations: ((2220 - 1522) / 1522)\nAnswer: 0.34444.",
+      "reference": "45.9%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:PNC/2012/page_68.pdf-1",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: ((2220 - 1522) / 1522)\nAnswer: 0.41667.",
+      "reference": "45.9%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:PPG/2006/page_42.pdf-3",
+      "arm": "finance_original",
+      "prediction": "Computations: ((4 - 4) / 4)\nAnswer: 0.0.",
+      "reference": "150%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:PPG/2006/page_42.pdf-3",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: ((4 - 4) / 4)\nAnswer: 0.0.",
+      "reference": "150%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:GS/2013/page_126.pdf-2",
+      "arm": "finance_original",
+      "prediction": "Computations: ((355173 - 377677) / 377677)\nAnswer: -0.05811.",
+      "reference": "-6.0%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:GS/2013/page_126.pdf-2",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: ((355173 - 377677) / 377677)\nAnswer: -0.04444.",
+      "reference": "-6.0%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:JPM/2010/page_120.pdf-1",
+      "arm": "finance_original",
+      "prediction": "Computations: ((687125 - 650212) / 650212)\nAnswer: 0.0741.",
+      "reference": "6%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:JPM/2010/page_120.pdf-1",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: ((687125 - 650212) / 650212)\nAnswer: 0.0814.",
+      "reference": "6%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:DG/2005/page_44.pdf-2",
+      "arm": "finance_original",
+      "prediction": "$ 4.7 million",
+      "reference": "5.8",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:DG/2005/page_44.pdf-2",
+      "arm": "finance_oracle_program",
+      "prediction": "$ 1.1 million",
+      "reference": "5.8",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:GS/2012/page_189.pdf-4",
+      "arm": "finance_original",
+      "prediction": "Computations: ((109,669 - 112,824) / 112,824)\nAnswer: -0.0481.",
+      "reference": "-3%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:GS/2012/page_189.pdf-4",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: ((109669 - 112824) / 112824)\nAnswer: -0.04809.",
+      "reference": "-3%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:ETFC/2007/page_18.pdf-1",
+      "arm": "finance_original",
+      "prediction": "Computations: (219000 / 83000)\nAnswer: 2.65111.",
+      "reference": "2.64",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:ETFC/2007/page_18.pdf-1",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: (219000 / 83000)\nAnswer: 2.64118.",
+      "reference": "2.64",
+      "match_candidate": true,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:JPM/2008/page_117.pdf-2",
+      "arm": "finance_original",
+      "prediction": "$32",
+      "reference": "70000000",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:JPM/2008/page_117.pdf-2",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: ((32 - 38) * 1000000)\nAnswer: -60000000.0.",
+      "reference": "70000000",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:IP/2006/page_30.pdf-4",
+      "arm": "finance_original",
+      "prediction": "$ 3.0 billion",
+      "reference": "4.4",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:IP/2006/page_30.pdf-4",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: ((1.5 * 1000000) + ((1.5 * 1000000) + ((1.5 * 1000000))))\nAnswer: 45000000.0.",
+      "reference": "4.4",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:SNA/2007/page_29.pdf-3",
+      "arm": "finance_original",
+      "prediction": "The ROI in S&P 500 if the investment was made at the end of 2005 and sold at the end of 2007 is 149.70%.",
+      "reference": "22.2%",
+      "match_candidate": false,
+      "parseable": false
+    },
+    {
+      "id": "FinQA:SNA/2007/page_29.pdf-3",
+      "arm": "finance_oracle_program",
+      "prediction": "To calculate the ROI in S&P 500, we need to use the formula:\n\nROI = (Ending Value - Beginning Value) / Beginning Value * 100%\n\nBeginning Value = $100.00\nEnding Value = $182.87\n\nROI = ($182.87 - $100.00) / $100.00 * 100%\nROI = $82.87 / $100.00 * 100%\nROI = 82.87%\n\nTherefore, the ROI in S",
+      "reference": "22.2%",
+      "match_candidate": false,
+      "parseable": false
+    },
+    {
+      "id": "FinQA:ABMD/2008/page_86.pdf-3",
+      "arm": "finance_original",
+      "prediction": "Computations: ((168 - 224) / 224)\nAnswer: -0.20471.",
+      "reference": "-25.0%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:ABMD/2008/page_86.pdf-3",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: ((168 - 224) / 224)\nAnswer: -0.20471.",
+      "reference": "-25.0%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:ECL/2017/page_69.pdf-1",
+      "arm": "finance_original",
+      "prediction": "Computations: ((6,490.8 - 6,383.0) / 6,383.0)\nAnswer: 0.01817.",
+      "reference": "10.4%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:ECL/2017/page_69.pdf-1",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: ((7167.1 - 6490.8) / 6490.8)\nAnswer: 0.0841.",
+      "reference": "10.4%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:ADI/2010/page_80.pdf-2",
+      "arm": "finance_original",
+      "prediction": "Computations: ((6850 - 6213) / 6213)\nAnswer: 0.1171.",
+      "reference": "10.3%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:ADI/2010/page_80.pdf-2",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: ((6850 - 6213) / 6213)\nAnswer: 0.1181.",
+      "reference": "10.3%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:DRE/2007/page_56.pdf-1",
+      "arm": "finance_original",
+      "prediction": "Computations: ((217,692 - 145,095) / 145,095)\nAnswer: 0.4949.",
+      "reference": "50.0%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:DRE/2007/page_56.pdf-1",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: ((217692 - 145095) / 145095)\nAnswer: 0.4949.",
+      "reference": "50.0%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:BLL/2010/page_35.pdf-2",
+      "arm": "finance_original",
+      "prediction": "Computations: ((318.5 - 634.9) / 634.9)\nAnswer: -0.4949.",
+      "reference": "-50%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:BLL/2010/page_35.pdf-2",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: ((318.5 - 634.9) / 634.9)\nAnswer: -0.4949.",
+      "reference": "-50%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:ADBE/2008/page_89.pdf-2",
+      "arm": "finance_original",
+      "prediction": "Computations: ((139.5 - 201.808) / 201.808)\nAnswer: -0.2949.",
+      "reference": "-30.9%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:ADBE/2008/page_89.pdf-2",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: ((139549 - 201808) / 201808)\nAnswer: -0.3044.",
+      "reference": "-30.9%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:C/2008/page_65.pdf-3",
+      "arm": "finance_original",
+      "prediction": "Computations: ((666.9 - 577.8) / 577.8)\nAnswer: 0.1411.",
+      "reference": "15%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:C/2008/page_65.pdf-3",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: ((666.9 - 577.8) / 577.8)\nAnswer: 0.14114.",
+      "reference": "15%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:ABMD/2005/page_29.pdf-1",
+      "arm": "finance_original",
+      "prediction": "2.56%",
+      "reference": "5.38%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:ABMD/2005/page_29.pdf-1",
+      "arm": "finance_oracle_program",
+      "prediction": "To calculate the projected risk-free interest rate in 2006, we need to use the formula:\n\nRisk-free interest rate = (Expected dividend yield + Expected option term in years * (1 - Expected stock price volatility)) / Expected option term in years\n\nPlugging in the values from the table:\n\nRisk-free interest rate = (0% + 5.3 * (1 - 84%)) / 5.3\nRisk-free interest rate = (0% + 0.18) / 5.3\nRisk-free interest rate = 0.0323 / 5.3",
+      "reference": "5.38%",
+      "match_candidate": false,
+      "parseable": false
+    },
+    {
+      "id": "FinQA:UNP/2015/page_56.pdf-2",
+      "arm": "finance_original",
+      "prediction": "Computations: (26064 / 32084)\nAnswer: 0.81917.",
+      "reference": "81.2%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:UNP/2015/page_56.pdf-2",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: (26064 / 32084)\nAnswer: 0.81915.",
+      "reference": "81.2%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:UNP/2009/page_35.pdf-2",
+      "arm": "finance_original",
+      "prediction": "77.3%",
+      "reference": "77.7",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:UNP/2009/page_35.pdf-2",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: ((76.0 + 77.3) / 2)\nAnswer: 76.85.",
+      "reference": "77.7",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:RSG/2018/page_94.pdf-1",
+      "arm": "finance_original",
+      "prediction": "Computations: ((34.3 - 38.9) / 38.9)\nAnswer: -0.11111.",
+      "reference": "11.9%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:RSG/2018/page_94.pdf-1",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: ((38.9 - 34.3) / 38.9)\nAnswer: 0.1249.",
+      "reference": "11.9%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:UNP/2007/page_25.pdf-4",
+      "arm": "finance_original",
+      "prediction": "$ 113",
+      "reference": "282",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:UNP/2007/page_25.pdf-4",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: (3,300 - 2,595)\nAnswer: 705.0.",
+      "reference": "282",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:TFX/2017/page_78.pdf-2",
+      "arm": "finance_original",
+      "prediction": "Computations: (3629455 / 1708928)\nAnswer: 2.11111.",
+      "reference": "68.0%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:TFX/2017/page_78.pdf-2",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: (3629455 / 1708928)\nAnswer: 2.1411.",
+      "reference": "68.0%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:BLK/2012/page_33.pdf-3",
+      "arm": "finance_original",
+      "prediction": "Computations: ((419,651 - 153,802) / 153,802)\nAnswer: 1.99999.",
+      "reference": "27.4%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:BLK/2012/page_33.pdf-3",
+      "arm": "finance_oracle_program",
+      "prediction": "To calculate the growth rate in the balance of equity during 2012, we need to subtract the net new business from the net acquired and then divide by the net acquired.\n$52,973 - $3,517 = $49,456\n$49,456 / $52,973 = 0.954\nThe growth rate in the balance of equity during 2012 is 9.54%.",
+      "reference": "27.4%",
+      "match_candidate": false,
+      "parseable": false
+    },
+    {
+      "id": "FinQA:ECL/2017/page_79.pdf-2",
+      "arm": "finance_original",
+      "prediction": "Computations: (511.7 / 798.3)\nAnswer: 0.6411.",
+      "reference": "84.5%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:ECL/2017/page_79.pdf-2",
+      "arm": "finance_oracle_program",
+      "prediction": "To find the portion of Anios' purchasing price related to goodwill, we need to divide the goodwill by the total consideration transferred.\n\n1. Calculate the goodwill: $511.7 million\n2. Calculate the total consideration transferred: $605.5 million\n\n3. Divide the goodwill by the total consideration transferred:\n\n$$\n\\frac{511.7}{605.5} \\approx 0.84\n$$\n\nSo, approximately 84% of Anios' purchasing price is related to goodwill.",
+      "reference": "84.5%",
+      "match_candidate": false,
+      "parseable": false
+    },
+    {
+      "id": "FinQA:AAPL/2003/page_48.pdf-1",
+      "arm": "finance_original",
+      "prediction": "$7.2",
+      "reference": "6",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:AAPL/2003/page_48.pdf-1",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: (7.2 - 1.2)\nAnswer: 6.0.",
+      "reference": "6",
+      "match_candidate": true,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:PKG/2013/page_88.pdf-2",
+      "arm": "finance_original",
+      "prediction": "$24.61",
+      "reference": "3739366.45",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:PKG/2013/page_88.pdf-2",
+      "arm": "finance_oracle_program",
+      "prediction": "$24.61",
+      "reference": "3739366.45",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:ECL/2017/page_69.pdf-2",
+      "arm": "finance_original",
+      "prediction": "Computations: ((7167.1 - 6383.0) / 6383.0)\nAnswer: 0.1154.",
+      "reference": "12.3%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:ECL/2017/page_69.pdf-2",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: ((7167.1 - 6383.0) / 6383.0)\nAnswer: 0.11811.",
+      "reference": "12.3%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:V/2014/page_126.pdf-1",
+      "arm": "finance_original",
+      "prediction": "$ 172 million + $ 179 million + $ 147 million = $ 518 million",
+      "reference": "498",
+      "match_candidate": false,
+      "parseable": false
+    },
+    {
+      "id": "FinQA:V/2014/page_126.pdf-1",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: ((172 + 179) + 147)\nAnswer: 508.0.",
+      "reference": "498",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:EMR/2017/page_78.pdf-1",
+      "arm": "finance_original",
+      "prediction": "Computations: (174335 / 17984)\nAnswer: 9.74118.",
+      "reference": "8.6",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:EMR/2017/page_78.pdf-1",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: (17984 / 2248)\nAnswer: 8.14118.",
+      "reference": "8.6",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:L/2009/page_84.pdf-2",
+      "arm": "finance_original",
+      "prediction": "The return on investment for the S&P 500 from 2007 to 2008 is 128.16 - 121.48 = 6.68%.",
+      "reference": "-37.0%",
+      "match_candidate": false,
+      "parseable": false
+    },
+    {
+      "id": "FinQA:L/2009/page_84.pdf-2",
+      "arm": "finance_oracle_program",
+      "prediction": "To calculate the return on investment for the S&P 500 from 2007 to 2008, we need to subtract the value of the S&P 500 index in 2008 from the value of the S&P 500 index in 2007, and then divide the result by the value of the S&P 500 index in 2007.\n\nThe value of the S&P 500 index in 2007 is 128.16.\nThe value of the S&P 500 index",
+      "reference": "-37.0%",
+      "match_candidate": false,
+      "parseable": false
+    },
+    {
+      "id": "FinQA:AAL/2013/page_172.pdf-1",
+      "arm": "finance_original",
+      "prediction": "Computations: (849 / 5424)\nAnswer: 0.1586.",
+      "reference": "15.7%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:AAL/2013/page_172.pdf-1",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: (849 / 5424)\nAnswer: 0.15714.",
+      "reference": "15.7%",
+      "match_candidate": true,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:DVN/2018/page_35.pdf-4",
+      "arm": "finance_original",
+      "prediction": "17%",
+      "reference": "18.2%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:DVN/2018/page_35.pdf-4",
+      "arm": "finance_oracle_program",
+      "prediction": "17%",
+      "reference": "18.2%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:TMUS/2017/page_29.pdf-3",
+      "arm": "finance_original",
+      "prediction": "The approximate size of each data center leased in square feet is 500,000 square feet.",
+      "reference": "83333",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:TMUS/2017/page_29.pdf-3",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: (500000 / 6)\nAnswer: 83333.33333.",
+      "reference": "83333",
+      "match_candidate": true,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:AMT/2006/page_113.pdf-2",
+      "arm": "finance_original",
+      "prediction": "$823",
+      "reference": "-1574",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:AMT/2006/page_113.pdf-2",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: (2239 - 665)\nAnswer: 1574.0.",
+      "reference": "-1574",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:UA/2007/page_70.pdf-2",
+      "arm": "finance_original",
+      "prediction": "Computations: (10.8 / 112.7)\nAnswer: 0.09791.",
+      "reference": "9.6%",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:UA/2007/page_70.pdf-2",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: (10.8 / 112.7)\nAnswer: 0.09649.",
+      "reference": "9.6%",
+      "match_candidate": true,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:MRK/2013/page_125.pdf-2",
+      "arm": "finance_original",
+      "prediction": "Computations: (603 + 67 + 259) / 3\nAnswer: 201.0.",
+      "reference": "309.67",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:MRK/2013/page_125.pdf-2",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: table_average(settlements, none)\nAnswer: 259.0.",
+      "reference": "309.67",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:AMT/2008/page_94.pdf-2",
+      "arm": "finance_original",
+      "prediction": "$1,837",
+      "reference": "4331309",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:AMT/2008/page_94.pdf-2",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: (1837 + 60989)\nAnswer: 62126.0.",
+      "reference": "4331309",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:RSG/2012/page_93.pdf-1",
+      "arm": "finance_original",
+      "prediction": "$45.3-$48.1\nAnswer: $2.8",
+      "reference": "-2.8",
+      "match_candidate": false,
+      "parseable": true
+    },
+    {
+      "id": "FinQA:RSG/2012/page_93.pdf-1",
+      "arm": "finance_oracle_program",
+      "prediction": "Computations: (29.7 - 32.5)\nAnswer: -2.8.",
+      "reference": "-2.8",
+      "match_candidate": true,
+      "parseable": true
+    }
+  ]
+}

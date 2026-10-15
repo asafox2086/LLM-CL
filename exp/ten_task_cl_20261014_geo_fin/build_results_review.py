@@ -182,6 +182,8 @@ def main():
               '- [按任务明细](task_metrics.csv)及[按来源数据集明细](dataset_metrics.csv)：EM 正确数／总数及其他分数；这两个文件随队列更新。',
               f'- [可复现生成脚本](../../exp/{EXP}/build_results_review.py)：CPU 绘图，不占用训练 GPU。', '',
               f'冻结 manifest SHA-256：`{digest}`。未完成方法不使用旧运行、旧划分或中断阶段拼接成最终结果。', '']
+    if (OUT / 'failure_diagnosis_20261015' / 'README.md').exists():
+        lines.insert(2, '[性能下降原因诊断：识别、知识、推理与遗忘](failure_diagnosis_20261015/README.md)\n')
     (OUT / 'results_report.md').write_text('\n'.join(lines), encoding='utf-8')
     print(json.dumps({'completed': list(snapshot['methods']), 'report': str(OUT / 'results_report.md'),
                       'verified_predictions': 5500 * len(snapshot['methods'])}))

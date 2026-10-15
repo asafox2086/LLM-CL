@@ -1,0 +1,17 @@
+{
+  "exploratory_only": true,
+  "model": "Qwen2-VL-2B-Instruct",
+  "frozen": true,
+  "seed": 42,
+  "gpu": 3,
+  "manifest_sha256": "dab25e3940758cfac3e1bb16da5305ce6393dfa4eb22e1c39d4f99a28fdc4208",
+  "save_checkpoints": false,
+  "arms": {
+    "medical_original": "Exact original instruction/question/image",
+    "medical_short_image": "Same question/image; request a word, phrase or number",
+    "medical_short_no_image": "Same short-answer prompt, remove image only",
+    "finance_original": "Exact original FinQA instruction/question/context",
+    "finance_oracle_program": "Add original gold computation program (privileged oracle, no final answer); same numeric output instruction"
+  },
+  "caveat": "Oracle program leaks task-specific solution structure; diagnostic positive control, never a benchmark result."
+}
