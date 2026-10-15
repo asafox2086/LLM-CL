@@ -1,4 +1,17 @@
-# Research context and current experiment
+# Current protocol — 2026-10-15 user revision
+
+This section supersedes the historical 100/0/50 experiment notes below.
+
+- Current experiment: `ten_task_cl_20261015_full_1pct`. The previous `ten_task_cl_20261014_geo_fin` experiment was stopped and moved to `exp/ago/` and `summary/ago/`; never restart it or combine its predictions with this run.
+- Qwen2-VL-2B-Instruct; seed42; one epoch; no validation or model/optimizer/recovery checkpoints. GPU0 reserved; GPU3 full train/full labeled public evaluation, GPU1/2 1% train and the identical full evaluation set.
+- Preserve original task composition, including classification, yes/no, multiple-choice and grounding records. Never derive these views from the previous `open_ended` filtered data. Missing public gold answers are separately audited, never fabricated.
+- Use the native configurations and counts in root README and `data/TenTaskCL/ten_task_cl_20261015_full_1pct/readme_dataset_audit.json`. These are metadata-audited counts, not proof of complete image assets or frozen formal manifests. Four research splits use grouped 80/20 hash holdouts; source splits otherwise apply. All methods share fixed IDs, ordering and test-file hashes.
+- Add standard SeqFT-LoRA as the simplest sequential fine-tuning control alongside the existing eight methods; the earlier exclusion is overridden. Preserve author mechanisms and disclose adaptations.
+- PathVQA is replaced by LLaVA-Med (NeurIPS 2023 Datasets and Benchmarks), author instruct60k and independent qa50. The file has 56,702 training conversations / 162,640 QA and 193 test QA. Its historical PMC image URLs currently return 404; do not mark image assets ready or train on a silently reduced subset. GEMeX is not selected because MIMIC-CXR authorization is unavailable.
+- Record process CPU RSS/PSS/USS and GPU allocated/reserved/NVML, especially concrete training-before and training-after occupancy, changes and peaks. Record loss and real gradient norms, per-example results and complete 11×10 matrices for both conditions and every method.
+- Root README now reports deduplicated dataset names, sources/venues, actual source counts, full/1% task counts and original examples. The paper updater must preserve these sections. Complete protocol: `rules/013_native_full_and_one_percent.md` and the current experiment README/policy.
+
+# Historical research context — superseded where conflicting
 
 - The research setting is **small models, small datasets, lightweight continual learning**. This was explicitly confirmed by the user on 2026-10-14.
 - Main backbone: Qwen2-VL-2B-Instruct. Five independent domains in this order: natural/general, medicine, geography/remote sensing, finance, art/culture. Each domain has text then image QA, for ten tasks.

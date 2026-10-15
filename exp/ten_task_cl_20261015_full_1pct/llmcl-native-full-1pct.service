@@ -1,0 +1,13 @@
+[Unit]
+Description=LLMCL original-data full and one-percent continual learning
+After=basic.target
+[Service]
+Type=simple
+WorkingDirectory=/data1/liyapeng/program/LLMCL
+ExecStart=/data1/liyapeng/program/LLMCL/.assets-env/bin/python -u /data1/liyapeng/program/LLMCL/exp/ten_task_cl_20261015_full_1pct/pipeline.py
+Environment=PYTHONUNBUFFERED=1
+Restart=on-failure
+RestartSec=30
+KillMode=process
+[Install]
+WantedBy=default.target

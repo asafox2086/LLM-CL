@@ -1,0 +1,29 @@
+`Qwen2VLRotaryEmbedding` can now be fully parameterized by passing the model config through the `config` argument. All other arguments will be removed in v4.46
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  1.00it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.90it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.67it/s]
+/data1/liyapeng/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:590: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.01` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/data1/liyapeng/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:595: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.001` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+/data1/liyapeng/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:612: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `1` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+{"task": 4, "finished_qa": 5, "total": 50}
+{"task": 4, "finished_qa": 10, "total": 50}
+{"task": 4, "finished_qa": 15, "total": 50}
+{"task": 4, "finished_qa": 20, "total": 50}
+{"task": 4, "finished_qa": 25, "total": 50}
+{"task": 4, "finished_qa": 30, "total": 50}
+{"task": 4, "finished_qa": 35, "total": 50}
+{"task": 4, "finished_qa": 40, "total": 50}
+{"task": 4, "finished_qa": 45, "total": 50}
+{"task": 4, "finished_qa": 50, "total": 50}
+{"task": 7, "finished_qa": 5, "total": 50}
+{"task": 7, "finished_qa": 10, "total": 50}
+{"task": 7, "finished_qa": 15, "total": 50}
+{"task": 7, "finished_qa": 20, "total": 50}
+{"task": 7, "finished_qa": 25, "total": 50}
+{"task": 7, "finished_qa": 30, "total": 50}
+{"task": 7, "finished_qa": 35, "total": 50}
+{"task": 7, "finished_qa": 40, "total": 50}
+{"task": 7, "finished_qa": 45, "total": 50}
+{"task": 7, "finished_qa": 50, "total": 50}
+PROBES_COMPLETE {"medical_original": {"n": 50, "exact_match": 0.0, "token_f1": 5.301318860877684, "rougeL": 5.301318860877685, "cap_hits": 1}, "medical_short_image": {"n": 50, "exact_match": 10.0, "token_f1": 11.793650793650793, "rougeL": 11.793650793650793, "cap_hits": 0}, "medical_short_no_image": {"n": 50, "exact_match": 2.0, "token_f1": 3.125, "rougeL": 3.125, "cap_hits": 0}, "finance_original": {"n": 50, "exact_match": 0.0, "token_f1": 5.92991452991453, "rougeL": 5.92991452991453, "cap_hits": 0}, "finance_oracle_program": {"n": 50, "exact_match": 0.0, "token_f1": 7.163332484508954, "rougeL": 7.10450895509719, "cap_hits": 5}}
