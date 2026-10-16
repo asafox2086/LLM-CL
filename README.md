@@ -26,7 +26,7 @@
 </tbody>
 </table>
 
-归类按主要机制，混合机制、原论文模型及生成任务见 [论文完整索引](paper/README.md)。预训练条目包含语言／知识／上下文扩展型 CPT，不全部具有序贯抗遗忘实验；HPA 归入持续安全对齐保持。**回放方法仍保留在论文表中，本轮不做回放实验；DGG 含历史样本回放，也不参与本轮。**
+归类按主要机制，混合机制、原论文模型及生成任务见 [论文完整索引](paper/README.md)。预训练条目包含语言／知识／上下文扩展型 CPT，不全部具有序贯抗遗忘实验；HPA 归入持续安全对齐保持。**本轮加入ER-LoRA作为回放对照；DGG仅保留在文献表，不参与本轮实验。**
 
 ## 当前五数据集／19原生任务协议
 
@@ -39,6 +39,31 @@
 新服务器GPU0保留、GPU1留给自研，GPU3全量，GPU2抽样；旧服务器GPU0–3均用于抽样。每卡一个进程；分工互斥，显存预检不足的旧机方法回到新机，不改算法或测试数据。
 原生任务顺序：TextVQA → SLAKE的Modality/Position/Organ/Size/Abnormality/Quantity/Plane/Shape/Color/KG → RSVQA-LR的rural_urban/presence/count/comp → FinMME → CODA-LM的general/regional/suggestion。标签是原标注，顺序是本研究预先固定，不声称是官方课程；金融答案格式、医学OPEN/CLOSED另行分组统计，不重复训练。
 初始全测19任务；中间只测刚学任务和下一任务；最终全测。共**74组测试／80,316条预测**；未评测格为null，不伪造完整20×19矩阵。不报告ForgetRate；保留原生任务等权AP/FWT/BWT、逐题EM正确数/总数、Token F1及ROUGE-L。领域最终分数按该域测试QA数加权，另报五领域宏平均，避免与19任务等权AP混淆。统一词面指标不等于原生评分：FinMME涉及数值容差和多选；CODA-LM原文采用LLM评审，EM不是它的官方准确率。
+
+## 实际运行快照与诊断安排
+
+2026-10-16 16:08（北京时间）核查：两机共六个正式运行进程，均处于初始完整评测，训练阶段完成数为0，不能把队列中的`training`状态解释为已经完成训练。CL-MoE已通过19任务真实2B反向传播，以及独立进程重载的损失等价／有限梯度检查，重载损失误差为0；诊断权重已丢弃，正式运行从原基座开始。
+
+| 主机 | GPU | 当前正式进程 | 条件 | 实际阶段 |
+|---|---:|---|---|---|
+| 新3090 | 2 | CL-MoE | 1%训练／完整测试 | 初始评测 |
+| 新3090 | 3 | SeqFT-LoRA | 全量训练／完整测试 | 初始评测 |
+| 旧2080Ti | 0 | SeqFT-LoRA | 1%训练／完整测试 | 初始评测 |
+| 旧2080Ti | 1 | ER-LoRA | 1%训练／完整测试 | 初始评测 |
+| 旧2080Ti | 2 | PASs-MoE | 1%训练／完整测试 | 初始评测 |
+| 旧2080Ti | 3 | PaRSP | 1%训练／完整测试 | 初始评测 |
+
+其余任务排队接续；新服务器GPU1保持空闲，供后续诊断使用。当前不预设自研算法：先从已有实验分析单任务能否学会、跨任务遗忘、视觉依赖和资源开销，再决定要解决的问题。T5基座核查是独立调研，不切换正在运行的基座。[启动报告](summary/five_domain_native_cl_20261016_sparse/LAUNCH_REPORT.md) · [实际检查证据](summary/five_domain_native_cl_20261016_sparse/launch_proofs.json)。本节是带时间戳的静态快照，实时进度以服务器状态文件为准。
+
+## T5／VL-T5基座核查
+
+T5是文本encoder-decoder模型家族；T5-Small为60M、Base为220M、Large为770M，另有3B和11B，因此不能只凭“T5”判断大小。[Google官方模型列表](https://github.com/google-research/text-to-text-transfer-transformer#released-model-checkpoints)。T5-Base语言模型的FP16纯权重约0.44GB（220M×2字节推算），不包括视觉模块、激活、梯度和优化器，也不是实测训练显存。
+
+图文持续问答论文常见的是**VL-T5**，它在T5-Base基础上增加视觉输入；作者原始流程使用每图36个区域的预提取特征。需要把视觉特征提取的时间、模型和存储一起计算。[VL-T5官方代码](https://github.com/j-min/VL-T5) · [视觉特征说明](https://github.com/j-min/VL-T5/blob/main/feature_extraction/README.md)。
+
+不能据某张结果表的多行VL-T5认定大部分新方法都用T5：VQACL（CVPR2023）采用VL-T5；CL-MoE（CVPR2025）表1同时对照VL-T5和LLaVA-7B，其提出的方法使用LLaVA-7B；当前参考的Continual LLaVA采用Vicuna语言模型。[VQACL源码](https://github.com/zhangxi1997/VQACL) · [CL-MoE正文](https://arxiv.org/html/2503.00413) · [Continual LLaVA正文](https://arxiv.org/html/2411.02564)。
+
+VL-T5适合作为小模型诊断候选，但当前五域是否可用尚未实测：医学、遥感、金融图表与原始自然图像区域特征可能存在差异；TextVQA需考察读字能力，SLAKE需考察原生双语，CODA-LM需考察长答案。不能靠删除这些题、翻译原文或丢弃图像来适配。先核验预训练权重和图像特征管线，再做单任务可学习性／速度／显存测量；是否替换主基座须据测量决定。[完整核查](data/T5_BACKBONE_AUDIT_20261016.md)。
 
 ## 数据集：来源、数量与复用依据
 
@@ -68,19 +93,19 @@ FinMME的ID3698、9806金答案为空，原记录单独保留审计，不伪造�
 | FinMME | 真实金融图表＋问题、选项；单选、多选和数值题全保留 |
 | CODA-LM | 真实道路图像＋作者指令：场景理解、区域理解、驾驶建议；区域题保留作者红框图 |
 
-原始发表、独立复用正文与限制见[六域多模态核验](data/MULTIMODAL_SIX_DOMAIN_AUDIT_20261016.md)。医学首发ISBI、遥感首发TGRS、艺术首发workshop，不把后续顶会复用写成首发顶会。
+原始发表、独立复用正文与限制见[六域多模态核验](data/MULTIMODAL_SIX_DOMAIN_AUDIT_20261016.md)。医学首发ISBI、遥感首发TGRS，不把后续顶会复用写成首发顶会。
 
 ## 原始数据 sample
 
-[完整问题、选项、答案和原图](data/FiveDomainCL/six_domain_cl_20261016_finmme_coda/samples.md) · [机器审计](data/FiveDomainCL/six_domain_cl_20261016_finmme_coda/dataset_audit.json)。长答案在下表节选；旧样例不在本页展示。
+[完整问题、选项、答案和原图](data/FiveDomainCL/five_domain_native_cl_20261016_sparse/samples.md) · [机器审计](data/FiveDomainCL/five_domain_native_cl_20261016_sparse/partition_audit.json)。长答案在下表节选；旧样例不在本页展示。
 
 | 数据集 | 原始问题 | 参考答案 | 原图 |
 |---|---|---|---|
-| [D1 · TextVQA](data/FiveDomainCL/six_domain_cl_20261016_finmme_coda/samples.md#textvqa) | what is the brand of phone? | nokia | <img src="sample/six_domain_cl_20261016_finmme_coda/TextVQA.jpg" width="180" alt="TextVQA原始图像"> |
-| [D2 · SLAKE](data/FiveDomainCL/six_domain_cl_20261016_finmme_coda/samples.md#slake) | What modality is used to take this image? | MRI | <img src="sample/six_domain_cl_20261016_finmme_coda/SLAKE.jpg" width="180" alt="SLAKE原始图像"> |
-| [D3 · RSVQA-LR](data/FiveDomainCL/six_domain_cl_20261016_finmme_coda/samples.md#rsvqa-lr) | Is it a rural or an urban area | urban | <img src="sample/six_domain_cl_20261016_finmme_coda/RSVQA-LR.png" width="180" alt="RSVQA-LR原始图像"> |
-| [D4 · FinMME](data/FiveDomainCL/six_domain_cl_20261016_finmme_coda/samples.md#finmme) | Which loan category had the highest growth rate in 1Q23? | A | <img src="sample/six_domain_cl_20261016_finmme_coda/FinMME.png" width="180" alt="FinMME原始图像"> |
-| [D5 · CODA-LM](data/FiveDomainCL/six_domain_cl_20261016_finmme_coda/samples.md#coda-lm) | &lt;image&gt;<br>There is an image of traffic captured from the perspective of the ego car. Focus on objects influencing the ego car&#x27;s driving behavior: vehicles (cars, …（节选） | In the traffic image under observation, several road users and elements are noticeable:<br><br>1. Vehicles:<br>   - A green bus is directly occupying the lane in front o…（节选） | <img src="sample/six_domain_cl_20261016_finmme_coda/CODA-LM.png" width="180" alt="CODA-LM原始图像"> |
+| [D1 · TextVQA](data/FiveDomainCL/five_domain_native_cl_20261016_sparse/samples.md#textvqa) | what is the brand of phone? | nokia | <img src="sample/five_domain_native_cl_20261016_sparse/TextVQA.jpg" width="180" alt="TextVQA原始图像"> |
+| [D2 · SLAKE](data/FiveDomainCL/five_domain_native_cl_20261016_sparse/samples.md#slake) | What modality is used to take this image? | MRI | <img src="sample/five_domain_native_cl_20261016_sparse/SLAKE.jpg" width="180" alt="SLAKE原始图像"> |
+| [D3 · RSVQA-LR](data/FiveDomainCL/five_domain_native_cl_20261016_sparse/samples.md#rsvqa-lr) | Is it a rural or an urban area | urban | <img src="sample/five_domain_native_cl_20261016_sparse/RSVQA-LR.png" width="180" alt="RSVQA-LR原始图像"> |
+| [D4 · FinMME](data/FiveDomainCL/five_domain_native_cl_20261016_sparse/samples.md#finmme) | Which loan category had the highest growth rate in 1Q23? | A | <img src="sample/five_domain_native_cl_20261016_sparse/FinMME.png" width="180" alt="FinMME原始图像"> |
+| [D5 · CODA-LM](data/FiveDomainCL/five_domain_native_cl_20261016_sparse/samples.md#coda-lm) | &lt;image&gt;<br>There is an image of traffic captured from the perspective of the ego car. Focus on objects influencing the ego car&#x27;s driving behavior: vehicles (cars, …（节选） | In the traffic image under observation, several road users and elements are noticeable:<br><br>1. Vehicles:<br>   - A green bus is directly occupying the lane in front o…（节选） | <img src="sample/five_domain_native_cl_20261016_sparse/CODA-LM.png" width="180" alt="CODA-LM原始图像"> |
 
 ## 参数与资源记录
 
