@@ -1,5 +1,15 @@
 # LLMCL：小模型的五领域多模态持续学习
 
+## 当前研究：LLaVA-OneVision-0.5B诊断
+
+用户确认采用[**LLaVA-OneVision-Qwen2-0.5B-OV**](https://huggingface.co/llava-hf/llava-onevision-qwen2-0.5b-ov-hf)探索小模型问题；语言骨干约0.5B，完整图文模型约0.9B。独立实验`onevision_diagnostics_20261016`仅使用新服务器GPU1；已有Qwen2-VL基线继续，按骨干分别报告，不能混成同基座排名。
+
+先区分可学习性／领域能力、视觉依赖、顺序干扰与LoRA更新冗余：原基座与五域独立LoRA、19个逐任务独立LoRA与同一LoRA按19任务顺序训练、原图／无图／错配图、训练样本梯度余弦、实际`deltaW=B*A`余弦／奇异谱及5×5跨域迁移矩阵。逐任务独立与顺序控制使用相同数据、更新预算和诊断ID，五域汇总控制单列。固定同一1%训练池1313QA；快速诊断预先固定每域100个测试题（合计500），其中每域10题生成，其余先测NLL。**诊断子集成绩不是完整测试主表**，最终候选仍须完整21454QA测试确认。原始数据和正式划分不变。
+
+已确认调度混杂：旧Qwen队列使用ceil取整warmup，1%原生任务中有9个阶段只有一次更新，其首更新学习率为0。新诊断使用floor且保证warmup小于更新数，并记录实际学习率；旧作业不热改，其此类阶段结果暂不能解释为知识不足或遗忘。[数值核验](summary/onevision_diagnostics_20261016/scheduler_audit.json)。官方AnyRes在五域预检中使用的视觉token量另行记录，不能按0.5B名称直接推算速度。
+
+后续假设是：设置LoRA数量上限Kmax，让模型根据训练信息决定复用／新增和实际容量；先检查复用证据，再做容量—性能对照。不能按测试答案选择路由，不预先宣称大幅提升。模型直连下载、不走代理，官方版本和逐文件哈希固定。[诊断设计与边界](exp/onevision_diagnostics_20261016/README.md)。日志／报告：`summary/onevision_diagnostics_20261016/`；诊断参数／输出：`exp/onevision_diagnostics_20261016/runs/`。
+
 **五个领域、五个数据集、19个互斥原生任务阶段**。自然TextVQA、医学SLAKE、遥感RSVQA-LR、金融FinMME、交通CODA-LM；移除AQUA。新一轮移出Hyper-LLaVA，加入ER-LoRA回放对照和CL-MoE，共十个方法。
 
 ## 方法 × 方向二维表

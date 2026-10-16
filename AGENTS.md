@@ -1,4 +1,13 @@
-# Current protocol — 2026-10-16 five datasets, native tasks, two servers
+# Latest research direction — OneVision diagnostic first, 2026-10-16
+
+- User selected LLaVA-OneVision-Qwen2-0.5B-OV for new research (language0.5B, complete model about0.9B). Independent experiment `onevision_diagnostics_20261016` on new GPU1 only. Existing Qwen controls continue separately; never mix backbones in a same-backbone method ranking.
+- Diagnose before proposing: domain learnability/knowledge, visual dependence, parameter interference and LoRA redundancy. Controls include five-domain isolated adapters and19 native-stage isolated adapters matched to19-stage sequential LoRA. Analyze train-only gradient cosine, actual deltaW geometry and cross-domain transfer.
+- Capacity-limited adaptive reuse is a hypothesis: user wants Kmax as a ceiling, with training information deciding actual new modules/reuse. Do not invent positive results or claim a finished algorithm before evidence. No test-answer routing/capacity selection.
+- Share frozen1%1313 training IDs. Pilot diagnostic test500 (100/domain), generation50 (10/domain), explicitly NOT full-test results. Preserve original full21454 QA for final candidate confirmation; keep source mixed tasks, questions, answers and images unchanged.
+- Confirmed scheduler confound: old Qwen ceil-warmup gives lr0 to single-update native stages (nine1% stages). Do not hot-edit active baseline code; disclose the confound. New diagnostic uses floor warmup capped below total updates, records actual lr and requires at least one positive-lr update. Rule018 and scheduler_audit.json hold evidence.
+- Model direct-mirror download is pinned/SHA verified; no proxy or dependency upgrade. Diagnostic visual placeholder rendering must honor native CODA `<image>` once, without altering stored question text. All-domain GPU checks compare official-forward loss and finite optimizer updates before runs.
+
+# Current Qwen control protocol — 2026-10-16 five datasets, native tasks, two servers
 
 This latest user-confirmed revision supersedes all conflicting sections below.
 
