@@ -2,6 +2,8 @@
 
 ## 当前研究：LLaVA-OneVision-0.5B诊断
 
+新增参数证据：9个单更新独立任务都只改变B、A保持初始化；顺序训练对应阶段A均改变。零初始化B使首步A梯度为0，这是正学习率下的预期优化行为，不能据此断言缺少专业知识。[因子更新审计](summary/onevision_diagnostics_20261016/FACTOR_UPDATE_EVIDENCE.md)。知识负对照中，旧自然LoRA的医学EM从8/100升至正确知识的21/100，但低相关解剖知识同样21/100；提升尚不能归因于事实正确性。[按图像组配对分析](summary/onevision_diagnostics_20261016/KNOWLEDGE_PAIRED_EVIDENCE.md)。这些均为诊断子集结果。
+
 任务／领域4×6对照已全部完成：SeqFT同域五任务锚EM为9/23，四域／五域序列均为4/23；跨域末值仍不低于其S1的2/23，因此是同域迁移更强的线索，不能笼统称为全面遗忘。正确与低相关解剖上下文均显著降低NLL，但KG生成指标没有同步改善，[知识阶段结果](summary/onevision_diagnostics_20261016/KNOWLEDGE_INTERIM.md)不支持把loss下降直接当专业知识收益。容量1/2/3/5的受控复用代码及CPU检查已部署，等待确定性配对通过；实际容量／全量结果尚未产生。[容量诊断协议](analysis/ONEVISION_CAPACITY_PROTOCOL.md)。
 
 数值复现已验证：同seed的默认计算两次有梯度／权重差异；确定性默认SDPA及确定性math各自两次完全一致。后续新建确定性顺序／独立任务配对，完整T1权重必须逐元素相同，旧失败结果不混用；当前只完成CPU预检，等待现有机制队列结束。[数值证据与新配对设置](summary/onevision_diagnostics_20261016/REPRODUCIBILITY_EVIDENCE.md)。已完成的任务／领域对照中，重复相同8条训练QA可使Organ锚EM由2/23增至8/23，提示训练预算值得排查；小样本和默认计算差异限制了方法排序。[完整阶段快照](summary/onevision_diagnostics_20261016/TASK_DOMAIN_INTERIM.md)。
@@ -10,9 +12,9 @@
 
 复用线索：离线审计先用固定TRAIN探针选择此前领域LoRA，再读取诊断测试结果；医学域选择自然域旧LoRA后NLL为3.646，原基座为9.595。该比较含训练量／输出行为混杂，不能称专业知识问题已解决，也不是在线路由或Kmax结果。[只使用训练信息选择旧适配器的审计](summary/onevision_diagnostics_20261016/PAST_ADAPTER_REUSE_AUDIT.md)。
 
-最新证据：19阶段顺序诊断完成，93次更新全部使用正学习率；四种固定提示词对照完成。医学100题生成EM均为0，同问题语言提示的Token F1增量约+2.91点（图像簇bootstrap95%约−0.03至+5.91），尚不能将低分仅归于格式或证明知识不足。[提示词完整结果](summary/onevision_mechanisms_20261016/FORMAT_EVIDENCE.md)。独立控制第1阶段未通过权重复现检查，已保存失败记录，追加数值复现审计；其结果暂不纳入匹配比较。GPU1有其他用户作业时队列等待。[阶段完成、资源及故障报告](summary/onevision_diagnostics_20261016/MECHANISM_PROGRESS.md)。
+最新证据：19阶段顺序诊断完成，93次更新全部使用正学习率；四种固定提示词对照完成。医学100题生成EM均为0，同问题语言提示的Token F1增量约+2.91点（图像簇bootstrap95%约−0.03至+5.91），尚不能将低分仅归于格式或证明知识不足。[提示词完整结果](summary/onevision_mechanisms_20261016/FORMAT_EVIDENCE.md)。旧独立控制第1阶段未通过权重复现检查，失败记录保留；短数值复现审计已完成，新确定性完整配对尚待执行。GPU1有其他用户作业时队列等待。[阶段完成、资源及故障报告](summary/onevision_diagnostics_20261016/MECHANISM_PROGRESS.md)。
 
-机制研究在GPU1独立后台队列中运行：输出格式／语言及短数值审计已完成，任务数与领域数控制（4序列×6机制）正在执行，随后测试16条作者知识作为上下文或写入rank1／rank2 LoRA。相关知识仅668字节／199token，新增参数67584／135168；这些是实验预算，尚不是有效性结论。[研究设置与证据边界](analysis/ONEVISION_MECHANISM_STUDIES.md)。[已完成阶段的NLL和梯度诊断](summary/onevision_diagnostics_20261016/SEQUENTIAL_EVIDENCE.md)仅用于定位问题，不能替代生成准确率和完整测试。
+机制研究在GPU1独立后台队列中运行：输出格式／语言、短数值审计及任务数与领域数控制（4序列×6机制）已完成；16条作者知识的上下文与rank1／rank2 LoRA干预正在执行。相关知识仅668字节／199token，新增参数67584／135168；这些是实验预算，尚不是有效性结论。[研究设置与证据边界](analysis/ONEVISION_MECHANISM_STUDIES.md)。[已完成阶段的NLL和梯度诊断](summary/onevision_diagnostics_20261016/SEQUENTIAL_EVIDENCE.md)仅用于定位问题，不能替代生成准确率和完整测试。
 
 后台执行：两服务器基线调度器均经`nohup`启动，保留用户服务的开机恢复，日志在各机`summary/five_domain_native_cl_20261016_sparse/nohup_pipeline.log`。现有训练进程不因切换调度器而重跑。GPU1研究使用独立`llmcl-onevision-research.service`及`research_nohup.log`，与基线并行。
 

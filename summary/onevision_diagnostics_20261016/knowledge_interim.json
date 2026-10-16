@@ -5,7 +5,10 @@
     "context_base_none",
     "context_base_correct",
     "context_base_unrelated",
-    "context_base_permuted"
+    "context_base_permuted",
+    "context_shared_none",
+    "context_shared_correct",
+    "context_shared_unrelated"
   ],
   "planned_cases": 17,
   "prompt": "predeclared both, shared across all knowledge cases; not original-prompt visual ablation",
@@ -89,6 +92,66 @@
       "exact_match": 0.0,
       "token_f1": 3.3392290432445337,
       "rougeL": 3.2816087609051503
+    },
+    {
+      "case": "context_shared_none",
+      "group": "medical",
+      "count": 100,
+      "mean_nll": 4.665352340340615,
+      "EM_correct": 8,
+      "exact_match": 8.0,
+      "token_f1": 20.022081541646763,
+      "rougeL": 19.955414874980093
+    },
+    {
+      "case": "context_shared_none",
+      "group": "medical_KG",
+      "count": 267,
+      "mean_nll": 5.293863261237127,
+      "EM_correct": 0,
+      "exact_match": 0.0,
+      "token_f1": 8.977871308112464,
+      "rougeL": 8.755878706810279
+    },
+    {
+      "case": "context_shared_correct",
+      "group": "medical",
+      "count": 100,
+      "mean_nll": 2.375808125138283,
+      "EM_correct": 21,
+      "exact_match": 21.0,
+      "token_f1": 27.626786132035747,
+      "rougeL": 27.579694006456748
+    },
+    {
+      "case": "context_shared_correct",
+      "group": "medical_KG",
+      "count": 267,
+      "mean_nll": 3.0541417141085705,
+      "EM_correct": 9,
+      "exact_match": 3.3707865168539324,
+      "token_f1": 10.597652194512936,
+      "rougeL": 10.497075381640341
+    },
+    {
+      "case": "context_shared_unrelated",
+      "group": "medical",
+      "count": 100,
+      "mean_nll": 2.3757730400562287,
+      "EM_correct": 21,
+      "exact_match": 21.0,
+      "token_f1": 29.591335955171996,
+      "rougeL": 29.477694904011916
+    },
+    {
+      "case": "context_shared_unrelated",
+      "group": "medical_KG",
+      "count": 267,
+      "mean_nll": 3.2295533774720595,
+      "EM_correct": 3,
+      "exact_match": 1.1235955056179776,
+      "token_f1": 4.328261431969379,
+      "rougeL": 4.19346929752426
     }
   ],
   "source_sha256": {
@@ -99,7 +162,13 @@
     "exp/onevision_mechanisms_20261016/knowledge/20261016_215455/evaluations/context_base_unrelated/medical_image.jsonl": "0e5cdb29e2942cfcfb6d9e2f60ff1a1e43ee8f6663b3811e6a9c3d8aa16304af",
     "exp/onevision_mechanisms_20261016/knowledge/20261016_215455/evaluations/context_base_unrelated/medical_KG_image.jsonl": "0a15f9390336434705670c08531b9eb3185760dc7e9ddce52db872fa951e4140",
     "exp/onevision_mechanisms_20261016/knowledge/20261016_215455/evaluations/context_base_permuted/medical_image.jsonl": "e742a1316e398c250594749134001f6199fd436da51a0934f6a48008dac7ac53",
-    "exp/onevision_mechanisms_20261016/knowledge/20261016_215455/evaluations/context_base_permuted/medical_KG_image.jsonl": "61c0b70ba8c83a6ff8b6551f598b12f11c3564c616b1693e6ab8db38fcd8eb8b"
+    "exp/onevision_mechanisms_20261016/knowledge/20261016_215455/evaluations/context_base_permuted/medical_KG_image.jsonl": "61c0b70ba8c83a6ff8b6551f598b12f11c3564c616b1693e6ab8db38fcd8eb8b",
+    "exp/onevision_mechanisms_20261016/knowledge/20261016_215455/evaluations/context_shared_none/medical_image.jsonl": "9971b92d0bf59a4f9276131f8d591c5b0d2aacdae38c9b9da8e678a5bfd96c0f",
+    "exp/onevision_mechanisms_20261016/knowledge/20261016_215455/evaluations/context_shared_none/medical_KG_image.jsonl": "9c1b25f03368c124f7e22311a6de548633e05c521348ba915fc63ff526d705c2",
+    "exp/onevision_mechanisms_20261016/knowledge/20261016_215455/evaluations/context_shared_correct/medical_image.jsonl": "bec6220d77d3dabb13413a5332b7ddaee5d91662b3d3758717a6879881f88081",
+    "exp/onevision_mechanisms_20261016/knowledge/20261016_215455/evaluations/context_shared_correct/medical_KG_image.jsonl": "79d186bfd7756d9054f2ca6956581486acaa7f8cec3c26f7185d1272a18f9725",
+    "exp/onevision_mechanisms_20261016/knowledge/20261016_215455/evaluations/context_shared_unrelated/medical_image.jsonl": "194c644d42e49eea1a2a17507faef7eb6f37da7e22ca3d91141a2ced89104116",
+    "exp/onevision_mechanisms_20261016/knowledge/20261016_215455/evaluations/context_shared_unrelated/medical_KG_image.jsonl": "1a36896b61e53dcb9fc7955476b8b7c3834cb0ee346b642c6d0afdf464e1c626"
   },
   "group_overlap_qa": 12,
   "limitations": [
