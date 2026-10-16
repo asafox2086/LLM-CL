@@ -1,5 +1,5 @@
 {
-  "audited_at": "2026-10-15T23:50:25.762344+08:00",
+  "audited_at": "2026-10-16T00:34:01.146025+08:00",
   "count_unit": "QA pairs, not images or conversations",
   "status": "metadata audit; not a complete-assets or frozen-split declaration",
   "records": [
@@ -25,45 +25,6 @@
       },
       "notes": {},
       "sample_image": null
-    },
-    {
-      "dataset": "VQAv2",
-      "full_train": 443757,
-      "full_test": 214354,
-      "pct01_train": 4438,
-      "split_rule": "official train / validation",
-      "example": {
-        "id": "VQAv2:458752000",
-        "dataset": "VQAv2",
-        "source_id": "458752000",
-        "question": "What is this photo taken looking through?",
-        "answer": "net",
-        "answers": [
-          "net",
-          "net",
-          "net",
-          "net",
-          "netting",
-          "net",
-          "net",
-          "mesh",
-          "net",
-          "net",
-          "net"
-        ],
-        "images": [
-          "data/VQAv2/native_images/a9/a9937cde53e6d295f82067a5aa41a2d0bc1b146a522c48268b2df877b38d8b89.img"
-        ],
-        "context": "",
-        "source_split": "train",
-        "metadata": {
-          "question_type": "what is this",
-          "answer_type": "other",
-          "original_image_id": 458752
-        }
-      },
-      "notes": {},
-      "sample_image": "sample/ten_task_cl_20261015_full_1pct/VQAv2.jpg"
     },
     {
       "dataset": "TextVQA",
@@ -126,40 +87,6 @@
       },
       "notes": {},
       "sample_image": "sample/ten_task_cl_20261015_full_1pct/VQA_RAD.jpg"
-    },
-    {
-      "dataset": "GQA",
-      "full_train": 943000,
-      "full_test": 12578,
-      "pct01_train": 9430,
-      "split_rule": "official balanced train / labeled testdev",
-      "example": {
-        "id": "GQA:train-16587699",
-        "dataset": "GQA",
-        "domain": "自然图像／关系与组合推理",
-        "source_split": "train",
-        "images": [
-          "data/GQA/images/44/44378ace925c2489e8ada4a31c8506d91493ad7caff8d1bd9b8d5fbd8d5e5174.jpg"
-        ],
-        "question": "What animal is on the table?",
-        "answer": "kitten",
-        "answers": [
-          "kitten"
-        ],
-        "metadata": {
-          "upstream_image_id": "2409922",
-          "structural_type": "query"
-        },
-        "source_id": "train-16587699",
-        "context": ""
-      },
-      "notes": {
-        "train": 943000,
-        "testdev": 12578,
-        "val": 132062,
-        "test": 95336
-      },
-      "sample_image": "sample/ten_task_cl_20261015_full_1pct/GQA.jpg"
     },
     {
       "dataset": "MedQuAD",
@@ -226,40 +153,6 @@
       "sample_image": "sample/ten_task_cl_20261015_full_1pct/SLAKE.jpg"
     },
     {
-      "dataset": "LLaVA-Med",
-      "full_train": 162640,
-      "full_test": 193,
-      "pct01_train": 1627,
-      "split_rule": "author instruct60k / independent qa50",
-      "example": {
-        "id": "LLaVA-Med:train:27374136_fig01:0",
-        "dataset": "LLaVA-Med",
-        "source_id": "train:27374136_fig01:0",
-        "question": "What is the purpose of the flow diagram?",
-        "answer": "The purpose of the flow diagram is to illustrate the lung cancer screening process implemented by the local government of Yokohama City. It shows the steps involved in the screening, from the primary examination to the follow-up examinations for participants with positive results.",
-        "answers": [
-          "The purpose of the flow diagram is to illustrate the lung cancer screening process implemented by the local government of Yokohama City. It shows the steps involved in the screening, from the primary examination to the follow-up examinations for participants with positive results."
-        ],
-        "images": [
-          "data/LLaVA_Med/images/27374136_fig01.jpg"
-        ],
-        "context": "",
-        "source_split": "official instruct60k",
-        "metadata": {
-          "question_type": "conversation",
-          "original_human_value": "<image>\nWhat is the purpose of the flow diagram?",
-          "annotation_origin": "author GPT-4"
-        }
-      },
-      "notes": {
-        "training_conversations": 56702,
-        "train_unique_images": 56702,
-        "annotation_origin": "author GPT-4 generated",
-        "images_complete": false
-      },
-      "sample_image": null
-    },
-    {
       "dataset": "GeoQuestions1089",
       "full_train": 871,
       "full_test": 214,
@@ -298,41 +191,45 @@
       "sample_image": null
     },
     {
-      "dataset": "GeoChat",
-      "full_train": 547873,
-      "full_test": 137978,
-      "pct01_train": 5479,
-      "split_rule": "research image-group 80/20",
+      "dataset": "RSVQA-LR",
+      "full_train": 57223,
+      "full_test": 10004,
+      "pct01_train": 573,
+      "split_rule": "official LR active-mask train / test",
       "example": {
-        "id": "GeoChat:99138:0",
-        "dataset": "GeoChat",
-        "source_id": "99138:0",
-        "question": "Can you count the number of buildings and trees in the image?",
-        "answer": "The image contains a total of 1 building and 1 tree.",
+        "id": "RSVQA-LR:0",
+        "dataset": "RSVQA-LR",
+        "source_id": "0",
+        "question": "Is it a rural or an urban area",
+        "answer": "urban",
         "answers": [
-          "The image contains a total of 1 building and 1 tree."
+          "urban"
         ],
         "images": [
-          "data/GeoChat_Instruct/raw/images/22737.png"
+          "data/RSVQA_LR/images/0.tif"
         ],
         "context": "",
-        "source_split": "research_image_group_holdout_80_20",
+        "source_split": "train",
         "metadata": {
-          "question_type": "unmarked",
-          "original_human_value": "<image>\n Can you count the number of buildings and trees in the image?",
-          "image_group": "22737.png"
+          "question_type": "rural_urban",
+          "original_image_id": 0,
+          "original_image_name": "S2B_MSIL1C_20181010T104019_N0206_R008_T31UGS_20181010T161145_1024-2560.tif",
+          "configuration": "original LR; all QA types; raw numeric answers"
         }
       },
       "notes": {
-        "raw_conversations": 308861,
+        "unused_validation": 10005,
+        "original_total_qa": 77232,
         "native_type_counts": {
-          "unmarked": 499307,
-          "[refer]": 91742,
-          "[identify]": 69272,
-          "[grounding]": 25530
-        }
+          "rural_urban": 672,
+          "presence": 19963,
+          "count": 20036,
+          "comp": 26556
+        },
+        "source": "https://zenodo.org/records/6344334",
+        "images_complete": false
       },
-      "sample_image": "sample/ten_task_cl_20261015_full_1pct/GeoChat.png"
+      "sample_image": null
     },
     {
       "dataset": "FinQA",

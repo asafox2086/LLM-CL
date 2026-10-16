@@ -23,7 +23,7 @@ def write(path,value):
 
 def assets_ready():
     return all((ROOT/'data'/name/file).exists() for name,file in [
-        ('LLaVA_Med','source_manifest.json'),('GeoChat_Instruct','full_assets_ready.json'),('AQUA','full_assets_ready.json')]) and json.loads((ROOT/'data/LLaVA_Med/source_manifest.json').read_text()).get('images_complete',False)
+        ('RSVQA_LR','full_assets_ready.json'),('AQUA','full_assets_ready.json')])
 
 
 def status_report(state):
@@ -76,10 +76,11 @@ def main():
         now=time.time();policy=json.loads((HERE/'execution_policy.json').read_text())
         if not assets_ready():
             state['phase']='preparing_assets'
-            if more_assets is None or more_assets.poll() is not None:
+            standalone=subprocess.run(['systemctl','--user','is-active','--quiet','llmcl-compact-assets.service']).returncode==0
+            if not standalone and (more_assets is None or more_assets.poll() is not None):
                 if now-state.get('last_more_assets_attempt',0)>120:
                     log=(REPORT/'prepare_more_assets.log').open('a')
-                    more_assets=subprocess.Popen([str(ASSETS),'-u',str(HERE/'prepare_more_assets.py')],stdout=log,stderr=subprocess.STDOUT,cwd=ROOT)
+                    more_assets=subprocess.Popen([str(ASSETS),'-u',str(HERE/'prepare_compact_assets.py')],stdout=log,stderr=subprocess.STDOUT,cwd=ROOT)
                     log.close();state['last_more_assets_attempt']=now
         elif not policy.get('training_enabled'):
             state['phase']='preparing_native_full_and_pct01_splits'

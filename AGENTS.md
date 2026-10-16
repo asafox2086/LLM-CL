@@ -1,4 +1,16 @@
-# Current protocol — 2026-10-15 user revision
+# Current protocol — 2026-10-16 five multimodal tasks
+
+This user-confirmed protocol overrides conflicting historical notes below.
+
+- Current experiment: `five_domain_cl_20261016_full_1pct`. Five domains, five multimodal QA tasks, five sources: TextVQA, SLAKE, RSVQA-LR, MME-Finance, AQUA, in that order. Do not add separate text datasets or create text tasks by dropping required images.
+- Data: `data/FiveDomainCL/five_domain_cl_20261016_full_1pct`; code/runs and reports use the same experiment ID under exp/ and summary/. Do not reuse old ten-task views, caches of predictions, or metrics. Full train 172407, 1% train 1728, common full test 22246; source counts and hashes are in each condition's manifest.
+- Qwen2-VL-2B-Instruct, seed42, one epoch, no validation. GPU0 reserved; full group GPU3; 1% group GPU1/2. Schedule only idle devices and never stop unrelated processes. Nine methods including the standard SeqFT-LoRA control.
+- Evaluate all five tasks at stage0 and after every completed stage, producing complete **6x5** matrices; preserve EM correct/total, F1, ROUGE-L and AP/ForgetRate/FWT/BWT. Keep original question types, answers and images. Only MME-Finance uses a research grouped 80/20 split; other source splits are native (TextVQA public validation is evaluation).
+- **Save final parameters once after all five stages. Do not save stage or optimizer checkpoints.** Include full final model state (including frozen old experts and merged weights), method/router state, processor/configs, source/manifest/base-model hashes and actual file sizes. Store `<run>/final_parameters/` only on server, never in Git. Custom method reconstruction and fresh-process output-equivalence verification are mandatory before downstream evaluation.
+- Continue recording per-step loss/gradient norms, concrete CPU/GPU memory before/after training, growth and peaks for every method in both groups. Measure training-after memory before final export.
+- Source checks are documented in `data/MULTIDOMAIN_DATASET_SURVEY_20261016.md`. MME-Finance's multiple independent published reuse evidence remains unresolved; don't claim every source satisfies it. Current rules: `rules/015_five_multimodal_final_parameters_20261016.md`. Queue service: `llmcl-five-domain.service`; older services stay disabled.
+
+# Historical protocol — 2026-10-15 user revision
 
 This section supersedes the historical 100/0/50 experiment notes below.
 

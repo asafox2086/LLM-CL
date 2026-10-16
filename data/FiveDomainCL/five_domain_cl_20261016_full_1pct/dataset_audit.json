@@ -1,0 +1,189 @@
+{
+  "experiment_id": "five_domain_cl_20261016_full_1pct",
+  "task_count": 5,
+  "count_unit": "QA pairs",
+  "datasets": [
+    {
+      "task": 1,
+      "dataset": "TextVQA",
+      "modality": "image+text question",
+      "domain": "自然／通用",
+      "full_train": 34602,
+      "pct01_train": 347,
+      "full_test": 5000,
+      "source": "https://textvqa.org/",
+      "introduction": "Amanpreet Singh 等 · CVPR 2019",
+      "reuse": "CoIN（NeurIPS 2024）；SMoLoRA（ICCV 2025）",
+      "split": "官方 train／validation；公开 validation 作完整测试池",
+      "sample": {
+        "id": "TextVQA:0",
+        "dataset": "TextVQA",
+        "source_id": "0",
+        "question": "what is the brand of phone?",
+        "answer": "nokia",
+        "answers": [
+          "nokia",
+          "nokia",
+          "nokia",
+          "nokia",
+          "toshiba",
+          "nokia",
+          "nokia",
+          "nokia",
+          "nokia",
+          "nokia"
+        ],
+        "images": [
+          "data/TextVQA/native_images/8b/8b334f00cd80b51fcc109e1cfe3643ee35d479981110ea6b6986719eea546779.img"
+        ],
+        "context": "",
+        "source_split": "train",
+        "metadata": {
+          "original_image_id": "0054c91397f2fe05",
+          "question_type": "text_reading"
+        }
+      },
+      "sample_image": "sample/five_domain_cl_20261016_full_1pct/TextVQA.jpg"
+    },
+    {
+      "task": 2,
+      "dataset": "SLAKE",
+      "modality": "image+text question",
+      "domain": "医学",
+      "full_train": 9835,
+      "pct01_train": 99,
+      "full_test": 2094,
+      "source": "https://www.med-vqa.com/slake/",
+      "introduction": "Bo Liu 等 · ISBI 2021",
+      "reuse": "Uncertainty-Driven Expert Control（ICCV 2025）",
+      "split": "官方 train／test；保留中英文、OPEN／CLOSED，val 2,099 不用",
+      "sample": {
+        "id": "SLAKE:0",
+        "dataset": "SLAKE",
+        "source_id": "0",
+        "question": "What modality is used to take this image?",
+        "answer": "MRI",
+        "answers": [
+          "MRI"
+        ],
+        "images": [
+          "data/SLAKE/native_images/4e/4e591a1ace76cbf3e539069b73e848f9fde485879a24b95f212bbe0ac1d84609.img"
+        ],
+        "context": "",
+        "source_split": "train",
+        "metadata": {
+          "q_lang": "en",
+          "answer_type": "OPEN",
+          "content_type": "Modality",
+          "img_id": 1
+        }
+      },
+      "sample_image": "sample/five_domain_cl_20261016_full_1pct/SLAKE.jpg"
+    },
+    {
+      "task": 3,
+      "dataset": "RSVQA-LR",
+      "modality": "image+text question",
+      "domain": "地理／遥感",
+      "full_train": 57223,
+      "pct01_train": 573,
+      "full_test": 10004,
+      "source": "https://zenodo.org/records/6344334",
+      "introduction": "Sylvain Lobry 等 · TGRS 2020",
+      "reuse": "GeoChat（CVPR 2024）；LHRS-Bot（ECCV 2024）；RSAdapter（TGRS 2024）",
+      "split": "官方 active 掩码 train／test；val 10,005 不用，保留原数值答案",
+      "sample": {
+        "id": "RSVQA-LR:0",
+        "dataset": "RSVQA-LR",
+        "source_id": "0",
+        "question": "Is it a rural or an urban area",
+        "answer": "urban",
+        "answers": [
+          "urban"
+        ],
+        "images": [
+          "data/RSVQA_LR/images/0.tif"
+        ],
+        "context": "",
+        "source_split": "train",
+        "metadata": {
+          "question_type": "rural_urban",
+          "original_image_id": 0,
+          "original_image_name": "S2B_MSIL1C_20181010T104019_N0206_R008_T31UGS_20181010T161145_1024-2560.tif",
+          "configuration": "original LR; all QA types; raw numeric answers"
+        }
+      },
+      "sample_image": "sample/five_domain_cl_20261016_full_1pct/RSVQA-LR.png"
+    },
+    {
+      "task": 4,
+      "dataset": "MME-Finance",
+      "modality": "image+text question",
+      "domain": "金融",
+      "full_train": 935,
+      "pct01_train": 10,
+      "full_test": 236,
+      "source": "https://github.com/HiThink-Research/MME-Finance",
+      "introduction": "Ziliang Gan 等 · ACM MM 2025",
+      "reuse": "本次未补足独立多篇复用核验，见调研记录",
+      "split": "英文 MMfin 原始 1,171 QA；本研究按图表组 seed42 做 80/20，无额外验证池",
+      "sample": {
+        "id": "MME-Finance:81",
+        "dataset": "MME-Finance",
+        "source_id": "81",
+        "question": "What does the image depict?",
+        "answer": "The image displays a technical analysis chart for Meta Platforms, Inc., over a one-day (1D) period. Here are the key details depicted in the chart:\n1. **Candlestick Chart**:\n   - The chart employs candlesticks to represent price movements over time, with each candlestick depicting the opening, closing, high, and low prices for the given period. Red candlesticks indicate a price increase, while cyan candlesticks indicate a price decrease.\n2. **Price and Volume Indicators**:\n   - The current stock price is shown as 510.600, with a gain of +11.690 (or +2.34%) for the day.\n   - The volume of stocks traded is 12110K.\n3. **Moving Averages**:\n   - Several Simple Moving Averages (SMAs) are indicated in different colors:\n     - SMA 5 (white)\n     - SMA 10 (yellow)\n     - SMA 20 (pink)\n     - SMA 30 (green)\n     - SMA 60 (white)\n   - The exact values of these SMAs are provided as 501.096, 503.668, 493.185, 485.850, and 484.784, respectively.\n5. **Additional Features**:\n   - Volume bars at the bottom of the chart show the volume traded over corresponding periods, with red bars representing higher closing prices and cyan bars representing lower closing prices compared to the previous day's close.",
+        "answers": [
+          "The image displays a technical analysis chart for Meta Platforms, Inc., over a one-day (1D) period. Here are the key details depicted in the chart:\n1. **Candlestick Chart**:\n   - The chart employs candlesticks to represent price movements over time, with each candlestick depicting the opening, closing, high, and low prices for the given period. Red candlesticks indicate a price increase, while cyan candlesticks indicate a price decrease.\n2. **Price and Volume Indicators**:\n   - The current stock price is shown as 510.600, with a gain of +11.690 (or +2.34%) for the day.\n   - The volume of stocks traded is 12110K.\n3. **Moving Averages**:\n   - Several Simple Moving Averages (SMAs) are indicated in different colors:\n     - SMA 5 (white)\n     - SMA 10 (yellow)\n     - SMA 20 (pink)\n     - SMA 30 (green)\n     - SMA 60 (white)\n   - The exact values of these SMAs are provided as 501.096, 503.668, 493.185, 485.850, and 484.784, respectively.\n5. **Additional Features**:\n   - Volume bars at the bottom of the chart show the volume traded over corresponding periods, with red bars representing higher closing prices and cyan bars representing lower closing prices compared to the previous day's close."
+        ],
+        "images": [
+          "data/MME_Finance/native_images/candlestick/4/a.png"
+        ],
+        "context": "",
+        "source_split": "research_chart_group_holdout_80_20",
+        "metadata": {
+          "question_type": "Image Caption",
+          "image_type": "candlestick",
+          "image_style": "PC",
+          "chart_group": "candlestick/4"
+        }
+      },
+      "sample_image": "sample/five_domain_cl_20261016_full_1pct/MME-Finance.png"
+    },
+    {
+      "task": 5,
+      "dataset": "AQUA",
+      "modality": "image+text question",
+      "domain": "艺术文化",
+      "full_train": 69812,
+      "pct01_train": 699,
+      "full_test": 4912,
+      "source": "https://github.com/noagarcia/ArtVQA",
+      "introduction": "Noa Garcia 等 · ECCV VISART Workshop 2020",
+      "reuse": "CL-CrossVQA（WACV 2025）；ArtQuest（WACV 2024）",
+      "split": "官方 train／test；知识、视觉 QA 全保留并输入原画作，val 5,124 不用",
+      "sample": {
+        "id": "AQUA:train:29568",
+        "dataset": "AQUA",
+        "source_id": "train:29568",
+        "question": "what was exhibited at the 1861 salon",
+        "answer": "this painting",
+        "answers": [
+          "this painting"
+        ],
+        "images": [
+          "data/AQUA/selected_images/23797-1early03.jpg"
+        ],
+        "context": "",
+        "source_split": "train",
+        "metadata": {
+          "need_external_knowledge": true,
+          "original_image": "23797-1early03.jpg",
+          "question_type": "knowledge",
+          "conditioning": "original painting; knowledge QA"
+        }
+      },
+      "sample_image": "sample/five_domain_cl_20261016_full_1pct/AQUA.jpg"
+    }
+  ]
+}

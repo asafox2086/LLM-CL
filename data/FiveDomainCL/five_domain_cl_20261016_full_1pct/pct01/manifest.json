@@ -1,0 +1,223 @@
+{
+  "experiment_id": "five_domain_cl_20261016_full_1pct",
+  "condition": "pct01",
+  "seed": 42,
+  "split_version": "five_domain_cl_20261016_full_1pct_five_domain_v1",
+  "formal_ready": true,
+  "assets_pending": [],
+  "validation_enabled": false,
+  "dataset_revision": "five_domain_20261016",
+  "all_original_question_types": true,
+  "counts_per_task": "variable; see each task.files",
+  "max_train_qa_per_task": 99999,
+  "test_definition": "full labeled public evaluation split; official hidden test without labels is not scored",
+  "tasks": [
+    {
+      "task": 1,
+      "task_id": "T01",
+      "domain": "natural",
+      "modality": "image",
+      "instruction": "Answer the question using the image. Give the answer directly.",
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_cl_20261016_full_1pct/pct01/T01_train.jsonl",
+          "count": 347,
+          "sha256": "5732cd30e78ea2d808526c62312ed2d25e9541a07b3ba5ad2b19d4f0123217c8",
+          "dataset_counts": {
+            "TextVQA": 347
+          },
+          "original_type_counts": {
+            "text_reading": 347
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_cl_20261016_full_1pct/pct01/T01_test.jsonl",
+          "count": 5000,
+          "sha256": "14705cad19879bbe9397add2d6871d6892146aee4be3885030700382307cd3bb",
+          "dataset_counts": {
+            "TextVQA": 5000
+          },
+          "original_type_counts": {
+            "text_reading": 5000
+          }
+        }
+      },
+      "training_order_sha256": "a4a67372e207e4823c52dad27080d5755684ec56552e3dfa248910e37588c686",
+      "training_order_rule": "SHA256(42:stage:original_QA_ID), ascending digest"
+    },
+    {
+      "task": 2,
+      "task_id": "T02",
+      "domain": "medical",
+      "modality": "image",
+      "instruction": "Answer the medical question using the image.",
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_cl_20261016_full_1pct/pct01/T02_train.jsonl",
+          "count": 99,
+          "sha256": "f03acda24fbdda49a0b22083a061cbe49713290fe49967f57ae64f04e604eb86",
+          "dataset_counts": {
+            "SLAKE": 99
+          },
+          "original_type_counts": {
+            "Abnormality": 14,
+            "Color": 3,
+            "KG": 12,
+            "Modality": 11,
+            "Organ": 26,
+            "Plane": 5,
+            "Position": 17,
+            "Quantity": 4,
+            "Shape": 1,
+            "Size": 6
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_cl_20261016_full_1pct/pct01/T02_test.jsonl",
+          "count": 2094,
+          "sha256": "f2b7035709b7cc52ff40498fc39b2abfa451a43531b29e7f6ee83eb476f195c6",
+          "dataset_counts": {
+            "SLAKE": 2094
+          },
+          "original_type_counts": {
+            "Modality": 228,
+            "Position": 375,
+            "Organ": 507,
+            "Size": 124,
+            "Abnormality": 311,
+            "Quantity": 89,
+            "Plane": 116,
+            "Shape": 12,
+            "Color": 65,
+            "KG": 267
+          }
+        }
+      },
+      "training_order_sha256": "64b564170c3df9db142fb035ff5fb9a97246ccc0886069ed61087296ff147e58",
+      "training_order_rule": "SHA256(42:stage:original_QA_ID), ascending digest"
+    },
+    {
+      "task": 3,
+      "task_id": "T03",
+      "domain": "geography",
+      "modality": "image",
+      "instruction": "Answer the remote-sensing question using the image. Preserve the original numeric answer format.",
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_cl_20261016_full_1pct/pct01/T03_train.jsonl",
+          "count": 573,
+          "sha256": "919e8eb6f545bca4b2e03e749ce601b723cd4ff2dceb3bca7d787b55b36bdbac",
+          "dataset_counts": {
+            "RSVQA-LR": 573
+          },
+          "original_type_counts": {
+            "comp": 226,
+            "count": 171,
+            "presence": 170,
+            "rural_urban": 6
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_cl_20261016_full_1pct/pct01/T03_test.jsonl",
+          "count": 10004,
+          "sha256": "369e2de7f8c6847b6645b88b22044ccdcb741520cfd7feaaf400527ed40b467d",
+          "dataset_counts": {
+            "RSVQA-LR": 10004
+          },
+          "original_type_counts": {
+            "rural_urban": 100,
+            "presence": 2955,
+            "count": 2947,
+            "comp": 4002
+          }
+        }
+      },
+      "training_order_sha256": "208dd1125cbe90aead14e9ac18726b9289cb9cad86f31d8e6a854c4e5f30c4cc",
+      "training_order_rule": "SHA256(42:stage:original_QA_ID), ascending digest"
+    },
+    {
+      "task": 4,
+      "task_id": "T04",
+      "domain": "finance",
+      "modality": "image",
+      "instruction": "Answer the financial question using the image and original background.",
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_cl_20261016_full_1pct/pct01/T04_train.jsonl",
+          "count": 10,
+          "sha256": "ea066f6b8d9c44d80015be6a4244f1371c8347a866dd14489ae45ed0d425f502",
+          "dataset_counts": {
+            "MME-Finance": 10
+          },
+          "original_type_counts": {
+            "Accurate Numerical Calculation": 1,
+            "Entity Recognition": 1,
+            "Financial Knowledge": 1,
+            "Image Caption": 2,
+            "Investment Advice": 1,
+            "OCR": 2,
+            "Spatial Awareness": 2
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_cl_20261016_full_1pct/pct01/T04_test.jsonl",
+          "count": 236,
+          "sha256": "de121b1a9a76392949af2788888cc59e07eed18056bc42104fa38e5e62f61e83",
+          "dataset_counts": {
+            "MME-Finance": 236
+          },
+          "original_type_counts": {
+            "Image Caption": 32,
+            "OCR": 36,
+            "Entity Recognition": 33,
+            "Spatial Awareness": 42,
+            "Not Applicable": 8,
+            "Accurate Numerical Calculation": 28,
+            "Investment Advice": 11,
+            "Explain Reason": 3,
+            "Financial Knowledge": 28,
+            "Risk Warning": 9,
+            "Numerical Calculation": 6
+          }
+        }
+      },
+      "training_order_sha256": "f17fdc3e87995253a58cb66b0843a9bef651ef9b890fd054113fd4b7cc694140",
+      "training_order_rule": "SHA256(42:stage:original_QA_ID), ascending digest"
+    },
+    {
+      "task": 5,
+      "task_id": "T05",
+      "domain": "art",
+      "modality": "image",
+      "instruction": "Answer the art question using the painting.",
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_cl_20261016_full_1pct/pct01/T05_train.jsonl",
+          "count": 699,
+          "sha256": "de66a5eff44a8d3757ba00a46ad5723ef1ca58ae385374480584cdd3798eb9a8",
+          "dataset_counts": {
+            "AQUA": 699
+          },
+          "original_type_counts": {
+            "knowledge": 403,
+            "visual": 296
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_cl_20261016_full_1pct/pct01/T05_test.jsonl",
+          "count": 4912,
+          "sha256": "34e9de8eaa28a07ff5bf9415d5ca2094818b2eab6b63479783e25eb76620dac0",
+          "dataset_counts": {
+            "AQUA": 4912
+          },
+          "original_type_counts": {
+            "knowledge": 3642,
+            "visual": 1270
+          }
+        }
+      },
+      "training_order_sha256": "c7ba936471ea55bc740a5355bd3a0b1ec80441b68fe64d878fd55beada20ec17",
+      "training_order_rule": "SHA256(42:stage:original_QA_ID), ascending digest"
+    }
+  ]
+}

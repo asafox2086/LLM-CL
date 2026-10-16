@@ -1,22 +1,83 @@
 {
   "experiment_id": "ten_task_cl_20261015_full_1pct",
   "training_enabled": false,
-  "training_block_reason": "Complete original data, assets, split audit and instrumented GPU preflights required",
+  "training_block_reason": "2026-10-16: select five multimodal tasks vs ten natively answerable views before freezing splits",
   "seed": 42,
   "epochs": 1,
   "validation_enabled": false,
   "save_checkpoints": false,
-  "reserved_gpus": [0],
-  "methods": ["SeqFT_LoRA", "SMoLoRA", "PASs_MoE", "Hyper_LLaVA", "PaRSP", "OSFT", "SpaRTA", "FV_guided_Training", "ALER"],
+  "reserved_gpus": [
+    0
+  ],
+  "methods": [
+    "SeqFT_LoRA",
+    "SMoLoRA",
+    "PASs_MoE",
+    "Hyper_LLaVA",
+    "PaRSP",
+    "OSFT",
+    "SpaRTA",
+    "FV_guided_Training",
+    "ALER"
+  ],
   "conditions": {
-    "full": {"train_fraction": 1.0, "test_fraction": 1.0, "allowed_gpus": [3], "ready": false},
-    "pct01": {"train_fraction": 0.01, "test_fraction": 1.0, "allowed_gpus": [1, 2], "ready": false}
+    "full": {
+      "train_fraction": 1.0,
+      "test_fraction": 1.0,
+      "allowed_gpus": [
+        3
+      ],
+      "ready": false
+    },
+    "pct01": {
+      "train_fraction": 0.01,
+      "test_fraction": 1.0,
+      "allowed_gpus": [
+        1,
+        2
+      ],
+      "ready": false
+    }
   },
   "question_type_filtering": false,
   "preserve_native_options_and_answers": true,
-  "required_outputs": ["resources.jsonl", "memory_summary.json", "logs/events.jsonl", "score_matrices.json", "metrics_by_score.json"],
+  "required_outputs": [
+    "resources.jsonl",
+    "memory_summary.json",
+    "logs/events.jsonl",
+    "score_matrices.json",
+    "metrics_by_score.json"
+  ],
   "memory_units": "bytes; report CPU RSS/PSS/USS and GPU allocator/reserved/NVML separately",
-  "gradient_metrics": ["gradient_l2_preclip", "gradient_l2_postclip", "gradient_clip_threshold"],
+  "gradient_metrics": [
+    "gradient_l2_preclip",
+    "gradient_l2_postclip",
+    "gradient_clip_threshold"
+  ],
   "initial_and_stage_evaluation": "all test QA for all ten tasks at stages 0 through 10",
-  "old_results_reuse": false
+  "old_results_reuse": false,
+  "dataset_revision": "compact_20261016",
+  "max_train_qa_per_task": 99999,
+  "selected_sources": [
+    "SQuAD11",
+    "TextVQA",
+    "MedQuAD",
+    "VQA_RAD",
+    "SLAKE",
+    "GeoQuestions1089",
+    "RSVQA-LR",
+    "FinQA",
+    "MME-Finance",
+    "AQUA"
+  ],
+  "superseded_large_sources": [
+    "VQAv2",
+    "GQA",
+    "LLaVA-Med",
+    "GeoChat"
+  ],
+  "save_final_parameters": true,
+  "save_stage_checkpoints": false,
+  "task_layout_status": "superseded_by_confirmed_five_multimodal_tasks",
+  "superseded_by": "five_domain_cl_20261016_full_1pct"
 }

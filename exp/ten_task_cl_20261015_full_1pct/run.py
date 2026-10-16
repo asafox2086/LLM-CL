@@ -17,6 +17,7 @@ from methods import ROOT, make_method
 from runtime_utils import input_batch, answer_loss, evaluate, make_optimizer, activation_storage, write
 from frozen_vision import install, prepare
 from resource_monitor import ResourceMonitor
+from final_parameters import save_final
 
 HERE = Path(__file__).resolve().parent
 METHODS = ['SeqFT_LoRA', 'SMoLoRA', 'PASs_MoE', 'Hyper_LLaVA', 'PaRSP',
@@ -104,7 +105,7 @@ def main():
     task_counts = {t['task_id']: {s: f['count'] for s, f in t['files'].items()} for t in manifest['tasks']}
     config = {'experiment_id': HERE.name, 'condition': args.condition, 'method': args.method,
               'seed': 42, 'epochs': 1, 'manifest_sha256': digest, 'task_counts': task_counts,
-              'save_checkpoints': False, 'batch_size': 16, 'micro_batch_size': 1,
+              'save_checkpoints': False, 'save_final_parameters': True, 'batch_size': 16, 'micro_batch_size': 1,
               'base_model': str(model_path), 'primary_score': 'rougeL',
               'test_fraction': 1.0, 'train_fraction': 1.0 if args.condition == 'full' else .01,
               'preflight_only': args.preflight_only,
@@ -120,9 +121,9 @@ def main():
         method.begin_stage(1)
         optimizer = make_optimizer(method)
         scaler = torch.amp.GradScaler('cuda', init_scale=1024)
-        for tid in [1, 4]:
+        for tid in [1, 4, 6]:
             method.set_instruction(tid)
-            row = next((r for r in data[tid, 'train'] if r['dataset']=='LLaVA-Med'), data[tid, 'train'][0]) if tid==4 else data[tid, 'train'][0]
+            row = data[tid, 'train'][0]
             batch, _ = input_batch(row, manifest['tasks'][tid-1], processor, model.device)
             prepare(batch, row, model, method.vision_original)
             if hasattr(method, 'prepare_row'):
@@ -251,7 +252,10 @@ def main():
         write(run / 'run_status.json', {'status': 'stage_complete', 'completed_stage': stage})
     aggregate(run, manifest)
     monitor.finish(model)
-    write(run / 'run_status.json', {'status': 'completed', 'completed_stage': 10})
+    write(run / 'run_status.json', {'status': 'saving_final_parameters', 'completed_stage': 10})
+    artifact = save_final(method, processor, run, manifest, config)
+    write(run / 'run_status.json', {'status': 'completed', 'completed_stage': 10,
+          'final_parameters': 'final_parameters/artifact_manifest.json', 'final_parameter_file_bytes': artifact['total_file_bytes']})
 
 
 if __name__ == '__main__':

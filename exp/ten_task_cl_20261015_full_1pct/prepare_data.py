@@ -203,6 +203,30 @@ def native_geochat():
     return research_holdout(rows,lambda x:x['metadata']['image_group'])
 
 
+def native_rsvqa(role):
+    d=ROOT/'data/RSVQA_LR'
+    prefix='LR_split_'+role+'_'
+    questions=json.loads((d/'raw'/(prefix+'questions.json')).read_text())['questions']
+    answers={x['id']:x for x in json.loads((d/'raw'/(prefix+'answers.json')).read_text())['answers'] if x.get('active',True)}
+    images={x['id']:x for x in json.loads((d/'raw'/(prefix+'images.json')).read_text())['images'] if x.get('active',True)}
+    for x in questions:
+        # Inactive entries are the author's placeholders for other source splits.
+        # Respect this official split mask; never infer a question-type filter.
+        if not x.get('active',True):continue
+        native_image=images[x['img_id']]
+        # The release contains RGB TIFFs. The original image bytes remain untouched.
+        # Qwen's regular image preprocessing handles RGB conversion at model input.
+        image=d/'images'/(str(x['img_id'])+'.tif')
+        if not image.is_file():
+            alternate=d/'images'/native_image['original_name']
+            if alternate.is_file():image=alternate
+        refs=[str(answers[a]['answer']) for a in x['answers_ids']]
+        assert refs and all(answers[a]['question_id']==x['id'] for a in x['answers_ids'])
+        yield row('RSVQA-LR',x['id'],x['question'],refs,[str(image.relative_to(ROOT))],source_split=role,
+                  metadata={'question_type':x['type'],'original_image_id':x['img_id'],
+                            'original_image_name':native_image['original_name'],'configuration':'original LR; all QA types; raw numeric answers'})
+
+
 def native_mme():
     d=ROOT/'data/MME_Finance';rows=[]
     with zipfile.ZipFile(d/'raw/MMfin.zip') as z:
@@ -277,25 +301,26 @@ def main():
            (8,'finance','image','Answer the original financial question using the image and supplied background.'),
            (9,'art','text','Answer the art history question directly.'),
            (10,'art','image','Answer the art question using the painting.')]
-    manifests={c:{'experiment_id':HERE.name,'condition':c,'seed':42,'split_version':HERE.name+'_native_v1',
-                'formal_ready':False,'assets_pending':[],'validation_enabled':False,
-                'all_original_question_types':True,'counts_per_task':'variable; see each task.files',
+    manifests={c:{'experiment_id':HERE.name,'condition':c,'seed':42,'split_version':HERE.name+'_compact_20261016_v1',
+                'formal_ready':False,'assets_pending':[],'validation_enabled':False,'dataset_revision':'compact_20261016',
+                'all_original_question_types':True,'counts_per_task':'variable; see each task.files','max_train_qa_per_task':99999,
                 'test_definition':'full labeled public evaluation split; official hidden test without labels is not scored',
                 'tasks':[]} for c in ['full','pct01']}
     research={}
     def cached(tid,factory,role):
         if tid not in research:research[tid]=factory()
         return research[tid][role]
-    sources={1:lambda role:native_squad(role),2:lambda role:(x for n in ['VQAv2','GQA','TextVQA'] for x in (native_gqa(role) if n=='GQA' else native_parquet(n,role))),
+    sources={1:lambda role:native_squad(role),2:lambda role:native_parquet('TextVQA',role),
              3:lambda role:cached(3,native_medquad,role),
-             4:lambda role:(x for n in ['VQA_RAD','SLAKE','LLaVA-Med'] for x in (native_parquet(n,role) if n=='VQA_RAD' else native_slake(role) if n=='SLAKE' else native_llavamed(role))),
+             4:lambda role:(x for n in ['VQA_RAD','SLAKE'] for x in (native_parquet(n,role) if n=='VQA_RAD' else native_slake(role))),
              5:lambda role:cached(5,native_geoquestions,role),
-             6:lambda role:cached(6,native_geochat,role),7:lambda role:native_finqa(role),
+             6:lambda role:native_rsvqa(role),7:lambda role:native_finqa(role),
              8:lambda role:cached(8,native_mme,role),9:lambda role:native_aqua(role,True),10:lambda role:native_aqua(role,False)}
     counts=[]
     for tid,domain,modality,instruction in tasks:
         split_rows={role:list(sources[tid](role)) for role in ['train','test']}
         assert split_rows['train'] and split_rows['test']
+        assert len(split_rows['train'])<100000,(tid,'Compact protocol: reject hundred-thousand-QA task')
         for role,rows in split_rows.items():
             assert len({x['id'] for x in rows})==len(rows),(tid,role,'duplicate source QA IDs')
         assert not {x['id'] for x in split_rows['train']} & {x['id'] for x in split_rows['test']}

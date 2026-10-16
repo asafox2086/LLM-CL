@@ -1,3 +1,15 @@
+# 当前修订：每领域一个图文来源，保存最终参数
+
+2026-10-16 用户要求减少数据集数量，优先每个领域一个图文来源。原生文本问题必须有足够上下文，不能直接删除图像构造不可回答的“文本任务”。用户已确认五个图文任务；本十任务目录停用，当前入口为 exp/five_domain_cl_20261016_full_1pct。旧任务清单不重用。
+
+候选：自然 TextVQA；医学 SLAKE；遥感 RSVQA-LR；金融 MME-Finance；艺术 AQUA。候选来源和实际使用论文见 ../../data/MULTIDOMAIN_DATASET_SURVEY_20261016.md。是否具备独立文本视图需要逐项判断，不能把“有文字问题”当“有文本任务”。
+
+最新保存规则覆盖此前无最终权重要求：不存阶段／优化器 checkpoint，每个正式方法完成全部任务后，保存 runs/<condition>/<method>/<run_id>/final_parameters/，含完整 model_state.pt、method_state.pt、模型与处理器配置、任务清单、运行代码与来源校验。包含冻结旧专家和合并后的基座权重。最后训练后的内存记录在导出前完成；导出大小和 SHA256 写 artifact_manifest.json。不是原生 Transformers 目录，必须重建自定义方法架构，正式后续评定前完成新进程重载等价检验。
+
+以下十任务方案是本次合并前的记录，不能直接作为最新任务数启动。
+
+---
+
 # 原始数据全量与 1% 持续学习实验
 
 2026-10-15 用户新要求覆盖此前 100/0/50 预算与排除 SeqLoRA 控制的限制。旧实验已停止并归档到 `exp/ago/ten_task_cl_20261014_geo_fin` 与 `summary/ago/ten_task_cl_20261014_geo_fin`，不再追加结果。

@@ -1,0 +1,59 @@
+{
+  "experiment_id": "ten_task_cl_20261015_full_1pct",
+  "training_enabled": false,
+  "training_block_reason": "2026-10-16 user scale revision: replace hundred-thousand-QA sources; do not launch old dataset protocol",
+  "seed": 42,
+  "epochs": 1,
+  "validation_enabled": false,
+  "save_checkpoints": false,
+  "reserved_gpus": [
+    0
+  ],
+  "methods": [
+    "SeqFT_LoRA",
+    "SMoLoRA",
+    "PASs_MoE",
+    "Hyper_LLaVA",
+    "PaRSP",
+    "OSFT",
+    "SpaRTA",
+    "FV_guided_Training",
+    "ALER"
+  ],
+  "conditions": {
+    "full": {
+      "train_fraction": 1.0,
+      "test_fraction": 1.0,
+      "allowed_gpus": [
+        3
+      ],
+      "ready": false
+    },
+    "pct01": {
+      "train_fraction": 0.01,
+      "test_fraction": 1.0,
+      "allowed_gpus": [
+        1,
+        2
+      ],
+      "ready": false
+    }
+  },
+  "question_type_filtering": false,
+  "preserve_native_options_and_answers": true,
+  "required_outputs": [
+    "resources.jsonl",
+    "memory_summary.json",
+    "logs/events.jsonl",
+    "score_matrices.json",
+    "metrics_by_score.json"
+  ],
+  "memory_units": "bytes; report CPU RSS/PSS/USS and GPU allocator/reserved/NVML separately",
+  "gradient_metrics": [
+    "gradient_l2_preclip",
+    "gradient_l2_postclip",
+    "gradient_clip_threshold"
+  ],
+  "initial_and_stage_evaluation": "all test QA for all ten tasks at stages 0 through 10",
+  "old_results_reuse": false
+}
