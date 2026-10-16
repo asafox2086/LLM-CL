@@ -2,6 +2,10 @@
 
 ## 当前研究：LLaVA-OneVision-0.5B诊断
 
+后台执行：两服务器基线调度器均经`nohup`启动，保留用户服务的开机恢复，日志在各机`summary/five_domain_native_cl_20261016_sparse/nohup_pipeline.log`。现有训练进程不因切换调度器而重跑。GPU1研究使用独立`llmcl-onevision-research.service`及`research_nohup.log`，与基线并行。
+
+重启恢复说明：新机17:54重启打断了旧顺序阶段1；24个已完成独立控制保留，未完成阶段不续接。新run`sequential_recovery_20261016_181253`从基座重跑，训练后原子保存阶段LoRA／RNG／SHA，再做评测；已经保存第1阶段和每域4条TRAIN探针的完整梯度，不能将它们称作历史每一步梯度。[机制控制与完成标准](analysis/ONEVISION_CAUSAL_CONTROLS.md)。
+
 用户确认采用[**LLaVA-OneVision-Qwen2-0.5B-OV**](https://huggingface.co/llava-hf/llava-onevision-qwen2-0.5b-ov-hf)探索小模型问题；语言骨干约0.5B，完整图文模型约0.9B。独立实验`onevision_diagnostics_20261016`仅使用新服务器GPU1；已有Qwen2-VL基线继续，按骨干分别报告，不能混成同基座排名。
 
 先区分可学习性／领域能力、视觉依赖、顺序干扰与LoRA更新冗余：原基座与五域独立LoRA、19个逐任务独立LoRA与同一LoRA按19任务顺序训练、原图／无图／错配图、训练样本梯度余弦、实际`deltaW=B*A`余弦／奇异谱及5×5跨域迁移矩阵。逐任务独立与顺序控制使用相同数据、更新预算和诊断ID，五域汇总控制单列。固定同一1%训练池1313QA；快速诊断预先固定每域100个测试题（合计500），其中每域10题生成，其余先测NLL。**诊断子集成绩不是完整测试主表**，最终候选仍须完整21454QA测试确认。原始数据和正式划分不变。

@@ -1,0 +1,18 @@
+{
+  "new3090_service": "MainPID=6693\nExecStart={ path=/usr/bin/nohup ; argv[]=/usr/bin/nohup /data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/exp/five_domain_native_cl_20261016_sparse/pipeline.py ; ignore_errors=no ; start_time=[Fri 2026-10-16 18:15:10 CST] ; stop_time=[n/a] ; pid=6693 ; code=(null) ; status=0/0 }\nActiveState=active\n",
+  "new3090_nohup_override": "[Service]\nExecStart=\nExecStart=/usr/bin/nohup /data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/exp/five_domain_native_cl_20261016_sparse/pipeline.py\nStandardInput=null\nStandardOutput=append:/data1/liyapeng/program/LLMCL/summary/five_domain_native_cl_20261016_sparse/nohup_pipeline.log\nStandardError=inherit\n",
+  "preserved_workers_during_switch": {
+    "new3090": [
+      4403,
+      4903
+    ],
+    "old2080": [
+      3919135,
+      3919395,
+      3920671,
+      3920834
+    ]
+  },
+  "worker_preservation_verified_at_switch": true,
+  "research_service": "MainPID=6218\nExecStart={ path=/usr/bin/nohup ; argv[]=/usr/bin/nohup /data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/onevision_research_worker.py ; ignore_errors=no ; start_time=[Fri 2026-10-16 18:12:50 CST] ; stop_time=[n/a] ; pid=6218 ; code=(null) ; status=0/0 }\nActiveState=active\n"
+}
