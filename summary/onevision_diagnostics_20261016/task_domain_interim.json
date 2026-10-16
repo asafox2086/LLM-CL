@@ -1,0 +1,411 @@
+{
+  "run": "exp/onevision_mechanisms_20261016/task_domain/20261016_210338",
+  "code_sha256": "35609e2fbc6ee077cc615aa6e3151349b4cc0c01b29944e108639eba136c21f8",
+  "complete_cases_at_snapshot": 13,
+  "planned_cases": 24,
+  "pending_or_live_cases": [
+    "cross_short__ER_LoRA",
+    "cross_short__EWC_lambda1",
+    "cross_short__EWC_lambda100",
+    "cross_short__anchor_gradient_noop",
+    "cross_short__anchor_gradient_projection",
+    "cross_five_domains__SeqFT_LoRA",
+    "cross_five_domains__ER_LoRA",
+    "cross_five_domains__EWC_lambda1",
+    "cross_five_domains__EWC_lambda100",
+    "cross_five_domains__anchor_gradient_noop",
+    "cross_five_domains__anchor_gradient_projection"
+  ],
+  "rows": [
+    {
+      "sequence": "repeat_anchor",
+      "method": "SeqFT_LoRA",
+      "stages": {
+        "1": {
+          "count": 23,
+          "mean_nll": 6.051397893739783,
+          "correct": 2,
+          "token_f1": 16.231884057971012
+        },
+        "3": {
+          "count": 23,
+          "mean_nll": 1.9132759337839873,
+          "correct": 8,
+          "token_f1": 41.24860646599777
+        },
+        "5": {
+          "count": 23,
+          "mean_nll": 1.5700250925577206,
+          "correct": 8,
+          "token_f1": 36.95652173913044
+        }
+      }
+    },
+    {
+      "sequence": "repeat_anchor",
+      "method": "ER_LoRA",
+      "stages": {
+        "1": {
+          "count": 23,
+          "mean_nll": 5.99769113374793,
+          "correct": 2,
+          "token_f1": 16.231884057971012
+        },
+        "3": {
+          "count": 23,
+          "mean_nll": 1.8381927065227344,
+          "correct": 9,
+          "token_f1": 44.87179487179487
+        },
+        "5": {
+          "count": 23,
+          "mean_nll": 1.6420085877585022,
+          "correct": 6,
+          "token_f1": 28.26086956521739
+        }
+      }
+    },
+    {
+      "sequence": "repeat_anchor",
+      "method": "EWC_lambda1",
+      "stages": {
+        "1": {
+          "count": 23,
+          "mean_nll": 6.0104211257851645,
+          "correct": 2,
+          "token_f1": 18.716356107660456
+        },
+        "3": {
+          "count": 23,
+          "mean_nll": 1.9237571177275286,
+          "correct": 8,
+          "token_f1": 40.523968784838345
+        },
+        "5": {
+          "count": 23,
+          "mean_nll": 1.5663450920711393,
+          "correct": 8,
+          "token_f1": 36.95652173913044
+        }
+      }
+    },
+    {
+      "sequence": "repeat_anchor",
+      "method": "EWC_lambda100",
+      "stages": {
+        "1": {
+          "count": 23,
+          "mean_nll": 6.042692578357199,
+          "correct": 2,
+          "token_f1": 16.231884057971012
+        },
+        "3": {
+          "count": 23,
+          "mean_nll": 1.9439158750616985,
+          "correct": 9,
+          "token_f1": 39.79933110367893
+        },
+        "5": {
+          "count": 23,
+          "mean_nll": 1.7102596170228461,
+          "correct": 9,
+          "token_f1": 41.30434782608695
+        }
+      }
+    },
+    {
+      "sequence": "repeat_anchor",
+      "method": "anchor_gradient_noop",
+      "stages": {
+        "1": {
+          "count": 23,
+          "mean_nll": 5.959335067997808,
+          "correct": 2,
+          "token_f1": 16.231884057971012
+        },
+        "3": {
+          "count": 23,
+          "mean_nll": 1.8900604014811309,
+          "correct": 9,
+          "token_f1": 42.69788182831661
+        },
+        "5": {
+          "count": 23,
+          "mean_nll": 1.5417276651639005,
+          "correct": 8,
+          "token_f1": 36.95652173913044
+        }
+      }
+    },
+    {
+      "sequence": "repeat_anchor",
+      "method": "anchor_gradient_projection",
+      "stages": {
+        "1": {
+          "count": 23,
+          "mean_nll": 5.988596086916716,
+          "correct": 2,
+          "token_f1": 16.231884057971012
+        },
+        "3": {
+          "count": 23,
+          "mean_nll": 1.908459668574126,
+          "correct": 9,
+          "token_f1": 44.87179487179487
+        },
+        "5": {
+          "count": 23,
+          "mean_nll": 1.5504412506909475,
+          "correct": 8,
+          "token_f1": 36.95652173913044
+        }
+      }
+    },
+    {
+      "sequence": "within_medical",
+      "method": "SeqFT_LoRA",
+      "stages": {
+        "1": {
+          "count": 23,
+          "mean_nll": 6.017823084540989,
+          "correct": 2,
+          "token_f1": 18.716356107660456
+        },
+        "3": {
+          "count": 23,
+          "mean_nll": 2.4995676745539126,
+          "correct": 8,
+          "token_f1": 35.45150501672241
+        },
+        "5": {
+          "count": 23,
+          "mean_nll": 1.651117530853852,
+          "correct": 9,
+          "token_f1": 44.20289855072463
+        }
+      }
+    },
+    {
+      "sequence": "within_medical",
+      "method": "ER_LoRA",
+      "stages": {
+        "1": {
+          "count": 23,
+          "mean_nll": 5.984160371448683,
+          "correct": 2,
+          "token_f1": 18.716356107660456
+        },
+        "3": {
+          "count": 23,
+          "mean_nll": 3.269765695799952,
+          "correct": 3,
+          "token_f1": 13.712374581939798
+        },
+        "5": {
+          "count": 23,
+          "mean_nll": 1.7298904922993288,
+          "correct": 9,
+          "token_f1": 42.028985507246375
+        }
+      }
+    },
+    {
+      "sequence": "within_medical",
+      "method": "EWC_lambda1",
+      "stages": {
+        "1": {
+          "count": 23,
+          "mean_nll": 5.930473369100819,
+          "correct": 2,
+          "token_f1": 16.231884057971012
+        },
+        "3": {
+          "count": 23,
+          "mean_nll": 2.4950201485467995,
+          "correct": 8,
+          "token_f1": 35.45150501672241
+        },
+        "5": {
+          "count": 23,
+          "mean_nll": 1.6490223939004152,
+          "correct": 10,
+          "token_f1": 46.37681159420289
+        }
+      }
+    },
+    {
+      "sequence": "within_medical",
+      "method": "EWC_lambda100",
+      "stages": {
+        "1": {
+          "count": 23,
+          "mean_nll": 5.945728675178859,
+          "correct": 2,
+          "token_f1": 18.716356107660456
+        },
+        "3": {
+          "count": 23,
+          "mean_nll": 2.571742259937784,
+          "correct": 8,
+          "token_f1": 35.45150501672241
+        },
+        "5": {
+          "count": 23,
+          "mean_nll": 1.7462266074574513,
+          "correct": 10,
+          "token_f1": 48.55072463768115
+        }
+      }
+    },
+    {
+      "sequence": "within_medical",
+      "method": "anchor_gradient_noop",
+      "stages": {
+        "1": {
+          "count": 23,
+          "mean_nll": 6.034325806990914,
+          "correct": 2,
+          "token_f1": 16.231884057971012
+        },
+        "3": {
+          "count": 23,
+          "mean_nll": 2.49564825711043,
+          "correct": 8,
+          "token_f1": 35.45150501672241
+        },
+        "5": {
+          "count": 23,
+          "mean_nll": 1.6506581682225931,
+          "correct": 9,
+          "token_f1": 44.20289855072463
+        }
+      }
+    },
+    {
+      "sequence": "within_medical",
+      "method": "anchor_gradient_projection",
+      "stages": {
+        "1": {
+          "count": 23,
+          "mean_nll": 5.955073595046997,
+          "correct": 2,
+          "token_f1": 18.716356107660456
+        },
+        "3": {
+          "count": 23,
+          "mean_nll": 2.4794941907343655,
+          "correct": 8,
+          "token_f1": 35.45150501672241
+        },
+        "5": {
+          "count": 23,
+          "mean_nll": 1.6363359767457712,
+          "correct": 9,
+          "token_f1": 42.028985507246375
+        }
+      }
+    },
+    {
+      "sequence": "cross_short",
+      "method": "SeqFT_LoRA",
+      "stages": {
+        "1": {
+          "count": 23,
+          "mean_nll": 5.98504376411438,
+          "correct": 2,
+          "token_f1": 16.231884057971012
+        },
+        "3": {
+          "count": 23,
+          "mean_nll": 6.099699041117793,
+          "correct": 4,
+          "token_f1": 24.927536231884055
+        },
+        "5": {
+          "count": 23,
+          "mean_nll": 5.511658212412959,
+          "correct": 4,
+          "token_f1": 19.130434782608695
+        }
+      }
+    }
+  ],
+  "source_sha256": {
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/repeat_anchor__SeqFT_LoRA_after1/anchor_image.jsonl": "03e9766900ec812795febce402f57894994fef0d48b2494ed9cd288dd82b9a66",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/repeat_anchor__SeqFT_LoRA_after3/anchor_image.jsonl": "9e47a293ae0b7bef05203bb08f039828a19ba798a81e15fa9f3bd8eda4910c9e",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/repeat_anchor__SeqFT_LoRA_after5/anchor_image.jsonl": "5e8949380967e59b1cb262811e29eb0953eeb254d073a8a88a58c0133e179963",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/adapters/repeat_anchor__SeqFT_LoRA/stage_01.pt": "f22fa160231e72145f035b9744059ea0747c2df8509ed006db40076f4666c980",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/repeat_anchor__ER_LoRA_after1/anchor_image.jsonl": "e9b34b530fea39dc88df8206c80eaa166d580209926e9ed0ca3cb95f05c65ed0",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/repeat_anchor__ER_LoRA_after3/anchor_image.jsonl": "c3745fdc32f91e74217850014ca9da4e075b1324ca3c42e2cc4f1254dd4edc21",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/repeat_anchor__ER_LoRA_after5/anchor_image.jsonl": "9c2a43d50d7d68785ed149b00d7c6652187df17099df6bec674296ff77d4915c",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/adapters/repeat_anchor__ER_LoRA/stage_01.pt": "9ce394cf8a244f45e6dbbf0d5d6fc918a6d2306bc15b984ec8584e3b4ec332fc",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/repeat_anchor__EWC_lambda1_after1/anchor_image.jsonl": "9f4f2eb922927623d4407390a4479b71f6df928c7a5fb172ae6ca9bd089a6e29",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/repeat_anchor__EWC_lambda1_after3/anchor_image.jsonl": "825a5e4d3bb05eb9c727247935a3a936366912590b09f62a4faa398a915221a7",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/repeat_anchor__EWC_lambda1_after5/anchor_image.jsonl": "37fcd0fcf6cb99c88cf9b501283710462e9548d624f408ab8ad38f3e9e6bc80a",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/adapters/repeat_anchor__EWC_lambda1/stage_01.pt": "c0f9ff08d48bbe8bd308aa9ac12cf762354798c56eadc085970d5ef00c07fd6e",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/repeat_anchor__EWC_lambda100_after1/anchor_image.jsonl": "31ba6f37c0e8401d8b0798f3798c21a162d09bd8097034ef227bdeef53c39dcc",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/repeat_anchor__EWC_lambda100_after3/anchor_image.jsonl": "25613c95598d3555d6a16cd37a41638db1d59ad9fd0a8f3f420e3194cc90b1a2",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/repeat_anchor__EWC_lambda100_after5/anchor_image.jsonl": "23566142abd710c6e954eb9e6e78e0c822df7d3bb6c02f8389d29e9ca8ac6551",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/adapters/repeat_anchor__EWC_lambda100/stage_01.pt": "3f9ce6c7f5a6ec88c2f8e7c0e6241838e38a9687d340b7769209bc0679eeaafa",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/repeat_anchor__anchor_gradient_noop_after1/anchor_image.jsonl": "eaac577e0cf7350b6c41af6c0ae2acacaf4776d07d9b20f32ea7a5dfd2c7bb87",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/repeat_anchor__anchor_gradient_noop_after3/anchor_image.jsonl": "53bbc05b83d54bac9172d63086cdaad37de2fc02926c9992d0f1a36ec8d9e4f1",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/repeat_anchor__anchor_gradient_noop_after5/anchor_image.jsonl": "6dcfe17557fd358e3510de052b868485dc2ee088eaff49fbd6bac09ed25d8d2f",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/adapters/repeat_anchor__anchor_gradient_noop/stage_01.pt": "56ca3847aa87b6eb8247bfd9db09729e8f1aa88e99492a38924710a329c3e27f",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/repeat_anchor__anchor_gradient_projection_after1/anchor_image.jsonl": "6682d45aa0c31122d65ee44f5dbf1d677fd4493e2cb403a57987b1d75d47664c",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/repeat_anchor__anchor_gradient_projection_after3/anchor_image.jsonl": "4c5702c82c643ad4c3c2729813d778f869e47cd17d298d174bd95989a8c2862a",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/repeat_anchor__anchor_gradient_projection_after5/anchor_image.jsonl": "3f9dac21d4cd0ef4b32a1d3a69b45ad642b6b5800faac4549ebedae2d1c79039",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/adapters/repeat_anchor__anchor_gradient_projection/stage_01.pt": "ab6be2a37ce14b9f47589515ba3c0dc44aa8c04b8e9bf03c6972437fb19519f3",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/within_medical__SeqFT_LoRA_after1/anchor_image.jsonl": "cdea529295d39e4253d0d691161b32c5cea18b9f1dd7441efceda9c5d81e6c3a",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/within_medical__SeqFT_LoRA_after3/anchor_image.jsonl": "e9806b5846c3001658c4e0fc46bda0c168559ad67a2035eae76fcaef2ea77c67",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/within_medical__SeqFT_LoRA_after5/anchor_image.jsonl": "a687008e5adfd1950f665f83e512ecb6c1a4e6f1608e98c59b2afd1c93fb4955",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/adapters/within_medical__SeqFT_LoRA/stage_01.pt": "d7c1bbafeed334b6b0274263f7ae19f87ca9ed0ef9e3dd0d6967addce627983e",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/within_medical__ER_LoRA_after1/anchor_image.jsonl": "75e94c6529d465cce87a10c92d301c81ea94c687e73f01084502832d8e09dc07",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/within_medical__ER_LoRA_after3/anchor_image.jsonl": "69b35bc538570745f0eb5e4dbb0991438ebf525f73c764833d411d5e47f72bbd",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/within_medical__ER_LoRA_after5/anchor_image.jsonl": "848853399a1014a143cc7ff148103351bc8364f760cb85cda2278fd99fcc9cd5",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/adapters/within_medical__ER_LoRA/stage_01.pt": "2431c81451c8d3fbab290ba8e2993a6fdf9efaca7355f8fef4d5f71f87b6ada9",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/within_medical__EWC_lambda1_after1/anchor_image.jsonl": "2ca2bf498628a812493ec4ec9a385b818a6cf8f52715d6a3fc50b6eb8d0f0a45",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/within_medical__EWC_lambda1_after3/anchor_image.jsonl": "64e2c36064bef9cd3788a37b25a72589b841c5ed4846f2c520e4c2eed0a58b57",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/within_medical__EWC_lambda1_after5/anchor_image.jsonl": "5392477c8f9392c2ae78bc0c20c772377d601ec398c7bf4a93a02b2c30899e19",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/adapters/within_medical__EWC_lambda1/stage_01.pt": "ad0be29d0cbad207834903b7366d3fe01f53ba41cb50adc353730c9879706fb0",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/within_medical__EWC_lambda100_after1/anchor_image.jsonl": "16f578571556d0ecca15c4b7ee2303153f247479380e86eb9ca6d3cbbb51b401",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/within_medical__EWC_lambda100_after3/anchor_image.jsonl": "b1bc2247322c2ed8906096e994a9ef1c3e0e264cc4c74175a2373e86c5d55f43",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/within_medical__EWC_lambda100_after5/anchor_image.jsonl": "fd452bed3bd552fb400e7895fec4fe8e901b344da19fe43ddbb810e443802a57",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/adapters/within_medical__EWC_lambda100/stage_01.pt": "9c3d921f9ae6f55231c5271e72789f630b5e6f6d2ebf63c0586fa3835121a95e",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/within_medical__anchor_gradient_noop_after1/anchor_image.jsonl": "5b213cca060f00375532685f2fb31bcd547d60ba8f1c0489c2cb2615902775e6",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/within_medical__anchor_gradient_noop_after3/anchor_image.jsonl": "8f9cc84380b9e34446e96ce6b3f46ee9a4c12de68122ec193d54c84612388ac0",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/within_medical__anchor_gradient_noop_after5/anchor_image.jsonl": "2142c76fa6de4e8552f462737f061eac216cf1cea661a307244efcc0b5e15121",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/adapters/within_medical__anchor_gradient_noop/stage_01.pt": "06e65b9e4668d62ff28d6632617199a1ba3c79c947e41d68b091e2d6e90f2790",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/within_medical__anchor_gradient_projection_after1/anchor_image.jsonl": "41cd55215c9ce9f969017815053d4812c8be88228d45989c4cbbaf5ad7f49a08",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/within_medical__anchor_gradient_projection_after3/anchor_image.jsonl": "3bfd061c9c57f1c345909b8a443ca3a58e96f31dc7350726d8e47bbe52fd039b",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/within_medical__anchor_gradient_projection_after5/anchor_image.jsonl": "14989d8580218dc88f27280b3495ced76c7c14c90275a2185073de8cc46eae6e",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/adapters/within_medical__anchor_gradient_projection/stage_01.pt": "bf9637894366a4a2ef37c2ce516f4a1c303a6e822dcd9d31d9e3349e7d0740ed",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/cross_short__SeqFT_LoRA_after1/anchor_image.jsonl": "041c7cd61cb87a7bb8760d1c3c7f1e6ab3dc9d433b977a841647709974a5f2f4",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/cross_short__SeqFT_LoRA_after3/anchor_image.jsonl": "5ca80de45a18e256a69b3088242289db56e44deeee0f712ed44eeb695f90767a",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/evaluations/cross_short__SeqFT_LoRA_after5/anchor_image.jsonl": "9e20d8ab5882bc10dc4160d5f2096a31667da21f67c5937872c5e114424bae72",
+    "exp/onevision_mechanisms_20261016/task_domain/20261016_210338/adapters/cross_short__SeqFT_LoRA/stage_01.pt": "40c24b3f913756ff01e179ee1fb9b298d97f1b9437000876b9f94b495e4b1ae4"
+  },
+  "same_anchor_stage1_max_parameter_difference_vs_reference": {
+    "repeat_anchor__SeqFT_LoRA": 0.0,
+    "repeat_anchor__ER_LoRA": 0.000527739233803004,
+    "repeat_anchor__EWC_lambda1": 0.0004755184054374695,
+    "repeat_anchor__EWC_lambda100": 0.0004916575271636248,
+    "repeat_anchor__anchor_gradient_noop": 0.00045232847332954407,
+    "repeat_anchor__anchor_gradient_projection": 0.00046002957969903946,
+    "within_medical__SeqFT_LoRA": 0.00043772440403699875,
+    "within_medical__ER_LoRA": 0.0006102620391175151,
+    "within_medical__EWC_lambda1": 0.0006535899010486901,
+    "within_medical__EWC_lambda100": 0.0006240117945708334,
+    "within_medical__anchor_gradient_noop": 0.0004646629677154124,
+    "within_medical__anchor_gradient_projection": 0.0005952779902145267,
+    "cross_short__SeqFT_LoRA": 0.0004599246894940734
+  },
+  "limitations": [
+    "Single23-question medical Organ anchor; diagnostic, not full test.",
+    "Correct counts are normalized exact-reference matches, not expert semantic/clinical judgments.",
+    "Default numerical backend; same seed did not give identical stage1 weights across cases.",
+    "Same first stage has no replay/Fisher/history/projection; small case gaps are not algorithmic proof.",
+    "Repeat sequence reuses same8TRAIN QA for5 stages;40 target exposures, not40 distinct QA.",
+    "ER/Fisher/gradient-reference use extra historical data/compute, recorded separately.",
+    "No cross-domain attribution until corresponding cases complete; no ranking by interim results."
+  ]
+}

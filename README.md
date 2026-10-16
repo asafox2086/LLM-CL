@@ -2,17 +2,19 @@
 
 ## 当前研究：LLaVA-OneVision-0.5B诊断
 
+数值复现已验证：同seed的默认计算两次有梯度／权重差异；确定性默认SDPA及确定性math各自两次完全一致。后续新建确定性顺序／独立任务配对，完整T1权重必须逐元素相同，旧失败结果不混用；当前只完成CPU预检，等待现有机制队列结束。[数值证据与新配对设置](summary/onevision_diagnostics_20261016/REPRODUCIBILITY_EVIDENCE.md)。已完成的任务／领域对照中，重复相同8条训练QA可使Organ锚EM由2/23增至8/23，提示训练预算值得排查；小样本和默认计算差异限制了方法排序。[完整阶段快照](summary/onevision_diagnostics_20261016/TASK_DOMAIN_INTERIM.md)。
+
 视觉排查：基座医学诊断100题原图／无图／错图NLL为9.595／8.517／9.470，遥感也未显示稳定的正确图像优势；自然和交通的表现不同。已核验输入视觉token、逐题ID和确定性错图来源路径。[视觉消融证据](summary/onevision_diagnostics_20261016/VISUAL_EVIDENCE.md)。训练后视觉对照已追加到GPU1队列，尚未执行；不能将这些基座现象直接归为专业知识不足或编码错误。
 
 复用线索：离线审计先用固定TRAIN探针选择此前领域LoRA，再读取诊断测试结果；医学域选择自然域旧LoRA后NLL为3.646，原基座为9.595。该比较含训练量／输出行为混杂，不能称专业知识问题已解决，也不是在线路由或Kmax结果。[只使用训练信息选择旧适配器的审计](summary/onevision_diagnostics_20261016/PAST_ADAPTER_REUSE_AUDIT.md)。
 
 最新证据：19阶段顺序诊断完成，93次更新全部使用正学习率；四种固定提示词对照完成。医学100题生成EM均为0，同问题语言提示的Token F1增量约+2.91点（图像簇bootstrap95%约−0.03至+5.91），尚不能将低分仅归于格式或证明知识不足。[提示词完整结果](summary/onevision_mechanisms_20261016/FORMAT_EVIDENCE.md)。独立控制第1阶段未通过权重复现检查，已保存失败记录，追加数值复现审计；其结果暂不纳入匹配比较。GPU1有其他用户作业时队列等待。[阶段完成、资源及故障报告](summary/onevision_diagnostics_20261016/MECHANISM_PROGRESS.md)。
 
-机制研究已排入GPU1独立后台队列：先做输出格式／语言对照，再做任务数与领域数控制（4序列×6机制），随后测试16条作者知识作为上下文或写入rank1／rank2 LoRA。队列等待当前顺序研究结束及GPU1空闲，不争抢基线资源。相关知识仅668字节／199token，新增参数67584／135168；这些是实验预算，尚不是有效性结论。[研究设置与证据边界](analysis/ONEVISION_MECHANISM_STUDIES.md)。[已完成阶段的NLL和梯度诊断](summary/onevision_diagnostics_20261016/SEQUENTIAL_EVIDENCE.md)仅用于定位问题，不能替代生成准确率和完整测试。
+机制研究在GPU1独立后台队列中运行：输出格式／语言及短数值审计已完成，任务数与领域数控制（4序列×6机制）正在执行，随后测试16条作者知识作为上下文或写入rank1／rank2 LoRA。相关知识仅668字节／199token，新增参数67584／135168；这些是实验预算，尚不是有效性结论。[研究设置与证据边界](analysis/ONEVISION_MECHANISM_STUDIES.md)。[已完成阶段的NLL和梯度诊断](summary/onevision_diagnostics_20261016/SEQUENTIAL_EVIDENCE.md)仅用于定位问题，不能替代生成准确率和完整测试。
 
 后台执行：两服务器基线调度器均经`nohup`启动，保留用户服务的开机恢复，日志在各机`summary/five_domain_native_cl_20261016_sparse/nohup_pipeline.log`。现有训练进程不因切换调度器而重跑。GPU1研究使用独立`llmcl-onevision-research.service`及`research_nohup.log`，与基线并行。
 
-重启恢复说明：新机17:54重启打断了旧顺序阶段1；24个已完成独立控制保留，未完成阶段不续接。新run`sequential_recovery_20261016_181253`从基座重跑，训练后原子保存阶段LoRA／RNG／SHA，再做评测；已经保存第1阶段和每域4条TRAIN探针的完整梯度，不能将它们称作历史每一步梯度。[机制控制与完成标准](analysis/ONEVISION_CAUSAL_CONTROLS.md)。
+重启恢复说明：新机17:54重启打断了旧顺序阶段1；24个已完成独立控制保留，未完成阶段不续接。新run`sequential_recovery_20261016_181253`从基座重跑，已完成19阶段，并保存阶段LoRA／RNG／SHA及每域4条TRAIN探针的完整梯度，不能将它们称作历史每一步梯度。20:56再次重启后后台队列自动恢复；不同运行记录不拼接。[机制控制与完成标准](analysis/ONEVISION_CAUSAL_CONTROLS.md)。
 
 用户确认采用[**LLaVA-OneVision-Qwen2-0.5B-OV**](https://huggingface.co/llava-hf/llava-onevision-qwen2-0.5b-ov-hf)探索小模型问题；语言骨干约0.5B，完整图文模型约0.9B。独立实验`onevision_diagnostics_20261016`仅使用新服务器GPU1；已有Qwen2-VL基线继续，按骨干分别报告，不能混成同基座排名。
 

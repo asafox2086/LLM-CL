@@ -1,0 +1,20 @@
+[Unit]
+Description=OneVision deterministic paired native controls after existing studies
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/data1/liyapeng/program/LLMCL
+Environment=CUDA_VISIBLE_DEVICES=1
+Environment=OMP_NUM_THREADS=6
+Environment=MKL_NUM_THREADS=6
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/usr/bin/nohup /data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/onevision_deterministic_native.py
+StandardInput=null
+StandardOutput=append:/data1/liyapeng/program/LLMCL/summary/onevision_diagnostics_20261016/deterministic_native/nohup.log
+StandardError=inherit
+Restart=on-failure
+RestartSec=60
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,188 @@
+{
+  "source_completion_sha256": "1b82db48e9c80dd9dd2101dc063a236dc14545f78b01978aebbe8552e8481cab",
+  "completion": {
+    "complete": true,
+    "run": "exp/onevision_mechanisms_20261016/reproducibility/20261016_205821",
+    "source_sha256": {
+      "analysis/onevision_reproducibility_probe.py": "9350f4a92ba496647308008f8721e72093a1df7b871fb3014f9d9b8cd731e4a3",
+      "analysis/onevision_knowledge_intervention.py": "22512cc63ed0933f0f471f30b07f5707ba8e020c95137811430cdced2c3962a0",
+      "analysis/onevision_research_worker.py": "6db35a572ee8fca5f07e69eb22b36a8eebc40ce28a0b7977aa7b228373b81493",
+      "exp/onevision_diagnostics_20261016/run.py": "cf8ee1ac5af7faa595e05be05e05da5207d9f0596e518f8a8998ae8d3d0d7536"
+    },
+    "results": {
+      "default_sdpa": {
+        "mode": "default_sdpa",
+        "repeats": [
+          {
+            "repeat": 0,
+            "finite_forward_backward_optimizer": true,
+            "steps": [
+              {
+                "step": 0,
+                "mean_loss": 5.644008532166481,
+                "preclip_norm": 113.71380615234375,
+                "lr": 0.0001
+              },
+              {
+                "step": 1,
+                "mean_loss": 3.776740846224129,
+                "preclip_norm": 223.69610595703125,
+                "lr": 9.949107209404665e-05
+              }
+            ]
+          },
+          {
+            "repeat": 1,
+            "finite_forward_backward_optimizer": true,
+            "steps": [
+              {
+                "step": 0,
+                "mean_loss": 5.644008532166481,
+                "preclip_norm": 113.67619323730469,
+                "lr": 0.0001
+              },
+              {
+                "step": 1,
+                "mean_loss": 3.813420722261071,
+                "preclip_norm": 223.5927734375,
+                "lr": 9.949107209404665e-05
+              }
+            ]
+          }
+        ],
+        "successful_repeats": 2,
+        "first_gradient_max_abs_difference": 0.02918827533721924,
+        "first_gradient_relative_l2_difference": 0.0034582255230732636,
+        "adapter_max_abs_difference": 0.00037841341691091657,
+        "adapter_exact_equal": false
+      },
+      "deterministic_default_sdpa": {
+        "mode": "deterministic_default_sdpa",
+        "repeats": [
+          {
+            "repeat": 0,
+            "finite_forward_backward_optimizer": true,
+            "steps": [
+              {
+                "step": 0,
+                "mean_loss": 5.644008532166481,
+                "preclip_norm": 113.67554473876953,
+                "lr": 0.0001
+              },
+              {
+                "step": 1,
+                "mean_loss": 3.772670468315482,
+                "preclip_norm": 208.25157165527344,
+                "lr": 9.949107209404665e-05
+              }
+            ]
+          },
+          {
+            "repeat": 1,
+            "finite_forward_backward_optimizer": true,
+            "steps": [
+              {
+                "step": 0,
+                "mean_loss": 5.644008532166481,
+                "preclip_norm": 113.67554473876953,
+                "lr": 0.0001
+              },
+              {
+                "step": 1,
+                "mean_loss": 3.772670468315482,
+                "preclip_norm": 208.25157165527344,
+                "lr": 9.949107209404665e-05
+              }
+            ]
+          }
+        ],
+        "successful_repeats": 2,
+        "first_gradient_max_abs_difference": 0.0,
+        "first_gradient_relative_l2_difference": 0.0,
+        "adapter_max_abs_difference": 0.0,
+        "adapter_exact_equal": true
+      },
+      "deterministic_math_sdpa": {
+        "mode": "deterministic_math_sdpa",
+        "repeats": [
+          {
+            "repeat": 0,
+            "finite_forward_backward_optimizer": true,
+            "steps": [
+              {
+                "step": 0,
+                "mean_loss": 5.671237640082836,
+                "preclip_norm": 115.11238861083984,
+                "lr": 0.0001
+              },
+              {
+                "step": 1,
+                "mean_loss": 3.8215733151882887,
+                "preclip_norm": 223.19427490234375,
+                "lr": 9.949107209404665e-05
+              }
+            ]
+          },
+          {
+            "repeat": 1,
+            "finite_forward_backward_optimizer": true,
+            "steps": [
+              {
+                "step": 0,
+                "mean_loss": 5.671237640082836,
+                "preclip_norm": 115.11238861083984,
+                "lr": 0.0001
+              },
+              {
+                "step": 1,
+                "mean_loss": 3.8215733151882887,
+                "preclip_norm": 223.19427490234375,
+                "lr": 9.949107209404665e-05
+              }
+            ]
+          }
+        ],
+        "successful_repeats": 2,
+        "first_gradient_max_abs_difference": 0.0,
+        "first_gradient_relative_l2_difference": 0.0,
+        "adapter_max_abs_difference": 0.0,
+        "adapter_exact_equal": true
+      }
+    },
+    "scope": "Audit executed; errors/inequality are results, not a passed reproduction gate.",
+    "matched_native_still_requires_resolution": true,
+    "formal_full_test": false
+  },
+  "raw_first_update_gradient_files": {
+    "deterministic_math_sdpa_repeat0_first_gradient.pt": {
+      "file": "deterministic_math_sdpa_repeat0_first_gradient.pt",
+      "bytes": 2172014,
+      "sha256": "1348d5bd7c89d4481dc6d02c2dfa4b502c786d4a2faef2b4de3ab66a678d7a5e"
+    },
+    "deterministic_default_sdpa_repeat0_first_gradient.pt": {
+      "file": "deterministic_default_sdpa_repeat0_first_gradient.pt",
+      "bytes": 2172029,
+      "sha256": "0869e15d77e8c38d87ae619429669db6790bd1b4f8fa2118a1a820d24b740612"
+    },
+    "deterministic_math_sdpa_repeat1_first_gradient.pt": {
+      "file": "deterministic_math_sdpa_repeat1_first_gradient.pt",
+      "bytes": 2172014,
+      "sha256": "721a9d038f7f9de6d0005f850cb5be779ac8dd654b75112862ed04fd859816a3"
+    },
+    "deterministic_default_sdpa_repeat1_first_gradient.pt": {
+      "file": "deterministic_default_sdpa_repeat1_first_gradient.pt",
+      "bytes": 2172029,
+      "sha256": "6186578ea9354a07c1429aaae40d6d15f5fb467821dc6f9ef9aa637a85d28e50"
+    },
+    "default_sdpa_repeat1_first_gradient.pt": {
+      "file": "default_sdpa_repeat1_first_gradient.pt",
+      "bytes": 2171959,
+      "sha256": "6111c2e46d253aea8bdfa71aca4540a19a5d11adc9b38ade607c73b6deb17c41"
+    },
+    "default_sdpa_repeat0_first_gradient.pt": {
+      "file": "default_sdpa_repeat0_first_gradient.pt",
+      "bytes": 2171959,
+      "sha256": "c237f9ba6a0b06d15f074c59698e41d641e0e0636299437d90c32b83757d675c"
+    }
+  }
+}
