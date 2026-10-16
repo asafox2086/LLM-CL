@@ -1,0 +1,58 @@
+{
+  "timestamp": "2026-10-16T12:49:48.149583+00:00",
+  "reason": "Append trained visual inference after existing studies; correct stale waiting active_job field",
+  "queue_before": {
+    "jobs": {
+      "format": {
+        "status": "completed",
+        "script": "onevision_knowledge_intervention.py",
+        "args": [
+          "--mode",
+          "format"
+        ],
+        "attempts": 1,
+        "pid": 19979,
+        "boot_id": "b7fea85f-55e0-48c9-ab5c-c13627fc1122"
+      },
+      "task_domain": {
+        "status": "waiting",
+        "script": "onevision_task_domain_intervention.py",
+        "args": [],
+        "attempts": 0
+      },
+      "knowledge": {
+        "status": "waiting",
+        "script": "onevision_knowledge_intervention.py",
+        "args": [
+          "--mode",
+          "knowledge"
+        ],
+        "attempts": 0
+      },
+      "matched_native": {
+        "status": "needs_attention",
+        "script": "onevision_matched_native_controls.py",
+        "args": [],
+        "attempts": 1,
+        "pid": 22728,
+        "boot_id": "b7fea85f-55e0-48c9-ab5c-c13627fc1122",
+        "exit_code": 1,
+        "log": "summary/onevision_mechanisms_20261016/matched_native_nohup.log"
+      },
+      "reproducibility": {
+        "status": "waiting",
+        "script": "onevision_reproducibility_probe.py",
+        "args": [],
+        "attempts": 0
+      }
+    },
+    "phase": "waiting_idle_gpu1",
+    "research_pid": 6218,
+    "research_phase": "sequential_recovery",
+    "active_job": "matched_native"
+  },
+  "gpu1_owner_pids": [
+    "27868"
+  ],
+  "other_workers_interrupted": false
+}

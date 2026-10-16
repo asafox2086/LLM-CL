@@ -2,6 +2,8 @@
 
 ## 当前研究：LLaVA-OneVision-0.5B诊断
 
+视觉排查：基座医学诊断100题原图／无图／错图NLL为9.595／8.517／9.470，遥感也未显示稳定的正确图像优势；自然和交通的表现不同。已核验输入视觉token、逐题ID和确定性错图来源路径。[视觉消融证据](summary/onevision_diagnostics_20261016/VISUAL_EVIDENCE.md)。训练后视觉对照已追加到GPU1队列，尚未执行；不能将这些基座现象直接归为专业知识不足或编码错误。
+
 复用线索：离线审计先用固定TRAIN探针选择此前领域LoRA，再读取诊断测试结果；医学域选择自然域旧LoRA后NLL为3.646，原基座为9.595。该比较含训练量／输出行为混杂，不能称专业知识问题已解决，也不是在线路由或Kmax结果。[只使用训练信息选择旧适配器的审计](summary/onevision_diagnostics_20261016/PAST_ADAPTER_REUSE_AUDIT.md)。
 
 最新证据：19阶段顺序诊断完成，93次更新全部使用正学习率；四种固定提示词对照完成。医学100题生成EM均为0，同问题语言提示的Token F1增量约+2.91点（图像簇bootstrap95%约−0.03至+5.91），尚不能将低分仅归于格式或证明知识不足。[提示词完整结果](summary/onevision_mechanisms_20261016/FORMAT_EVIDENCE.md)。独立控制第1阶段未通过权重复现检查，已保存失败记录，追加数值复现审计；其结果暂不纳入匹配比较。GPU1有其他用户作业时队列等待。[阶段完成、资源及故障报告](summary/onevision_diagnostics_20261016/MECHANISM_PROGRESS.md)。

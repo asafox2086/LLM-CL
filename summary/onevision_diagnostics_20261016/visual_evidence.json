@@ -1,0 +1,765 @@
+{
+  "run": "exp/onevision_diagnostics_20261016/runs/20261016_164638",
+  "code_sha256": "96f3b03564da4b270236ffef8d0b39a04f15a4aff360cb0a6fdcdcd2e8895bdc",
+  "source_sha256": {
+    "exp/onevision_diagnostics_20261016/runs/20261016_164638/evaluations/base/natural_image.jsonl": "bd694369a6ed2a6d844dce6a658ab47600f868ff7a6e547f81fdf40bed798d46",
+    "exp/onevision_diagnostics_20261016/runs/20261016_164638/evaluations/base/natural_text.jsonl": "7e17f3c46744aebacac03711579fc538053866d7adebb1e24905a08a3c56f504",
+    "exp/onevision_diagnostics_20261016/runs/20261016_164638/evaluations/base/natural_wrong.jsonl": "8931422fadec6fa27301598c81682dc567682e772c0d78cf0a337c488de0c356",
+    "exp/onevision_diagnostics_20261016/runs/20261016_164638/evaluations/base/medical_image.jsonl": "7f5f96526d3f12c508eac147e121e5e17a57cc2524e7c57b0f79fd1392bb78d2",
+    "exp/onevision_diagnostics_20261016/runs/20261016_164638/evaluations/base/medical_text.jsonl": "18916e657ae3cb97e7bed7b49a99530048c4e975f9a80731d494d77f3574a191",
+    "exp/onevision_diagnostics_20261016/runs/20261016_164638/evaluations/base/medical_wrong.jsonl": "6c33133d59102e738d6f4c8e06ed55ffc00227908d9336de3b6abd1b14341e4e",
+    "exp/onevision_diagnostics_20261016/runs/20261016_164638/evaluations/base/geography_image.jsonl": "5554386946734e81d74d10d6ce968290deb160914357e9420b3d3d9ea928858c",
+    "exp/onevision_diagnostics_20261016/runs/20261016_164638/evaluations/base/geography_text.jsonl": "521c923e181bbc8f020f1f05084ae947b8820cb6af440b5c0385c2439aea17f9",
+    "exp/onevision_diagnostics_20261016/runs/20261016_164638/evaluations/base/geography_wrong.jsonl": "c9d66039773e1b421fe1b270246fea983de0389fec9567780ab1a3db4b5fc2cd",
+    "exp/onevision_diagnostics_20261016/runs/20261016_164638/evaluations/base/finance_image.jsonl": "258d7f930d4c4568ebe0eff0c9a6716498351be1f88a0f15ea1e2380e0f76204",
+    "exp/onevision_diagnostics_20261016/runs/20261016_164638/evaluations/base/finance_text.jsonl": "724eb49409d4cdff0cc29948c98a7d5fc93eba1c2823adce47d3faa95f9b7279",
+    "exp/onevision_diagnostics_20261016/runs/20261016_164638/evaluations/base/finance_wrong.jsonl": "85bcdbe9afb2c93241e942124629510fbc14e08d11ca4738eeabaa527f7b4993",
+    "exp/onevision_diagnostics_20261016/runs/20261016_164638/evaluations/base/traffic_image.jsonl": "a7fe4772c897182984ffc9dbcf449f59b497458e2fd160225fdfaf14851f1f58",
+    "exp/onevision_diagnostics_20261016/runs/20261016_164638/evaluations/base/traffic_text.jsonl": "9217f5e0c5e0089b71addb83b0f50fede6cc9acda3b8e1561422912a67310a48",
+    "exp/onevision_diagnostics_20261016/runs/20261016_164638/evaluations/base/traffic_wrong.jsonl": "08eed3f817bbb0c7c1bbc26c0037590043ee72485a2833c6cd99991e762d73d0"
+  },
+  "input_audit": {
+    "natural": {
+      "ids_exact": true,
+      "text_zero_visual_tokens": true,
+      "image_and_wrong_have_visual_tokens": true,
+      "wrong_image_paths_distinct": true,
+      "deterministic_wrong_source_matches_runner_rule": true
+    },
+    "medical": {
+      "ids_exact": true,
+      "text_zero_visual_tokens": true,
+      "image_and_wrong_have_visual_tokens": true,
+      "wrong_image_paths_distinct": true,
+      "deterministic_wrong_source_matches_runner_rule": true
+    },
+    "geography": {
+      "ids_exact": true,
+      "text_zero_visual_tokens": true,
+      "image_and_wrong_have_visual_tokens": true,
+      "wrong_image_paths_distinct": true,
+      "deterministic_wrong_source_matches_runner_rule": true
+    },
+    "finance": {
+      "ids_exact": true,
+      "text_zero_visual_tokens": true,
+      "image_and_wrong_have_visual_tokens": true,
+      "wrong_image_paths_distinct": true,
+      "deterministic_wrong_source_matches_runner_rule": true
+    },
+    "traffic": {
+      "ids_exact": true,
+      "text_zero_visual_tokens": true,
+      "image_and_wrong_have_visual_tokens": true,
+      "wrong_image_paths_distinct": true,
+      "deterministic_wrong_source_matches_runner_rule": true
+    }
+  },
+  "groups": [
+    {
+      "domain": "natural",
+      "native_task": null,
+      "mean_nll": {
+        "image": 5.852902627587318,
+        "text": 8.295965440273285,
+        "wrong": 6.905428408384323
+      },
+      "image_vs_text": {
+        "qa": 100,
+        "image_clusters": 100,
+        "mean_nll_advantage_original": 2.4430628126859664,
+        "original_lower_nll_count": 85,
+        "image_cluster_bootstrap95": [
+          1.940303710103035,
+          2.9212604182958604
+        ]
+      },
+      "image_vs_wrong": {
+        "qa": 100,
+        "image_clusters": 100,
+        "mean_nll_advantage_original": 1.0525257807970048,
+        "original_lower_nll_count": 72,
+        "image_cluster_bootstrap95": [
+          0.6820002484321595,
+          1.4288820344209672
+        ]
+      }
+    },
+    {
+      "domain": "natural",
+      "native_task": 1,
+      "mean_nll": {
+        "image": 5.852902627587318,
+        "text": 8.295965440273285,
+        "wrong": 6.905428408384323
+      },
+      "image_vs_text": {
+        "qa": 100,
+        "image_clusters": 100,
+        "mean_nll_advantage_original": 2.4430628126859664,
+        "original_lower_nll_count": 85,
+        "image_cluster_bootstrap95": [
+          1.940303710103035,
+          2.9212604182958604
+        ]
+      },
+      "image_vs_wrong": {
+        "qa": 100,
+        "image_clusters": 100,
+        "mean_nll_advantage_original": 1.0525257807970048,
+        "original_lower_nll_count": 72,
+        "image_cluster_bootstrap95": [
+          0.6820002484321595,
+          1.4288820344209672
+        ]
+      }
+    },
+    {
+      "domain": "medical",
+      "native_task": null,
+      "mean_nll": {
+        "image": 9.595367918014526,
+        "text": 8.517252960205077,
+        "wrong": 9.47028662443161
+      },
+      "image_vs_text": {
+        "qa": 100,
+        "image_clusters": 83,
+        "mean_nll_advantage_original": -1.0781149578094482,
+        "original_lower_nll_count": 26,
+        "image_cluster_bootstrap95": [
+          -1.4725993837629046,
+          -0.7089977866724918
+        ]
+      },
+      "image_vs_wrong": {
+        "qa": 100,
+        "image_clusters": 83,
+        "mean_nll_advantage_original": -0.12508129358291625,
+        "original_lower_nll_count": 46,
+        "image_cluster_bootstrap95": [
+          -0.2719363137787464,
+          0.0325014357473336
+        ]
+      }
+    },
+    {
+      "domain": "medical",
+      "native_task": 2,
+      "mean_nll": {
+        "image": 9.109569809653543,
+        "text": 7.66687635941939,
+        "wrong": 9.174642779610373
+      },
+      "image_vs_text": {
+        "qa": 11,
+        "image_clusters": 11,
+        "mean_nll_advantage_original": -1.442693450234153,
+        "original_lower_nll_count": 1,
+        "image_cluster_bootstrap95": [
+          -2.290437264875932,
+          -0.7025317278775302
+        ]
+      },
+      "image_vs_wrong": {
+        "qa": 11,
+        "image_clusters": 11,
+        "mean_nll_advantage_original": 0.0650729699568315,
+        "original_lower_nll_count": 6,
+        "image_cluster_bootstrap95": [
+          -0.1608871113170277,
+          0.288675611669367
+        ]
+      }
+    },
+    {
+      "domain": "medical",
+      "native_task": 3,
+      "mean_nll": {
+        "image": 10.127727368298698,
+        "text": 8.8682380844565,
+        "wrong": 10.033789213965921
+      },
+      "image_vs_text": {
+        "qa": 17,
+        "image_clusters": 17,
+        "mean_nll_advantage_original": -1.259489283842199,
+        "original_lower_nll_count": 2,
+        "image_cluster_bootstrap95": [
+          -1.755699213813333,
+          -0.796139492708094
+        ]
+      },
+      "image_vs_wrong": {
+        "qa": 17,
+        "image_clusters": 17,
+        "mean_nll_advantage_original": -0.09393815433277804,
+        "original_lower_nll_count": 6,
+        "image_cluster_bootstrap95": [
+          -0.45355746325324564,
+          0.317656909718233
+        ]
+      }
+    },
+    {
+      "domain": "medical",
+      "native_task": 4,
+      "mean_nll": {
+        "image": 9.634833232216213,
+        "text": 8.546324895775836,
+        "wrong": 9.628627051477848
+      },
+      "image_vs_text": {
+        "qa": 23,
+        "image_clusters": 22,
+        "mean_nll_advantage_original": -1.0885083364403767,
+        "original_lower_nll_count": 8,
+        "image_cluster_bootstrap95": [
+          -1.960560998916626,
+          -0.19728198918429288
+        ]
+      },
+      "image_vs_wrong": {
+        "qa": 23,
+        "image_clusters": 22,
+        "mean_nll_advantage_original": -0.006206180738366168,
+        "original_lower_nll_count": 11,
+        "image_cluster_bootstrap95": [
+          -0.25894643863042194,
+          0.2639505863189697
+        ]
+      }
+    },
+    {
+      "domain": "medical",
+      "native_task": 5,
+      "mean_nll": {
+        "image": 11.88791306813558,
+        "text": 10.5576810836792,
+        "wrong": 11.603503068288168
+      },
+      "image_vs_text": {
+        "qa": 6,
+        "image_clusters": 6,
+        "mean_nll_advantage_original": -1.3302319844563801,
+        "original_lower_nll_count": 0,
+        "image_cluster_bootstrap95": [
+          -1.993001937866211,
+          -0.6525754928588867
+        ]
+      },
+      "image_vs_wrong": {
+        "qa": 6,
+        "image_clusters": 6,
+        "mean_nll_advantage_original": -0.2844099998474121,
+        "original_lower_nll_count": 1,
+        "image_cluster_bootstrap95": [
+          -0.539121945699056,
+          -0.07634258270263672
+        ]
+      }
+    },
+    {
+      "domain": "medical",
+      "native_task": 6,
+      "mean_nll": {
+        "image": 9.128725937434606,
+        "text": 8.04414507320949,
+        "wrong": 8.64373208795275
+      },
+      "image_vs_text": {
+        "qa": 14,
+        "image_clusters": 13,
+        "mean_nll_advantage_original": -1.0845808642251151,
+        "original_lower_nll_count": 5,
+        "image_cluster_bootstrap95": [
+          -2.1587735322805552,
+          -0.10465226453893325
+        ]
+      },
+      "image_vs_wrong": {
+        "qa": 14,
+        "image_clusters": 13,
+        "mean_nll_advantage_original": -0.48499384948185514,
+        "original_lower_nll_count": 5,
+        "image_cluster_bootstrap95": [
+          -1.0558088009174054,
+          0.06481982980455671
+        ]
+      }
+    },
+    {
+      "domain": "medical",
+      "native_task": 7,
+      "mean_nll": {
+        "image": 9.042442035675048,
+        "text": 8.891016578674316,
+        "wrong": 9.18777961730957
+      },
+      "image_vs_text": {
+        "qa": 5,
+        "image_clusters": 5,
+        "mean_nll_advantage_original": -0.15142545700073243,
+        "original_lower_nll_count": 2,
+        "image_cluster_bootstrap95": [
+          -1.564384651184082,
+          1.6855952262878418
+        ]
+      },
+      "image_vs_wrong": {
+        "qa": 5,
+        "image_clusters": 5,
+        "mean_nll_advantage_original": 0.14533758163452148,
+        "original_lower_nll_count": 3,
+        "image_cluster_bootstrap95": [
+          -1.3085654258728028,
+          1.4149408340454102
+        ]
+      }
+    },
+    {
+      "domain": "medical",
+      "native_task": 8,
+      "mean_nll": {
+        "image": 8.91270399093628,
+        "text": 8.469295342763266,
+        "wrong": 8.93185838063558
+      },
+      "image_vs_text": {
+        "qa": 6,
+        "image_clusters": 6,
+        "mean_nll_advantage_original": -0.44340864817301434,
+        "original_lower_nll_count": 2,
+        "image_cluster_bootstrap95": [
+          -1.9914194742838542,
+          1.3140887419382732
+        ]
+      },
+      "image_vs_wrong": {
+        "qa": 6,
+        "image_clusters": 6,
+        "mean_nll_advantage_original": 0.01915438969930013,
+        "original_lower_nll_count": 3,
+        "image_cluster_bootstrap95": [
+          -0.248303492863973,
+          0.31407912572224933
+        ]
+      }
+    },
+    {
+      "domain": "medical",
+      "native_task": 9,
+      "mean_nll": {
+        "image": 6.640331268310547,
+        "text": 6.635729551315308,
+        "wrong": 6.597785949707031
+      },
+      "image_vs_text": {
+        "qa": 2,
+        "image_clusters": 2,
+        "mean_nll_advantage_original": -0.004601716995239258,
+        "original_lower_nll_count": 1,
+        "image_cluster_bootstrap95": [
+          -0.31451988220214844,
+          0.3053164482116699
+        ]
+      },
+      "image_vs_wrong": {
+        "qa": 2,
+        "image_clusters": 2,
+        "mean_nll_advantage_original": -0.042545318603515625,
+        "original_lower_nll_count": 0,
+        "image_cluster_bootstrap95": [
+          -0.0679311752319336,
+          -0.017159461975097656
+        ]
+      }
+    },
+    {
+      "domain": "medical",
+      "native_task": 10,
+      "mean_nll": {
+        "image": 13.919042587280273,
+        "text": 9.525360107421875,
+        "wrong": 14.080538034439087
+      },
+      "image_vs_text": {
+        "qa": 4,
+        "image_clusters": 4,
+        "mean_nll_advantage_original": -4.393682479858398,
+        "original_lower_nll_count": 0,
+        "image_cluster_bootstrap95": [
+          -5.785499811172485,
+          -3.0922656059265137
+        ]
+      },
+      "image_vs_wrong": {
+        "qa": 4,
+        "image_clusters": 4,
+        "mean_nll_advantage_original": 0.16149544715881348,
+        "original_lower_nll_count": 4,
+        "image_cluster_bootstrap95": [
+          0.07416939735412598,
+          0.24588346481323242
+        ]
+      }
+    },
+    {
+      "domain": "medical",
+      "native_task": 11,
+      "mean_nll": {
+        "image": 8.232007145881653,
+        "text": 8.121355334917704,
+        "wrong": 7.866142749786377
+      },
+      "image_vs_text": {
+        "qa": 12,
+        "image_clusters": 12,
+        "mean_nll_advantage_original": -0.11065181096394856,
+        "original_lower_nll_count": 5,
+        "image_cluster_bootstrap95": [
+          -0.7939088344573975,
+          0.7722204526265463
+        ]
+      },
+      "image_vs_wrong": {
+        "qa": 12,
+        "image_clusters": 12,
+        "mean_nll_advantage_original": -0.3658643960952759,
+        "original_lower_nll_count": 7,
+        "image_cluster_bootstrap95": [
+          -0.9653329849243164,
+          0.03705283006032308
+        ]
+      }
+    },
+    {
+      "domain": "geography",
+      "native_task": null,
+      "mean_nll": {
+        "image": 3.395849490240216,
+        "text": 3.8597993838787077,
+        "wrong": 3.3067991594970225
+      },
+      "image_vs_text": {
+        "qa": 100,
+        "image_clusters": 68,
+        "mean_nll_advantage_original": 0.46394989363849165,
+        "original_lower_nll_count": 46,
+        "image_cluster_bootstrap95": [
+          0.01351209591124572,
+          0.9150937377758648
+        ]
+      },
+      "image_vs_wrong": {
+        "qa": 100,
+        "image_clusters": 68,
+        "mean_nll_advantage_original": -0.08905033074319363,
+        "original_lower_nll_count": 43,
+        "image_cluster_bootstrap95": [
+          -0.38468306268356284,
+          0.20220971643924712
+        ]
+      }
+    },
+    {
+      "domain": "geography",
+      "native_task": 12,
+      "mean_nll": {
+        "image": 5.533002853393555,
+        "text": 4.812928199768066,
+        "wrong": 5.428696393966675
+      },
+      "image_vs_text": {
+        "qa": 2,
+        "image_clusters": 2,
+        "mean_nll_advantage_original": -0.7200746536254883,
+        "original_lower_nll_count": 0,
+        "image_cluster_bootstrap95": [
+          -0.9180841445922852,
+          -0.5220651626586914
+        ]
+      },
+      "image_vs_wrong": {
+        "qa": 2,
+        "image_clusters": 2,
+        "mean_nll_advantage_original": -0.10430645942687988,
+        "original_lower_nll_count": 1,
+        "image_cluster_bootstrap95": [
+          -0.39601898193359375,
+          0.18740606307983398
+        ]
+      }
+    },
+    {
+      "domain": "geography",
+      "native_task": 13,
+      "mean_nll": {
+        "image": 1.9506552078086754,
+        "text": 5.348929775172267,
+        "wrong": 1.9828086839667682
+      },
+      "image_vs_text": {
+        "qa": 29,
+        "image_clusters": 28,
+        "mean_nll_advantage_original": 3.398274567363591,
+        "original_lower_nll_count": 28,
+        "image_cluster_bootstrap95": [
+          2.8811744456661157,
+          3.8407293620208898
+        ]
+      },
+      "image_vs_wrong": {
+        "qa": 29,
+        "image_clusters": 28,
+        "mean_nll_advantage_original": 0.03215347615809276,
+        "original_lower_nll_count": 14,
+        "image_cluster_bootstrap95": [
+          -0.4340759553015232,
+          0.48888129939635594
+        ]
+      }
+    },
+    {
+      "domain": "geography",
+      "native_task": 14,
+      "mean_nll": {
+        "image": 3.696920448336108,
+        "text": 3.2251068148119697,
+        "wrong": 3.3612103996605707
+      },
+      "image_vs_text": {
+        "qa": 29,
+        "image_clusters": 25,
+        "mean_nll_advantage_original": -0.47181363352413835,
+        "original_lower_nll_count": 9,
+        "image_cluster_bootstrap95": [
+          -0.8813587839786823,
+          -0.0583098828792572
+        ]
+      },
+      "image_vs_wrong": {
+        "qa": 29,
+        "image_clusters": 25,
+        "mean_nll_advantage_original": -0.3357100486755371,
+        "original_lower_nll_count": 9,
+        "image_cluster_bootstrap95": [
+          -0.8647067300204573,
+          0.271341480057815
+        ]
+      }
+    },
+    {
+      "domain": "geography",
+      "native_task": 15,
+      "mean_nll": {
+        "image": 4.118481232225895,
+        "text": 3.1926755219697953,
+        "wrong": 4.121149243414402
+      },
+      "image_vs_text": {
+        "qa": 40,
+        "image_clusters": 33,
+        "mean_nll_advantage_original": -0.9258057102560997,
+        "original_lower_nll_count": 9,
+        "image_cluster_bootstrap95": [
+          -1.3018230112587534,
+          -0.5274447881513171
+        ]
+      },
+      "image_vs_wrong": {
+        "qa": 40,
+        "image_clusters": 33,
+        "mean_nll_advantage_original": 0.0026680111885070803,
+        "original_lower_nll_count": 19,
+        "image_cluster_bootstrap95": [
+          -0.44699456578209285,
+          0.48182086364642995
+        ]
+      }
+    },
+    {
+      "domain": "finance",
+      "native_task": null,
+      "mean_nll": {
+        "image": 3.954578858613968,
+        "text": 5.740137815475464,
+        "wrong": 4.007480880320072
+      },
+      "image_vs_text": {
+        "qa": 100,
+        "image_clusters": 94,
+        "mean_nll_advantage_original": 1.785558956861496,
+        "original_lower_nll_count": 81,
+        "image_cluster_bootstrap95": [
+          1.4255944820160562,
+          2.227102753990575
+        ]
+      },
+      "image_vs_wrong": {
+        "qa": 100,
+        "image_clusters": 94,
+        "mean_nll_advantage_original": 0.05290202170610428,
+        "original_lower_nll_count": 52,
+        "image_cluster_bootstrap95": [
+          -0.2407543993357456,
+          0.3706369502203805
+        ]
+      }
+    },
+    {
+      "domain": "finance",
+      "native_task": 16,
+      "mean_nll": {
+        "image": 3.954578858613968,
+        "text": 5.740137815475464,
+        "wrong": 4.007480880320072
+      },
+      "image_vs_text": {
+        "qa": 100,
+        "image_clusters": 94,
+        "mean_nll_advantage_original": 1.785558956861496,
+        "original_lower_nll_count": 81,
+        "image_cluster_bootstrap95": [
+          1.4255944820160562,
+          2.227102753990575
+        ]
+      },
+      "image_vs_wrong": {
+        "qa": 100,
+        "image_clusters": 94,
+        "mean_nll_advantage_original": 0.05290202170610428,
+        "original_lower_nll_count": 52,
+        "image_cluster_bootstrap95": [
+          -0.2407543993357456,
+          0.3706369502203805
+        ]
+      }
+    },
+    {
+      "domain": "traffic",
+      "native_task": null,
+      "mean_nll": {
+        "image": 2.3025384986400605,
+        "text": 2.5879291462898255,
+        "wrong": 2.38173220872879
+      },
+      "image_vs_text": {
+        "qa": 100,
+        "image_clusters": 98,
+        "mean_nll_advantage_original": 0.285390647649765,
+        "original_lower_nll_count": 100,
+        "image_cluster_bootstrap95": [
+          0.2520817789700952,
+          0.3187510733510934
+        ]
+      },
+      "image_vs_wrong": {
+        "qa": 100,
+        "image_clusters": 98,
+        "mean_nll_advantage_original": 0.07919371008872986,
+        "original_lower_nll_count": 85,
+        "image_cluster_bootstrap95": [
+          0.06387858559386898,
+          0.09416167140007019
+        ]
+      }
+    },
+    {
+      "domain": "traffic",
+      "native_task": 17,
+      "mean_nll": {
+        "image": 2.2185785472393036,
+        "text": 2.356851945320765,
+        "wrong": 2.327361578742663
+      },
+      "image_vs_text": {
+        "qa": 24,
+        "image_clusters": 24,
+        "mean_nll_advantage_original": 0.13827339808146158,
+        "original_lower_nll_count": 24,
+        "image_cluster_bootstrap95": [
+          0.11033686995506287,
+          0.17319267491499582
+        ]
+      },
+      "image_vs_wrong": {
+        "qa": 24,
+        "image_clusters": 24,
+        "mean_nll_advantage_original": 0.10878303150335948,
+        "original_lower_nll_count": 24,
+        "image_cluster_bootstrap95": [
+          0.08172077933947246,
+          0.14597333470980325
+        ]
+      }
+    },
+    {
+      "domain": "traffic",
+      "native_task": 18,
+      "mean_nll": {
+        "image": 2.2467597195735345,
+        "text": 2.6394081986867466,
+        "wrong": 2.3167374523786397
+      },
+      "image_vs_text": {
+        "qa": 52,
+        "image_clusters": 52,
+        "mean_nll_advantage_original": 0.392648479113212,
+        "original_lower_nll_count": 52,
+        "image_cluster_bootstrap95": [
+          0.35374847054481506,
+          0.4309292985842778
+        ]
+      },
+      "image_vs_wrong": {
+        "qa": 52,
+        "image_clusters": 52,
+        "mean_nll_advantage_original": 0.06997773280510536,
+        "original_lower_nll_count": 39,
+        "image_cluster_bootstrap95": [
+          0.04646881497823275,
+          0.09311374104939975
+        ]
+      }
+    },
+    {
+      "domain": "traffic",
+      "native_task": 19,
+      "mean_nll": {
+        "image": 2.5073524713516235,
+        "text": 2.70746840039889,
+        "wrong": 2.57692481080691
+      },
+      "image_vs_text": {
+        "qa": 24,
+        "image_clusters": 24,
+        "mean_nll_advantage_original": 0.20011592904726663,
+        "original_lower_nll_count": 24,
+        "image_cluster_bootstrap95": [
+          0.17227976520856222,
+          0.22866672277450562
+        ]
+      },
+      "image_vs_wrong": {
+        "qa": 24,
+        "image_clusters": 24,
+        "mean_nll_advantage_original": 0.06957233945528667,
+        "original_lower_nll_count": 22,
+        "image_cluster_bootstrap95": [
+          0.049510310093561806,
+          0.09104675054550171
+        ]
+      }
+    }
+  ],
+  "limitations": [
+    "Untrained base only; no claim trained adapters have the same behavior.",
+    "Teacher-forced NLL on500 diagnostic QA; not accuracy or full21454 test.",
+    "Wrong image is deterministic from same-domain diagnostic pool, not necessarily contradictory content.",
+    "Wrong image audit checks distinct asset paths, not pixel-level or semantic uniqueness.",
+    "Removing an image changes prompt length; not a perfectly isolated vision-encoder intervention.",
+    "Image-cluster bootstrap1000 seed42; native subgroups can have very few samples.",
+    "Raw question/answer/image files remain unchanged; altered input views are evaluation ablations only."
+  ]
+}

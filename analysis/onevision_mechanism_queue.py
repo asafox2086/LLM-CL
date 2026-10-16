@@ -7,7 +7,8 @@ PLAN=[('format','onevision_knowledge_intervention.py',['--mode','format']),
       ('reproducibility','onevision_reproducibility_probe.py',[]),
       ('matched_native','onevision_matched_native_controls.py',[]),
       ('task_domain','onevision_task_domain_intervention.py',[]),
-      ('knowledge','onevision_knowledge_intervention.py',['--mode','knowledge'])]
+      ('knowledge','onevision_knowledge_intervention.py',['--mode','knowledge']),
+      ('trained_vision','onevision_trained_visual_probe.py',[])]
 
 def write(path,value):
     temporary=path.with_suffix('.json.partial');temporary.write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n');temporary.replace(path)
@@ -50,12 +51,13 @@ def main():
             used,util=map(int,subprocess.check_output(['nvidia-smi','--id=1','--query-gpu=memory.used,utilization.gpu','--format=csv,noheader,nounits'],text=True).strip().split(','))
             owners=subprocess.check_output(['nvidia-smi','--id=1','--query-compute-apps=pid','--format=csv,noheader,nounits'],text=True).strip()
             if used<500 and util<10 and not owners:break
-            state['phase']='waiting_idle_gpu1';write(path,state);time.sleep(15)
+            state.update(phase='waiting_idle_gpu1',active_job=name,waiting_gpu1_owner_pids=owners.splitlines())
+            write(path,state);time.sleep(15)
         env=dict(os.environ,CUDA_VISIBLE_DEVICES='1',OMP_NUM_THREADS='6',MKL_NUM_THREADS='6',PYTHONUNBUFFERED='1')
         with (REPORT/(name+'_nohup.log')).open('a') as log:
             worker=subprocess.Popen(['/usr/bin/nohup',str(ROOT/'.vision-env/bin/python'),'-u',str(ROOT/'analysis'/script),*args],cwd=ROOT,env=env,stdout=log,stderr=subprocess.STDOUT)
             job.update(status='running',pid=worker.pid,boot_id=current_boot(),attempts=job['attempts']+1)
-            state.update(phase='running',active_job=name);write(path,state)
+            state.update(phase='running',active_job=name);state.pop('waiting_gpu1_owner_pids',None);write(path,state)
             code=worker.wait()
         if code or not complete.exists():
             job.update(status='needs_attention',exit_code=code,log=str((REPORT/(name+'_nohup.log')).relative_to(ROOT)))
