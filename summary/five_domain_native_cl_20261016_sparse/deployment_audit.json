@@ -1,0 +1,89 @@
+{
+  "experiment_id": "five_domain_native_cl_20261016_sparse",
+  "frozen_before_training": true,
+  "code_sha256": {
+    "parsp_adapter.py": "d1ebe1831e6d089d434bdde34b59db64eff17dc74d8d77f9ca4f080a51da8366",
+    "sparse_results.py": "07a7808beff8bc3330e92dc5b0fb5443401486846db764c912a5a0f57558fa3f",
+    "osft_adapter.py": "60b05f3b59f3878e65ee9543657b54a5aa5da13c14e139123e1c3591f3007b34",
+    "freeze_splits.py": "5b4d58451ef3bcdb9fc033c0c9bc15b72ddc36877a64ca22d50f12e9e301510a",
+    "retrieval.py": "7d7a9dd6cb223bf96cd9ab3499a4ddf69f8fbb60940d80db84582ad518f5c133",
+    "pipeline.py": "3170c81082e40721e71356d74807fee3d2af92a153549a7d66474843707c0122",
+    "checkpoint_probe.py": "227748fdc13ba38a94869e29ca5d8aca2f5afdf86c2b67267832209e6de1a925",
+    "aler_adapter.py": "963099218f367137537c3530f5f757552d1c5e16463b555e6e03b2057b39bdee",
+    "checkpoints.py": "06c53eab2c6810901f5206edbfb1df9defabdc747b1856ace0afa31e74b37a78",
+    "pass_adapter.py": "c8e23c85a93e97130d464b4b6d87110470035c5af37f9575fce705923c80c7c4",
+    "fv_adapter.py": "85473b19726249703f645a30142b6cfb046a37f798430ca1a255e48213641fab",
+    "sparta_adapter.py": "97b94a1b4add26296ebd95f2c116b763aa39797e25df3f5de81bc033d7228347",
+    "host_adam.py": "5e733e6b87c12eb9331ff23e8919a142f1861a2beec82ec8b0361d878b9aec8c",
+    "prepare_native.py": "200affb091e040e4f4492fb92389b9f1b54a3e71b33683e7de322ca6dd74cb4f",
+    "native_auxiliary.py": "17f3345fb8d4b4cb3367de2a0b914b34bf69251ecc7f141ba1c7179006599682",
+    "resource_monitor.py": "a161c8a82bf762622795f64210c95164fb905c6fa80572b35ae5ee3dd7146533",
+    "hyper_adapter.py": "e37fe303bea66627db1b814fa6dde40fa81bf8ccfbf4aec732b4a244a2afb01a",
+    "frozen_vision.py": "79804ce7c4c4bb160cb006afd815da8ad1eb27cc00b5adf4c280f4f67b3cc6e4",
+    "methods.py": "62ec6e05833cb63b6fe26b5bdba47bf3a288f6e5587db089ec90ea750238a00b",
+    "run.py": "8c32044af77c96de6ed5ba0575fa545336b7e16f9901599ba7c9bb55df7d89fd",
+    "runtime_utils.py": "37d475d32f821969c0b82a1181c95587ceba6090b556fc40d878f15cfcceea6a"
+  },
+  "old_images_verified": 7033,
+  "source_splits_and_parent_1pct_ids_unchanged": true,
+  "failed_early_preflights": "retained as diagnostic-only; old Transformers5 runtime and PyCapsule namespace issue corrected before formal admission",
+  "old_card_oom": "SpaRTA19-slot configuration exceeds11GB; reassigned to new3090",
+  "runtime": {
+    "torch": "2.6.0+cu118",
+    "transformers": "4.46.3",
+    "tokenizers": "0.20.3",
+    "cloudpickle": "3.1.2"
+  },
+  "gpu_policy": {
+    "new3090": {
+      "full": [
+        3
+      ],
+      "pct01": [
+        1,
+        2
+      ],
+      "reserved": [
+        0
+      ]
+    },
+    "old2080": {
+      "pct01": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reserved": []
+    }
+  },
+  "base_weights_verified_both_hosts": [
+    {
+      "name": "model-00001-of-00002.safetensors",
+      "sha256": "994ac2b03f97de8bc647d0fe5eba2e4b632b3e28dc03574c29bdfc36cf47e1b9",
+      "bytes": 3988609112
+    },
+    {
+      "name": "model-00002-of-00002.safetensors",
+      "sha256": "92540d8353c8d226a589a3b179bdb33851c970ee2cc2ac7ba035f79425e7b833",
+      "bytes": 429441656
+    }
+  ],
+  "smolora_precision": "Author experts and gates remain FP32 arithmetic under FP16 base autocast; validated real2B finite gradients on2080Ti. Full native preflight/reload still gated per run.",
+  "latest_revision": {
+    "remove": "Hyper_LLaVA",
+    "add": [
+      "ER_LoRA",
+      "CL_MoE"
+    ],
+    "new_reserved_gpus": [
+      0,
+      1
+    ],
+    "runtime_audit": "two_host_runtime_integrity.json",
+    "identical_full_runtime": true,
+    "python": "3.10.21",
+    "old_private_runtime": ".runtime/conda-env",
+    "clmoe_adaptation": "exp/five_domain_native_cl_20261016_sparse/METHOD_ADAPTATIONS.md"
+  }
+}

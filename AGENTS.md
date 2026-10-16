@@ -1,3 +1,18 @@
+# Current protocol — 2026-10-16 five datasets, native tasks, two servers
+
+This latest user-confirmed revision supersedes all conflicting sections below.
+
+- Current experiment: `five_domain_native_cl_20261016_sparse`; remove AQUA, remove Hyper-LLaVA; add ER-LoRA and CL-MoE, for ten methods. Old six-domain queue and three workers stopped by user request; never restart or reuse their predictions.
+- Five multimodal sources: TextVQA, SLAKE, RSVQA-LR, FinMME, CODA-LM. Nineteen disjoint native-task stages, research-defined fixed label order documented in rules/017_five_domain_native_sparse_two_hosts.md. Do not claim the order itself is an author curriculum; answer formats are reporting groups, not duplicate training stages.
+- Qwen2-VL-2B-Instruct; seed42; one epoch; no validation. Full train131019; 1%train1313; identical full test21454. Original mixed question/answer semantics and source boundaries preserved. Fixed 1%IDs inherited from parent manifests, never sampled independently per method or host.
+- Before training, freeze manifest, frozen_ids.json, QA and training-order hashes in data/FiveDomainCL/five_domain_native_cl_20261016_sparse/split_lock.json; all methods and both hosts must verify them. Files read-only. Current full manifest SHA256 3dac40b318c4bc7c792eeebc4e5667b172cfdf42ae835b92f4fe56998ef44504; pct01 36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777.
+- Sparse evaluation: initial all19, intermediate current+next, final all19. AP/FWT/BWT only; no historical-peak ForgetRate. Null for unmeasured cells; no fabricated full matrix or full-stage curves. Domain QA-weighted final scores and five-domain macro reported separately from equal-task AP.
+- SeqFT-LoRA saves all19 stage checkpoints in BOTH conditions; all other methods save final stage19 only. Full model/architecture/method runtime, processor, RNG, config and SHA256; don't save only trainable params. Independent-process real2B checkpoint reload/forward-equivalence/finite-backward gate before formal starts. Fresh optimizer each stage. Only SeqFT can recover intermediate stage boundaries; other interrupted methods restart from base in fresh runs, never concatenate old predictions.
+- New3090 server: GPU0 reserved, GPU1 reserved for our method, GPU3 full, GPU2 pct01. Old2080Ti server: GPUs0–3 all available for pct01. Disjoint ownership, one process per GPU; OOM methods can move to new24GB GPUs without changing algorithms/data. Both use llmcl-native-five.service. Old llmcl-six-domain.service disabled.
+- Match runtimes on both hosts: Torch2.6.0+cu118, Transformers4.46.3, Tokenizers0.20.3, Cloudpickle3.1.2. Measure and report hardware timing separately. Preserve before/after/peak CPU RSS/PSS/USS and GPU allocator/reserved/NVML, loss and real gradients. All logs/predictions/weights under new experiment ID.
+- Never commit .deployment private keys, model/data blobs or run checkpoints. LAN transfer and final-result SHA256 validation; preserve unrelated remote changes.
+
+# Historical protocol — six multimodal domains
 # Current protocol — 2026-10-16 six multimodal domains
 
 This latest user revision supersedes the five-task section and historical notes below.
