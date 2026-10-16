@@ -27,3 +27,7 @@ rank8、alpha32、dropout0.1、q/v投影、AdamW、seed42、1epoch、有效batch
 这些是待检验假设，不预先命名为已发表算法，不承诺大幅提升。不把小数据单seed初步趋势当成机制证明。
 
 日志与参数：`exp/onevision_diagnostics_20261016/runs/`；报告：`summary/onevision_diagnostics_20261016/`。服务先核查模型完整性和GPU1空闲，再启动诊断；不抢占新机GPU0/2/3或旧机GPU。
+
+## 接续研究优先级
+
+已有初步格式／语言混杂线索，见[INTERIM_FINDINGS](../../summary/onevision_diagnostics_20261016/INTERIM_FINDINGS.md)。接续时先做独立的固定输出格式／问题语言控制，再将知识不足、梯度冲突与复用增益归因。当前活动runner不热改，另起可追溯诊断。
