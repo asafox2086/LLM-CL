@@ -11,13 +11,366 @@
     "missing_gold": [],
     "all_images_decoded": true
   },
-  "formal_manifests_frozen": false,
-  "gpu_preflight": "pending complete source downloads",
+  "formal_manifests_frozen": true,
+  "gpu_preflight": "Actual six-task proofs saved for 3 first jobs; remaining method/condition pairs pending their own proofs",
   "seven_by_six_metrics_test": {
     "AP": 20.0,
     "ForgetRate": 0.0,
     "BWT": 0.0,
     "FWT": 0.0
   },
-  "incomplete_matrix_rejected": true
+  "incomplete_matrix_rejected": true,
+  "shared_test_hashes": true,
+  "all_six_nested_one_percent": true,
+  "all_task_file_hashes_rechecked": true,
+  "manifest_sha256": {
+    "full": "14b22b5b1a334279bcc9bfe210bf0287ae6fd4b470ffd6224817670303a91835",
+    "pct01": "f5e086bb16ee18a77f3b71be5628b2f68967a8d954d809860bad4b47c5fbdb79"
+  },
+  "task_counts": [
+    {
+      "task": 1,
+      "domain": "natural",
+      "modality": "image",
+      "full_train": 34602,
+      "pct01_train": 347,
+      "full_test": 5000
+    },
+    {
+      "task": 2,
+      "domain": "medical",
+      "modality": "image",
+      "full_train": 9835,
+      "pct01_train": 99,
+      "full_test": 2094
+    },
+    {
+      "task": 3,
+      "domain": "geography",
+      "modality": "image",
+      "full_train": 57223,
+      "pct01_train": 573,
+      "full_test": 10004
+    },
+    {
+      "task": 4,
+      "domain": "finance",
+      "modality": "image",
+      "full_train": 8864,
+      "pct01_train": 89,
+      "full_test": 2233
+    },
+    {
+      "task": 5,
+      "domain": "art",
+      "modality": "image",
+      "full_train": 69812,
+      "pct01_train": 699,
+      "full_test": 4912
+    },
+    {
+      "task": 6,
+      "domain": "traffic",
+      "modality": "image",
+      "full_train": 20495,
+      "pct01_train": 205,
+      "full_test": 2123
+    }
+  ],
+  "fresh_six_task_gpu_proofs": [
+    {
+      "job": "full:SeqFT_LoRA",
+      "gpu": 3,
+      "proof_path": "exp/six_domain_cl_20261016_finmme_coda/runs/full/SeqFT_LoRA/preflight_20261016_111036/gpu_preflight.json",
+      "proof": {
+        "passed": true,
+        "weights_discarded": true,
+        "not_formal_results": true,
+        "task_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "cases": [
+          {
+            "event": "preflight",
+            "task": 1,
+            "dataset": "TextVQA",
+            "source_id": "TextVQA:0",
+            "image_count": 1,
+            "loss": 0.21341760456562042,
+            "gradient_l2_preclip": 15.635553359985352
+          },
+          {
+            "event": "preflight",
+            "task": 2,
+            "dataset": "SLAKE",
+            "source_id": "SLAKE:0",
+            "image_count": 1,
+            "loss": 1.814545750617981,
+            "gradient_l2_preclip": 11.488177299499512
+          },
+          {
+            "event": "preflight",
+            "task": 3,
+            "dataset": "RSVQA-LR",
+            "source_id": "RSVQA-LR:0",
+            "image_count": 1,
+            "loss": 2.7738609313964844,
+            "gradient_l2_preclip": 24.164485931396484
+          },
+          {
+            "event": "preflight",
+            "task": 4,
+            "dataset": "FinMME",
+            "source_id": "FinMME:521",
+            "image_count": 1,
+            "loss": 3.8950657844543457,
+            "gradient_l2_preclip": 45.467987060546875
+          },
+          {
+            "event": "preflight",
+            "task": 5,
+            "dataset": "AQUA",
+            "source_id": "AQUA:train:29568",
+            "image_count": 1,
+            "loss": 5.2647809982299805,
+            "gradient_l2_preclip": 59.42580795288086
+          },
+          {
+            "event": "preflight",
+            "task": 6,
+            "dataset": "CODA-LM",
+            "source_id": "CODA-LM:Train:Train_general_0",
+            "image_count": 1,
+            "loss": 2.0587923526763916,
+            "gradient_l2_preclip": 0.7900412678718567
+          }
+        ],
+        "manifest_sha256": "14b22b5b1a334279bcc9bfe210bf0287ae6fd4b470ffd6224817670303a91835",
+        "execution_source_sha256": {
+          "parsp_adapter.py": "d1ebe1831e6d089d434bdde34b59db64eff17dc74d8d77f9ca4f080a51da8366",
+          "osft_adapter.py": "60b05f3b59f3878e65ee9543657b54a5aa5da13c14e139123e1c3591f3007b34",
+          "retrieval.py": "7d7a9dd6cb223bf96cd9ab3499a4ddf69f8fbb60940d80db84582ad518f5c133",
+          "pipeline.py": "956efbd169fd9a6cdffc889bf09d7e0a0c7cbdb43c68e1e00ca434bf80f5a150",
+          "aler_adapter.py": "963099218f367137537c3530f5f757552d1c5e16463b555e6e03b2057b39bdee",
+          "prepare_data.py": "0fb7015b004a1a45cb0d589188fb7186c263d89fba6609ad573659441624632b",
+          "pass_adapter.py": "c8e23c85a93e97130d464b4b6d87110470035c5af37f9575fce705923c80c7c4",
+          "fv_adapter.py": "85473b19726249703f645a30142b6cfb046a37f798430ca1a255e48213641fab",
+          "sparta_adapter.py": "0fb9dc8541fe78ab7e3a416dc256dc1426f9c09993efebdb1bebe3b30374a84b",
+          "prepare_sources.py": "9260439e5cc5eacf34b8d6c863c31b3f7515a357ce36ddf29c87ccf08199af31",
+          "host_adam.py": "5e733e6b87c12eb9331ff23e8919a142f1861a2beec82ec8b0361d878b9aec8c",
+          "native_auxiliary.py": "17f3345fb8d4b4cb3367de2a0b914b34bf69251ecc7f141ba1c7179006599682",
+          "final_parameters.py": "4563cf167d69f140146d5c3bb8a7098803e4fb3906874d49e1627529295d1f71",
+          "resource_monitor.py": "a161c8a82bf762622795f64210c95164fb905c6fa80572b35ae5ee3dd7146533",
+          "hyper_adapter.py": "a0035efdd33586c419c5a0f8e11e5af9091b2168777685f4e576c281cb13aff0",
+          "frozen_vision.py": "79804ce7c4c4bb160cb006afd815da8ad1eb27cc00b5adf4c280f4f67b3cc6e4",
+          "result_tables.py": "df892eee20ea670d51b0e59f1d31311e77b73dce9d3f8b48bdd925593f1097a1",
+          "build_dataset_report.py": "62ee3b6af1e2c65873540a0ed231f428b78fb579e7599e6c019399c9c9509a3a",
+          "methods.py": "f59d540f35373fabf8dc3e019d5e674a00a1585708a06ffbfa51f44be0f1ec69",
+          "run.py": "fac87a0fcfea5fb79ad1a862d9a1ef0b5442244fc31ca5a75d36c0266f561ec3",
+          "runtime_utils.py": "781ba05232f64a08d076a4072d8247846f19ef050db4376d040d4b0579d4f6d7"
+        }
+      }
+    },
+    {
+      "job": "pct01:SeqFT_LoRA",
+      "gpu": 1,
+      "proof_path": "exp/six_domain_cl_20261016_finmme_coda/runs/pct01/SeqFT_LoRA/preflight_20261016_111036/gpu_preflight.json",
+      "proof": {
+        "passed": true,
+        "weights_discarded": true,
+        "not_formal_results": true,
+        "task_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "cases": [
+          {
+            "event": "preflight",
+            "task": 1,
+            "dataset": "TextVQA",
+            "source_id": "TextVQA:23399",
+            "image_count": 1,
+            "loss": 0.15146751701831818,
+            "gradient_l2_preclip": 6.787649154663086
+          },
+          {
+            "event": "preflight",
+            "task": 2,
+            "dataset": "SLAKE",
+            "source_id": "SLAKE:6370",
+            "image_count": 1,
+            "loss": 2.735255002975464,
+            "gradient_l2_preclip": 14.943964958190918
+          },
+          {
+            "event": "preflight",
+            "task": 3,
+            "dataset": "RSVQA-LR",
+            "source_id": "RSVQA-LR:38737",
+            "image_count": 1,
+            "loss": 2.9353137016296387,
+            "gradient_l2_preclip": 20.855274200439453
+          },
+          {
+            "event": "preflight",
+            "task": 4,
+            "dataset": "FinMME",
+            "source_id": "FinMME:523",
+            "image_count": 1,
+            "loss": 5.732385158538818,
+            "gradient_l2_preclip": 23.201248168945312
+          },
+          {
+            "event": "preflight",
+            "task": 5,
+            "dataset": "AQUA",
+            "source_id": "AQUA:train:55094",
+            "image_count": 1,
+            "loss": 5.3526411056518555,
+            "gradient_l2_preclip": 27.34261131286621
+          },
+          {
+            "event": "preflight",
+            "task": 6,
+            "dataset": "CODA-LM",
+            "source_id": "CODA-LM:Train:Train_general_3203",
+            "image_count": 1,
+            "loss": 1.6476460695266724,
+            "gradient_l2_preclip": 1.0320285558700562
+          }
+        ],
+        "manifest_sha256": "f5e086bb16ee18a77f3b71be5628b2f68967a8d954d809860bad4b47c5fbdb79",
+        "execution_source_sha256": {
+          "parsp_adapter.py": "d1ebe1831e6d089d434bdde34b59db64eff17dc74d8d77f9ca4f080a51da8366",
+          "osft_adapter.py": "60b05f3b59f3878e65ee9543657b54a5aa5da13c14e139123e1c3591f3007b34",
+          "retrieval.py": "7d7a9dd6cb223bf96cd9ab3499a4ddf69f8fbb60940d80db84582ad518f5c133",
+          "pipeline.py": "956efbd169fd9a6cdffc889bf09d7e0a0c7cbdb43c68e1e00ca434bf80f5a150",
+          "aler_adapter.py": "963099218f367137537c3530f5f757552d1c5e16463b555e6e03b2057b39bdee",
+          "prepare_data.py": "0fb7015b004a1a45cb0d589188fb7186c263d89fba6609ad573659441624632b",
+          "pass_adapter.py": "c8e23c85a93e97130d464b4b6d87110470035c5af37f9575fce705923c80c7c4",
+          "fv_adapter.py": "85473b19726249703f645a30142b6cfb046a37f798430ca1a255e48213641fab",
+          "sparta_adapter.py": "0fb9dc8541fe78ab7e3a416dc256dc1426f9c09993efebdb1bebe3b30374a84b",
+          "prepare_sources.py": "9260439e5cc5eacf34b8d6c863c31b3f7515a357ce36ddf29c87ccf08199af31",
+          "host_adam.py": "5e733e6b87c12eb9331ff23e8919a142f1861a2beec82ec8b0361d878b9aec8c",
+          "native_auxiliary.py": "17f3345fb8d4b4cb3367de2a0b914b34bf69251ecc7f141ba1c7179006599682",
+          "final_parameters.py": "4563cf167d69f140146d5c3bb8a7098803e4fb3906874d49e1627529295d1f71",
+          "resource_monitor.py": "a161c8a82bf762622795f64210c95164fb905c6fa80572b35ae5ee3dd7146533",
+          "hyper_adapter.py": "a0035efdd33586c419c5a0f8e11e5af9091b2168777685f4e576c281cb13aff0",
+          "frozen_vision.py": "79804ce7c4c4bb160cb006afd815da8ad1eb27cc00b5adf4c280f4f67b3cc6e4",
+          "result_tables.py": "df892eee20ea670d51b0e59f1d31311e77b73dce9d3f8b48bdd925593f1097a1",
+          "build_dataset_report.py": "62ee3b6af1e2c65873540a0ed231f428b78fb579e7599e6c019399c9c9509a3a",
+          "methods.py": "f59d540f35373fabf8dc3e019d5e674a00a1585708a06ffbfa51f44be0f1ec69",
+          "run.py": "fac87a0fcfea5fb79ad1a862d9a1ef0b5442244fc31ca5a75d36c0266f561ec3",
+          "runtime_utils.py": "781ba05232f64a08d076a4072d8247846f19ef050db4376d040d4b0579d4f6d7"
+        }
+      }
+    },
+    {
+      "job": "pct01:Hyper_LLaVA",
+      "gpu": 2,
+      "proof_path": "exp/six_domain_cl_20261016_finmme_coda/runs/pct01/Hyper_LLaVA/preflight_20261016_111036/gpu_preflight.json",
+      "proof": {
+        "passed": true,
+        "weights_discarded": true,
+        "not_formal_results": true,
+        "task_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "cases": [
+          {
+            "event": "preflight",
+            "task": 1,
+            "dataset": "TextVQA",
+            "source_id": "TextVQA:23399",
+            "image_count": 1,
+            "loss": 0.15146751701831818,
+            "gradient_l2_preclip": 4.65289306640625
+          },
+          {
+            "event": "preflight",
+            "task": 2,
+            "dataset": "SLAKE",
+            "source_id": "SLAKE:6370",
+            "image_count": 1,
+            "loss": 2.749079465866089,
+            "gradient_l2_preclip": 11.697500228881836
+          },
+          {
+            "event": "preflight",
+            "task": 3,
+            "dataset": "RSVQA-LR",
+            "source_id": "RSVQA-LR:38737",
+            "image_count": 1,
+            "loss": 2.876554012298584,
+            "gradient_l2_preclip": 16.036758422851562
+          },
+          {
+            "event": "preflight",
+            "task": 4,
+            "dataset": "FinMME",
+            "source_id": "FinMME:523",
+            "image_count": 1,
+            "loss": 5.791409969329834,
+            "gradient_l2_preclip": 19.453943252563477
+          },
+          {
+            "event": "preflight",
+            "task": 5,
+            "dataset": "AQUA",
+            "source_id": "AQUA:train:55094",
+            "image_count": 1,
+            "loss": 5.295975208282471,
+            "gradient_l2_preclip": 20.937307357788086
+          },
+          {
+            "event": "preflight",
+            "task": 6,
+            "dataset": "CODA-LM",
+            "source_id": "CODA-LM:Train:Train_general_3203",
+            "image_count": 1,
+            "loss": 1.6472446918487549,
+            "gradient_l2_preclip": 0.928428590297699
+          }
+        ],
+        "manifest_sha256": "f5e086bb16ee18a77f3b71be5628b2f68967a8d954d809860bad4b47c5fbdb79",
+        "execution_source_sha256": {
+          "parsp_adapter.py": "d1ebe1831e6d089d434bdde34b59db64eff17dc74d8d77f9ca4f080a51da8366",
+          "osft_adapter.py": "60b05f3b59f3878e65ee9543657b54a5aa5da13c14e139123e1c3591f3007b34",
+          "retrieval.py": "7d7a9dd6cb223bf96cd9ab3499a4ddf69f8fbb60940d80db84582ad518f5c133",
+          "pipeline.py": "956efbd169fd9a6cdffc889bf09d7e0a0c7cbdb43c68e1e00ca434bf80f5a150",
+          "aler_adapter.py": "963099218f367137537c3530f5f757552d1c5e16463b555e6e03b2057b39bdee",
+          "prepare_data.py": "0fb7015b004a1a45cb0d589188fb7186c263d89fba6609ad573659441624632b",
+          "pass_adapter.py": "c8e23c85a93e97130d464b4b6d87110470035c5af37f9575fce705923c80c7c4",
+          "fv_adapter.py": "85473b19726249703f645a30142b6cfb046a37f798430ca1a255e48213641fab",
+          "sparta_adapter.py": "0fb9dc8541fe78ab7e3a416dc256dc1426f9c09993efebdb1bebe3b30374a84b",
+          "prepare_sources.py": "9260439e5cc5eacf34b8d6c863c31b3f7515a357ce36ddf29c87ccf08199af31",
+          "host_adam.py": "5e733e6b87c12eb9331ff23e8919a142f1861a2beec82ec8b0361d878b9aec8c",
+          "native_auxiliary.py": "17f3345fb8d4b4cb3367de2a0b914b34bf69251ecc7f141ba1c7179006599682",
+          "final_parameters.py": "4563cf167d69f140146d5c3bb8a7098803e4fb3906874d49e1627529295d1f71",
+          "resource_monitor.py": "a161c8a82bf762622795f64210c95164fb905c6fa80572b35ae5ee3dd7146533",
+          "hyper_adapter.py": "a0035efdd33586c419c5a0f8e11e5af9091b2168777685f4e576c281cb13aff0",
+          "frozen_vision.py": "79804ce7c4c4bb160cb006afd815da8ad1eb27cc00b5adf4c280f4f67b3cc6e4",
+          "result_tables.py": "df892eee20ea670d51b0e59f1d31311e77b73dce9d3f8b48bdd925593f1097a1",
+          "build_dataset_report.py": "62ee3b6af1e2c65873540a0ed231f428b78fb579e7599e6c019399c9c9509a3a",
+          "methods.py": "f59d540f35373fabf8dc3e019d5e674a00a1585708a06ffbfa51f44be0f1ec69",
+          "run.py": "fac87a0fcfea5fb79ad1a862d9a1ef0b5442244fc31ca5a75d36c0266f561ec3",
+          "runtime_utils.py": "781ba05232f64a08d076a4072d8247846f19ef050db4376d040d4b0579d4f6d7"
+        }
+      }
+    }
+  ]
 }

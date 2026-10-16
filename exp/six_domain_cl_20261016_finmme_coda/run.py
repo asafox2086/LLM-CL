@@ -130,7 +130,8 @@ def main():
         method.begin_stage(1)
         optimizer = make_optimizer(method)
         scaler = torch.amp.GradScaler('cuda', init_scale=1024)
-        for tid in [1, 2, 3, 4, 5]:
+        preflight_cases=[]
+        for tid in range(1,len(manifest['tasks'])+1):
             method.set_instruction(tid)
             row = data[tid, 'train'][0]
             batch, _ = input_batch(row, manifest['tasks'][tid-1], processor, model.device)
@@ -156,14 +157,19 @@ def main():
             assert torch.isfinite(loss) and torch.isfinite(grad)
             scaler.step(optimizer)
             scaler.update()
-            print(json.dumps({'event': 'preflight', 'task': tid, 'loss': float(loss.detach()), 'gradient_l2_preclip': float(grad)}), flush=True)
+            case={'event':'preflight','task':tid,'dataset':row['dataset'],'source_id':row['id'],
+                  'image_count':len(row['images']),'loss':float(loss.detach()),'gradient_l2_preclip':float(grad)}
+            preflight_cases.append(case)
+            print(json.dumps(case),flush=True)
         optimizer.zero_grad(set_to_none=True)
         del optimizer, scaler, batch, loss
         gc.collect()
         torch.cuda.empty_cache()
         monitor.snapshot('training_after', model=model)
         monitor.finish(model)
-        write(run / 'gpu_preflight.json', {'passed': True, 'weights_discarded': True, 'not_formal_results': True})
+        write(run / 'gpu_preflight.json', {'passed':True,'weights_discarded':True,'not_formal_results':True,
+              'task_ids':[c['task'] for c in preflight_cases],'cases':preflight_cases,
+              'manifest_sha256':digest,'execution_source_sha256':config['execution_source_sha256']})
         return
     evaluate(method, processor, manifest['tasks'], data, run, 0)
     gc.collect()

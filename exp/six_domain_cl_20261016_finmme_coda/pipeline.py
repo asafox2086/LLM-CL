@@ -1,5 +1,6 @@
 """Persistent preparation and two-condition queue; GPU0 is never admitted."""
 import fcntl
+import hashlib
 import json
 import os
 import subprocess
@@ -106,7 +107,12 @@ def main():
                 run=ROOT/j['run_dir']
                 if j['status']=='preflight':
                     proof=run/'gpu_preflight.json'
-                    passed=proof.exists() and json.loads(proof.read_text()).get('passed') and (run/'memory_summary.json').exists()
+                    details=json.loads(proof.read_text()) if proof.exists() else {}
+                    source_hashes={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in HERE.glob('*.py')}
+                    passed=(details.get('passed') and details.get('task_ids')==list(range(1,policy['task_count']+1))
+                            and details.get('manifest_sha256')==policy['conditions'][j['condition']]['manifest_sha256']
+                            and details.get('execution_source_sha256')==source_hashes
+                            and (run/'memory_summary.json').exists())
                     if passed:j.update(status='ready_formal',preflight_run=str(run.relative_to(ROOT)))
                     else:j.update(status='failed_preflight',failure_log=str((run/'supervisor.log').relative_to(ROOT)))
                 else:

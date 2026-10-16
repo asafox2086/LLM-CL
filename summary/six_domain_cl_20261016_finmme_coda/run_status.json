@@ -1,11 +1,17 @@
 {
   "experiment_id": "six_domain_cl_20261016_finmme_coda",
-  "phase": "preparing_assets",
+  "phase": "running_two_conditions",
   "jobs": {
     "full:SeqFT_LoRA": {
       "condition": "full",
       "method": "SeqFT_LoRA",
-      "status": "waiting_data"
+      "status": "training",
+      "pid": 420302,
+      "gpu": 3,
+      "run_dir": "exp/six_domain_cl_20261016_finmme_coda/runs/full/SeqFT_LoRA/training_20261016_111106",
+      "completed_stage": 0,
+      "active_stage": null,
+      "preflight_run": "exp/six_domain_cl_20261016_finmme_coda/runs/full/SeqFT_LoRA/preflight_20261016_111036"
     },
     "full:Hyper_LLaVA": {
       "condition": "full",
@@ -50,12 +56,24 @@
     "pct01:SeqFT_LoRA": {
       "condition": "pct01",
       "method": "SeqFT_LoRA",
-      "status": "waiting_data"
+      "status": "training",
+      "pid": 420120,
+      "gpu": 1,
+      "run_dir": "exp/six_domain_cl_20261016_finmme_coda/runs/pct01/SeqFT_LoRA/training_20261016_111051",
+      "completed_stage": 0,
+      "preflight_run": "exp/six_domain_cl_20261016_finmme_coda/runs/pct01/SeqFT_LoRA/preflight_20261016_111036",
+      "active_stage": null
     },
     "pct01:Hyper_LLaVA": {
       "condition": "pct01",
       "method": "Hyper_LLaVA",
-      "status": "waiting_data"
+      "status": "training",
+      "pid": 420314,
+      "gpu": 2,
+      "run_dir": "exp/six_domain_cl_20261016_finmme_coda/runs/pct01/Hyper_LLaVA/training_20261016_111106",
+      "completed_stage": 0,
+      "active_stage": null,
+      "preflight_run": "exp/six_domain_cl_20261016_finmme_coda/runs/pct01/Hyper_LLaVA/preflight_20261016_111036"
     },
     "pct01:PASs_MoE": {
       "condition": "pct01",
@@ -93,9 +111,10 @@
       "status": "waiting_data"
     }
   },
-  "updated_at": "2026-10-16T10:55:39.013092+08:00",
-  "updated_unix": 1792119339.004495,
+  "updated_at": "2026-10-16T11:13:07.093559+08:00",
+  "updated_unix": 1792120387.0926206,
   "reserved_gpus": [
     0
-  ]
+  ],
+  "last_prepare_attempt": 1792119774.8679793
 }

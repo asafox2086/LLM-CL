@@ -1,12 +1,12 @@
 # 全量与 1% 持续学习实验进度
 
-状态：preparing_assets；更新：2026-10-16T10:55:39.013092+08:00
+状态：running_two_conditions；更新：2026-10-16T11:13:07.093559+08:00
 
 GPU0 保留；GPU3 专用于全量组，GPU1/2 用于 1% 训练组。两组均完整评测各自同一套公开有标注测试集。
 
 | 条件 | 方法 | 状态 | 完成训练阶段及全部测试 | 当前阶段 |
 |---|---|---|---:|---:|
-| full | SeqFT_LoRA | waiting_data | 0/6 | — |
+| full | SeqFT_LoRA | training | 0/6 | None |
 | full | Hyper_LLaVA | waiting_data | 0/6 | — |
 | full | PASs_MoE | waiting_data | 0/6 | — |
 | full | SpaRTA | waiting_data | 0/6 | — |
@@ -15,8 +15,8 @@ GPU0 保留；GPU3 专用于全量组，GPU1/2 用于 1% 训练组。两组均�
 | full | PaRSP | waiting_data | 0/6 | — |
 | full | FV_guided_Training | waiting_data | 0/6 | — |
 | full | SMoLoRA | waiting_data | 0/6 | — |
-| pct01 | SeqFT_LoRA | waiting_data | 0/6 | — |
-| pct01 | Hyper_LLaVA | waiting_data | 0/6 | — |
+| pct01 | SeqFT_LoRA | training | 0/6 | None |
+| pct01 | Hyper_LLaVA | training | 0/6 | None |
 | pct01 | PASs_MoE | waiting_data | 0/6 | — |
 | pct01 | SpaRTA | waiting_data | 0/6 | — |
 | pct01 | OSFT | waiting_data | 0/6 | — |

@@ -1,0 +1,248 @@
+{
+  "experiment_id": "six_domain_cl_20261016_finmme_coda",
+  "condition": "pct01",
+  "seed": 42,
+  "split_version": "six_domain_cl_20261016_finmme_coda_six_domain_v1",
+  "formal_ready": true,
+  "assets_pending": [],
+  "validation_enabled": false,
+  "dataset_revision": "six_domain_finmme_coda_20261016",
+  "all_original_question_types": true,
+  "counts_per_task": "variable; see each task.files",
+  "max_train_qa_per_task": 99999,
+  "test_definition": "full labeled public evaluation split; official hidden test without labels is not scored",
+  "tasks": [
+    {
+      "task": 1,
+      "task_id": "T01",
+      "domain": "natural",
+      "modality": "image",
+      "instruction": "Answer the question using the image. Give the answer directly.",
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/six_domain_cl_20261016_finmme_coda/pct01/T01_train.jsonl",
+          "count": 347,
+          "sha256": "5732cd30e78ea2d808526c62312ed2d25e9541a07b3ba5ad2b19d4f0123217c8",
+          "dataset_counts": {
+            "TextVQA": 347
+          },
+          "original_type_counts": {
+            "text_reading": 347
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/six_domain_cl_20261016_finmme_coda/pct01/T01_test.jsonl",
+          "count": 5000,
+          "sha256": "14705cad19879bbe9397add2d6871d6892146aee4be3885030700382307cd3bb",
+          "dataset_counts": {
+            "TextVQA": 5000
+          },
+          "original_type_counts": {
+            "text_reading": 5000
+          }
+        }
+      },
+      "training_order_sha256": "a4a67372e207e4823c52dad27080d5755684ec56552e3dfa248910e37588c686",
+      "training_order_rule": "SHA256(42:stage:original_QA_ID), ascending digest"
+    },
+    {
+      "task": 2,
+      "task_id": "T02",
+      "domain": "medical",
+      "modality": "image",
+      "instruction": "Answer the medical question using the image.",
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/six_domain_cl_20261016_finmme_coda/pct01/T02_train.jsonl",
+          "count": 99,
+          "sha256": "f03acda24fbdda49a0b22083a061cbe49713290fe49967f57ae64f04e604eb86",
+          "dataset_counts": {
+            "SLAKE": 99
+          },
+          "original_type_counts": {
+            "Abnormality": 14,
+            "Color": 3,
+            "KG": 12,
+            "Modality": 11,
+            "Organ": 26,
+            "Plane": 5,
+            "Position": 17,
+            "Quantity": 4,
+            "Shape": 1,
+            "Size": 6
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/six_domain_cl_20261016_finmme_coda/pct01/T02_test.jsonl",
+          "count": 2094,
+          "sha256": "f2b7035709b7cc52ff40498fc39b2abfa451a43531b29e7f6ee83eb476f195c6",
+          "dataset_counts": {
+            "SLAKE": 2094
+          },
+          "original_type_counts": {
+            "Modality": 228,
+            "Position": 375,
+            "Organ": 507,
+            "Size": 124,
+            "Abnormality": 311,
+            "Quantity": 89,
+            "Plane": 116,
+            "Shape": 12,
+            "Color": 65,
+            "KG": 267
+          }
+        }
+      },
+      "training_order_sha256": "64b564170c3df9db142fb035ff5fb9a97246ccc0886069ed61087296ff147e58",
+      "training_order_rule": "SHA256(42:stage:original_QA_ID), ascending digest"
+    },
+    {
+      "task": 3,
+      "task_id": "T03",
+      "domain": "geography",
+      "modality": "image",
+      "instruction": "Answer the remote-sensing question using the image. Preserve the original numeric answer format.",
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/six_domain_cl_20261016_finmme_coda/pct01/T03_train.jsonl",
+          "count": 573,
+          "sha256": "919e8eb6f545bca4b2e03e749ce601b723cd4ff2dceb3bca7d787b55b36bdbac",
+          "dataset_counts": {
+            "RSVQA-LR": 573
+          },
+          "original_type_counts": {
+            "comp": 226,
+            "count": 171,
+            "presence": 170,
+            "rural_urban": 6
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/six_domain_cl_20261016_finmme_coda/pct01/T03_test.jsonl",
+          "count": 10004,
+          "sha256": "369e2de7f8c6847b6645b88b22044ccdcb741520cfd7feaaf400527ed40b467d",
+          "dataset_counts": {
+            "RSVQA-LR": 10004
+          },
+          "original_type_counts": {
+            "rural_urban": 100,
+            "presence": 2955,
+            "count": 2947,
+            "comp": 4002
+          }
+        }
+      },
+      "training_order_sha256": "208dd1125cbe90aead14e9ac18726b9289cb9cad86f31d8e6a854c4e5f30c4cc",
+      "training_order_rule": "SHA256(42:stage:original_QA_ID), ascending digest"
+    },
+    {
+      "task": 4,
+      "task_id": "T04",
+      "domain": "finance",
+      "modality": "image",
+      "instruction": "Answer the financial question using the image and original background.",
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/six_domain_cl_20261016_finmme_coda/pct01/T04_train.jsonl",
+          "count": 89,
+          "sha256": "5d7617d9873fbcfef60b33ec027a7eb2507b128cde0ff243df85f3b67843ab65",
+          "dataset_counts": {
+            "FinMME": 89
+          },
+          "original_type_counts": {
+            "multiple_choice": 21,
+            "numerical": 15,
+            "single_choice": 53
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/six_domain_cl_20261016_finmme_coda/pct01/T04_test.jsonl",
+          "count": 2233,
+          "sha256": "162ba8ad340a9fb898a3a942b3e720e581f23dddfacb70c289f3bd935d869206",
+          "dataset_counts": {
+            "FinMME": 2233
+          },
+          "original_type_counts": {
+            "multiple_choice": 546,
+            "single_choice": 1307,
+            "numerical": 380
+          }
+        }
+      },
+      "training_order_sha256": "9285acc026806e016e14776782bc2c2403483a2c7539a28d2922e344e227d6ec",
+      "training_order_rule": "SHA256(42:stage:original_QA_ID), ascending digest"
+    },
+    {
+      "task": 5,
+      "task_id": "T05",
+      "domain": "art",
+      "modality": "image",
+      "instruction": "Answer the art question using the painting.",
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/six_domain_cl_20261016_finmme_coda/pct01/T05_train.jsonl",
+          "count": 699,
+          "sha256": "de66a5eff44a8d3757ba00a46ad5723ef1ca58ae385374480584cdd3798eb9a8",
+          "dataset_counts": {
+            "AQUA": 699
+          },
+          "original_type_counts": {
+            "knowledge": 403,
+            "visual": 296
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/six_domain_cl_20261016_finmme_coda/pct01/T05_test.jsonl",
+          "count": 4912,
+          "sha256": "34e9de8eaa28a07ff5bf9415d5ca2094818b2eab6b63479783e25eb76620dac0",
+          "dataset_counts": {
+            "AQUA": 4912
+          },
+          "original_type_counts": {
+            "knowledge": 3642,
+            "visual": 1270
+          }
+        }
+      },
+      "training_order_sha256": "c7ba936471ea55bc740a5355bd3a0b1ec80441b68fe64d878fd55beada20ec17",
+      "training_order_rule": "SHA256(42:stage:original_QA_ID), ascending digest"
+    },
+    {
+      "task": 6,
+      "task_id": "T06",
+      "domain": "traffic",
+      "modality": "image",
+      "instruction": "Answer the driving question using the road image.",
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/six_domain_cl_20261016_finmme_coda/pct01/T06_train.jsonl",
+          "count": 205,
+          "sha256": "625e4af2345e51dae1744e359da91c23c39e38f69af49c703b735ae8d41017e1",
+          "dataset_counts": {
+            "CODA-LM": 205
+          },
+          "original_type_counts": {
+            "general": 49,
+            "regional": 107,
+            "suggestion": 49
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/six_domain_cl_20261016_finmme_coda/pct01/T06_test.jsonl",
+          "count": 2123,
+          "sha256": "b0aa4e64810b0a883ff86750a3322107c3264ef5fe86664b0aaa6911448a7af7",
+          "dataset_counts": {
+            "CODA-LM": 2123
+          },
+          "original_type_counts": {
+            "general": 500,
+            "regional": 1123,
+            "suggestion": 500
+          }
+        }
+      },
+      "training_order_sha256": "0788df44449917534bb1170398a2367c103e105b65f567c57aea2d6e50bde39d",
+      "training_order_rule": "SHA256(42:stage:original_QA_ID), ascending digest"
+    }
+  ]
+}

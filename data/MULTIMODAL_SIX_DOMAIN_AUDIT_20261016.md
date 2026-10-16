@@ -30,10 +30,12 @@
 
 交通决策是独立应用领域，不以另一个通用自然图片集或自然科学题充数。CODA-LM依赖真实道路状态、风险对象和空间关系；区域题使用作者发布的红框图。
 
-- 采用作者[English LLaVA配置](https://huggingface.co/datasets/KaiChen1998/coda-lm-llava-format)：源卡Train20495、Test2123 QA；1%205。训练原图4884张、测试500张；QA数与图像数分开报告。Val18455 QA、Mini193 QA不使用。源卡是元数据，下载完逐文件复核后才冻结。
+- 采用作者[English LLaVA配置](https://huggingface.co/datasets/KaiChen1998/coda-lm-llava-format)：完整文件实际Train20495、Test2123 QA，与源卡一致；1%205。训练原场景4884、测试500；QA数与原图数分开报告，区域标记图是额外图像表示。Val18455 QA、Mini193 QA不使用。36个原始Parquet已全部下载、逐文件核对作者LFS SHA256；全部QA非空金答案及图像／问题输入检查通过，六域清单已冻结。
 - 本次只下载上述Train/Test：36个Parquet，共17926724529字节（约16.70GiB），是嵌入图像的存储量，不代表有上百万样本。作者Parquet会在多个QA记录中重复存图；准备时按原图字节SHA256落盘去重，内容不变。
 - 作者2024-10已公开Test答案。代码中早期convert2vqa仍有不导出Test答案的分支，因此以作者已发布的LLaVA Test实际非空答案为准逐条检查，不靠旧代码推断测试答案隐藏。
 - 选择English是作者正式配置，不按题目自行过滤。general／region／suggestion原任务构成均保留，全部作为同一个交通域任务；原长答案不缩写为自造标签。
 - 原论文采用LLM评审。统一EM/F1/ROUGE-L用于本实验跨域比较，不等同原生驾驶语义评分，尤其EM对长描述严苛。
+
+完整Test实际构成：general500、regional1123、suggestion500。两条件测试文件SHA256相同，1%训练ID严格包含于完整训练ID。固定清单和协议在`data/FiveDomainCL/six_domain_cl_20261016_finmme_coda/`，资产与全量QA文件仅留服务器，Git只保存审计和清单元数据。
 
 DriveLM同样是真实多模态，但当前HF释放受限，且训练QA规模比本次预期大；不将它当作已下载的新域。CODA-LM有公开原始图文Train/Test、更合适的QA规模及CVPR/ICCV独立实验依据。

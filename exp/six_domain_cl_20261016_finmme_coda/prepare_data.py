@@ -375,6 +375,7 @@ def main():
         assert len(split_rows['train'])<100000,(tid,'Compact protocol: reject hundred-thousand-QA task')
         for role,rows in split_rows.items():
             assert len({x['id'] for x in rows})==len(rows),(tid,role,'duplicate source QA IDs')
+            assert all(x.get('images') and x.get('question') for x in rows),(tid,role,'Image+text task contains an empty modality')
         assert not {x['id'] for x in split_rows['train']} & {x['id'] for x in split_rows['test']}
         sampled=subset_one_percent(split_rows['train'])
         for condition in manifests:

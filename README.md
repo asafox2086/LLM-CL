@@ -30,13 +30,13 @@
 ## 当前六任务协议
 
 独立实验：`six_domain_cl_20261016_finmme_coda`；代码／参数在`exp/six_domain_cl_20261016_finmme_coda/`，日志报告在`summary/six_domain_cl_20261016_finmme_coda/`，QA清单在`data/FiveDomainCL/six_domain_cl_20261016_finmme_coda/`（父目录名保留，内容是六任务）。旧五／十任务服务停用，不复用其预测。
-当前状态：下载／逐图审计中，正式六任务清单尚未冻结，不代表已开始训练。
+当前状态：六任务清单已生成；GPU预检和正式运行以进度报告为准。
 基座Qwen2-VL-2B-Instruct；seed42；一轮；无验证。九方法：SeqFT-LoRA、SMoLoRA、PASs-MoE、Hyper-LLaVA、PaRSP、OSFT、SpaRTA、FV-guided Training、ALER。GPU0保留；GPU3跑全量；GPU1/2并行跑1%组，均完整测试。
 每个方法独立从基座开始，按T1→T6训练；初始及每阶段结束测全部六任务，输出**7×6矩阵**。保留逐题结果、EM正确数/总数、Token F1、ROUGE-L及AP、ForgetRate、FWT、BWT。统一词面指标不等于原生评分：FinMME涉及数值容差和多选；CODA-LM原文采用LLM评审，EM不是它的官方准确率。
 
 ## 数据集：来源、数量与复用依据
 
-单位均为QA，每个来源训练QA低于十万。FinMME已做完整文件与逐图审计；CODA-LM下载中，表中为作者English配置源卡数量，下载后与Parquet逐文件复核。保留原始选择、是非、计数等构成。
+单位均为QA，每个来源训练QA低于十万。全部来源已按完整文件计数并冻结清单。保留原始选择、是非、计数等构成。
 
 | 任务／领域 | 数据集（图文） | 提出者／首发 | 全量训练 | 1%训练 | 完整测试 | 划分 | 独立实际使用 |
 |---|---|---|---:|---:|---:|---|---|
