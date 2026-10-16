@@ -2,6 +2,8 @@
 
 ## 当前研究：LLaVA-OneVision-0.5B诊断
 
+机制研究已排入GPU1独立后台队列：先做输出格式／语言对照，再做任务数与领域数控制（4序列×6机制），随后测试16条作者知识作为上下文或写入rank1／rank2 LoRA。队列等待当前顺序研究结束及GPU1空闲，不争抢基线资源。相关知识仅668字节／199token，新增参数67584／135168；这些是实验预算，尚不是有效性结论。[研究设置与证据边界](analysis/ONEVISION_MECHANISM_STUDIES.md)。[已完成阶段的NLL和梯度诊断](summary/onevision_diagnostics_20261016/SEQUENTIAL_EVIDENCE.md)仅用于定位问题，不能替代生成准确率和完整测试。
+
 后台执行：两服务器基线调度器均经`nohup`启动，保留用户服务的开机恢复，日志在各机`summary/five_domain_native_cl_20261016_sparse/nohup_pipeline.log`。现有训练进程不因切换调度器而重跑。GPU1研究使用独立`llmcl-onevision-research.service`及`research_nohup.log`，与基线并行。
 
 重启恢复说明：新机17:54重启打断了旧顺序阶段1；24个已完成独立控制保留，未完成阶段不续接。新run`sequential_recovery_20261016_181253`从基座重跑，训练后原子保存阶段LoRA／RNG／SHA，再做评测；已经保存第1阶段和每域4条TRAIN探针的完整梯度，不能将它们称作历史每一步梯度。[机制控制与完成标准](analysis/ONEVISION_CAUSAL_CONTROLS.md)。

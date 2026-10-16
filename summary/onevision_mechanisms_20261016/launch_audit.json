@@ -1,0 +1,57 @@
+{
+  "timestamp": "2026-10-16T10:45:19.768275+00:00",
+  "services": {
+    "llmcl-native-five.service": {
+      "properties": "MainPID=6693\nExecStart={ path=/usr/bin/nohup ; argv[]=/usr/bin/nohup /data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/exp/five_domain_native_cl_20261016_sparse/pipeline.py ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }\nActiveState=active\n",
+      "live_cmdline": "/data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/exp/five_domain_native_cl_20261016_sparse/pipeline.py "
+    },
+    "llmcl-onevision-research.service": {
+      "properties": "MainPID=6218\nExecStart={ path=/usr/bin/nohup ; argv[]=/usr/bin/nohup /data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/onevision_research_worker.py ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }\nActiveState=active\n",
+      "live_cmdline": "/data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/onevision_research_worker.py "
+    },
+    "llmcl-onevision-mechanisms.service": {
+      "properties": "MainPID=11107\nExecStart={ path=/usr/bin/nohup ; argv[]=/usr/bin/nohup /data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/onevision_mechanism_queue.py ; ignore_errors=no ; start_time=[Fri 2026-10-16 18:37:40 CST] ; stop_time=[n/a] ; pid=11107 ; code=(null) ; status=0/0 }\nActiveState=active\n",
+      "live_cmdline": "/data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/onevision_mechanism_queue.py "
+    }
+  },
+  "queue": {
+    "jobs": {
+      "format": {
+        "status": "waiting",
+        "script": "onevision_knowledge_intervention.py",
+        "args": [
+          "--mode",
+          "format"
+        ],
+        "attempts": 0
+      },
+      "task_domain": {
+        "status": "waiting",
+        "script": "onevision_task_domain_intervention.py",
+        "args": [],
+        "attempts": 0
+      },
+      "knowledge": {
+        "status": "waiting",
+        "script": "onevision_knowledge_intervention.py",
+        "args": [
+          "--mode",
+          "knowledge"
+        ],
+        "attempts": 0
+      }
+    },
+    "phase": "waiting_live_sequential",
+    "research_pid": 6218,
+    "research_phase": "sequential_recovery"
+  },
+  "new_studies_gpu_gates": "not yet executed; queued behind live sequential research",
+  "source_sha256": {
+    "analysis/onevision_knowledge_intervention.py": "22512cc63ed0933f0f471f30b07f5707ba8e020c95137811430cdced2c3962a0",
+    "analysis/onevision_task_domain_intervention.py": "9b9c413f3505afedb0fc1643f9c88136d8f6e2e66f16716b5f0b9adefb17968d",
+    "analysis/onevision_mechanism_queue.py": "97191abe90ebcee597261acb287544a416f2730d9b7ac12d2431bee661404c51",
+    "analysis/prepare_onevision_knowledge_controls.py": "2442298c65f44cae512ebd0e0f5c6bc63c8e2dce2f4ada15f32463593c53cfe1",
+    "analysis/onevision_sequential_evidence.py": "b7ee265d12b52324484da5655525a2c82d8f8cab9a9b79a9fb6f4bda6b9edd35"
+  },
+  "python_compile": "passed all five scripts"
+}
