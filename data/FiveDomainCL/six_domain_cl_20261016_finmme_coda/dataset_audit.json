@@ -1,0 +1,249 @@
+{
+  "experiment_id": "six_domain_cl_20261016_finmme_coda",
+  "task_count": 6,
+  "count_unit": "QA",
+  "formal_manifests_generated": false,
+  "datasets": [
+    {
+      "task": 1,
+      "dataset": "TextVQA",
+      "domain": "自然／通用",
+      "modality": "image+text",
+      "full_train": 34602,
+      "pct01_train": 347,
+      "full_test": 5000,
+      "introduction": "Amanpreet Singh等，CVPR 2019",
+      "source": "https://textvqa.org/",
+      "reuse": "CoIN（NeurIPS 2024）、SMoLoRA（ICCV 2025）",
+      "split": "官方train/validation；公开validation作测试",
+      "visual_evidence": "自然照片＋问题：读取场景文字并结合图像作答",
+      "sample": {
+        "id": "TextVQA:0",
+        "dataset": "TextVQA",
+        "source_id": "0",
+        "question": "what is the brand of phone?",
+        "answer": "nokia",
+        "answers": [
+          "nokia",
+          "nokia",
+          "nokia",
+          "nokia",
+          "toshiba",
+          "nokia",
+          "nokia",
+          "nokia",
+          "nokia",
+          "nokia"
+        ],
+        "images": [
+          "data/TextVQA/native_images/8b/8b334f00cd80b51fcc109e1cfe3643ee35d479981110ea6b6986719eea546779.img"
+        ],
+        "context": "",
+        "source_split": "train",
+        "metadata": {
+          "original_image_id": "0054c91397f2fe05",
+          "question_type": "text_reading"
+        }
+      },
+      "sample_image": "sample/six_domain_cl_20261016_finmme_coda/TextVQA.jpg",
+      "count_status": "previous_native_file_audit"
+    },
+    {
+      "task": 2,
+      "dataset": "SLAKE",
+      "domain": "医学",
+      "modality": "image+text",
+      "full_train": 9835,
+      "pct01_train": 99,
+      "full_test": 2094,
+      "introduction": "Bo Liu等，ISBI 2021",
+      "source": "https://www.med-vqa.com/slake/",
+      "reuse": "Uncertainty-Driven Expert Control（ICCV 2025）",
+      "split": "官方train/test；双语；val2099不用",
+      "visual_evidence": "医学影像＋中英问题；保留视觉题、知识题及OPEN/CLOSED",
+      "sample": {
+        "id": "SLAKE:0",
+        "dataset": "SLAKE",
+        "source_id": "0",
+        "question": "What modality is used to take this image?",
+        "answer": "MRI",
+        "answers": [
+          "MRI"
+        ],
+        "images": [
+          "data/SLAKE/native_images/4e/4e591a1ace76cbf3e539069b73e848f9fde485879a24b95f212bbe0ac1d84609.img"
+        ],
+        "context": "",
+        "source_split": "train",
+        "metadata": {
+          "q_lang": "en",
+          "answer_type": "OPEN",
+          "content_type": "Modality",
+          "img_id": 1
+        }
+      },
+      "sample_image": "sample/six_domain_cl_20261016_finmme_coda/SLAKE.jpg",
+      "count_status": "previous_native_file_audit"
+    },
+    {
+      "task": 3,
+      "dataset": "RSVQA-LR",
+      "domain": "地理／遥感",
+      "modality": "image+text",
+      "full_train": 57223,
+      "pct01_train": 573,
+      "full_test": 10004,
+      "introduction": "Sylvain Lobry等，TGRS 2020",
+      "source": "https://rsvqa.sylvainlobry.com/",
+      "reuse": "GeoChat（CVPR 2024）、LHRS-Bot（ECCV 2024）、RSAdapter（TGRS 2024）",
+      "split": "官方active掩码train/test；val10005不用；不自行分箱",
+      "visual_evidence": "遥感图像＋问题：计数、存在性、比较与区域判断",
+      "sample": {
+        "id": "RSVQA-LR:0",
+        "dataset": "RSVQA-LR",
+        "source_id": "0",
+        "question": "Is it a rural or an urban area",
+        "answer": "urban",
+        "answers": [
+          "urban"
+        ],
+        "images": [
+          "data/RSVQA_LR/images/0.tif"
+        ],
+        "context": "",
+        "source_split": "train",
+        "metadata": {
+          "question_type": "rural_urban",
+          "original_image_id": 0,
+          "original_image_name": "S2B_MSIL1C_20181010T104019_N0206_R008_T31UGS_20181010T161145_1024-2560.tif",
+          "configuration": "original LR; all QA types; raw numeric answers"
+        }
+      },
+      "sample_image": "sample/six_domain_cl_20261016_finmme_coda/RSVQA-LR.png",
+      "count_status": "previous_native_file_audit"
+    },
+    {
+      "task": 4,
+      "dataset": "FinMME",
+      "domain": "金融",
+      "modality": "image+text",
+      "full_train": 8864,
+      "pct01_train": 89,
+      "full_test": 2233,
+      "introduction": "Junyu Luo等，ACL 2025主会",
+      "source": "https://aclanthology.org/2025.acl-long.1426/",
+      "reuse": "Beyond Real Weights（WACV 2026）实际评测；AgentFinVQA（2026预印本）实际评测",
+      "split": "源池11099；2条缺答案单列；11097有标注QA按原图SHA256分组seed42研究80/20，非官方划分",
+      "visual_evidence": "真实金融图表＋问题、选项；单选、多选和数值题全保留",
+      "sample": {
+        "id": "FinMME:521",
+        "dataset": "FinMME",
+        "source_id": "521",
+        "question": "Which loan category had the highest growth rate in 1Q23?",
+        "answer": "A",
+        "answers": [
+          "A"
+        ],
+        "images": [
+          "data/FinMME/native_images/74/74e36be3f544e55e36ac837e612a8e01f39d6306e23aec194cba0ca7c630c43d.img"
+        ],
+        "context": "A: M/L-T corporate loans\nB: Domestic household loans\nC: Inclusive finance (IF) loans\nD: Property loans",
+        "source_split": "research_image_group_holdout_80_20",
+        "metadata": {
+          "question_type": "single_choice",
+          "unit": "",
+          "tolerance": null,
+          "verified_caption": "Figure 10: Quarterly Growth of Various Loan Types (Y/Y)",
+          "related_sentences": "Fig. 10: Property loan growth (y-y) by type",
+          "options": "A: M/L-T corporate loans\nB: Domestic household loans\nC: Inclusive finance (IF) loans\nD: Property loans",
+          "image_group_sha256": "74e36be3f544e55e36ac837e612a8e01f39d6306e23aec194cba0ca7c630c43d",
+          "source_repository": "luojunyu/FinMME",
+          "gold_context_not_in_model_input": [
+            "verified_caption",
+            "related_sentences"
+          ]
+        }
+      },
+      "sample_image": "sample/six_domain_cl_20261016_finmme_coda/FinMME.png",
+      "count_status": "file_audited"
+    },
+    {
+      "task": 5,
+      "dataset": "AQUA",
+      "domain": "艺术／文化",
+      "modality": "image+text",
+      "full_train": 69812,
+      "pct01_train": 699,
+      "full_test": 4912,
+      "introduction": "Noa Garcia等，ECCV VISART Workshop 2020",
+      "source": "https://github.com/noagarcia/ArtVQA",
+      "reuse": "CL-CrossVQA（WACV 2025）、ArtQuest（WACV 2024）；具体子集见调研",
+      "split": "官方train/test；知识和视觉题都提供原画作；val5124不用",
+      "visual_evidence": "画作＋问题：视觉内容和艺术知识问答",
+      "sample": {
+        "id": "AQUA:train:29568",
+        "dataset": "AQUA",
+        "source_id": "train:29568",
+        "question": "what was exhibited at the 1861 salon",
+        "answer": "this painting",
+        "answers": [
+          "this painting"
+        ],
+        "images": [
+          "data/AQUA/selected_images/23797-1early03.jpg"
+        ],
+        "context": "",
+        "source_split": "train",
+        "metadata": {
+          "need_external_knowledge": true,
+          "original_image": "23797-1early03.jpg",
+          "question_type": "knowledge",
+          "conditioning": "question-only knowledge view"
+        }
+      },
+      "sample_image": "sample/six_domain_cl_20261016_finmme_coda/AQUA.jpg",
+      "count_status": "previous_native_file_audit"
+    },
+    {
+      "task": 6,
+      "dataset": "CODA-LM",
+      "domain": "交通／自动驾驶",
+      "modality": "image+text",
+      "full_train": 20495,
+      "pct01_train": 205,
+      "full_test": 2123,
+      "introduction": "Kai Chen等，WACV 2025",
+      "source": "https://github.com/DLUT-LYZ/CODA-LM",
+      "reuse": "MPDrive（CVPR 2025）实际评测；RoboTron-Drive（ICCV 2025）实际训练和评测",
+      "split": "作者English LLaVA Train/Test；源卡20495/2123；Val18455、Mini193不用",
+      "visual_evidence": "真实道路图像＋作者指令：场景理解、区域理解、驾驶建议；区域题保留作者红框图",
+      "sample": {
+        "id": "CODA-LM:Test:Test_general_0",
+        "dataset": "CODA-LM",
+        "source_id": "Test:Test_general_0",
+        "question": "<image>\nThere is an image of traffic captured from the perspective of the ego car. Focus on objects influencing the ego car's driving behavior: vehicles (cars, trucks, buses, etc.), vulnerable road users (pedestrians, cyclists, motorcyclists), traffic signs (no parking, warning, directional, etc.), traffic lights (red, green, yellow), traffic cones, barriers, miscellaneous(debris, dustbin, animals, etc.). You must not discuss any objects beyond the seven categories above. Please describe each object's appearance, position, direction, and explain why it affects the ego car's behavior.",
+        "answer": "In the traffic image under observation, several road users and elements are noticeable:\n\n1. Vehicles:\n   - A green bus is directly occupying the lane in front of our car, with its rear showing advertisements and displaying the bus number. This presence of the bus is significant as such large vehicles move slower, may block the view ahead, and often engage in passenger activities like stopping at bus stops, affecting the traffic flow.\n   - A silver SUV is to the left and slightly ahead of our car in the adjacent lane. Monitoring the SUV is crucial as it might change lanes or continue moving forward, impacting the decisions for safe lane changes or turns by our vehicle.\n\n2. Vulnerable Road Users:\n   - To the right of the car, several cyclists are noted, moving parallel to our travel direction. Bicyclists, being vulnerable road users, might enter vehicle lanes or cross the street unexpectedly, requiring cautious driving and potential speed or positional adjustments.\n\n3. Traffic Lights:\n   - A green traffic light is visible in the distance on the right side above the cyclists. This light allows traffic in this lane to continue but suggests readiness to stop if the light changes.\n\n4. Barriers:\n   - On the right side of the road, a red and white striped barrier demarcates a pavement section. Such barriers are critical in signaling possible construction zones or lane closures that demand driving caution and may lead to deviations from normal driving patterns.\n\nThere are no traffic signs, traffic cones, or other miscellaneous objects in this observation, as indicated by the empty categories in the data.",
+        "answers": [
+          "In the traffic image under observation, several road users and elements are noticeable:\n\n1. Vehicles:\n   - A green bus is directly occupying the lane in front of our car, with its rear showing advertisements and displaying the bus number. This presence of the bus is significant as such large vehicles move slower, may block the view ahead, and often engage in passenger activities like stopping at bus stops, affecting the traffic flow.\n   - A silver SUV is to the left and slightly ahead of our car in the adjacent lane. Monitoring the SUV is crucial as it might change lanes or continue moving forward, impacting the decisions for safe lane changes or turns by our vehicle.\n\n2. Vulnerable Road Users:\n   - To the right of the car, several cyclists are noted, moving parallel to our travel direction. Bicyclists, being vulnerable road users, might enter vehicle lanes or cross the street unexpectedly, requiring cautious driving and potential speed or positional adjustments.\n\n3. Traffic Lights:\n   - A green traffic light is visible in the distance on the right side above the cyclists. This light allows traffic in this lane to continue but suggests readiness to stop if the light changes.\n\n4. Barriers:\n   - On the right side of the road, a red and white striped barrier demarcates a pavement section. Such barriers are critical in signaling possible construction zones or lane closures that demand driving caution and may lead to deviations from normal driving patterns.\n\nThere are no traffic signs, traffic cones, or other miscellaneous objects in this observation, as indicated by the empty categories in the data."
+        ],
+        "images": [
+          "data/CODA_LM/native_images/ec/ecda3ac6d92e5f070cc95f3696bec1af0af55cd1f4e57eac783b0222319cc12f.img"
+        ],
+        "context": "",
+        "source_split": "Test",
+        "metadata": {
+          "original_id": "Test_general_0",
+          "configuration": "author English LLaVA format",
+          "question_type": "general",
+          "original_human_value": "<image>\nThere is an image of traffic captured from the perspective of the ego car. Focus on objects influencing the ego car's driving behavior: vehicles (cars, trucks, buses, etc.), vulnerable road users (pedestrians, cyclists, motorcyclists), traffic signs (no parking, warning, directional, etc.), traffic lights (red, green, yellow), traffic cones, barriers, miscellaneous(debris, dustbin, animals, etc.). You must not discuss any objects beyond the seven categories above. Please describe each object's appearance, position, direction, and explain why it affects the ego car's behavior.",
+          "original_assistant_value": "In the traffic image under observation, several road users and elements are noticeable:\n\n1. Vehicles:\n   - A green bus is directly occupying the lane in front of our car, with its rear showing advertisements and displaying the bus number. This presence of the bus is significant as such large vehicles move slower, may block the view ahead, and often engage in passenger activities like stopping at bus stops, affecting the traffic flow.\n   - A silver SUV is to the left and slightly ahead of our car in the adjacent lane. Monitoring the SUV is crucial as it might change lanes or continue moving forward, impacting the decisions for safe lane changes or turns by our vehicle.\n\n2. Vulnerable Road Users:\n   - To the right of the car, several cyclists are noted, moving parallel to our travel direction. Bicyclists, being vulnerable road users, might enter vehicle lanes or cross the street unexpectedly, requiring cautious driving and potential speed or positional adjustments.\n\n3. Traffic Lights:\n   - A green traffic light is visible in the distance on the right side above the cyclists. This light allows traffic in this lane to continue but suggests readiness to stop if the light changes.\n\n4. Barriers:\n   - On the right side of the road, a red and white striped barrier demarcates a pavement section. Such barriers are critical in signaling possible construction zones or lane closures that demand driving caution and may lead to deviations from normal driving patterns.\n\nThere are no traffic signs, traffic cones, or other miscellaneous objects in this observation, as indicated by the empty categories in the data.",
+          "source_shard": "Test-00000-of-00004.parquet",
+          "source_row": 0,
+          "regional_images": "Author release retains its original red-box prompt images"
+        }
+      },
+      "sample_image": "sample/six_domain_cl_20261016_finmme_coda/CODA-LM.png",
+      "count_status": "author_metadata"
+    }
+  ]
+}

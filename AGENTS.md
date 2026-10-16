@@ -1,4 +1,17 @@
-# Current protocol — 2026-10-16 five multimodal tasks
+# Current protocol — 2026-10-16 six multimodal domains
+
+This latest user revision supersedes the five-task section and historical notes below.
+
+- Current experiment: `six_domain_cl_20261016_finmme_coda`. Six image+text QA tasks: TextVQA (natural/general), SLAKE (medicine), RSVQA-LR (geography/remote sensing), **FinMME** (finance; replaces MME-Finance), AQUA (art/culture), **CODA-LM** (traffic/autonomous driving; added sixth domain). Do not create text-only views by dropping images.
+- New source downloads and audits are in progress; do not claim formal manifests or six-domain GPU proofs exist before live files establish them. FinMME is fully downloaded/SHA256 checked, with all 11099 images decoded: 4450 unique image hashes, two missing gold IDs 3698/9806 separately audited, 11097 labeled QA. Seed42 image-group 80/20 yields train8864/test2233, 1%89. No image group crosses train/test. Caption/related sentences are metadata only, never model input.
+- CODA-LM author English LLaVA Train/Test metadata: 20495/2123 QA, 1%205; Train/Test images4884/500. Preserve original regional red-box images and author Q/A. Val18455 and Mini193 unused. Verify all 36 Parquet source SHA256s and decode/count actual records before freezing. This is author-supported configuration selection, not custom question filtering.
+- FinMME first appeared ACL2025 main; independent WACV2026 evaluation and a separate 2026 preprint use verified; do not describe both as formal top-conference reuse. CODA-LM first appeared WACV2025, actually reused by MPDrive CVPR2025 and RoboTron-Drive ICCV2025. Dataset multimodality does not prove every individual question needs its image; do not claim visual-dependence ablations have been run.
+- Qwen2-VL-2B-Instruct; seed42; one epoch; no validation. Nine existing methods including SeqFT-LoRA control. GPU0 reserved; GPU3 full; GPU1/2 1% train with identical full labeled tests. Evaluate all six before/after each training task: **7x6** matrices. Keep per-example results, EM correct/total, F1, ROUGE-L and derived AP/ForgetRate/FWT/BWT. Preserve native question composition.
+- Source metadata/file counts total200831 full train/2012 1% train/26366 test, pending complete CODA-LM file audit and frozen manifests. All methods must share IDs, training ordering and hashes. No old five/ten-task prediction reuse. Old five-task queue disabled for replacement; its workers stopped without touching unrelated jobs.
+- Keep before/after/peak CPU RSS/PSS/USS and GPU allocated/reserved/NVML, loss, real gradient norms for both conditions. Save final full method/model parameters once after six stages, including frozen experts/merged weights, never stage/optimizer/recovery checkpoints. Final export follows training-after memory measurement; fresh-process output-equivalence check is required before downstream evaluation. Large assets, runs and weights never enter Git.
+- Current code/report/data ID under exp/, summary/, data/FiveDomainCL/ is `six_domain_cl_20261016_finmme_coda`; current rule: `rules/016_six_multimodal_finmme_coda_20261016.md`; source audit: `data/MULTIMODAL_SIX_DOMAIN_AUDIT_20261016.md`. Current new queue name is `llmcl-six-domain.service`; all older queues stay disabled. Direct downloads use trust_env=False and process-local DNS fallback, no Clash/environment proxy.
+
+# Superseded protocol — 2026-10-16 five multimodal tasks
 
 This user-confirmed protocol overrides conflicting historical notes below.
 

@@ -1,6 +1,6 @@
-# LLMCL：小模型的五领域多模态持续学习
+# LLMCL：小模型的六领域多模态持续学习
 
-当前采用 **5 个领域、5 个图文问答任务、5 个数据集**，每领域只保留一个来源；不再单独寻找纯文本数据集，也不删除图片造出文本任务。基座 **Qwen2-VL-2B-Instruct**；seed42；每任务一轮；不做验证；**不存阶段／优化器 checkpoint，全部训练结束保存最终模型与方法参数**。
+**六个领域、六个图文问答任务、每领域一个数据集**。金融替换为FinMME；第六领域新增交通／自动驾驶CODA-LM。
 
 ## 方法 × 方向二维表
 
@@ -27,50 +27,60 @@
 
 归类按主要机制，混合机制、原论文模型及生成任务见 [论文完整索引](paper/README.md)。预训练条目包含语言／知识／上下文扩展型 CPT，不全部具有序贯抗遗忘实验；HPA 归入持续安全对齐保持。**回放方法仍保留在论文表中，本轮不做回放实验；DGG 含历史样本回放，也不参与本轮。**
 
+## 当前六任务协议
 
-## 当前五任务协议
+独立实验：`six_domain_cl_20261016_finmme_coda`；代码／参数在`exp/six_domain_cl_20261016_finmme_coda/`，日志报告在`summary/six_domain_cl_20261016_finmme_coda/`，QA清单在`data/FiveDomainCL/six_domain_cl_20261016_finmme_coda/`（父目录名保留，内容是六任务）。旧五／十任务服务停用，不复用其预测。
+当前状态：下载／逐图审计中，正式六任务清单尚未冻结，不代表已开始训练。
+基座Qwen2-VL-2B-Instruct；seed42；一轮；无验证。九方法：SeqFT-LoRA、SMoLoRA、PASs-MoE、Hyper-LLaVA、PaRSP、OSFT、SpaRTA、FV-guided Training、ALER。GPU0保留；GPU3跑全量；GPU1/2并行跑1%组，均完整测试。
+每个方法独立从基座开始，按T1→T6训练；初始及每阶段结束测全部六任务，输出**7×6矩阵**。保留逐题结果、EM正确数/总数、Token F1、ROUGE-L及AP、ForgetRate、FWT、BWT。统一词面指标不等于原生评分：FinMME涉及数值容差和多选；CODA-LM原文采用LLM评审，EM不是它的官方准确率。
 
-独立实验目录：`exp/five_domain_cl_20261016_full_1pct`；新报告：`summary/five_domain_cl_20261016_full_1pct`；五任务数据：`data/FiveDomainCL/five_domain_cl_20261016_full_1pct`。旧十任务预测和统计不复用。五源原始资产已到达，固定清单、源文件哈希和新任务 GPU 预检通过后再进入正式训练；实际进度见 [运行状态](summary/five_domain_cl_20261016_full_1pct/progress.md)。
+## 数据集：来源、数量与复用依据
 
-| 条件 | 训练 | 测试 | GPU |
-|---|---|---|---|
-| full | 各来源完整训练池 | 完整公开有标注测试池 | GPU3，方法串行 |
-| pct01 | 同训练池按原始题型分层取 ceil(1%) | 与 full 相同文件和 SHA256 | GPU1／2，方法并行 |
+单位均为QA，每个来源训练QA低于十万。FinMME已做完整文件与逐图审计；CODA-LM下载中，表中为作者English配置源卡数量，下载后与Parquet逐文件复核。保留原始选择、是非、计数等构成。
 
-GPU0 保留。九方法：SeqFT-LoRA 控制、SMoLoRA、PASs-MoE、Hyper-LLaVA、PaRSP、OSFT、SpaRTA、FV-guided Training、ALER。两组从相同基座独立开始，按 T1→T5 训练。先评测全部五任务，每完成一个任务再次评测全部五任务，输出 **6×5** 矩阵。统一报告 EM 正确数／总数、Token F1、ROUGE-L，再计算 AP、ForgetRate、FWT、BWT；统一词面分数不冒称各数据集原生指标。
-
-## 数据集：来源、数量与实际使用论文
-
-所有任务输入均为原始图像＋原始问题／上下文；保留原始是非、选择、开放式、计数等题型和答案。表中单位都是 QA 对。单任务不足十万，五任务训练总量 **172,407**，1% 组 **1,728**，共同测试 **22,246**；总量与单个来源数量分开报告。
-
-| 任务／领域 | 数据集（均为多模态） | 原始发表／资源 | 全量训练 | 1%训练 | 完整测试 | 划分与配置 | 谁实际使用 |
+| 任务／领域 | 数据集（图文） | 提出者／首发 | 全量训练 | 1%训练 | 完整测试 | 划分 | 独立实际使用 |
 |---|---|---|---:|---:|---:|---|---|
-| T1 · 自然／通用 | TextVQA | [Amanpreet Singh 等 · CVPR 2019](https://textvqa.org/) | 34,602 | 347 | 5,000 | 官方 train／validation；公开 validation 作完整测试池 | CoIN（NeurIPS 2024）；SMoLoRA（ICCV 2025） |
-| T2 · 医学 | SLAKE | [Bo Liu 等 · ISBI 2021](https://www.med-vqa.com/slake/) | 9,835 | 99 | 2,094 | 官方 train／test；保留中英文、OPEN／CLOSED，val 2,099 不用 | Uncertainty-Driven Expert Control（ICCV 2025） |
-| T3 · 地理／遥感 | RSVQA-LR | [Sylvain Lobry 等 · TGRS 2020](https://zenodo.org/records/6344334) | 57,223 | 573 | 10,004 | 官方 active 掩码 train／test；val 10,005 不用，保留原数值答案 | GeoChat（CVPR 2024）；LHRS-Bot（ECCV 2024）；RSAdapter（TGRS 2024） |
-| T4 · 金融 | MME-Finance | [Ziliang Gan 等 · ACM MM 2025](https://github.com/HiThink-Research/MME-Finance) | 935 | 10 | 236 | 英文 MMfin 原始 1,171 QA；本研究按图表组 seed42 做 80/20，无额外验证池 | 本次未补足独立多篇复用核验，见调研记录 |
-| T5 · 艺术文化 | AQUA | [Noa Garcia 等 · ECCV VISART Workshop 2020](https://github.com/noagarcia/ArtVQA) | 69,812 | 699 | 4,912 | 官方 train／test；知识、视觉 QA 全保留并输入原画作，val 5,124 不用 | CL-CrossVQA（WACV 2025）；ArtQuest（WACV 2024） |
+| T1 · 自然／通用 | TextVQA | [Amanpreet Singh等，CVPR 2019](https://textvqa.org/) | 34,602 | 347 | 5,000 | 官方train/validation；公开validation作测试 | CoIN（NeurIPS 2024）、SMoLoRA（ICCV 2025） |
+| T2 · 医学 | SLAKE | [Bo Liu等，ISBI 2021](https://www.med-vqa.com/slake/) | 9,835 | 99 | 2,094 | 官方train/test；双语；val2099不用 | Uncertainty-Driven Expert Control（ICCV 2025） |
+| T3 · 地理／遥感 | RSVQA-LR | [Sylvain Lobry等，TGRS 2020](https://rsvqa.sylvainlobry.com/) | 57,223 | 573 | 10,004 | 官方active掩码train/test；val10005不用；不自行分箱 | GeoChat（CVPR 2024）、LHRS-Bot（ECCV 2024）、RSAdapter（TGRS 2024） |
+| T4 · 金融 | FinMME | [Junyu Luo等，ACL 2025主会](https://aclanthology.org/2025.acl-long.1426/) | 8,864 | 89 | 2,233 | 源池11099；2条缺答案单列；11097有标注QA按原图SHA256分组seed42研究80/20，非官方划分 | Beyond Real Weights（WACV 2026）实际评测；AgentFinVQA（2026预印本）实际评测 |
+| T5 · 艺术／文化 | AQUA | [Noa Garcia等，ECCV VISART Workshop 2020](https://github.com/noagarcia/ArtVQA) | 69,812 | 699 | 4,912 | 官方train/test；知识和视觉题都提供原画作；val5124不用 | CL-CrossVQA（WACV 2025）、ArtQuest（WACV 2024）；具体子集见调研 |
+| T6 · 交通／自动驾驶 | CODA-LM | [Kai Chen等，WACV 2025](https://github.com/DLUT-LYZ/CODA-LM) | 20,495 | 205 | 2,123 | 作者English LLaVA Train/Test；源卡20495/2123；Val18455、Mini193不用 | MPDrive（CVPR 2025）实际评测；RoboTron-Drive（ICCV 2025）实际训练和评测 |
 
-复用论文、发表链接、正文位置和适配限制见 [多领域数据集调研](data/MULTIDOMAIN_DATASET_SURVEY_20261016.md)。注意：后续使用论文在 ICCV 发表，不等于数据集首发 ICCV；AQUA 的原始发表为 workshop。MME-Finance 当前仍缺少本次核验的多篇独立复用证据，不把它写成已满足该条件。
+六任务合计（当前源文件／源卡口径，冻结后复核）：全量训练 **200,831**，1%训练 **2,012**，共同完整测试 **26,366**。
+FinMME的ID3698、9806金答案为空，原记录单独保留审计，不伪造、不以空串监督。作者仅发布名为train的评测池；本研究按图像字节SHA256分组，组哈希seed42排序，20%组留作测试。原选项作为输入，verified_caption/related_sentences只作来源元数据，不输入模型，避免泄漏答案。
+1%组按源题型分层，最大余数分配ceil(1%×N)，seed42哈希选ID。所有方法共享ID、顺序及测试SHA256；不自行删掉选择、分类、是非题。CODA-LM用作者原问题、答案和区域红框图，不自行造图或改写问答。
 
-1% 按源训练池原始题型比例，用最大余数分配 ceil(0.01×N) 名额，seed42 固定哈希选 ID。所有方法使用相同清单和训练顺序。RSVQA-LR 遵守作者 active 掩码，保留原始数字而非自行分箱。AQUA 两类 QA 在同一个图文任务训练，不再将知识题去图构造文本任务。MME-Finance 唯一采用本研究图表分组 holdout；它不是作者官方 train/test。
+## 多模态依据
+
+六个来源都有真实图像和问题文本，模型同时接收两种输入。**图文任务身份不等于每一道题都必须看图**：SLAKE知识题、AQUA知识题及语言偏置可能允许捷径。原始构成照常保留；若主张模型实际利用图像，需要额外的固定测试集遮图／错配图消融，当前未声称已做。
+
+| 数据集 | 视觉来源与任务 |
+|---|---|
+| TextVQA | 自然照片＋问题：读取场景文字并结合图像作答 |
+| SLAKE | 医学影像＋中英问题；保留视觉题、知识题及OPEN/CLOSED |
+| RSVQA-LR | 遥感图像＋问题：计数、存在性、比较与区域判断 |
+| FinMME | 真实金融图表＋问题、选项；单选、多选和数值题全保留 |
+| AQUA | 画作＋问题：视觉内容和艺术知识问答 |
+| CODA-LM | 真实道路图像＋作者指令：场景理解、区域理解、驾驶建议；区域题保留作者红框图 |
+
+原始发表、独立复用正文与限制见[六域多模态核验](data/MULTIMODAL_SIX_DOMAIN_AUDIT_20261016.md)。医学首发ISBI、遥感首发TGRS、艺术首发workshop，不把后续顶会复用写成首发顶会。
 
 ## 原始数据 sample
 
-下面是源数据示例，长回答只作展示节选。[完整问题／参考／上下文](data/FiveDomainCL/five_domain_cl_20261016_full_1pct/samples.md)；[机器审计](data/FiveDomainCL/five_domain_cl_20261016_full_1pct/dataset_audit.json)。JPEG／PNG 复制原字节，RSVQA 原 TIFF 仅另存无损 PNG 用于页面展示；训练仍读取原 TIFF。
+[完整问题、选项、答案和原图](data/FiveDomainCL/six_domain_cl_20261016_finmme_coda/samples.md) · [机器审计](data/FiveDomainCL/six_domain_cl_20261016_finmme_coda/dataset_audit.json)。长答案在下表节选；旧样例不在本页展示。
 
-| 数据集 | 原始问题 | 原始参考答案 | 图像 |
+| 数据集 | 原始问题 | 参考答案 | 原图 |
 |---|---|---|---|
-| [T1 · TextVQA](data/FiveDomainCL/five_domain_cl_20261016_full_1pct/samples.md#textvqa) | what is the brand of phone? | nokia | <img src="sample/five_domain_cl_20261016_full_1pct/TextVQA.jpg" width="180" alt="TextVQA原始样例"> |
-| [T2 · SLAKE](data/FiveDomainCL/five_domain_cl_20261016_full_1pct/samples.md#slake) | What modality is used to take this image? | MRI | <img src="sample/five_domain_cl_20261016_full_1pct/SLAKE.jpg" width="180" alt="SLAKE原始样例"> |
-| [T3 · RSVQA-LR](data/FiveDomainCL/five_domain_cl_20261016_full_1pct/samples.md#rsvqa-lr) | Is it a rural or an urban area | urban | <img src="sample/five_domain_cl_20261016_full_1pct/RSVQA-LR.png" width="180" alt="RSVQA-LR原始样例"> |
-| [T4 · MME-Finance](data/FiveDomainCL/five_domain_cl_20261016_full_1pct/samples.md#mme-finance) | What does the image depict? | The image displays a technical analysis chart for Meta Platforms, Inc., over a one-day (1D) period. Here are the key details depicted in the chart:<br>1. **Candles…（节选） | <img src="sample/five_domain_cl_20261016_full_1pct/MME-Finance.png" width="180" alt="MME-Finance原始样例"> |
-| [T5 · AQUA](data/FiveDomainCL/five_domain_cl_20261016_full_1pct/samples.md#aqua) | what was exhibited at the 1861 salon | this painting | <img src="sample/five_domain_cl_20261016_full_1pct/AQUA.jpg" width="180" alt="AQUA原始样例"> |
+| [T1 · TextVQA](data/FiveDomainCL/six_domain_cl_20261016_finmme_coda/samples.md#textvqa) | what is the brand of phone? | nokia | <img src="sample/six_domain_cl_20261016_finmme_coda/TextVQA.jpg" width="180" alt="TextVQA原始图像"> |
+| [T2 · SLAKE](data/FiveDomainCL/six_domain_cl_20261016_finmme_coda/samples.md#slake) | What modality is used to take this image? | MRI | <img src="sample/six_domain_cl_20261016_finmme_coda/SLAKE.jpg" width="180" alt="SLAKE原始图像"> |
+| [T3 · RSVQA-LR](data/FiveDomainCL/six_domain_cl_20261016_finmme_coda/samples.md#rsvqa-lr) | Is it a rural or an urban area | urban | <img src="sample/six_domain_cl_20261016_finmme_coda/RSVQA-LR.png" width="180" alt="RSVQA-LR原始图像"> |
+| [T4 · FinMME](data/FiveDomainCL/six_domain_cl_20261016_finmme_coda/samples.md#finmme) | Which loan category had the highest growth rate in 1Q23? | A | <img src="sample/six_domain_cl_20261016_finmme_coda/FinMME.png" width="180" alt="FinMME原始图像"> |
+| [T5 · AQUA](data/FiveDomainCL/six_domain_cl_20261016_finmme_coda/samples.md#aqua) | what was exhibited at the 1861 salon | this painting | <img src="sample/six_domain_cl_20261016_finmme_coda/AQUA.jpg" width="180" alt="AQUA原始图像"> |
+| [T6 · CODA-LM](data/FiveDomainCL/six_domain_cl_20261016_finmme_coda/samples.md#coda-lm) | &lt;image&gt;<br>There is an image of traffic captured from the perspective of the ego car. Focus on objects influencing the ego car&#x27;s driving behavior: vehicles (cars, …（节选） | In the traffic image under observation, several road users and elements are noticeable:<br><br>1. Vehicles:<br>   - A green bus is directly occupying the lane in front o…（节选） | <img src="sample/six_domain_cl_20261016_finmme_coda/CODA-LM.png" width="180" alt="CODA-LM原始图像"> |
 
-## 参数、日志与后续评定
+## 参数与资源记录
 
-每个方法结束后保存 `exp/five_domain_cl_20261016_full_1pct/runs/<condition>/<method>/<run_id>/final_parameters/`：完整模型 state_dict（包含冻结旧专家和合并后的权重）、方法和路由状态、基座文件哈希、模型／处理器配置、任务清单及运行代码。`artifact_manifest.json` 记录大小和 SHA256。它需要按自定义方法架构加载，正式后续评定前必须做新进程重载等价核验；不能直接当作标准 Transformers 模型目录。
-
-两组所有方法继续记录逐步 loss、裁剪前后梯度、学习率、耗时；每5秒及阶段边界记录 CPU RSS/PSS/USS 与 GPU allocated/reserved/NVML。训练前、最后阶段训练后释放优化器的具体占用、差值与峰值单列；最终参数导出在该内存测量之后，不污染训练增长统计。保留逐题预测、完整矩阵和最终指标，禁止混入旧运行。
-
-[实验说明](exp/five_domain_cl_20261016_full_1pct/README.md) · [执行策略](exp/five_domain_cl_20261016_full_1pct/execution_policy.json) · [最新协议](rules/015_five_multimodal_final_parameters_20261016.md) · [作者方法代码](code/README.md)。旧报告放 `summary/ago/`；旧实验放 `exp/ago/`。主仓库 `/data1/liyapeng/program/LLMCL`，Tailscale SSH 端口8666。
+各方法在全部六阶段结束后仅保存一次`exp/six_domain_cl_20261016_finmme_coda/runs/<condition>/<method>/<run_id>/final_parameters/`：完整最终模型（含冻结专家、合并权重）、方法与路由状态、配置、处理器、代码和SHA256。不存阶段、优化器、恢复checkpoint；参数不进Git。下游评定前必须新进程重载并验证输出等价。
+两组每个方法记录loss、裁剪前后真实梯度范数、CPU RSS/PSS/USS、GPU allocated/reserved/NVML；单列训练前、训练后具体占用、变化与峰值。训练后测量在释放优化器后、最终参数导出前。
+[执行策略](exp/six_domain_cl_20261016_finmme_coda/execution_policy.json) · [协议](rules/016_six_multimodal_finmme_coda_20261016.md) · [进度](summary/six_domain_cl_20261016_finmme_coda/progress.md)。
