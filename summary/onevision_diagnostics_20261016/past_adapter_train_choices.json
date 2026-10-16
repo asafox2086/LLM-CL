@@ -1,0 +1,116 @@
+{
+  "selection": "minimum mean NLL on original two frozen TRAIN probes/domain; tie follows candidate order",
+  "run": "exp/onevision_diagnostics_20261016/runs/20261016_164638",
+  "decisions": [
+    {
+      "domain": "natural",
+      "selected": "base",
+      "eligible": [
+        "base"
+      ],
+      "train_probe_ids": [
+        "TextVQA:34459",
+        "TextVQA:28930"
+      ],
+      "candidate_train_nll": {
+        "base": 5.518984317779541
+      },
+      "best_second_train_nll_margin": null,
+      "current_or_future_adapter_eligible": false
+    },
+    {
+      "domain": "medical",
+      "selected": "isolated_natural",
+      "eligible": [
+        "base",
+        "isolated_natural"
+      ],
+      "train_probe_ids": [
+        "SLAKE:24",
+        "SLAKE:7014"
+      ],
+      "candidate_train_nll": {
+        "base": 10.876780986785889,
+        "isolated_natural": 3.657274603843689
+      },
+      "best_second_train_nll_margin": 7.2195063829422,
+      "current_or_future_adapter_eligible": false
+    },
+    {
+      "domain": "geography",
+      "selected": "isolated_natural",
+      "eligible": [
+        "base",
+        "isolated_natural",
+        "isolated_medical"
+      ],
+      "train_probe_ids": [
+        "RSVQA-LR:65747",
+        "RSVQA-LR:4298"
+      ],
+      "candidate_train_nll": {
+        "base": 2.228042110800743,
+        "isolated_natural": 0.21862729638814926,
+        "isolated_medical": 0.24159140139818192
+      },
+      "best_second_train_nll_margin": 0.022964105010032654,
+      "current_or_future_adapter_eligible": false
+    },
+    {
+      "domain": "finance",
+      "selected": "isolated_geography",
+      "eligible": [
+        "base",
+        "isolated_natural",
+        "isolated_medical",
+        "isolated_geography"
+      ],
+      "train_probe_ids": [
+        "FinMME:750",
+        "FinMME:8136"
+      ],
+      "candidate_train_nll": {
+        "base": 6.250101327896118,
+        "isolated_natural": 6.1597325801849365,
+        "isolated_medical": 6.04600977897644,
+        "isolated_geography": 5.804657459259033
+      },
+      "best_second_train_nll_margin": 0.24135231971740723,
+      "current_or_future_adapter_eligible": false
+    },
+    {
+      "domain": "traffic",
+      "selected": "isolated_medical",
+      "eligible": [
+        "base",
+        "isolated_natural",
+        "isolated_medical",
+        "isolated_geography",
+        "isolated_finance"
+      ],
+      "train_probe_ids": [
+        "CODA-LM:Train:Train_regional_10674",
+        "CODA-LM:Train:Train_general_1892"
+      ],
+      "candidate_train_nll": {
+        "base": 1.8903900980949402,
+        "isolated_natural": 1.8843467831611633,
+        "isolated_medical": 1.8805310726165771,
+        "isolated_geography": 1.8991151452064514,
+        "isolated_finance": 1.894067406654358
+      },
+      "best_second_train_nll_margin": 0.0038157105445861816,
+      "current_or_future_adapter_eligible": false
+    }
+  ],
+  "train_source_sha256": {
+    "exp/onevision_diagnostics_20261016/runs/20261016_164638/gradients/base.json": "6f838760d4a271e969f559ade5cc29fe3a041af83380a380b668e55d0acf6092",
+    "exp/onevision_diagnostics_20261016/runs/20261016_164638/gradients/isolated_natural.json": "5b522147c03907ac774c067649cd8f556beb3bd4a49db16e04be8fb325e31382",
+    "exp/onevision_diagnostics_20261016/runs/20261016_164638/gradients/isolated_medical.json": "79b2df2dfc35ef64c6ca42b86f5bf4c6c54115ea7018d0e753c2d8813c20e016",
+    "exp/onevision_diagnostics_20261016/runs/20261016_164638/gradients/isolated_geography.json": "4ce49e8009b8d0b8653954edd8b23731653532419be1b687d1280ba3c33d242b",
+    "exp/onevision_diagnostics_20261016/runs/20261016_164638/gradients/isolated_finance.json": "a9a0b7b7389959bdda4961487ebe6ba4b030f3b999e193d5b3a4552b027230e8",
+    "exp/onevision_diagnostics_20261016/runs/20261016_164638/gradients/isolated_traffic.json": "0abedbccbcebfd4ba82004c8dc52a063069987a6e736629369657d575d01144c"
+  },
+  "code_sha256": "037a8b30f3efd1918e916c2bb2741d4e78a62d887c45602a4595c5abe807184a",
+  "diagnostic_test_scores_used_for_selection": false
+}
