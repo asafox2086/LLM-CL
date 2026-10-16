@@ -2,7 +2,9 @@
 
 ## 当前研究：LLaVA-OneVision-0.5B诊断
 
-首个极小知识LoRA结果：rank1正确知识的医学EM为9/100，原共享LoRA无知识为8/100；医学KG任务仍为0/267，尚无大幅生成提升。上下文负对照已完成，错配知识医学EM22/100，正确知识21/100。[知识干预已完成部分](summary/onevision_diagnostics_20261016/KNOWLEDGE_INTERIM.md)。为继续区分参数基底、旧输出功能与训练预算，已部署随机A／旧A清零B／完整旧A+B及1／4更新控制，等待现有GPU1队列退出后执行；CPU检查通过不代表实际GPU实验通过。[对照协议](analysis/ONEVISION_BASIS_BUDGET_PROTOCOL.md)。
+知识内容匹配有额外限制：按原作者三元组审计，16条词汇相关事实仅与12条KG训练题中的6条同关系、4条同关系且固定tail匹配。这是字面诊断，不代表可回答率；不能据本轮小LoRA负结果断言专业知识无用。另已报告真实ΔW几何、原生OPEN/CLOSED及语言分组、具体训练内存前后值。[知识机制审计](summary/onevision_diagnostics_20261016/KNOWLEDGE_MECHANISM_AUDIT.md)。
+
+极小知识LoRA已完成部分：rank1／rank2正确知识的医学EM均为9/100，原共享LoRA无知识为8/100，低相关知识两种rank均为10/100；尚无大幅生成提升。上下文负对照中，错配知识医学EM22/100，正确知识21/100。[知识干预已完成部分](summary/onevision_diagnostics_20261016/KNOWLEDGE_INTERIM.md)。为继续区分参数基底、旧输出功能与训练预算，已部署随机A／旧A清零B／完整旧A+B及1／4更新控制，等待现有GPU1队列退出后执行；CPU检查通过不代表实际GPU实验通过。[对照协议](analysis/ONEVISION_BASIS_BUDGET_PROTOCOL.md)。
 
 新增参数证据：9个单更新独立任务都只改变B、A保持初始化；顺序训练对应阶段A均改变。零初始化B使首步A梯度为0，这是正学习率下的预期优化行为，不能据此断言缺少专业知识。[因子更新审计](summary/onevision_diagnostics_20261016/FACTOR_UPDATE_EVIDENCE.md)。知识负对照中，旧自然LoRA的医学EM从8/100升至正确知识的21/100，但低相关解剖知识同样21/100；提升尚不能归因于事实正确性。[按图像组配对分析](summary/onevision_diagnostics_20261016/KNOWLEDGE_PAIRED_EVIDENCE.md)。这些均为诊断子集结果。
 

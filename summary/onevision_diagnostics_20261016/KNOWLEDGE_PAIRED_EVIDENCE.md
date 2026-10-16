@@ -18,10 +18,20 @@
 | context_shared_correct | context_shared_permuted | medical_KG | 267/103 | +0.000 [+0.000, +0.000] | +1.660 [+0.170, +3.243] | -0.091 [-0.114, -0.067] | -5.47 |
 | residual_rank1_correct | residual_rank1_unrelated | medical | 100/83 | -1.000 [-3.093, +0.000] | +0.605 [-2.324, +3.329] | +0.073 [+0.033, +0.119] | -0.43 |
 | residual_rank1_correct | residual_rank1_unrelated | medical_KG | 267/103 | -0.749 [-1.901, +0.000] | -1.413 [-3.033, +0.068] | +0.127 [+0.100, +0.153] | -0.92 |
+| residual_rank1_correct | residual_rank1_permuted | medical | 100/83 | +1.000 [+0.000, +3.158] | +2.274 [+0.000, +5.262] | -0.057 [-0.083, -0.033] | -0.82 |
+| residual_rank1_correct | residual_rank1_permuted | medical_KG | 267/103 | +0.000 [+0.000, +0.000] | -0.346 [-1.128, +0.289] | +0.004 [-0.013, +0.020] | +0.78 |
+| residual_rank2_correct | residual_rank2_unrelated | medical | 100/83 | -1.000 [-3.158, +0.000] | -0.667 [-3.486, +1.494] | +0.090 [+0.045, +0.138] | +1.03 |
+| residual_rank2_correct | residual_rank2_unrelated | medical_KG | 267/103 | +0.000 [+0.000, +0.000] | +0.994 [-0.115, +2.291] | +0.175 [+0.141, +0.208] | -0.45 |
 | residual_rank1_correct | context_shared_none | medical | 100/83 | +1.000 [+0.000, +3.158] | -1.182 [-4.033, +2.034] | -0.740 [-0.913, -0.581] | -1.24 |
 | residual_rank1_correct | context_shared_none | medical_KG | 267/103 | +0.000 [+0.000, +0.000] | -1.679 [-2.762, -0.734] | -0.693 [-0.761, -0.624] | +1.19 |
 | residual_rank1_unrelated | context_shared_none | medical | 100/83 | +2.000 [+0.000, +5.051] | -1.786 [-5.373, +2.075] | -0.814 [-1.016, -0.626] | -0.81 |
 | residual_rank1_unrelated | context_shared_none | medical_KG | 267/103 | +0.749 [+0.000, +1.901] | -0.266 [-1.846, +1.369] | -0.820 [-0.905, -0.732] | +2.11 |
+| residual_rank1_permuted | context_shared_none | medical | 100/83 | +0.000 [+0.000, +0.000] | -3.455 [-5.947, -1.304] | -0.684 [-0.850, -0.529] | -0.42 |
+| residual_rank1_permuted | context_shared_none | medical_KG | 267/103 | +0.000 [+0.000, +0.000] | -1.332 [-2.288, -0.481] | -0.696 [-0.767, -0.624] | +0.41 |
+| residual_rank2_correct | context_shared_none | medical | 100/83 | +1.000 [-2.105, +4.465] | -4.188 [-8.769, +0.362] | -1.080 [-1.334, -0.845] | -0.89 |
+| residual_rank2_correct | context_shared_none | medical_KG | 267/103 | +0.749 [+0.000, +1.901] | -1.732 [-3.443, +0.011] | -1.165 [-1.283, -1.044] | +2.39 |
+| residual_rank2_unrelated | context_shared_none | medical | 100/83 | +2.000 [-1.961, +6.122] | -3.521 [-8.628, +1.809] | -1.170 [-1.454, -0.909] | -1.92 |
+| residual_rank2_unrelated | context_shared_none | medical_KG | 267/103 | +0.749 [+0.000, +1.901] | -2.726 [-4.645, -0.833] | -1.340 [-1.474, -1.202] | +2.84 |
 
 相关知识优于“无上下文”不能单独证明事实正确性的作用；还需同时检查低相关与错配控制。同一图像多题不是独立样本，医学100与KG267亦不能合并为367题。区间不能替代更多种子／独立资料验证。
 
