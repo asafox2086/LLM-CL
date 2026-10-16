@@ -28,6 +28,8 @@ def main():
     families=['context_base','context_shared','residual_rank1','residual_rank2','continue_rank8']
     pairs=[(family+'_correct',family+'_'+control) for family in families
            for control in (['none','unrelated','permuted'] if family.startswith('context') else ['unrelated','permuted'])]
+    pairs += [(family+'_'+kind,'context_shared_none') for family in families[2:]
+              for kind in ['correct','unrelated','permuted']]
     cache={};sources={};rows=[]
     def load(name):
         if name in cache:return cache[name]
