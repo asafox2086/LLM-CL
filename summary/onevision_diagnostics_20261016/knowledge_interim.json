@@ -1,0 +1,113 @@
+{
+  "run": "exp/onevision_mechanisms_20261016/knowledge/20261016_215455",
+  "code_sha256": "120eceb0ef17fc1bdf92f226bb2064773377b8775c7c8def809acd05ac0b9523",
+  "completed_cases": [
+    "context_base_none",
+    "context_base_correct",
+    "context_base_unrelated",
+    "context_base_permuted"
+  ],
+  "planned_cases": 17,
+  "prompt": "predeclared both, shared across all knowledge cases; not original-prompt visual ablation",
+  "rows": [
+    {
+      "case": "context_base_none",
+      "group": "medical",
+      "count": 100,
+      "mean_nll": 11.16922616481781,
+      "EM_correct": 0,
+      "exact_match": 0.0,
+      "token_f1": 12.444620114185332,
+      "rougeL": 12.434519104084323
+    },
+    {
+      "case": "context_base_none",
+      "group": "medical_KG",
+      "count": 267,
+      "mean_nll": 9.055017398984244,
+      "EM_correct": 0,
+      "exact_match": 0.0,
+      "token_f1": 7.144245363470269,
+      "rougeL": 7.014143453668353
+    },
+    {
+      "case": "context_base_correct",
+      "group": "medical",
+      "count": 100,
+      "mean_nll": 2.9829266273975374,
+      "EM_correct": 9,
+      "exact_match": 9.0,
+      "token_f1": 16.947904480317995,
+      "rougeL": 16.947904480317995
+    },
+    {
+      "case": "context_base_correct",
+      "group": "medical_KG",
+      "count": 267,
+      "mean_nll": 3.7946994867217674,
+      "EM_correct": 0,
+      "exact_match": 0.0,
+      "token_f1": 3.1711748457530526,
+      "rougeL": 3.167391695902487
+    },
+    {
+      "case": "context_base_unrelated",
+      "group": "medical",
+      "count": 100,
+      "mean_nll": 2.923001179695129,
+      "EM_correct": 7,
+      "exact_match": 7.0,
+      "token_f1": 11.999986857994285,
+      "rougeL": 11.989936606738004
+    },
+    {
+      "case": "context_base_unrelated",
+      "group": "medical_KG",
+      "count": 267,
+      "mean_nll": 3.828263091683834,
+      "EM_correct": 1,
+      "exact_match": 0.37453183520599254,
+      "token_f1": 2.4611958223379133,
+      "rougeL": 2.3856901093172436
+    },
+    {
+      "case": "context_base_permuted",
+      "group": "medical",
+      "count": 100,
+      "mean_nll": 3.0755525600910185,
+      "EM_correct": 10,
+      "exact_match": 10.0,
+      "token_f1": 13.891052806842284,
+      "rougeL": 13.891052806842284
+    },
+    {
+      "case": "context_base_permuted",
+      "group": "medical_KG",
+      "count": 267,
+      "mean_nll": 3.9133828204222834,
+      "EM_correct": 0,
+      "exact_match": 0.0,
+      "token_f1": 3.3392290432445337,
+      "rougeL": 3.2816087609051503
+    }
+  ],
+  "source_sha256": {
+    "exp/onevision_mechanisms_20261016/knowledge/20261016_215455/evaluations/context_base_none/medical_image.jsonl": "2ed0949195db07d51a18ef310278b9541288bd02f12aacf6ba559ebc02ee17fe",
+    "exp/onevision_mechanisms_20261016/knowledge/20261016_215455/evaluations/context_base_none/medical_KG_image.jsonl": "592a23f836bfc8b5b2aa7725ffd361e3b6d1adc3fba4cce28f4cb9f68383e2cf",
+    "exp/onevision_mechanisms_20261016/knowledge/20261016_215455/evaluations/context_base_correct/medical_image.jsonl": "d6c4fb0e32bfb8177b2091c306c8ebbdbe87e2fc6c88158aff9fa36e9b80e336",
+    "exp/onevision_mechanisms_20261016/knowledge/20261016_215455/evaluations/context_base_correct/medical_KG_image.jsonl": "d060554a7ee54518bcfb4a73d3be7f87ecabbb40ede5b3311e0424e372d81e33",
+    "exp/onevision_mechanisms_20261016/knowledge/20261016_215455/evaluations/context_base_unrelated/medical_image.jsonl": "0e5cdb29e2942cfcfb6d9e2f60ff1a1e43ee8f6663b3811e6a9c3d8aa16304af",
+    "exp/onevision_mechanisms_20261016/knowledge/20261016_215455/evaluations/context_base_unrelated/medical_KG_image.jsonl": "0a15f9390336434705670c08531b9eb3185760dc7e9ddce52db872fa951e4140",
+    "exp/onevision_mechanisms_20261016/knowledge/20261016_215455/evaluations/context_base_permuted/medical_image.jsonl": "e742a1316e398c250594749134001f6199fd436da51a0934f6a48008dac7ac53",
+    "exp/onevision_mechanisms_20261016/knowledge/20261016_215455/evaluations/context_base_permuted/medical_KG_image.jsonl": "61c0b70ba8c83a6ff8b6551f598b12f11c3564c616b1693e6ab8db38fcd8eb8b"
+  },
+  "group_overlap_qa": 12,
+  "limitations": [
+    "Medical100 diagnostic and nativeKG267 overlap; never pool as independent367 QA.",
+    "Unrelated is low-relevance author anatomy knowledge, not nonmedical unrelated text.",
+    "Contexts differ in token lengths; no claim of strictly length-matched controls.",
+    "Lower teacher-forced NLL need not improve generated medical answers.",
+    "Only completed cases shown; no test-based prompt/capacity/hyperparameter selection.",
+    "Knowledge encoding sanity and target-test generalization are separate; tiny-LoRA efficacy not assumed."
+  ]
+}

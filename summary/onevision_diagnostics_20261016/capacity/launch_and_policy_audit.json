@@ -1,0 +1,53 @@
+{
+  "frozen_at_utc": "2026-10-16T14:17:39.947367+00:00",
+  "caps": [
+    1,
+    2,
+    3,
+    5
+  ],
+  "primary_full_confirmation_caps": [
+    1,
+    3
+  ],
+  "full_confirmation_reason": "SeqFT integrity control plus middle deployment budget; fixed before any capacity test score",
+  "capacity_GPU_results_produced": false,
+  "native_reference_required": true,
+  "source_sha256": {
+    "analysis/onevision_capacity_probe.py": "5319a4ad35dd78db4dbc40ad9d45387a55c17c6c911c74ad46b5680ff76db225",
+    "analysis/onevision_capacity_queue.py": "1d6a6b4d3e5e41faa8dc2cfefdac38e67e03694c4b23856b1f37d6638c852a61",
+    "analysis/onevision_knowledge_encoding_probe.py": "61742dad365e1c69072cee02a9c47e42c73e632597b000fdcd0a7dc9b41bb849",
+    "analysis/systemd/llmcl-onevision-capacity.service": "ccbb5e9fd85e4fb7a24400ae677f42e85e9c3b5793b5be98edc7e1bcfd4b709e"
+  },
+  "unit": "MainPID=16806\nActiveState=active\n",
+  "queue": {
+    "pid": 16806,
+    "phase": "waiting_native_reference",
+    "jobs": {
+      "knowledge_sanity": {
+        "status": "waiting"
+      },
+      "cap1": {
+        "status": "waiting"
+      },
+      "cap2": {
+        "status": "waiting"
+      },
+      "cap3": {
+        "status": "waiting"
+      },
+      "cap5": {
+        "status": "waiting"
+      },
+      "cap1_full_confirm": {
+        "status": "waiting"
+      },
+      "cap3_full_confirm": {
+        "status": "waiting"
+      }
+    }
+  },
+  "current_GPU1_owners": [
+    "14725"
+  ]
+}

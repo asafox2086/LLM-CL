@@ -2,6 +2,8 @@
 
 ## 当前研究：LLaVA-OneVision-0.5B诊断
 
+任务／领域4×6对照已全部完成：SeqFT同域五任务锚EM为9/23，四域／五域序列均为4/23；跨域末值仍不低于其S1的2/23，因此是同域迁移更强的线索，不能笼统称为全面遗忘。正确与低相关解剖上下文均显著降低NLL，但KG生成指标没有同步改善，[知识阶段结果](summary/onevision_diagnostics_20261016/KNOWLEDGE_INTERIM.md)不支持把loss下降直接当专业知识收益。容量1/2/3/5的受控复用代码及CPU检查已部署，等待确定性配对通过；实际容量／全量结果尚未产生。[容量诊断协议](analysis/ONEVISION_CAPACITY_PROTOCOL.md)。
+
 数值复现已验证：同seed的默认计算两次有梯度／权重差异；确定性默认SDPA及确定性math各自两次完全一致。后续新建确定性顺序／独立任务配对，完整T1权重必须逐元素相同，旧失败结果不混用；当前只完成CPU预检，等待现有机制队列结束。[数值证据与新配对设置](summary/onevision_diagnostics_20261016/REPRODUCIBILITY_EVIDENCE.md)。已完成的任务／领域对照中，重复相同8条训练QA可使Organ锚EM由2/23增至8/23，提示训练预算值得排查；小样本和默认计算差异限制了方法排序。[完整阶段快照](summary/onevision_diagnostics_20261016/TASK_DOMAIN_INTERIM.md)。
 
 视觉排查：基座医学诊断100题原图／无图／错图NLL为9.595／8.517／9.470，遥感也未显示稳定的正确图像优势；自然和交通的表现不同。已核验输入视觉token、逐题ID和确定性错图来源路径。[视觉消融证据](summary/onevision_diagnostics_20261016/VISUAL_EVIDENCE.md)。训练后视觉对照已追加到GPU1队列，尚未执行；不能将这些基座现象直接归为专业知识不足或编码错误。

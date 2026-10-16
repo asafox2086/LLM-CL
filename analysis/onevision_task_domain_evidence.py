@@ -28,7 +28,7 @@ def main():
         for method in METHODS:
             case=sequence+'__'+method;proof=run/'cases'/(case+'_complete.json')
             if not proof.exists():pending.append(case);continue
-            assert json.loads(proof.read_text())['complete']
+            marker=json.loads(proof.read_text());assert marker['complete'] and marker['source_sha256']==info['spec']['source_sha256']
             stages={}
             for stage in [1,3,5]:
                 label=f'{case}_after{stage}'
