@@ -2,6 +2,8 @@
 
 ## 当前研究：LLaVA-OneVision-0.5B诊断
 
+最新证据：19阶段顺序诊断完成，93次更新全部使用正学习率；四种固定提示词对照完成。医学100题生成EM均为0，同问题语言提示的Token F1增量约+2.91点（图像簇bootstrap95%约−0.03至+5.91），尚不能将低分仅归于格式或证明知识不足。[提示词完整结果](summary/onevision_mechanisms_20261016/FORMAT_EVIDENCE.md)。独立控制第1阶段未通过权重复现检查，已保存失败记录，追加数值复现审计；其结果暂不纳入匹配比较。GPU1有其他用户作业时队列等待。[阶段完成、资源及故障报告](summary/onevision_diagnostics_20261016/MECHANISM_PROGRESS.md)。
+
 机制研究已排入GPU1独立后台队列：先做输出格式／语言对照，再做任务数与领域数控制（4序列×6机制），随后测试16条作者知识作为上下文或写入rank1／rank2 LoRA。队列等待当前顺序研究结束及GPU1空闲，不争抢基线资源。相关知识仅668字节／199token，新增参数67584／135168；这些是实验预算，尚不是有效性结论。[研究设置与证据边界](analysis/ONEVISION_MECHANISM_STUDIES.md)。[已完成阶段的NLL和梯度诊断](summary/onevision_diagnostics_20261016/SEQUENTIAL_EVIDENCE.md)仅用于定位问题，不能替代生成准确率和完整测试。
 
 后台执行：两服务器基线调度器均经`nohup`启动，保留用户服务的开机恢复，日志在各机`summary/five_domain_native_cl_20261016_sparse/nohup_pipeline.log`。现有训练进程不因切换调度器而重跑。GPU1研究使用独立`llmcl-onevision-research.service`及`research_nohup.log`，与基线并行。

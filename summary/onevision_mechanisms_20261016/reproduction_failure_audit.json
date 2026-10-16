@@ -1,0 +1,63 @@
+{
+  "timestamp": "2026-10-16T12:36:08.932998+00:00",
+  "queue_before": {
+    "jobs": {
+      "format": {
+        "status": "completed",
+        "script": "onevision_knowledge_intervention.py",
+        "args": [
+          "--mode",
+          "format"
+        ],
+        "attempts": 1,
+        "pid": 19979,
+        "boot_id": "b7fea85f-55e0-48c9-ab5c-c13627fc1122"
+      },
+      "task_domain": {
+        "status": "waiting",
+        "script": "onevision_task_domain_intervention.py",
+        "args": [],
+        "attempts": 0
+      },
+      "knowledge": {
+        "status": "waiting",
+        "script": "onevision_knowledge_intervention.py",
+        "args": [
+          "--mode",
+          "knowledge"
+        ],
+        "attempts": 0
+      },
+      "matched_native": {
+        "status": "needs_attention",
+        "script": "onevision_matched_native_controls.py",
+        "args": [],
+        "attempts": 1,
+        "pid": 22728,
+        "boot_id": "b7fea85f-55e0-48c9-ab5c-c13627fc1122",
+        "exit_code": 1,
+        "log": "summary/onevision_mechanisms_20261016/matched_native_nohup.log"
+      }
+    },
+    "phase": "waiting_idle_gpu1",
+    "research_pid": 6218,
+    "research_phase": "sequential_recovery",
+    "active_job": "matched_native"
+  },
+  "failure": "Matched native stage1 reproduction failed. No tolerance relaxed; no case evaluation accepted.",
+  "next_action": "Fixed TRAIN first32QA repeated gradients/updates under three numerical settings; discarded updates.",
+  "GPU1_owners_at_audit": "22751, 4386\n",
+  "failed_run": "exp/onevision_mechanisms_20261016/matched_native/20261016_195746",
+  "reproduction_gate": {
+    "max_abs_A_B_difference": 0.0005377121269702911,
+    "tolerance": 5e-06,
+    "passed": false,
+    "reference_sha256": "b92e9d6f085de051a2cc8d16dd9e136f4991161740aa83f50ed078997034515b"
+  },
+  "source_sha256": {
+    "analysis/onevision_matched_native_controls.py": "5b17a76f6bfd235ff0abc2a81ac256307e4ffe20eb65697a0be3460c096d1652",
+    "exp/onevision_diagnostics_20261016/run.py": "cf8ee1ac5af7faa595e05be05e05da5207d9f0596e518f8a8998ae8d3d0d7536",
+    "analysis/onevision_research_worker.py": "6db35a572ee8fca5f07e69eb22b36a8eebc40ce28a0b7977aa7b228373b81493",
+    "analysis/onevision_knowledge_intervention.py": "22512cc63ed0933f0f471f30b07f5707ba8e020c95137811430cdced2c3962a0"
+  }
+}

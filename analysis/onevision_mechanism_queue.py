@@ -4,6 +4,8 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 REPORT=ROOT/'summary/onevision_mechanisms_20261016';REPORT.mkdir(parents=True,exist_ok=True)
 PLAN=[('format','onevision_knowledge_intervention.py',['--mode','format']),
+      ('reproducibility','onevision_reproducibility_probe.py',[]),
+      ('matched_native','onevision_matched_native_controls.py',[]),
       ('task_domain','onevision_task_domain_intervention.py',[]),
       ('knowledge','onevision_knowledge_intervention.py',['--mode','knowledge'])]
 
