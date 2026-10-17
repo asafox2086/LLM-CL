@@ -26,6 +26,8 @@
 | 两模块是否有效 | 12/12原型完成，三任务四组均返回原更新，无新增收益 | 严格48组已启动，完整CL仍待运行，未宣称算法提升 |
 | 低显存增长不等于总资源低 | CPU专家池随容量增加；预热改变前后差 | 常驻总量、纯TRAIN峰值和额外计算均需比较 |
 
+新增[同一任务重复训练六控制](summary/onevision_diagnostics_20261016/matched_task_domain/repeat_control_evidence/T04_VERIFIED_RESULTS.md)：投影未触发时5状态/输出精确等于SeqFT；EWC后续会改变参数，λ100的辅助NLL更差，但F1差异区间包含0。不把无实际干预解释为方法失败，不把无域切换结果解释成跨域成因。
+
 新增[真实参数位移核验](summary/onevision_diagnostics_20261016/first_adam_geometry/VERIFIED_RESULTS.md)：两个同起点医学任务，完整LoRA矩阵余弦0.977，扣除共同旧功能后新增位移余弦0.205；高总相似度不证明新学方向重复。梯度范数相差1.919倍，实际参数位移范数近乎相同，不能直接把梯度大小当学习量或遗忘因果。已知优化器性质与本设置观察分开报告。
 
 原生AnyRes单LoRA控制已完成**21454题**：自然75.917、医学40.943、遥感49.010、金融12.991、交通31.916，19任务AP=41.361；完整FWT/BWT尚缺阶段评测。[完整结果及诊断偏差](summary/onevision_diagnostics_20261016/full_confirmation_evidence/CAP1_COMPLETION.md)。此研究与正式双骨干V2输入协议不同，不混排名。

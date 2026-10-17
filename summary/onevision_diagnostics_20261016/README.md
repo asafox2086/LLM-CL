@@ -10,6 +10,8 @@
 | --- | --- | --- |
 | 别人发现了什么问题、怎样找原因 | [文献问题综述](LITERATURE_PROBLEMS.md) | 10篇正式会议论文，问题/对照/方案/边界分开 |
 | 已做什么、证明／证伪了什么、改进有没有用 | [RESEARCH_REPORT](RESEARCH_REPORT.md) | 主报告，12项统一六栏 |
+| 同域增加任务是否已经明确伤害旧任务 | [首个同域/重复对照](matched_task_domain/FIRST_WITHIN_CONTRAST.md) | 最终507题34.168/35.102，差区间含0；旧锚曝光不同，不纯归因任务数 |
+| 没有跨域时保护会不会也出现限制 | [重复任务六控制](matched_task_domain/repeat_control_evidence/T04_VERIFIED_RESULTS.md) | 投影未触发/5状态完全相同；EWC后续真实改变，NLL差而F1差含0 |
 | 严格48组中机制是否启用、是否有效 | [机制启用/性能并列](matched_task_domain/mechanism_activation/VERIFIED_RESULTS.md) | 新CPU观察器只接受完整轨迹，旧/新F1与EWC项、回放、投影和实际位移并列；已读取真实完成轨迹，数量随完成证明更新 |
 | 完整LoRA相似是否代表新学习重复 | [真实Adam/BA增量](first_adam_geometry/VERIFIED_RESULTS.md) | 两任务总矩阵余弦0.977、增量0.205；原始梯度范数不是实际学习量，无F1因果声明 |
 | 低GPU增长能否代表总容量不变 | [容量资源核验](capacity_resource_evidence/VERIFIED_RESULTS.md) | 固定GPU计数仍可对应1/2/3/5个CPU专家；成本与峰值范围全报，无内存优势声明 |

@@ -1,0 +1,223 @@
+{
+  "CPU_only": true,
+  "timestamp_UTC": "2026-10-17T14:26:49.960653+00:00",
+  "completed_cases_at_snapshot": 7,
+  "original_report_sha256": "efdb3f6c474dd409e31a1d0f708e00b35e7dd816d2712190f4f205a73e981ec2",
+  "original_reporter_sha256": "8377d485264748489e8f6e677f9ed30521c9b4f8a5dd07ac0de119d3a142f4bd",
+  "contrast": {
+    "anchor": 4,
+    "method": "SeqFT_LoRA",
+    "treatment": "within_medical",
+    "control": "repeat_anchor",
+    "anchor_difference_in_changes": {
+      "Answer_F1": {
+        "mean": -5.208333333333333,
+        "image_cluster_95CI": [
+          -13.020833333333332,
+          0.0
+        ],
+        "QA": 32,
+        "image_clusters": 29,
+        "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+      },
+      "NLL": {
+        "mean": 0.12307772669009864,
+        "image_cluster_95CI": [
+          0.020812358827360215,
+          0.2294755989024716
+        ],
+        "QA": 32,
+        "image_clusters": 29,
+        "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+      }
+    },
+    "full_native_anchor_final_only_difference": {
+      "QA": 507,
+      "Answer_F1_before": 35.101906640368156,
+      "Answer_F1_after": 34.16831032215645,
+      "quality_changes": {
+        "increased": 27,
+        "decreased": 36,
+        "unchanged": 444
+      },
+      "delta_Answer_F1": {
+        "mean": -0.9335963182117024,
+        "image_cluster_95CI": [
+          -3.717679944095038,
+          1.8079096045197742
+        ],
+        "QA": 507,
+        "image_clusters": 158,
+        "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+      },
+      "delta_NLL": {
+        "mean": 0.09456712929936056,
+        "image_cluster_95CI": [
+          0.06498325383769724,
+          0.12351490196306258
+        ],
+        "QA": 507,
+        "image_clusters": 158,
+        "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+      }
+    },
+    "full_scope": "Full anchor final-only paired scores; no measured full stage1/FWT/BWT."
+  },
+  "cases": [
+    {
+      "case": "T04_repeat_anchor__SeqFT_LoRA",
+      "sequence": "repeat_anchor",
+      "run": "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__SeqFT_LoRA/20261017_215632",
+      "anchor_stage1_to3": {
+        "QA": 32,
+        "Answer_F1_before": 19.375,
+        "Answer_F1_after": 23.4375,
+        "quality_changes": {
+          "increased": 7,
+          "decreased": 4,
+          "unchanged": 21
+        },
+        "delta_Answer_F1": {
+          "mean": 4.062500000000001,
+          "image_cluster_95CI": [
+            -12.258064516129028,
+            19.80392156862745
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        },
+        "delta_NLL": {
+          "mean": -4.158128552138805,
+          "image_cluster_95CI": [
+            -4.931846389847417,
+            -3.345092245761086
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        }
+      },
+      "anchor_stage1_to5": {
+        "QA": 32,
+        "Answer_F1_before": 19.375,
+        "Answer_F1_after": 27.604166666666664,
+        "quality_changes": {
+          "increased": 6,
+          "decreased": 2,
+          "unchanged": 24
+        },
+        "delta_Answer_F1": {
+          "mean": 8.229166666666668,
+          "image_cluster_95CI": [
+            -1.0416666666666652,
+            19.247311827956988
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        },
+        "delta_NLL": {
+          "mean": -4.501784401247278,
+          "image_cluster_95CI": [
+            -5.292325237032139,
+            -3.6648962448816746
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        }
+      },
+      "full_native_anchor_final": {
+        "Answer_F1": 35.101906640368156,
+        "QA": 507
+      },
+      "current_task_scores_after_stages2_to5": {
+        "Answer_F1": 22.5
+      }
+    },
+    {
+      "case": "T04_within_medical__SeqFT_LoRA",
+      "sequence": "within_medical",
+      "run": "exp/onevision_matched_task_domain_20261017/T04_within_medical__SeqFT_LoRA/20261017_221815",
+      "anchor_stage1_to3": {
+        "QA": 32,
+        "Answer_F1_before": 19.375,
+        "Answer_F1_after": 15.625,
+        "quality_changes": {
+          "increased": 4,
+          "decreased": 4,
+          "unchanged": 24
+        },
+        "delta_Answer_F1": {
+          "mean": -3.749999999999999,
+          "image_cluster_95CI": [
+            -17.634408602150533,
+            9.03225806451613
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        },
+        "delta_NLL": {
+          "mean": -3.630933228880167,
+          "image_cluster_95CI": [
+            -4.226644484202067,
+            -2.965998778740565
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        }
+      },
+      "anchor_stage1_to5": {
+        "QA": 32,
+        "Answer_F1_before": 19.375,
+        "Answer_F1_after": 22.395833333333332,
+        "quality_changes": {
+          "increased": 5,
+          "decreased": 2,
+          "unchanged": 25
+        },
+        "delta_Answer_F1": {
+          "mean": 3.020833333333334,
+          "image_cluster_95CI": [
+            -6.262626262626262,
+            12.333333333333337
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        },
+        "delta_NLL": {
+          "mean": -4.378706674557179,
+          "image_cluster_95CI": [
+            -5.11041423766052,
+            -3.590199681619803
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        }
+      },
+      "full_native_anchor_final": {
+        "Answer_F1": 34.16831032215645,
+        "QA": 507
+      },
+      "current_task_scores_after_stages2_to5": {
+        "Answer_F1": 28.589015151515152
+      }
+    }
+  ],
+  "completion_proof_sha256": {
+    "summary/onevision_diagnostics_20261016/matched_task_domain/T04_repeat_anchor__SeqFT_LoRA_complete.json": "3897faad7af4d0bf8b14e04967424414588b8ceb3da79cc68aed6dce6b163d10",
+    "summary/onevision_diagnostics_20261016/matched_task_domain/T04_within_medical__SeqFT_LoRA_complete.json": "14e8341c168370dd31ae0687441b68df6502211b14d85665a98cc0157c52d173"
+  },
+  "limits": [
+    "Final full507 only; initial full507 not measured, cannot calculate full forgetting or full transfer.",
+    "Repeat anchor40 exposures/8 unique TRAIN; within anchor8 exposures plus32 other medical TRAIN. Not identical anchor-rehearsal budget.",
+    "Two fixed training sequences, one seed and medical anchor. F1 intervals include0; no significant F1 task-count deficit.",
+    "32 diagnostic QA overlaps full507; cohort differences descriptive, not independent trials.",
+    "No cross-domain complete comparison yet; no unique domain causality."
+  ]
+}

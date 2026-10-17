@@ -1,5 +1,5 @@
 {
-  "complete_cases": 5,
+  "complete_cases": 8,
   "planned_cases": 48,
   "GPU_study_complete": false,
   "case_results": [
@@ -3759,9 +3759,2372 @@
           "gpu_process_nvml_bytes": 13344178176
         }
       }
+    },
+    {
+      "case": "T04_repeat_anchor__anchor_gradient_projection",
+      "anchor": 4,
+      "sequence": "repeat_anchor",
+      "method": "anchor_gradient_projection",
+      "run": "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__anchor_gradient_projection/20261017_221501",
+      "anchor_stage1_to3": {
+        "QA": 32,
+        "Answer_F1_before": 19.375,
+        "Answer_F1_after": 23.4375,
+        "quality_changes": {
+          "increased": 7,
+          "decreased": 4,
+          "unchanged": 21
+        },
+        "delta_Answer_F1": {
+          "mean": 4.062500000000001,
+          "image_cluster_95CI": [
+            -12.258064516129028,
+            19.80392156862745
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        },
+        "delta_NLL": {
+          "mean": -4.158128552138805,
+          "image_cluster_95CI": [
+            -4.931846389847417,
+            -3.345092245761086
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        }
+      },
+      "anchor_stage1_to5": {
+        "QA": 32,
+        "Answer_F1_before": 19.375,
+        "Answer_F1_after": 27.604166666666664,
+        "quality_changes": {
+          "increased": 6,
+          "decreased": 2,
+          "unchanged": 24
+        },
+        "delta_Answer_F1": {
+          "mean": 8.229166666666668,
+          "image_cluster_95CI": [
+            -1.0416666666666652,
+            19.247311827956988
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        },
+        "delta_NLL": {
+          "mean": -4.501784401247278,
+          "image_cluster_95CI": [
+            -5.292325237032139,
+            -3.6648962448816746
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        }
+      },
+      "current_task_scores_after_stages2_to5": {
+        "Answer_F1": 22.5
+      },
+      "current_scope": "32 stage-observations, possibly repeated IDs; not32 independent QA or old-task retention.",
+      "training": [
+        {
+          "stage": 1,
+          "task": 4,
+          "events": [
+            {
+              "stage": 1,
+              "update": 1,
+              "train_ids": [
+                "SLAKE:7928",
+                "SLAKE:3748"
+              ],
+              "replay_ids": [],
+              "loss": 10.460878849029541,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 156.1929168701172,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 4,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 1,
+              "update": 2,
+              "train_ids": [
+                "SLAKE:2673",
+                "SLAKE:4539"
+              ],
+              "replay_ids": [],
+              "loss": 7.335370063781738,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 111.69593811035156,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 5,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 1,
+              "update": 3,
+              "train_ids": [
+                "SLAKE:6268",
+                "SLAKE:3350"
+              ],
+              "replay_ids": [],
+              "loss": 8.057741403579712,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 78.08799743652344,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 5,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 1,
+              "update": 4,
+              "train_ids": [
+                "SLAKE:9791",
+                "SLAKE:9284"
+              ],
+              "replay_ids": [],
+              "loss": 7.7687578201293945,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 107.09455108642578,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 5,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            }
+          ],
+          "new_plus_replay_exposures": 8,
+          "fisher_extra_QA": 0,
+          "parameters_changed_vs_previous_stage": null
+        },
+        {
+          "stage": 2,
+          "task": 4,
+          "events": [
+            {
+              "stage": 2,
+              "update": 1,
+              "train_ids": [
+                "SLAKE:7928",
+                "SLAKE:3748"
+              ],
+              "replay_ids": [],
+              "loss": 5.874033093452454,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 118.43560028076172,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": 6354.861937233921,
+              "target_tokens": 4,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 8
+            },
+            {
+              "stage": 2,
+              "update": 2,
+              "train_ids": [
+                "SLAKE:2673",
+                "SLAKE:4539"
+              ],
+              "replay_ids": [],
+              "loss": 3.7881481647491455,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 86.63977813720703,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": 2687.096121245876,
+              "target_tokens": 5,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 8
+            },
+            {
+              "stage": 2,
+              "update": 3,
+              "train_ids": [
+                "SLAKE:6268",
+                "SLAKE:3350"
+              ],
+              "replay_ids": [],
+              "loss": 4.840017318725586,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 155.69677734375,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": 10749.067007804046,
+              "target_tokens": 5,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 8
+            },
+            {
+              "stage": 2,
+              "update": 4,
+              "train_ids": [
+                "SLAKE:9791",
+                "SLAKE:9284"
+              ],
+              "replay_ids": [],
+              "loss": 6.052880764007568,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 144.6195831298828,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": 9940.604941083137,
+              "target_tokens": 5,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 8
+            }
+          ],
+          "new_plus_replay_exposures": 8,
+          "fisher_extra_QA": 0,
+          "parameters_changed_vs_previous_stage": true
+        },
+        {
+          "stage": 3,
+          "task": 4,
+          "events": [
+            {
+              "stage": 3,
+              "update": 1,
+              "train_ids": [
+                "SLAKE:7928",
+                "SLAKE:3748"
+              ],
+              "replay_ids": [],
+              "loss": 2.11930138617754,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 87.67855072021484,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": 5730.233364180128,
+              "target_tokens": 4,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 8
+            },
+            {
+              "stage": 3,
+              "update": 2,
+              "train_ids": [
+                "SLAKE:2673",
+                "SLAKE:4539"
+              ],
+              "replay_ids": [],
+              "loss": 1.6008256077766418,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 37.559574127197266,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": 913.1538225341878,
+              "target_tokens": 5,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 8
+            },
+            {
+              "stage": 3,
+              "update": 3,
+              "train_ids": [
+                "SLAKE:6268",
+                "SLAKE:3350"
+              ],
+              "replay_ids": [],
+              "loss": 1.7435616254806519,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 45.64284896850586,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": 1103.0378965948757,
+              "target_tokens": 5,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 8
+            },
+            {
+              "stage": 3,
+              "update": 4,
+              "train_ids": [
+                "SLAKE:9791",
+                "SLAKE:9284"
+              ],
+              "replay_ids": [],
+              "loss": 2.548760175704956,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 39.491024017333984,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": 554.2089444361302,
+              "target_tokens": 5,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 8
+            }
+          ],
+          "new_plus_replay_exposures": 8,
+          "fisher_extra_QA": 0,
+          "parameters_changed_vs_previous_stage": true
+        },
+        {
+          "stage": 4,
+          "task": 4,
+          "events": [
+            {
+              "stage": 4,
+              "update": 1,
+              "train_ids": [
+                "SLAKE:7928",
+                "SLAKE:3748"
+              ],
+              "replay_ids": [],
+              "loss": 0.6169258952140808,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 23.655725479125977,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": 182.75500701656762,
+              "target_tokens": 4,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 8
+            },
+            {
+              "stage": 4,
+              "update": 2,
+              "train_ids": [
+                "SLAKE:2673",
+                "SLAKE:4539"
+              ],
+              "replay_ids": [],
+              "loss": 1.0164845287799835,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 13.857909202575684,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": 71.01768385814847,
+              "target_tokens": 5,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 8
+            },
+            {
+              "stage": 4,
+              "update": 3,
+              "train_ids": [
+                "SLAKE:6268",
+                "SLAKE:3350"
+              ],
+              "replay_ids": [],
+              "loss": 1.1490896940231323,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 19.876022338867188,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": 172.51842975894365,
+              "target_tokens": 5,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 8
+            },
+            {
+              "stage": 4,
+              "update": 4,
+              "train_ids": [
+                "SLAKE:9791",
+                "SLAKE:9284"
+              ],
+              "replay_ids": [],
+              "loss": 2.0604999661445618,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 24.894105911254883,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": 197.22354238221743,
+              "target_tokens": 5,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 8
+            }
+          ],
+          "new_plus_replay_exposures": 8,
+          "fisher_extra_QA": 0,
+          "parameters_changed_vs_previous_stage": true
+        },
+        {
+          "stage": 5,
+          "task": 4,
+          "events": [
+            {
+              "stage": 5,
+              "update": 1,
+              "train_ids": [
+                "SLAKE:7928",
+                "SLAKE:3748"
+              ],
+              "replay_ids": [],
+              "loss": 0.2136287484318018,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 8.32564926147461,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": 23.032586785561016,
+              "target_tokens": 4,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 8
+            },
+            {
+              "stage": 5,
+              "update": 2,
+              "train_ids": [
+                "SLAKE:2673",
+                "SLAKE:4539"
+              ],
+              "replay_ids": [],
+              "loss": 0.8048162162303925,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 11.551430702209473,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": 31.00699695523053,
+              "target_tokens": 5,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 8
+            },
+            {
+              "stage": 5,
+              "update": 3,
+              "train_ids": [
+                "SLAKE:6268",
+                "SLAKE:3350"
+              ],
+              "replay_ids": [],
+              "loss": 0.9622271358966827,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 15.23829174041748,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": 105.37401024242484,
+              "target_tokens": 5,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 8
+            },
+            {
+              "stage": 5,
+              "update": 4,
+              "train_ids": [
+                "SLAKE:9791",
+                "SLAKE:9284"
+              ],
+              "replay_ids": [],
+              "loss": 1.8235939741134644,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 26.833044052124023,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": 213.19023539912826,
+              "target_tokens": 5,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 8
+            }
+          ],
+          "new_plus_replay_exposures": 8,
+          "fisher_extra_QA": 0,
+          "parameters_changed_vs_previous_stage": true
+        }
+      ],
+      "TRAIN_memory_bytes": [
+        {
+          "stage": 1,
+          "before": {
+            "VmRSS_bytes": 2262589440,
+            "Pss_bytes": 2092403712,
+            "cpu_uss_bytes": 2036338688,
+            "gpu_allocated_bytes": 1809211392,
+            "gpu_reserved_bytes": 1881145344,
+            "gpu_process_nvml_bytes": 2191523840
+          },
+          "after": {
+            "VmRSS_bytes": 2491965440,
+            "Pss_bytes": 2260324352,
+            "cpu_uss_bytes": 2175234048,
+            "gpu_allocated_bytes": 1891863552,
+            "gpu_reserved_bytes": 3412066304,
+            "gpu_process_nvml_bytes": 3802136576
+          },
+          "growth": {
+            "VmRSS_bytes": 229376000,
+            "Pss_bytes": 167920640,
+            "cpu_uss_bytes": 138895360,
+            "gpu_allocated_bytes": 82652160,
+            "gpu_reserved_bytes": 1530920960,
+            "gpu_process_nvml_bytes": 1610612736
+          },
+          "sampled_CPU_peak": {
+            "VmRSS_bytes": 2491965440,
+            "Pss_bytes": 2260324352,
+            "cpu_uss_bytes": 2175234048
+          },
+          "CUDA_allocator_peak_training_window": {
+            "gpu_peak_allocated_bytes": 2835208704,
+            "gpu_peak_reserved_bytes": 3412066304
+          },
+          "note": "CPU/NVML sampled; CUDA allocator peak reset before stage. VmHWM is not a stage peak. Fisher and whole-case windows remain separately in original artifacts."
+        },
+        {
+          "stage": 2,
+          "before": {
+            "VmRSS_bytes": 2557632512,
+            "Pss_bytes": 2322342912,
+            "cpu_uss_bytes": 2235138048,
+            "gpu_allocated_bytes": 1876320256,
+            "gpu_reserved_bytes": 3456106496,
+            "gpu_process_nvml_bytes": 3846176768
+          },
+          "after": {
+            "VmRSS_bytes": 2594525184,
+            "Pss_bytes": 2359170048,
+            "cpu_uss_bytes": 2271920128,
+            "gpu_allocated_bytes": 1894026240,
+            "gpu_reserved_bytes": 12954107904,
+            "gpu_process_nvml_bytes": 13344178176
+          },
+          "growth": {
+            "VmRSS_bytes": 36892672,
+            "Pss_bytes": 36827136,
+            "cpu_uss_bytes": 36782080,
+            "gpu_allocated_bytes": 17705984,
+            "gpu_reserved_bytes": 9498001408,
+            "gpu_process_nvml_bytes": 9498001408
+          },
+          "sampled_CPU_peak": {
+            "VmRSS_bytes": 2594525184,
+            "Pss_bytes": 2359170048,
+            "cpu_uss_bytes": 2271920128
+          },
+          "CUDA_allocator_peak_training_window": {
+            "gpu_peak_allocated_bytes": 11166845952,
+            "gpu_peak_reserved_bytes": 12954107904
+          },
+          "note": "CPU/NVML sampled; CUDA allocator peak reset before stage. VmHWM is not a stage peak. Fisher and whole-case windows remain separately in original artifacts."
+        },
+        {
+          "stage": 3,
+          "before": {
+            "VmRSS_bytes": 2594533376,
+            "Pss_bytes": 2359178240,
+            "cpu_uss_bytes": 2271928320,
+            "gpu_allocated_bytes": 1876320256,
+            "gpu_reserved_bytes": 12954107904,
+            "gpu_process_nvml_bytes": 13344178176
+          },
+          "after": {
+            "VmRSS_bytes": 2594570240,
+            "Pss_bytes": 2359214080,
+            "cpu_uss_bytes": 2271965184,
+            "gpu_allocated_bytes": 1894026240,
+            "gpu_reserved_bytes": 12954107904,
+            "gpu_process_nvml_bytes": 13344178176
+          },
+          "growth": {
+            "VmRSS_bytes": 36864,
+            "Pss_bytes": 35840,
+            "cpu_uss_bytes": 36864,
+            "gpu_allocated_bytes": 17705984,
+            "gpu_reserved_bytes": 0,
+            "gpu_process_nvml_bytes": 0
+          },
+          "sampled_CPU_peak": {
+            "VmRSS_bytes": 2594570240,
+            "Pss_bytes": 2359215104,
+            "cpu_uss_bytes": 2271965184
+          },
+          "CUDA_allocator_peak_training_window": {
+            "gpu_peak_allocated_bytes": 11166845952,
+            "gpu_peak_reserved_bytes": 12954107904
+          },
+          "note": "CPU/NVML sampled; CUDA allocator peak reset before stage. VmHWM is not a stage peak. Fisher and whole-case windows remain separately in original artifacts."
+        },
+        {
+          "stage": 4,
+          "before": {
+            "VmRSS_bytes": 2559344640,
+            "Pss_bytes": 2323989504,
+            "cpu_uss_bytes": 2236739584,
+            "gpu_allocated_bytes": 1876320256,
+            "gpu_reserved_bytes": 12954107904,
+            "gpu_process_nvml_bytes": 13344178176
+          },
+          "after": {
+            "VmRSS_bytes": 2594705408,
+            "Pss_bytes": 2359354368,
+            "cpu_uss_bytes": 2272104448,
+            "gpu_allocated_bytes": 1894026240,
+            "gpu_reserved_bytes": 12954107904,
+            "gpu_process_nvml_bytes": 13344178176
+          },
+          "growth": {
+            "VmRSS_bytes": 35360768,
+            "Pss_bytes": 35364864,
+            "cpu_uss_bytes": 35364864,
+            "gpu_allocated_bytes": 17705984,
+            "gpu_reserved_bytes": 0,
+            "gpu_process_nvml_bytes": 0
+          },
+          "sampled_CPU_peak": {
+            "VmRSS_bytes": 2594705408,
+            "Pss_bytes": 2359354368,
+            "cpu_uss_bytes": 2272104448
+          },
+          "CUDA_allocator_peak_training_window": {
+            "gpu_peak_allocated_bytes": 11166845952,
+            "gpu_peak_reserved_bytes": 12954107904
+          },
+          "note": "CPU/NVML sampled; CUDA allocator peak reset before stage. VmHWM is not a stage peak. Fisher and whole-case windows remain separately in original artifacts."
+        },
+        {
+          "stage": 5,
+          "before": {
+            "VmRSS_bytes": 2594705408,
+            "Pss_bytes": 2359353344,
+            "cpu_uss_bytes": 2272104448,
+            "gpu_allocated_bytes": 1876320256,
+            "gpu_reserved_bytes": 12954107904,
+            "gpu_process_nvml_bytes": 13344178176
+          },
+          "after": {
+            "VmRSS_bytes": 2594729984,
+            "Pss_bytes": 2359374848,
+            "cpu_uss_bytes": 2272124928,
+            "gpu_allocated_bytes": 1894026240,
+            "gpu_reserved_bytes": 12954107904,
+            "gpu_process_nvml_bytes": 13344178176
+          },
+          "growth": {
+            "VmRSS_bytes": 24576,
+            "Pss_bytes": 21504,
+            "cpu_uss_bytes": 20480,
+            "gpu_allocated_bytes": 17705984,
+            "gpu_reserved_bytes": 0,
+            "gpu_process_nvml_bytes": 0
+          },
+          "sampled_CPU_peak": {
+            "VmRSS_bytes": 2594729984,
+            "Pss_bytes": 2359374848,
+            "cpu_uss_bytes": 2272124928
+          },
+          "CUDA_allocator_peak_training_window": {
+            "gpu_peak_allocated_bytes": 11166845952,
+            "gpu_peak_reserved_bytes": 12954107904
+          },
+          "note": "CPU/NVML sampled; CUDA allocator peak reset before stage. VmHWM is not a stage peak. Fisher and whole-case windows remain separately in original artifacts."
+        }
+      ],
+      "whole_case_memory": {
+        "unit": "bytes",
+        "pid": 252518,
+        "boot_id": "e6182f56-39be-4e37-908d-3cfadaa7448f",
+        "process_started_unix": 1792246501.57449,
+        "before": {
+          "phase": "case_before",
+          "stage": 0,
+          "unix": 1792246509.8037055,
+          "pid": 252518,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4148871168,
+          "VmRSS_bytes": 2195640320,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2053695488,
+          "Private_Clean_bytes": 66437120,
+          "Private_Dirty_bytes": 1945546752,
+          "cpu_uss_bytes": 2011983872,
+          "gpu_allocated_bytes": 1809211392,
+          "gpu_reserved_bytes": 1881145344,
+          "gpu_peak_allocated_bytes": 1809211392,
+          "gpu_peak_reserved_bytes": 1881145344,
+          "gpu_process_nvml_bytes": 2191523840,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "after": {
+          "phase": "case_after",
+          "stage": 0,
+          "unix": 1792246659.3956501,
+          "pid": 252518,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4148871168,
+          "VmRSS_bytes": 2572713984,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2337358848,
+          "Private_Clean_bytes": 111427584,
+          "Private_Dirty_bytes": 2138681344,
+          "cpu_uss_bytes": 2250108928,
+          "gpu_allocated_bytes": 1876320256,
+          "gpu_reserved_bytes": 12954107904,
+          "gpu_peak_allocated_bytes": 11166845952,
+          "gpu_peak_reserved_bytes": 12954107904,
+          "gpu_process_nvml_bytes": 13344178176,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "scope": "whole case includes inference; per-stage TRAIN/Fisher snapshots separate",
+        "growth_bytes": {
+          "VmRSS_bytes": 377073664,
+          "Pss_bytes": 283663360,
+          "cpu_uss_bytes": 238125056,
+          "gpu_allocated_bytes": 67108864,
+          "gpu_reserved_bytes": 11072962560,
+          "gpu_process_nvml_bytes": 11152654336
+        },
+        "observed_peak_bytes": {
+          "VmRSS_bytes": 2594729984,
+          "Pss_bytes": 2359374848,
+          "cpu_uss_bytes": 2272124928,
+          "gpu_allocated_bytes": 8840489472,
+          "gpu_reserved_bytes": 12954107904,
+          "gpu_process_nvml_bytes": 13344178176
+        },
+        "note": "Same-PID before/after; fresh process per cap. On recovery these describe resumed process only. Stage diagnostics are included in observed peaks; allocator cache is separate from parameter growth.",
+        "all_process_observed_peak_bytes": {
+          "VmRSS_bytes": 2594729984,
+          "Pss_bytes": 2359374848,
+          "cpu_uss_bytes": 2272124928,
+          "gpu_allocated_bytes": 8840489472,
+          "gpu_reserved_bytes": 12954107904,
+          "gpu_process_nvml_bytes": 13344178176
+        }
+      }
+    },
+    {
+      "case": "T04_within_medical__SeqFT_LoRA",
+      "anchor": 4,
+      "sequence": "within_medical",
+      "method": "SeqFT_LoRA",
+      "run": "exp/onevision_matched_task_domain_20261017/T04_within_medical__SeqFT_LoRA/20261017_221815",
+      "anchor_stage1_to3": {
+        "QA": 32,
+        "Answer_F1_before": 19.375,
+        "Answer_F1_after": 15.625,
+        "quality_changes": {
+          "increased": 4,
+          "decreased": 4,
+          "unchanged": 24
+        },
+        "delta_Answer_F1": {
+          "mean": -3.749999999999999,
+          "image_cluster_95CI": [
+            -17.634408602150533,
+            9.03225806451613
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        },
+        "delta_NLL": {
+          "mean": -3.630933228880167,
+          "image_cluster_95CI": [
+            -4.226644484202067,
+            -2.965998778740565
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        }
+      },
+      "anchor_stage1_to5": {
+        "QA": 32,
+        "Answer_F1_before": 19.375,
+        "Answer_F1_after": 22.395833333333332,
+        "quality_changes": {
+          "increased": 5,
+          "decreased": 2,
+          "unchanged": 25
+        },
+        "delta_Answer_F1": {
+          "mean": 3.020833333333334,
+          "image_cluster_95CI": [
+            -6.262626262626262,
+            12.333333333333337
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        },
+        "delta_NLL": {
+          "mean": -4.378706674557179,
+          "image_cluster_95CI": [
+            -5.11041423766052,
+            -3.590199681619803
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        }
+      },
+      "current_task_scores_after_stages2_to5": {
+        "Answer_F1": 28.589015151515152
+      },
+      "current_scope": "32 stage-observations, possibly repeated IDs; not32 independent QA or old-task retention.",
+      "training": [
+        {
+          "stage": 1,
+          "task": 4,
+          "events": [
+            {
+              "stage": 1,
+              "update": 1,
+              "train_ids": [
+                "SLAKE:7928",
+                "SLAKE:3748"
+              ],
+              "replay_ids": [],
+              "loss": 10.460878849029541,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 156.1929168701172,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 4,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 1,
+              "update": 2,
+              "train_ids": [
+                "SLAKE:2673",
+                "SLAKE:4539"
+              ],
+              "replay_ids": [],
+              "loss": 7.335370063781738,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 111.69593811035156,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 5,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 1,
+              "update": 3,
+              "train_ids": [
+                "SLAKE:6268",
+                "SLAKE:3350"
+              ],
+              "replay_ids": [],
+              "loss": 8.057741403579712,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 78.08799743652344,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 5,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 1,
+              "update": 4,
+              "train_ids": [
+                "SLAKE:9791",
+                "SLAKE:9284"
+              ],
+              "replay_ids": [],
+              "loss": 7.7687578201293945,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 107.09455108642578,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 5,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            }
+          ],
+          "new_plus_replay_exposures": 8,
+          "fisher_extra_QA": 0,
+          "parameters_changed_vs_previous_stage": null
+        },
+        {
+          "stage": 2,
+          "task": 2,
+          "events": [
+            {
+              "stage": 2,
+              "update": 1,
+              "train_ids": [
+                "SLAKE:1422",
+                "SLAKE:8462"
+              ],
+              "replay_ids": [],
+              "loss": 5.510393381118774,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 193.93106079101562,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 5,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 2,
+              "update": 2,
+              "train_ids": [
+                "SLAKE:9550",
+                "SLAKE:2954"
+              ],
+              "replay_ids": [],
+              "loss": 3.4035418033599854,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 73.78336334228516,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 5,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 2,
+              "update": 3,
+              "train_ids": [
+                "SLAKE:8435",
+                "SLAKE:468"
+              ],
+              "replay_ids": [],
+              "loss": 4.033680558204651,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 55.468109130859375,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 6,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 2,
+              "update": 4,
+              "train_ids": [
+                "SLAKE:663",
+                "SLAKE:3990"
+              ],
+              "replay_ids": [],
+              "loss": 3.106238842010498,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 62.433162689208984,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 6,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            }
+          ],
+          "new_plus_replay_exposures": 8,
+          "fisher_extra_QA": 0,
+          "parameters_changed_vs_previous_stage": true
+        },
+        {
+          "stage": 3,
+          "task": 3,
+          "events": [
+            {
+              "stage": 3,
+              "update": 1,
+              "train_ids": [
+                "SLAKE:4881",
+                "SLAKE:2086"
+              ],
+              "replay_ids": [],
+              "loss": 2.202100157737732,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 25.791017532348633,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 6,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 3,
+              "update": 2,
+              "train_ids": [
+                "SLAKE:2838",
+                "SLAKE:4622"
+              ],
+              "replay_ids": [],
+              "loss": 2.799927234649658,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 32.61011505126953,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 7,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 3,
+              "update": 3,
+              "train_ids": [
+                "SLAKE:8996",
+                "SLAKE:5100"
+              ],
+              "replay_ids": [],
+              "loss": 5.836401700973511,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 100.1745834350586,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 4,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 3,
+              "update": 4,
+              "train_ids": [
+                "SLAKE:7525",
+                "SLAKE:5284"
+              ],
+              "replay_ids": [],
+              "loss": 3.0535038709640503,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 73.50601196289062,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 5,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            }
+          ],
+          "new_plus_replay_exposures": 8,
+          "fisher_extra_QA": 0,
+          "parameters_changed_vs_previous_stage": true
+        },
+        {
+          "stage": 4,
+          "task": 6,
+          "events": [
+            {
+              "stage": 4,
+              "update": 1,
+              "train_ids": [
+                "SLAKE:7618",
+                "SLAKE:7093"
+              ],
+              "replay_ids": [],
+              "loss": 4.026530385017395,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 118.52354431152344,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 5,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 4,
+              "update": 2,
+              "train_ids": [
+                "SLAKE:2501",
+                "SLAKE:1830"
+              ],
+              "replay_ids": [],
+              "loss": 0.5316617488861084,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 12.623968124389648,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 4,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 4,
+              "update": 3,
+              "train_ids": [
+                "SLAKE:6750",
+                "SLAKE:9660"
+              ],
+              "replay_ids": [],
+              "loss": 3.572872519493103,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 57.17888259887695,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 8,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 4,
+              "update": 4,
+              "train_ids": [
+                "SLAKE:6370",
+                "SLAKE:5175"
+              ],
+              "replay_ids": [],
+              "loss": 1.9640043377876282,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 22.344669342041016,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 7,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            }
+          ],
+          "new_plus_replay_exposures": 8,
+          "fisher_extra_QA": 0,
+          "parameters_changed_vs_previous_stage": true
+        },
+        {
+          "stage": 5,
+          "task": 11,
+          "events": [
+            {
+              "stage": 5,
+              "update": 1,
+              "train_ids": [
+                "SLAKE:7920",
+                "SLAKE:3048"
+              ],
+              "replay_ids": [],
+              "loss": 1.4284746646881104,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 29.074535369873047,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 5,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 5,
+              "update": 2,
+              "train_ids": [
+                "SLAKE:8007",
+                "SLAKE:1980"
+              ],
+              "replay_ids": [],
+              "loss": 2.183043032884598,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 24.984901428222656,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 6,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 5,
+              "update": 3,
+              "train_ids": [
+                "SLAKE:3189",
+                "SLAKE:7415"
+              ],
+              "replay_ids": [],
+              "loss": 2.579971969127655,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 63.98006057739258,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 9,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 5,
+              "update": 4,
+              "train_ids": [
+                "SLAKE:2993",
+                "SLAKE:8228"
+              ],
+              "replay_ids": [],
+              "loss": 2.0861889123916626,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 29.791635513305664,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 12,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            }
+          ],
+          "new_plus_replay_exposures": 8,
+          "fisher_extra_QA": 0,
+          "parameters_changed_vs_previous_stage": true
+        }
+      ],
+      "TRAIN_memory_bytes": [
+        {
+          "stage": 1,
+          "before": {
+            "VmRSS_bytes": 2582077440,
+            "Pss_bytes": 2418166784,
+            "cpu_uss_bytes": 2362888192,
+            "gpu_allocated_bytes": 1809211392,
+            "gpu_reserved_bytes": 1881145344,
+            "gpu_process_nvml_bytes": 2191523840
+          },
+          "after": {
+            "VmRSS_bytes": 2739318784,
+            "Pss_bytes": 2506365952,
+            "cpu_uss_bytes": 2421436416,
+            "gpu_allocated_bytes": 1891863552,
+            "gpu_reserved_bytes": 3412066304,
+            "gpu_process_nvml_bytes": 3802136576
+          },
+          "growth": {
+            "VmRSS_bytes": 157241344,
+            "Pss_bytes": 88199168,
+            "cpu_uss_bytes": 58548224,
+            "gpu_allocated_bytes": 82652160,
+            "gpu_reserved_bytes": 1530920960,
+            "gpu_process_nvml_bytes": 1610612736
+          },
+          "sampled_CPU_peak": {
+            "VmRSS_bytes": 2739318784,
+            "Pss_bytes": 2506365952,
+            "cpu_uss_bytes": 2421436416
+          },
+          "CUDA_allocator_peak_training_window": {
+            "gpu_peak_allocated_bytes": 2835208704,
+            "gpu_peak_reserved_bytes": 3412066304
+          },
+          "note": "CPU/NVML sampled; CUDA allocator peak reset before stage. VmHWM is not a stage peak. Fisher and whole-case windows remain separately in original artifacts."
+        },
+        {
+          "stage": 2,
+          "before": {
+            "VmRSS_bytes": 2752151552,
+            "Pss_bytes": 2515442688,
+            "cpu_uss_bytes": 2428399616,
+            "gpu_allocated_bytes": 1876320256,
+            "gpu_reserved_bytes": 3456106496,
+            "gpu_process_nvml_bytes": 3846176768
+          },
+          "after": {
+            "VmRSS_bytes": 2752430080,
+            "Pss_bytes": 2515716096,
+            "cpu_uss_bytes": 2428678144,
+            "gpu_allocated_bytes": 1885561856,
+            "gpu_reserved_bytes": 3456106496,
+            "gpu_process_nvml_bytes": 3846176768
+          },
+          "growth": {
+            "VmRSS_bytes": 278528,
+            "Pss_bytes": 273408,
+            "cpu_uss_bytes": 278528,
+            "gpu_allocated_bytes": 9241600,
+            "gpu_reserved_bytes": 0,
+            "gpu_process_nvml_bytes": 0
+          },
+          "sampled_CPU_peak": {
+            "VmRSS_bytes": 2752430080,
+            "Pss_bytes": 2515721216,
+            "cpu_uss_bytes": 2428678144
+          },
+          "CUDA_allocator_peak_training_window": {
+            "gpu_peak_allocated_bytes": 2838005760,
+            "gpu_peak_reserved_bytes": 3456106496
+          },
+          "note": "CPU/NVML sampled; CUDA allocator peak reset before stage. VmHWM is not a stage peak. Fisher and whole-case windows remain separately in original artifacts."
+        },
+        {
+          "stage": 3,
+          "before": {
+            "VmRSS_bytes": 2753425408,
+            "Pss_bytes": 2516703232,
+            "cpu_uss_bytes": 2429665280,
+            "gpu_allocated_bytes": 1876320256,
+            "gpu_reserved_bytes": 3456106496,
+            "gpu_process_nvml_bytes": 3846176768
+          },
+          "after": {
+            "VmRSS_bytes": 2779025408,
+            "Pss_bytes": 2543007744,
+            "cpu_uss_bytes": 2455969792,
+            "gpu_allocated_bytes": 1905024000,
+            "gpu_reserved_bytes": 3456106496,
+            "gpu_process_nvml_bytes": 3846176768
+          },
+          "growth": {
+            "VmRSS_bytes": 25600000,
+            "Pss_bytes": 26304512,
+            "cpu_uss_bytes": 26304512,
+            "gpu_allocated_bytes": 28703744,
+            "gpu_reserved_bytes": 0,
+            "gpu_process_nvml_bytes": 0
+          },
+          "sampled_CPU_peak": {
+            "VmRSS_bytes": 2779025408,
+            "Pss_bytes": 2543007744,
+            "cpu_uss_bytes": 2455969792
+          },
+          "CUDA_allocator_peak_training_window": {
+            "gpu_peak_allocated_bytes": 2837628416,
+            "gpu_peak_reserved_bytes": 3456106496
+          },
+          "note": "CPU/NVML sampled; CUDA allocator peak reset before stage. VmHWM is not a stage peak. Fisher and whole-case windows remain separately in original artifacts."
+        },
+        {
+          "stage": 4,
+          "before": {
+            "VmRSS_bytes": 2766684160,
+            "Pss_bytes": 2529970176,
+            "cpu_uss_bytes": 2442932224,
+            "gpu_allocated_bytes": 1876320256,
+            "gpu_reserved_bytes": 3456106496,
+            "gpu_process_nvml_bytes": 3846176768
+          },
+          "after": {
+            "VmRSS_bytes": 2792361984,
+            "Pss_bytes": 2556360704,
+            "cpu_uss_bytes": 2469322752,
+            "gpu_allocated_bytes": 1905031168,
+            "gpu_reserved_bytes": 3456106496,
+            "gpu_process_nvml_bytes": 3846176768
+          },
+          "growth": {
+            "VmRSS_bytes": 25677824,
+            "Pss_bytes": 26390528,
+            "cpu_uss_bytes": 26390528,
+            "gpu_allocated_bytes": 28710912,
+            "gpu_reserved_bytes": 0,
+            "gpu_process_nvml_bytes": 0
+          },
+          "sampled_CPU_peak": {
+            "VmRSS_bytes": 2792361984,
+            "Pss_bytes": 2556360704,
+            "cpu_uss_bytes": 2469322752
+          },
+          "CUDA_allocator_peak_training_window": {
+            "gpu_peak_allocated_bytes": 2838264832,
+            "gpu_peak_reserved_bytes": 3456106496
+          },
+          "note": "CPU/NVML sampled; CUDA allocator peak reset before stage. VmHWM is not a stage peak. Fisher and whole-case windows remain separately in original artifacts."
+        },
+        {
+          "stage": 5,
+          "before": {
+            "VmRSS_bytes": 2858627072,
+            "Pss_bytes": 2622535680,
+            "cpu_uss_bytes": 2535497728,
+            "gpu_allocated_bytes": 1876320256,
+            "gpu_reserved_bytes": 3456106496,
+            "gpu_process_nvml_bytes": 3846176768
+          },
+          "after": {
+            "VmRSS_bytes": 2884726784,
+            "Pss_bytes": 2648872960,
+            "cpu_uss_bytes": 2561835008,
+            "gpu_allocated_bytes": 1885561856,
+            "gpu_reserved_bytes": 3456106496,
+            "gpu_process_nvml_bytes": 3846176768
+          },
+          "growth": {
+            "VmRSS_bytes": 26099712,
+            "Pss_bytes": 26337280,
+            "cpu_uss_bytes": 26337280,
+            "gpu_allocated_bytes": 9241600,
+            "gpu_reserved_bytes": 0,
+            "gpu_process_nvml_bytes": 0
+          },
+          "sampled_CPU_peak": {
+            "VmRSS_bytes": 2884726784,
+            "Pss_bytes": 2648872960,
+            "cpu_uss_bytes": 2561835008
+          },
+          "CUDA_allocator_peak_training_window": {
+            "gpu_peak_allocated_bytes": 2838401024,
+            "gpu_peak_reserved_bytes": 3456106496
+          },
+          "note": "CPU/NVML sampled; CUDA allocator peak reset before stage. VmHWM is not a stage peak. Fisher and whole-case windows remain separately in original artifacts."
+        }
+      ],
+      "whole_case_memory": {
+        "unit": "bytes",
+        "pid": 253522,
+        "boot_id": "e6182f56-39be-4e37-908d-3cfadaa7448f",
+        "process_started_unix": 1792246697.0675297,
+        "before": {
+          "phase": "case_before",
+          "stage": 0,
+          "unix": 1792246705.1871033,
+          "pid": 253522,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4467658752,
+          "VmRSS_bytes": 2514677760,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2379531264,
+          "Private_Clean_bytes": 65671168,
+          "Private_Dirty_bytes": 2273005568,
+          "cpu_uss_bytes": 2338676736,
+          "gpu_allocated_bytes": 1809211392,
+          "gpu_reserved_bytes": 1881145344,
+          "gpu_peak_allocated_bytes": 1809211392,
+          "gpu_peak_reserved_bytes": 1881145344,
+          "gpu_process_nvml_bytes": 2191523840,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "after": {
+          "phase": "case_after",
+          "stage": 0,
+          "unix": 1792247074.9988625,
+          "pid": 253522,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4467658752,
+          "VmRSS_bytes": 2753892352,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2517169152,
+          "Private_Clean_bytes": 110809088,
+          "Private_Dirty_bytes": 2319323136,
+          "cpu_uss_bytes": 2430132224,
+          "gpu_allocated_bytes": 1876320256,
+          "gpu_reserved_bytes": 3456106496,
+          "gpu_peak_allocated_bytes": 2838401024,
+          "gpu_peak_reserved_bytes": 3456106496,
+          "gpu_process_nvml_bytes": 3846176768,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "scope": "whole case includes inference; per-stage TRAIN/Fisher snapshots separate",
+        "growth_bytes": {
+          "VmRSS_bytes": 239214592,
+          "Pss_bytes": 137637888,
+          "cpu_uss_bytes": 91455488,
+          "gpu_allocated_bytes": 67108864,
+          "gpu_reserved_bytes": 1574961152,
+          "gpu_process_nvml_bytes": 1654652928
+        },
+        "observed_peak_bytes": {
+          "VmRSS_bytes": 2916528128,
+          "Pss_bytes": 2679805952,
+          "cpu_uss_bytes": 2592768000,
+          "gpu_allocated_bytes": 2275516416,
+          "gpu_reserved_bytes": 3456106496,
+          "gpu_process_nvml_bytes": 3846176768
+        },
+        "note": "Same-PID before/after; fresh process per cap. On recovery these describe resumed process only. Stage diagnostics are included in observed peaks; allocator cache is separate from parameter growth.",
+        "all_process_observed_peak_bytes": {
+          "VmRSS_bytes": 2916528128,
+          "Pss_bytes": 2679805952,
+          "cpu_uss_bytes": 2592768000,
+          "gpu_allocated_bytes": 2275516416,
+          "gpu_reserved_bytes": 3456106496,
+          "gpu_process_nvml_bytes": 3846176768
+        }
+      },
+      "full_native_anchor_final": {
+        "Answer_F1": 34.16831032215645,
+        "QA": 507
+      }
+    },
+    {
+      "case": "T04_within_medical__ER_LoRA",
+      "anchor": 4,
+      "sequence": "within_medical",
+      "method": "ER_LoRA",
+      "run": "exp/onevision_matched_task_domain_20261017/T04_within_medical__ER_LoRA/20261017_222441",
+      "anchor_stage1_to3": {
+        "QA": 32,
+        "Answer_F1_before": 19.375,
+        "Answer_F1_after": 10.694444444444445,
+        "quality_changes": {
+          "increased": 0,
+          "decreased": 5,
+          "unchanged": 27
+        },
+        "delta_Answer_F1": {
+          "mean": -8.680555555555554,
+          "image_cluster_95CI": [
+            -17.275985663082437,
+            -1.9047619047619044
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        },
+        "delta_NLL": {
+          "mean": -3.085172286257148,
+          "image_cluster_95CI": [
+            -3.623168853021437,
+            -2.503603823723332
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        }
+      },
+      "anchor_stage1_to5": {
+        "QA": 32,
+        "Answer_F1_before": 19.375,
+        "Answer_F1_after": 23.958333333333332,
+        "quality_changes": {
+          "increased": 5,
+          "decreased": 2,
+          "unchanged": 25
+        },
+        "delta_Answer_F1": {
+          "mean": 4.583333333333334,
+          "image_cluster_95CI": [
+            -3.1111111111111094,
+            12.903225806451617
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        },
+        "delta_NLL": {
+          "mean": -4.385245028883219,
+          "image_cluster_95CI": [
+            -5.0941172224633835,
+            -3.6208758605644107
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        }
+      },
+      "current_task_scores_after_stages2_to5": {
+        "Answer_F1": 27.247023809523807
+      },
+      "current_scope": "32 stage-observations, possibly repeated IDs; not32 independent QA or old-task retention.",
+      "training": [
+        {
+          "stage": 1,
+          "task": 4,
+          "events": [
+            {
+              "stage": 1,
+              "update": 1,
+              "train_ids": [
+                "SLAKE:7928",
+                "SLAKE:3748"
+              ],
+              "replay_ids": [],
+              "loss": 10.460878849029541,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 156.1929168701172,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 4,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 1,
+              "update": 2,
+              "train_ids": [
+                "SLAKE:2673",
+                "SLAKE:4539"
+              ],
+              "replay_ids": [],
+              "loss": 7.335370063781738,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 111.69593811035156,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 5,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 1,
+              "update": 3,
+              "train_ids": [
+                "SLAKE:6268",
+                "SLAKE:3350"
+              ],
+              "replay_ids": [],
+              "loss": 8.057741403579712,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 78.08799743652344,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 5,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 1,
+              "update": 4,
+              "train_ids": [
+                "SLAKE:9791",
+                "SLAKE:9284"
+              ],
+              "replay_ids": [],
+              "loss": 7.7687578201293945,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 107.09455108642578,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 5,
+              "memory_size": 0,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            }
+          ],
+          "new_plus_replay_exposures": 8,
+          "fisher_extra_QA": 0,
+          "parameters_changed_vs_previous_stage": null
+        },
+        {
+          "stage": 2,
+          "task": 2,
+          "events": [
+            {
+              "stage": 2,
+              "update": 1,
+              "train_ids": [
+                "SLAKE:1422",
+                "SLAKE:8462"
+              ],
+              "replay_ids": [
+                "SLAKE:6268",
+                "SLAKE:3350"
+              ],
+              "loss": 5.898157715797424,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 120.55799865722656,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 10,
+              "memory_size": 8,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 2,
+              "update": 2,
+              "train_ids": [
+                "SLAKE:9550",
+                "SLAKE:2954"
+              ],
+              "replay_ids": [
+                "SLAKE:9791",
+                "SLAKE:3350"
+              ],
+              "loss": 4.343836694955826,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 70.67174530029297,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 10,
+              "memory_size": 8,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 2,
+              "update": 3,
+              "train_ids": [
+                "SLAKE:8435",
+                "SLAKE:468"
+              ],
+              "replay_ids": [
+                "SLAKE:6268",
+                "SLAKE:6268"
+              ],
+              "loss": 4.452215909957886,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 58.49818801879883,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 12,
+              "memory_size": 8,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 2,
+              "update": 4,
+              "train_ids": [
+                "SLAKE:663",
+                "SLAKE:3990"
+              ],
+              "replay_ids": [
+                "SLAKE:3350",
+                "SLAKE:3748"
+              ],
+              "loss": 2.4909622967243195,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 49.989139556884766,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 10,
+              "memory_size": 8,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            }
+          ],
+          "new_plus_replay_exposures": 16,
+          "fisher_extra_QA": 0,
+          "parameters_changed_vs_previous_stage": true
+        },
+        {
+          "stage": 3,
+          "task": 3,
+          "events": [
+            {
+              "stage": 3,
+              "update": 1,
+              "train_ids": [
+                "SLAKE:4881",
+                "SLAKE:2086"
+              ],
+              "replay_ids": [
+                "SLAKE:2954",
+                "SLAKE:2673"
+              ],
+              "loss": 1.9485756754875183,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 36.10879898071289,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 11,
+              "memory_size": 8,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 3,
+              "update": 2,
+              "train_ids": [
+                "SLAKE:2838",
+                "SLAKE:4622"
+              ],
+              "replay_ids": [
+                "SLAKE:3990",
+                "SLAKE:8462"
+              ],
+              "loss": 3.445758819580078,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 64.57349395751953,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 13,
+              "memory_size": 8,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 3,
+              "update": 3,
+              "train_ids": [
+                "SLAKE:8996",
+                "SLAKE:5100"
+              ],
+              "replay_ids": [
+                "SLAKE:2954",
+                "SLAKE:9791"
+              ],
+              "loss": 4.725473001599312,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 79.00323486328125,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 9,
+              "memory_size": 8,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 3,
+              "update": 4,
+              "train_ids": [
+                "SLAKE:7525",
+                "SLAKE:5284"
+              ],
+              "replay_ids": [
+                "SLAKE:3990",
+                "SLAKE:4539"
+              ],
+              "loss": 3.205405831336975,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 80.94002532958984,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 10,
+              "memory_size": 8,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            }
+          ],
+          "new_plus_replay_exposures": 16,
+          "fisher_extra_QA": 0,
+          "parameters_changed_vs_previous_stage": true
+        },
+        {
+          "stage": 4,
+          "task": 6,
+          "events": [
+            {
+              "stage": 4,
+              "update": 1,
+              "train_ids": [
+                "SLAKE:7618",
+                "SLAKE:7093"
+              ],
+              "replay_ids": [
+                "SLAKE:8996",
+                "SLAKE:2673"
+              ],
+              "loss": 4.538703441619873,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 72.50544738769531,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 10,
+              "memory_size": 8,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 4,
+              "update": 2,
+              "train_ids": [
+                "SLAKE:2501",
+                "SLAKE:1830"
+              ],
+              "replay_ids": [
+                "SLAKE:5284",
+                "SLAKE:1422"
+              ],
+              "loss": 1.4029069319367409,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 31.55229949951172,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 9,
+              "memory_size": 8,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 4,
+              "update": 3,
+              "train_ids": [
+                "SLAKE:6750",
+                "SLAKE:9660"
+              ],
+              "replay_ids": [
+                "SLAKE:5284",
+                "SLAKE:5284"
+              ],
+              "loss": 3.3770528435707092,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 48.838897705078125,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 14,
+              "memory_size": 8,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 4,
+              "update": 4,
+              "train_ids": [
+                "SLAKE:6370",
+                "SLAKE:5175"
+              ],
+              "replay_ids": [
+                "SLAKE:8996",
+                "SLAKE:2086"
+              ],
+              "loss": 2.826717495918274,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 21.871435165405273,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 12,
+              "memory_size": 8,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            }
+          ],
+          "new_plus_replay_exposures": 16,
+          "fisher_extra_QA": 0,
+          "parameters_changed_vs_previous_stage": true
+        },
+        {
+          "stage": 5,
+          "task": 11,
+          "events": [
+            {
+              "stage": 5,
+              "update": 1,
+              "train_ids": [
+                "SLAKE:7920",
+                "SLAKE:3048"
+              ],
+              "replay_ids": [
+                "SLAKE:2086",
+                "SLAKE:3350"
+              ],
+              "loss": 1.3423503041267395,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 68.44351959228516,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 10,
+              "memory_size": 8,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 5,
+              "update": 2,
+              "train_ids": [
+                "SLAKE:8007",
+                "SLAKE:1980"
+              ],
+              "replay_ids": [
+                "SLAKE:2673",
+                "SLAKE:4881"
+              ],
+              "loss": 1.9420678466558456,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 18.205368041992188,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 12,
+              "memory_size": 8,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 5,
+              "update": 3,
+              "train_ids": [
+                "SLAKE:3189",
+                "SLAKE:7415"
+              ],
+              "replay_ids": [
+                "SLAKE:2086",
+                "SLAKE:5284"
+              ],
+              "loss": 2.255484700202942,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 13.42232894897461,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 15,
+              "memory_size": 8,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            },
+            {
+              "stage": 5,
+              "update": 4,
+              "train_ids": [
+                "SLAKE:2993",
+                "SLAKE:8228"
+              ],
+              "replay_ids": [
+                "SLAKE:2673",
+                "SLAKE:2954"
+              ],
+              "loss": 1.5728421062231064,
+              "penalty": 0.0,
+              "gradient_l2_preclip": 11.622790336608887,
+              "lr_used": 0.0001,
+              "anchor_gradient_dot": null,
+              "target_tokens": 17,
+              "memory_size": 8,
+              "projection_applied": false,
+              "reference_extra_QA": 0
+            }
+          ],
+          "new_plus_replay_exposures": 16,
+          "fisher_extra_QA": 0,
+          "parameters_changed_vs_previous_stage": true
+        }
+      ],
+      "TRAIN_memory_bytes": [
+        {
+          "stage": 1,
+          "before": {
+            "VmRSS_bytes": 2257833984,
+            "Pss_bytes": 2086781952,
+            "cpu_uss_bytes": 2031370240,
+            "gpu_allocated_bytes": 1809211392,
+            "gpu_reserved_bytes": 1881145344,
+            "gpu_process_nvml_bytes": 2191523840
+          },
+          "after": {
+            "VmRSS_bytes": 2486759424,
+            "Pss_bytes": 2254896128,
+            "cpu_uss_bytes": 2169921536,
+            "gpu_allocated_bytes": 1891863552,
+            "gpu_reserved_bytes": 3412066304,
+            "gpu_process_nvml_bytes": 3802136576
+          },
+          "growth": {
+            "VmRSS_bytes": 228925440,
+            "Pss_bytes": 168114176,
+            "cpu_uss_bytes": 138551296,
+            "gpu_allocated_bytes": 82652160,
+            "gpu_reserved_bytes": 1530920960,
+            "gpu_process_nvml_bytes": 1610612736
+          },
+          "sampled_CPU_peak": {
+            "VmRSS_bytes": 2486759424,
+            "Pss_bytes": 2254896128,
+            "cpu_uss_bytes": 2169921536
+          },
+          "CUDA_allocator_peak_training_window": {
+            "gpu_peak_allocated_bytes": 2835208704,
+            "gpu_peak_reserved_bytes": 3412066304
+          },
+          "note": "CPU/NVML sampled; CUDA allocator peak reset before stage. VmHWM is not a stage peak. Fisher and whole-case windows remain separately in original artifacts."
+        },
+        {
+          "stage": 2,
+          "before": {
+            "VmRSS_bytes": 2553090048,
+            "Pss_bytes": 2317146112,
+            "cpu_uss_bytes": 2229837824,
+            "gpu_allocated_bytes": 1876320256,
+            "gpu_reserved_bytes": 3456106496,
+            "gpu_process_nvml_bytes": 3846176768
+          },
+          "after": {
+            "VmRSS_bytes": 2588618752,
+            "Pss_bytes": 2352674816,
+            "cpu_uss_bytes": 2265366528,
+            "gpu_allocated_bytes": 1885561856,
+            "gpu_reserved_bytes": 3456106496,
+            "gpu_process_nvml_bytes": 3846176768
+          },
+          "growth": {
+            "VmRSS_bytes": 35528704,
+            "Pss_bytes": 35528704,
+            "cpu_uss_bytes": 35528704,
+            "gpu_allocated_bytes": 9241600,
+            "gpu_reserved_bytes": 0,
+            "gpu_process_nvml_bytes": 0
+          },
+          "sampled_CPU_peak": {
+            "VmRSS_bytes": 2588618752,
+            "Pss_bytes": 2352674816,
+            "cpu_uss_bytes": 2265366528
+          },
+          "CUDA_allocator_peak_training_window": {
+            "gpu_peak_allocated_bytes": 2838005760,
+            "gpu_peak_reserved_bytes": 3456106496
+          },
+          "note": "CPU/NVML sampled; CUDA allocator peak reset before stage. VmHWM is not a stage peak. Fisher and whole-case windows remain separately in original artifacts."
+        },
+        {
+          "stage": 3,
+          "before": {
+            "VmRSS_bytes": 2579050496,
+            "Pss_bytes": 2343856128,
+            "cpu_uss_bytes": 2256547840,
+            "gpu_allocated_bytes": 1876320256,
+            "gpu_reserved_bytes": 3456106496,
+            "gpu_process_nvml_bytes": 3846176768
+          },
+          "after": {
+            "VmRSS_bytes": 2607091712,
+            "Pss_bytes": 2371155968,
+            "cpu_uss_bytes": 2283847680,
+            "gpu_allocated_bytes": 1891866624,
+            "gpu_reserved_bytes": 3456106496,
+            "gpu_process_nvml_bytes": 3846176768
+          },
+          "growth": {
+            "VmRSS_bytes": 28041216,
+            "Pss_bytes": 27299840,
+            "cpu_uss_bytes": 27299840,
+            "gpu_allocated_bytes": 15546368,
+            "gpu_reserved_bytes": 0,
+            "gpu_process_nvml_bytes": 0
+          },
+          "sampled_CPU_peak": {
+            "VmRSS_bytes": 2607091712,
+            "Pss_bytes": 2371155968,
+            "cpu_uss_bytes": 2283847680
+          },
+          "CUDA_allocator_peak_training_window": {
+            "gpu_peak_allocated_bytes": 2837628416,
+            "gpu_peak_reserved_bytes": 3456106496
+          },
+          "note": "CPU/NVML sampled; CUDA allocator peak reset before stage. VmHWM is not a stage peak. Fisher and whole-case windows remain separately in original artifacts."
+        },
+        {
+          "stage": 4,
+          "before": {
+            "VmRSS_bytes": 2651086848,
+            "Pss_bytes": 2415142912,
+            "cpu_uss_bytes": 2327834624,
+            "gpu_allocated_bytes": 1876320256,
+            "gpu_reserved_bytes": 3456106496,
+            "gpu_process_nvml_bytes": 3846176768
+          },
+          "after": {
+            "VmRSS_bytes": 2672173056,
+            "Pss_bytes": 2437122048,
+            "cpu_uss_bytes": 2349813760,
+            "gpu_allocated_bytes": 1905055744,
+            "gpu_reserved_bytes": 3456106496,
+            "gpu_process_nvml_bytes": 3846176768
+          },
+          "growth": {
+            "VmRSS_bytes": 21086208,
+            "Pss_bytes": 21979136,
+            "cpu_uss_bytes": 21979136,
+            "gpu_allocated_bytes": 28735488,
+            "gpu_reserved_bytes": 0,
+            "gpu_process_nvml_bytes": 0
+          },
+          "sampled_CPU_peak": {
+            "VmRSS_bytes": 2672173056,
+            "Pss_bytes": 2437122048,
+            "cpu_uss_bytes": 2349813760
+          },
+          "CUDA_allocator_peak_training_window": {
+            "gpu_peak_allocated_bytes": 2839821312,
+            "gpu_peak_reserved_bytes": 3456106496
+          },
+          "note": "CPU/NVML sampled; CUDA allocator peak reset before stage. VmHWM is not a stage peak. Fisher and whole-case windows remain separately in original artifacts."
+        },
+        {
+          "stage": 5,
+          "before": {
+            "VmRSS_bytes": 2712494080,
+            "Pss_bytes": 2476881920,
+            "cpu_uss_bytes": 2389573632,
+            "gpu_allocated_bytes": 1876320256,
+            "gpu_reserved_bytes": 3456106496,
+            "gpu_process_nvml_bytes": 3846176768
+          },
+          "after": {
+            "VmRSS_bytes": 2712891392,
+            "Pss_bytes": 2476947456,
+            "cpu_uss_bytes": 2389639168,
+            "gpu_allocated_bytes": 1891852288,
+            "gpu_reserved_bytes": 3456106496,
+            "gpu_process_nvml_bytes": 3846176768
+          },
+          "growth": {
+            "VmRSS_bytes": 397312,
+            "Pss_bytes": 65536,
+            "cpu_uss_bytes": 65536,
+            "gpu_allocated_bytes": 15532032,
+            "gpu_reserved_bytes": 0,
+            "gpu_process_nvml_bytes": 0
+          },
+          "sampled_CPU_peak": {
+            "VmRSS_bytes": 2712891392,
+            "Pss_bytes": 2476947456,
+            "cpu_uss_bytes": 2389639168
+          },
+          "CUDA_allocator_peak_training_window": {
+            "gpu_peak_allocated_bytes": 2839821312,
+            "gpu_peak_reserved_bytes": 3456106496
+          },
+          "note": "CPU/NVML sampled; CUDA allocator peak reset before stage. VmHWM is not a stage peak. Fisher and whole-case windows remain separately in original artifacts."
+        }
+      ],
+      "whole_case_memory": {
+        "unit": "bytes",
+        "pid": 255226,
+        "boot_id": "e6182f56-39be-4e37-908d-3cfadaa7448f",
+        "process_started_unix": 1792247081.5369425,
+        "before": {
+          "phase": "case_before",
+          "stage": 0,
+          "unix": 1792247090.0377781,
+          "pid": 255226,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4143296512,
+          "VmRSS_bytes": 2190614528,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2048157696,
+          "Private_Clean_bytes": 66019328,
+          "Private_Dirty_bytes": 1941135360,
+          "cpu_uss_bytes": 2007154688,
+          "gpu_allocated_bytes": 1809211392,
+          "gpu_reserved_bytes": 1881145344,
+          "gpu_peak_allocated_bytes": 1809211392,
+          "gpu_peak_reserved_bytes": 1881145344,
+          "gpu_process_nvml_bytes": 2191523840,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "after": {
+          "phase": "case_after",
+          "stage": 0,
+          "unix": 1792247241.2812967,
+          "pid": 255226,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4143296512,
+          "VmRSS_bytes": 2686476288,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2450532352,
+          "Private_Clean_bytes": 110120960,
+          "Private_Dirty_bytes": 2253103104,
+          "cpu_uss_bytes": 2363224064,
+          "gpu_allocated_bytes": 1876320256,
+          "gpu_reserved_bytes": 3456106496,
+          "gpu_peak_allocated_bytes": 2839821312,
+          "gpu_peak_reserved_bytes": 3456106496,
+          "gpu_process_nvml_bytes": 3846176768,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "scope": "whole case includes inference; per-stage TRAIN/Fisher snapshots separate",
+        "growth_bytes": {
+          "VmRSS_bytes": 495861760,
+          "Pss_bytes": 402374656,
+          "cpu_uss_bytes": 356069376,
+          "gpu_allocated_bytes": 67108864,
+          "gpu_reserved_bytes": 1574961152,
+          "gpu_process_nvml_bytes": 1654652928
+        },
+        "observed_peak_bytes": {
+          "VmRSS_bytes": 2730455040,
+          "Pss_bytes": 2494515200,
+          "cpu_uss_bytes": 2407206912,
+          "gpu_allocated_bytes": 2394798080,
+          "gpu_reserved_bytes": 3456106496,
+          "gpu_process_nvml_bytes": 3846176768
+        },
+        "note": "Same-PID before/after; fresh process per cap. On recovery these describe resumed process only. Stage diagnostics are included in observed peaks; allocator cache is separate from parameter growth.",
+        "all_process_observed_peak_bytes": {
+          "VmRSS_bytes": 2730455040,
+          "Pss_bytes": 2494515200,
+          "cpu_uss_bytes": 2407206912,
+          "gpu_allocated_bytes": 2394798080,
+          "gpu_reserved_bytes": 3456106496,
+          "gpu_process_nvml_bytes": 3846176768
+        }
+      }
     }
   ],
-  "sequence_contrasts": [],
+  "sequence_contrasts": [
+    {
+      "anchor": 4,
+      "method": "SeqFT_LoRA",
+      "treatment": "within_medical",
+      "control": "repeat_anchor",
+      "anchor_difference_in_changes": {
+        "Answer_F1": {
+          "mean": -5.208333333333333,
+          "image_cluster_95CI": [
+            -13.020833333333332,
+            0.0
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        },
+        "NLL": {
+          "mean": 0.12307772669009864,
+          "image_cluster_95CI": [
+            0.020812358827360215,
+            0.2294755989024716
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        }
+      },
+      "full_native_anchor_final_only_difference": {
+        "QA": 507,
+        "Answer_F1_before": 35.101906640368156,
+        "Answer_F1_after": 34.16831032215645,
+        "quality_changes": {
+          "increased": 27,
+          "decreased": 36,
+          "unchanged": 444
+        },
+        "delta_Answer_F1": {
+          "mean": -0.9335963182117024,
+          "image_cluster_95CI": [
+            -3.717679944095038,
+            1.8079096045197742
+          ],
+          "QA": 507,
+          "image_clusters": 158,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        },
+        "delta_NLL": {
+          "mean": 0.09456712929936056,
+          "image_cluster_95CI": [
+            0.06498325383769724,
+            0.12351490196306258
+          ],
+          "QA": 507,
+          "image_clusters": 158,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        }
+      },
+      "full_scope": "Full anchor final-only paired scores; no measured full stage1/FWT/BWT."
+    },
+    {
+      "anchor": 4,
+      "method": "ER_LoRA",
+      "treatment": "within_medical",
+      "control": "repeat_anchor",
+      "anchor_difference_in_changes": {
+        "Answer_F1": {
+          "mean": -1.041666666666667,
+          "image_cluster_95CI": [
+            -10.752688172043012,
+            8.333333333333334
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        },
+        "NLL": {
+          "mean": 0.14555568806827068,
+          "image_cluster_95CI": [
+            -0.06838083575511801,
+            0.33820419013500214
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        }
+      }
+    }
+  ],
   "method_vs_SeqFT": [
     {
       "anchor": 4,
@@ -3890,6 +6253,70 @@
         "Answer_F1": 0.0
       },
       "current_scope": "Same sequence and current IDs, stage-observation mean; extra ER/Fisher/reference cost recorded, not equal total compute."
+    },
+    {
+      "anchor": 4,
+      "sequence": "repeat_anchor",
+      "method": "anchor_gradient_projection",
+      "control": "SeqFT_LoRA",
+      "anchor_difference_in_changes": {
+        "Answer_F1": {
+          "mean": 0.0,
+          "image_cluster_95CI": [
+            0.0,
+            0.0
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        },
+        "NLL": {
+          "mean": 0.0,
+          "image_cluster_95CI": [
+            0.0,
+            0.0
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        }
+      },
+      "current_task_difference": {
+        "Answer_F1": 0.0
+      },
+      "current_scope": "Same sequence and current IDs, stage-observation mean; extra ER/Fisher/reference cost recorded, not equal total compute."
+    },
+    {
+      "anchor": 4,
+      "sequence": "within_medical",
+      "method": "ER_LoRA",
+      "control": "SeqFT_LoRA",
+      "anchor_difference_in_changes": {
+        "Answer_F1": {
+          "mean": 1.5625,
+          "image_cluster_95CI": [
+            0.0,
+            5.0
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        },
+        "NLL": {
+          "mean": -0.006538354326039553,
+          "image_cluster_95CI": [
+            -0.08503283704480817,
+            0.08310909271240234
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        }
+      },
+      "current_task_difference": {
+        "Answer_F1": -1.341991341991342
+      },
+      "current_scope": "Same sequence and current IDs, stage-observation mean; extra ER/Fisher/reference cost recorded, not equal total compute."
     }
   ],
   "primary_metric": "Answer F1",
@@ -3920,9 +6347,12 @@
     "summary/onevision_diagnostics_20261016/matched_task_domain/T04_repeat_anchor__ER_LoRA_complete.json": "8399754d022cfa4f0cb423ab648ecfe1961b2732cd77ad98428986a686251f61",
     "summary/onevision_diagnostics_20261016/matched_task_domain/T04_repeat_anchor__EWC_lambda1_complete.json": "51350b78d9cb69aabb98efbc4da050c154ce04ce9ed2e71c25b90efae4fd877a",
     "summary/onevision_diagnostics_20261016/matched_task_domain/T04_repeat_anchor__EWC_lambda100_complete.json": "f424dfe9307370842893ab2c92328af21212b8898ef84a4a9c3d813d91185039",
-    "summary/onevision_diagnostics_20261016/matched_task_domain/T04_repeat_anchor__anchor_gradient_noop_complete.json": "060ee1092574cd75be4e916cdc9f24de683c26b3b4cd59126826cf8e5d66000a"
+    "summary/onevision_diagnostics_20261016/matched_task_domain/T04_repeat_anchor__anchor_gradient_noop_complete.json": "060ee1092574cd75be4e916cdc9f24de683c26b3b4cd59126826cf8e5d66000a",
+    "summary/onevision_diagnostics_20261016/matched_task_domain/T04_repeat_anchor__anchor_gradient_projection_complete.json": "4c9b423b3b32673606a9c896047048c2fe840a05a3aa7cbbd7c8923ee6a5f967",
+    "summary/onevision_diagnostics_20261016/matched_task_domain/T04_within_medical__SeqFT_LoRA_complete.json": "14e8341c168370dd31ae0687441b68df6502211b14d85665a98cc0157c52d173",
+    "summary/onevision_diagnostics_20261016/matched_task_domain/T04_within_medical__ER_LoRA_complete.json": "72333d29b78337f09f315242feb88debd31fdd5b845ab33ba11da14fd9633338"
   },
-  "verified_artifact_count": 273,
+  "verified_artifact_count": 426,
   "reporter_sha256": "8377d485264748489e8f6e677f9ed30521c9b4f8a5dd07ac0de119d3a142f4bd",
   "limits": [
     "Zero accepted cases means pending, not zero effect. No incomplete-run inference.",
