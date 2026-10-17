@@ -1,0 +1,9 @@
+{
+  "phase": "CPU_read_only_audit_initial_attempt",
+  "error": "AssertionError: evaluations/sequential_T02/natural_image.jsonl not in completion proof",
+  "reason": "Original runner evaluates current domain each stage, all domains only final; first-new-domain old-domain cell unavailable",
+  "resolution": "Retain unmeasured boundary cells as null; use actual domain-end/final snapshots only",
+  "GPU_sources_or_results_changed": false,
+  "second_coverage_assertion": "Generated-ID sets differ at domain-end snapshot: original runner generates current native task only, while NLL evaluates all domain100; final generates full fixed155.",
+  "generation_resolution": "No fabricated or subset-selected transitions: report null unless entire predeclared cohort has generation at both endpoints. All common NLL coverage remains measured."
+}

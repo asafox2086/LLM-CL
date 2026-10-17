@@ -1,3 +1,7 @@
+# Latest diagnostic evidence — 2026-10-17
+
+- CPU chronological domain-boundary audit completed on deterministic19-stage proof:87sourceSHAs, all fixed500NLL/155generation IDs/golds/token counts verified. Medical same-domain composite NLL delta-0.367 CI[-0.455,-0.289], domain-end->final+0.319 CI[0.220,0.427]. Medical EM20->25 includes17retained/3lost/8new; NLL/EM/retention need not agree. Stage/domain content/exposure/order unmatched; NOT pure domain causality, not newmethod/accuracy improvement. Intermediate generation current-native only: missing full-cohort EM/first-cross-domain cells remainnull, twoinitial CPUcoverageassertions preserved. SeeDOMAIN_BOUNDARY_AUDIT/K09/mainreport7. Matched2anchor48-case GPU controls still queued behind live cap1/cap3; do not claim they ran. No activeGPU source changed.
+
 # Current baseline framework and one authorized label exclusion — 2026-10-17
 
 - Formal baseline V2 is exp/two_backbone_native_cl_20261017_v2; V1 stage0 superseded, no scores reuse. Same25Python files/7033 image SHA/Pillow12.3.0/common RGB BICUBIC max401408px/CPU LRU128MiB both backbones. Intrinsic tokenizer/processor differs; research GPU1 nativeAnyRes is separate protocol, not a strict formal-setting counterpart. No hot edits to active source.
