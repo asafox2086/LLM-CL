@@ -1,0 +1,9 @@
+# OneVision原生五领域1%正式基线（准入准备）
+
+正式目标：同Qwen2-VL的10种方法、冻结1313训练QA／21454测试QA、19原生任务。状态与公平性约定见protocol.json；结果只汇入summary/two_backbone_pct01_20261017/MAIN_TABLE.md。
+
+preflight.py目前只进行SeqFT-LoRA的19任务准入：原生图像、模板图像标记唯一性、实际packed-token修复、每任务官方前向与缓存特征前向NLL门槛、真实正lr有限反向和B模块更新。FinMME:5082作为旧失败样例只做推理门槛，不用于优化。此19条TRAIN预检不是完整1%正式训练，不是其他9种作者方法已经通过移植，也不产生主表成绩。
+
+固定FP16准入用于旧2080Ti，冻结模型revision与所有数据SHA；SMoLoRA需要额外在支持BF16硬件准入。现有Qwen和OneVision诊断活动源码保持不动。旧机GPU1已有独立nohup服务llmcl-onevision-native-admission.service，失败时保留日志而不盲目重试。
+
+第一次FP16准入20个官方前向门槛NLL误差全0，但首训练任务有限性断言失败；已保存原源码／失败日志。新可追溯准入增加同权重／同RNG的loss-scale1024对1控制（不作优化器更新），再尝试scale1的19任务真实更新；结果须读实际proof，不预先声称溢出原因或准入通过。

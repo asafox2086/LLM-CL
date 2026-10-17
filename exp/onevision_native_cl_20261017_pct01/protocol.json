@@ -1,0 +1,517 @@
+{
+  "status": "prepared_not_formal_ready",
+  "experiment_id": "two_backbone_pct01_20261017",
+  "backbones": {
+    "Qwen2-VL-2B-Instruct": "existing zero-lr legacy results excluded from strict paired comparison; separate corrected source required",
+    "LLaVA-OneVision-Qwen2-0.5B-OV": "74dd0bf867a4cda7950c17663794267c60cf4b40"
+  },
+  "methods": [
+    "SeqFT_LoRA",
+    "ER_LoRA",
+    "CL_MoE",
+    "SMoLoRA",
+    "PASs_MoE",
+    "PaRSP",
+    "OSFT",
+    "SpaRTA",
+    "FV_guided_Training",
+    "ALER"
+  ],
+  "seed": 42,
+  "epochs": 1,
+  "validation": false,
+  "train_QA": 1313,
+  "test_QA": 21454,
+  "manifest_sha256": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+  "native_task_order": [
+    {
+      "task": 1,
+      "domain": "natural",
+      "native_label": null,
+      "training_order_sha256": "a4a67372e207e4823c52dad27080d5755684ec56552e3dfa248910e37588c686",
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T01_train.jsonl",
+          "count": 347,
+          "sha256": "5732cd30e78ea2d808526c62312ed2d25e9541a07b3ba5ad2b19d4f0123217c8",
+          "dataset_counts": {
+            "TextVQA": 347
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T01_test.jsonl",
+          "count": 5000,
+          "sha256": "14705cad19879bbe9397add2d6871d6892146aee4be3885030700382307cd3bb",
+          "dataset_counts": {
+            "TextVQA": 5000
+          }
+        }
+      },
+      "generation_cap": 128
+    },
+    {
+      "task": 2,
+      "domain": "medical",
+      "native_label": "Modality",
+      "training_order_sha256": "fbd23f8509313b1dba86e0ac8e73dcb938b2e2008219d5a6c8d404efcb8f103c",
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T02_train.jsonl",
+          "count": 11,
+          "sha256": "7f59b10ae613e76dc166c6bba157ba9b16d8839e1f8331c3d6feca9f42f790b4",
+          "dataset_counts": {
+            "SLAKE": 11
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T02_test.jsonl",
+          "count": 228,
+          "sha256": "c319026d6857ee31722732ce54fd0348e189f0f8aaa574522fdb6623ca3bc572",
+          "dataset_counts": {
+            "SLAKE": 228
+          }
+        }
+      },
+      "generation_cap": 128
+    },
+    {
+      "task": 3,
+      "domain": "medical",
+      "native_label": "Position",
+      "training_order_sha256": "19b70bffbdce921f0b2860d5f8c0f9334348d657161b22996dd2b48b3e091007",
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T03_train.jsonl",
+          "count": 17,
+          "sha256": "e9d909b32d60f8c4b59d751cc4eb3af5b1420650e38cdbee1aec449d9ecef769",
+          "dataset_counts": {
+            "SLAKE": 17
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T03_test.jsonl",
+          "count": 375,
+          "sha256": "809a68a36926ba0dab02597b9e4492bcebc2ec394f17103413e13a0e3e072d0b",
+          "dataset_counts": {
+            "SLAKE": 375
+          }
+        }
+      },
+      "generation_cap": 128
+    },
+    {
+      "task": 4,
+      "domain": "medical",
+      "native_label": "Organ",
+      "training_order_sha256": "4aa0a7516a50c5da507bc8a80136c31758b2a15676783d0714f4380376936afb",
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T04_train.jsonl",
+          "count": 26,
+          "sha256": "fabc8d4b4bd730306db0b1447a530a54bf470faded22937ba4a32fb6ebcd2cc9",
+          "dataset_counts": {
+            "SLAKE": 26
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T04_test.jsonl",
+          "count": 507,
+          "sha256": "e5046123567a5d9efe80aae17ed0b141e6261bf80c775f523791ef9022492ba2",
+          "dataset_counts": {
+            "SLAKE": 507
+          }
+        }
+      },
+      "generation_cap": 128
+    },
+    {
+      "task": 5,
+      "domain": "medical",
+      "native_label": "Size",
+      "training_order_sha256": "057c314ab71f07a7f2e8ef6db23e2044246e98ac2beb8310010fa74d4d0bd14e",
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T05_train.jsonl",
+          "count": 6,
+          "sha256": "3a4210e379d0d487a97dabc092a1178e9cc13bb92a16ed76191eaa0385b920b3",
+          "dataset_counts": {
+            "SLAKE": 6
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T05_test.jsonl",
+          "count": 124,
+          "sha256": "7e13f0e2db2a9fb4f66249f152c23c336a566c1e5ccf30c929c2c04710be6264",
+          "dataset_counts": {
+            "SLAKE": 124
+          }
+        }
+      },
+      "generation_cap": 128
+    },
+    {
+      "task": 6,
+      "domain": "medical",
+      "native_label": "Abnormality",
+      "training_order_sha256": "55bb83086e519146e27dde7f1799d92f76b132e7f967715ea6564b7af14c38aa",
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T06_train.jsonl",
+          "count": 14,
+          "sha256": "6a299bce404105f75b691de06e176be0cbe908c593ff1bdcb2c8e3b20001633b",
+          "dataset_counts": {
+            "SLAKE": 14
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T06_test.jsonl",
+          "count": 311,
+          "sha256": "18f04db0a28b6b0abd9b0f3f5ad7d030151085c47b88213d043752eacad98877",
+          "dataset_counts": {
+            "SLAKE": 311
+          }
+        }
+      },
+      "generation_cap": 128
+    },
+    {
+      "task": 7,
+      "domain": "medical",
+      "native_label": "Quantity",
+      "training_order_sha256": "80fb02b77f8ca222a1f139aaaf814eca5bd80991c8450ef2773c1d1ed8f0e197",
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T07_train.jsonl",
+          "count": 4,
+          "sha256": "fbbbb06aefe521ae3e0387bd2da145f643ce04eca6e64fcb7434d31c42cb2102",
+          "dataset_counts": {
+            "SLAKE": 4
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T07_test.jsonl",
+          "count": 89,
+          "sha256": "e424c1d3905db42165ad9f525f033045af1e8605e6b1e5848bba82573e54e221",
+          "dataset_counts": {
+            "SLAKE": 89
+          }
+        }
+      },
+      "generation_cap": 128
+    },
+    {
+      "task": 8,
+      "domain": "medical",
+      "native_label": "Plane",
+      "training_order_sha256": "7e892493a3e777430a8e48aaee8448be935c7692ca9624ddc5f36fde10b076e7",
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T08_train.jsonl",
+          "count": 5,
+          "sha256": "dd327dec1b3433a2dd27a88c3b4724c4978b246e599b5e88787c6214b0a1efed",
+          "dataset_counts": {
+            "SLAKE": 5
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T08_test.jsonl",
+          "count": 116,
+          "sha256": "2c3d5bc145141ac44d4a18722169bb421f47d41f1558d04d6da9a3dd365f8a86",
+          "dataset_counts": {
+            "SLAKE": 116
+          }
+        }
+      },
+      "generation_cap": 128
+    },
+    {
+      "task": 9,
+      "domain": "medical",
+      "native_label": "Shape",
+      "training_order_sha256": "5fbab230e42aa1c0f7ae7c21e5af74f875f3c69a9954efca9986fd5d39fd0de2",
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T09_train.jsonl",
+          "count": 1,
+          "sha256": "f48f1b60247ea91fe5ed6900e3643f4e43ed3202d4c50b2aa0b1ebc9906eda7d",
+          "dataset_counts": {
+            "SLAKE": 1
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T09_test.jsonl",
+          "count": 12,
+          "sha256": "3f554ff6047a98566520a39bc9d89ecf0bcf00a29e2e2d1f76bfb2b63097be95",
+          "dataset_counts": {
+            "SLAKE": 12
+          }
+        }
+      },
+      "generation_cap": 128
+    },
+    {
+      "task": 10,
+      "domain": "medical",
+      "native_label": "Color",
+      "training_order_sha256": "166a14ec74dc37a81d557eb55901030ece3d47d647d547793ab76c3c50bf7c19",
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T10_train.jsonl",
+          "count": 3,
+          "sha256": "3eeae855c9594ec529711123366ef681b10e446daba6e6505f95a762a93065e3",
+          "dataset_counts": {
+            "SLAKE": 3
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T10_test.jsonl",
+          "count": 65,
+          "sha256": "f6c9fcfd7c3b385eb82829ebb478a7db522eecc4a53c33ded2ab8f82ff57e328",
+          "dataset_counts": {
+            "SLAKE": 65
+          }
+        }
+      },
+      "generation_cap": 128
+    },
+    {
+      "task": 11,
+      "domain": "medical",
+      "native_label": "KG",
+      "training_order_sha256": "38d5df41f61e0fc2cd534803af67de598d77f06a519c2c318b3f3cb84fc77a5f",
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T11_train.jsonl",
+          "count": 12,
+          "sha256": "c78aa32c98f7cd60b4950561281d2cb023ac5c84c438149044ce7429c0681e54",
+          "dataset_counts": {
+            "SLAKE": 12
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T11_test.jsonl",
+          "count": 267,
+          "sha256": "48e7b5e4177a001612d6640f6df92cc3621362792dffb0ad762476e562b6b21b",
+          "dataset_counts": {
+            "SLAKE": 267
+          }
+        }
+      },
+      "generation_cap": 128
+    },
+    {
+      "task": 12,
+      "domain": "geography",
+      "native_label": "rural_urban",
+      "training_order_sha256": "7fe3ce5e5f6e864890507b0fd02a037c1d5c6c779d5a26ff530324293a86f787",
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T12_train.jsonl",
+          "count": 6,
+          "sha256": "fe5ff5fea1b9af9a99d7139fcc6e314d353649db930a8c1e99cd5ff4ccf4995f",
+          "dataset_counts": {
+            "RSVQA-LR": 6
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T12_test.jsonl",
+          "count": 100,
+          "sha256": "7948cf70e4996ec38532ff680638b8c81710d6e02cceb9589c58cb6403284013",
+          "dataset_counts": {
+            "RSVQA-LR": 100
+          }
+        }
+      },
+      "generation_cap": 512
+    },
+    {
+      "task": 13,
+      "domain": "geography",
+      "native_label": "presence",
+      "training_order_sha256": "b5cb8ca8803cb32e5b9d4d708f82eecade55156ad2bcab84de086e5732c0569a",
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T13_train.jsonl",
+          "count": 170,
+          "sha256": "57ec71ab8c67d006cfa4812d63fabd903dd9d36a0ba417a2ca71e5a79560309a",
+          "dataset_counts": {
+            "RSVQA-LR": 170
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T13_test.jsonl",
+          "count": 2955,
+          "sha256": "4ca421c2594f1d2a36b749d42526706cc6caca9af05f9908b85d08cf7c9218b4",
+          "dataset_counts": {
+            "RSVQA-LR": 2955
+          }
+        }
+      },
+      "generation_cap": 512
+    },
+    {
+      "task": 14,
+      "domain": "geography",
+      "native_label": "count",
+      "training_order_sha256": "8b8da4a36a2481560e7bbf002178f0690d19a27e0f4ec2e7332b3481f95a3ec5",
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T14_train.jsonl",
+          "count": 171,
+          "sha256": "3cae6b3004124eabccbcae69b073254d1c932a912d813edec7114c61821d1c83",
+          "dataset_counts": {
+            "RSVQA-LR": 171
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T14_test.jsonl",
+          "count": 2947,
+          "sha256": "ff46c370c5b0a545c770e702e7fef159e79f4188c4a657356ca988da4b57866d",
+          "dataset_counts": {
+            "RSVQA-LR": 2947
+          }
+        }
+      },
+      "generation_cap": 512
+    },
+    {
+      "task": 15,
+      "domain": "geography",
+      "native_label": "comp",
+      "training_order_sha256": "725db608a1c69492f068a7bea3d5e996f3a3fbceae9987f690a9e51dab977807",
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T15_train.jsonl",
+          "count": 226,
+          "sha256": "eca0f26e0cb7612eee9ab28c5cc4f8f27898b4ba9cb1b257cfefb9037c7a10c2",
+          "dataset_counts": {
+            "RSVQA-LR": 226
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T15_test.jsonl",
+          "count": 4002,
+          "sha256": "6ae35bde45e33788bcd31c99dc9f80a1d9236bd6062a807fd989e2c1fbe426cc",
+          "dataset_counts": {
+            "RSVQA-LR": 4002
+          }
+        }
+      },
+      "generation_cap": 512
+    },
+    {
+      "task": 16,
+      "domain": "finance",
+      "native_label": null,
+      "training_order_sha256": "098a1a3f6b8ccf8d0539ae4b92b6116212c2095d87486bd63da0bbdc2d8e2586",
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T16_train.jsonl",
+          "count": 89,
+          "sha256": "5d7617d9873fbcfef60b33ec027a7eb2507b128cde0ff243df85f3b67843ab65",
+          "dataset_counts": {
+            "FinMME": 89
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T16_test.jsonl",
+          "count": 2233,
+          "sha256": "162ba8ad340a9fb898a3a942b3e720e581f23dddfacb70c289f3bd935d869206",
+          "dataset_counts": {
+            "FinMME": 2233
+          }
+        }
+      },
+      "generation_cap": 512
+    },
+    {
+      "task": 17,
+      "domain": "traffic",
+      "native_label": "general",
+      "training_order_sha256": "8f752c3aea8961f4581aa30c9a1ad045241412f51b7fa141286734b7dab4c05f",
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T17_train.jsonl",
+          "count": 49,
+          "sha256": "03848e8d10485506685fe46d3d2530120001ed159dfd5f4239655bbbc590cb34",
+          "dataset_counts": {
+            "CODA-LM": 49
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T17_test.jsonl",
+          "count": 500,
+          "sha256": "f5a8de804f54aba60315eff839f05a0401ff96427920c0cd3112affcc19362e8",
+          "dataset_counts": {
+            "CODA-LM": 500
+          }
+        }
+      },
+      "generation_cap": 512
+    },
+    {
+      "task": 18,
+      "domain": "traffic",
+      "native_label": "regional",
+      "training_order_sha256": "03474f7237bfb7639344842b1d7594cde4edc4d2eae44143b110158b87f9b978",
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T18_train.jsonl",
+          "count": 107,
+          "sha256": "1941cabc03d007d984282858ca3d6f0862ca4720d5fb0798fc866423200d3952",
+          "dataset_counts": {
+            "CODA-LM": 107
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T18_test.jsonl",
+          "count": 1123,
+          "sha256": "48e1bf7b181cf1a5d4c7b9be03e1fa11fe2e26b37ca2f4c8a4f4498ef20c403d",
+          "dataset_counts": {
+            "CODA-LM": 1123
+          }
+        }
+      },
+      "generation_cap": 512
+    },
+    {
+      "task": 19,
+      "domain": "traffic",
+      "native_label": "suggestion",
+      "training_order_sha256": "9708eb997f9decfef4f6f07b7cc4e1a8ed8f508727e0a5424dc7d06774025c48",
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T19_train.jsonl",
+          "count": 49,
+          "sha256": "2a64cfde7c42d360ff0bd570f3487be0e8940526d08d4ed4bef389a04f5861b2",
+          "dataset_counts": {
+            "CODA-LM": 49
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T19_test.jsonl",
+          "count": 500,
+          "sha256": "4af47721d341958f26e54744330927a14b5e5f5b8d84489607623b741eddbe2b",
+          "dataset_counts": {
+            "CODA-LM": 500
+          }
+        }
+      },
+      "generation_cap": 512
+    }
+  ],
+  "effective_batch": 16,
+  "warmup": "floor(.03*updates), capped belowupdates; actualpositive learning rate and changedweights required; author-specific lr retained",
+  "evaluation": "initial19; intermediatecurrent+next; final19; AP/FWT/BWT; noForgetRate",
+  "checkpoints": "SeqFT all19 stages; othersfinal only; independentprocess fullmethod reload gate before training",
+  "resources": "CPU RSS/PSS/USS and GPU allocated/reserved/NVML before/after/peak; loss, actuallr, gradientnorm, model/method trainableandretainedcount; additionalauthorcompute billed",
+  "fairness_limits": [
+    "native processor fixed perbackbone, originalimage/QA unchanged; reportactual visualtokens andhardware separately",
+    "same rank does not equal same trainable parametercount acrossbackbones; reportcounts",
+    "SMoLoRA nativeBF16 needs supportedhardware; no silentlyunstable FP16 port",
+    "legacyQwen9singleupdatezero-lr confound excludes strictcrossbackbone ranking",
+    "currentOneVision19case admission is not formal1%training or fulltest score",
+    "allten author mechanisms require separate validitygates; do not relabelSeqFT asothermethods",
+    "Ours paused until controlled painpointdiagnosis; no invented result"
+  ]
+}

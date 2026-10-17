@@ -1,5 +1,7 @@
 # LLMCL：小模型的五领域多模态持续学习
 
+> 双骨干1%结果采用[分骨干主表](summary/two_backbone_pct01_20261017/MAIN_TABLE.md)：五领域最终成绩、AP、FWT、BWT；新正式实验与历史零学习率／小规模诊断分开。
+
 ## 研究成果：按问题阅读
 
 **主报告：[痛点探究报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md)。** 每项统一为「探究的问题／做的实验／结果／证明了什么／改进的方法／改进的效果」。[证据附件导航](summary/onevision_diagnostics_20261016/README.md)仅在需要核对时查阅。
