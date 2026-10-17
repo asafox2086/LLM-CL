@@ -14,6 +14,8 @@
 
 **主报告：[痛点探究报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md)。** 每项统一为「探究的问题／做的实验／结果／证明了什么／改进的方法／改进的效果」。[证据附件导航](summary/onevision_diagnostics_20261016/README.md)仅在需要核对时查阅。
 
+最新视觉核验见[训练后图像对照](summary/onevision_diagnostics_20261016/TRAINED_VISION_F1_EVIDENCE.md)：同一最终权重医学100题原图F1=43.022，错图30.889，无图24.310；分辨率/token混杂和配对区间一并报告，不宣称新方法提升。
+
 | 问题 | 已验证结果 | 改进是否有效 |
 | --- | --- | --- |
 | 所有图片同答urban | 原图仍改变答案概率，输出决策偏移 | 平衡损失F1 44→50，仍局部缓解 |

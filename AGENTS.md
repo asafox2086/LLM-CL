@@ -1,3 +1,9 @@
+# Completed trained-vision F1 audit — 2026-10-17
+
+- CPU-only retrospective audit verifies36 original prediction files,3 actual adapter SHAs, fixed original IDs/gold/F1 and300 original/wrong RGB pairs (none identical). Same final recovered-sequential medical100: image43.022/wrong30.889/text24.310; image-wrong+12.133pp CI[6.950,17.941], image-text+18.713 CI[9.376,28.614]. Base image-wrong+2.777 CI includes0. Do NOT generalize weak base visual benefit to trained model ignoring images.
+- Important counter-boundary:61/100 medical wrong images change visual token count; same-token39 final F1gain+6.239 CI[-0.360,14.474] includes0. Keep all4states/both posthoc token partitions and10native subgroups, no favorable-only selection. Image-input package effect doesnot independently isolate semantic vision vs resolution/crops/tokens. Fixed-weight recipient-image bootstrap uncorrected, shared-donor dependence not modeled. Cross-state budgets/dropout differ; recoveredfinal43.022 isNOT deterministic-native46.058. No newmethod or GPU outcomes. See TRAINED_VISION_F1_EVIDENCE and RESEARCH_REPORT question9/K10.
+- Original cap1->cap3->matched48 scheduling remains unchanged. User asked meaning of proposed priority names, did NOT authorize a switch. No AUTHORIZATION.json; do not infer consent from goal continuation. Only new audit/report files changed; all GPU workers and active sources preserved.
+
 # Optional core-study priority proposal — prepared only, awaiting human preference
 
 - A new CPU dispatcher analysis/onevision_causal_priority_queue.py is PREPARED ONLY: proposed cap1(currentunchanged)->matched48(originalcases)->cap3(originalfull). Seven CPU sequencing/interlock tests pass; no service activated, no AUTHORIZATION.json, current priority unchanged. User has been asked whether to change the protocol's explicit cap1+cap3-before-matched order. Do not infer approval from a timeout/goal continuation; wait actual human choice.
