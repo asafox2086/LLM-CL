@@ -37,9 +37,11 @@
 
 - [训练后的视觉输入作用](TRAINED_VISION_F1_EVIDENCE.md)：同一最终权重医学100题原图43.022、错图30.889、无图24.310；配对区间/同token反边界与300错图像素核验全部保留。无新训练、非完整测试。
 
-- [当前统一调度](two_module_fullstream_queue/ACTIVATION.json)：用户已委托GPU1方案并授权两模块；原cap1后先12组原型、四组完整19阶段/完整最终确认，保留原48对照/cap3，随后补全稀疏FWT/BWT。只停旧CPU协调器，原GPU推理与基线保持；旧协调器PID失效为计划停用。
+- [当前统一调度](causal_before_full_method_queue/ACTIVATION.json)：用户已委托GPU1方案并授权两模块；原cap1后先12组原型、原48组归因，再四组完整19阶段/最终确认，cap3和稀疏FWT/BWT保留。只停旧CPU协调器，原GPU推理与基线保持；旧协调器PID失效为计划停用。
 
 - [核心对照图像结构预检](matched_task_domain/INPUT_GEOMETRY_AUDIT.md)：879固定QA/35尺寸（含队列外故障检查），实际CPU processor与官方打包形状核对；仅原故障检查2052/2106，固定队列0异常。初次Python整数简化路径漏检已作废重做，实际GPU门槛仍待执行。
 
 - [从问题到两模块原型](two_module_prototype/PROTOCOL.md)：用户最新授权已覆盖旧暂停设计要求；已有CPU检查与GPU排队，实际提升待测。全19阶段/完整测试仍必须完成，不能以12组独立小试验冒充主实验。
 - [完整两模块19阶段协议](two_module_fullstream/PROTOCOL.md)：训练/完整最终/稀疏转移评测及恢复代码已实现并排队，[结果入口](two_module_fullstream/VERIFIED_RESULTS.md)按155诊断与21454完整分表，当前无GPU效果；成本和失败均记录。
+- [知识迁移的字面相关性复核](KNOWLEDGE_LOCALITY_EVIDENCE.md)：四组初始目标输出/NLL逐题完全相同，31/40/196原生KG分组及8/64预算全部审计；“优于错误知识”不能代替“优于不加”。事后字面组不是语义/图像实体覆盖证明，未识别唯一原因。
+- [原目标完成审计](CAUSAL_STATUS.md)：明确哪些要求由真实证据满足、哪些仍待严格GPU控制/全量确认；方法代码准备不能代替原因归属，不缩减目标。

@@ -42,6 +42,6 @@ control / 仅A / 仅B / A+B，固定19原生阶段、1%共1313条TRAIN，seed42�
 
 已通过：核心8项CPU检查、epoch7项CPU精确更新/RNG/回滚检查、完整worker6项CPU原ID/恢复/评分检查、18个稀疏状态队列检查、dispatcher11项互斥/顺序检查、报告4项指标空缺/公式检查。CPU通过不等于GPU模型通过或性能提高。
 
-最新队列：当前cap1完整确认不打断 → 12组原型 → 四组完整19阶段 → 四组完整最终测试 → 原48组机制对照 → 原cap3 → 公共初始完整测试 → 四组稀疏全测试。用户委托下优先获得两模块实际效果，原机制对照保留。新CPU协调器217514、报告217515；GPU137966与两条新机基线174247/175176的PID/startticks核验未变，旧协调器212390计划退役。实际以后以队列与进程为准。
+最新队列：当前cap1完整确认不打断 → 12组原型 → 原48组机制对照 → 四组完整19阶段 → 四组完整最终测试 → 原cap3 → 公共初始完整测试 → 四组稀疏全测试。研究归因需要优先得到严格同任务/同域/跨域证据，不能由方法提升替代；方法与完整评测全部保留。最新CPU协调器220246、报告217515；GPU137966与新机基线174247/175176的PID/startticks不变，旧协调器217514计划退役。实际以[新队列](../causal_before_full_method_queue/queue_state.json)及进程为准。
 
-源码冻结：`analysis/onevision_two_module_{engine,fullstream,confirmation,fullqueue,fullreport}.py`。任何修复另立可追溯版本，不热改排队源码。运行输出在`exp/onevision_two_module_20261017/{fullstream,confirmation}`；[结果入口](VERIFIED_RESULTS.md)、[CPU门槛](CPU_WORKER_VALIDATION.json)、[调度保全](../two_module_fullstream_queue/ACTIVATION.json)。模型/数据/逐题大文件/私钥不提交Git。
+源码冻结：`analysis/onevision_two_module_{engine,fullstream,confirmation,fullqueue,fullreport}.py`；最新调度入口`onevision_causal_before_full_method_queue.py`复用旧库不改GPU源。任何修复另立可追溯版本，不热改排队源码。运行输出在`exp/onevision_two_module_20261017/{fullstream,confirmation}`；[结果入口](VERIFIED_RESULTS.md)、[CPU门槛](CPU_WORKER_VALIDATION.json)、[调度保全](../causal_before_full_method_queue/ACTIVATION.json)。模型/数据/逐题大文件/私钥不提交Git。

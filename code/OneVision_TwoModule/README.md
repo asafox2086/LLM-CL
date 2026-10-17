@@ -12,7 +12,8 @@
 | [完整epoch引擎](../../analysis/onevision_two_module_engine.py) | 原AdamW轨迹、实际位移保护、优化器/RNG回滚、每步完整证据 |
 | [完整19阶段](../../analysis/onevision_two_module_fullstream.py) | 四组共享1313TRAIN，逐阶段原轨迹精确门槛与可信恢复 |
 | [全测试确认](../../analysis/onevision_two_module_confirmation.py) | 每组21454最终预测、独立进程复现；稀疏状态计算完整FWT/BWT |
-| [当前GPU1队列](../../analysis/onevision_two_module_fullqueue.py) | 原型→完整训练/最终确认优先，保留原48控制/cap3 |
+| [完整调度库](../../analysis/onevision_two_module_fullqueue.py) | 冻结准入/完成证明/调度库，GPU源不改 |
+| [当前GPU1入口](../../analysis/onevision_causal_before_full_method_queue.py) | 原型→原48归因控制→完整训练/最终确认，保留cap3与稀疏全测 |
 | [完整结果报告](../../analysis/onevision_two_module_fullreport.py) | 诊断155与完整21454严格分表，无结果显示待测 |
 
 [原型协议](../../summary/onevision_diagnostics_20261016/two_module_prototype/PROTOCOL.md)、[相关工作](../../summary/onevision_diagnostics_20261016/two_module_prototype/PRIOR_ART.md)、[实际结果](../../summary/onevision_diagnostics_20261016/two_module_prototype/VERIFIED_PILOT_RESULTS.md)。CPU门槛通过，GPU效果尚未产生；不是已发表算法，不填入正式主表Ours成绩。

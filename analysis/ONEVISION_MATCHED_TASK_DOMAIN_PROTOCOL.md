@@ -39,10 +39,10 @@
 
 ## 调度（2026-10-17用户授权后的优先级修订）
 
-用户明确委托“这个gpu1的方案你自己定，我只要结论”。当前由nohup CPU服务`llmcl-onevision-causal-priority.service`统一管理：**原cap1推理自然完成 → 本协议48组原控制 → 12组两模块原型 → 原cap3完整确认**。原来等待两次完整确认的CPU协调器已停用，不能重启，否则会形成重复所有者。
+用户明确委托“这个gpu1的方案你自己定，我只要结论”。当前由nohup CPU服务`llmcl-onevision-causal-priority.service`统一管理：**原cap1自然完成 → 12组两模块准入原型 → 本协议48组原控制 → 四组完整方法训练/最终确认 → 原cap3 → 完整转移评测**。原因归属优先于昂贵方法主表，全部原控制和方法保留。旧CPU协调器已计划停用，不能重启，否则形成重复所有者。
 
 切换前已先设置并核验旧服务KillMode=process，再仅终止CPU父进程；当前GPU1原PID/startticks及基线均保留，不中断推理、不抢其他卡。新CPU服务发现任意GPU1进程/未空闲就等待；每个原案例用独立GPU进程调用同一`--case`入口，训练器源码和全部门槛不变。失败保留并停止，不盲重试。新服务已enabled支持重启接续，但中断训练仍须原规定从基座重跑，不能拼接。
 
-[用户授权](../summary/onevision_diagnostics_20261016/causal_priority_queue/AUTHORIZATION.json)、[实际切换证明](../summary/onevision_diagnostics_20261016/causal_priority_queue/ACTIVATION.json)、[实时统一队列](../summary/onevision_diagnostics_20261016/two_module_priority_queue/queue_state.json)。调度变更不是实验结果或源代码变更；GPU48组实际门槛仍待执行。
+[委托下的优先级修订](../summary/onevision_diagnostics_20261016/causal_before_full_method_queue/AUTHORIZATION.json)、[实际切换证明](../summary/onevision_diagnostics_20261016/causal_before_full_method_queue/ACTIVATION.json)、[实时统一队列](../summary/onevision_diagnostics_20261016/causal_before_full_method_queue/queue_state.json)。只新增CPU入口，未改本GPU源码/训练器；调度变更不是实验结果，48组实际GPU门槛仍待执行。
 
 报告在`summary/onevision_diagnostics_20261016/matched_task_domain/`，大权重在服务器`exp/onevision_matched_task_domain_20261017/`；模型／数据／checkpoint不入Git。当前只有CPU检查，实际GPU门槛与48条轨迹结果尚未产生。
