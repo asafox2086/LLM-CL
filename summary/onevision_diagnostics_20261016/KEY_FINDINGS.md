@@ -35,6 +35,10 @@ L_{\mathrm{EWC},t-1}(\theta)=\frac{\lambda}{2}\sum_i F_{t-1,i}(\theta_i-\theta^*
 
 证据：[详细审计](EWC_ACTIVATION_AUDIT.md)、[32个首批范数与72格输出及SHA](EWC_ACTIVATION_AUDIT.json)、[审计代码](../../analysis/onevision_ewc_activation_audit.py)。首次未设确定性的CPU严格相等断言失败另存[原失败与后续探针](ewc_cpu_counterfactual_initial_failure.json)，未放宽相等标准；该初始失败成因未被确定，不能归因于开关本身。
 
+### K01补充：首步不代表整阶段冲突
+
+只读旧noop/projection128个更新：31次负点积，首批5、后续26。进入stage2的8个首批均非负。32个首批保存原始向量并在CPU重算通过，其余96次只有当时FP64点积日志；不能声称全部重算。该固定序列下跨域记录更多负点积，但旧首阶段数值、任务内容、TRAIN dropout/eval参考和Adam方向限制仍在，不能宣称域数因果或投影收益。见[GRADIENT_TIMING_EVIDENCE](GRADIENT_TIMING_EVIDENCE.md)。
+
 ## K02：单更新且B零初始化时，LoRA的A没有学习
 
 状态：9个真实独立单更新任务确认A逐元素不变、B改变、实际LR为正；对应顺序阶段A均改变。原因是\(\Delta W=sBA\)，初始B=0令首步A梯度为0。不能写成LoRA没有更新或没有作用；复用旧A+B同时改变初始功能与优化基底。[证据](FACTOR_UPDATE_EVIDENCE.md)、[基底／预算控制](COMPLETED_CONTROLS.md)。
@@ -56,6 +60,10 @@ L_{\mathrm{EWC},t-1}(\theta)=\frac{\lambda}{2}\sum_i F_{t-1,i}(\theta_i-\theta^*
 ## K05：总体分数保持不变会掩盖旧题丢失
 
 状态：确定性19任务的习得时点与最终累计均答对47/155，但38保持、9丢失、9新增、99始终错。习得汇总跨模型时点，不是一个快照；不是完整全量CL指标。[证据](ACQUISITION_COLLAPSE_AUDIT.md)。
+
+### K05补充：相同F1输出，聚合方向也可不同
+
+155题诊断：19任务等权变化+1.425pp、五域等权−1.178pp，3/5域下降。医学10/19任务权重与1/5域权重不同；BWT+1.504不代表每个域获益。统一同一个Answer F1，聚合定义继续冻结，不能按结果选择权重。刚学完值组合多个习得时点；不是全21454结果。见[PRIMARY_F1_REASSESSMENT](PRIMARY_F1_REASSESSMENT.md)。
 
 ## K06：知识干预先验证写入；记忆成功仍不等于目标泛化
 

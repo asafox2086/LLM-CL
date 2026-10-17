@@ -104,7 +104,14 @@ def main():
                     'FWT':sum(t['Answer_F1']['before_task']-t['Answer_F1']['base'] for t in task_results[1:])/18,
                     'BWT':sum(t['Answer_F1']['final']-t['Answer_F1']['acquired'] for t in task_results[:-1])/18,
                     'scope':'Fixed155 diagnostic generated QA across19native tasks; sparse measured cells, NOT full21454 formal results.',
-                    'domain_macro_final':sum(d['acquired_to_final']['after'] for d in domain_results)/5}
+                    'domain_macro_acquired':sum(d['acquired_to_final']['before'] for d in domain_results)/5,
+                    'domain_macro_final':sum(d['acquired_to_final']['after'] for d in domain_results)/5,
+                    'native_task_macro_acquired':sum(t['Answer_F1']['acquired'] for t in task_results)/19}
+    native_metrics['native_task_macro_delta']=native_metrics['AP']-native_metrics['native_task_macro_acquired']
+    native_metrics['domain_macro_delta']=native_metrics['domain_macro_final']-native_metrics['domain_macro_acquired']
+    assert abs(native_metrics['native_task_macro_delta']-native_metrics['BWT']*18/19)<1e-12
+    native_metrics['domains_lower_final_F1']=sum(d['acquired_to_final']['delta_pp']<0 for d in domain_results)
+    native_metrics['weighting_note']='Same Answer F1 predictions: medical10/19 native-task weight vs1/5 domain-macro weight. Aggregation choice frozen, no best-outcome selection.'
     knowledge={};clinical={}
     for case in ['rank1_correct','rank1_permuted','rank8_correct','rank8_permuted']:
         p=read(REPORT/'knowledge_fit'/f'{case}_complete.json');assert p['complete'];directory=ROOT/p['run']
@@ -159,6 +166,7 @@ def main():
         v=d['acquired_to_final'];lines.append(f"| {d['domain']} | {v['QA']} | {v['before']:.3f} | {v['after']:.3f} | {v['delta_pp']:+.3f} | {v['quality_increased_QA']}/{v['quality_decreased_QA']}/{v['quality_unchanged_QA']} |")
     total=result['native_diagnostic_quality_changes'];lines+=['',f"全部155题：{total['before']:.3f}→{total['after']:.3f}；{total['quality_increased_QA']}题上升、{total['quality_decreased_QA']}题下降、{total['quality_unchanged_QA']}题持平。刚学完值组合不同任务各自习得时点，不是一个模型快照。",'',
            f"19原生任务诊断AP={native_metrics['AP']:.3f}，FWT={native_metrics['FWT']:.3f}，BWT={native_metrics['BWT']:.3f}。都基于同一个Answer F1，仅诊断155题，不进入完整21454题主表。",'',
+           f"**同一批输出的聚合方向可以不同：** 19任务等权F1变化{native_metrics['native_task_macro_delta']:+.3f}pp，五域等权F1变化{native_metrics['domain_macro_delta']:+.3f}pp；{native_metrics['domains_lower_final_F1']}/5域下降。医学有10/19个原生任务，任务宏平均权重大于五域等权的1/5。因此BWT为正不能被解释成每个领域都获益。这是聚合权重的诊断，不新增主指标或根据结果改AP定义。",'',
            '## 2. 记住极小知识库是否足够？','',
            '| 条件 | 医学100题：0→64步F1 | 原生KG267题：0→64步F1 |',
            '| --- | ---: | ---: |']

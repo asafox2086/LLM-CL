@@ -1,3 +1,8 @@
+# Latest diagnosis: stage timing and aggregation — 2026-10-17
+
+- Actual old noop/projection logs128updates have31negative TRAIN anchor dots:5first/26later; stage2 first8 allnonnegative.32savedfirst fullvectors CPUrecomputed/SHAverified,96later onlyrecordeddots, NOT allrawgradients retained. Cross-domain more negative signs are descriptive (oldstage1numeric/content/dropout/Adamconfounds), not pure causalproof. SeeGRADIENT_TIMING_EVIDENCE.
+- Same155 AnswerF1 predictions: native19task macro acquired41.937->final43.363(+1.425), domain5macro43.334->42.156(-1.178),3/5domainsdown. Medical10/19taskweight vs1/5domainweight; positiveBWT1.504 doesnotmean alldomainsbenefit. Aggregationrulesstayfrozen, nogain-basedmetricselection. MainRESEARCH_REPORT fully rewritten as8questions×6fields with AnswerF1 only; oldversion archived summary/ago/metric_revision_20261017. Strict48GPU controlspending; do not claim domain-count cause established. No activeGPU/source modified.
+
 # Matched-study report observer deployment — 2026-10-17
 
 - NewCPU-only llmcl-onevision-matched-report.service actualPID184250 after final metric-byte freeze, nohup --watch. Readscomplete caseproofs only; metricSHA/version lock enforced, fixedIDs/gold/rawF1 checked, stage1 A/B AND prediction/NLL exact gate. CPU72oldfiles/23confoundedstage1pairs rejection passed; actual new48GPU cases0 pending. Reports old/current AnswerF1 plus loss/grad/memory, allcontrasts, noEMco-primary. NoGPUworker/coordinator source changed; GPU1cap1 PID137966 and matchedCPU153460 preserved. Failure stopsreporter only, evidence saved; noautoblindretry. Read matched_task_domain/REPORTING.md/observer_status. Do not claim CPUvalidation proves actualGPUcase ingestion yet.
