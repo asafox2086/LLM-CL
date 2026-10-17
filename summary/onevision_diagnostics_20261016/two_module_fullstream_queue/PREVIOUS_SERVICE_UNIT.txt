@@ -1,0 +1,16 @@
+[Unit]
+Description=GPU1 diagnostic and two-module experimental pilots, preserving current worker
+After=network-online.target
+[Service]
+Type=simple
+WorkingDirectory=/data1/liyapeng/program/LLMCL
+Environment=CUDA_VISIBLE_DEVICES=
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/usr/bin/nohup /data1/liyapeng/program/LLMCL/.assets-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/onevision_two_module_queue.py
+StandardInput=null
+StandardOutput=append:/data1/liyapeng/program/LLMCL/summary/onevision_diagnostics_20261016/two_module_priority_queue/coordinator_nohup.log
+StandardError=inherit
+Restart=no
+KillMode=process
+[Install]
+WantedBy=default.target

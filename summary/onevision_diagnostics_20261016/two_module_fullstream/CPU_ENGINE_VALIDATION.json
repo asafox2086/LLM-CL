@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "CPU_only": true,
+  "checks": [
+    "exact all-parameter/loss/norm/LR equivalence to reference epoch33QA,including partial batch",
+    "random-consuming logging cannot perturb optimizer/dropout trajectory",
+    "sham accepted protection exactly equals control despite RNG-consuming callbacks",
+    "all-infeasible steps restore exact parameters and empty original optimizer moments",
+    "rejected proposals and random callbacks preserve original Python/NumPy/Torch RNG",
+    "nonzero shortened actual finite step satisfies fixed old-loss budget",
+    "all three real pre-step learning rates positive; post-final scheduler zero not mislabeled"
+  ],
+  "original_GPU_trainer_equivalence_pending": true,
+  "full19_GPU_states_pending": true,
+  "quality_gain_measured": false,
+  "shortened_fraction_toy": 0.25,
+  "reference_steps": [
+    [
+      0.9652864686213434,
+      0.13257834315299988,
+      0.0001
+    ],
+    [
+      1.2106932611204684,
+      0.10367321223020554,
+      7.500000000000001e-05
+    ],
+    [
+      0.10099827498197556,
+      0.6622291803359985,
+      2.500000000000001e-05
+    ]
+  ],
+  "source_sha256": {
+    "analysis/check_onevision_two_module_engine.py": "b701a0f183e275a887ef81cceff33cd0dcf117b56f29a14ee121fc310eca6d49",
+    "analysis/onevision_two_module_engine.py": "419273132c0213ebbbcdd1e7659c08f3c187e148fed8fa0924cbaecedb09c419",
+    "analysis/onevision_two_module_core.py": "0afa2f600dca565f4b023d3fa1e92b4b276c965aaf74fdc37a2d7059f256d7a4"
+  }
+}

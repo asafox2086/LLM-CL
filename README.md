@@ -16,7 +16,7 @@
 
 最新视觉核验见[训练后图像对照](summary/onevision_diagnostics_20261016/TRAINED_VISION_F1_EVIDENCE.md)：同一最终权重医学100题原图F1=43.022，错图30.889，无图24.310；分辨率/token混杂和配对区间一并报告，不宣称新方法提升。
 
-新增[两模块原型](summary/onevision_diagnostics_20261016/two_module_prototype/PROTOCOL.md)：从已验证问题出发，固定四种消融；CPU准备通过，GPU性能尚待测，完整19阶段/21454测试仍是必要目标。
+新增[两模块原型](summary/onevision_diagnostics_20261016/two_module_prototype/PROTOCOL.md)：从已验证问题出发，固定四种消融；[完整19阶段/21454测试代码与成本](summary/onevision_diagnostics_20261016/two_module_fullstream/PROTOCOL.md)已实现并排队。CPU准备通过，GPU性能尚待测；[诊断/完整结果分表](summary/onevision_diagnostics_20261016/two_module_fullstream/VERIFIED_RESULTS.md)，未测不填数，不按TEST挑候选。
 
 | 问题 | 已验证结果 | 改进是否有效 |
 | --- | --- | --- |

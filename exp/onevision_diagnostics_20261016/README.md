@@ -1,6 +1,6 @@
 > 最新唯一主指标为Answer F1（既有token_f1），不做选项映射；AP/FWT/BWT同口径。见[rules020](../../rules/020_answer_f1_primary_20261017.md)。原始分数/训练源码不改。
 
-> 当前成果统一看[探究总报告](../../summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md)：10个问题、每项六栏，区分验证、证伪、部分改进和待证明。知识4轨迹及遥感权重3轨迹已完成；GPU1正在原cap1完整确认，之后优先核心48组对照，再12组两模块原型，最后cap3；用户已委托方案调度。原协议与失败记录保留，基线不改。
+> 当前成果统一看[探究总报告](../../summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md)：10个问题、每项六栏。用户已授权两模块设计；GPU1当前原cap1后，先12组原型及[四组完整19阶段/最终全测试](../../summary/onevision_diagnostics_20261016/two_module_fullstream/PROTOCOL.md)，保留原48控制/cap3，随后补全稀疏FWT/BWT。完整代码已实现排队，尚无新GPU效果；原协议/失败保留，基线不改。
 
 # OneVision 0.5B：先诊断，再设计方法
 
