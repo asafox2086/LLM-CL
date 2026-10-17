@@ -1,0 +1,87 @@
+{
+  "started_utc": "2026-10-17T11:38:15.252262+00:00",
+  "previous_CPU_PID": 194253,
+  "GPU1_before": {
+    "137966": {
+      "pid": 137966,
+      "startticks": 5598716,
+      "cmdline": "/data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/onevision_full_input_repair.py --cap 1 "
+    }
+  },
+  "baseline_before": {
+    "174247": {
+      "pid": 174247,
+      "startticks": 6934504,
+      "cmdline": "/data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py --method SeqFT_LoRA --condition pct01 --run-dir /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209 "
+    },
+    "175176": {
+      "pid": 175176,
+      "startticks": 6951892,
+      "cmdline": "/data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py --method ER_LoRA --condition pct01 --run-dir /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502 "
+    }
+  },
+  "previous_service_unit": "[Unit]\nDescription=GPU1 causal diagnostic priority after unchanged active full confirmation\nAfter=network-online.target\n[Service]\nType=simple\nWorkingDirectory=/data1/liyapeng/program/LLMCL\nEnvironment=CUDA_VISIBLE_DEVICES=\nEnvironment=PYTHONUNBUFFERED=1\nExecStart=/usr/bin/nohup /data1/liyapeng/program/LLMCL/.assets-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/onevision_causal_priority_queue.py\nStandardInput=null\nStandardOutput=append:/data1/liyapeng/program/LLMCL/summary/onevision_diagnostics_20261016/causal_priority_queue/coordinator_nohup.log\nStandardError=inherit\nRestart=no\nKillMode=process\n[Install]\nWantedBy=default.target\n",
+  "old_queue_snapshot": {
+    "phase": "wait",
+    "target": null,
+    "pid": 194253,
+    "state": {
+      "old_CPU_owners": {
+        "llmcl-onevision-deferred-full.service": 0,
+        "llmcl-onevision-full-repair.service": 0,
+        "llmcl-onevision-matched-task-domain.service": 0
+      },
+      "GPU1_PIDs": [
+        "137966"
+      ],
+      "used_MiB": 6656,
+      "utilization": 13
+    },
+    "GPU1_only": true
+  },
+  "KillMode_verified_process": true,
+  "completed_utc": "2026-10-17T11:38:16.353117+00:00",
+  "new_CPU_PID": 212390,
+  "new_CPU_process": {
+    "pid": 212390,
+    "startticks": 8171178,
+    "cmdline": "/data1/liyapeng/program/LLMCL/.assets-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/onevision_two_module_queue.py "
+  },
+  "new_queue_state": {
+    "phase": "wait",
+    "target": null,
+    "pid": 212390,
+    "state": {
+      "old_CPU_owners": {
+        "llmcl-onevision-deferred-full.service": 0,
+        "llmcl-onevision-full-repair.service": 0,
+        "llmcl-onevision-matched-task-domain.service": 0
+      },
+      "GPU1_PIDs": [
+        "137966"
+      ],
+      "used_MiB": 6656,
+      "utilization": 10
+    }
+  },
+  "GPU1_after": {
+    "137966": {
+      "pid": 137966,
+      "startticks": 5598716,
+      "cmdline": "/data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/onevision_full_input_repair.py --cap 1 "
+    }
+  },
+  "baseline_after": {
+    "174247": {
+      "pid": 174247,
+      "startticks": 6934504,
+      "cmdline": "/data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py --method SeqFT_LoRA --condition pct01 --run-dir /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209 "
+    },
+    "175176": {
+      "pid": 175176,
+      "startticks": 6951892,
+      "cmdline": "/data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py --method ER_LoRA --condition pct01 --run-dir /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502 "
+    }
+  },
+  "activated": true
+}

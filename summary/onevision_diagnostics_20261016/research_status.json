@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-17T09:30:41.013163+00:00",
+  "updated_utc": "2026-10-17T11:40:24.532126+00:00",
   "completed": {
     "knowledge": 17,
     "basis_trajectories": 9,
@@ -20,7 +20,7 @@
     "phase": "running",
     "active_job": "cap1_full_confirm",
     "pid": 137966,
-    "coordinator_pid": 194253,
+    "coordinator_pid": 212390,
     "actual_worker_PID_exists_at_check": true
   },
   "overall_complete": false,
@@ -48,6 +48,7 @@
   "scheduling_priority": [
     "cap1_same_run_full_confirmation",
     "matched_two_anchor48_original_controls",
+    "two_module_pilot12",
     "cap3_full_confirmation"
   ],
   "primary_report": "RESEARCH_REPORT.md",
@@ -118,10 +119,35 @@
   },
   "active_research_coordinator": {
     "service": "llmcl-onevision-causal-priority.service",
-    "pid": 194253,
-    "queue": "causal_priority_queue/queue_state.json",
-    "activation_proof": "causal_priority_queue/ACTIVATION.json",
-    "user_delegated_GPU1_design": true,
-    "old_CPU_coordinators_retired_intentionally": true
+    "pid": 212390,
+    "queue": "two_module_priority_queue/queue_state.json",
+    "activation_proof": "two_module_priority_queue/ACTIVATION.json",
+    "user_delegated_GPU1_design": true
+  },
+  "matched_input_structure_preflight": {
+    "CPU_passed": true,
+    "fixed_unique_QA": 879,
+    "TRAIN_QA": 80,
+    "TEST_QA": 799,
+    "fixed_structural_mismatches": 0,
+    "positive_failure_control_outside_fixed_cohort": "FinMME:5082",
+    "positive_failure_control_counts": [
+      2052,
+      2106
+    ],
+    "actual_GPU_forward_test": false,
+    "original_sources_or_ids_changed": false,
+    "report": "matched_task_domain/INPUT_GEOMETRY_AUDIT.md"
+  },
+  "two_module_prototype": {
+    "CPU_core_checks": 8,
+    "CPU_queue_checks": 7,
+    "planned_GPU_pilots": 12,
+    "completed_GPU_pilots": 0,
+    "trainable_parameters": 540672,
+    "GPU_gates_pending": true,
+    "full19_stage_implementation_pending": true,
+    "full21454_efficacy_pending": true,
+    "protocol": "two_module_prototype/PROTOCOL.md"
   }
 }

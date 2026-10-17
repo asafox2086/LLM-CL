@@ -1,0 +1,173 @@
+{
+  "passed": true,
+  "CPU_only": true,
+  "GPU_runtime_validated": false,
+  "GPU_worker_prepared": true,
+  "GPU_method_or_accuracy_results": false,
+  "checks": [
+    "all48 real adapter A bases retained; B/function scaling exact; source unmodified",
+    "full-step interpolation is an exact independent copy, without subtraction-rounding drift",
+    "current-fit reuse candidate can erase old function; TRAIN guard rejects it in explicit conflicting case",
+    "finite-step guard accepts nonzero improvement with old quadratic budget respected",
+    "actual bilinear finite update checked; not a first-order factor projection",
+    "all-infeasible proposals return unchanged parameters; caller rollback contract explicit",
+    "TEST split, foreign IDs and nonfinite losses rejected",
+    "actual CPU Adam can change old first-order loss despite zero raw gradient dot; no GPU claim"
+  ],
+  "actual_adapter_layers": 48,
+  "actual_adapter_sha256": "aa1a0c78ee3755401e853073d0bf18a282544fd09b690777ef0a048f54da5fb3",
+  "source_sha256": {
+    "analysis/check_onevision_two_module_core.py": "e3626f327335ea8679bf024de15e0b9e98bf2b8c2d804fc8a31f6802b88d4fee",
+    "analysis/onevision_two_module_core.py": "0afa2f600dca565f4b023d3fa1e92b4b276c965aaf74fdc37a2d7059f256d7a4",
+    "summary/onevision_diagnostics_20261016/research_current_attempt.json": "cd4785078d95211c21fdd05732d6790681fe03883ee9d425a8716e38fa4ee536",
+    "exp/onevision_diagnostics_20261016/runs/20261016_164638/adapters/isolated_natural.pt": "aa1a0c78ee3755401e853073d0bf18a282544fd09b690777ef0a048f54da5fb3"
+  },
+  "toy_current_fit_choice": {
+    "chosen_strength": 0.0,
+    "all_candidates": [
+      {
+        "strength": 1.0,
+        "current_TRAIN_NLL": 1.0,
+        "old_TRAIN_NLL": {
+          "old": 0.0
+        },
+        "eligible": true
+      },
+      {
+        "strength": 0.5,
+        "current_TRAIN_NLL": 0.25,
+        "old_TRAIN_NLL": {
+          "old": 0.25
+        },
+        "eligible": true
+      },
+      {
+        "strength": 0.0,
+        "current_TRAIN_NLL": 0.0,
+        "old_TRAIN_NLL": {
+          "old": 1.0
+        },
+        "eligible": true
+      }
+    ],
+    "extra_TRAIN_forward_evaluations": 3,
+    "uses_TEST": false
+  },
+  "toy_guarded_choice": {
+    "chosen_strength": 1.0,
+    "all_candidates": [
+      {
+        "strength": 1.0,
+        "current_TRAIN_NLL": 1.0,
+        "old_TRAIN_NLL": {
+          "old": 0.0
+        },
+        "eligible": true
+      },
+      {
+        "strength": 0.5,
+        "current_TRAIN_NLL": 0.25,
+        "old_TRAIN_NLL": {
+          "old": 0.25
+        },
+        "eligible": false
+      },
+      {
+        "strength": 0.0,
+        "current_TRAIN_NLL": 0.0,
+        "old_TRAIN_NLL": {
+          "old": 1.0
+        },
+        "eligible": false
+      }
+    ],
+    "extra_TRAIN_forward_evaluations": 3,
+    "uses_TEST": false
+  },
+  "toy_finite_step": {
+    "accepted_fraction": 0.125,
+    "trials": [
+      {
+        "fraction": 1.0,
+        "current_TRAIN_NLL": 0.0,
+        "old_TRAIN_NLL": {
+          "old": 1.0
+        },
+        "accepted": false
+      },
+      {
+        "fraction": 0.5,
+        "current_TRAIN_NLL": 0.25,
+        "old_TRAIN_NLL": {
+          "old": 0.25
+        },
+        "accepted": false
+      },
+      {
+        "fraction": 0.25,
+        "current_TRAIN_NLL": 0.5625,
+        "old_TRAIN_NLL": {
+          "old": 0.0625
+        },
+        "accepted": false
+      },
+      {
+        "fraction": 0.125,
+        "current_TRAIN_NLL": 0.765625,
+        "old_TRAIN_NLL": {
+          "old": 0.015625
+        },
+        "accepted": true
+      }
+    ],
+    "current_before": 1.0,
+    "uses_TEST": false
+  },
+  "toy_bilinear_step": {
+    "accepted_fraction": 0.125,
+    "trials": [
+      {
+        "fraction": 1.0,
+        "current_TRAIN_NLL": 1.0,
+        "old_TRAIN_NLL": {
+          "old": 4.0
+        },
+        "accepted": false
+      },
+      {
+        "fraction": 0.5,
+        "current_TRAIN_NLL": 0.0625,
+        "old_TRAIN_NLL": {
+          "old": 0.5625
+        },
+        "accepted": false
+      },
+      {
+        "fraction": 0.25,
+        "current_TRAIN_NLL": 0.47265625,
+        "old_TRAIN_NLL": {
+          "old": 0.09765625
+        },
+        "accepted": false
+      },
+      {
+        "fraction": 0.125,
+        "current_TRAIN_NLL": 0.738525390625,
+        "old_TRAIN_NLL": {
+          "old": 0.019775390625
+        },
+        "accepted": true
+      }
+    ],
+    "current_before": 1.0,
+    "uses_TEST": false
+  },
+  "Adam_unit_old_linear_change": 9.999999850000004e-05,
+  "limits": [
+    "CPU primitives only; do not prove model quality or novelty.",
+    "Toy losses are explicit quadratic unit controls, not measured model NLL.",
+    "Optimizer/RNG rollback, routed-pool integration, deterministic GPU controls and all activations remain to implement/verify.",
+    "TRAIN finite-loss checks only constrain the fixed memory/probes, not TEST or all historical data.",
+    "An entirely rejected native task must fail validity admission rather than be reported as successful CL."
+  ]
+}

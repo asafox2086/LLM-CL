@@ -17,6 +17,8 @@
 
 该门槛消除“同一首阶段数值不相同”的旧混杂；它不消除任务内容、目标长度、额外历史计算或单seed限制。
 
+输入结构CPU预检已覆盖本设计879不同QA（80训练、799测试）及全部提示占位符，固定队列不匹配0；队列外已知失败FinMME:5082成功复现2052/2106。使用真实return_tensors=pt processor与官方dummy特征打包；不是视觉编码器/GPU前向检查。[详细证据](../summary/onevision_diagnostics_20261016/matched_task_domain/INPUT_GEOMETRY_AUDIT.md)。不因此放松任何实际GPU门槛。
+
 ## 评测与信息／计算预算
 
 1. 每锚从原生测试按固定ID哈希取32题，在stage1／3／5评原生成，以Answer F1为唯一性能指标、NLL为机制辅助，所有条件同ID。原文件附带EM/ROUGE仅保留追溯，不作为并列主成绩。
@@ -37,10 +39,10 @@
 
 ## 调度（2026-10-17用户授权后的优先级修订）
 
-用户明确委托“这个gpu1的方案你自己定，我只要结论”。当前由nohup CPU服务`llmcl-onevision-causal-priority.service`统一管理：**原cap1推理自然完成 → 本协议48组原控制 → 原cap3完整确认**。原来等待两次完整确认的CPU协调器已停用，不能重启，否则会形成重复所有者。
+用户明确委托“这个gpu1的方案你自己定，我只要结论”。当前由nohup CPU服务`llmcl-onevision-causal-priority.service`统一管理：**原cap1推理自然完成 → 本协议48组原控制 → 12组两模块原型 → 原cap3完整确认**。原来等待两次完整确认的CPU协调器已停用，不能重启，否则会形成重复所有者。
 
 切换前已先设置并核验旧服务KillMode=process，再仅终止CPU父进程；当前GPU1原PID/startticks及基线均保留，不中断推理、不抢其他卡。新CPU服务发现任意GPU1进程/未空闲就等待；每个原案例用独立GPU进程调用同一`--case`入口，训练器源码和全部门槛不变。失败保留并停止，不盲重试。新服务已enabled支持重启接续，但中断训练仍须原规定从基座重跑，不能拼接。
 
-[用户授权](../summary/onevision_diagnostics_20261016/causal_priority_queue/AUTHORIZATION.json)、[实际切换证明](../summary/onevision_diagnostics_20261016/causal_priority_queue/ACTIVATION.json)、[实时统一队列](../summary/onevision_diagnostics_20261016/causal_priority_queue/queue_state.json)。调度变更不是实验结果或源代码变更；GPU48组实际门槛仍待执行。
+[用户授权](../summary/onevision_diagnostics_20261016/causal_priority_queue/AUTHORIZATION.json)、[实际切换证明](../summary/onevision_diagnostics_20261016/causal_priority_queue/ACTIVATION.json)、[实时统一队列](../summary/onevision_diagnostics_20261016/two_module_priority_queue/queue_state.json)。调度变更不是实验结果或源代码变更；GPU48组实际门槛仍待执行。
 
 报告在`summary/onevision_diagnostics_20261016/matched_task_domain/`，大权重在服务器`exp/onevision_matched_task_domain_20261017/`；模型／数据／checkpoint不入Git。当前只有CPU检查，实际GPU门槛与48条轨迹结果尚未产生。

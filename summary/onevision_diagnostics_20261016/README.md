@@ -2,13 +2,13 @@
 
 # OneVision痛点研究：阅读入口
 
-**先读[探究总报告](RESEARCH_REPORT.md)。** 按9个问题统一写为：探究的问题 → 做的实验 → 结果 → 证明了什么 → 改进的方法 → 改进的效果。未完成、负结果、局部有效均明确标记。
+**先读[探究总报告](RESEARCH_REPORT.md)。** 按10个问题统一写为：探究的问题 → 做的实验 → 结果 → 证明了什么 → 改进的方法 → 改进的效果。未完成、负结果、局部有效均明确标记。
 
 本文导航于2026-10-17整理。旧快照保留用于追溯，不再作为当前成果入口；不移动固定路径，避免破坏脚本与证据引用。
 
 | 想看什么 | 当前入口 | 内容与状态 |
 | --- | --- | --- |
-| 已做什么、证明／证伪了什么、改进有没有用 | [RESEARCH_REPORT](RESEARCH_REPORT.md) | 主报告，9项统一六栏 |
+| 已做什么、证明／证伪了什么、改进有没有用 | [RESEARCH_REPORT](RESEARCH_REPORT.md) | 主报告，10项统一六栏 |
 | 遥感全部同答：是否没看图 | [RURAL_COLLAPSE_EVIDENCE](RURAL_COLLAPSE_EVIDENCE.md) | 5权重×3视图×TRAIN／TEST全部完成 |
 | 类别平衡有没有修复坍缩 | [RURAL_WEIGHT_EVIDENCE](RURAL_WEIGHT_EVIDENCE.md) | 三条轨迹全部完成；44→50，仍94题urban |
 | 知识是否真正写入、是否帮助问答 | [KNOWLEDGE_FIT_EVIDENCE.json](KNOWLEDGE_FIT_EVIDENCE.json) | 正确／错配×rank1／8、0／8／64步全部完成 |
@@ -38,3 +38,7 @@
 - [训练后的视觉输入作用](TRAINED_VISION_F1_EVIDENCE.md)：同一最终权重医学100题原图43.022、错图30.889、无图24.310；配对区间/同token反边界与300错图像素核验全部保留。无新训练、非完整测试。
 
 - [当前统一调度](causal_priority_queue/SCHEDULING_PROPOSAL.md)：用户已委托GPU1方案，由原cap1完成后优先核心48、cap3后排；只停旧CPU协调器，原GPU推理与基线保持。以新queue_state为准，旧协调器PID失效是计划停用。
+
+- [核心对照图像结构预检](matched_task_domain/INPUT_GEOMETRY_AUDIT.md)：879固定QA/35尺寸（含队列外故障检查），实际CPU processor与官方打包形状核对；仅原故障检查2052/2106，固定队列0异常。初次Python整数简化路径漏检已作废重做，实际GPU门槛仍待执行。
+
+- [从问题到两模块原型](two_module_prototype/PROTOCOL.md)：用户最新授权已覆盖旧暂停设计要求；已有CPU检查与GPU排队，实际提升待测。全19阶段/完整测试仍必须完成，不能以12组独立小试验冒充主实验。
