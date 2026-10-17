@@ -1,0 +1,37 @@
+{
+  "CPU_toy_only": true,
+  "source_sha256": "ce2d3897ae02b12af376d78840e7a43188f4c6bb0d9dd4de01d3652e6547692f",
+  "check_source_sha256": "d02c99662c54f1d80ff972768529455b3bdfeb4dc908571b096e3a86a4c4eb5a",
+  "all_six_stage1_weights_exact": true,
+  "original_step_task_reused_without_edit": true,
+  "stage2_controls": {
+    "SeqFT_LoRA": {
+      "positive_lr_updates": 4,
+      "exposures": 8
+    },
+    "ER_LoRA": {
+      "positive_lr_updates": 4,
+      "exposures": 16
+    },
+    "EWC_lambda1": {
+      "positive_lr_updates": 4,
+      "exposures": 8
+    },
+    "EWC_lambda100": {
+      "positive_lr_updates": 4,
+      "exposures": 8
+    },
+    "anchor_gradient_noop": {
+      "positive_lr_updates": 4,
+      "exposures": 8
+    },
+    "anchor_gradient_projection": {
+      "positive_lr_updates": 4,
+      "exposures": 8
+    }
+  },
+  "spec_JSON_roundtrip_exact": true,
+  "frozen_48_cases_unique": true,
+  "GPU_used": false,
+  "actual_OneVision_stage1_gate": "pending"
+}

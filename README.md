@@ -17,7 +17,7 @@
 
 研究使用LLaVA-OneVision-Qwen2-0.5B-OV（完整模型约0.9B），仅新GPU1；共享冻结1%共1313条TRAIN。500题NLL／155题生成等诊断集单独标注，不冒充完整21454题。知识16事实及重复训练均是额外机制干预，预算另计。
 
-2026-10-17最新核验：知识4条0／8／64步轨迹、遥感3条损失权重轨迹全部完成；cap1已恢复原兼容运行，之后cap3完整测试。未发布完整测试提升，未证明自动最优LoRA数量，暂停新方法／路由设计。Qwen2-VL基线独立nohup运行，不跨骨干排名，旧Qwen零LR混杂单列。
+2026-10-17最新核验：知识4条0／8／64步轨迹、遥感3条损失权重轨迹全部完成；cap1已恢复原兼容运行，之后cap3完整测试。未发布完整测试提升，未证明自动最优LoRA数量，暂停新方法／路由设计。 下一项[确定性双锚机制复核](analysis/ONEVISION_MATCHED_TASK_DOMAIN_PROTOCOL.md)已部署等待，等现有全量完成后执行；CPU通过不等于GPU结果。Qwen2-VL基线独立nohup运行，不跨骨干排名，旧Qwen零LR混杂单列。
 
 逐题结果、阶段权重／SHA、loss、实际LR、原始可用梯度及[具体内存前后／峰值](summary/onevision_diagnostics_20261016/MEMORY_WINDOW_AUDIT.md)保留；模型、数据、checkpoint和私钥不入Git。
 
