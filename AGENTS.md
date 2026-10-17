@@ -1,5 +1,7 @@
 # Latest research direction — OneVision diagnostic first, 2026-10-16
 
+- Predeclared rural loss-weight causal control now queued AFTER knowledge-fit BEFORE same cap1/cap3 resume. Three fixed cases uniform/class_balanced/urban_high_negative, same original6TRAIN/100TEST, same past-natural start,4updates24exposures; no data edits or newCLmethod. CPU actual toy uniform4steps exact and weighted-gradient checks passed; actualGPU uniform1/4 must exactly reproduce originalbasisAB before any comparisons. Only CPU waiting deferred coordinator109145 stopped before source amendment; knowledgeworker120650 preserved. Newwaiting rural-weightsPID122982/deferredPID122984; read live IDs. No new weight-study GPU outcomes yet. See analysis/ONEVISION_RURAL_WEIGHT_PROTOCOL.md and rural_weights/SCHEDULING_AMENDMENT.json.
+
 - Rural inference controls now5/5 complete (30 cells; TRAIN6/TEST100 three views).400 original image predictions/scores exact, NLL error0. PastAB1->4 EM76->44 and all urban, BUT4-step correct-image vs wrong-image goldNLL advantage0.0536 CI[0.0331,0.0745], target-signed margin0.2975 CI[0.1987,0.3962]. Bare urban-minus-rural logprob shifts+1.950, cross-image correlation0.918; decision bias can mask retained image-conditioned signal. No claim vision unchanged or training class imbalance uniquely causal. Endpoint TRAIN meanNLL0.334->0.240 CIincludes0; TEST0.296->0.374. Read KEY_FINDINGS K07/RURAL_COLLAPSE_EVIDENCE. Knowledge-fit rank1_correct has actually started worker120650; read live state, no knowledge results yet.
 
 

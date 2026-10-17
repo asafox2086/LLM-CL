@@ -1,3 +1,5 @@
+> 当前顺序：知识写入 → 固定三组遥感损失权重诊断 → 原cap1／cap3全量续测。仅CPU等待调度器重排，运行中知识GPU进程未动。[新对照协议](../../analysis/ONEVISION_RURAL_WEIGHT_PROTOCOL.md)。
+
 > 原权重视觉／终点拟合对照已完成，新增[K07](../../summary/onevision_diagnostics_20261016/KEY_FINDINGS.md)：全部输出urban时仍保留图像条件信号。知识写入四轨迹对照已接续启动，结果待完成证明。
 
 > 最新：cap1长推理已主动让出GPU1，3940条兼容预测保留；rural真实GPU诊断正在执行，之后知识拟合，再原运行续测cap1／cap3。旧cap1 PID退出是预期，不是故障。

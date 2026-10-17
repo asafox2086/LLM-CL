@@ -17,7 +17,7 @@ def write(value):
 def main():
     lock=(REPORT/'deferred_full_confirmation.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
     while True:
-        folders=[REPORT/'rural_collapse',REPORT/'knowledge_fit']
+        folders=[REPORT/'rural_collapse',REPORT/'knowledge_fit',REPORT/'rural_weights']
         failures=[str(f.relative_to(ROOT)) for f in folders if (f/'needs_attention.json').exists()]
         if failures:
             write({'phase':'diagnostic_needs_attention','pid':os.getpid(),'folders':failures});return
