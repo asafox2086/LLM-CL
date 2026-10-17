@@ -44,3 +44,5 @@ nohup服务`llmcl-onevision-knowledge-fit.service`等待已有全量确认与rur
 `analysis/onevision_knowledge_fit_evidence.py` reads only durable completed cases, verifies source/artifact SHA and frozen IDs, checks all64 raw gradient norms against CPU FP64 and reports actual deltaW displacement. It preserves original scores, reports fixed-prefix sensitivity separately, and compares correct/permuted within each rank only after both complete. No rank or budget selection. CPU synthetic four-case fixture passed72 summary cells and12 paired cells; tampered SHA is rejected and missing completion proof emits no scores. See `knowledge_fit/COLLECTOR_CPU_CHECK.json`; these checks are not GPU knowledge results.
 
 训练前缀审计：`analysis/onevision_knowledge_training_audit.py`使用原子checkpoint及梯度侧车SHA验证0／8／64的已落盘前缀，逐步核对TRAIN顺序、实际LR、梯度FP64范数、因子更新与实际deltaW；不发布未完成病例的临床或事实分数。见`KNOWLEDGE_TRAINING_AUDIT.json`。
+
+资源审计：`analysis/onevision_memory_window_audit.py`仅统计已闭合训练窗口，以日志固定字节前缀SHA复验；CPU／NVML为采样最大值，CUDA peak用reset后的after，VmHWM不是训练窗口峰值。TRAIN-after仍保留优化器，不能将占用增量当成新增参数。见`MEMORY_WINDOW_AUDIT.md/json`。

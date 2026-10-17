@@ -1,0 +1,102 @@
+{
+  "collector_sha256": "667d85eca089a3ed53293f6ac4f8a72ce642af7d76cd6e876efe4fd7a29ddcec",
+  "unit": "bytes",
+  "cases": [
+    {
+      "run": "exp/onevision_knowledge_fit_20261017/rank1_correct/20261017_104029",
+      "case": "rank1_correct",
+      "resource_log": "exp/onevision_knowledge_fit_20261017/rank1_correct/20261017_104029/resources.jsonl",
+      "immutable_prefix_bytes": 91867,
+      "immutable_prefix_sha256": "ead0b4e1f8a9bb136b3a49c00099ef5db963768a1d93d385e8380dae6eb63fb7",
+      "source_sha256": {
+        "analysis/onevision_knowledge_fit_probe.py": "44cddcc93765640fa5eb48d663c3bfaab54182a66cba60ada5209e49834919dd",
+        "analysis/onevision_knowledge_intervention.py": "22512cc63ed0933f0f471f30b07f5707ba8e020c95137811430cdced2c3962a0",
+        "analysis/onevision_knowledge_encoding_probe.py": "61742dad365e1c69072cee02a9c47e42c73e632597b000fdcd0a7dc9b41bb849",
+        "analysis/onevision_research_worker.py": "6db35a572ee8fca5f07e69eb22b36a8eebc40ce28a0b7977aa7b228373b81493",
+        "analysis/onevision_capacity_probe.py": "5319a4ad35dd78db4dbc40ad9d45387a55c17c6c911c74ad46b5680ff76db225",
+        "exp/onevision_diagnostics_20261016/run.py": "cf8ee1ac5af7faa595e05be05e05da5207d9f0596e518f8a8998ae8d3d0d7536"
+      },
+      "closed_training_windows": [
+        {
+          "window": 1,
+          "before": {
+            "phase": "fit_window_1_before",
+            "stage": 0,
+            "unix": 1792205344.2892792,
+            "pid": 120650,
+            "visible_gpu": "1",
+            "VmHWM_bytes": 4436656128,
+            "VmRSS_bytes": 2659840000,
+            "VmSwap_bytes": 0,
+            "Pss_bytes": 2428427264,
+            "Private_Clean_bytes": 93147136,
+            "Private_Dirty_bytes": 2249773056,
+            "cpu_uss_bytes": 2342920192,
+            "gpu_allocated_bytes": 1843037184,
+            "gpu_reserved_bytes": 3269459968,
+            "gpu_peak_allocated_bytes": 2473771008,
+            "gpu_peak_reserved_bytes": 3269459968,
+            "gpu_process_nvml_bytes": 3625975808,
+            "trainable_parameters": 67584,
+            "trainable_parameter_bytes": 270336,
+            "model_parameter_bytes": 1789784128
+          },
+          "after": {
+            "phase": "fit_window_1_after",
+            "stage": 0,
+            "unix": 1792205378.8801997,
+            "pid": 120650,
+            "visible_gpu": "1",
+            "VmHWM_bytes": 4436656128,
+            "VmRSS_bytes": 2689875968,
+            "VmSwap_bytes": 0,
+            "Pss_bytes": 2448841728,
+            "Private_Clean_bytes": 98435072,
+            "Private_Dirty_bytes": 2255978496,
+            "cpu_uss_bytes": 2354413568,
+            "gpu_allocated_bytes": 1877330944,
+            "gpu_reserved_bytes": 3269459968,
+            "gpu_peak_allocated_bytes": 1913477632,
+            "gpu_peak_reserved_bytes": 3269459968,
+            "gpu_process_nvml_bytes": 3659530240,
+            "trainable_parameters": 67584,
+            "trainable_parameter_bytes": 270336,
+            "model_parameter_bytes": 1789784128
+          },
+          "growth_bytes": {
+            "VmRSS_bytes": 30035968,
+            "Pss_bytes": 20414464,
+            "cpu_uss_bytes": 11493376,
+            "gpu_allocated_bytes": 34293760,
+            "gpu_reserved_bytes": 0,
+            "gpu_process_nvml_bytes": 33554432
+          },
+          "sampled_window_max_bytes": {
+            "VmRSS_bytes": 2689875968,
+            "Pss_bytes": 2448841728,
+            "cpu_uss_bytes": 2354413568,
+            "gpu_allocated_bytes": 1881961984,
+            "gpu_reserved_bytes": 3269459968,
+            "gpu_process_nvml_bytes": 3659530240
+          },
+          "allocator_peak_after_reset_bytes": 1913477632,
+          "reserved_peak_after_reset_bytes": 3269459968,
+          "trainable_parameter_count_growth": 0,
+          "trainable_parameter_bytes_growth": 0,
+          "model_parameter_bytes_growth": 0,
+          "sample_count": 9
+        }
+      ]
+    }
+  ],
+  "scope": "only completed TRAIN windows; not completion of clinical/fact evaluation cases",
+  "limitations": [
+    "TRAIN-after points retain optimizer state; before has optimizer created but Adam states not yet initialized",
+    "parameter bytes exclude gradients, Adam states, activations, runtime buffers and CUDA cache",
+    "RSS/PSS/USS and processNVML peaks are periodic sampled maxima; may miss short spikes",
+    "CUDA allocator peaks after reset come from the endpoint-after snapshot, not old pre-reset before peak",
+    "VmHWM is whole-process lifetime and is NOT a per-training-window CPU peak",
+    "same PID/phase/time range excludes endpoint inference between windows; retained caches can affect baseline",
+    "memory increase with fixed parameter count is not evidence of new modules or a memory leak"
+  ]
+}

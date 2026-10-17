@@ -16,3 +16,8 @@
 训练更新审计见[KNOWLEDGE_TRAINING_AUDIT.json](KNOWLEDGE_TRAINING_AUDIT.json)：只覆盖完成校验的训练前缀，未完成病例的临床分数不纳入。
 
 直接证据入口：[重点发现K01–K07](KEY_FINDINGS.md)、[遥感原权重视觉／终点拟合](RURAL_COLLAPSE_EVIDENCE.md)、[基底与预算](COMPLETED_CONTROLS.md)、[默认后端任务／领域机制限制](TASK_DOMAIN_MECHANISM_AUDIT.md)、[知识格式与操作核验](KNOWLEDGE_FORMAT_AUDIT.md)、[预先固定的损失权重干预](../../analysis/ONEVISION_RURAL_WEIGHT_PROTOCOL.md)。
+
+## 资源与长度审计补充
+
+- [内存窗口审计](MEMORY_WINDOW_AUDIT.md)区分参数字节、CUDA实际分配／缓存与NVML／CPU采样峰值。知识rank1首8步参数67584不变，CUDA allocated增34293760 bytes；不能算成新增模型参数，也不能据一次增长断定泄漏。before和after均明确记录，after仍保留优化器状态。
+- [事实金标长度](KNOWLEDGE_TARGET_LENGTH_AUDIT.json)：正确及错配共32条金标最长17 token，训练硬截断512、生成预算128。金标本身未被硬截断；不能推导生成必成功，或排除错误输出耗尽预算。未据此更改提示／数据／预算。

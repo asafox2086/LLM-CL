@@ -1,3 +1,5 @@
+> 训练资源的具体before／after字节与窗口峰值见[内存审计](summary/onevision_diagnostics_20261016/MEMORY_WINDOW_AUDIT.md)，不会把缓存／优化状态增长当模型扩容。
+
 > 原因判定总表见[CAUSAL_STATUS](summary/onevision_diagnostics_20261016/CAUSAL_STATUS.md)，明确已排除与尚未证明的解释。
 
 > 下一项原因对照已固定：保持原6条遥感训练QA，只改变损失权重，检验城乡权重是否导致输出偏移；三组全报，不按测试选优。[协议](analysis/ONEVISION_RURAL_WEIGHT_PROTOCOL.md)。知识写入仍在运行，新权重对照尚无GPU结果。
