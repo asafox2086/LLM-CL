@@ -18,3 +18,5 @@
 当前科学优先级：保留正在运行的cap1，12组小原型准入之后先原48组归因，再四组完整方法训练/最终确认，原cap3与完整转移评测保留。只用GPU1；基线nohup照常，源/QA/图片/权重不热改。
 
 主入口：[六栏总报告](RESEARCH_REPORT.md)、[关键机制登记](KEY_FINDINGS.md)、[知识字面相关性审计](KNOWLEDGE_LOCALITY_EVIDENCE.md)、[当前调度保全](causal_before_full_method_queue/ACTIVATION.json)。当前目标保持active，不以代码准备或仍在运行作为完成证据。
+
+原原因判定表已完整保存在[历史快照](../ago/causal_status_revision_20261017/CAUSAL_STATUS_before_requirement_audit.md)，包括资源窗口与事实长度边界，不丢弃原证据。事实金标最长17token，不能用512训练截断解释未记忆；不能由此排除错误生成的长度问题。知识rank1首8步的CUDA占用增长不等于新增参数，旧after仍保留优化器，具体字节见[资源窗口审计](MEMORY_WINDOW_AUDIT.md)。
