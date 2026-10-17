@@ -1,3 +1,7 @@
+# Capacity resource accounting evidence — 2026-10-17
+
+- CPU-only onevision_capacity_resource_audit.py verifies completed caps1/2/3/5 source/weights/19decisions/93positiveLR updates and samePID memory. All model-monitor trainable540672/GPUallocated growth32MiB, but actual CPU snapshot pool parameters540672/1081344/1622016/2703360 and FP32storage2.0625/4.125/6.1875/10.3125MiB. Snapshot CPU placement checked in frozen source, not inferred from CPU load alone. No memory-superiority or accuracy causality claim. Original peak scope includes intermediate/final evaluation; not isolated TRAIN peak. Extra TRAIN scoring1734/1481/1353/1489 QA-forwards; feature misses/gradient cost separate. Full payload/storage/PID/bytes in capacity_resource_evidence/RESOURCE_AUDIT.json; main report12questions/K12. New standalone completed CPU audit, active/queued sources unchanged. Original48 remains required and waiting originalcap1.
+
 # Latest HUMAN core: lightweight/data-limited, low memory growth — 2026-10-17
 
 - Multiple LoRAs ARE allowed. Single LoRA is the current frozen prototype choice, NOT a hard rule. User wants small actual memory growth, preferably below compared LoRA methods; name each comparator and matched measurement setting, never assume below all LoRA or SeqFT. Count resident experts/router/history, optimizer, temporary candidates, CPU/GPU before/after/peak and extra compute. Current B extra TRAIN forward upper bound11430 is not free lightweight advantage. See rules/021_lightweight_data_limited_core_20261017.md.

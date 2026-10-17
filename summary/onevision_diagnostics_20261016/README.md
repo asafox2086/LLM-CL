@@ -2,13 +2,14 @@
 
 # OneVision痛点研究：阅读入口
 
-**先读[探究总报告](RESEARCH_REPORT.md)。** 按11个问题统一写为：探究的问题 → 做的实验 → 结果 → 证明了什么 → 改进的方法 → 改进的效果。未完成、负结果、局部有效均明确标记。
+**先读[探究总报告](RESEARCH_REPORT.md)。** 按12个问题统一写为：探究的问题 → 做的实验 → 结果 → 证明了什么 → 改进的方法 → 改进的效果。未完成、负结果、局部有效均明确标记。
 
 本文导航于2026-10-17整理。旧快照保留用于追溯，不再作为当前成果入口；不移动固定路径，避免破坏脚本与证据引用。
 
 | 想看什么 | 当前入口 | 内容与状态 |
 | --- | --- | --- |
-| 已做什么、证明／证伪了什么、改进有没有用 | [RESEARCH_REPORT](RESEARCH_REPORT.md) | 主报告，11项统一六栏 |
+| 已做什么、证明／证伪了什么、改进有没有用 | [RESEARCH_REPORT](RESEARCH_REPORT.md) | 主报告，12项统一六栏 |
+| 低GPU增长能否代表总容量不变 | [容量资源核验](capacity_resource_evidence/VERIFIED_RESULTS.md) | 固定GPU计数仍可对应1/2/3/5个CPU专家；成本与峰值范围全报，无内存优势声明 |
 | 更多LoRA是否也改善选择 | [ROUTING_MECHANISM_EVIDENCE](ROUTING_MECHANISM_EVIDENCE.md) | 同池路线NLL对照；19原型/500选择跨容量相同，不声称F1提升 |
 | 完整21454确认是否完成 | [自动结果入口](full_confirmation_evidence/VERIFIED_RESULTS.md) | 完整proof前不读活动后缀；F1/QA/SHA/重合原结果全检，FWT/BWT为空 |
 | 遥感全部同答：是否没看图 | [RURAL_COLLAPSE_EVIDENCE](RURAL_COLLAPSE_EVIDENCE.md) | 5权重×3视图×TRAIN／TEST全部完成 |

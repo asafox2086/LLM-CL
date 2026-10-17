@@ -117,6 +117,14 @@ L_{\mathrm{EWC},t-1}(\theta)=\frac{\lambda}{2}\sum_i F_{t-1,i}(\theta_i-\theta^*
 
 证据：[六栏报告](ROUTING_MECHANISM_EVIDENCE.md)、[cap1真实19阶段复核](full_confirmation_evidence/cap1_STATE_AUDIT.json)、[cap3全部原型/路线](full_confirmation_evidence/cap3_STATE_AUDIT.json)。
 
+## K12：固定GPU可训练计数不等于固定总LoRA容量
+
+CPU只读四个已完成容量组，权重/决策/同PID内存日志均校验原SHA。cap1/2/3/5的监控可训练参数均540672、GPU allocated前后增长均32MiB，但CPU保存的专家池实际参数540672/1081344/1622016/2703360、FP32 storage为2.0625/4.125/6.1875/10.3125MiB。冻结原snapshot源码明确.detach().cpu().clone()，restore到一个激活模型；不是仅凭map_location推断原设备。
+
+因此不能以固定激活参数／GPU allocated增长宣称总容量不增加。进程CPU/GPU端点保留，跨PID不能相减归因单个专家成本；池storage也不能当RSS。原峰值混有阶段/最终评价，不是独立TRAIN峰值。目标1313QA/93更新一致，但额外TRAIN评分题次1734/1481/1353/1489不同，原型/梯度另计。没有证明新增模块免费、内存泄漏、生成F1原因或方法内存优越。允许多个LoRA，但未来优势需同设置全成本实测。
+
+证据：[完整口径表](capacity_resource_evidence/VERIFIED_RESULTS.md)、[可复核JSON](capacity_resource_evidence/RESOURCE_AUDIT.json)、[CPU只读代码](../../analysis/onevision_capacity_resource_audit.py)。
+
 ## 后续记录规则
 
 每项必须保留：原假设、最小成立条件、实际代码／数学机制、权重／数据／源文件SHA、正负对照、样本／更新／额外计算预算、排除与未排除的解释、统计单位与局限。区分数学确定性质与统计现象；不为新奇而扩大结论，不把小诊断当完整测试。

@@ -20,6 +20,8 @@
 
 新增[两模块原型](summary/onevision_diagnostics_20261016/two_module_prototype/PROTOCOL.md)：从已验证问题出发，固定四种消融；[完整19阶段/21454测试代码与成本](summary/onevision_diagnostics_20261016/two_module_fullstream/PROTOCOL.md)已实现并排队。CPU准备通过，GPU性能尚待测；[诊断/完整结果分表](summary/onevision_diagnostics_20261016/two_module_fullstream/VERIFIED_RESULTS.md)，未测不填数，不按TEST挑候选。
 
+新增[容量资源核验](summary/onevision_diagnostics_20261016/capacity_resource_evidence/VERIFIED_RESULTS.md)：GPU可训练计数不包含整个CPU专家池；1→5个专家storage约2.06→10.31MiB，额外TRAIN计算及评价混合峰值另列，不据此宣称轻量优势。
+
 新补[容量与路由的分离核验](summary/onevision_diagnostics_20261016/ROUTING_MECHANISM_EVIDENCE.md)：从1到3个LoRA，19原型/500题原型选择都未改变；同一专家池换路线能改变遥感/金融NLL，但尚不能称生成F1提升。[完整确认入口](summary/onevision_diagnostics_20261016/full_confirmation_evidence/VERIFIED_RESULTS.md)等待21454题完整证明后自动填表。
 
 | 问题 | 已验证结果 | 改进是否有效 |
