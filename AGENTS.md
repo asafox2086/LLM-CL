@@ -1,3 +1,8 @@
+# Optional core-study priority proposal — prepared only, awaiting human preference
+
+- A new CPU dispatcher analysis/onevision_causal_priority_queue.py is PREPARED ONLY: proposed cap1(currentunchanged)->matched48(originalcases)->cap3(originalfull). Seven CPU sequencing/interlock tests pass; no service activated, no AUTHORIZATION.json, current priority unchanged. User has been asked whether to change the protocol's explicit cap1+cap3-before-matched order. Do not infer approval from a timeout/goal continuation; wait actual human choice.
+- Important observed activation hazard: old deferred-full and matched-task-domain services currently KillMode=control-group, not process. Never directly stop/disable--now while their GPUchildren run. A switch would require verified KillMode=process drop-in BEFORE stopping only CPUcoordinators, preserving actualGPU PID/startticks. See summary/onevision_diagnostics_20261016/causal_priority_queue/SCHEDULING_PROPOSAL.md andACTIVATION_DRY_RUN.json. ExistingGPU137966 and allbaselines untouched. No worker source/data/weights changes or newmethods.
+
 # Latest diagnosis: stage timing and aggregation — 2026-10-17
 
 - Actual old noop/projection logs128updates have31negative TRAIN anchor dots:5first/26later; stage2 first8 allnonnegative.32savedfirst fullvectors CPUrecomputed/SHAverified,96later onlyrecordeddots, NOT allrawgradients retained. Cross-domain more negative signs are descriptive (oldstage1numeric/content/dropout/Adamconfounds), not pure causalproof. SeeGRADIENT_TIMING_EVIDENCE.

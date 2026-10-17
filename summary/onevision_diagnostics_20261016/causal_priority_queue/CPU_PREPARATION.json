@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "CPU_only": true,
+  "policy_tests": [
+    "live GPU blocks launch even if task looks incomplete",
+    "old CPU dispatcher blocks duplicate ownership",
+    "cap1 resumes first when needed",
+    "first matched case precedes cap3",
+    "case order and completed-case skip preserved",
+    "cap3 retained after matched controls",
+    "requires all full and matched proofs"
+  ],
+  "current_action": [
+    "wait",
+    null
+  ],
+  "current_state": {
+    "old_CPU_owners": {
+      "llmcl-onevision-deferred-full.service": 122984,
+      "llmcl-onevision-full-repair.service": 0,
+      "llmcl-onevision-matched-task-domain.service": 153460
+    },
+    "GPU1_PIDs": [
+      "137966"
+    ],
+    "used_MiB": 6656,
+    "utilization": 65
+  },
+  "planned_order": [
+    "cap1_unchanged",
+    "matched48_unchanged",
+    "cap3_unchanged"
+  ],
+  "source_sha256": {
+    "analysis/onevision_matched_task_domain.py": "ce2d3897ae02b12af376d78840e7a43188f4c6bb0d9dd4de01d3652e6547692f",
+    "analysis/onevision_task_domain_intervention.py": "9b9c413f3505afedb0fc1643f9c88136d8f6e2e66f16716b5f0b9adefb17968d",
+    "analysis/onevision_knowledge_intervention.py": "22512cc63ed0933f0f471f30b07f5707ba8e020c95137811430cdced2c3962a0",
+    "analysis/onevision_research_worker.py": "6db35a572ee8fca5f07e69eb22b36a8eebc40ce28a0b7977aa7b228373b81493",
+    "analysis/onevision_capacity_probe.py": "5319a4ad35dd78db4dbc40ad9d45387a55c17c6c911c74ad46b5680ff76db225",
+    "exp/onevision_diagnostics_20261016/run.py": "cf8ee1ac5af7faa595e05be05e05da5207d9f0596e518f8a8998ae8d3d0d7536"
+  },
+  "dispatcher_sha256": "1231402d90a5b2ec17f0fdadd33351832b76cff56c1a677b0c8f88f6c50c3ba3",
+  "authorization_exists": false,
+  "activated": false,
+  "critical_activation_note": "Old services currently may use KillMode=control-group. Must set/verify KillMode=process before stopping only CPU coordinators; preserve actual GPU PID/startticks."
+}

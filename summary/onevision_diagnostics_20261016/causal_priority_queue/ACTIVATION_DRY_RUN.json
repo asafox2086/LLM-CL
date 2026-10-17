@@ -1,0 +1,34 @@
+{
+  "UTC": "2026-10-17T09:08:36Z",
+  "GPU1_workers_to_preserve": [
+    {
+      "pid": 137966,
+      "startticks": 5598716,
+      "ppid": 122984,
+      "cmdline": "/data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/onevision_full_input_repair.py --cap 1 ",
+      "cgroup": "12:freezer:/\n11:rdma:/\n10:perf_event:/\n9:cpuset:/\n8:memory:/user.slice/user-1004.slice/user@1004.service\n7:pids:/user.slice/user-1004.slice/user@1004.service\n6:devices:/user.slice\n5:net_cls,net_prio:/\n4:blkio:/user.slice\n3:cpu,cpuacct:/user.slice\n2:hugetlb:/\n1:name=systemd:/user.slice/user-1004.slice/user@1004.service/llmcl-onevision-deferred-full.service\n0::/user.slice/user-1004.slice/user@1004.service/llmcl-onevision-deferred-full.service\n"
+    }
+  ],
+  "old_services": {
+    "llmcl-onevision-deferred-full.service": {
+      "MainPID": "122984",
+      "KillMode": "control-group",
+      "ActiveState": "active"
+    },
+    "llmcl-onevision-matched-task-domain.service": {
+      "MainPID": "153460",
+      "KillMode": "control-group",
+      "ActiveState": "active"
+    }
+  },
+  "commands_executed": false,
+  "authorization_present": false,
+  "activation_state": "prepared_only",
+  "required_checks": [
+    "Record explicit human sequencing choice",
+    "Disable old CPU launchers only after KillMode=process verified",
+    "Verify same liveGPU PID/startticks after CPU-stop",
+    "Start authorization-gated CPU dispatcher",
+    "Leave baseline and reporting services unchanged"
+  ]
+}
