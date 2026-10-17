@@ -1,8 +1,5 @@
 {
-  "current_cap1_worker_pid": 94614,
-  "current_cap1_process_start_ticks_unchanged": "4454593",
   "stopped_CPU_coordinator_pid": 94608,
-  "current_GPU_worker_preserved": true,
   "running_sources_sha256_unchanged": {
     "analysis/onevision_full_input_repair.py": "5758506a9f460ca7dd67a72d5c36a4760495249f6963553e54c86f668b3f7bcb",
     "analysis/onevision_full_repair_queue.py": "0dd8c1f64170f5c09feb867db7428bcfcfa16542c2974fbadaf02af5bb87d410",
@@ -10,12 +7,34 @@
     "analysis/onevision_knowledge_fit_probe.py": "2b3795f931bfcd168e2dfa461d7680d88cdc720002c9cb84ad1b5681d1f7181b"
   },
   "order": [
+    "rural TRAIN/visual diagnostic",
+    "knowledge fitting diagnostic",
+    "resume same cap1 full inference",
+    "cap3 full inference"
+  ],
+  "reboot": "original full queue disabled; deferred service resumes unchanged full queue after diagnostics, including incomplete cap1 inference if needed",
+  "new_method_design": false,
+  "baseline_services_unchanged": true,
+  "previous_order": [
     "current cap1 full confirmation",
     "rural TRAIN/visual diagnostic",
     "knowledge fitting diagnostic",
     "remaining full confirmation cap3"
   ],
-  "reboot": "original full queue disabled; deferred service resumes unchanged full queue after diagnostics, including incomplete cap1 inference if needed",
-  "new_method_design": false,
-  "baseline_services_unchanged": true
+  "cap1_worker_intentionally_yielded": true,
+  "preserved_cap1_prefix": {
+    "natural_image.jsonl": {
+      "complete_rows": 3940,
+      "file_sha256": "954a19862b3f81b493b4b8854cd718056bfe96302d9cf91c23b73fe8ee02b637",
+      "bytes": 2099428,
+      "frozen_ID_and_gold_prefix_verified": true
+    }
+  },
+  "yielded_cap1_worker_pid": 94614,
+  "yielded_worker_original_start_ticks": "4454593",
+  "GPU_worker_preserved_during_initial_CPU_reorder": true,
+  "cap1_worker_currently_running": false,
+  "snapshot_unix": 1792203415.8763187,
+  "current_rural_worker_pid": 112549,
+  "intentional_yield_marker": "full_input_repair/cap1_intentional_yield.json"
 }

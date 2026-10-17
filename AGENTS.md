@@ -1,5 +1,8 @@
 # Latest research direction — OneVision diagnostic first, 2026-10-16
 
+- Latest scheduling revision2026-10-17: cap1 inference worker94614 deliberately yielded GPU1 by SIGINT (NOT a crash, no needs_attention).3940 natural predictions preserved with frozen ID/gold-prefix and SHA validation. Actual rural-collapse GPU worker112549 now running; then knowledge-fit, then deferred-full resumes SAME cap1 run/weights/source/IDs before cap3. SIGINT did not interrupt any training or baseline. Old full queue disabled; do NOT restart it before diagnostics. See full_input_repair/cap1_intentional_yield.json and research_priority_20261017.json. Old94614 missing is expected; actual current PIDs in rural_collapse/status.json and queues. Only unchanged compatible inference is continued, no changed-run prediction splice.
+
+
 - Original-paper review added MECHANISM_PRIOR_ART.md. K01 first-gradient0 follows original EWC Eq3 (arxiv1612.00796 §2), not a novel mathematical discovery. Original EWC experiments use finite training; do NOT claim paper explicitly requires every task fully converged. LwF Eq3-4 supplies a separate conditional inference: identical deterministic teacher/student distributions give zero old-output CE gradient although CE entropy may be nonzero; NOT measured OneVision/LwF result and not all distillation methods, since dropout/input/architecture changes break equality. Keep prior art, actual-setting checks and accuracy causality distinct. Do not expand baselines or design new methods from this alone.
 
 

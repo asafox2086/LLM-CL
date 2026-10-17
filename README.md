@@ -16,7 +16,7 @@
 
 已完成：确定性19原生任务顺序／独立配对（完整T1逐元素相同）；默认4×6机制控制；知识17条件；训练后4模型×3视图；基底预算9轨迹／18终点；容量1/2/3/5诊断（47/47/53/55正确，共155题）。四容量都用满上限，未证明自动最优数量。[完整证据](summary/onevision_diagnostics_20261016/COMPLETED_CONTROLS.md)。新方法设计继续暂停。
 
-**GPU1执行优先级：当前cap1全量确认继续 → rural训练拟合／视觉诊断 → 知识写入8／64步核验 → cap3全量确认。** cap1原GPU进程及启动时刻保留，只停止原CPU调度器以延后cap3；旧`llmcl-onevision-full-repair.service`停用是预期状态，勿自动重启。新的`llmcl-onevision-deferred-full.service`在痛点诊断后恢复原全量队列；重启时也按该顺序调度，所有源码与冻结ID不变。[调度记录](summary/onevision_diagnostics_20261016/research_priority_20261017.json)、[rural协议](analysis/ONEVISION_RURAL_COLLAPSE_PROTOCOL.md)、[知识拟合协议](analysis/ONEVISION_KNOWLEDGE_FIT_PROTOCOL.md)。新诊断已通过CPU检查，GPU结果尚未产生。
+**GPU1执行优先级：rural训练拟合／视觉诊断 → 知识写入8／64步核验 → 同权重续测cap1 → cap3全量确认。** 为优先验证痛点，cap1推理已主动暂停；3940条自然域预测保留并验证冻结ID／答案前缀和SHA。实际rural诊断已在GPU1启动；没有中断训练或修改活动源码。旧全量服务停用是预期状态；deferred-full服务在诊断后恢复原cap1运行，再测cap3。正式全量结果仍待完成。[调度记录](summary/onevision_diagnostics_20261016/research_priority_20261017.json)、[rural协议](analysis/ONEVISION_RURAL_COLLAPSE_PROTOCOL.md)、[知识拟合协议](analysis/ONEVISION_KNOWLEDGE_FIT_PROTOCOL.md)。
 
 原cap1全量曾因FinMME:5082的2052占位token／2106视觉特征不一致失败，失败与部分预测保留，不拼接新运行；独立renderer只修正展开长度，官方forward核验通过。最终21454结果未完成；已看500与其余20954分别报告，不由最终评测推导完整FWT/BWT。
 
