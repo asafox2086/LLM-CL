@@ -2,6 +2,8 @@
 
 ## 当前研究：LLaVA-OneVision-0.5B诊断
 
+机制发现同时核对原始文献：EWC首步项为零来自原二次式，尚不是创新性或性能因果声明；应单独检查保护项的梯度是否生效，不能只看loss值。[文献定位与证据分级](summary/onevision_diagnostics_20261016/MECHANISM_PRIOR_ART.md)。
+
 当前目标是解释1%小模型持续学习的痛点；**暂停新方法设计**。研究仅使用新服务器GPU1，Qwen2-VL基线在两机通过nohup继续运行，不跨骨干排序。OneVision语言骨干0.5B、完整模型约0.9B；共享冻结1313条TRAIN，诊断500题NLL／155题生成，完整测试21454题。小诊断不冒充全量成绩。
 
 **重点记录K01：最近旧任务对应的EWC二次项，在新阶段首步梯度为零。** 已验证32个首批；第二阶段只有一个历史项，8/8整个EWC梯度为零。后续更新与更早旧项可以生效，不能写成EWC始终无效。另8个控制检查点的真实旧TRAIN均值梯度非零，提示有限预算检查点与其中心二次项的一阶行为不匹配。[关键机制台账](summary/onevision_diagnostics_20261016/KEY_FINDINGS.md)、[实际权重／Fisher审计](summary/onevision_diagnostics_20261016/EWC_ACTIVATION_AUDIT.md)。
