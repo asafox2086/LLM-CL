@@ -38,3 +38,7 @@ nohup服务`llmcl-onevision-knowledge-fit.service`等待已有全量确认与rur
 ## 解释边界
 
 严格回忆失败可能还有别名／语言／长答案的影响；即使能回忆16事实，原池与目标问题的字面关系／固定tail覆盖有限，不能据此承诺医学大幅提升。只有写入核验成功、且正确相对错配控制在相同提示／预算下有稳定下游优势，才形成该知识机制的正证据。单seed、单一小事实池不足以支持所有领域或所有CL方法的结论。
+
+## Read-only completion audit
+
+`analysis/onevision_knowledge_fit_evidence.py` reads only durable completed cases, verifies source/artifact SHA and frozen IDs, checks all64 raw gradient norms against CPU FP64 and reports actual deltaW displacement. It preserves original scores, reports fixed-prefix sensitivity separately, and compares correct/permuted within each rank only after both complete. No rank or budget selection. CPU synthetic four-case fixture passed72 summary cells and12 paired cells; tampered SHA is rejected and missing completion proof emits no scores. See `knowledge_fit/COLLECTOR_CPU_CHECK.json`; these checks are not GPU knowledge results.
