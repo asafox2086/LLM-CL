@@ -22,3 +22,5 @@
 `INTERIM_FINDINGS.md`、`MECHANISM_PROGRESS.md`等保留为过程快照，不能覆盖最新完成证明；`research_status.json`已同步本次核验状态。当前机器状态需同时核对真实PID与日志；单独状态文件不证明进程活着。
 
 `KEY_FINDINGS.md`保留机制台账；其数学性质、实际观察和性能因果分别标注。所有诊断集均标明范围，不冒充完整21454题结果。
+
+- [知识写入后的迁移核查](KNOWLEDGE_TRANSFER_AUDIT.md)：包含全部11个反向问答案例及正确／错配对照；词形差异仅待核查，不另造准确率。

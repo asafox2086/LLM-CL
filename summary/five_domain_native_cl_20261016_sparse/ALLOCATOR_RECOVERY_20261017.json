@@ -1,0 +1,116 @@
+{
+  "updated": "2026-10-17T15:12:58.288244+08:00",
+  "old": {
+    "preserved_GPU_workers": {
+      "3920671": "683623849",
+      "116097": "688745784"
+    },
+    "source_identical": true,
+    "allocator": "expandable_segments:True",
+    "archive": "summary/five_domain_native_cl_20261016_sparse/allocator_recovery_20261017_151257"
+  },
+  "new_GPU_workers_preserved": {
+    "3184": "11280",
+    "3189": "11286",
+    "137966": "5598716"
+  },
+  "unchanged_execution_source_sha256": {
+    "parsp_adapter.py": "d1ebe1831e6d089d434bdde34b59db64eff17dc74d8d77f9ca4f080a51da8366",
+    "sparse_results.py": "07a7808beff8bc3330e92dc5b0fb5443401486846db764c912a5a0f57558fa3f",
+    "osft_adapter.py": "60b05f3b59f3878e65ee9543657b54a5aa5da13c14e139123e1c3591f3007b34",
+    "freeze_splits.py": "5b4d58451ef3bcdb9fc033c0c9bc15b72ddc36877a64ca22d50f12e9e301510a",
+    "retrieval.py": "7d7a9dd6cb223bf96cd9ab3499a4ddf69f8fbb60940d80db84582ad518f5c133",
+    "pipeline.py": "6866e978eaaab99d858482781f513bd31886eef102a12771b4753535ab1a36a6",
+    "checkpoint_probe.py": "d54e67fd07fa0ec5babf7131c628a4aa230cb0bd53bc8600af2d5b12e7f32480",
+    "aler_adapter.py": "963099218f367137537c3530f5f757552d1c5e16463b555e6e03b2057b39bdee",
+    "checkpoints.py": "06c53eab2c6810901f5206edbfb1df9defabdc747b1856ace0afa31e74b37a78",
+    "pass_adapter.py": "c8e23c85a93e97130d464b4b6d87110470035c5af37f9575fce705923c80c7c4",
+    "fv_adapter.py": "85473b19726249703f645a30142b6cfb046a37f798430ca1a255e48213641fab",
+    "sparta_adapter.py": "8a00505b40663e5a233ddceb34e295d9b7b73d55f0679ac3d2b93318e77d7a44",
+    "host_adam.py": "5e733e6b87c12eb9331ff23e8919a142f1861a2beec82ec8b0361d878b9aec8c",
+    "prepare_native.py": "200affb091e040e4f4492fb92389b9f1b54a3e71b33683e7de322ca6dd74cb4f",
+    "native_auxiliary.py": "17f3345fb8d4b4cb3367de2a0b914b34bf69251ecc7f141ba1c7179006599682",
+    "replay_adapter.py": "da07cfd8e44183ab3e29f1ab51ecbec0f6e7877ac6335efcf179158afff8d141",
+    "resource_monitor.py": "a161c8a82bf762622795f64210c95164fb905c6fa80572b35ae5ee3dd7146533",
+    "hyper_adapter.py": "518574b8c3d1c46400d240cc984f0d1c83cb01d96a7d1e2bf788bea4d4610976",
+    "frozen_vision.py": "79804ce7c4c4bb160cb006afd815da8ad1eb27cc00b5adf4c280f4f67b3cc6e4",
+    "clmoe_adapter.py": "33946eddfc6424638ded0675ded68860273859c2f71993a6a60bd22556341be9",
+    "methods.py": "e5bd8f51690b006274ed5adcfa4ef3b1a2c3b0f1d79476d948b71d1cfec41c5b",
+    "run.py": "8561c8f6988088e98567ca512b17805596c20d04aea5cde32868bd0fdcc5ba5b",
+    "runtime_utils.py": "e9097bdd608474b84ba7ed551e1d9316a0c4a2743269d5d2c9addb3b5ab30cb5"
+  },
+  "algorithm_data_precision_changed": false,
+  "new_GPU0_GPU1_not_reassigned": true,
+  "reason": "old OOM had347/485MiB reserved-unallocated; actual expandable CUDA segment smoke passed; retry once through all gates",
+  "expandable_outcome": {
+    "OSFT": {
+      "condition": "pct01",
+      "method": "OSFT",
+      "host": "old2080",
+      "status": "failed_preflight",
+      "previous_allocator_attempt": {
+        "condition": "pct01",
+        "method": "OSFT",
+        "host": "old2080",
+        "status": "failed_preflight",
+        "completed_stage": 0,
+        "reassigned_reason": "oldGPU0/1 idle after completed SeqFT/ER; same data/code, preflight/reload gates required",
+        "pid": 309432,
+        "gpu": 0,
+        "run_dir": "exp/five_domain_native_cl_20261016_sparse/runs/pct01/OSFT/preflight_20261017_150020",
+        "failure_log": "exp/five_domain_native_cl_20261016_sparse/runs/pct01/OSFT/preflight_20261017_150020/supervisor.log",
+        "oom": true,
+        "error_tail": "del,name,instructions,embedding)\n  File \"/data2/liyapeng_grp/program/LLMCL/exp/five_domain_native_cl_20261016_sparse/osft_adapter.py\", line 40, in __init__\n    parent,child=key.rsplit(\".\",1);layer=OSFTLinear(base,self.kernel);setattr(model.get_submodule(parent),child,layer);self.layers.append(layer)\n  File \"/data2/liyapeng_grp/program/LLMCL/exp/five_domain_native_cl_20261016_sparse/osft_adapter.py\", line 21, in __init__\n    self.output_dtype=base.weight.dtype;self.refactor(base.weight.detach())\n  File \"/data2/liyapeng_grp/program/LLMCL/exp/five_domain_native_cl_20261016_sparse/osft_adapter.py\", line 24, in refactor\n    k=int(min(weight.shape)*.75);s=self.kernel[\"create_svd_dict\"](weight,k,upcast_dtype=torch.float32,output_dtype=torch.float32)\n  File \"/data2/liyapeng_grp/program/LLMCL/code/OSFT/source/src/mini_trainer/osft_utils.py\", line 461, in create_svd_dict\n    U, S, Vt = torch.linalg.svd(W, full_matrices=False)\ntorch.OutOfMemoryError: CUDA out of memory. Tried to allocate 62.00 MiB. GPU 0 has a total capacity of 10.75 GiB of which 34.75 MiB is free. Including non-PyTorch memory, this process has 10.71 GiB memory in use. Of the allocated memory 10.16 GiB is allocated by PyTorch, and 347.46 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"
+      },
+      "allocator_intervention": "expandable_segments:True; identical algorithm/data/precision; fresh gates",
+      "pid": 314777,
+      "gpu": 0,
+      "run_dir": "exp/five_domain_native_cl_20261016_sparse/runs/pct01/OSFT/preflight_20261017_151258",
+      "completed_stage": 0,
+      "failure_log": "exp/five_domain_native_cl_20261016_sparse/runs/pct01/OSFT/preflight_20261017_151258/supervisor.log",
+      "oom": false,
+      "error_tail": "eze_rank_ratio\": 0.25}\n{\"event\": \"osft_svd_init\", \"layer\": \"model.layers.26.mlp.up_proj\", \"done\": 188, \"total\": 196, \"unfreeze_rank_ratio\": 0.25}\n{\"event\": \"osft_svd_init\", \"layer\": \"model.layers.26.mlp.down_proj\", \"done\": 189, \"total\": 196, \"unfreeze_rank_ratio\": 0.25}\n{\"event\": \"osft_svd_init\", \"layer\": \"model.layers.27.self_attn.q_proj\", \"done\": 190, \"total\": 196, \"unfreeze_rank_ratio\": 0.25}\n{\"event\": \"osft_svd_init\", \"layer\": \"model.layers.27.self_attn.k_proj\", \"done\": 191, \"total\": 196, \"unfreeze_rank_ratio\": 0.25}\n{\"event\": \"osft_svd_init\", \"layer\": \"model.layers.27.self_attn.v_proj\", \"done\": 192, \"total\": 196, \"unfreeze_rank_ratio\": 0.25}\n{\"event\": \"osft_svd_init\", \"layer\": \"model.layers.27.self_attn.o_proj\", \"done\": 193, \"total\": 196, \"unfreeze_rank_ratio\": 0.25}\n{\"event\": \"osft_svd_init\", \"layer\": \"model.layers.27.mlp.gate_proj\", \"done\": 194, \"total\": 196, \"unfreeze_rank_ratio\": 0.25}\n{\"event\": \"osft_svd_init\", \"layer\": \"model.layers.27.mlp.up_proj\", \"done\": 195, \"total\": 196, \"unfreeze_rank_ratio\": 0.25}\n{\"event\": \"osft_svd_init\", \"layer\": \"model.layers.27.mlp.down_proj\", \"done\": 196, \"total\": 196, \"unfreeze_rank_ratio\": 0.25}\nTraceback (most recent call last):\n  File \"/data2/liyapeng_grp/program/LLMCL/exp/five_domain_native_cl_20261016_sparse/run.py\", line 325, in <module>\n    main()\n  File \"/data2/liyapeng_grp/program/LLMCL/exp/five_domain_native_cl_20261016_sparse/run.py\", line 189, in main\n    assert torch.isfinite(loss) and torch.isfinite(grad)\nAssertionError\n"
+    },
+    "SpaRTA": {
+      "condition": "pct01",
+      "method": "SpaRTA",
+      "host": "old2080",
+      "status": "failed_preflight",
+      "previous_allocator_attempt": {
+        "condition": "pct01",
+        "method": "SpaRTA",
+        "host": "old2080",
+        "status": "failed_preflight",
+        "completed_stage": 0,
+        "reassigned_reason": "oldGPU0/1 idle after completed SeqFT/ER; same data/code, preflight/reload gates required",
+        "pid": 309485,
+        "gpu": 1,
+        "run_dir": "exp/five_domain_native_cl_20261016_sparse/runs/pct01/SpaRTA/preflight_20261017_150020",
+        "failure_log": "exp/five_domain_native_cl_20261016_sparse/runs/pct01/SpaRTA/preflight_20261017_150020/supervisor.log",
+        "oom": true,
+        "error_tail": "return forward_call(*args, **kwargs)\n  File \"/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py\", line 471, in forward\n    return self.down_proj(self.act_fn(self.gate_proj(hidden_state)) * self.up_proj(hidden_state))\n  File \"/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/torch/nn/modules/module.py\", line 1739, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/torch/nn/modules/module.py\", line 1750, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/data2/liyapeng_grp/program/LLMCL/code/SpaRTA/source/src/llamafactory/model/inject_data.py\", line 38, in forward\n    return self.linear_data(input) * self.scale3 + self.data_up(self.data_down(input)) * self.scale1 + self.data_up2(self.data_down2(input)) * self.scale2\ntorch.OutOfMemoryError: CUDA out of memory. Tried to allocate 28.00 MiB. GPU 0 has a total capacity of 10.75 GiB of which 2.75 MiB is free. Including non-PyTorch memory, this process has 10.74 GiB memory in use. Of the allocated memory 10.07 GiB is allocated by PyTorch, and 485.58 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"
+      },
+      "allocator_intervention": "expandable_segments:True; identical algorithm/data/precision; fresh gates",
+      "pid": 314830,
+      "gpu": 1,
+      "run_dir": "exp/five_domain_native_cl_20261016_sparse/runs/pct01/SpaRTA/preflight_20261017_151258",
+      "completed_stage": 0,
+      "failure_log": "exp/five_domain_native_cl_20261016_sparse/runs/pct01/SpaRTA/preflight_20261017_151258/supervisor.log",
+      "oom": true,
+      "error_tail": "eturn forward_call(*args, **kwargs)\n  File \"/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py\", line 471, in forward\n    return self.down_proj(self.act_fn(self.gate_proj(hidden_state)) * self.up_proj(hidden_state))\n  File \"/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/torch/nn/modules/module.py\", line 1739, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/torch/nn/modules/module.py\", line 1750, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/data2/liyapeng_grp/program/LLMCL/code/SpaRTA/source/src/llamafactory/model/inject_data.py\", line 38, in forward\n    return self.linear_data(input) * self.scale3 + self.data_up(self.data_down(input)) * self.scale1 + self.data_up2(self.data_down2(input)) * self.scale2\ntorch.OutOfMemoryError: CUDA out of memory. Tried to allocate 28.00 MiB. GPU 0 has a total capacity of 10.75 GiB of which 10.75 MiB is free. Including non-PyTorch memory, this process has 10.73 GiB memory in use. Of the allocated memory 10.42 GiB is allocated by PyTorch, and 121.42 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"
+    }
+  },
+  "next_control": {
+    "allocator": "backend:cudaMallocAsync",
+    "actual_CUDA_smoke_passed": true,
+    "methods": [
+      "PaRSP",
+      "SpaRTA"
+    ],
+    "preserved_old_workers": {
+      "3920671": "683623849",
+      "116097": "688745784"
+    },
+    "no_blind_retries_after_failure": true
+  }
+}

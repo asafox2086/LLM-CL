@@ -1,0 +1,8095 @@
+{
+  "sources_sha256": {
+    "analysis/onevision_knowledge_transfer_audit.py": "cea042f0f1d838b5a91cebcb32dea6883c6def0b93c42426238613c756afb0eb",
+    "data/OneVisionMechanisms/20261016/knowledge16.json": "5de25e79b8f0ca7e755c2ea14d1da41181c131cbca940c94fe3f7ce3127715e2",
+    "data/SLAKE/raw/test.json": "6be8f7b4c5a46cdbc713a5210a25b6ed5aa1fd1574c83cefb4f998131f17c2c3",
+    "summary/onevision_diagnostics_20261016/knowledge_fit/rank1_correct_complete.json": "5353e8bc9590481c7c370793cfd8cdefe74a8e734ea4d5943e9219f024d5ad07",
+    "exp/onevision_knowledge_fit_20261017/rank1_correct/20261017_104029/evaluations/clinical_update_00/medical_KG_image.jsonl": "970d8d6d16c8d20911f17cf18292826ea83ca089fbb1b5e08a5c05cf3dcf17d2",
+    "exp/onevision_knowledge_fit_20261017/rank1_correct/20261017_104029/evaluations/clinical_update_08/medical_KG_image.jsonl": "e18045a3ac2281c45ac0693637be6365708f4537a39860b3e1eb19dc6e84bbb2",
+    "exp/onevision_knowledge_fit_20261017/rank1_correct/20261017_104029/evaluations/clinical_update_64/medical_KG_image.jsonl": "387bc28173885a44e5d00d215e311aedd01476c5e9293841b06ad1aacacd3dab",
+    "summary/onevision_diagnostics_20261016/knowledge_fit/rank1_permuted_complete.json": "274210eec21cca09aa6d2be5e23b0261c0193becbe9d8198a474ad58b15649b8",
+    "exp/onevision_knowledge_fit_20261017/rank1_permuted/20261017_115419/evaluations/clinical_update_00/medical_KG_image.jsonl": "5bf5963851c637398e2a37a158ef9a515bed37e239327d752886bcf75f1dff5c",
+    "exp/onevision_knowledge_fit_20261017/rank1_permuted/20261017_115419/evaluations/clinical_update_08/medical_KG_image.jsonl": "f4fb4c3a9fbafcff0abc9b7af30f29d75650ada7eb451452ebb6170349732105",
+    "exp/onevision_knowledge_fit_20261017/rank1_permuted/20261017_115419/evaluations/clinical_update_64/medical_KG_image.jsonl": "de2be494419cfeb179a897ee048dd6f90abea06a9854e4a898b661d67f7088a0",
+    "summary/onevision_diagnostics_20261016/knowledge_fit/rank8_correct_complete.json": "a3c10537baa5912d033ddc621b46dc24906dd302f6e925c717e974b8454755de",
+    "exp/onevision_knowledge_fit_20261017/rank8_correct/20261017_110755/evaluations/clinical_update_00/medical_KG_image.jsonl": "08379aaf9dd7eb05c22b4b508c99a3eb82714c554d85d5272d6e0580e1baa44e",
+    "exp/onevision_knowledge_fit_20261017/rank8_correct/20261017_110755/evaluations/clinical_update_08/medical_KG_image.jsonl": "0d8f5c94b860d3b6eff6d9516a21cf2fa37223dc737b376ceb1bb59893f2e325",
+    "exp/onevision_knowledge_fit_20261017/rank8_correct/20261017_110755/evaluations/clinical_update_64/medical_KG_image.jsonl": "05f27a29e8788c91ae348ddb351fb60f8a5d60ea09d53cd51ca87ea89ce72465",
+    "summary/onevision_diagnostics_20261016/knowledge_fit/rank8_permuted_complete.json": "ad0b16d70464f857b333080885bc4653c06818d83ba5501552d0e7701d4004df",
+    "exp/onevision_knowledge_fit_20261017/rank8_permuted/20261017_113106/evaluations/clinical_update_00/medical_KG_image.jsonl": "899cede6d04a185d2496a6cd0a0430f2df4a46e6aed76f2f89b7d2ac24fc1dd3",
+    "exp/onevision_knowledge_fit_20261017/rank8_permuted/20261017_113106/evaluations/clinical_update_08/medical_KG_image.jsonl": "b44c007eac94c53f17087dcdad0e30d473eb9e7c508061c4f247eb07053afd74",
+    "exp/onevision_knowledge_fit_20261017/rank8_permuted/20261017_113106/evaluations/clinical_update_64/medical_KG_image.jsonl": "1556a09c75728e9c729c873da7b69000f1847f9013e3b24b1fea7d19805c01ab"
+  },
+  "CPU_rule_checks": {
+    "literal_flags_only": true,
+    "qualified_wrong_organ_list_translation_rejected": true,
+    "original_EM_unchanged": true
+  },
+  "TRAIN_pool_subject_vocabulary": [
+    "brain",
+    "heart",
+    "ileum",
+    "kidney",
+    "liver",
+    "lung",
+    "tooth"
+  ],
+  "cohort_sizes": {
+    "relation_absent": 196,
+    "same_relation_tail_gold_subject": 11,
+    "relation_only": 40,
+    "same_relation_tail_other_gold": 20
+  },
+  "correct_permuted_value_vocabulary_same": true,
+  "value_frequency_counts": {
+    "correct": {
+      "respiratorysystem": 1,
+      "digestivesystem": 3,
+      "leftatriumleftventriclerightatriumrightventricle": 1,
+      "urinarysystem": 1,
+      "circulatorysystem": 1,
+      "themostadvancedpartofthenervoussystem": 1,
+      "神经系统": 6,
+      "身体内以代谢功能为主的一个器官": 1,
+      "泌尿系统": 1
+    },
+    "permuted": {
+      "circulatorysystem": 1,
+      "themostadvancedpartofthenervoussystem": 1,
+      "digestivesystem": 3,
+      "respiratorysystem": 1,
+      "leftatriumleftventriclerightatriumrightventricle": 1,
+      "urinarysystem": 1,
+      "身体内以代谢功能为主的一个器官": 5,
+      "神经系统": 2,
+      "泌尿系统": 1
+    }
+  },
+  "summaries": [
+    {
+      "case": "rank1_correct",
+      "step": 0,
+      "QA": 267,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 7,
+      "additional_anatomy_surface_review_flags": 3,
+      "surface_review_ids": [
+        "SLAKE:12368",
+        "SLAKE:12473",
+        "SLAKE:12533"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 28,
+      "normalized_output_modes": [
+        [
+          "answerliver",
+          19
+        ],
+        [
+          "answeryes",
+          15
+        ],
+        [
+          "theansweris肺",
+          11
+        ],
+        [
+          "answer100",
+          9
+        ],
+        [
+          "theorganislungs",
+          9
+        ]
+      ],
+      "mean_NLL": 5.293863261237127
+    },
+    {
+      "case": "rank1_correct",
+      "step": 8,
+      "QA": 267,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 6,
+      "additional_anatomy_surface_review_flags": 3,
+      "surface_review_ids": [
+        "SLAKE:12368",
+        "SLAKE:12473",
+        "SLAKE:12533"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 35,
+      "normalized_output_modes": [
+        [
+          "answerliver",
+          18
+        ],
+        [
+          "answeryes",
+          14
+        ],
+        [
+          "theorganislungs",
+          10
+        ],
+        [
+          "thelungs",
+          9
+        ],
+        [
+          "answerlungs",
+          8
+        ]
+      ],
+      "mean_NLL": 4.602857830372643
+    },
+    {
+      "case": "rank1_correct",
+      "step": 64,
+      "QA": 267,
+      "primary_EM_correct": 10,
+      "fixed_prefix_aux_correct": 15,
+      "additional_anatomy_surface_review_flags": 11,
+      "surface_review_ids": [
+        "SLAKE:12278",
+        "SLAKE:12323",
+        "SLAKE:12368",
+        "SLAKE:12398",
+        "SLAKE:12443",
+        "SLAKE:12458",
+        "SLAKE:12473",
+        "SLAKE:12533",
+        "SLAKE:12790",
+        "SLAKE:12801",
+        "SLAKE:12811"
+      ],
+      "literal_trained_value_outputs": 7,
+      "value_output_ids": [
+        "SLAKE:13762",
+        "SLAKE:13787",
+        "SLAKE:13811",
+        "SLAKE:13829",
+        "SLAKE:13847",
+        "SLAKE:13855",
+        "SLAKE:13874"
+      ],
+      "value_outputs_primary_wrong": 7,
+      "Chinese_question_Latin_only_answer": 48,
+      "normalized_output_modes": [
+        [
+          "lungs",
+          33
+        ],
+        [
+          "yes",
+          22
+        ],
+        [
+          "theanswerisliver",
+          14
+        ],
+        [
+          "1000",
+          10
+        ],
+        [
+          "解剖学",
+          10
+        ]
+      ],
+      "mean_NLL": 3.16180721628532
+    },
+    {
+      "case": "rank1_permuted",
+      "step": 0,
+      "QA": 267,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 7,
+      "additional_anatomy_surface_review_flags": 3,
+      "surface_review_ids": [
+        "SLAKE:12368",
+        "SLAKE:12473",
+        "SLAKE:12533"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 28,
+      "normalized_output_modes": [
+        [
+          "answerliver",
+          19
+        ],
+        [
+          "answeryes",
+          15
+        ],
+        [
+          "theansweris肺",
+          11
+        ],
+        [
+          "answer100",
+          9
+        ],
+        [
+          "theorganislungs",
+          9
+        ]
+      ],
+      "mean_NLL": 5.293863261237127
+    },
+    {
+      "case": "rank1_permuted",
+      "step": 8,
+      "QA": 267,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 11,
+      "additional_anatomy_surface_review_flags": 4,
+      "surface_review_ids": [
+        "SLAKE:12368",
+        "SLAKE:12443",
+        "SLAKE:12473",
+        "SLAKE:12533"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 36,
+      "normalized_output_modes": [
+        [
+          "answerliver",
+          18
+        ],
+        [
+          "answeryes",
+          11
+        ],
+        [
+          "theansweris肺",
+          10
+        ],
+        [
+          "theorganislungs",
+          9
+        ],
+        [
+          "thelungs",
+          7
+        ]
+      ],
+      "mean_NLL": 4.601754678099343
+    },
+    {
+      "case": "rank1_permuted",
+      "step": 64,
+      "QA": 267,
+      "primary_EM_correct": 3,
+      "fixed_prefix_aux_correct": 7,
+      "additional_anatomy_surface_review_flags": 10,
+      "surface_review_ids": [
+        "SLAKE:12278",
+        "SLAKE:12323",
+        "SLAKE:12368",
+        "SLAKE:12398",
+        "SLAKE:12443",
+        "SLAKE:12473",
+        "SLAKE:12533",
+        "SLAKE:12790",
+        "SLAKE:12801",
+        "SLAKE:12811"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 47,
+      "normalized_output_modes": [
+        [
+          "lungs",
+          31
+        ],
+        [
+          "yes",
+          20
+        ],
+        [
+          "itisnotpossibletodetermine",
+          16
+        ],
+        [
+          "thelungs",
+          10
+        ],
+        [
+          "theanswerisliver",
+          9
+        ]
+      ],
+      "mean_NLL": 3.3879392544428506
+    },
+    {
+      "case": "rank8_correct",
+      "step": 0,
+      "QA": 267,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 7,
+      "additional_anatomy_surface_review_flags": 3,
+      "surface_review_ids": [
+        "SLAKE:12368",
+        "SLAKE:12473",
+        "SLAKE:12533"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 28,
+      "normalized_output_modes": [
+        [
+          "answerliver",
+          19
+        ],
+        [
+          "answeryes",
+          15
+        ],
+        [
+          "theansweris肺",
+          11
+        ],
+        [
+          "answer100",
+          9
+        ],
+        [
+          "theorganislungs",
+          9
+        ]
+      ],
+      "mean_NLL": 5.293863261237127
+    },
+    {
+      "case": "rank8_correct",
+      "step": 8,
+      "QA": 267,
+      "primary_EM_correct": 3,
+      "fixed_prefix_aux_correct": 10,
+      "additional_anatomy_surface_review_flags": 11,
+      "surface_review_ids": [
+        "SLAKE:12278",
+        "SLAKE:12323",
+        "SLAKE:12368",
+        "SLAKE:12398",
+        "SLAKE:12443",
+        "SLAKE:12458",
+        "SLAKE:12473",
+        "SLAKE:12533",
+        "SLAKE:12790",
+        "SLAKE:12801",
+        "SLAKE:12811"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 52,
+      "normalized_output_modes": [
+        [
+          "lungs",
+          26
+        ],
+        [
+          "yes",
+          20
+        ],
+        [
+          "解剖学",
+          17
+        ],
+        [
+          "thelungs",
+          14
+        ],
+        [
+          "theanswerisliver",
+          14
+        ]
+      ],
+      "mean_NLL": 3.1313742090030554
+    },
+    {
+      "case": "rank8_correct",
+      "step": 64,
+      "QA": 267,
+      "primary_EM_correct": 8,
+      "fixed_prefix_aux_correct": 8,
+      "additional_anatomy_surface_review_flags": 14,
+      "surface_review_ids": [
+        "SLAKE:12278",
+        "SLAKE:12293",
+        "SLAKE:12308",
+        "SLAKE:12323",
+        "SLAKE:12368",
+        "SLAKE:12398",
+        "SLAKE:12413",
+        "SLAKE:12443",
+        "SLAKE:12473",
+        "SLAKE:12533",
+        "SLAKE:12546",
+        "SLAKE:12575",
+        "SLAKE:12801",
+        "SLAKE:12811"
+      ],
+      "literal_trained_value_outputs": 33,
+      "value_output_ids": [
+        "SLAKE:12276",
+        "SLAKE:12291",
+        "SLAKE:12336",
+        "SLAKE:12351",
+        "SLAKE:12366",
+        "SLAKE:12381",
+        "SLAKE:12396",
+        "SLAKE:12441",
+        "SLAKE:12471",
+        "SLAKE:12516",
+        "SLAKE:12531",
+        "SLAKE:12597",
+        "SLAKE:12659",
+        "SLAKE:12676",
+        "SLAKE:12727",
+        "SLAKE:13753",
+        "SLAKE:13762",
+        "SLAKE:13771",
+        "SLAKE:13779",
+        "SLAKE:13787",
+        "SLAKE:13795",
+        "SLAKE:13803",
+        "SLAKE:13811",
+        "SLAKE:13820",
+        "SLAKE:13829",
+        "SLAKE:13847",
+        "SLAKE:13855",
+        "SLAKE:13865",
+        "SLAKE:13874",
+        "SLAKE:13882",
+        "SLAKE:13901",
+        "SLAKE:13932",
+        "SLAKE:13976"
+      ],
+      "value_outputs_primary_wrong": 33,
+      "Chinese_question_Latin_only_answer": 62,
+      "normalized_output_modes": [
+        [
+          "lungs",
+          68
+        ],
+        [
+          "theorgan",
+          23
+        ],
+        [
+          "神经系统",
+          18
+        ],
+        [
+          "respiratorysystem",
+          11
+        ],
+        [
+          "100",
+          7
+        ]
+      ],
+      "mean_NLL": 4.423880877566249
+    },
+    {
+      "case": "rank8_permuted",
+      "step": 0,
+      "QA": 267,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 7,
+      "additional_anatomy_surface_review_flags": 3,
+      "surface_review_ids": [
+        "SLAKE:12368",
+        "SLAKE:12473",
+        "SLAKE:12533"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 28,
+      "normalized_output_modes": [
+        [
+          "answerliver",
+          19
+        ],
+        [
+          "answeryes",
+          15
+        ],
+        [
+          "theansweris肺",
+          11
+        ],
+        [
+          "answer100",
+          9
+        ],
+        [
+          "theorganislungs",
+          9
+        ]
+      ],
+      "mean_NLL": 5.293863261237127
+    },
+    {
+      "case": "rank8_permuted",
+      "step": 8,
+      "QA": 267,
+      "primary_EM_correct": 4,
+      "fixed_prefix_aux_correct": 12,
+      "additional_anatomy_surface_review_flags": 11,
+      "surface_review_ids": [
+        "SLAKE:12278",
+        "SLAKE:12323",
+        "SLAKE:12368",
+        "SLAKE:12398",
+        "SLAKE:12443",
+        "SLAKE:12458",
+        "SLAKE:12473",
+        "SLAKE:12533",
+        "SLAKE:12790",
+        "SLAKE:12801",
+        "SLAKE:12811"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 55,
+      "normalized_output_modes": [
+        [
+          "lungs",
+          32
+        ],
+        [
+          "yes",
+          24
+        ],
+        [
+          "thelungs",
+          16
+        ],
+        [
+          "theanswerisliver",
+          14
+        ],
+        [
+          "气管",
+          7
+        ]
+      ],
+      "mean_NLL": 2.9415133544121788
+    },
+    {
+      "case": "rank8_permuted",
+      "step": 64,
+      "QA": 267,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 1,
+      "additional_anatomy_surface_review_flags": 19,
+      "surface_review_ids": [
+        "SLAKE:12278",
+        "SLAKE:12293",
+        "SLAKE:12308",
+        "SLAKE:12323",
+        "SLAKE:12338",
+        "SLAKE:12353",
+        "SLAKE:12368",
+        "SLAKE:12383",
+        "SLAKE:12398",
+        "SLAKE:12413",
+        "SLAKE:12428",
+        "SLAKE:12443",
+        "SLAKE:12458",
+        "SLAKE:12488",
+        "SLAKE:12503",
+        "SLAKE:12518",
+        "SLAKE:12533",
+        "SLAKE:12790",
+        "SLAKE:12811"
+      ],
+      "literal_trained_value_outputs": 55,
+      "value_output_ids": [
+        "SLAKE:12307",
+        "SLAKE:12322",
+        "SLAKE:12337",
+        "SLAKE:12367",
+        "SLAKE:12381",
+        "SLAKE:12382",
+        "SLAKE:12412",
+        "SLAKE:12442",
+        "SLAKE:12471",
+        "SLAKE:12472",
+        "SLAKE:12487",
+        "SLAKE:12546",
+        "SLAKE:12547",
+        "SLAKE:12548",
+        "SLAKE:12561",
+        "SLAKE:12575",
+        "SLAKE:12577",
+        "SLAKE:12587",
+        "SLAKE:12597",
+        "SLAKE:12599",
+        "SLAKE:12600",
+        "SLAKE:12611",
+        "SLAKE:12612",
+        "SLAKE:12621",
+        "SLAKE:12630",
+        "SLAKE:12649",
+        "SLAKE:12659",
+        "SLAKE:12684",
+        "SLAKE:12727",
+        "SLAKE:12746",
+        "SLAKE:12791",
+        "SLAKE:12792",
+        "SLAKE:12802",
+        "SLAKE:12803",
+        "SLAKE:12812",
+        "SLAKE:12820",
+        "SLAKE:12833",
+        "SLAKE:12844",
+        "SLAKE:12856",
+        "SLAKE:12857",
+        "SLAKE:12886",
+        "SLAKE:12896",
+        "SLAKE:12908",
+        "SLAKE:12909",
+        "SLAKE:12917",
+        "SLAKE:12919",
+        "SLAKE:12920",
+        "SLAKE:12931",
+        "SLAKE:12944",
+        "SLAKE:13415",
+        "SLAKE:13475",
+        "SLAKE:13633",
+        "SLAKE:13838",
+        "SLAKE:13892",
+        "SLAKE:13919"
+      ],
+      "value_outputs_primary_wrong": 55,
+      "Chinese_question_Latin_only_answer": 34,
+      "normalized_output_modes": [
+        [
+          "digestivesystem",
+          49
+        ],
+        [
+          "lungs",
+          23
+        ],
+        [
+          "theliver",
+          21
+        ],
+        [
+          "yes",
+          11
+        ],
+        [
+          "theheart",
+          10
+        ]
+      ],
+      "mean_NLL": 3.712909498464749
+    }
+  ],
+  "groups": [
+    {
+      "case": "rank1_correct",
+      "step": 0,
+      "dimension": "literal_group",
+      "label": "relation_absent",
+      "QA": 196,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 1,
+      "additional_anatomy_surface_review_flags": 3,
+      "surface_review_ids": [
+        "SLAKE:12368",
+        "SLAKE:12473",
+        "SLAKE:12533"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 13,
+      "normalized_output_modes": [
+        [
+          "answerliver",
+          16
+        ],
+        [
+          "answer100",
+          9
+        ],
+        [
+          "answer不能",
+          9
+        ],
+        [
+          "answeryes",
+          7
+        ],
+        [
+          "themainorganinthispictureisthelungs",
+          6
+        ]
+      ],
+      "mean_NLL": 5.2768532238444505
+    },
+    {
+      "case": "rank1_correct",
+      "step": 0,
+      "dimension": "literal_group",
+      "label": "relation_only",
+      "QA": 40,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 6,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 15,
+      "normalized_output_modes": [
+        [
+          "theorganislungs",
+          9
+        ],
+        [
+          "theansweris肺",
+          8
+        ],
+        [
+          "theanswerislungs",
+          3
+        ],
+        [
+          "answer无",
+          3
+        ],
+        [
+          "answerbrain",
+          2
+        ]
+      ],
+      "mean_NLL": 5.352273726463318
+    },
+    {
+      "case": "rank1_correct",
+      "step": 0,
+      "dimension": "literal_group",
+      "label": "same_relation_tail_gold_subject",
+      "QA": 11,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 0,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 0,
+      "normalized_output_modes": [
+        [
+          "answerlungs",
+          6
+        ],
+        [
+          "answerheart",
+          4
+        ],
+        [
+          "answerkidneys",
+          1
+        ]
+      ],
+      "mean_NLL": 5.37533222545277
+    },
+    {
+      "case": "rank1_correct",
+      "step": 0,
+      "dimension": "literal_group",
+      "label": "same_relation_tail_other_gold",
+      "QA": 20,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 0,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 0,
+      "normalized_output_modes": [
+        [
+          "answeryes",
+          6
+        ],
+        [
+          "theansweris脑",
+          4
+        ],
+        [
+          "answerliver",
+          3
+        ],
+        [
+          "answerlungs",
+          2
+        ],
+        [
+          "answer无",
+          2
+        ]
+      ],
+      "mean_NLL": 5.298932766914367
+    },
+    {
+      "case": "rank1_correct",
+      "step": 0,
+      "dimension": "q_lang",
+      "label": "en",
+      "QA": 148,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 1,
+      "additional_anatomy_surface_review_flags": 3,
+      "surface_review_ids": [
+        "SLAKE:12368",
+        "SLAKE:12473",
+        "SLAKE:12533"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 0,
+      "normalized_output_modes": [
+        [
+          "answerliver",
+          19
+        ],
+        [
+          "answeryes",
+          15
+        ],
+        [
+          "answer100",
+          9
+        ],
+        [
+          "answerlungs",
+          8
+        ],
+        [
+          "answerheart",
+          7
+        ]
+      ],
+      "mean_NLL": 4.412813528969481
+    },
+    {
+      "case": "rank1_correct",
+      "step": 0,
+      "dimension": "q_lang",
+      "label": "zh",
+      "QA": 119,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 6,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 28,
+      "normalized_output_modes": [
+        [
+          "theansweris肺",
+          11
+        ],
+        [
+          "theorganislungs",
+          9
+        ],
+        [
+          "answer不能",
+          9
+        ],
+        [
+          "answer介入治疗",
+          6
+        ],
+        [
+          "answer肺",
+          6
+        ]
+      ],
+      "mean_NLL": 6.389622592124619
+    },
+    {
+      "case": "rank1_correct",
+      "step": 0,
+      "dimension": "answer_type",
+      "label": "CLOSED",
+      "QA": 63,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 1,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 5,
+      "normalized_output_modes": [
+        [
+          "answeryes",
+          15
+        ],
+        [
+          "answerliver",
+          13
+        ],
+        [
+          "answer不能",
+          9
+        ],
+        [
+          "answer无",
+          6
+        ],
+        [
+          "answerrectum",
+          3
+        ]
+      ],
+      "mean_NLL": 6.3446802657748025
+    },
+    {
+      "case": "rank1_correct",
+      "step": 0,
+      "dimension": "answer_type",
+      "label": "OPEN",
+      "QA": 204,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 6,
+      "additional_anatomy_surface_review_flags": 3,
+      "surface_review_ids": [
+        "SLAKE:12368",
+        "SLAKE:12473",
+        "SLAKE:12533"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 23,
+      "normalized_output_modes": [
+        [
+          "theansweris肺",
+          11
+        ],
+        [
+          "answer100",
+          9
+        ],
+        [
+          "theorganislungs",
+          9
+        ],
+        [
+          "answerlungs",
+          8
+        ],
+        [
+          "theanswerislungs",
+          8
+        ]
+      ],
+      "mean_NLL": 4.969346245129903
+    },
+    {
+      "case": "rank1_correct",
+      "step": 8,
+      "dimension": "literal_group",
+      "label": "relation_absent",
+      "QA": 196,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 1,
+      "additional_anatomy_surface_review_flags": 3,
+      "surface_review_ids": [
+        "SLAKE:12368",
+        "SLAKE:12473",
+        "SLAKE:12533"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 15,
+      "normalized_output_modes": [
+        [
+          "answerliver",
+          15
+        ],
+        [
+          "answer100",
+          8
+        ],
+        [
+          "answer不能",
+          8
+        ],
+        [
+          "themainorganinthispictureisthelungs",
+          7
+        ],
+        [
+          "theanswerissurgery",
+          7
+        ]
+      ],
+      "mean_NLL": 4.67510617326717
+    },
+    {
+      "case": "rank1_correct",
+      "step": 8,
+      "dimension": "literal_group",
+      "label": "relation_only",
+      "QA": 40,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 5,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 20,
+      "normalized_output_modes": [
+        [
+          "theorganislungs",
+          10
+        ],
+        [
+          "theansweris肺",
+          6
+        ],
+        [
+          "thelungs",
+          3
+        ],
+        [
+          "answerbrain",
+          2
+        ],
+        [
+          "answeryes",
+          2
+        ]
+      ],
+      "mean_NLL": 4.604357212781906
+    },
+    {
+      "case": "rank1_correct",
+      "step": 8,
+      "dimension": "literal_group",
+      "label": "same_relation_tail_gold_subject",
+      "QA": 11,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 0,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 0,
+      "normalized_output_modes": [
+        [
+          "answerlungs",
+          6
+        ],
+        [
+          "answerheart",
+          4
+        ],
+        [
+          "answerkidneys",
+          1
+        ]
+      ],
+      "mean_NLL": 3.941016500646418
+    },
+    {
+      "case": "rank1_correct",
+      "step": 8,
+      "dimension": "literal_group",
+      "label": "same_relation_tail_other_gold",
+      "QA": 20,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 0,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 0,
+      "normalized_output_modes": [
+        [
+          "answeryes",
+          6
+        ],
+        [
+          "theansweris脑",
+          4
+        ],
+        [
+          "answerliver",
+          3
+        ],
+        [
+          "answerlungs",
+          2
+        ],
+        [
+          "answer无",
+          2
+        ]
+      ],
+      "mean_NLL": 4.25583803653717
+    },
+    {
+      "case": "rank1_correct",
+      "step": 8,
+      "dimension": "q_lang",
+      "label": "en",
+      "QA": 148,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 1,
+      "additional_anatomy_surface_review_flags": 3,
+      "surface_review_ids": [
+        "SLAKE:12368",
+        "SLAKE:12473",
+        "SLAKE:12533"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 0,
+      "normalized_output_modes": [
+        [
+          "answerliver",
+          18
+        ],
+        [
+          "answeryes",
+          14
+        ],
+        [
+          "answerlungs",
+          8
+        ],
+        [
+          "answer100",
+          8
+        ],
+        [
+          "themainorganinthispictureisthelungs",
+          7
+        ]
+      ],
+      "mean_NLL": 3.785064286476857
+    },
+    {
+      "case": "rank1_correct",
+      "step": 8,
+      "dimension": "q_lang",
+      "label": "zh",
+      "QA": 119,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 5,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 35,
+      "normalized_output_modes": [
+        [
+          "theorganislungs",
+          10
+        ],
+        [
+          "theansweris肺",
+          8
+        ],
+        [
+          "answer不能",
+          8
+        ],
+        [
+          "answer1000000000",
+          5
+        ],
+        [
+          "answer肺",
+          5
+        ]
+      ],
+      "mean_NLL": 5.619945599251435
+    },
+    {
+      "case": "rank1_correct",
+      "step": 8,
+      "dimension": "answer_type",
+      "label": "CLOSED",
+      "QA": 63,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 1,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 8,
+      "normalized_output_modes": [
+        [
+          "answeryes",
+          14
+        ],
+        [
+          "answerliver",
+          12
+        ],
+        [
+          "answer不能",
+          8
+        ],
+        [
+          "no",
+          5
+        ],
+        [
+          "answer无",
+          5
+        ]
+      ],
+      "mean_NLL": 5.300475483848935
+    },
+    {
+      "case": "rank1_correct",
+      "step": 8,
+      "dimension": "answer_type",
+      "label": "OPEN",
+      "QA": 204,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 5,
+      "additional_anatomy_surface_review_flags": 3,
+      "surface_review_ids": [
+        "SLAKE:12368",
+        "SLAKE:12473",
+        "SLAKE:12533"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 27,
+      "normalized_output_modes": [
+        [
+          "theorganislungs",
+          10
+        ],
+        [
+          "thelungs",
+          9
+        ],
+        [
+          "answerlungs",
+          8
+        ],
+        [
+          "answer100",
+          8
+        ],
+        [
+          "theansweris肺",
+          8
+        ]
+      ],
+      "mean_NLL": 4.38741708444614
+    },
+    {
+      "case": "rank1_correct",
+      "step": 64,
+      "dimension": "literal_group",
+      "label": "relation_absent",
+      "QA": 196,
+      "primary_EM_correct": 7,
+      "fixed_prefix_aux_correct": 9,
+      "additional_anatomy_surface_review_flags": 4,
+      "surface_review_ids": [
+        "SLAKE:12368",
+        "SLAKE:12473",
+        "SLAKE:12533",
+        "SLAKE:12790"
+      ],
+      "literal_trained_value_outputs": 7,
+      "value_output_ids": [
+        "SLAKE:13762",
+        "SLAKE:13787",
+        "SLAKE:13811",
+        "SLAKE:13829",
+        "SLAKE:13847",
+        "SLAKE:13855",
+        "SLAKE:13874"
+      ],
+      "value_outputs_primary_wrong": 7,
+      "Chinese_question_Latin_only_answer": 12,
+      "normalized_output_modes": [
+        [
+          "yes",
+          12
+        ],
+        [
+          "theanswerisliver",
+          12
+        ],
+        [
+          "1000",
+          10
+        ],
+        [
+          "解剖学",
+          9
+        ],
+        [
+          "身体",
+          9
+        ]
+      ],
+      "mean_NLL": 3.5187259581016033
+    },
+    {
+      "case": "rank1_correct",
+      "step": 64,
+      "dimension": "literal_group",
+      "label": "relation_only",
+      "QA": 40,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 2,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 33,
+      "normalized_output_modes": [
+        [
+          "lungs",
+          25
+        ],
+        [
+          "yes",
+          8
+        ],
+        [
+          "theanswerisbrain",
+          2
+        ],
+        [
+          "explainthedifferencebetweenthetwo",
+          2
+        ],
+        [
+          "theorganinthepictureisthelymphaticsystem",
+          1
+        ]
+      ],
+      "mean_NLL": 2.114169569313526
+    },
+    {
+      "case": "rank1_correct",
+      "step": 64,
+      "dimension": "literal_group",
+      "label": "same_relation_tail_gold_subject",
+      "QA": 11,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 1,
+      "additional_anatomy_surface_review_flags": 7,
+      "surface_review_ids": [
+        "SLAKE:12278",
+        "SLAKE:12323",
+        "SLAKE:12398",
+        "SLAKE:12443",
+        "SLAKE:12458",
+        "SLAKE:12801",
+        "SLAKE:12811"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 0,
+      "normalized_output_modes": [
+        [
+          "thelungs",
+          5
+        ],
+        [
+          "theorgansorganinthepicturebelongtothecirculatorysystem",
+          1
+        ],
+        [
+          "theorganthatbelongstothecirculatorysystemistheheart",
+          1
+        ],
+        [
+          "theorgansorganinthepicturebelongtothecirculatorysystemaretheheartandlungs",
+          1
+        ],
+        [
+          "theanswerisheart",
+          1
+        ]
+      ],
+      "mean_NLL": 2.1257210102948276
+    },
+    {
+      "case": "rank1_correct",
+      "step": 64,
+      "dimension": "literal_group",
+      "label": "same_relation_tail_other_gold",
+      "QA": 20,
+      "primary_EM_correct": 3,
+      "fixed_prefix_aux_correct": 3,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 3,
+      "normalized_output_modes": [
+        [
+          "脊髓",
+          3
+        ],
+        [
+          "theanswerislungs",
+          2
+        ],
+        [
+          "theorgansorganinthepicturebelongtothedigestivesystem",
+          2
+        ],
+        [
+          "theanswerisliver",
+          2
+        ],
+        [
+          "theanswerisleftkidney",
+          2
+        ]
+      ],
+      "mean_NLL": 2.329126253724098
+    },
+    {
+      "case": "rank1_correct",
+      "step": 64,
+      "dimension": "q_lang",
+      "label": "en",
+      "QA": 148,
+      "primary_EM_correct": 7,
+      "fixed_prefix_aux_correct": 12,
+      "additional_anatomy_surface_review_flags": 11,
+      "surface_review_ids": [
+        "SLAKE:12278",
+        "SLAKE:12323",
+        "SLAKE:12368",
+        "SLAKE:12398",
+        "SLAKE:12443",
+        "SLAKE:12458",
+        "SLAKE:12473",
+        "SLAKE:12533",
+        "SLAKE:12790",
+        "SLAKE:12801",
+        "SLAKE:12811"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 0,
+      "normalized_output_modes": [
+        [
+          "theanswerisliver",
+          14
+        ],
+        [
+          "heart",
+          8
+        ],
+        [
+          "lungs",
+          7
+        ],
+        [
+          "theanswerisbrain",
+          7
+        ],
+        [
+          "theanswerisyes",
+          7
+        ]
+      ],
+      "mean_NLL": 3.155708789422705
+    },
+    {
+      "case": "rank1_correct",
+      "step": 64,
+      "dimension": "q_lang",
+      "label": "zh",
+      "QA": 119,
+      "primary_EM_correct": 3,
+      "fixed_prefix_aux_correct": 3,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 7,
+      "value_output_ids": [
+        "SLAKE:13762",
+        "SLAKE:13787",
+        "SLAKE:13811",
+        "SLAKE:13829",
+        "SLAKE:13847",
+        "SLAKE:13855",
+        "SLAKE:13874"
+      ],
+      "value_outputs_primary_wrong": 7,
+      "Chinese_question_Latin_only_answer": 48,
+      "normalized_output_modes": [
+        [
+          "lungs",
+          26
+        ],
+        [
+          "yes",
+          21
+        ],
+        [
+          "解剖学",
+          10
+        ],
+        [
+          "身体",
+          9
+        ],
+        [
+          "神经系统",
+          7
+        ]
+      ],
+      "mean_NLL": 3.169391814400168
+    },
+    {
+      "case": "rank1_correct",
+      "step": 64,
+      "dimension": "answer_type",
+      "label": "CLOSED",
+      "QA": 63,
+      "primary_EM_correct": 1,
+      "fixed_prefix_aux_correct": 3,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 21,
+      "normalized_output_modes": [
+        [
+          "yes",
+          22
+        ],
+        [
+          "theanswerisliver",
+          11
+        ],
+        [
+          "theanswerisyes",
+          7
+        ],
+        [
+          "explainthedifferencebetweenthetwo",
+          3
+        ],
+        [
+          "theanswerislungs",
+          2
+        ]
+      ],
+      "mean_NLL": 3.065631622359866
+    },
+    {
+      "case": "rank1_correct",
+      "step": 64,
+      "dimension": "answer_type",
+      "label": "OPEN",
+      "QA": 204,
+      "primary_EM_correct": 9,
+      "fixed_prefix_aux_correct": 12,
+      "additional_anatomy_surface_review_flags": 11,
+      "surface_review_ids": [
+        "SLAKE:12278",
+        "SLAKE:12323",
+        "SLAKE:12368",
+        "SLAKE:12398",
+        "SLAKE:12443",
+        "SLAKE:12458",
+        "SLAKE:12473",
+        "SLAKE:12533",
+        "SLAKE:12790",
+        "SLAKE:12801",
+        "SLAKE:12811"
+      ],
+      "literal_trained_value_outputs": 7,
+      "value_output_ids": [
+        "SLAKE:13762",
+        "SLAKE:13787",
+        "SLAKE:13811",
+        "SLAKE:13829",
+        "SLAKE:13847",
+        "SLAKE:13855",
+        "SLAKE:13874"
+      ],
+      "value_outputs_primary_wrong": 7,
+      "Chinese_question_Latin_only_answer": 27,
+      "normalized_output_modes": [
+        [
+          "lungs",
+          33
+        ],
+        [
+          "1000",
+          10
+        ],
+        [
+          "解剖学",
+          10
+        ],
+        [
+          "身体",
+          9
+        ],
+        [
+          "heart",
+          8
+        ]
+      ],
+      "mean_NLL": 3.191508502644651
+    },
+    {
+      "case": "rank1_permuted",
+      "step": 0,
+      "dimension": "literal_group",
+      "label": "relation_absent",
+      "QA": 196,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 1,
+      "additional_anatomy_surface_review_flags": 3,
+      "surface_review_ids": [
+        "SLAKE:12368",
+        "SLAKE:12473",
+        "SLAKE:12533"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 13,
+      "normalized_output_modes": [
+        [
+          "answerliver",
+          16
+        ],
+        [
+          "answer100",
+          9
+        ],
+        [
+          "answer不能",
+          9
+        ],
+        [
+          "answeryes",
+          7
+        ],
+        [
+          "themainorganinthispictureisthelungs",
+          6
+        ]
+      ],
+      "mean_NLL": 5.2768532238444505
+    },
+    {
+      "case": "rank1_permuted",
+      "step": 0,
+      "dimension": "literal_group",
+      "label": "relation_only",
+      "QA": 40,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 6,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 15,
+      "normalized_output_modes": [
+        [
+          "theorganislungs",
+          9
+        ],
+        [
+          "theansweris肺",
+          8
+        ],
+        [
+          "theanswerislungs",
+          3
+        ],
+        [
+          "answer无",
+          3
+        ],
+        [
+          "answerbrain",
+          2
+        ]
+      ],
+      "mean_NLL": 5.352273726463318
+    },
+    {
+      "case": "rank1_permuted",
+      "step": 0,
+      "dimension": "literal_group",
+      "label": "same_relation_tail_gold_subject",
+      "QA": 11,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 0,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 0,
+      "normalized_output_modes": [
+        [
+          "answerlungs",
+          6
+        ],
+        [
+          "answerheart",
+          4
+        ],
+        [
+          "answerkidneys",
+          1
+        ]
+      ],
+      "mean_NLL": 5.37533222545277
+    },
+    {
+      "case": "rank1_permuted",
+      "step": 0,
+      "dimension": "literal_group",
+      "label": "same_relation_tail_other_gold",
+      "QA": 20,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 0,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 0,
+      "normalized_output_modes": [
+        [
+          "answeryes",
+          6
+        ],
+        [
+          "theansweris脑",
+          4
+        ],
+        [
+          "answerliver",
+          3
+        ],
+        [
+          "answerlungs",
+          2
+        ],
+        [
+          "answer无",
+          2
+        ]
+      ],
+      "mean_NLL": 5.298932766914367
+    },
+    {
+      "case": "rank1_permuted",
+      "step": 0,
+      "dimension": "q_lang",
+      "label": "en",
+      "QA": 148,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 1,
+      "additional_anatomy_surface_review_flags": 3,
+      "surface_review_ids": [
+        "SLAKE:12368",
+        "SLAKE:12473",
+        "SLAKE:12533"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 0,
+      "normalized_output_modes": [
+        [
+          "answerliver",
+          19
+        ],
+        [
+          "answeryes",
+          15
+        ],
+        [
+          "answer100",
+          9
+        ],
+        [
+          "answerlungs",
+          8
+        ],
+        [
+          "answerheart",
+          7
+        ]
+      ],
+      "mean_NLL": 4.412813528969481
+    },
+    {
+      "case": "rank1_permuted",
+      "step": 0,
+      "dimension": "q_lang",
+      "label": "zh",
+      "QA": 119,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 6,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 28,
+      "normalized_output_modes": [
+        [
+          "theansweris肺",
+          11
+        ],
+        [
+          "theorganislungs",
+          9
+        ],
+        [
+          "answer不能",
+          9
+        ],
+        [
+          "answer介入治疗",
+          6
+        ],
+        [
+          "answer肺",
+          6
+        ]
+      ],
+      "mean_NLL": 6.389622592124619
+    },
+    {
+      "case": "rank1_permuted",
+      "step": 0,
+      "dimension": "answer_type",
+      "label": "CLOSED",
+      "QA": 63,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 1,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 5,
+      "normalized_output_modes": [
+        [
+          "answeryes",
+          15
+        ],
+        [
+          "answerliver",
+          13
+        ],
+        [
+          "answer不能",
+          9
+        ],
+        [
+          "answer无",
+          6
+        ],
+        [
+          "answerrectum",
+          3
+        ]
+      ],
+      "mean_NLL": 6.3446802657748025
+    },
+    {
+      "case": "rank1_permuted",
+      "step": 0,
+      "dimension": "answer_type",
+      "label": "OPEN",
+      "QA": 204,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 6,
+      "additional_anatomy_surface_review_flags": 3,
+      "surface_review_ids": [
+        "SLAKE:12368",
+        "SLAKE:12473",
+        "SLAKE:12533"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 23,
+      "normalized_output_modes": [
+        [
+          "theansweris肺",
+          11
+        ],
+        [
+          "answer100",
+          9
+        ],
+        [
+          "theorganislungs",
+          9
+        ],
+        [
+          "answerlungs",
+          8
+        ],
+        [
+          "theanswerislungs",
+          8
+        ]
+      ],
+      "mean_NLL": 4.969346245129903
+    },
+    {
+      "case": "rank1_permuted",
+      "step": 8,
+      "dimension": "literal_group",
+      "label": "relation_absent",
+      "QA": 196,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 4,
+      "additional_anatomy_surface_review_flags": 3,
+      "surface_review_ids": [
+        "SLAKE:12368",
+        "SLAKE:12473",
+        "SLAKE:12533"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 18,
+      "normalized_output_modes": [
+        [
+          "answerliver",
+          15
+        ],
+        [
+          "themainorganinthispictureisthelungs",
+          7
+        ],
+        [
+          "theanswerissurgery",
+          7
+        ],
+        [
+          "answer100",
+          7
+        ],
+        [
+          "answer不能",
+          7
+        ]
+      ],
+      "mean_NLL": 4.670014482675766
+    },
+    {
+      "case": "rank1_permuted",
+      "step": 8,
+      "dimension": "literal_group",
+      "label": "relation_only",
+      "QA": 40,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 7,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 18,
+      "normalized_output_modes": [
+        [
+          "theorganislungs",
+          9
+        ],
+        [
+          "theansweris肺",
+          8
+        ],
+        [
+          "answer无",
+          3
+        ],
+        [
+          "answerbrain",
+          2
+        ],
+        [
+          "answeryes",
+          2
+        ]
+      ],
+      "mean_NLL": 4.622003942728043
+    },
+    {
+      "case": "rank1_permuted",
+      "step": 8,
+      "dimension": "literal_group",
+      "label": "same_relation_tail_gold_subject",
+      "QA": 11,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 0,
+      "additional_anatomy_surface_review_flags": 1,
+      "surface_review_ids": [
+        "SLAKE:12443"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 0,
+      "normalized_output_modes": [
+        [
+          "answerlungs",
+          5
+        ],
+        [
+          "answerheart",
+          4
+        ],
+        [
+          "thelungs",
+          1
+        ],
+        [
+          "answerkidneys",
+          1
+        ]
+      ],
+      "mean_NLL": 4.00910310311751
+    },
+    {
+      "case": "rank1_permuted",
+      "step": 8,
+      "dimension": "literal_group",
+      "label": "same_relation_tail_other_gold",
+      "QA": 20,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 0,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 0,
+      "normalized_output_modes": [
+        [
+          "answeryes",
+          6
+        ],
+        [
+          "theansweris脑",
+          4
+        ],
+        [
+          "answerliver",
+          3
+        ],
+        [
+          "answerlungs",
+          2
+        ],
+        [
+          "answer无",
+          2
+        ]
+      ],
+      "mean_NLL": 4.218268430233001
+    },
+    {
+      "case": "rank1_permuted",
+      "step": 8,
+      "dimension": "q_lang",
+      "label": "en",
+      "QA": 148,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 4,
+      "additional_anatomy_surface_review_flags": 4,
+      "surface_review_ids": [
+        "SLAKE:12368",
+        "SLAKE:12443",
+        "SLAKE:12473",
+        "SLAKE:12533"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 0,
+      "normalized_output_modes": [
+        [
+          "answerliver",
+          18
+        ],
+        [
+          "answeryes",
+          11
+        ],
+        [
+          "answerlungs",
+          7
+        ],
+        [
+          "themainorganinthispictureisthelungs",
+          7
+        ],
+        [
+          "theanswerissurgery",
+          7
+        ]
+      ],
+      "mean_NLL": 3.774666686718528
+    },
+    {
+      "case": "rank1_permuted",
+      "step": 8,
+      "dimension": "q_lang",
+      "label": "zh",
+      "QA": 119,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 7,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 36,
+      "normalized_output_modes": [
+        [
+          "theansweris肺",
+          10
+        ],
+        [
+          "theorganislungs",
+          9
+        ],
+        [
+          "answer不能",
+          7
+        ],
+        [
+          "answer1000000000",
+          5
+        ],
+        [
+          "no",
+          5
+        ]
+      ],
+      "mean_NLL": 5.630401927883885
+    },
+    {
+      "case": "rank1_permuted",
+      "step": 8,
+      "dimension": "answer_type",
+      "label": "CLOSED",
+      "QA": 63,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 3,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 10,
+      "normalized_output_modes": [
+        [
+          "answerliver",
+          13
+        ],
+        [
+          "answeryes",
+          11
+        ],
+        [
+          "answer不能",
+          7
+        ],
+        [
+          "no",
+          5
+        ],
+        [
+          "answer无",
+          5
+        ]
+      ],
+      "mean_NLL": 5.263054636735765
+    },
+    {
+      "case": "rank1_permuted",
+      "step": 8,
+      "dimension": "answer_type",
+      "label": "OPEN",
+      "QA": 204,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 8,
+      "additional_anatomy_surface_review_flags": 4,
+      "surface_review_ids": [
+        "SLAKE:12368",
+        "SLAKE:12443",
+        "SLAKE:12473",
+        "SLAKE:12533"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 26,
+      "normalized_output_modes": [
+        [
+          "theansweris肺",
+          10
+        ],
+        [
+          "theorganislungs",
+          9
+        ],
+        [
+          "thelungs",
+          7
+        ],
+        [
+          "answerlungs",
+          7
+        ],
+        [
+          "themainorganinthispictureisthelungs",
+          7
+        ]
+      ],
+      "mean_NLL": 4.397529690873389
+    },
+    {
+      "case": "rank1_permuted",
+      "step": 64,
+      "dimension": "literal_group",
+      "label": "relation_absent",
+      "QA": 196,
+      "primary_EM_correct": 2,
+      "fixed_prefix_aux_correct": 4,
+      "additional_anatomy_surface_review_flags": 4,
+      "surface_review_ids": [
+        "SLAKE:12368",
+        "SLAKE:12473",
+        "SLAKE:12533",
+        "SLAKE:12790"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 10,
+      "normalized_output_modes": [
+        [
+          "itisnotpossibletodetermine",
+          16
+        ],
+        [
+          "yes",
+          10
+        ],
+        [
+          "itching",
+          7
+        ],
+        [
+          "解剖学",
+          7
+        ],
+        [
+          "thelungs",
+          6
+        ]
+      ],
+      "mean_NLL": 3.648462251132848
+    },
+    {
+      "case": "rank1_permuted",
+      "step": 64,
+      "dimension": "literal_group",
+      "label": "relation_only",
+      "QA": 40,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 2,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 34,
+      "normalized_output_modes": [
+        [
+          "lungs",
+          26
+        ],
+        [
+          "yes",
+          8
+        ],
+        [
+          "theanswerisbrain",
+          2
+        ],
+        [
+          "duetothelackofcoloritisnotpossibletodeterminethecoloroftheorgans",
+          2
+        ],
+        [
+          "theanswerisliver",
+          1
+        ]
+      ],
+      "mean_NLL": 2.416560423374176
+    },
+    {
+      "case": "rank1_permuted",
+      "step": 64,
+      "dimension": "literal_group",
+      "label": "same_relation_tail_gold_subject",
+      "QA": 11,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 0,
+      "additional_anatomy_surface_review_flags": 6,
+      "surface_review_ids": [
+        "SLAKE:12278",
+        "SLAKE:12323",
+        "SLAKE:12398",
+        "SLAKE:12443",
+        "SLAKE:12801",
+        "SLAKE:12811"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 0,
+      "normalized_output_modes": [
+        [
+          "thelungs",
+          4
+        ],
+        [
+          "theorganthatbelongstothecirculatorysystemistheheart",
+          4
+        ],
+        [
+          "theorgansorganinthepicturebelongtotherespiratorysystem",
+          1
+        ],
+        [
+          "theanswerislungs",
+          1
+        ],
+        [
+          "theansweriskidneys",
+          1
+        ]
+      ],
+      "mean_NLL": 3.4463869008150967
+    },
+    {
+      "case": "rank1_permuted",
+      "step": 64,
+      "dimension": "literal_group",
+      "label": "same_relation_tail_other_gold",
+      "QA": 20,
+      "primary_EM_correct": 1,
+      "fixed_prefix_aux_correct": 1,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 3,
+      "normalized_output_modes": [
+        [
+          "duetothelackofcoloritisnotpossibletodeterminetheorgans",
+          3
+        ],
+        [
+          "theanswerisliver",
+          3
+        ],
+        [
+          "duetothelackofcoloritisnotpossibletodeterminethecoloroftheorgansinthepicture",
+          2
+        ],
+        [
+          "theanswerislungs",
+          2
+        ],
+        [
+          "头骨",
+          2
+        ]
+      ],
+      "mean_NLL": 2.7454253435134888
+    },
+    {
+      "case": "rank1_permuted",
+      "step": 64,
+      "dimension": "q_lang",
+      "label": "en",
+      "QA": 148,
+      "primary_EM_correct": 2,
+      "fixed_prefix_aux_correct": 6,
+      "additional_anatomy_surface_review_flags": 10,
+      "surface_review_ids": [
+        "SLAKE:12278",
+        "SLAKE:12323",
+        "SLAKE:12368",
+        "SLAKE:12398",
+        "SLAKE:12443",
+        "SLAKE:12473",
+        "SLAKE:12533",
+        "SLAKE:12790",
+        "SLAKE:12801",
+        "SLAKE:12811"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 0,
+      "normalized_output_modes": [
+        [
+          "itisnotpossibletodetermine",
+          16
+        ],
+        [
+          "thelungs",
+          10
+        ],
+        [
+          "theanswerisliver",
+          9
+        ],
+        [
+          "itching",
+          7
+        ],
+        [
+          "1000",
+          6
+        ]
+      ],
+      "mean_NLL": 3.423356023189184
+    },
+    {
+      "case": "rank1_permuted",
+      "step": 64,
+      "dimension": "q_lang",
+      "label": "zh",
+      "QA": 119,
+      "primary_EM_correct": 1,
+      "fixed_prefix_aux_correct": 1,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 47,
+      "normalized_output_modes": [
+        [
+          "lungs",
+          27
+        ],
+        [
+          "yes",
+          20
+        ],
+        [
+          "解剖学",
+          8
+        ],
+        [
+          "1000000000",
+          6
+        ],
+        [
+          "身体的肌肉",
+          6
+        ]
+      ],
+      "mean_NLL": 3.343891508439008
+    },
+    {
+      "case": "rank1_permuted",
+      "step": 64,
+      "dimension": "answer_type",
+      "label": "CLOSED",
+      "QA": 63,
+      "primary_EM_correct": 2,
+      "fixed_prefix_aux_correct": 4,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 20,
+      "normalized_output_modes": [
+        [
+          "yes",
+          20
+        ],
+        [
+          "itisnotpossibletodetermine",
+          16
+        ],
+        [
+          "theanswerisyes",
+          4
+        ],
+        [
+          "no",
+          3
+        ],
+        [
+          "duetothelackofcoloritisnotpossibletodeterminetheorgans",
+          3
+        ]
+      ],
+      "mean_NLL": 3.2670514962029835
+    },
+    {
+      "case": "rank1_permuted",
+      "step": 64,
+      "dimension": "answer_type",
+      "label": "OPEN",
+      "QA": 204,
+      "primary_EM_correct": 1,
+      "fixed_prefix_aux_correct": 3,
+      "additional_anatomy_surface_review_flags": 10,
+      "surface_review_ids": [
+        "SLAKE:12278",
+        "SLAKE:12323",
+        "SLAKE:12368",
+        "SLAKE:12398",
+        "SLAKE:12443",
+        "SLAKE:12473",
+        "SLAKE:12533",
+        "SLAKE:12790",
+        "SLAKE:12801",
+        "SLAKE:12811"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 27,
+      "normalized_output_modes": [
+        [
+          "lungs",
+          31
+        ],
+        [
+          "thelungs",
+          10
+        ],
+        [
+          "theanswerisliver",
+          8
+        ],
+        [
+          "解剖学",
+          8
+        ],
+        [
+          "itching",
+          7
+        ]
+      ],
+      "mean_NLL": 3.425272238605163
+    },
+    {
+      "case": "rank8_correct",
+      "step": 0,
+      "dimension": "literal_group",
+      "label": "relation_absent",
+      "QA": 196,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 1,
+      "additional_anatomy_surface_review_flags": 3,
+      "surface_review_ids": [
+        "SLAKE:12368",
+        "SLAKE:12473",
+        "SLAKE:12533"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 13,
+      "normalized_output_modes": [
+        [
+          "answerliver",
+          16
+        ],
+        [
+          "answer100",
+          9
+        ],
+        [
+          "answer不能",
+          9
+        ],
+        [
+          "answeryes",
+          7
+        ],
+        [
+          "themainorganinthispictureisthelungs",
+          6
+        ]
+      ],
+      "mean_NLL": 5.2768532238444505
+    },
+    {
+      "case": "rank8_correct",
+      "step": 0,
+      "dimension": "literal_group",
+      "label": "relation_only",
+      "QA": 40,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 6,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 15,
+      "normalized_output_modes": [
+        [
+          "theorganislungs",
+          9
+        ],
+        [
+          "theansweris肺",
+          8
+        ],
+        [
+          "theanswerislungs",
+          3
+        ],
+        [
+          "answer无",
+          3
+        ],
+        [
+          "answerbrain",
+          2
+        ]
+      ],
+      "mean_NLL": 5.352273726463318
+    },
+    {
+      "case": "rank8_correct",
+      "step": 0,
+      "dimension": "literal_group",
+      "label": "same_relation_tail_gold_subject",
+      "QA": 11,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 0,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 0,
+      "normalized_output_modes": [
+        [
+          "answerlungs",
+          6
+        ],
+        [
+          "answerheart",
+          4
+        ],
+        [
+          "answerkidneys",
+          1
+        ]
+      ],
+      "mean_NLL": 5.37533222545277
+    },
+    {
+      "case": "rank8_correct",
+      "step": 0,
+      "dimension": "literal_group",
+      "label": "same_relation_tail_other_gold",
+      "QA": 20,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 0,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 0,
+      "normalized_output_modes": [
+        [
+          "answeryes",
+          6
+        ],
+        [
+          "theansweris脑",
+          4
+        ],
+        [
+          "answerliver",
+          3
+        ],
+        [
+          "answerlungs",
+          2
+        ],
+        [
+          "answer无",
+          2
+        ]
+      ],
+      "mean_NLL": 5.298932766914367
+    },
+    {
+      "case": "rank8_correct",
+      "step": 0,
+      "dimension": "q_lang",
+      "label": "en",
+      "QA": 148,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 1,
+      "additional_anatomy_surface_review_flags": 3,
+      "surface_review_ids": [
+        "SLAKE:12368",
+        "SLAKE:12473",
+        "SLAKE:12533"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 0,
+      "normalized_output_modes": [
+        [
+          "answerliver",
+          19
+        ],
+        [
+          "answeryes",
+          15
+        ],
+        [
+          "answer100",
+          9
+        ],
+        [
+          "answerlungs",
+          8
+        ],
+        [
+          "answerheart",
+          7
+        ]
+      ],
+      "mean_NLL": 4.412813528969481
+    },
+    {
+      "case": "rank8_correct",
+      "step": 0,
+      "dimension": "q_lang",
+      "label": "zh",
+      "QA": 119,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 6,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 28,
+      "normalized_output_modes": [
+        [
+          "theansweris肺",
+          11
+        ],
+        [
+          "theorganislungs",
+          9
+        ],
+        [
+          "answer不能",
+          9
+        ],
+        [
+          "answer介入治疗",
+          6
+        ],
+        [
+          "answer肺",
+          6
+        ]
+      ],
+      "mean_NLL": 6.389622592124619
+    },
+    {
+      "case": "rank8_correct",
+      "step": 0,
+      "dimension": "answer_type",
+      "label": "CLOSED",
+      "QA": 63,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 1,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 5,
+      "normalized_output_modes": [
+        [
+          "answeryes",
+          15
+        ],
+        [
+          "answerliver",
+          13
+        ],
+        [
+          "answer不能",
+          9
+        ],
+        [
+          "answer无",
+          6
+        ],
+        [
+          "answerrectum",
+          3
+        ]
+      ],
+      "mean_NLL": 6.3446802657748025
+    },
+    {
+      "case": "rank8_correct",
+      "step": 0,
+      "dimension": "answer_type",
+      "label": "OPEN",
+      "QA": 204,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 6,
+      "additional_anatomy_surface_review_flags": 3,
+      "surface_review_ids": [
+        "SLAKE:12368",
+        "SLAKE:12473",
+        "SLAKE:12533"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 23,
+      "normalized_output_modes": [
+        [
+          "theansweris肺",
+          11
+        ],
+        [
+          "answer100",
+          9
+        ],
+        [
+          "theorganislungs",
+          9
+        ],
+        [
+          "answerlungs",
+          8
+        ],
+        [
+          "theanswerislungs",
+          8
+        ]
+      ],
+      "mean_NLL": 4.969346245129903
+    },
+    {
+      "case": "rank8_correct",
+      "step": 8,
+      "dimension": "literal_group",
+      "label": "relation_absent",
+      "QA": 196,
+      "primary_EM_correct": 2,
+      "fixed_prefix_aux_correct": 6,
+      "additional_anatomy_surface_review_flags": 4,
+      "surface_review_ids": [
+        "SLAKE:12368",
+        "SLAKE:12473",
+        "SLAKE:12533",
+        "SLAKE:12790"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 22,
+      "normalized_output_modes": [
+        [
+          "解剖学",
+          13
+        ],
+        [
+          "yes",
+          11
+        ],
+        [
+          "theanswerisliver",
+          10
+        ],
+        [
+          "thelungs",
+          9
+        ],
+        [
+          "no",
+          7
+        ]
+      ],
+      "mean_NLL": 3.3877621905840174
+    },
+    {
+      "case": "rank8_correct",
+      "step": 8,
+      "dimension": "literal_group",
+      "label": "relation_only",
+      "QA": 40,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 2,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 28,
+      "normalized_output_modes": [
+        [
+          "lungs",
+          20
+        ],
+        [
+          "yes",
+          7
+        ],
+        [
+          "解剖学",
+          4
+        ],
+        [
+          "theanswerisbrain",
+          2
+        ],
+        [
+          "theanswerisleftventricle",
+          2
+        ]
+      ],
+      "mean_NLL": 2.3694171965122224
+    },
+    {
+      "case": "rank8_correct",
+      "step": 8,
+      "dimension": "literal_group",
+      "label": "same_relation_tail_gold_subject",
+      "QA": 11,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 0,
+      "additional_anatomy_surface_review_flags": 7,
+      "surface_review_ids": [
+        "SLAKE:12278",
+        "SLAKE:12323",
+        "SLAKE:12398",
+        "SLAKE:12443",
+        "SLAKE:12458",
+        "SLAKE:12801",
+        "SLAKE:12811"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 0,
+      "normalized_output_modes": [
+        [
+          "thelungs",
+          5
+        ],
+        [
+          "theanswerislungs",
+          2
+        ],
+        [
+          "theorgansorganinthepicturebelongtothecirculatorysystemaretheheartandlungs",
+          2
+        ],
+        [
+          "theorgansorganinthepicturebelongtothecirculatorysystem",
+          1
+        ],
+        [
+          "theansweriskidneys",
+          1
+        ]
+      ],
+      "mean_NLL": 2.9677737192674116
+    },
+    {
+      "case": "rank8_correct",
+      "step": 8,
+      "dimension": "literal_group",
+      "label": "same_relation_tail_other_gold",
+      "QA": 20,
+      "primary_EM_correct": 1,
+      "fixed_prefix_aux_correct": 2,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 2,
+      "normalized_output_modes": [
+        [
+          "theanswerislungs",
+          3
+        ],
+        [
+          "theanswerisliver",
+          3
+        ],
+        [
+          "头骨",
+          3
+        ],
+        [
+          "theanswerisbrain",
+          2
+        ],
+        [
+          "theansweriskidneys",
+          2
+        ]
+      ],
+      "mean_NLL": 2.2326662838459015
+    },
+    {
+      "case": "rank8_correct",
+      "step": 8,
+      "dimension": "q_lang",
+      "label": "en",
+      "QA": 148,
+      "primary_EM_correct": 2,
+      "fixed_prefix_aux_correct": 9,
+      "additional_anatomy_surface_review_flags": 11,
+      "surface_review_ids": [
+        "SLAKE:12278",
+        "SLAKE:12323",
+        "SLAKE:12368",
+        "SLAKE:12398",
+        "SLAKE:12443",
+        "SLAKE:12458",
+        "SLAKE:12473",
+        "SLAKE:12533",
+        "SLAKE:12790",
+        "SLAKE:12801",
+        "SLAKE:12811"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 0,
+      "normalized_output_modes": [
+        [
+          "thelungs",
+          14
+        ],
+        [
+          "theanswerisliver",
+          14
+        ],
+        [
+          "theanswerislungs",
+          9
+        ],
+        [
+          "theanswerissurgery",
+          6
+        ],
+        [
+          "theanswerisbrain",
+          6
+        ]
+      ],
+      "mean_NLL": 2.996762823212791
+    },
+    {
+      "case": "rank8_correct",
+      "step": 8,
+      "dimension": "q_lang",
+      "label": "zh",
+      "QA": 119,
+      "primary_EM_correct": 1,
+      "fixed_prefix_aux_correct": 1,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 52,
+      "normalized_output_modes": [
+        [
+          "lungs",
+          21
+        ],
+        [
+          "yes",
+          20
+        ],
+        [
+          "解剖学",
+          17
+        ],
+        [
+          "无",
+          4
+        ],
+        [
+          "no",
+          4
+        ]
+      ],
+      "mean_NLL": 3.298790050153973
+    },
+    {
+      "case": "rank8_correct",
+      "step": 8,
+      "dimension": "answer_type",
+      "label": "CLOSED",
+      "QA": 63,
+      "primary_EM_correct": 2,
+      "fixed_prefix_aux_correct": 4,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 22,
+      "normalized_output_modes": [
+        [
+          "yes",
+          20
+        ],
+        [
+          "theanswerisliver",
+          10
+        ],
+        [
+          "no",
+          6
+        ],
+        [
+          "theanswerisyes",
+          4
+        ],
+        [
+          "theanswerisbrain",
+          3
+        ]
+      ],
+      "mean_NLL": 2.619432405346916
+    },
+    {
+      "case": "rank8_correct",
+      "step": 8,
+      "dimension": "answer_type",
+      "label": "OPEN",
+      "QA": 204,
+      "primary_EM_correct": 1,
+      "fixed_prefix_aux_correct": 6,
+      "additional_anatomy_surface_review_flags": 11,
+      "surface_review_ids": [
+        "SLAKE:12278",
+        "SLAKE:12323",
+        "SLAKE:12368",
+        "SLAKE:12398",
+        "SLAKE:12443",
+        "SLAKE:12458",
+        "SLAKE:12473",
+        "SLAKE:12533",
+        "SLAKE:12790",
+        "SLAKE:12801",
+        "SLAKE:12811"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 30,
+      "normalized_output_modes": [
+        [
+          "lungs",
+          26
+        ],
+        [
+          "解剖学",
+          17
+        ],
+        [
+          "thelungs",
+          14
+        ],
+        [
+          "1000",
+          6
+        ],
+        [
+          "theanswerislungs",
+          6
+        ]
+      ],
+      "mean_NLL": 3.2894738836615693
+    },
+    {
+      "case": "rank8_correct",
+      "step": 64,
+      "dimension": "literal_group",
+      "label": "relation_absent",
+      "QA": 196,
+      "primary_EM_correct": 6,
+      "fixed_prefix_aux_correct": 6,
+      "additional_anatomy_surface_review_flags": 3,
+      "surface_review_ids": [
+        "SLAKE:12368",
+        "SLAKE:12473",
+        "SLAKE:12533"
+      ],
+      "literal_trained_value_outputs": 31,
+      "value_output_ids": [
+        "SLAKE:12276",
+        "SLAKE:12291",
+        "SLAKE:12336",
+        "SLAKE:12351",
+        "SLAKE:12366",
+        "SLAKE:12381",
+        "SLAKE:12396",
+        "SLAKE:12441",
+        "SLAKE:12471",
+        "SLAKE:12516",
+        "SLAKE:12531",
+        "SLAKE:12597",
+        "SLAKE:12659",
+        "SLAKE:12676",
+        "SLAKE:12727",
+        "SLAKE:13753",
+        "SLAKE:13762",
+        "SLAKE:13771",
+        "SLAKE:13779",
+        "SLAKE:13787",
+        "SLAKE:13795",
+        "SLAKE:13803",
+        "SLAKE:13811",
+        "SLAKE:13820",
+        "SLAKE:13829",
+        "SLAKE:13847",
+        "SLAKE:13855",
+        "SLAKE:13865",
+        "SLAKE:13874",
+        "SLAKE:13882",
+        "SLAKE:13901"
+      ],
+      "value_outputs_primary_wrong": 31,
+      "Chinese_question_Latin_only_answer": 26,
+      "normalized_output_modes": [
+        [
+          "lungs",
+          29
+        ],
+        [
+          "theorgan",
+          17
+        ],
+        [
+          "神经系统",
+          17
+        ],
+        [
+          "respiratorysystem",
+          11
+        ],
+        [
+          "100",
+          7
+        ]
+      ],
+      "mean_NLL": 4.728200116631936
+    },
+    {
+      "case": "rank8_correct",
+      "step": 64,
+      "dimension": "literal_group",
+      "label": "relation_only",
+      "QA": 40,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 0,
+      "additional_anatomy_surface_review_flags": 2,
+      "surface_review_ids": [
+        "SLAKE:12546",
+        "SLAKE:12575"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 34,
+      "normalized_output_modes": [
+        [
+          "lungs",
+          34
+        ],
+        [
+          "theorgan",
+          3
+        ],
+        [
+          "thebrain",
+          2
+        ],
+        [
+          "呼吸系统",
+          1
+        ]
+      ],
+      "mean_NLL": 3.90277955532074
+    },
+    {
+      "case": "rank8_correct",
+      "step": 64,
+      "dimension": "literal_group",
+      "label": "same_relation_tail_gold_subject",
+      "QA": 11,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 0,
+      "additional_anatomy_surface_review_flags": 9,
+      "surface_review_ids": [
+        "SLAKE:12278",
+        "SLAKE:12293",
+        "SLAKE:12308",
+        "SLAKE:12323",
+        "SLAKE:12398",
+        "SLAKE:12413",
+        "SLAKE:12443",
+        "SLAKE:12801",
+        "SLAKE:12811"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 0,
+      "normalized_output_modes": [
+        [
+          "lungs",
+          4
+        ],
+        [
+          "theheart",
+          3
+        ],
+        [
+          "thelungs",
+          2
+        ],
+        [
+          "stomach",
+          1
+        ],
+        [
+          "thekidneys",
+          1
+        ]
+      ],
+      "mean_NLL": 1.943521878936074
+    },
+    {
+      "case": "rank8_correct",
+      "step": 64,
+      "dimension": "literal_group",
+      "label": "same_relation_tail_other_gold",
+      "QA": 20,
+      "primary_EM_correct": 2,
+      "fixed_prefix_aux_correct": 2,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 2,
+      "value_output_ids": [
+        "SLAKE:13932",
+        "SLAKE:13976"
+      ],
+      "value_outputs_primary_wrong": 2,
+      "Chinese_question_Latin_only_answer": 2,
+      "normalized_output_modes": [
+        [
+          "thedigestivesystem",
+          5
+        ],
+        [
+          "thelungs",
+          3
+        ],
+        [
+          "theorgan",
+          3
+        ],
+        [
+          "脊髓",
+          2
+        ],
+        [
+          "thekidneys",
+          1
+        ]
+      ],
+      "mean_NLL": 3.847952428460121
+    },
+    {
+      "case": "rank8_correct",
+      "step": 64,
+      "dimension": "q_lang",
+      "label": "en",
+      "QA": 148,
+      "primary_EM_correct": 6,
+      "fixed_prefix_aux_correct": 6,
+      "additional_anatomy_surface_review_flags": 14,
+      "surface_review_ids": [
+        "SLAKE:12278",
+        "SLAKE:12293",
+        "SLAKE:12308",
+        "SLAKE:12323",
+        "SLAKE:12368",
+        "SLAKE:12398",
+        "SLAKE:12413",
+        "SLAKE:12443",
+        "SLAKE:12473",
+        "SLAKE:12533",
+        "SLAKE:12546",
+        "SLAKE:12575",
+        "SLAKE:12801",
+        "SLAKE:12811"
+      ],
+      "literal_trained_value_outputs": 15,
+      "value_output_ids": [
+        "SLAKE:12276",
+        "SLAKE:12291",
+        "SLAKE:12336",
+        "SLAKE:12351",
+        "SLAKE:12366",
+        "SLAKE:12381",
+        "SLAKE:12396",
+        "SLAKE:12441",
+        "SLAKE:12471",
+        "SLAKE:12516",
+        "SLAKE:12531",
+        "SLAKE:12597",
+        "SLAKE:12659",
+        "SLAKE:12676",
+        "SLAKE:12727"
+      ],
+      "value_outputs_primary_wrong": 15,
+      "Chinese_question_Latin_only_answer": 0,
+      "normalized_output_modes": [
+        [
+          "theorgan",
+          23
+        ],
+        [
+          "respiratorysystem",
+          11
+        ],
+        [
+          "lungs",
+          8
+        ],
+        [
+          "100",
+          7
+        ],
+        [
+          "thedigestivesystem",
+          7
+        ]
+      ],
+      "mean_NLL": 4.562377919619148
+    },
+    {
+      "case": "rank8_correct",
+      "step": 64,
+      "dimension": "q_lang",
+      "label": "zh",
+      "QA": 119,
+      "primary_EM_correct": 2,
+      "fixed_prefix_aux_correct": 2,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 18,
+      "value_output_ids": [
+        "SLAKE:13753",
+        "SLAKE:13762",
+        "SLAKE:13771",
+        "SLAKE:13779",
+        "SLAKE:13787",
+        "SLAKE:13795",
+        "SLAKE:13803",
+        "SLAKE:13811",
+        "SLAKE:13820",
+        "SLAKE:13829",
+        "SLAKE:13847",
+        "SLAKE:13855",
+        "SLAKE:13865",
+        "SLAKE:13874",
+        "SLAKE:13882",
+        "SLAKE:13901",
+        "SLAKE:13932",
+        "SLAKE:13976"
+      ],
+      "value_outputs_primary_wrong": 18,
+      "Chinese_question_Latin_only_answer": 62,
+      "normalized_output_modes": [
+        [
+          "lungs",
+          60
+        ],
+        [
+          "神经系统",
+          17
+        ],
+        [
+          "8000",
+          6
+        ],
+        [
+          "慢性支气管炎",
+          4
+        ],
+        [
+          "慢性阻塞性肺疾病",
+          3
+        ]
+      ],
+      "mean_NLL": 4.251632455517264
+    },
+    {
+      "case": "rank8_correct",
+      "step": 64,
+      "dimension": "answer_type",
+      "label": "CLOSED",
+      "QA": 63,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 0,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 2,
+      "value_output_ids": [
+        "SLAKE:13932",
+        "SLAKE:13976"
+      ],
+      "value_outputs_primary_wrong": 2,
+      "Chinese_question_Latin_only_answer": 17,
+      "normalized_output_modes": [
+        [
+          "theorgan",
+          21
+        ],
+        [
+          "lungs",
+          17
+        ],
+        [
+          "theorgansinthepicturethatcandeliverfoodarethestomachandintestines",
+          2
+        ],
+        [
+          "theorganthatcouldbeusedforsecretingenzymesistheliver",
+          2
+        ],
+        [
+          "thedigestivesystem",
+          2
+        ]
+      ],
+      "mean_NLL": 6.457820744741531
+    },
+    {
+      "case": "rank8_correct",
+      "step": 64,
+      "dimension": "answer_type",
+      "label": "OPEN",
+      "QA": 204,
+      "primary_EM_correct": 8,
+      "fixed_prefix_aux_correct": 8,
+      "additional_anatomy_surface_review_flags": 14,
+      "surface_review_ids": [
+        "SLAKE:12278",
+        "SLAKE:12293",
+        "SLAKE:12308",
+        "SLAKE:12323",
+        "SLAKE:12368",
+        "SLAKE:12398",
+        "SLAKE:12413",
+        "SLAKE:12443",
+        "SLAKE:12473",
+        "SLAKE:12533",
+        "SLAKE:12546",
+        "SLAKE:12575",
+        "SLAKE:12801",
+        "SLAKE:12811"
+      ],
+      "literal_trained_value_outputs": 31,
+      "value_output_ids": [
+        "SLAKE:12276",
+        "SLAKE:12291",
+        "SLAKE:12336",
+        "SLAKE:12351",
+        "SLAKE:12366",
+        "SLAKE:12381",
+        "SLAKE:12396",
+        "SLAKE:12441",
+        "SLAKE:12471",
+        "SLAKE:12516",
+        "SLAKE:12531",
+        "SLAKE:12597",
+        "SLAKE:12659",
+        "SLAKE:12676",
+        "SLAKE:12727",
+        "SLAKE:13753",
+        "SLAKE:13762",
+        "SLAKE:13771",
+        "SLAKE:13779",
+        "SLAKE:13787",
+        "SLAKE:13795",
+        "SLAKE:13803",
+        "SLAKE:13811",
+        "SLAKE:13820",
+        "SLAKE:13829",
+        "SLAKE:13847",
+        "SLAKE:13855",
+        "SLAKE:13865",
+        "SLAKE:13874",
+        "SLAKE:13882",
+        "SLAKE:13901"
+      ],
+      "value_outputs_primary_wrong": 31,
+      "Chinese_question_Latin_only_answer": 45,
+      "normalized_output_modes": [
+        [
+          "lungs",
+          51
+        ],
+        [
+          "神经系统",
+          17
+        ],
+        [
+          "respiratorysystem",
+          11
+        ],
+        [
+          "100",
+          7
+        ],
+        [
+          "heart",
+          6
+        ]
+      ],
+      "mean_NLL": 3.795752389173882
+    },
+    {
+      "case": "rank8_permuted",
+      "step": 0,
+      "dimension": "literal_group",
+      "label": "relation_absent",
+      "QA": 196,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 1,
+      "additional_anatomy_surface_review_flags": 3,
+      "surface_review_ids": [
+        "SLAKE:12368",
+        "SLAKE:12473",
+        "SLAKE:12533"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 13,
+      "normalized_output_modes": [
+        [
+          "answerliver",
+          16
+        ],
+        [
+          "answer100",
+          9
+        ],
+        [
+          "answer不能",
+          9
+        ],
+        [
+          "answeryes",
+          7
+        ],
+        [
+          "themainorganinthispictureisthelungs",
+          6
+        ]
+      ],
+      "mean_NLL": 5.2768532238444505
+    },
+    {
+      "case": "rank8_permuted",
+      "step": 0,
+      "dimension": "literal_group",
+      "label": "relation_only",
+      "QA": 40,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 6,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 15,
+      "normalized_output_modes": [
+        [
+          "theorganislungs",
+          9
+        ],
+        [
+          "theansweris肺",
+          8
+        ],
+        [
+          "theanswerislungs",
+          3
+        ],
+        [
+          "answer无",
+          3
+        ],
+        [
+          "answerbrain",
+          2
+        ]
+      ],
+      "mean_NLL": 5.352273726463318
+    },
+    {
+      "case": "rank8_permuted",
+      "step": 0,
+      "dimension": "literal_group",
+      "label": "same_relation_tail_gold_subject",
+      "QA": 11,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 0,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 0,
+      "normalized_output_modes": [
+        [
+          "answerlungs",
+          6
+        ],
+        [
+          "answerheart",
+          4
+        ],
+        [
+          "answerkidneys",
+          1
+        ]
+      ],
+      "mean_NLL": 5.37533222545277
+    },
+    {
+      "case": "rank8_permuted",
+      "step": 0,
+      "dimension": "literal_group",
+      "label": "same_relation_tail_other_gold",
+      "QA": 20,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 0,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 0,
+      "normalized_output_modes": [
+        [
+          "answeryes",
+          6
+        ],
+        [
+          "theansweris脑",
+          4
+        ],
+        [
+          "answerliver",
+          3
+        ],
+        [
+          "answerlungs",
+          2
+        ],
+        [
+          "answer无",
+          2
+        ]
+      ],
+      "mean_NLL": 5.298932766914367
+    },
+    {
+      "case": "rank8_permuted",
+      "step": 0,
+      "dimension": "q_lang",
+      "label": "en",
+      "QA": 148,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 1,
+      "additional_anatomy_surface_review_flags": 3,
+      "surface_review_ids": [
+        "SLAKE:12368",
+        "SLAKE:12473",
+        "SLAKE:12533"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 0,
+      "normalized_output_modes": [
+        [
+          "answerliver",
+          19
+        ],
+        [
+          "answeryes",
+          15
+        ],
+        [
+          "answer100",
+          9
+        ],
+        [
+          "answerlungs",
+          8
+        ],
+        [
+          "answerheart",
+          7
+        ]
+      ],
+      "mean_NLL": 4.412813528969481
+    },
+    {
+      "case": "rank8_permuted",
+      "step": 0,
+      "dimension": "q_lang",
+      "label": "zh",
+      "QA": 119,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 6,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 28,
+      "normalized_output_modes": [
+        [
+          "theansweris肺",
+          11
+        ],
+        [
+          "theorganislungs",
+          9
+        ],
+        [
+          "answer不能",
+          9
+        ],
+        [
+          "answer介入治疗",
+          6
+        ],
+        [
+          "answer肺",
+          6
+        ]
+      ],
+      "mean_NLL": 6.389622592124619
+    },
+    {
+      "case": "rank8_permuted",
+      "step": 0,
+      "dimension": "answer_type",
+      "label": "CLOSED",
+      "QA": 63,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 1,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 5,
+      "normalized_output_modes": [
+        [
+          "answeryes",
+          15
+        ],
+        [
+          "answerliver",
+          13
+        ],
+        [
+          "answer不能",
+          9
+        ],
+        [
+          "answer无",
+          6
+        ],
+        [
+          "answerrectum",
+          3
+        ]
+      ],
+      "mean_NLL": 6.3446802657748025
+    },
+    {
+      "case": "rank8_permuted",
+      "step": 0,
+      "dimension": "answer_type",
+      "label": "OPEN",
+      "QA": 204,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 6,
+      "additional_anatomy_surface_review_flags": 3,
+      "surface_review_ids": [
+        "SLAKE:12368",
+        "SLAKE:12473",
+        "SLAKE:12533"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 23,
+      "normalized_output_modes": [
+        [
+          "theansweris肺",
+          11
+        ],
+        [
+          "answer100",
+          9
+        ],
+        [
+          "theorganislungs",
+          9
+        ],
+        [
+          "answerlungs",
+          8
+        ],
+        [
+          "theanswerislungs",
+          8
+        ]
+      ],
+      "mean_NLL": 4.969346245129903
+    },
+    {
+      "case": "rank8_permuted",
+      "step": 8,
+      "dimension": "literal_group",
+      "label": "relation_absent",
+      "QA": 196,
+      "primary_EM_correct": 2,
+      "fixed_prefix_aux_correct": 5,
+      "additional_anatomy_surface_review_flags": 4,
+      "surface_review_ids": [
+        "SLAKE:12368",
+        "SLAKE:12473",
+        "SLAKE:12533",
+        "SLAKE:12790"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 31,
+      "normalized_output_modes": [
+        [
+          "lungs",
+          18
+        ],
+        [
+          "yes",
+          14
+        ],
+        [
+          "theanswerisliver",
+          11
+        ],
+        [
+          "thelungs",
+          10
+        ],
+        [
+          "1000",
+          6
+        ]
+      ],
+      "mean_NLL": 3.2527089456514435
+    },
+    {
+      "case": "rank8_permuted",
+      "step": 8,
+      "dimension": "literal_group",
+      "label": "relation_only",
+      "QA": 40,
+      "primary_EM_correct": 1,
+      "fixed_prefix_aux_correct": 5,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 22,
+      "normalized_output_modes": [
+        [
+          "lungs",
+          14
+        ],
+        [
+          "yes",
+          8
+        ],
+        [
+          "气管",
+          7
+        ],
+        [
+          "theanswerisbrain",
+          2
+        ],
+        [
+          "theanswerisyes",
+          2
+        ]
+      ],
+      "mean_NLL": 2.0784815952181814
+    },
+    {
+      "case": "rank8_permuted",
+      "step": 8,
+      "dimension": "literal_group",
+      "label": "same_relation_tail_gold_subject",
+      "QA": 11,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 0,
+      "additional_anatomy_surface_review_flags": 7,
+      "surface_review_ids": [
+        "SLAKE:12278",
+        "SLAKE:12323",
+        "SLAKE:12398",
+        "SLAKE:12443",
+        "SLAKE:12458",
+        "SLAKE:12801",
+        "SLAKE:12811"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 0,
+      "normalized_output_modes": [
+        [
+          "thelungs",
+          6
+        ],
+        [
+          "theorgansorganinthepicturebelongtothecirculatorysystem",
+          2
+        ],
+        [
+          "theorgansorganinthepicturebelongtothecirculatorysystemaretheheartandlungs",
+          1
+        ],
+        [
+          "theanswerislungs",
+          1
+        ],
+        [
+          "thekidneys",
+          1
+        ]
+      ],
+      "mean_NLL": 2.3740477670322764
+    },
+    {
+      "case": "rank8_permuted",
+      "step": 8,
+      "dimension": "literal_group",
+      "label": "same_relation_tail_other_gold",
+      "QA": 20,
+      "primary_EM_correct": 1,
+      "fixed_prefix_aux_correct": 2,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 2,
+      "normalized_output_modes": [
+        [
+          "头骨",
+          3
+        ],
+        [
+          "theanswerisbrain",
+          2
+        ],
+        [
+          "theorgansorganinthepicturebelongtotherespiratorysystem",
+          2
+        ],
+        [
+          "theorgansorganinthepicturebelongtothedigestivesystem",
+          2
+        ],
+        [
+          "theanswerisyes",
+          2
+        ]
+      ],
+      "mean_NLL": 1.929966151714325
+    },
+    {
+      "case": "rank8_permuted",
+      "step": 8,
+      "dimension": "q_lang",
+      "label": "en",
+      "QA": 148,
+      "primary_EM_correct": 2,
+      "fixed_prefix_aux_correct": 10,
+      "additional_anatomy_surface_review_flags": 11,
+      "surface_review_ids": [
+        "SLAKE:12278",
+        "SLAKE:12323",
+        "SLAKE:12368",
+        "SLAKE:12398",
+        "SLAKE:12443",
+        "SLAKE:12458",
+        "SLAKE:12473",
+        "SLAKE:12533",
+        "SLAKE:12790",
+        "SLAKE:12801",
+        "SLAKE:12811"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 0,
+      "normalized_output_modes": [
+        [
+          "thelungs",
+          16
+        ],
+        [
+          "theanswerisliver",
+          14
+        ],
+        [
+          "lungs",
+          6
+        ],
+        [
+          "1000",
+          6
+        ],
+        [
+          "theanswerisyes",
+          6
+        ]
+      ],
+      "mean_NLL": 2.845221176340773
+    },
+    {
+      "case": "rank8_permuted",
+      "step": 8,
+      "dimension": "q_lang",
+      "label": "zh",
+      "QA": 119,
+      "primary_EM_correct": 2,
+      "fixed_prefix_aux_correct": 2,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 55,
+      "normalized_output_modes": [
+        [
+          "lungs",
+          26
+        ],
+        [
+          "yes",
+          22
+        ],
+        [
+          "气管",
+          7
+        ],
+        [
+          "无",
+          6
+        ],
+        [
+          "xray",
+          4
+        ]
+      ],
+      "mean_NLL": 3.0612716935261957
+    },
+    {
+      "case": "rank8_permuted",
+      "step": 8,
+      "dimension": "answer_type",
+      "label": "CLOSED",
+      "QA": 63,
+      "primary_EM_correct": 2,
+      "fixed_prefix_aux_correct": 6,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 22,
+      "normalized_output_modes": [
+        [
+          "yes",
+          24
+        ],
+        [
+          "theanswerisliver",
+          12
+        ],
+        [
+          "theanswerisyes",
+          6
+        ],
+        [
+          "theansweriskidneys",
+          4
+        ],
+        [
+          "theanswerisbrain",
+          3
+        ]
+      ],
+      "mean_NLL": 2.3868804432096935
+    },
+    {
+      "case": "rank8_permuted",
+      "step": 8,
+      "dimension": "answer_type",
+      "label": "OPEN",
+      "QA": 204,
+      "primary_EM_correct": 2,
+      "fixed_prefix_aux_correct": 6,
+      "additional_anatomy_surface_review_flags": 11,
+      "surface_review_ids": [
+        "SLAKE:12278",
+        "SLAKE:12323",
+        "SLAKE:12368",
+        "SLAKE:12398",
+        "SLAKE:12443",
+        "SLAKE:12458",
+        "SLAKE:12473",
+        "SLAKE:12533",
+        "SLAKE:12790",
+        "SLAKE:12801",
+        "SLAKE:12811"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 33,
+      "normalized_output_modes": [
+        [
+          "lungs",
+          32
+        ],
+        [
+          "thelungs",
+          16
+        ],
+        [
+          "气管",
+          7
+        ],
+        [
+          "1000",
+          6
+        ],
+        [
+          "0",
+          6
+        ]
+      ],
+      "mean_NLL": 3.112797047577652
+    },
+    {
+      "case": "rank8_permuted",
+      "step": 64,
+      "dimension": "literal_group",
+      "label": "relation_absent",
+      "QA": 196,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 1,
+      "additional_anatomy_surface_review_flags": 9,
+      "surface_review_ids": [
+        "SLAKE:12338",
+        "SLAKE:12353",
+        "SLAKE:12368",
+        "SLAKE:12383",
+        "SLAKE:12488",
+        "SLAKE:12503",
+        "SLAKE:12518",
+        "SLAKE:12533",
+        "SLAKE:12790"
+      ],
+      "literal_trained_value_outputs": 46,
+      "value_output_ids": [
+        "SLAKE:12307",
+        "SLAKE:12322",
+        "SLAKE:12337",
+        "SLAKE:12367",
+        "SLAKE:12381",
+        "SLAKE:12382",
+        "SLAKE:12412",
+        "SLAKE:12442",
+        "SLAKE:12471",
+        "SLAKE:12472",
+        "SLAKE:12487",
+        "SLAKE:12547",
+        "SLAKE:12561",
+        "SLAKE:12587",
+        "SLAKE:12597",
+        "SLAKE:12600",
+        "SLAKE:12611",
+        "SLAKE:12621",
+        "SLAKE:12630",
+        "SLAKE:12649",
+        "SLAKE:12659",
+        "SLAKE:12684",
+        "SLAKE:12727",
+        "SLAKE:12746",
+        "SLAKE:12791",
+        "SLAKE:12802",
+        "SLAKE:12812",
+        "SLAKE:12820",
+        "SLAKE:12833",
+        "SLAKE:12844",
+        "SLAKE:12856",
+        "SLAKE:12857",
+        "SLAKE:12886",
+        "SLAKE:12896",
+        "SLAKE:12908",
+        "SLAKE:12909",
+        "SLAKE:12917",
+        "SLAKE:12919",
+        "SLAKE:12920",
+        "SLAKE:12944",
+        "SLAKE:13415",
+        "SLAKE:13475",
+        "SLAKE:13633",
+        "SLAKE:13838",
+        "SLAKE:13892",
+        "SLAKE:13919"
+      ],
+      "value_outputs_primary_wrong": 46,
+      "Chinese_question_Latin_only_answer": 1,
+      "normalized_output_modes": [
+        [
+          "digestivesystem",
+          40
+        ],
+        [
+          "theliver",
+          19
+        ],
+        [
+          "内脏",
+          8
+        ],
+        [
+          "05",
+          6
+        ],
+        [
+          "theheart",
+          6
+        ]
+      ],
+      "mean_NLL": 4.0676175264679655
+    },
+    {
+      "case": "rank8_permuted",
+      "step": 64,
+      "dimension": "literal_group",
+      "label": "relation_only",
+      "QA": 40,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 0,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 4,
+      "value_output_ids": [
+        "SLAKE:12546",
+        "SLAKE:12575",
+        "SLAKE:12599",
+        "SLAKE:12612"
+      ],
+      "value_outputs_primary_wrong": 4,
+      "Chinese_question_Latin_only_answer": 31,
+      "normalized_output_modes": [
+        [
+          "lungs",
+          23
+        ],
+        [
+          "yes",
+          8
+        ],
+        [
+          "digestivesystem",
+          4
+        ],
+        [
+          "theliver",
+          1
+        ],
+        [
+          "内脏大",
+          1
+        ]
+      ],
+      "mean_NLL": 2.3052440166473387
+    },
+    {
+      "case": "rank8_permuted",
+      "step": 64,
+      "dimension": "literal_group",
+      "label": "same_relation_tail_gold_subject",
+      "QA": 11,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 0,
+      "additional_anatomy_surface_review_flags": 10,
+      "surface_review_ids": [
+        "SLAKE:12278",
+        "SLAKE:12293",
+        "SLAKE:12308",
+        "SLAKE:12323",
+        "SLAKE:12398",
+        "SLAKE:12413",
+        "SLAKE:12428",
+        "SLAKE:12443",
+        "SLAKE:12458",
+        "SLAKE:12811"
+      ],
+      "literal_trained_value_outputs": 0,
+      "value_output_ids": [],
+      "value_outputs_primary_wrong": 0,
+      "Chinese_question_Latin_only_answer": 0,
+      "normalized_output_modes": [
+        [
+          "thelungs",
+          5
+        ],
+        [
+          "theheart",
+          4
+        ],
+        [
+          "theliver",
+          1
+        ],
+        [
+          "thekidneys",
+          1
+        ]
+      ],
+      "mean_NLL": 3.873473644256592
+    },
+    {
+      "case": "rank8_permuted",
+      "step": 64,
+      "dimension": "literal_group",
+      "label": "same_relation_tail_other_gold",
+      "QA": 20,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 0,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 5,
+      "value_output_ids": [
+        "SLAKE:12548",
+        "SLAKE:12577",
+        "SLAKE:12792",
+        "SLAKE:12803",
+        "SLAKE:12931"
+      ],
+      "value_outputs_primary_wrong": 5,
+      "Chinese_question_Latin_only_answer": 2,
+      "normalized_output_modes": [
+        [
+          "digestivesystem",
+          5
+        ],
+        [
+          "thedigestivesystemincludesthemouthesophagusstomachliverpancreaskidneysurinarysystemandblood",
+          2
+        ],
+        [
+          "面部器官",
+          2
+        ],
+        [
+          "yes",
+          2
+        ],
+        [
+          "ogenic",
+          1
+        ]
+      ],
+      "mean_NLL": 2.9637915074825285
+    },
+    {
+      "case": "rank8_permuted",
+      "step": 64,
+      "dimension": "q_lang",
+      "label": "en",
+      "QA": 148,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 1,
+      "additional_anatomy_surface_review_flags": 19,
+      "surface_review_ids": [
+        "SLAKE:12278",
+        "SLAKE:12293",
+        "SLAKE:12308",
+        "SLAKE:12323",
+        "SLAKE:12338",
+        "SLAKE:12353",
+        "SLAKE:12368",
+        "SLAKE:12383",
+        "SLAKE:12398",
+        "SLAKE:12413",
+        "SLAKE:12428",
+        "SLAKE:12443",
+        "SLAKE:12458",
+        "SLAKE:12488",
+        "SLAKE:12503",
+        "SLAKE:12518",
+        "SLAKE:12533",
+        "SLAKE:12790",
+        "SLAKE:12811"
+      ],
+      "literal_trained_value_outputs": 49,
+      "value_output_ids": [
+        "SLAKE:12307",
+        "SLAKE:12322",
+        "SLAKE:12337",
+        "SLAKE:12367",
+        "SLAKE:12381",
+        "SLAKE:12382",
+        "SLAKE:12412",
+        "SLAKE:12442",
+        "SLAKE:12471",
+        "SLAKE:12472",
+        "SLAKE:12487",
+        "SLAKE:12546",
+        "SLAKE:12547",
+        "SLAKE:12548",
+        "SLAKE:12561",
+        "SLAKE:12575",
+        "SLAKE:12577",
+        "SLAKE:12587",
+        "SLAKE:12597",
+        "SLAKE:12599",
+        "SLAKE:12600",
+        "SLAKE:12611",
+        "SLAKE:12612",
+        "SLAKE:12621",
+        "SLAKE:12630",
+        "SLAKE:12649",
+        "SLAKE:12659",
+        "SLAKE:12684",
+        "SLAKE:12727",
+        "SLAKE:12746",
+        "SLAKE:12791",
+        "SLAKE:12792",
+        "SLAKE:12802",
+        "SLAKE:12803",
+        "SLAKE:12812",
+        "SLAKE:12820",
+        "SLAKE:12833",
+        "SLAKE:12844",
+        "SLAKE:12856",
+        "SLAKE:12857",
+        "SLAKE:12886",
+        "SLAKE:12896",
+        "SLAKE:12908",
+        "SLAKE:12909",
+        "SLAKE:12917",
+        "SLAKE:12919",
+        "SLAKE:12920",
+        "SLAKE:12931",
+        "SLAKE:12944"
+      ],
+      "value_outputs_primary_wrong": 49,
+      "Chinese_question_Latin_only_answer": 0,
+      "normalized_output_modes": [
+        [
+          "digestivesystem",
+          49
+        ],
+        [
+          "theliver",
+          21
+        ],
+        [
+          "theheart",
+          10
+        ],
+        [
+          "thelungs",
+          7
+        ],
+        [
+          "05",
+          6
+        ]
+      ],
+      "mean_NLL": 4.169732297594483
+    },
+    {
+      "case": "rank8_permuted",
+      "step": 64,
+      "dimension": "q_lang",
+      "label": "zh",
+      "QA": 119,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 0,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 6,
+      "value_output_ids": [
+        "SLAKE:13415",
+        "SLAKE:13475",
+        "SLAKE:13633",
+        "SLAKE:13838",
+        "SLAKE:13892",
+        "SLAKE:13919"
+      ],
+      "value_outputs_primary_wrong": 6,
+      "Chinese_question_Latin_only_answer": 34,
+      "normalized_output_modes": [
+        [
+          "lungs",
+          23
+        ],
+        [
+          "yes",
+          11
+        ],
+        [
+          "内脏",
+          8
+        ],
+        [
+          "身体部位",
+          6
+        ],
+        [
+          "神经系统",
+          5
+        ]
+      ],
+      "mean_NLL": 3.1447601348412135
+    },
+    {
+      "case": "rank8_permuted",
+      "step": 64,
+      "dimension": "answer_type",
+      "label": "CLOSED",
+      "QA": 63,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 1,
+      "additional_anatomy_surface_review_flags": 0,
+      "surface_review_ids": [],
+      "literal_trained_value_outputs": 29,
+      "value_output_ids": [
+        "SLAKE:12547",
+        "SLAKE:12548",
+        "SLAKE:12561",
+        "SLAKE:12577",
+        "SLAKE:12587",
+        "SLAKE:12599",
+        "SLAKE:12600",
+        "SLAKE:12611",
+        "SLAKE:12612",
+        "SLAKE:12791",
+        "SLAKE:12792",
+        "SLAKE:12802",
+        "SLAKE:12803",
+        "SLAKE:12812",
+        "SLAKE:12820",
+        "SLAKE:12833",
+        "SLAKE:12844",
+        "SLAKE:12856",
+        "SLAKE:12857",
+        "SLAKE:12886",
+        "SLAKE:12896",
+        "SLAKE:12908",
+        "SLAKE:12909",
+        "SLAKE:12919",
+        "SLAKE:12920",
+        "SLAKE:12931",
+        "SLAKE:12944",
+        "SLAKE:13838",
+        "SLAKE:13892"
+      ],
+      "value_outputs_primary_wrong": 29,
+      "Chinese_question_Latin_only_answer": 11,
+      "normalized_output_modes": [
+        [
+          "digestivesystem",
+          27
+        ],
+        [
+          "yes",
+          11
+        ],
+        [
+          "内脏",
+          8
+        ],
+        [
+          "theanswerisyes",
+          2
+        ],
+        [
+          "身体",
+          2
+        ]
+      ],
+      "mean_NLL": 3.9017277199124534
+    },
+    {
+      "case": "rank8_permuted",
+      "step": 64,
+      "dimension": "answer_type",
+      "label": "OPEN",
+      "QA": 204,
+      "primary_EM_correct": 0,
+      "fixed_prefix_aux_correct": 0,
+      "additional_anatomy_surface_review_flags": 19,
+      "surface_review_ids": [
+        "SLAKE:12278",
+        "SLAKE:12293",
+        "SLAKE:12308",
+        "SLAKE:12323",
+        "SLAKE:12338",
+        "SLAKE:12353",
+        "SLAKE:12368",
+        "SLAKE:12383",
+        "SLAKE:12398",
+        "SLAKE:12413",
+        "SLAKE:12428",
+        "SLAKE:12443",
+        "SLAKE:12458",
+        "SLAKE:12488",
+        "SLAKE:12503",
+        "SLAKE:12518",
+        "SLAKE:12533",
+        "SLAKE:12790",
+        "SLAKE:12811"
+      ],
+      "literal_trained_value_outputs": 26,
+      "value_output_ids": [
+        "SLAKE:12307",
+        "SLAKE:12322",
+        "SLAKE:12337",
+        "SLAKE:12367",
+        "SLAKE:12381",
+        "SLAKE:12382",
+        "SLAKE:12412",
+        "SLAKE:12442",
+        "SLAKE:12471",
+        "SLAKE:12472",
+        "SLAKE:12487",
+        "SLAKE:12546",
+        "SLAKE:12575",
+        "SLAKE:12597",
+        "SLAKE:12621",
+        "SLAKE:12630",
+        "SLAKE:12649",
+        "SLAKE:12659",
+        "SLAKE:12684",
+        "SLAKE:12727",
+        "SLAKE:12746",
+        "SLAKE:12917",
+        "SLAKE:13415",
+        "SLAKE:13475",
+        "SLAKE:13633",
+        "SLAKE:13919"
+      ],
+      "value_outputs_primary_wrong": 26,
+      "Chinese_question_Latin_only_answer": 23,
+      "normalized_output_modes": [
+        [
+          "lungs",
+          23
+        ],
+        [
+          "digestivesystem",
+          22
+        ],
+        [
+          "theliver",
+          21
+        ],
+        [
+          "theheart",
+          10
+        ],
+        [
+          "thelungs",
+          7
+        ]
+      ],
+      "mean_NLL": 3.6545979889000164
+    }
+  ],
+  "native_annotations": {
+    "SLAKE:12276": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "effect",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12277": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "symptom",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12278": {
+      "literal_group": "same_relation_tail_gold_subject",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "belong to",
+        "respiratory system"
+      ],
+      "matching_fact_ids": [
+        "KG/en_organ_rel.csv:31"
+      ]
+    },
+    "SLAKE:12291": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "function",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12292": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "cause",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12293": {
+      "literal_group": "same_relation_tail_gold_subject",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "belong to",
+        "circulatory system"
+      ],
+      "matching_fact_ids": [
+        "KG/en_organ_rel.csv:61"
+      ]
+    },
+    "SLAKE:12306": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "damage",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12307": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "prevent",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12308": {
+      "literal_group": "same_relation_tail_gold_subject",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "belong to",
+        "circulatory system"
+      ],
+      "matching_fact_ids": [
+        "KG/en_organ_rel.csv:61"
+      ]
+    },
+    "SLAKE:12321": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "damage",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12322": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "treat",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12323": {
+      "literal_group": "same_relation_tail_gold_subject",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "belong to",
+        "respiratory system"
+      ],
+      "matching_fact_ids": [
+        "KG/en_organ_rel.csv:31"
+      ]
+    },
+    "SLAKE:12336": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "be used for",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12337": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "treat",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12338": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "part of",
+        "circulatory system"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12351": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "function",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12352": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "symptom",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12353": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "part of",
+        "circulatory system"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12366": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "effect",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12367": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "prevent",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12368": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "part of",
+        "respiratory system"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12381": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "function",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12382": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "treat",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12383": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "part of",
+        "circulatory system"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12396": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "function",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12397": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "symptom",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12398": {
+      "literal_group": "same_relation_tail_gold_subject",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "belong to",
+        "respiratory system"
+      ],
+      "matching_fact_ids": [
+        "KG/en_organ_rel.csv:31"
+      ]
+    },
+    "SLAKE:12411": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "damage",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12412": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "treat",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12413": {
+      "literal_group": "same_relation_tail_gold_subject",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "belong to",
+        "circulatory system"
+      ],
+      "matching_fact_ids": [
+        "KG/en_organ_rel.csv:61"
+      ]
+    },
+    "SLAKE:12426": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "effect",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12427": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "cause",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12428": {
+      "literal_group": "same_relation_tail_gold_subject",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "belong to",
+        "circulatory system"
+      ],
+      "matching_fact_ids": [
+        "KG/en_organ_rel.csv:61"
+      ]
+    },
+    "SLAKE:12441": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "function",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12442": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "prevent",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12443": {
+      "literal_group": "same_relation_tail_gold_subject",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "belong to",
+        "respiratory system"
+      ],
+      "matching_fact_ids": [
+        "KG/en_organ_rel.csv:31"
+      ]
+    },
+    "SLAKE:12456": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "effect",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12457": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "treat",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12458": {
+      "literal_group": "same_relation_tail_gold_subject",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "belong to",
+        "respiratory system"
+      ],
+      "matching_fact_ids": [
+        "KG/en_organ_rel.csv:31"
+      ]
+    },
+    "SLAKE:12471": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "function",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12472": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "prevent",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12473": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "part of",
+        "respiratory system"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12486": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "effect",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12487": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "prevent",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12488": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "part of",
+        "circulatory system"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12501": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "be used for",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12502": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "symptom",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12503": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "part of",
+        "circulatory system"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12516": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "be used for",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12517": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "cause",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12518": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "part of",
+        "circulatory system"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12531": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "effect",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12532": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "symptom",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12533": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "part of",
+        "respiratory system"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12545": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "damage",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12546": {
+      "literal_group": "relation_only",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "belong to",
+        "nervous system"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12547": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "can",
+        "control heartbeat and breathing"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12548": {
+      "literal_group": "same_relation_tail_other_gold",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "belong to",
+        "respiratory system"
+      ],
+      "matching_fact_ids": [
+        "KG/en_organ_rel.csv:31"
+      ]
+    },
+    "SLAKE:12560": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "function",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12561": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "effect",
+        "store urine"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12562": {
+      "literal_group": "same_relation_tail_other_gold",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "belong to",
+        "digestive system"
+      ],
+      "matching_fact_ids": [
+        "KG/en_organ_rel.csv:21",
+        "KG/en_organ_rel.csv:7",
+        "KG/en_organ_rel.csv:19"
+      ]
+    },
+    "SLAKE:12574": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "function",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12575": {
+      "literal_group": "relation_only",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "belong to",
+        "nervous system"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12576": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "can",
+        "digest food"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12577": {
+      "literal_group": "same_relation_tail_other_gold",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "belong to",
+        "circulatory system"
+      ],
+      "matching_fact_ids": [
+        "KG/en_organ_rel.csv:61"
+      ]
+    },
+    "SLAKE:12585": {
+      "literal_group": "same_relation_tail_other_gold",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "belong to",
+        "respiratory system"
+      ],
+      "matching_fact_ids": [
+        "KG/en_organ_rel.csv:31"
+      ]
+    },
+    "SLAKE:12586": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "can",
+        "deliver food"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12587": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "effect",
+        "gas delivery"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12597": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "role",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12598": {
+      "literal_group": "same_relation_tail_other_gold",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "belong to",
+        "respiratory system"
+      ],
+      "matching_fact_ids": [
+        "KG/en_organ_rel.csv:31"
+      ]
+    },
+    "SLAKE:12599": {
+      "literal_group": "relation_only",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "belong to",
+        "nervous system"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12600": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "be used for",
+        "detoxicate"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12609": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "role",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12610": {
+      "literal_group": "same_relation_tail_other_gold",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "belong to",
+        "digestive system"
+      ],
+      "matching_fact_ids": [
+        "KG/en_organ_rel.csv:21",
+        "KG/en_organ_rel.csv:7",
+        "KG/en_organ_rel.csv:19"
+      ]
+    },
+    "SLAKE:12611": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "effect",
+        "discharge waste"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12612": {
+      "literal_group": "relation_only",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "belong to",
+        "nervous system"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12621": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "cause",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12630": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "cause",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12640": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "symptom",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12649": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "treat",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12659": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "treat",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12667": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "prevent",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12676": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "symptom",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12684": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "prevent",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12692": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "damage",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12710": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "damage",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12719": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "symptom",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12727": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "cause",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12736": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "symptom",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12746": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "prevent",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12755": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "damage",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12763": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "damage",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12780": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "damage",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12788": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "damage",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12789": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "part of",
+        "lymphatic system"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12790": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "part of",
+        "urinary system"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12791": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "effect",
+        "discharge waste"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12792": {
+      "literal_group": "same_relation_tail_other_gold",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "belong to",
+        "respiratory system"
+      ],
+      "matching_fact_ids": [
+        "KG/en_organ_rel.csv:31"
+      ]
+    },
+    "SLAKE:12800": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "effect",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12801": {
+      "literal_group": "same_relation_tail_gold_subject",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "belong to",
+        "respiratory system"
+      ],
+      "matching_fact_ids": [
+        "KG/en_organ_rel.csv:31"
+      ]
+    },
+    "SLAKE:12802": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "be used for",
+        "secrete enzymes"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12803": {
+      "literal_group": "same_relation_tail_other_gold",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "belong to",
+        "digestive system"
+      ],
+      "matching_fact_ids": [
+        "KG/en_organ_rel.csv:21",
+        "KG/en_organ_rel.csv:7",
+        "KG/en_organ_rel.csv:19"
+      ]
+    },
+    "SLAKE:12809": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "function",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12810": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "part of",
+        "digestive system"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12811": {
+      "literal_group": "same_relation_tail_gold_subject",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "belong to",
+        "urinary system"
+      ],
+      "matching_fact_ids": [
+        "KG/en_organ_rel.csv:33"
+      ]
+    },
+    "SLAKE:12812": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "effect",
+        "detoxicate"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12813": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "effect",
+        "adjust water and osmotic pressure balance"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12819": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "effect",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12820": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "can",
+        "control heartbeat and breathing"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12821": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "effect",
+        "digest food"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12830": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "effect",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12831": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "part of",
+        "nervous system"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12832": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "effect",
+        "digest food"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12833": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "be used for",
+        "secrete enzymes"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12842": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "function",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12843": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "part of",
+        "nervous system"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12844": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "can",
+        "adjust water and osmotic pressure balance"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12845": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "be used for",
+        "breathe"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12854": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "function",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12855": {
+      "literal_group": "relation_only",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "belong to",
+        "lymphatic system"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12856": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "could",
+        "receive sound"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12857": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "effect",
+        "gas delivery"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12866": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "damage",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12867": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "can",
+        "digest food"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12884": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "damage",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12885": {
+      "literal_group": "same_relation_tail_other_gold",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "belong to",
+        "digestive system"
+      ],
+      "matching_fact_ids": [
+        "KG/en_organ_rel.csv:21",
+        "KG/en_organ_rel.csv:7",
+        "KG/en_organ_rel.csv:19"
+      ]
+    },
+    "SLAKE:12886": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "effect",
+        "gas delivery"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12887": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "could",
+        "promote blood flow"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12895": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "function",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12896": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "could",
+        "receive sound"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12897": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "effect",
+        "sense light"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12906": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "function",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12907": {
+      "literal_group": "same_relation_tail_other_gold",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "belong to",
+        "digestive system"
+      ],
+      "matching_fact_ids": [
+        "KG/en_organ_rel.csv:21",
+        "KG/en_organ_rel.csv:7",
+        "KG/en_organ_rel.csv:19"
+      ]
+    },
+    "SLAKE:12908": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "effect",
+        "discharge waste"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12909": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "effect",
+        "excrete feces"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12917": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "effect",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12918": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "part of",
+        "digestive system"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12919": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "effect",
+        "excrete feces"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12920": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "effect",
+        "detoxicate"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12924": {
+      "literal_group": "same_relation_tail_other_gold",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "belong to",
+        "urinary system"
+      ],
+      "matching_fact_ids": [
+        "KG/en_organ_rel.csv:33"
+      ]
+    },
+    "SLAKE:12925": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "can",
+        "deliver food"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12930": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "function",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12931": {
+      "literal_group": "same_relation_tail_other_gold",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "belong to",
+        "urinary system"
+      ],
+      "matching_fact_ids": [
+        "KG/en_organ_rel.csv:33"
+      ]
+    },
+    "SLAKE:12935": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "function",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12936": {
+      "literal_group": "same_relation_tail_other_gold",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "belong to",
+        "digestive system"
+      ],
+      "matching_fact_ids": [
+        "KG/en_organ_rel.csv:21",
+        "KG/en_organ_rel.csv:7",
+        "KG/en_organ_rel.csv:19"
+      ]
+    },
+    "SLAKE:12942": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "effect",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12943": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "part of",
+        "digestive system"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:12944": {
+      "literal_group": "relation_absent",
+      "q_lang": "en",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "can",
+        "promote blood flow"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13361": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "伤害",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13362": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "治疗",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13363": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "呼吸系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13384": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "伤害",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13385": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "症状",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13386": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "呼吸系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13399": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "功能",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13400": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "症状",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13401": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "呼吸系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13414": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "伤害",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13415": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "治疗",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13416": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "循环系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13429": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "伤害",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13430": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "治疗",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13431": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "呼吸系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13444": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "伤害",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13445": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "治疗",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13446": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "循环系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13459": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "伤害",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13460": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "治疗",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13461": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "循环系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13474": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "被用于",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13475": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "病因",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13476": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "循环系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13489": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "功能",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13490": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "预防",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13491": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "循环系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13504": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "被用于",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13505": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "症状",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13506": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "循环系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13519": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "被用于",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13520": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "病因",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13521": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "循环系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13534": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "被用于",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13535": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "预防",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13536": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "循环系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13549": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "被用于",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13550": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "预防",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13551": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "呼吸系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13572": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "被用于",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13573": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "症状",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13574": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "循环系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13587": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "功能",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13588": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "症状",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13589": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "循环系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13602": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "功能",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13603": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "病因",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13604": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "循环系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13617": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "功能",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13618": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "预防",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13619": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "呼吸系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13632": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "功能",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13633": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "治疗",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13634": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "循环系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13647": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "被用于",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13648": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "症状",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13649": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "呼吸系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13676": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "功能",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13677": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13678": {
+      "literal_group": "same_relation_tail_other_gold",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "神经系统"
+      ],
+      "matching_fact_ids": [
+        "KG/organ_rel.csv:77",
+        "KG/organ_rel.csv:73",
+        "KG/organ_rel.csv:84",
+        "KG/organ_rel.csv:85",
+        "KG/organ_rel.csv:86",
+        "KG/organ_rel.csv:74"
+      ]
+    },
+    "SLAKE:13679": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "消化系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13680": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "被用于",
+        "分泌酶"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13689": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "可以",
+        "控制心跳和呼吸"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13699": {
+      "literal_group": "same_relation_tail_other_gold",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "神经系统"
+      ],
+      "matching_fact_ids": [
+        "KG/organ_rel.csv:77",
+        "KG/organ_rel.csv:73",
+        "KG/organ_rel.csv:84",
+        "KG/organ_rel.csv:85",
+        "KG/organ_rel.csv:86",
+        "KG/organ_rel.csv:74"
+      ]
+    },
+    "SLAKE:13700": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "可以",
+        "排泄机体废物质"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13701": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "消化系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13711": {
+      "literal_group": "same_relation_tail_other_gold",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "神经系统"
+      ],
+      "matching_fact_ids": [
+        "KG/organ_rel.csv:77",
+        "KG/organ_rel.csv:73",
+        "KG/organ_rel.csv:84",
+        "KG/organ_rel.csv:85",
+        "KG/organ_rel.csv:86",
+        "KG/organ_rel.csv:74"
+      ]
+    },
+    "SLAKE:13721": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "功能",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13722": {
+      "literal_group": "same_relation_tail_other_gold",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "神经系统"
+      ],
+      "matching_fact_ids": [
+        "KG/organ_rel.csv:77",
+        "KG/organ_rel.csv:73",
+        "KG/organ_rel.csv:84",
+        "KG/organ_rel.csv:85",
+        "KG/organ_rel.csv:86",
+        "KG/organ_rel.csv:74"
+      ]
+    },
+    "SLAKE:13723": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "消化系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13724": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "可以",
+        "感知事物"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13733": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "功能",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13734": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "呼吸系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13735": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "消化系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13736": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "可以",
+        "运动气体"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13753": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "治疗",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13762": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "预防",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13771": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "治疗",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13779": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "治疗",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13787": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "病因",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13795": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "治疗",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13803": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "症状",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13811": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "预防",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13820": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "病因",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13829": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "病因",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13838": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "伤害",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13847": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "治疗",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13855": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "预防",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13865": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "症状",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13874": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "预防",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13882": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "症状",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13892": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "伤害",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13901": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "病因",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13909": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "作用",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13910": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "消化系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13911": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "循环系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13912": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "可以",
+        "分泌酶"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13919": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "功能",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13920": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "被用于",
+        "分泌酶"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13921": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "被用于",
+        "解毒"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13929": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "作用",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13930": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "呼吸系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13931": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "被用于",
+        "呼吸"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13932": {
+      "literal_group": "same_relation_tail_other_gold",
+      "q_lang": "zh",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "神经系统"
+      ],
+      "matching_fact_ids": [
+        "KG/organ_rel.csv:77",
+        "KG/organ_rel.csv:73",
+        "KG/organ_rel.csv:84",
+        "KG/organ_rel.csv:85",
+        "KG/organ_rel.csv:86",
+        "KG/organ_rel.csv:74"
+      ]
+    },
+    "SLAKE:13936": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "作用",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13937": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "呼吸系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13938": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "消化系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13939": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "呼吸系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13949": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "消化系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13956": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "功能",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13957": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "消化系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13958": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "被用于",
+        "呼吸"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13959": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "可以",
+        "接收声音"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13964": {
+      "literal_group": "same_relation_tail_other_gold",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "泌尿系统"
+      ],
+      "matching_fact_ids": [
+        "KG/organ_rel.csv:35"
+      ]
+    },
+    "SLAKE:13971": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "消化系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13972": {
+      "literal_group": "relation_only",
+      "q_lang": "zh",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "消化系统"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13975": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "OPEN",
+      "author_triple": [
+        "vhead",
+        "伤害",
+        "ktail"
+      ],
+      "matching_fact_ids": []
+    },
+    "SLAKE:13976": {
+      "literal_group": "same_relation_tail_other_gold",
+      "q_lang": "zh",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "属于",
+        "泌尿系统"
+      ],
+      "matching_fact_ids": [
+        "KG/organ_rel.csv:35"
+      ]
+    },
+    "SLAKE:13981": {
+      "literal_group": "relation_absent",
+      "q_lang": "zh",
+      "answer_type": "CLOSED",
+      "author_triple": [
+        "vhead",
+        "被用于",
+        "消化食物"
+      ],
+      "matching_fact_ids": []
+    }
+  },
+  "all11_reverse_subject_examples": [
+    {
+      "id": "SLAKE:12278",
+      "question": "Which organs/organ in the picture belong to the respiratory system?",
+      "references": [
+        "Lung"
+      ],
+      "prediction": " lungs",
+      "primary_EM": 0.0,
+      "anatomy_surface_review_flag": true
+    },
+    {
+      "id": "SLAKE:12293",
+      "question": "Which organs/organ in the picture belong to the circulatory system?",
+      "references": [
+        "Heart"
+      ],
+      "prediction": "The heart",
+      "primary_EM": 0.0,
+      "anatomy_surface_review_flag": true
+    },
+    {
+      "id": "SLAKE:12308",
+      "question": "Which organs/organ in the picture belong to the circulatory system?",
+      "references": [
+        "Heart"
+      ],
+      "prediction": "The heart",
+      "primary_EM": 0.0,
+      "anatomy_surface_review_flag": true
+    },
+    {
+      "id": "SLAKE:12323",
+      "question": "Which organs/organ in the picture belong to the respiratory system?",
+      "references": [
+        "Lung"
+      ],
+      "prediction": " lungs",
+      "primary_EM": 0.0,
+      "anatomy_surface_review_flag": true
+    },
+    {
+      "id": "SLAKE:12398",
+      "question": "Which organs/organ in the picture belong to the respiratory system?",
+      "references": [
+        "Lung"
+      ],
+      "prediction": " lungs",
+      "primary_EM": 0.0,
+      "anatomy_surface_review_flag": true
+    },
+    {
+      "id": "SLAKE:12413",
+      "question": "Which organs/organ in the picture belong to the circulatory system?",
+      "references": [
+        "Heart"
+      ],
+      "prediction": "The Heart",
+      "primary_EM": 0.0,
+      "anatomy_surface_review_flag": true
+    },
+    {
+      "id": "SLAKE:12428",
+      "question": "Which organs/organ in the picture belong to the circulatory system?",
+      "references": [
+        "Heart"
+      ],
+      "prediction": "The lungs",
+      "primary_EM": 0.0,
+      "anatomy_surface_review_flag": false
+    },
+    {
+      "id": "SLAKE:12443",
+      "question": "Which organs/organ in the picture belong to the respiratory system?",
+      "references": [
+        "Lung"
+      ],
+      "prediction": " lungs",
+      "primary_EM": 0.0,
+      "anatomy_surface_review_flag": true
+    },
+    {
+      "id": "SLAKE:12458",
+      "question": "Which organs/organ in the picture belong to the respiratory system?",
+      "references": [
+        "Lung"
+      ],
+      "prediction": "Stomach",
+      "primary_EM": 0.0,
+      "anatomy_surface_review_flag": false
+    },
+    {
+      "id": "SLAKE:12801",
+      "question": "Which organs/organ in the picture belong to the respiratory system?",
+      "references": [
+        "Lung"
+      ],
+      "prediction": "The lungs",
+      "primary_EM": 0.0,
+      "anatomy_surface_review_flag": true
+    },
+    {
+      "id": "SLAKE:12811",
+      "question": "Which organs/organ in the picture belong to the urinary system?",
+      "references": [
+        "Kidney"
+      ],
+      "prediction": "The kidneys",
+      "primary_EM": 0.0,
+      "anatomy_surface_review_flag": true
+    }
+  ],
+  "scope": "post-hoc descriptive audit of267QA; no training, threshold/routing/fact selection or new scoring",
+  "limitations": [
+    "same relation/tail plus gold subject is a literal reporting cohort, not guaranteed visual answerability",
+    "11-case cohort is post-hoc and tiny; cannot generalize its rates",
+    "article/simple-s flags are lexical review candidates, not clinical semantic correctness or a new accuracy",
+    "trained value output overlap does not prove causal memorization or exclusive origin in the fact pool",
+    "fact values have zero exact gold overlap in this cohort; all-wrong value emissions partly follow dataset composition",
+    "correct/permuted value vocabulary equal does not mean frequency or fit difficulty equal",
+    "concentration and language flags suggest mechanisms but do not replace controlled GPU interventions"
+  ]
+}
