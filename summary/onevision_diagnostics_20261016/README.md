@@ -10,6 +10,9 @@
 | --- | --- | --- |
 | 别人发现了什么问题、怎样找原因 | [文献问题综述](LITERATURE_PROBLEMS.md) | 10篇正式会议论文，问题/对照/方案/边界分开 |
 | 已做什么、证明／证伪了什么、改进有没有用 | [RESEARCH_REPORT](RESEARCH_REPORT.md) | 主报告，12项统一六栏 |
+| 名义预算相同，跨域是否影响完整旧锚 | [首个跨域完整对照](matched_task_domain/FIRST_CROSS_CONTRAST.md) | 507题18.626/34.168、差−15.542；全锚S1缺失，不能全算遗忘 |
+| 当前原48组怎样接续 | [共同控制优先](causal_anchor_first_queue/SCHEDULING.md) | 两锚各4条SeqFT优先，全部48保留；新CPU258763，旧所有者退役 |
+| 同样回放32次是否保护了同样旧题 | [TRAIN覆盖审计](matched_task_domain/replay_exposure/VERIFIED_RESULTS.md) | 已完成重复/同域旧锚曝光32/15；跨域仅计划数，不作性能归因 |
 | 同域增加任务是否已经明确伤害旧任务 | [首个同域/重复对照](matched_task_domain/FIRST_WITHIN_CONTRAST.md) | 最终507题34.168/35.102，差区间含0；旧锚曝光不同，不纯归因任务数 |
 | 没有跨域时保护会不会也出现限制 | [重复任务六控制](matched_task_domain/repeat_control_evidence/T04_VERIFIED_RESULTS.md) | 投影未触发/5状态完全相同；EWC后续真实改变，NLL差而F1差含0 |
 | 严格48组中机制是否启用、是否有效 | [机制启用/性能并列](matched_task_domain/mechanism_activation/VERIFIED_RESULTS.md) | 新CPU观察器只接受完整轨迹，旧/新F1与EWC项、回放、投影和实际位移并列；已读取真实完成轨迹，数量随完成证明更新 |

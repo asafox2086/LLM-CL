@@ -1,3 +1,5 @@
+> 当前48内部先完成两锚的8条SeqFT控制，再补其余机制；全部病例和设置不变。新CPU入口及进程保全见[内部顺序修订](../summary/onevision_diagnostics_20261016/causal_anchor_first_queue/SCHEDULING.md)。实时队列改为`causal_anchor_first_queue/queue_state.json`，旧路径为重定向，不恢复旧所有者。
+
 # 同域／跨域与小任务预算：确定性机制复核
 
 目标对应主报告第7项的明确缺口：原默认后端相同首阶段已有参数差异，23题单锚不能支持严格归因。本研究复用原六控制的原始训练函数，不新增CL方法或路由，不修改运行中的基线／全量确认。
@@ -27,6 +29,8 @@
 4. 不复用旧默认后端预测。所有方法保存stage1–5适配参数／Fisher及逐阶段训练loss、实际LR、原始首批梯度和投影参考。原训练器只保存**每阶段首批**完整梯度与所有更新范数，不声称保存全部更新的原始梯度。
 5. 每阶段分别记录训练前后CPU/GPU字节，CUDA训练峰值在训练前重置；Fisher单列窗口、整条轨迹含推理的内存另记。采样CPU／NVML与CUDA分配峰值分开解释。
 
+补充TRAIN覆盖核验：[固定8条缓冲区实际回放了什么](../summary/onevision_diagnostics_20261016/matched_task_domain/replay_exposure/VERIFIED_RESULTS.md)。统一源QA/采样规则不等于每个旧锚被回放相同次数；所有分析列实际覆盖，未完成组只列规则确定的计划。不改ER算法，也不将样本覆盖直接当F1原因。
+
 名义新QA曝光总计1920；ER额外历史回放256，EWC Fisher额外320，noop／projection额外参考TRAIN梯度QA 2048。额外开销不能称与SeqFT完全等计算。正式1%一轮CL和这里8题／4步机制干预分别报告。
 
 ## 如何判断与停止
@@ -45,4 +49,4 @@
 
 [委托下的优先级修订](../summary/onevision_diagnostics_20261016/causal_before_full_method_queue/AUTHORIZATION.json)、[实际切换证明](../summary/onevision_diagnostics_20261016/causal_before_full_method_queue/ACTIVATION.json)、[实时统一队列](../summary/onevision_diagnostics_20261016/causal_before_full_method_queue/queue_state.json)。只新增CPU入口，未改本GPU源码/训练器；调度变更不是实验结果，48组实际GPU门槛仍待执行。
 
-报告在`summary/onevision_diagnostics_20261016/matched_task_domain/`，大权重在服务器`exp/onevision_matched_task_domain_20261017/`；模型／数据／checkpoint不入Git。当前只有CPU检查，实际GPU门槛与48条轨迹结果尚未产生。
+报告在`summary/onevision_diagnostics_20261016/matched_task_domain/`，大权重在服务器`exp/onevision_matched_task_domain_20261017/`；模型／数据／checkpoint不入Git。初始CPU准备记录保留；实际GPU门槛与已完成轨迹由[只读完成证明观察器](../summary/onevision_diagnostics_20261016/matched_task_domain/VERIFIED_RESULTS.md)核验，当前尚未完成全部48条，不将初始等待描述当实时状态。
