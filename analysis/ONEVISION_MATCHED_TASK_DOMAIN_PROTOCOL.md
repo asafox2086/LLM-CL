@@ -1,3 +1,5 @@
+> 为区分完整旧锚的遗忘与正迁移缺失，新增共同S1的507/228推理已接入[新CPU版本](../summary/onevision_diagnostics_20261016/causal_measurement_queue/README.md)，父轨迹完成且GPU1空闲后执行。实际GPU门槛/成绩待；原48训练、原源码、ID/设置全保留，实时路径为`causal_measurement_queue/queue_state.json`。
+
 > 当前48内部先完成两锚的8条SeqFT控制，再补其余机制；全部病例和设置不变。新CPU入口及进程保全见[内部顺序修订](../summary/onevision_diagnostics_20261016/causal_anchor_first_queue/SCHEDULING.md)。实时队列改为`causal_anchor_first_queue/queue_state.json`，旧路径为重定向，不恢复旧所有者。
 
 # 同域／跨域与小任务预算：确定性机制复核

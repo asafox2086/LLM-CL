@@ -35,7 +35,11 @@
 
 原生AnyRes单LoRA控制已完成**21454题**：自然75.917、医学40.943、遥感49.010、金融12.991、交通31.916，19任务AP=41.361；完整FWT/BWT尚缺阶段评测。[完整结果及诊断偏差](summary/onevision_diagnostics_20261016/full_confirmation_evidence/CAP1_COMPLETION.md)。此研究与正式双骨干V2输入协议不同，不混排名。
 
-原48组内部现[优先两锚的SeqFT同域/跨域共同控制](summary/onevision_diagnostics_20261016/causal_anchor_first_queue/SCHEDULING.md)，再补所有机制。全部48保留，GPU源码/ID/设置不变；新CPU258763保留当前GPU作业自然结束后接续。
+新增[严格同起点首批梯度](summary/onevision_diagnostics_20261016/matched_task_domain/first_transition_geometry/VERIFIED_RESULTS.md)：重复/同域/跨域新旧TRAIN余弦均为正；不以首批负冲突解释最终跨域差，也不把局部Taylor预测当有限F1结果。
+
+共同S1完整507/228推理已[接入新CPU队列](summary/onevision_diagnostics_20261016/causal_measurement_queue/README.md)，用于分开遗忘与同域正迁移缺失；实际GPU评测尚待，不拿准备当结果。
+
+原48组内部现[优先两锚的SeqFT同域/跨域共同控制](summary/onevision_diagnostics_20261016/causal_anchor_first_queue/SCHEDULING.md)，再补所有机制。全部48保留，GPU源码/ID/设置不变；当前新CPU265251在GPU1空闲及父轨迹完成后接续。
 
 GPU1当前及接续：12原型已结束→[严格48组归因](analysis/ONEVISION_MATCHED_TASK_DOMAIN_PROTOCOL.md)→[四组完整19阶段及全测试](summary/onevision_diagnostics_20261016/two_module_fullstream/PROTOCOL.md)→cap3完整确认→稀疏转移。正式基线持续nohup；“最优LoRA数量”“显著方法提升”“优于具体LoRA方法的内存增长”均尚未证明。[自动原型结果](summary/onevision_diagnostics_20261016/two_module_prototype/VERIFIED_PILOT_RESULTS.md)按完成证明更新，不用排队状态冒充结果。
 

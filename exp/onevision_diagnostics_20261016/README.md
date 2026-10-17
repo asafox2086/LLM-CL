@@ -1,3 +1,5 @@
+> 共同S1完整旧锚补测已入[新CPU测量队列](../../summary/onevision_diagnostics_20261016/causal_measurement_queue/README.md)，当前CPU265251/观察器265271，原48训练全保留。实时`causal_measurement_queue/queue_state.json`；原258763已计划退役，不恢复。实际GPU重载/735题尚待。
+
 > GPU1现优先原48组中的两个锚、四序列SeqFT共同控制，随后补齐所有机制；数据/训练/评测未改，当前作业自然结束。新[排队规则与保全过程](../../summary/onevision_diagnostics_20261016/causal_anchor_first_queue/SCHEDULING.md)，实时`causal_anchor_first_queue/queue_state.json`；旧CPU220246已计划退役，不恢复。
 
 > 成果统一看[问题发现总报告](../../summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md)：12个问题、每项六栏；首页列已证实、被反例否定与未解决。补入T02/T11初始/1/4步习得和两模块12/12结束快照，不把无实际改动解释成机制失败。

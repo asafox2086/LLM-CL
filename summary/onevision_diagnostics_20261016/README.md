@@ -10,8 +10,10 @@
 | --- | --- | --- |
 | 别人发现了什么问题、怎样找原因 | [文献问题综述](LITERATURE_PROBLEMS.md) | 10篇正式会议论文，问题/对照/方案/边界分开 |
 | 已做什么、证明／证伪了什么、改进有没有用 | [RESEARCH_REPORT](RESEARCH_REPORT.md) | 主报告，12项统一六栏 |
+| 首批跨域梯度是否已负冲突 | [精确共同起点TRAIN审计](matched_task_domain/first_transition_geometry/VERIFIED_RESULTS.md) | 三序列余弦均正，不能推断后续无冲突或有限F1因果 |
+| 跨域差距是遗忘还是少了同域正迁移 | [完整共同起点/净变化](shared_anchor_initial/VERIFIED_RESULTS.md) | 已入新CPU队列，实际完整起点0/2待测；先32精确重载再全735 |
 | 名义预算相同，跨域是否影响完整旧锚 | [首个跨域完整对照](matched_task_domain/FIRST_CROSS_CONTRAST.md) | 507题18.626/34.168、差−15.542；全锚S1缺失，不能全算遗忘 |
-| 当前原48组怎样接续 | [共同控制优先](causal_anchor_first_queue/SCHEDULING.md) | 两锚各4条SeqFT优先，全部48保留；新CPU258763，旧所有者退役 |
+| 当前原48组怎样接续 | [共同起点补测与控制优先](causal_measurement_queue/README.md) | 补规范S1、两锚各4条SeqFT优先，全部48保留；新CPU265251，旧所有者退役 |
 | 同样回放32次是否保护了同样旧题 | [TRAIN覆盖审计](matched_task_domain/replay_exposure/VERIFIED_RESULTS.md) | 已完成重复/同域旧锚曝光32/15；跨域仅计划数，不作性能归因 |
 | 同域增加任务是否已经明确伤害旧任务 | [首个同域/重复对照](matched_task_domain/FIRST_WITHIN_CONTRAST.md) | 最终507题34.168/35.102，差区间含0；旧锚曝光不同，不纯归因任务数 |
 | 没有跨域时保护会不会也出现限制 | [重复任务六控制](matched_task_domain/repeat_control_evidence/T04_VERIFIED_RESULTS.md) | 投影未触发/5状态完全相同；EWC后续真实改变，NLL差而F1差含0 |

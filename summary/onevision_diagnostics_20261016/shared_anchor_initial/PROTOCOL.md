@@ -12,4 +12,6 @@
 
 实现：[onevision_shared_anchor_initial.py](../../../analysis/onevision_shared_anchor_initial.py)。`--check`已核验735原ID/子集/源文件，GPU重载和成绩仍待执行。T04规范起点已存在，T02须待其原repeat控制产生规范起点。
 
-**准入状态：已准备，尚未加入活动GPU队列。** 当前只有`causal_anchor_first_queue`负责原48/后续任务；新增推理需以新可追溯CPU调度版本接纳，不热改活动入口、不启动另一个竞争GPU的队列。GPU1当前他人作业存在时继续等待，不抢占；基线保持nohup。任何实际门槛失败保留证据、停止，不盲重试或拼接旧结果。
+**准入状态：已接入新可追溯CPU队列，GPU实测仍待。** 当前`causal_measurement_queue`在规范父轨迹完成且GPU1空闲时先补共同S1，再接回原48/后续任务；21项CPU检查通过，当前GPU门槛未跑。原入口未热改，没有另启竞争GPU的队列。GPU1当前他人作业存在时继续等待，不抢占；基线保持nohup。任何实际门槛失败保留证据、停止，不盲重试或拼接旧结果。
+
+[新调度与进程保全](../causal_measurement_queue/README.md)、[自动完整净变化](VERIFIED_RESULTS.md)。新只读CPU观察器已启用，仅在完成证明/源/原始ID/评分与32重载全部通过后报告；未测不填0。

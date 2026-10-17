@@ -20,14 +20,18 @@
 
 回放信息预算已核验：T04-repeat/within均32总回放，但旧锚分别32/15次；固定规则推导的跨短/跨五域为20/17，尚非全部GPU完成。不能把相同缓冲区大小等同相同锚覆盖，也不能预设跨域稀释是性能原因。方法仍按原规则运行。[覆盖证据](matched_task_domain/replay_exposure/VERIFIED_RESULTS.md)。
 
-新增完整跨域对照：T04-SeqFT跨四域/同域507题18.626/34.168，差−15.542pp、区间[−19.429,−11.950]；相同5阶段20更新、直接锚8曝光，名义次数不能单独解释差距。但完整S1尚缺、target tokens105/119、内容/顺序不同；不能将差距全算遗忘或纯领域数因果。共同S1补测实现/CPU检查已准备，GPU准入及新队列接纳待执行。[完整证据](matched_task_domain/FIRST_CROSS_CONTRAST.md)。
+新增完整跨域对照：T04-SeqFT跨四域/同域507题18.626/34.168，差−15.542pp、区间[−19.429,−11.950]；相同5阶段20更新、直接锚8曝光，名义次数不能单独解释差距。但完整S1尚缺、target tokens105/119、内容/顺序不同；不能将差距全算遗忘或纯领域数因果。共同S1补测实现/CPU检查已准备，新队列已接纳，实际GPU重载及成绩待执行。[完整证据](matched_task_domain/FIRST_CROSS_CONTRAST.md)。
+
+新增严格TRAIN机制证据：3个SeqFT从精确共同S1出发，旧8TRAIN参考在两个noop轨迹精确同；首次新/旧余弦repeat/within/cross为+.776/+.512/+.160。只能否定这些首批负点积描述，不能排除后续冲突，局部Taylor也非有限loss/F1。[参数点核验](matched_task_domain/first_transition_geometry/VERIFIED_RESULTS.md)。
 
 48组对照的适用范围：本固定序列、两个医学锚、单seed；重复序列8条独特QA被重复曝光，同域/跨域序列包含不同内容，因此不能把结果泛化为与内容无关的抽象领域数量定律。需报告两锚、全部序列与当前学习；若证据不足，继续预先冻结的对照而不凭小分差宣布因果。
 
 原48内部优先两个锚各4条SeqFT，再补齐全部机制；只调整执行顺序，不改任何GPU源码、ID/设置或按TEST挑实验。旧CPU220246已计划退役，当前CPU258763及实时入口见[调度保全](causal_anchor_first_queue/SCHEDULING.md)。
 
+共同S1补测已按新版本进入自动调度，T04父轨迹ready、T02待规范点。当前GPU1他人进程存在，CPU265251健康等待，CPU报告265271未接受任何共同完整起点；不改变12/48完成数，也不称735题已测。[新接续与证据](causal_measurement_queue/README.md)。
+
 当前科学优先级：cap1已正常完成并核验，12组小原型已结束，无实际参数干预/无新增收益；当前原48组归因已启动，再四组完整方法训练/最终确认，原cap3与完整转移评测保留。只用GPU1；基线nohup照常，源/QA/图片/权重不热改。
 
-主入口：[六栏总报告](RESEARCH_REPORT.md)、[关键机制登记](KEY_FINDINGS.md)、[知识字面相关性审计](KNOWLEDGE_LOCALITY_EVIDENCE.md)、[当前调度保全](causal_anchor_first_queue/ACTIVATION.json)。当前目标保持active，不以代码准备或仍在运行作为完成证据。
+主入口：[六栏总报告](RESEARCH_REPORT.md)、[关键机制登记](KEY_FINDINGS.md)、[知识字面相关性审计](KNOWLEDGE_LOCALITY_EVIDENCE.md)、[当前调度保全](causal_measurement_queue/ACTIVATION.json)。当前目标保持active，不以代码准备或仍在运行作为完成证据。
 
 原原因判定表已完整保存在[历史快照](../ago/causal_status_revision_20261017/CAUSAL_STATUS_before_requirement_audit.md)，包括资源窗口与事实长度边界，不丢弃原证据。事实金标最长17token，不能用512训练截断解释未记忆；不能由此排除错误生成的长度问题。知识rank1首8步的CUDA占用增长不等于新增参数，旧after仍保留优化器，具体字节见[资源窗口审计](MEMORY_WINDOW_AUDIT.md)。
