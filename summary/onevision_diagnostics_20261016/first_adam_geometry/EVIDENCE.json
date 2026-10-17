@@ -1,0 +1,95 @@
+{
+  "CPU_only": true,
+  "TEST_predictions_read": false,
+  "GPU_or_optimizer_executed": false,
+  "CPU_geometry_checks": {
+    "dense_vs_residual_factorization_modes": 4,
+    "FP64_rtol_atol": 1e-12,
+    "dense_cross_inner_products_checked": 4,
+    "supports_actual_finite_BA_displacement_not_only_linearization": true
+  },
+  "cases": [
+    {
+      "task": 2,
+      "TRAIN_QA": 11,
+      "raw_gradient_L2_FP64": 36.90221014544904,
+      "raw_gradient_L2_GPU_record": 36.9022102355957,
+      "actual_parameter_displacement_L2": 0.07334826314188315,
+      "actual_BA_displacement_Frobenius": 0.1030867489638559,
+      "shared_initial_total_BA_Frobenius": 0.5793699477489974,
+      "final_total_BA_Frobenius": 0.599672384104728,
+      "median_absolute_coordinate_step_over_LR": 0.9996909648180008,
+      "fraction_coordinates_step_at_least_99percent_LR": 0.962576201467803,
+      "recorded_moment_formula_max_absolute_step_error": 1.862645149230957e-09,
+      "moment_recovered_vs_clipped_gradient_relative_L2_error": 6.871518860476899e-08,
+      "uphill_raw_gradient_coordinates": 0,
+      "optimizer_step_count_each_parameter": 1,
+      "formula_is_bit_exact_GPU_reproduction": false
+    },
+    {
+      "task": 11,
+      "TRAIN_QA": 12,
+      "raw_gradient_L2_FP64": 70.80515441248934,
+      "raw_gradient_L2_GPU_record": 70.8051528930664,
+      "actual_parameter_displacement_L2": 0.07320889861652861,
+      "actual_BA_displacement_Frobenius": 0.10308187915184988,
+      "shared_initial_total_BA_Frobenius": 0.5793699477489974,
+      "final_total_BA_Frobenius": 0.6040628610281888,
+      "median_absolute_coordinate_step_over_LR": 0.9996816515922546,
+      "fraction_coordinates_step_at_least_99percent_LR": 0.9253558534564394,
+      "recorded_moment_formula_max_absolute_step_error": 1.8699211068451405e-09,
+      "moment_recovered_vs_clipped_gradient_relative_L2_error": 3.808773580288326e-08,
+      "uphill_raw_gradient_coordinates": 0,
+      "optimizer_step_count_each_parameter": 1,
+      "formula_is_bit_exact_GPU_reproduction": false
+    }
+  ],
+  "comparisons": [
+    {
+      "tasks": [
+        2,
+        11
+      ],
+      "second_over_first_raw_gradient_norm": 1.918723949958899,
+      "second_over_first_actual_step_norm": 0.9980999614798655,
+      "raw_gradient_cosine": 0.48578402410113125,
+      "actual_parameter_displacement_cosine": 0.3105789374763786,
+      "actual_BA_displacement_cosine": 0.20495833903422897,
+      "final_total_BA_cosine_including_shared_initial": 0.9767039045406806
+    }
+  ],
+  "pending_control_tasks": [
+    12
+  ],
+  "source_sha256": {
+    "analysis/onevision_first_adam_geometry.py": "234b3150a83c0286076341a1a9344537a323bd76304d5e29df7c1190fc360b4b",
+    "summary/onevision_diagnostics_20261016/two_module_prototype/CPU_PILOT_PLAN.json": "0ee3e1e83c900089cbeea4bd8f65e836df86cbeb0433fd786fd307a51fa526e1",
+    "analysis/onevision_two_module_pilot.py": "bf6daad9253d65bd8e5ffa4a682303a3c828e8078762f2c9881f89ce4297c578",
+    "analysis/onevision_two_module_core.py": "0afa2f600dca565f4b023d3fa1e92b4b276c965aaf74fdc37a2d7059f256d7a4",
+    "analysis/onevision_full_input_repair.py": "5758506a9f460ca7dd67a72d5c36a4760495249f6963553e54c86f668b3f7bcb",
+    "analysis/onevision_capacity_probe.py": "5319a4ad35dd78db4dbc40ad9d45387a55c17c6c911c74ad46b5680ff76db225",
+    "analysis/onevision_knowledge_intervention.py": "22512cc63ed0933f0f471f30b07f5707ba8e020c95137811430cdced2c3962a0",
+    "analysis/onevision_research_worker.py": "6db35a572ee8fca5f07e69eb22b36a8eebc40ce28a0b7977aa7b228373b81493",
+    "exp/onevision_diagnostics_20261016/run.py": "cf8ee1ac5af7faa595e05be05e05da5207d9f0596e518f8a8998ae8d3d0d7536",
+    "exp/onevision_diagnostics_20261016/runs/20261016_164638/adapters/isolated_natural.pt": "aa1a0c78ee3755401e853073d0bf18a282544fd09b690777ef0a048f54da5fb3",
+    "summary/onevision_diagnostics_20261016/two_module_prototype/T02_control_complete.json": "5dbd58c478e21a96e60cc4ba93c4795b619d20665480b3ca9537264a2b58d62b",
+    "exp/onevision_two_module_20261017/pilot/T02_control/20261017_205621/training.json": "d7b4c3dbc49ad067f0559eba60d16172c6f895873e44ed1683f9de74e88db2c8",
+    "exp/onevision_two_module_20261017/pilot/T02_control/20261017_205621/raw_gradient.pt": "40a462547ebe16ccfe2cf0ded0b2a6007905e00a52b1117394d9161e7a460dc1",
+    "exp/onevision_two_module_20261017/pilot/T02_control/20261017_205621/optimizer_after.pt": "fe1b06a2a3fcf6e3ef5bc9f7355d90abfe14de7b1d82386246ecbe0c1d2a5d2e",
+    "exp/onevision_two_module_20261017/pilot/T02_control/20261017_205621/final_adapter.pt": "564a2617560f162cbfb51814e579f8df847284a77f0cb6c65d36c61025f477db",
+    "summary/onevision_diagnostics_20261016/two_module_prototype/T11_control_complete.json": "d61bdee414ffc704ec11fc16a43223fc5521a88cf5cc382f67c1f28e4aa89275",
+    "exp/onevision_two_module_20261017/pilot/T11_control/20261017_211544/training.json": "d308097c4575bddb99e6e18493d4c3aeb9142676b1f539c89bf1f5e6887e6768",
+    "exp/onevision_two_module_20261017/pilot/T11_control/20261017_211544/raw_gradient.pt": "c24c09bf78f6738d324036b2e333ec466a66ccf71b7d5613d1f14d72869d02e0",
+    "exp/onevision_two_module_20261017/pilot/T11_control/20261017_211544/optimizer_after.pt": "a01b24e47fa926d20af62c7367ed1ce164fbdc9bb7420ac11dadaf91c605da60",
+    "exp/onevision_two_module_20261017/pilot/T11_control/20261017_211544/final_adapter.pt": "de76f79e1831d3495a883e195e7cccd26f4dd255f9fd052c964dacffcf998472"
+  },
+  "limits": [
+    "First Adam normalization is known optimizer algebra, not a new mathematical discovery.",
+    "Actual raw target gradients and saved first moments/weights are used; no old-task gradient is available here.",
+    "Component saturation and smaller angular similarity do not prove harmful transfer or cause a generated F1 deficit.",
+    "Distinct target QA, unique counts and label lengths remain; only start and optimizer settings match.",
+    "No TEST score used for choosing capacity, route, optimizer, step size or training budget.",
+    "No claimed bit-exact CPU/GPU optimizer replay; formula error explicitly retained.",
+    "Raw gradient norm, actual parameter displacement and BA function displacement are distinct quantities."
+  ]
+}

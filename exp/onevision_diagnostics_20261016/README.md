@@ -1,4 +1,4 @@
-> 成果统一看[问题发现总报告](../../summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md)：12个问题、每项六栏；首页列已证实、被反例否定与未解决。补入T02/T11初始/1/4步习得和两模块6/12完成快照，不把无实际改动解释成机制失败。
+> 成果统一看[问题发现总报告](../../summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md)：12个问题、每项六栏；首页列已证实、被反例否定与未解决。补入T02/T11初始/1/4步习得和两模块8/12完成快照，不把无实际改动解释成机制失败。
 
 > 原生AnyRes SeqFT/cap1已完成21454题，19任务AP41.361；[完整表](../../summary/onevision_diagnostics_20261016/full_confirmation_evidence/CAP1_COMPLETION.md)。接续余下原型→严格48归因→四组完整19阶段/最终全测→cap3→完整稀疏转移。实际进度看[原型自动报告](../../summary/onevision_diagnostics_20261016/two_module_prototype/VERIFIED_PILOT_RESULTS.md)。基线不停，不热改活动/排队源码。
 
