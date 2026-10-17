@@ -1,3 +1,5 @@
+> 用户最新修订：暂停新方法设计，先做痛点因果诊断；参见[PAINPOINT_FIRST](../../summary/onevision_diagnostics_20261016/PAINPOINT_FIRST.md)。已有全量确认继续作为证据核验。
+
 > 2026-10-17更新：容量与基底／预算诊断已完成；全量确认因图像token不匹配失败后在独立修复运行重测，尚无完整21454结果。见[完成证据](../../summary/onevision_diagnostics_20261016/COMPLETED_CONTROLS.md)。全部原训练源码保持冻结。
 
 # OneVision 0.5B：先诊断，再设计方法
