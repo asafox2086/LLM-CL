@@ -1,3 +1,5 @@
+> 2026-10-17机制诊断更新：遥感答案全部坍缩为urban时，原图相对错图仍改善答案概率；不能把输出坍缩等同于视觉信号消失。见[重点发现K07](summary/onevision_diagnostics_20261016/KEY_FINDINGS.md#k07生成答案全部坍缩仍可保留图像条件信号)与[完成的配对证据](summary/onevision_diagnostics_20261016/RURAL_COLLAPSE_EVIDENCE.md)。仅原生遥感100题诊断，不是五领域全量结果。
+
 # LLMCL：小模型的五领域多模态持续学习
 
 ## 当前研究：LLaVA-OneVision-0.5B诊断

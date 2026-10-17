@@ -80,7 +80,13 @@ def main():
     for start in ['random_A_zero_B','past_AB']:
         for split,original in groups.items():
             a,b=[loaded[f'{start}_update{step}',split,'image'] for step in [1,4]]
+            ma,mb=[np.array([margin(r) for r in rows]) for rows in [a,b]]
             trajectory.append({'start':start,'split':split,
+                               'bare_margin_shift_4_minus_1':paired_cluster((mb-ma).tolist(),[tuple(r['images']) for r in original]),
+                               'bare_margin_shift_std':float(np.std(mb-ma)),
+                               'bare_margin_correlation_1_4':float(np.corrcoef(ma,mb)[0,1]) if np.std(ma)>0 and np.std(mb)>0 else None,
+                               'bare_margin_class_means':{label:{'update1':float(np.mean([m for m,o in zip(ma,original) if o['answer']==label])),
+                                                               'update4':float(np.mean([m for m,o in zip(mb,original) if o['answer']==label]))} for label in ['urban','rural']},
                                'same_weight_endpoint_TRAIN_or_TEST_NLL_4_minus_1':paired_cluster([y['gold_nll']-x['gold_nll'] for x,y in zip(a,b)],[tuple(r['images']) for r in original]),
                                'primary_EM_pp_4_minus_1':paired_cluster([y['scores']['exact_match']-x['scores']['exact_match'] for x,y in zip(a,b)],[tuple(r['images']) for r in original])})
     result={'sources_sha256':sources,'summaries':output,'visual_paired':visual,'endpoint_changes':trajectory,'image_reference_replication':replication,
@@ -106,6 +112,9 @@ def main():
     out+=['','## 相同终点权重下训练拟合与测试变化','', '| 起点 | split | NLL4−NLL1 [95%] | 主EM4−EM1 pp [95%] |', '| --- | --- | --- | --- |']
     for row in trajectory:out.append(f"| {row['start']} | {row['split']} | {show(row['same_weight_endpoint_TRAIN_or_TEST_NLL_4_minus_1'])} | {show(row['primary_EM_pp_4_minus_1'])} |")
     out+=['','这里TRAIN NLL为真实终点1／4下重新评测，区别于原训练日志的pre-update loss。仅6条训练QA，配对区间不是独立训练seed方差。若训练NLL下降、测试退化可定位目标拟合与泛化差，但不足以唯一归因于样本比例；没有对标签比例或优化器做新的因果干预。',
+          '', '## 坍缩不等于图像信号消失',
+          '', '旧AB的4步TEST输出全部urban，但原图相对错图仍降低gold NLL，目标带符号margin也更好。必须区分图像对答案分布仍有信息与自由生成决策是否正确。',
+          '', '1→4步裸候选margin的整体偏移、逐图差值标准差、跨图相关性及按金标类均值见JSON。正值偏urban；这是事后机制定位，不是校准器或测试调参。不能仅凭整体偏移唯一归因于训练类比例，或断言视觉能力完全不变。完整字符串含EOS且两裸候选长度不同，wrapped候选的分数另外保留，不能择优替换主指标。',
           '', '输出频率、bare/wrapped候选、全部配对区间、参考复现误差与SHA见[完整JSON](RURAL_COLLAPSE_EVIDENCE.json)。']
     (REPORT/'RURAL_COLLAPSE_EVIDENCE.md').write_text('\n'.join(out)+'\n')
     print(json.dumps({'completed':True,'cases':len(spec['checkpoints']),'summary_cells':len(output),'replicated_original_generations':400}))

@@ -1,5 +1,8 @@
 # Latest research direction — OneVision diagnostic first, 2026-10-16
 
+- Rural inference controls now5/5 complete (30 cells; TRAIN6/TEST100 three views).400 original image predictions/scores exact, NLL error0. PastAB1->4 EM76->44 and all urban, BUT4-step correct-image vs wrong-image goldNLL advantage0.0536 CI[0.0331,0.0745], target-signed margin0.2975 CI[0.1987,0.3962]. Bare urban-minus-rural logprob shifts+1.950, cross-image correlation0.918; decision bias can mask retained image-conditioned signal. No claim vision unchanged or training class imbalance uniquely causal. Endpoint TRAIN meanNLL0.334->0.240 CIincludes0; TEST0.296->0.374. Read KEY_FINDINGS K07/RURAL_COLLAPSE_EVIDENCE. Knowledge-fit rank1_correct has actually started worker120650; read live state, no knowledge results yet.
+
+
 - Latest scheduling revision2026-10-17: cap1 inference worker94614 deliberately yielded GPU1 by SIGINT (NOT a crash, no needs_attention).3940 natural predictions preserved with frozen ID/gold-prefix and SHA validation. Actual rural-collapse GPU worker112549 now running; then knowledge-fit, then deferred-full resumes SAME cap1 run/weights/source/IDs before cap3. SIGINT did not interrupt any training or baseline. Old full queue disabled; do NOT restart it before diagnostics. See full_input_repair/cap1_intentional_yield.json and research_priority_20261017.json. Old94614 missing is expected; actual current PIDs in rural_collapse/status.json and queues. Only unchanged compatible inference is continued, no changed-run prediction splice.
 
 
