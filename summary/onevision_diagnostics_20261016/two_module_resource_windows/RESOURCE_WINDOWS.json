@@ -6,7 +6,7 @@
     "missing_metric_stays_null": true,
     "invalid_reset_and_PID_rejected": true
   },
-  "completed_pilots": 9,
+  "completed_pilots": 12,
   "planned_pilots": 12,
   "cases": [
     {
@@ -899,6 +899,303 @@
       "method_window_probe_QA_forwards": 8,
       "all_logged_probe_QA_forwards": 16,
       "original_trainer_admission_QA": 6
+    },
+    {
+      "same_PID": 246961,
+      "from_unix": 1792244998.2351267,
+      "to_unix": 1792245009.1197386,
+      "seconds": 10.88461184501648,
+      "samples": 5,
+      "before": {
+        "phase": "pilot_training_before",
+        "stage": 0,
+        "unix": 1792244998.2351267,
+        "pid": 246961,
+        "visible_gpu": "1",
+        "VmHWM_bytes": 4484472832,
+        "VmRSS_bytes": 2681655296,
+        "VmSwap_bytes": 0,
+        "Pss_bytes": 2479281152,
+        "Private_Clean_bytes": 83013632,
+        "Private_Dirty_bytes": 2326372352,
+        "cpu_uss_bytes": 2409385984,
+        "gpu_allocated_bytes": 1842765824,
+        "gpu_reserved_bytes": 3275751424,
+        "gpu_peak_allocated_bytes": 1842765824,
+        "gpu_peak_reserved_bytes": 3275751424,
+        "gpu_process_nvml_bytes": 3630170112,
+        "trainable_parameters": 540672,
+        "trainable_parameter_bytes": 2162688,
+        "model_parameter_bytes": 1789513792
+      },
+      "after": {
+        "phase": "pilot_training_after",
+        "stage": 0,
+        "unix": 1792245009.1197386,
+        "pid": 246961,
+        "visible_gpu": "1",
+        "VmHWM_bytes": 4484472832,
+        "VmRSS_bytes": 2754654208,
+        "VmSwap_bytes": 0,
+        "Pss_bytes": 2533013504,
+        "Private_Clean_bytes": 106713088,
+        "Private_Dirty_bytes": 2332778496,
+        "cpu_uss_bytes": 2439491584,
+        "gpu_allocated_bytes": 1876320768,
+        "gpu_reserved_bytes": 1952448512,
+        "gpu_peak_allocated_bytes": 2518456320,
+        "gpu_peak_reserved_bytes": 3282042880,
+        "gpu_process_nvml_bytes": 2342518784,
+        "trainable_parameters": 540672,
+        "trainable_parameter_bytes": 2162688,
+        "model_parameter_bytes": 1789513792
+      },
+      "growth_bytes": {
+        "VmRSS_bytes": 72998912,
+        "Pss_bytes": 53732352,
+        "cpu_uss_bytes": 30105600,
+        "gpu_allocated_bytes": 33554944,
+        "gpu_reserved_bytes": -1323302912,
+        "gpu_process_nvml_bytes": -1287651328
+      },
+      "TRAIN_window_sampled_max_bytes": {
+        "VmRSS_bytes": 2754654208,
+        "Pss_bytes": 2533043200,
+        "cpu_uss_bytes": 2439491584,
+        "gpu_allocated_bytes": 1926381056,
+        "gpu_reserved_bytes": 3279945728,
+        "gpu_process_nvml_bytes": 3670016000
+      },
+      "TRAIN_window_exact_CUDA_allocator_peak_bytes": {
+        "allocated": 2518456320,
+        "reserved": 3282042880
+      },
+      "CPU_NVML_peaks_are_sampled_not_exact": true,
+      "final_and_initial_TEST_excluded": true,
+      "cross_PID_difference_is_causal_cost": false,
+      "task": 12,
+      "variant": "A_only",
+      "valid_training": true,
+      "run": "exp/onevision_two_module_20261017/pilot/T12_A_only/20261017_214943",
+      "original_mixed_process_sampled_max_bytes": {
+        "VmRSS_bytes": 2767982592,
+        "Pss_bytes": 2596452352,
+        "cpu_uss_bytes": 2557345792,
+        "gpu_allocated_bytes": 1976836608,
+        "gpu_reserved_bytes": 3279945728,
+        "gpu_process_nvml_bytes": 3670016000
+      },
+      "model_counts": {
+        "total_parameters": 894216224,
+        "trainable_parameters": 540672,
+        "retained_LoRA_modules": 1,
+        "rank": 8,
+        "temporary_candidate_clones_billed_in_memory": true,
+        "adaptive_module_count_tested": false
+      },
+      "selected_strength": 1.0,
+      "accepted_step_fraction": 1.0,
+      "method_window_probe_QA_forwards": 32,
+      "all_logged_probe_QA_forwards": 40,
+      "original_trainer_admission_QA": 0
+    },
+    {
+      "same_PID": 247671,
+      "from_unix": 1792245147.0547683,
+      "to_unix": 1792245157.3568754,
+      "seconds": 10.302107095718384,
+      "samples": 4,
+      "before": {
+        "phase": "pilot_training_before",
+        "stage": 0,
+        "unix": 1792245147.0547683,
+        "pid": 247671,
+        "visible_gpu": "1",
+        "VmHWM_bytes": 4489818112,
+        "VmRSS_bytes": 2673725440,
+        "VmSwap_bytes": 0,
+        "Pss_bytes": 2479562752,
+        "Private_Clean_bytes": 82403328,
+        "Private_Dirty_bytes": 2318065664,
+        "cpu_uss_bytes": 2400468992,
+        "gpu_allocated_bytes": 1842765824,
+        "gpu_reserved_bytes": 3275751424,
+        "gpu_peak_allocated_bytes": 1842765824,
+        "gpu_peak_reserved_bytes": 3275751424,
+        "gpu_process_nvml_bytes": 3630170112,
+        "trainable_parameters": 540672,
+        "trainable_parameter_bytes": 2162688,
+        "model_parameter_bytes": 1789513792
+      },
+      "after": {
+        "phase": "pilot_training_after",
+        "stage": 0,
+        "unix": 1792245157.3568754,
+        "pid": 247671,
+        "visible_gpu": "1",
+        "VmHWM_bytes": 4489818112,
+        "VmRSS_bytes": 2746503168,
+        "VmSwap_bytes": 0,
+        "Pss_bytes": 2523390976,
+        "Private_Clean_bytes": 105369600,
+        "Private_Dirty_bytes": 2323791872,
+        "cpu_uss_bytes": 2429161472,
+        "gpu_allocated_bytes": 1876320768,
+        "gpu_reserved_bytes": 1952448512,
+        "gpu_peak_allocated_bytes": 2520619008,
+        "gpu_peak_reserved_bytes": 3282042880,
+        "gpu_process_nvml_bytes": 2342518784,
+        "trainable_parameters": 540672,
+        "trainable_parameter_bytes": 2162688,
+        "model_parameter_bytes": 1789513792
+      },
+      "growth_bytes": {
+        "VmRSS_bytes": 72777728,
+        "Pss_bytes": 43828224,
+        "cpu_uss_bytes": 28692480,
+        "gpu_allocated_bytes": 33554944,
+        "gpu_reserved_bytes": -1323302912,
+        "gpu_process_nvml_bytes": -1287651328
+      },
+      "TRAIN_window_sampled_max_bytes": {
+        "VmRSS_bytes": 2746503168,
+        "Pss_bytes": 2523390976,
+        "cpu_uss_bytes": 2429161472,
+        "gpu_allocated_bytes": 1911403008,
+        "gpu_reserved_bytes": 3282042880,
+        "gpu_process_nvml_bytes": 3672113152
+      },
+      "TRAIN_window_exact_CUDA_allocator_peak_bytes": {
+        "allocated": 2520619008,
+        "reserved": 3282042880
+      },
+      "CPU_NVML_peaks_are_sampled_not_exact": true,
+      "final_and_initial_TEST_excluded": true,
+      "cross_PID_difference_is_causal_cost": false,
+      "task": 12,
+      "variant": "B_only",
+      "valid_training": true,
+      "run": "exp/onevision_two_module_20261017/pilot/T12_B_only/20261017_215209",
+      "original_mixed_process_sampled_max_bytes": {
+        "VmRSS_bytes": 2759680000,
+        "Pss_bytes": 2594683904,
+        "cpu_uss_bytes": 2548600832,
+        "gpu_allocated_bytes": 2235445248,
+        "gpu_reserved_bytes": 3282042880,
+        "gpu_process_nvml_bytes": 3672113152
+      },
+      "model_counts": {
+        "total_parameters": 894216224,
+        "trainable_parameters": 540672,
+        "retained_LoRA_modules": 1,
+        "rank": 8,
+        "temporary_candidate_clones_billed_in_memory": true,
+        "adaptive_module_count_tested": false
+      },
+      "selected_strength": 1.0,
+      "accepted_step_fraction": 1.0,
+      "method_window_probe_QA_forwards": 24,
+      "all_logged_probe_QA_forwards": 32,
+      "original_trainer_admission_QA": 0
+    },
+    {
+      "same_PID": 248468,
+      "from_unix": 1792245292.064102,
+      "to_unix": 1792245304.3102124,
+      "seconds": 12.246110439300537,
+      "samples": 5,
+      "before": {
+        "phase": "pilot_training_before",
+        "stage": 0,
+        "unix": 1792245292.064102,
+        "pid": 248468,
+        "visible_gpu": "1",
+        "VmHWM_bytes": 4142444544,
+        "VmRSS_bytes": 2398724096,
+        "VmSwap_bytes": 0,
+        "Pss_bytes": 2204386304,
+        "Private_Clean_bytes": 80519168,
+        "Private_Dirty_bytes": 2044203008,
+        "cpu_uss_bytes": 2124722176,
+        "gpu_allocated_bytes": 1842765824,
+        "gpu_reserved_bytes": 3275751424,
+        "gpu_peak_allocated_bytes": 1842765824,
+        "gpu_peak_reserved_bytes": 3275751424,
+        "gpu_process_nvml_bytes": 3630170112,
+        "trainable_parameters": 540672,
+        "trainable_parameter_bytes": 2162688,
+        "model_parameter_bytes": 1789513792
+      },
+      "after": {
+        "phase": "pilot_training_after",
+        "stage": 0,
+        "unix": 1792245304.3102124,
+        "pid": 248468,
+        "visible_gpu": "1",
+        "VmHWM_bytes": 4142444544,
+        "VmRSS_bytes": 2489032704,
+        "VmSwap_bytes": 0,
+        "Pss_bytes": 2265320448,
+        "Private_Clean_bytes": 103485440,
+        "Private_Dirty_bytes": 2067034112,
+        "cpu_uss_bytes": 2170519552,
+        "gpu_allocated_bytes": 1876320768,
+        "gpu_reserved_bytes": 1952448512,
+        "gpu_peak_allocated_bytes": 2520619008,
+        "gpu_peak_reserved_bytes": 3282042880,
+        "gpu_process_nvml_bytes": 2342518784,
+        "trainable_parameters": 540672,
+        "trainable_parameter_bytes": 2162688,
+        "model_parameter_bytes": 1789513792
+      },
+      "growth_bytes": {
+        "VmRSS_bytes": 90308608,
+        "Pss_bytes": 60934144,
+        "cpu_uss_bytes": 45797376,
+        "gpu_allocated_bytes": 33554944,
+        "gpu_reserved_bytes": -1323302912,
+        "gpu_process_nvml_bytes": -1287651328
+      },
+      "TRAIN_window_sampled_max_bytes": {
+        "VmRSS_bytes": 2489032704,
+        "Pss_bytes": 2265320448,
+        "cpu_uss_bytes": 2170519552,
+        "gpu_allocated_bytes": 1977537024,
+        "gpu_reserved_bytes": 3282042880,
+        "gpu_process_nvml_bytes": 3672113152
+      },
+      "TRAIN_window_exact_CUDA_allocator_peak_bytes": {
+        "allocated": 2520619008,
+        "reserved": 3282042880
+      },
+      "CPU_NVML_peaks_are_sampled_not_exact": true,
+      "final_and_initial_TEST_excluded": true,
+      "cross_PID_difference_is_causal_cost": false,
+      "task": 12,
+      "variant": "A_B",
+      "valid_training": true,
+      "run": "exp/onevision_two_module_20261017/pilot/T12_A_B/20261017_215436",
+      "original_mixed_process_sampled_max_bytes": {
+        "VmRSS_bytes": 2628923392,
+        "Pss_bytes": 2401104896,
+        "cpu_uss_bytes": 2303979520,
+        "gpu_allocated_bytes": 2165899264,
+        "gpu_reserved_bytes": 3282042880,
+        "gpu_process_nvml_bytes": 3672113152
+      },
+      "model_counts": {
+        "total_parameters": 894216224,
+        "trainable_parameters": 540672,
+        "retained_LoRA_modules": 1,
+        "rank": 8,
+        "temporary_candidate_clones_billed_in_memory": true,
+        "adaptive_module_count_tested": false
+      },
+      "selected_strength": 1.0,
+      "accepted_step_fraction": 1.0,
+      "method_window_probe_QA_forwards": 48,
+      "all_logged_probe_QA_forwards": 56,
+      "original_trainer_admission_QA": 0
     }
   ],
   "paired_to_control": [
@@ -1003,6 +1300,57 @@
         12
       ],
       "module_memory_causality_identified": false
+    },
+    {
+      "task": 12,
+      "variant": "A_only",
+      "same_completed_file_bytes_as_control": {
+        "final_adapter.pt": true,
+        "raw_gradient.pt": true,
+        "optimizer_after.pt": true
+      },
+      "GPU_allocated_before_difference_bytes": -33554432,
+      "GPU_allocated_after_difference_bytes": 0,
+      "GPU_growth_difference_bytes": 33554432,
+      "admission_warmup_QA_variant_control": [
+        0,
+        6
+      ],
+      "module_memory_causality_identified": false
+    },
+    {
+      "task": 12,
+      "variant": "B_only",
+      "same_completed_file_bytes_as_control": {
+        "final_adapter.pt": true,
+        "raw_gradient.pt": true,
+        "optimizer_after.pt": true
+      },
+      "GPU_allocated_before_difference_bytes": -33554432,
+      "GPU_allocated_after_difference_bytes": 0,
+      "GPU_growth_difference_bytes": 33554432,
+      "admission_warmup_QA_variant_control": [
+        0,
+        6
+      ],
+      "module_memory_causality_identified": false
+    },
+    {
+      "task": 12,
+      "variant": "A_B",
+      "same_completed_file_bytes_as_control": {
+        "final_adapter.pt": true,
+        "raw_gradient.pt": true,
+        "optimizer_after.pt": true
+      },
+      "GPU_allocated_before_difference_bytes": -33554432,
+      "GPU_allocated_after_difference_bytes": 0,
+      "GPU_growth_difference_bytes": 33554432,
+      "admission_warmup_QA_variant_control": [
+        0,
+        6
+      ],
+      "module_memory_causality_identified": false
     }
   ],
   "source_sha256": {
@@ -1059,7 +1407,22 @@
     "exp/onevision_two_module_20261017/pilot/T12_control/20261017_214553/resources.jsonl": "f8227d98de1372392ca3b43602fb9a9e559b476ab8bc0e53d8bf20b32b117d14",
     "exp/onevision_two_module_20261017/pilot/T12_control/20261017_214553/memory_summary.json": "d4db93c21762d70b29f2dad1fd60be3b72e6c3cba83d2a8d1c7ed67d15c75b5e",
     "exp/onevision_two_module_20261017/pilot/T12_control/20261017_214553/training.json": "0b2cbee2679456f7596fef5418ade7676b5eba55f7d693d187d769b28e718888",
-    "exp/onevision_two_module_20261017/pilot/T12_control/20261017_214553/model_counts.json": "4501a16c01f4e1d0a1378379a3694831647572b185086f702f5fcd05eb39f1cb"
+    "exp/onevision_two_module_20261017/pilot/T12_control/20261017_214553/model_counts.json": "4501a16c01f4e1d0a1378379a3694831647572b185086f702f5fcd05eb39f1cb",
+    "summary/onevision_diagnostics_20261016/two_module_prototype/T12_A_only_complete.json": "4f5d38f1091f7f82d39a050cbed1e46f6d4dde73d20eaa171d07b103e0bf3a66",
+    "exp/onevision_two_module_20261017/pilot/T12_A_only/20261017_214943/resources.jsonl": "5af7695ba719b11755b7a34b5cd57318bc0e74e9925f1bb7e25e3316e8037d4f",
+    "exp/onevision_two_module_20261017/pilot/T12_A_only/20261017_214943/memory_summary.json": "34946053f58463b1f397ef383083ca91bb4849ed6a6b5e8c340bb55f7559cc37",
+    "exp/onevision_two_module_20261017/pilot/T12_A_only/20261017_214943/training.json": "2d199d9472e17b5a661d8e8d293d0bfb93877a75ca9af2df14cf56e4b3d8eb1b",
+    "exp/onevision_two_module_20261017/pilot/T12_A_only/20261017_214943/model_counts.json": "4501a16c01f4e1d0a1378379a3694831647572b185086f702f5fcd05eb39f1cb",
+    "summary/onevision_diagnostics_20261016/two_module_prototype/T12_B_only_complete.json": "7aad34b9d8643209aca1bffd458bf03ed508c1d9a7b0337d190cbfe09fb55f22",
+    "exp/onevision_two_module_20261017/pilot/T12_B_only/20261017_215209/resources.jsonl": "bc2c15e8e16c1e38a3aba7779c48d7779cd9ac7ba541fdd332e3690d3b56f17d",
+    "exp/onevision_two_module_20261017/pilot/T12_B_only/20261017_215209/memory_summary.json": "c9674ec07be7e4627d29e46e80c91de358e1ae99c1001858e3866f7886a80db2",
+    "exp/onevision_two_module_20261017/pilot/T12_B_only/20261017_215209/training.json": "513783de11060c5f71898e1e914f6a09ded69ad74d5ca3c746a405254ba16332",
+    "exp/onevision_two_module_20261017/pilot/T12_B_only/20261017_215209/model_counts.json": "4501a16c01f4e1d0a1378379a3694831647572b185086f702f5fcd05eb39f1cb",
+    "summary/onevision_diagnostics_20261016/two_module_prototype/T12_A_B_complete.json": "50e06de8a38b3eec942f6eabb0c26a5caf9957462b72e4b7f31f3b3ba7a5852d",
+    "exp/onevision_two_module_20261017/pilot/T12_A_B/20261017_215436/resources.jsonl": "e4e4366263ae0af59cc1f51f6896365d2bd9dc139330f91753072878d6ba989f",
+    "exp/onevision_two_module_20261017/pilot/T12_A_B/20261017_215436/memory_summary.json": "9d4ee764f24757dc75a35e5f3d3dc4d6d5489cb4b6274e8fe3579511953c2dd3",
+    "exp/onevision_two_module_20261017/pilot/T12_A_B/20261017_215436/training.json": "226810eeef5f890fad4db8a5d368b569ff6c216c44f425105fbe30a4e714cae4",
+    "exp/onevision_two_module_20261017/pilot/T12_A_B/20261017_215436/model_counts.json": "4501a16c01f4e1d0a1378379a3694831647572b185086f702f5fcd05eb39f1cb"
   },
   "memory_superiority_proven": false,
   "accuracy_causality_proven": false,

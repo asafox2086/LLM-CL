@@ -1,5 +1,5 @@
 {
-  "completed_cases": 9,
+  "completed_cases": 12,
   "planned_cases": 12,
   "case_results": [
     {
@@ -1314,9 +1314,472 @@
         }
       },
       "run": "exp/onevision_two_module_20261017/pilot/T12_control/20261017_214553"
+    },
+    {
+      "task": 12,
+      "variant": "A_only",
+      "valid_training": true,
+      "target_QA": 100,
+      "old_generated_QA": 10,
+      "old_NLL_QA": 100,
+      "target_mean_NLL": 0.2958478645980358,
+      "old_mean_NLL": 1.1138608363177627,
+      "target_Answer_F1": 76.0,
+      "old_Answer_F1": 75.19607843137256,
+      "invalid_case_diagnostic_scores_only": null,
+      "training": {
+        "task": 12,
+        "variant": "A_only",
+        "original_target_TRAIN_QA": 6,
+        "actual_gradient_L2_preclip": 28.1492862701416,
+        "pre_update_loss": 0.5560586800177892,
+        "actual_learning_rate_used": 0.0001,
+        "actual_step_fraction": 1.0,
+        "nonzero_effective_updates": 1,
+        "valid_training": true,
+        "selection": {
+          "chosen_strength": 1.0,
+          "all_candidates": [
+            {
+              "strength": 1.0,
+              "current_TRAIN_NLL": 0.5837739929556847,
+              "old_TRAIN_NLL": {
+                "natural": 0.33697621524333954
+              },
+              "eligible": true
+            },
+            {
+              "strength": 0.5,
+              "current_TRAIN_NLL": 3.1502234737078347,
+              "old_TRAIN_NLL": {
+                "natural": 0.38919341564178467
+              },
+              "eligible": true
+            },
+            {
+              "strength": 0.0,
+              "current_TRAIN_NLL": 8.809724489847818,
+              "old_TRAIN_NLL": {
+                "natural": 6.005021691322327
+              },
+              "eligible": true
+            }
+          ],
+          "extra_TRAIN_forward_evaluations": 3,
+          "uses_TEST": false
+        },
+        "finite_step": {
+          "accepted_fraction": 1.0,
+          "disabled": true
+        },
+        "extra_TRAIN_probe_QA_forwards": 40,
+        "method_window_probe_QA_forwards": 32,
+        "original_trainer_admission_QA": 0,
+        "current_probe_NLL_before": 0.5837739929556847,
+        "current_probe_NLL_after": 0.3337862392266591,
+        "old_probe_NLL_before": {
+          "natural": 0.33697621524333954
+        },
+        "old_probe_NLL_after": {
+          "natural": 0.3397495299577713
+        },
+        "all_rejected_is_not_valid_CL_score": true
+      },
+      "model_counts": {
+        "total_parameters": 894216224,
+        "trainable_parameters": 540672,
+        "retained_LoRA_modules": 1,
+        "rank": 8,
+        "temporary_candidate_clones_billed_in_memory": true,
+        "adaptive_module_count_tested": false
+      },
+      "memory_bytes": {
+        "unit": "bytes",
+        "pid": 246961,
+        "boot_id": "e6182f56-39be-4e37-908d-3cfadaa7448f",
+        "process_started_unix": 1792244983.4093657,
+        "before": {
+          "phase": "pilot_training_before",
+          "stage": 0,
+          "unix": 1792244998.2351267,
+          "pid": 246961,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4484472832,
+          "VmRSS_bytes": 2681655296,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2479281152,
+          "Private_Clean_bytes": 83013632,
+          "Private_Dirty_bytes": 2326372352,
+          "cpu_uss_bytes": 2409385984,
+          "gpu_allocated_bytes": 1842765824,
+          "gpu_reserved_bytes": 3275751424,
+          "gpu_peak_allocated_bytes": 1842765824,
+          "gpu_peak_reserved_bytes": 3275751424,
+          "gpu_process_nvml_bytes": 3630170112,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "after": {
+          "phase": "pilot_training_after",
+          "stage": 0,
+          "unix": 1792245009.1197386,
+          "pid": 246961,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4484472832,
+          "VmRSS_bytes": 2754654208,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2533013504,
+          "Private_Clean_bytes": 106713088,
+          "Private_Dirty_bytes": 2332778496,
+          "cpu_uss_bytes": 2439491584,
+          "gpu_allocated_bytes": 1876320768,
+          "gpu_reserved_bytes": 1952448512,
+          "gpu_peak_allocated_bytes": 2518456320,
+          "gpu_peak_reserved_bytes": 3282042880,
+          "gpu_process_nvml_bytes": 2342518784,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "scope": "one-update method window includes A/B probe computation; final inference excluded",
+        "growth_bytes": {
+          "VmRSS_bytes": 72998912,
+          "Pss_bytes": 53732352,
+          "cpu_uss_bytes": 30105600,
+          "gpu_allocated_bytes": 33554944,
+          "gpu_reserved_bytes": -1323302912,
+          "gpu_process_nvml_bytes": -1287651328
+        },
+        "observed_peak_bytes": {
+          "VmRSS_bytes": 2767982592,
+          "Pss_bytes": 2596452352,
+          "cpu_uss_bytes": 2557345792,
+          "gpu_allocated_bytes": 1976836608,
+          "gpu_reserved_bytes": 3279945728,
+          "gpu_process_nvml_bytes": 3670016000
+        },
+        "note": "Same-PID before/after; fresh process per cap. On recovery these describe resumed process only. Stage diagnostics are included in observed peaks; allocator cache is separate from parameter growth.",
+        "all_process_observed_peak_bytes": {
+          "VmRSS_bytes": 2767982592,
+          "Pss_bytes": 2596452352,
+          "cpu_uss_bytes": 2557345792,
+          "gpu_allocated_bytes": 1976836608,
+          "gpu_reserved_bytes": 3279945728,
+          "gpu_process_nvml_bytes": 3670016000
+        }
+      },
+      "run": "exp/onevision_two_module_20261017/pilot/T12_A_only/20261017_214943"
+    },
+    {
+      "task": 12,
+      "variant": "B_only",
+      "valid_training": true,
+      "target_QA": 100,
+      "old_generated_QA": 10,
+      "old_NLL_QA": 100,
+      "target_mean_NLL": 0.2958478645980358,
+      "old_mean_NLL": 1.1138608363177627,
+      "target_Answer_F1": 76.0,
+      "old_Answer_F1": 75.19607843137256,
+      "invalid_case_diagnostic_scores_only": null,
+      "training": {
+        "task": 12,
+        "variant": "B_only",
+        "original_target_TRAIN_QA": 6,
+        "actual_gradient_L2_preclip": 28.1492862701416,
+        "pre_update_loss": 0.5560586800177892,
+        "actual_learning_rate_used": 0.0001,
+        "actual_step_fraction": 1.0,
+        "nonzero_effective_updates": 1,
+        "valid_training": true,
+        "selection": {
+          "chosen_strength": 1.0,
+          "disabled": true
+        },
+        "finite_step": {
+          "accepted_fraction": 1.0,
+          "trials": [
+            {
+              "fraction": 1.0,
+              "current_TRAIN_NLL": 0.3337862392266591,
+              "old_TRAIN_NLL": {
+                "natural": 0.3397495299577713
+              },
+              "accepted": true
+            }
+          ],
+          "current_before": 0.5837739929556847,
+          "uses_TEST": false
+        },
+        "extra_TRAIN_probe_QA_forwards": 32,
+        "method_window_probe_QA_forwards": 24,
+        "original_trainer_admission_QA": 0,
+        "current_probe_NLL_before": 0.5837739929556847,
+        "current_probe_NLL_after": 0.3337862392266591,
+        "old_probe_NLL_before": {
+          "natural": 0.33697621524333954
+        },
+        "old_probe_NLL_after": {
+          "natural": 0.3397495299577713
+        },
+        "all_rejected_is_not_valid_CL_score": true
+      },
+      "model_counts": {
+        "total_parameters": 894216224,
+        "trainable_parameters": 540672,
+        "retained_LoRA_modules": 1,
+        "rank": 8,
+        "temporary_candidate_clones_billed_in_memory": true,
+        "adaptive_module_count_tested": false
+      },
+      "memory_bytes": {
+        "unit": "bytes",
+        "pid": 247671,
+        "boot_id": "e6182f56-39be-4e37-908d-3cfadaa7448f",
+        "process_started_unix": 1792245130.8244739,
+        "before": {
+          "phase": "pilot_training_before",
+          "stage": 0,
+          "unix": 1792245147.0547683,
+          "pid": 247671,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4489818112,
+          "VmRSS_bytes": 2673725440,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2479562752,
+          "Private_Clean_bytes": 82403328,
+          "Private_Dirty_bytes": 2318065664,
+          "cpu_uss_bytes": 2400468992,
+          "gpu_allocated_bytes": 1842765824,
+          "gpu_reserved_bytes": 3275751424,
+          "gpu_peak_allocated_bytes": 1842765824,
+          "gpu_peak_reserved_bytes": 3275751424,
+          "gpu_process_nvml_bytes": 3630170112,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "after": {
+          "phase": "pilot_training_after",
+          "stage": 0,
+          "unix": 1792245157.3568754,
+          "pid": 247671,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4489818112,
+          "VmRSS_bytes": 2746503168,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2523390976,
+          "Private_Clean_bytes": 105369600,
+          "Private_Dirty_bytes": 2323791872,
+          "cpu_uss_bytes": 2429161472,
+          "gpu_allocated_bytes": 1876320768,
+          "gpu_reserved_bytes": 1952448512,
+          "gpu_peak_allocated_bytes": 2520619008,
+          "gpu_peak_reserved_bytes": 3282042880,
+          "gpu_process_nvml_bytes": 2342518784,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "scope": "one-update method window includes A/B probe computation; final inference excluded",
+        "growth_bytes": {
+          "VmRSS_bytes": 72777728,
+          "Pss_bytes": 43828224,
+          "cpu_uss_bytes": 28692480,
+          "gpu_allocated_bytes": 33554944,
+          "gpu_reserved_bytes": -1323302912,
+          "gpu_process_nvml_bytes": -1287651328
+        },
+        "observed_peak_bytes": {
+          "VmRSS_bytes": 2759680000,
+          "Pss_bytes": 2594683904,
+          "cpu_uss_bytes": 2548600832,
+          "gpu_allocated_bytes": 2235445248,
+          "gpu_reserved_bytes": 3282042880,
+          "gpu_process_nvml_bytes": 3672113152
+        },
+        "note": "Same-PID before/after; fresh process per cap. On recovery these describe resumed process only. Stage diagnostics are included in observed peaks; allocator cache is separate from parameter growth.",
+        "all_process_observed_peak_bytes": {
+          "VmRSS_bytes": 2759680000,
+          "Pss_bytes": 2594683904,
+          "cpu_uss_bytes": 2548600832,
+          "gpu_allocated_bytes": 2235445248,
+          "gpu_reserved_bytes": 3282042880,
+          "gpu_process_nvml_bytes": 3672113152
+        }
+      },
+      "run": "exp/onevision_two_module_20261017/pilot/T12_B_only/20261017_215209"
+    },
+    {
+      "task": 12,
+      "variant": "A_B",
+      "valid_training": true,
+      "target_QA": 100,
+      "old_generated_QA": 10,
+      "old_NLL_QA": 100,
+      "target_mean_NLL": 0.2958478645980358,
+      "old_mean_NLL": 1.1138608363177627,
+      "target_Answer_F1": 76.0,
+      "old_Answer_F1": 75.19607843137256,
+      "invalid_case_diagnostic_scores_only": null,
+      "training": {
+        "task": 12,
+        "variant": "A_B",
+        "original_target_TRAIN_QA": 6,
+        "actual_gradient_L2_preclip": 28.1492862701416,
+        "pre_update_loss": 0.5560586800177892,
+        "actual_learning_rate_used": 0.0001,
+        "actual_step_fraction": 1.0,
+        "nonzero_effective_updates": 1,
+        "valid_training": true,
+        "selection": {
+          "chosen_strength": 1.0,
+          "all_candidates": [
+            {
+              "strength": 1.0,
+              "current_TRAIN_NLL": 0.5837739929556847,
+              "old_TRAIN_NLL": {
+                "natural": 0.33697621524333954
+              },
+              "eligible": true
+            },
+            {
+              "strength": 0.5,
+              "current_TRAIN_NLL": 3.1502234737078347,
+              "old_TRAIN_NLL": {
+                "natural": 0.38919341564178467
+              },
+              "eligible": false
+            },
+            {
+              "strength": 0.0,
+              "current_TRAIN_NLL": 8.809724489847818,
+              "old_TRAIN_NLL": {
+                "natural": 6.005021691322327
+              },
+              "eligible": false
+            }
+          ],
+          "extra_TRAIN_forward_evaluations": 3,
+          "uses_TEST": false
+        },
+        "finite_step": {
+          "accepted_fraction": 1.0,
+          "trials": [
+            {
+              "fraction": 1.0,
+              "current_TRAIN_NLL": 0.3337862392266591,
+              "old_TRAIN_NLL": {
+                "natural": 0.3397495299577713
+              },
+              "accepted": true
+            }
+          ],
+          "current_before": 0.5837739929556847,
+          "uses_TEST": false
+        },
+        "extra_TRAIN_probe_QA_forwards": 56,
+        "method_window_probe_QA_forwards": 48,
+        "original_trainer_admission_QA": 0,
+        "current_probe_NLL_before": 0.5837739929556847,
+        "current_probe_NLL_after": 0.3337862392266591,
+        "old_probe_NLL_before": {
+          "natural": 0.33697621524333954
+        },
+        "old_probe_NLL_after": {
+          "natural": 0.3397495299577713
+        },
+        "all_rejected_is_not_valid_CL_score": true
+      },
+      "model_counts": {
+        "total_parameters": 894216224,
+        "trainable_parameters": 540672,
+        "retained_LoRA_modules": 1,
+        "rank": 8,
+        "temporary_candidate_clones_billed_in_memory": true,
+        "adaptive_module_count_tested": false
+      },
+      "memory_bytes": {
+        "unit": "bytes",
+        "pid": 248468,
+        "boot_id": "e6182f56-39be-4e37-908d-3cfadaa7448f",
+        "process_started_unix": 1792245276.9505262,
+        "before": {
+          "phase": "pilot_training_before",
+          "stage": 0,
+          "unix": 1792245292.064102,
+          "pid": 248468,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4142444544,
+          "VmRSS_bytes": 2398724096,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2204386304,
+          "Private_Clean_bytes": 80519168,
+          "Private_Dirty_bytes": 2044203008,
+          "cpu_uss_bytes": 2124722176,
+          "gpu_allocated_bytes": 1842765824,
+          "gpu_reserved_bytes": 3275751424,
+          "gpu_peak_allocated_bytes": 1842765824,
+          "gpu_peak_reserved_bytes": 3275751424,
+          "gpu_process_nvml_bytes": 3630170112,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "after": {
+          "phase": "pilot_training_after",
+          "stage": 0,
+          "unix": 1792245304.3102124,
+          "pid": 248468,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4142444544,
+          "VmRSS_bytes": 2489032704,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2265320448,
+          "Private_Clean_bytes": 103485440,
+          "Private_Dirty_bytes": 2067034112,
+          "cpu_uss_bytes": 2170519552,
+          "gpu_allocated_bytes": 1876320768,
+          "gpu_reserved_bytes": 1952448512,
+          "gpu_peak_allocated_bytes": 2520619008,
+          "gpu_peak_reserved_bytes": 3282042880,
+          "gpu_process_nvml_bytes": 2342518784,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "scope": "one-update method window includes A/B probe computation; final inference excluded",
+        "growth_bytes": {
+          "VmRSS_bytes": 90308608,
+          "Pss_bytes": 60934144,
+          "cpu_uss_bytes": 45797376,
+          "gpu_allocated_bytes": 33554944,
+          "gpu_reserved_bytes": -1323302912,
+          "gpu_process_nvml_bytes": -1287651328
+        },
+        "observed_peak_bytes": {
+          "VmRSS_bytes": 2628923392,
+          "Pss_bytes": 2401104896,
+          "cpu_uss_bytes": 2303979520,
+          "gpu_allocated_bytes": 2165899264,
+          "gpu_reserved_bytes": 3282042880,
+          "gpu_process_nvml_bytes": 3672113152
+        },
+        "note": "Same-PID before/after; fresh process per cap. On recovery these describe resumed process only. Stage diagnostics are included in observed peaks; allocator cache is separate from parameter growth.",
+        "all_process_observed_peak_bytes": {
+          "VmRSS_bytes": 2628923392,
+          "Pss_bytes": 2401104896,
+          "cpu_uss_bytes": 2303979520,
+          "gpu_allocated_bytes": 2165899264,
+          "gpu_reserved_bytes": 3282042880,
+          "gpu_process_nvml_bytes": 3672113152
+        }
+      },
+      "run": "exp/onevision_two_module_20261017/pilot/T12_A_B/20261017_215436"
     }
   ],
-  "valid_training_cases": 9,
+  "valid_training_cases": 12,
   "vs_control": [
     {
       "task": 2,
@@ -1449,6 +1912,72 @@
         ],
         "uncorrected": true
       }
+    },
+    {
+      "task": 12,
+      "variant": "A_only",
+      "target": {
+        "QA": 100,
+        "delta_F1_pp": 0.0,
+        "recipient_image_cluster_95CI": [
+          0.0,
+          0.0
+        ],
+        "uncorrected": true
+      },
+      "old_natural": {
+        "QA": 10,
+        "delta_F1_pp": 0.0,
+        "recipient_image_cluster_95CI": [
+          0.0,
+          0.0
+        ],
+        "uncorrected": true
+      }
+    },
+    {
+      "task": 12,
+      "variant": "B_only",
+      "target": {
+        "QA": 100,
+        "delta_F1_pp": 0.0,
+        "recipient_image_cluster_95CI": [
+          0.0,
+          0.0
+        ],
+        "uncorrected": true
+      },
+      "old_natural": {
+        "QA": 10,
+        "delta_F1_pp": 0.0,
+        "recipient_image_cluster_95CI": [
+          0.0,
+          0.0
+        ],
+        "uncorrected": true
+      }
+    },
+    {
+      "task": 12,
+      "variant": "A_B",
+      "target": {
+        "QA": 100,
+        "delta_F1_pp": 0.0,
+        "recipient_image_cluster_95CI": [
+          0.0,
+          0.0
+        ],
+        "uncorrected": true
+      },
+      "old_natural": {
+        "QA": 10,
+        "delta_F1_pp": 0.0,
+        "recipient_image_cluster_95CI": [
+          0.0,
+          0.0
+        ],
+        "uncorrected": true
+      }
     }
   ],
   "metric": "Answer F1",
@@ -1482,7 +2011,16 @@
     "summary/onevision_diagnostics_20261016/two_module_prototype/T12_control_complete.json": "f3d50087f5cb79672a607e3e2cc89a1722f135841a0a23e0fa3caf95d41aa430",
     "exp/onevision_two_module_20261017/pilot/T12_control/20261017_214553/evaluations/final/target_image.jsonl": "6ccc96c3f70405aa7d7051519aa3bef489388f5e92ed76f9d43200525748ebda",
     "exp/onevision_two_module_20261017/pilot/T12_control/20261017_214553/evaluations/final/past_natural_image.jsonl": "dd37eb7519578f1a70d4967a6f9466b9862fd0536bddab899441bcb7a02cbdf5",
-    "exp/onevision_two_module_20261017/pilot/T12_control/20261017_214553/evaluations/initial/past_natural_image.jsonl": "fb139ffb6d77b53fa6d136dfcd3737a9b20e588ae8809cbe6d795f093a702f3e"
+    "exp/onevision_two_module_20261017/pilot/T12_control/20261017_214553/evaluations/initial/past_natural_image.jsonl": "fb139ffb6d77b53fa6d136dfcd3737a9b20e588ae8809cbe6d795f093a702f3e",
+    "summary/onevision_diagnostics_20261016/two_module_prototype/T12_A_only_complete.json": "4f5d38f1091f7f82d39a050cbed1e46f6d4dde73d20eaa171d07b103e0bf3a66",
+    "exp/onevision_two_module_20261017/pilot/T12_A_only/20261017_214943/evaluations/final/target_image.jsonl": "84a60b6c00b3938fe442474d826ec994ddd68fba040358c18c2a57576c000f22",
+    "exp/onevision_two_module_20261017/pilot/T12_A_only/20261017_214943/evaluations/final/past_natural_image.jsonl": "a71cc2fa749a5c22c64fd203bdc042f0e33766d7574f24b491e732fb04229f60",
+    "summary/onevision_diagnostics_20261016/two_module_prototype/T12_B_only_complete.json": "7aad34b9d8643209aca1bffd458bf03ed508c1d9a7b0337d190cbfe09fb55f22",
+    "exp/onevision_two_module_20261017/pilot/T12_B_only/20261017_215209/evaluations/final/target_image.jsonl": "6810a2f1d2868ca3f10ee3e0fc10a15432e4518dfb31054baaa08b7f4be0b6ea",
+    "exp/onevision_two_module_20261017/pilot/T12_B_only/20261017_215209/evaluations/final/past_natural_image.jsonl": "32a808942c2eef531692cc4ed230e1d49522b53e02977955e84a8746836c451f",
+    "summary/onevision_diagnostics_20261016/two_module_prototype/T12_A_B_complete.json": "50e06de8a38b3eec942f6eabb0c26a5caf9957462b72e4b7f31f3b3ba7a5852d",
+    "exp/onevision_two_module_20261017/pilot/T12_A_B/20261017_215436/evaluations/final/target_image.jsonl": "a038073a298af768dfffc0c8f1d510946532645bbc03e861efabee59d822adf6",
+    "exp/onevision_two_module_20261017/pilot/T12_A_B/20261017_215436/evaluations/final/past_natural_image.jsonl": "4087a7226f7a97d6af8cacfc3f27497cc5e3a502c7039d266503b7cfe01e68e4"
   },
   "reporter_sha256": "d90b1ab215399518cad7bc4910a1b5d7f327c9bc3dcf8256a59e9f89d700b11b",
   "formal_CL_results": false,

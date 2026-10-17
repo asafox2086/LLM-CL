@@ -13,6 +13,9 @@
 | T11/B_only | 1757.398→1789.399 | 33554944 | 2701.038 | 1908.448 | 3870.000 | 15.704 | 30 |
 | T11/A_B | 1757.398→1789.399 | 33554944 | 2701.038 | 1979.972 | 3870.000 | 22.902 | 60 |
 | T12/control | 1789.398→1789.399 | 512 | 2401.787 | 1869.084 | 2446.000 | 5.424 | 8 |
+| T12/A_only | 1757.398→1789.399 | 33554944 | 2401.787 | 1837.140 | 3500.000 | 10.885 | 32 |
+| T12/B_only | 1757.398→1789.399 | 33554944 | 2403.850 | 1822.856 | 3502.000 | 10.302 | 24 |
+| T12/A_B | 1757.398→1789.399 | 33554944 | 2403.850 | 1885.926 | 3502.000 | 12.246 | 48 |
 
 每行来自同一PID的before/after与其间资源样本。GPU allocator峰值读取after端点，并验证源代码先reset以及before peak等于当前占用；周期采样可漏过峰值，不能替代此计数。CPU RSS/PSS/USS和NVML仍只承诺采样最大值，原始bytes/端点全部写入[RESOURCE_WINDOWS.json](RESOURCE_WINDOWS.json)。
 
@@ -28,5 +31,8 @@
 - T11/A_only：相对control的before差-33554432bytes、after差0bytes、增长差33554432bytes；final_adapter/raw_gradient/optimizer三文件字节完全相同：True；准入QA分别[0, 12]。
 - T11/B_only：相对control的before差-33554432bytes、after差0bytes、增长差33554432bytes；final_adapter/raw_gradient/optimizer三文件字节完全相同：True；准入QA分别[0, 12]。
 - T11/A_B：相对control的before差-33554432bytes、after差0bytes、增长差33554432bytes；final_adapter/raw_gradient/optimizer三文件字节完全相同：True；准入QA分别[0, 12]。
+- T12/A_only：相对control的before差-33554432bytes、after差0bytes、增长差33554432bytes；final_adapter/raw_gradient/optimizer三文件字节完全相同：True；准入QA分别[0, 6]。
+- T12/B_only：相对control的before差-33554432bytes、after差0bytes、增长差33554432bytes；final_adapter/raw_gradient/optimizer三文件字节完全相同：True；准入QA分别[0, 6]。
+- T12/A_B：相对control的before差-33554432bytes、after差0bytes、增长差33554432bytes；final_adapter/raw_gradient/optimizer三文件字节完全相同：True；准入QA分别[0, 6]。
 
 这是口径修正，尚未证明某方法比LoRA更省内存或更高F1。四组目标QA/参数/初始函数与原生输入的门槛仍独立验证。

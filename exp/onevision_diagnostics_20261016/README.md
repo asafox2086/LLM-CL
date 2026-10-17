@@ -1,6 +1,6 @@
-> 成果统一看[问题发现总报告](../../summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md)：12个问题、每项六栏；首页列已证实、被反例否定与未解决。补入T02/T11初始/1/4步习得和两模块9/12完成快照，不把无实际改动解释成机制失败。
+> 成果统一看[问题发现总报告](../../summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md)：12个问题、每项六栏；首页列已证实、被反例否定与未解决。补入T02/T11初始/1/4步习得和两模块12/12结束快照，不把无实际改动解释成机制失败。
 
-> 原生AnyRes SeqFT/cap1已完成21454题，19任务AP41.361；[完整表](../../summary/onevision_diagnostics_20261016/full_confirmation_evidence/CAP1_COMPLETION.md)。接续余下原型→严格48归因→四组完整19阶段/最终全测→cap3→完整稀疏转移。实际进度看[原型自动报告](../../summary/onevision_diagnostics_20261016/two_module_prototype/VERIFIED_PILOT_RESULTS.md)。基线不停，不热改活动/排队源码。
+> 原生AnyRes SeqFT/cap1已完成21454题，19任务AP41.361；[完整表](../../summary/onevision_diagnostics_20261016/full_confirmation_evidence/CAP1_COMPLETION.md)。原型已结束，GPU1当前严格48归因→四组完整19阶段/最终全测→cap3→完整稀疏转移。实际进度看[原型自动报告](../../summary/onevision_diagnostics_20261016/two_module_prototype/VERIFIED_PILOT_RESULTS.md)。基线不停，不热改活动/排队源码。
 
 > 核心背景为轻量、1%小数据、低内存增长。允许多个LoRA，当前单LoRA仅为既定原型；比较须计入CPU/GPU常驻总量、统一预热的训练前后/峰值及额外计算。[规则021](../../rules/021_lightweight_data_limited_core_20261017.md)。唯一主指标为Answer F1，不做选项映射；[规则020](../../rules/020_answer_f1_primary_20261017.md)。
 # OneVision 0.5B：先诊断，再设计方法

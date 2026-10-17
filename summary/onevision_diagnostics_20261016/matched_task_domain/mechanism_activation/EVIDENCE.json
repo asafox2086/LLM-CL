@@ -1,0 +1,959 @@
+{
+  "CPU_only": true,
+  "cases": [
+    {
+      "case": "T04_repeat_anchor__SeqFT_LoRA",
+      "anchor": 4,
+      "sequence": "repeat_anchor",
+      "method": "SeqFT_LoRA",
+      "run": "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__SeqFT_LoRA/20261017_215632",
+      "anchor_F1_stage1": 19.375,
+      "anchor_F1_stage5": 27.604166666666664,
+      "anchor_F1_change_pp": 8.229166666666664,
+      "current_task_F1_stage_observation_mean": 22.5,
+      "current_task_F1_is_not_old_anchor_retention": true,
+      "stages": [
+        {
+          "stage": 1,
+          "task": 4,
+          "first_raw_pre_intervention_gradient_L2": 156.19291315500303,
+          "target_QA_exposures": 8,
+          "replay_QA_exposures": 0,
+          "Fisher_QA": 0,
+          "reference_gradient_QA_exposures": 0,
+          "projection_flagged_updates": 0,
+          "negative_reference_dot_updates": 0,
+          "logged_positive_penalty_updates": 0,
+          "all_update_losses": [
+            10.460878849029541,
+            7.335370063781738,
+            8.057741403579712,
+            7.7687578201293945
+          ],
+          "all_logged_preclip_norms": [
+            156.1929168701172,
+            111.69593811035156,
+            78.08799743652344,
+            107.09455108642578
+          ]
+        },
+        {
+          "stage": 2,
+          "task": 4,
+          "first_raw_pre_intervention_gradient_L2": 118.43560088839938,
+          "target_QA_exposures": 8,
+          "replay_QA_exposures": 0,
+          "Fisher_QA": 0,
+          "reference_gradient_QA_exposures": 0,
+          "projection_flagged_updates": 0,
+          "negative_reference_dot_updates": 0,
+          "logged_positive_penalty_updates": 0,
+          "all_update_losses": [
+            5.874033093452454,
+            3.7881481647491455,
+            4.840017318725586,
+            6.052880764007568
+          ],
+          "all_logged_preclip_norms": [
+            118.43560028076172,
+            86.63977813720703,
+            155.69677734375,
+            144.6195831298828
+          ],
+          "actual_four_update_parameter_displacement_L2": 0.21410050855367943,
+          "actual_four_update_BA_displacement_Frobenius": 0.27213882955097174
+        },
+        {
+          "stage": 3,
+          "task": 4,
+          "first_raw_pre_intervention_gradient_L2": 87.67855009542507,
+          "target_QA_exposures": 8,
+          "replay_QA_exposures": 0,
+          "Fisher_QA": 0,
+          "reference_gradient_QA_exposures": 0,
+          "projection_flagged_updates": 0,
+          "negative_reference_dot_updates": 0,
+          "logged_positive_penalty_updates": 0,
+          "all_update_losses": [
+            2.11930138617754,
+            1.6008256077766418,
+            1.7435616254806519,
+            2.548760175704956
+          ],
+          "all_logged_preclip_norms": [
+            87.67855072021484,
+            37.559574127197266,
+            45.64284896850586,
+            39.491024017333984
+          ],
+          "actual_four_update_parameter_displacement_L2": 0.20646587414492548,
+          "actual_four_update_BA_displacement_Frobenius": 0.2673986689371448
+        },
+        {
+          "stage": 4,
+          "task": 4,
+          "first_raw_pre_intervention_gradient_L2": 23.65572679199781,
+          "target_QA_exposures": 8,
+          "replay_QA_exposures": 0,
+          "Fisher_QA": 0,
+          "reference_gradient_QA_exposures": 0,
+          "projection_flagged_updates": 0,
+          "negative_reference_dot_updates": 0,
+          "logged_positive_penalty_updates": 0,
+          "all_update_losses": [
+            0.6169258952140808,
+            1.0164845287799835,
+            1.1490896940231323,
+            2.0604999661445618
+          ],
+          "all_logged_preclip_norms": [
+            23.655725479125977,
+            13.857909202575684,
+            19.876022338867188,
+            24.894105911254883
+          ],
+          "actual_four_update_parameter_displacement_L2": 0.17343980343624485,
+          "actual_four_update_BA_displacement_Frobenius": 0.2427123571845085
+        },
+        {
+          "stage": 5,
+          "task": 4,
+          "first_raw_pre_intervention_gradient_L2": 8.325648781573724,
+          "target_QA_exposures": 8,
+          "replay_QA_exposures": 0,
+          "Fisher_QA": 0,
+          "reference_gradient_QA_exposures": 0,
+          "projection_flagged_updates": 0,
+          "negative_reference_dot_updates": 0,
+          "logged_positive_penalty_updates": 0,
+          "all_update_losses": [
+            0.2136287484318018,
+            0.8048162162303925,
+            0.9622271358966827,
+            1.8235939741134644
+          ],
+          "all_logged_preclip_norms": [
+            8.32564926147461,
+            11.551430702209473,
+            15.23829174041748,
+            26.833044052124023
+          ],
+          "actual_four_update_parameter_displacement_L2": 0.16811279528979103,
+          "actual_four_update_BA_displacement_Frobenius": 0.22958654678667725
+        }
+      ]
+    },
+    {
+      "case": "T04_repeat_anchor__ER_LoRA",
+      "anchor": 4,
+      "sequence": "repeat_anchor",
+      "method": "ER_LoRA",
+      "run": "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__ER_LoRA/20261017_220301",
+      "anchor_F1_stage1": 19.375,
+      "anchor_F1_stage5": 25.0,
+      "anchor_F1_change_pp": 5.625,
+      "current_task_F1_stage_observation_mean": 23.958333333333332,
+      "current_task_F1_is_not_old_anchor_retention": true,
+      "stages": [
+        {
+          "stage": 1,
+          "task": 4,
+          "first_raw_pre_intervention_gradient_L2": 156.19291315500303,
+          "target_QA_exposures": 8,
+          "replay_QA_exposures": 0,
+          "Fisher_QA": 0,
+          "reference_gradient_QA_exposures": 0,
+          "projection_flagged_updates": 0,
+          "negative_reference_dot_updates": 0,
+          "logged_positive_penalty_updates": 0,
+          "all_update_losses": [
+            10.460878849029541,
+            7.335370063781738,
+            8.057741403579712,
+            7.7687578201293945
+          ],
+          "all_logged_preclip_norms": [
+            156.1929168701172,
+            111.69593811035156,
+            78.08799743652344,
+            107.09455108642578
+          ]
+        },
+        {
+          "stage": 2,
+          "task": 4,
+          "first_raw_pre_intervention_gradient_L2": 94.81219178417577,
+          "target_QA_exposures": 8,
+          "replay_QA_exposures": 8,
+          "Fisher_QA": 0,
+          "reference_gradient_QA_exposures": 0,
+          "projection_flagged_updates": 0,
+          "negative_reference_dot_updates": 0,
+          "logged_positive_penalty_updates": 0,
+          "all_update_losses": [
+            5.814994513988495,
+            2.8380296528339386,
+            5.319845974445343,
+            5.407012104988098
+          ],
+          "all_logged_preclip_norms": [
+            94.81218719482422,
+            95.916015625,
+            138.92979431152344,
+            155.29757690429688
+          ],
+          "actual_four_update_parameter_displacement_L2": 0.2304633519823807,
+          "actual_four_update_BA_displacement_Frobenius": 0.2999732041689595
+        },
+        {
+          "stage": 3,
+          "task": 4,
+          "first_raw_pre_intervention_gradient_L2": 76.89021989264026,
+          "target_QA_exposures": 8,
+          "replay_QA_exposures": 8,
+          "Fisher_QA": 0,
+          "reference_gradient_QA_exposures": 0,
+          "projection_flagged_updates": 0,
+          "negative_reference_dot_updates": 0,
+          "logged_positive_penalty_updates": 0,
+          "all_update_losses": [
+            1.7407698556780815,
+            1.7442258894443512,
+            1.1848576366901398,
+            1.4197389706969261
+          ],
+          "all_logged_preclip_norms": [
+            76.89022064208984,
+            49.39810562133789,
+            26.15415382385254,
+            21.829029083251953
+          ],
+          "actual_four_update_parameter_displacement_L2": 0.22438657502472928,
+          "actual_four_update_BA_displacement_Frobenius": 0.2978736981735307
+        },
+        {
+          "stage": 4,
+          "task": 4,
+          "first_raw_pre_intervention_gradient_L2": 26.812248798203495,
+          "target_QA_exposures": 8,
+          "replay_QA_exposures": 8,
+          "Fisher_QA": 0,
+          "reference_gradient_QA_exposures": 0,
+          "projection_flagged_updates": 0,
+          "negative_reference_dot_updates": 0,
+          "logged_positive_penalty_updates": 0,
+          "all_update_losses": [
+            0.9628423675894737,
+            1.5049188882112503,
+            1.299764722585678,
+            1.066920893266797
+          ],
+          "all_logged_preclip_norms": [
+            26.8122501373291,
+            13.722902297973633,
+            15.742639541625977,
+            14.331290245056152
+          ],
+          "actual_four_update_parameter_displacement_L2": 0.205208466147328,
+          "actual_four_update_BA_displacement_Frobenius": 0.29330646541384475
+        },
+        {
+          "stage": 5,
+          "task": 4,
+          "first_raw_pre_intervention_gradient_L2": 6.816555865730649,
+          "target_QA_exposures": 8,
+          "replay_QA_exposures": 8,
+          "Fisher_QA": 0,
+          "reference_gradient_QA_exposures": 0,
+          "projection_flagged_updates": 0,
+          "negative_reference_dot_updates": 0,
+          "logged_positive_penalty_updates": 0,
+          "all_update_losses": [
+            0.4260041508823633,
+            0.61666414514184,
+            0.8033821620047092,
+            0.6216852474026382
+          ],
+          "all_logged_preclip_norms": [
+            6.816555976867676,
+            18.005155563354492,
+            12.13253116607666,
+            14.25767993927002
+          ],
+          "actual_four_update_parameter_displacement_L2": 0.19753061202062427,
+          "actual_four_update_BA_displacement_Frobenius": 0.2673225973167055
+        }
+      ]
+    },
+    {
+      "case": "T04_repeat_anchor__EWC_lambda1",
+      "anchor": 4,
+      "sequence": "repeat_anchor",
+      "method": "EWC_lambda1",
+      "run": "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda1/20261017_220557",
+      "anchor_F1_stage1": 19.375,
+      "anchor_F1_stage5": 27.083333333333332,
+      "anchor_F1_change_pp": 7.708333333333332,
+      "current_task_F1_stage_observation_mean": 23.958333333333332,
+      "current_task_F1_is_not_old_anchor_retention": true,
+      "stages": [
+        {
+          "stage": 1,
+          "task": 4,
+          "first_raw_pre_intervention_gradient_L2": 156.19291315500303,
+          "target_QA_exposures": 8,
+          "replay_QA_exposures": 0,
+          "Fisher_QA": 4,
+          "reference_gradient_QA_exposures": 0,
+          "projection_flagged_updates": 0,
+          "negative_reference_dot_updates": 0,
+          "logged_positive_penalty_updates": 0,
+          "all_update_losses": [
+            10.460878849029541,
+            7.335370063781738,
+            8.057741403579712,
+            7.7687578201293945
+          ],
+          "all_logged_preclip_norms": [
+            156.1929168701172,
+            111.69593811035156,
+            78.08799743652344,
+            107.09455108642578
+          ]
+        },
+        {
+          "stage": 2,
+          "task": 4,
+          "first_raw_pre_intervention_gradient_L2": 118.43560088839938,
+          "target_QA_exposures": 8,
+          "replay_QA_exposures": 0,
+          "Fisher_QA": 4,
+          "reference_gradient_QA_exposures": 0,
+          "projection_flagged_updates": 0,
+          "negative_reference_dot_updates": 0,
+          "logged_positive_penalty_updates": 3,
+          "all_update_losses": [
+            5.874033093452454,
+            3.7881481647491455,
+            4.818504571914673,
+            6.220992088317871
+          ],
+          "all_logged_preclip_norms": [
+            118.43560028076172,
+            86.63287353515625,
+            151.97549438476562,
+            133.3531036376953
+          ],
+          "actual_four_update_parameter_displacement_L2": 0.2135249790167285,
+          "actual_four_update_BA_displacement_Frobenius": 0.27118293541518035,
+          "EWC_first_latest_term_gradient_L2": 0.0,
+          "EWC_first_all_terms_gradient_L2_FP64": 0.0,
+          "EWC_gradient_is_reconstructed_from_own_weights_and_Fisher": true
+        },
+        {
+          "stage": 3,
+          "task": 4,
+          "first_raw_pre_intervention_gradient_L2": 86.28709975475445,
+          "target_QA_exposures": 8,
+          "replay_QA_exposures": 0,
+          "Fisher_QA": 4,
+          "reference_gradient_QA_exposures": 0,
+          "projection_flagged_updates": 0,
+          "negative_reference_dot_updates": 0,
+          "logged_positive_penalty_updates": 4,
+          "all_update_losses": [
+            2.1553433388471603,
+            1.5940986275672913,
+            1.757812738418579,
+            2.562688648700714
+          ],
+          "all_logged_preclip_norms": [
+            86.28710174560547,
+            38.0321044921875,
+            45.53968811035156,
+            40.35254669189453
+          ],
+          "actual_four_update_parameter_displacement_L2": 0.20704697664736235,
+          "actual_four_update_BA_displacement_Frobenius": 0.26782071719175127,
+          "EWC_first_latest_term_gradient_L2": 0.0,
+          "EWC_first_all_terms_gradient_L2_FP64": 0.07891985348644219,
+          "EWC_gradient_is_reconstructed_from_own_weights_and_Fisher": true
+        },
+        {
+          "stage": 4,
+          "task": 4,
+          "first_raw_pre_intervention_gradient_L2": 24.399525268421748,
+          "target_QA_exposures": 8,
+          "replay_QA_exposures": 0,
+          "Fisher_QA": 4,
+          "reference_gradient_QA_exposures": 0,
+          "projection_flagged_updates": 0,
+          "negative_reference_dot_updates": 0,
+          "logged_positive_penalty_updates": 4,
+          "all_update_losses": [
+            0.6249722540378571,
+            1.0361744165420532,
+            1.1458289623260498,
+            2.072251856327057
+          ],
+          "all_logged_preclip_norms": [
+            24.399526596069336,
+            13.951920509338379,
+            19.637807846069336,
+            24.943008422851562
+          ],
+          "actual_four_update_parameter_displacement_L2": 0.17281889878884976,
+          "actual_four_update_BA_displacement_Frobenius": 0.24187193772890297,
+          "EWC_first_latest_term_gradient_L2": 0.0,
+          "EWC_first_all_terms_gradient_L2_FP64": 0.1746621706511666,
+          "EWC_gradient_is_reconstructed_from_own_weights_and_Fisher": true
+        },
+        {
+          "stage": 5,
+          "task": 4,
+          "first_raw_pre_intervention_gradient_L2": 8.442113756575553,
+          "target_QA_exposures": 8,
+          "replay_QA_exposures": 0,
+          "Fisher_QA": 4,
+          "reference_gradient_QA_exposures": 0,
+          "projection_flagged_updates": 0,
+          "negative_reference_dot_updates": 0,
+          "logged_positive_penalty_updates": 4,
+          "all_update_losses": [
+            0.2164129875600338,
+            0.8041864931583405,
+            0.9623885303735733,
+            1.7985876202583313
+          ],
+          "all_logged_preclip_norms": [
+            8.442113876342773,
+            11.515110969543457,
+            15.096364974975586,
+            26.538166046142578
+          ],
+          "actual_four_update_parameter_displacement_L2": 0.1673910377299946,
+          "actual_four_update_BA_displacement_Frobenius": 0.2291342348945021,
+          "EWC_first_latest_term_gradient_L2": 0.0,
+          "EWC_first_all_terms_gradient_L2_FP64": 0.21029670302004658,
+          "EWC_gradient_is_reconstructed_from_own_weights_and_Fisher": true
+        }
+      ]
+    },
+    {
+      "case": "T04_repeat_anchor__EWC_lambda100",
+      "anchor": 4,
+      "sequence": "repeat_anchor",
+      "method": "EWC_lambda100",
+      "run": "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda100/20261017_220849",
+      "anchor_F1_stage1": 19.375,
+      "anchor_F1_stage5": 23.958333333333332,
+      "anchor_F1_change_pp": 4.583333333333332,
+      "current_task_F1_stage_observation_mean": 22.916666666666664,
+      "current_task_F1_is_not_old_anchor_retention": true,
+      "stages": [
+        {
+          "stage": 1,
+          "task": 4,
+          "first_raw_pre_intervention_gradient_L2": 156.19291315500303,
+          "target_QA_exposures": 8,
+          "replay_QA_exposures": 0,
+          "Fisher_QA": 4,
+          "reference_gradient_QA_exposures": 0,
+          "projection_flagged_updates": 0,
+          "negative_reference_dot_updates": 0,
+          "logged_positive_penalty_updates": 0,
+          "all_update_losses": [
+            10.460878849029541,
+            7.335370063781738,
+            8.057741403579712,
+            7.7687578201293945
+          ],
+          "all_logged_preclip_norms": [
+            156.1929168701172,
+            111.69593811035156,
+            78.08799743652344,
+            107.09455108642578
+          ]
+        },
+        {
+          "stage": 2,
+          "task": 4,
+          "first_raw_pre_intervention_gradient_L2": 118.43560088839938,
+          "target_QA_exposures": 8,
+          "replay_QA_exposures": 0,
+          "Fisher_QA": 4,
+          "reference_gradient_QA_exposures": 0,
+          "projection_flagged_updates": 0,
+          "negative_reference_dot_updates": 0,
+          "logged_positive_penalty_updates": 3,
+          "all_update_losses": [
+            5.874033093452454,
+            3.7881481647491455,
+            4.711061716079712,
+            6.09372878074646
+          ],
+          "all_logged_preclip_norms": [
+            118.43560028076172,
+            85.98107147216797,
+            143.35671997070312,
+            141.7859649658203
+          ],
+          "actual_four_update_parameter_displacement_L2": 0.2134018490316763,
+          "actual_four_update_BA_displacement_Frobenius": 0.2709441219627883,
+          "EWC_first_latest_term_gradient_L2": 0.0,
+          "EWC_first_all_terms_gradient_L2_FP64": 0.0,
+          "EWC_gradient_is_reconstructed_from_own_weights_and_Fisher": true
+        },
+        {
+          "stage": 3,
+          "task": 4,
+          "first_raw_pre_intervention_gradient_L2": 87.41624197428533,
+          "target_QA_exposures": 8,
+          "replay_QA_exposures": 0,
+          "Fisher_QA": 4,
+          "reference_gradient_QA_exposures": 0,
+          "projection_flagged_updates": 0,
+          "negative_reference_dot_updates": 0,
+          "logged_positive_penalty_updates": 4,
+          "all_update_losses": [
+            2.1074146926403046,
+            1.6264891624450684,
+            1.741701900959015,
+            2.5590317845344543
+          ],
+          "all_logged_preclip_norms": [
+            87.41624450683594,
+            35.99601364135742,
+            40.64725112915039,
+            35.759971618652344
+          ],
+          "actual_four_update_parameter_displacement_L2": 0.20662563004602244,
+          "actual_four_update_BA_displacement_Frobenius": 0.2652844070043021,
+          "EWC_first_latest_term_gradient_L2": 0.0,
+          "EWC_first_all_terms_gradient_L2_FP64": 7.761191074609333,
+          "EWC_gradient_is_reconstructed_from_own_weights_and_Fisher": true
+        },
+        {
+          "stage": 4,
+          "task": 4,
+          "first_raw_pre_intervention_gradient_L2": 29.527466819201848,
+          "target_QA_exposures": 8,
+          "replay_QA_exposures": 0,
+          "Fisher_QA": 4,
+          "reference_gradient_QA_exposures": 0,
+          "projection_flagged_updates": 0,
+          "negative_reference_dot_updates": 0,
+          "logged_positive_penalty_updates": 4,
+          "all_update_losses": [
+            0.6015407145023346,
+            1.0682855546474457,
+            1.2534977197647095,
+            2.1943199634552
+          ],
+          "all_logged_preclip_norms": [
+            29.527467727661133,
+            15.640973091125488,
+            24.772550582885742,
+            31.547563552856445
+          ],
+          "actual_four_update_parameter_displacement_L2": 0.16851614643713766,
+          "actual_four_update_BA_displacement_Frobenius": 0.23342101996158476,
+          "EWC_first_latest_term_gradient_L2": 0.0,
+          "EWC_first_all_terms_gradient_L2_FP64": 14.438722478507422,
+          "EWC_gradient_is_reconstructed_from_own_weights_and_Fisher": true
+        },
+        {
+          "stage": 5,
+          "task": 4,
+          "first_raw_pre_intervention_gradient_L2": 13.427699976365256,
+          "target_QA_exposures": 8,
+          "replay_QA_exposures": 0,
+          "Fisher_QA": 4,
+          "reference_gradient_QA_exposures": 0,
+          "projection_flagged_updates": 0,
+          "negative_reference_dot_updates": 0,
+          "logged_positive_penalty_updates": 4,
+          "all_update_losses": [
+            0.2227559369057417,
+            0.8423989713191986,
+            1.0869504809379578,
+            1.9493597149848938
+          ],
+          "all_logged_preclip_norms": [
+            13.42770004272461,
+            12.650314331054688,
+            23.178367614746094,
+            29.86829948425293
+          ],
+          "actual_four_update_parameter_displacement_L2": 0.17504055446133848,
+          "actual_four_update_BA_displacement_Frobenius": 0.22227910173821835,
+          "EWC_first_latest_term_gradient_L2": 0.0,
+          "EWC_first_all_terms_gradient_L2_FP64": 8.887616491598845,
+          "EWC_gradient_is_reconstructed_from_own_weights_and_Fisher": true
+        }
+      ]
+    },
+    {
+      "case": "T04_repeat_anchor__anchor_gradient_noop",
+      "anchor": 4,
+      "sequence": "repeat_anchor",
+      "method": "anchor_gradient_noop",
+      "run": "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__anchor_gradient_noop/20261017_221132",
+      "anchor_F1_stage1": 19.375,
+      "anchor_F1_stage5": 27.604166666666664,
+      "anchor_F1_change_pp": 8.229166666666664,
+      "current_task_F1_stage_observation_mean": 22.5,
+      "current_task_F1_is_not_old_anchor_retention": true,
+      "stages": [
+        {
+          "stage": 1,
+          "task": 4,
+          "first_raw_pre_intervention_gradient_L2": 156.19291315500303,
+          "target_QA_exposures": 8,
+          "replay_QA_exposures": 0,
+          "Fisher_QA": 0,
+          "reference_gradient_QA_exposures": 0,
+          "projection_flagged_updates": 0,
+          "negative_reference_dot_updates": 0,
+          "logged_positive_penalty_updates": 0,
+          "all_update_losses": [
+            10.460878849029541,
+            7.335370063781738,
+            8.057741403579712,
+            7.7687578201293945
+          ],
+          "all_logged_preclip_norms": [
+            156.1929168701172,
+            111.69593811035156,
+            78.08799743652344,
+            107.09455108642578
+          ]
+        },
+        {
+          "stage": 2,
+          "task": 4,
+          "first_raw_pre_intervention_gradient_L2": 118.43560088839938,
+          "target_QA_exposures": 8,
+          "replay_QA_exposures": 0,
+          "Fisher_QA": 0,
+          "reference_gradient_QA_exposures": 32,
+          "projection_flagged_updates": 0,
+          "negative_reference_dot_updates": 0,
+          "logged_positive_penalty_updates": 0,
+          "all_update_losses": [
+            5.874033093452454,
+            3.7881481647491455,
+            4.840017318725586,
+            6.052880764007568
+          ],
+          "all_logged_preclip_norms": [
+            118.43560028076172,
+            86.63977813720703,
+            155.69677734375,
+            144.6195831298828
+          ],
+          "actual_four_update_parameter_displacement_L2": 0.21410050855367943,
+          "actual_four_update_BA_displacement_Frobenius": 0.27213882955097174,
+          "first_raw_new_old_gradient_cosine": 0.7756634560816468,
+          "reference_gradient_is_own_anchor_TRAIN_not_EWC_gradient": true
+        },
+        {
+          "stage": 3,
+          "task": 4,
+          "first_raw_pre_intervention_gradient_L2": 87.67855009542507,
+          "target_QA_exposures": 8,
+          "replay_QA_exposures": 0,
+          "Fisher_QA": 0,
+          "reference_gradient_QA_exposures": 32,
+          "projection_flagged_updates": 0,
+          "negative_reference_dot_updates": 0,
+          "logged_positive_penalty_updates": 0,
+          "all_update_losses": [
+            2.11930138617754,
+            1.6008256077766418,
+            1.7435616254806519,
+            2.548760175704956
+          ],
+          "all_logged_preclip_norms": [
+            87.67855072021484,
+            37.559574127197266,
+            45.64284896850586,
+            39.491024017333984
+          ],
+          "actual_four_update_parameter_displacement_L2": 0.20646587414492548,
+          "actual_four_update_BA_displacement_Frobenius": 0.2673986689371448,
+          "first_raw_new_old_gradient_cosine": 0.8619270842769704,
+          "reference_gradient_is_own_anchor_TRAIN_not_EWC_gradient": true
+        },
+        {
+          "stage": 4,
+          "task": 4,
+          "first_raw_pre_intervention_gradient_L2": 23.65572679199781,
+          "target_QA_exposures": 8,
+          "replay_QA_exposures": 0,
+          "Fisher_QA": 0,
+          "reference_gradient_QA_exposures": 32,
+          "projection_flagged_updates": 0,
+          "negative_reference_dot_updates": 0,
+          "logged_positive_penalty_updates": 0,
+          "all_update_losses": [
+            0.6169258952140808,
+            1.0164845287799835,
+            1.1490896940231323,
+            2.0604999661445618
+          ],
+          "all_logged_preclip_norms": [
+            23.655725479125977,
+            13.857909202575684,
+            19.876022338867188,
+            24.894105911254883
+          ],
+          "actual_four_update_parameter_displacement_L2": 0.17343980343624485,
+          "actual_four_update_BA_displacement_Frobenius": 0.2427123571845085,
+          "first_raw_new_old_gradient_cosine": 0.584853720711643,
+          "reference_gradient_is_own_anchor_TRAIN_not_EWC_gradient": true
+        },
+        {
+          "stage": 5,
+          "task": 4,
+          "first_raw_pre_intervention_gradient_L2": 8.325648781573724,
+          "target_QA_exposures": 8,
+          "replay_QA_exposures": 0,
+          "Fisher_QA": 0,
+          "reference_gradient_QA_exposures": 32,
+          "projection_flagged_updates": 0,
+          "negative_reference_dot_updates": 0,
+          "logged_positive_penalty_updates": 0,
+          "all_update_losses": [
+            0.2136287484318018,
+            0.8048162162303925,
+            0.9622271358966827,
+            1.8235939741134644
+          ],
+          "all_logged_preclip_norms": [
+            8.32564926147461,
+            11.551430702209473,
+            15.23829174041748,
+            26.833044052124023
+          ],
+          "actual_four_update_parameter_displacement_L2": 0.16811279528979103,
+          "actual_four_update_BA_displacement_Frobenius": 0.22958654678667725,
+          "first_raw_new_old_gradient_cosine": 0.3210417980201742,
+          "reference_gradient_is_own_anchor_TRAIN_not_EWC_gradient": true
+        }
+      ]
+    }
+  ],
+  "complete_cases": 5,
+  "planned_cases": 48,
+  "method_pairs": [
+    {
+      "anchor": 4,
+      "sequence": "repeat_anchor",
+      "method": "ER_LoRA",
+      "stage2_first_raw_gradient_exact_SeqFT": false,
+      "anchor_F1_difference_vs_SeqFT_pp": -2.6041666666666643,
+      "current_task_F1_difference_vs_SeqFT_pp": 1.4583333333333321,
+      "same_initial_weights_and_outputs": true
+    },
+    {
+      "anchor": 4,
+      "sequence": "repeat_anchor",
+      "method": "EWC_lambda1",
+      "stage2_first_raw_gradient_exact_SeqFT": true,
+      "anchor_F1_difference_vs_SeqFT_pp": -0.5208333333333321,
+      "current_task_F1_difference_vs_SeqFT_pp": 1.4583333333333321,
+      "same_initial_weights_and_outputs": true
+    },
+    {
+      "anchor": 4,
+      "sequence": "repeat_anchor",
+      "method": "EWC_lambda100",
+      "stage2_first_raw_gradient_exact_SeqFT": true,
+      "anchor_F1_difference_vs_SeqFT_pp": -3.645833333333332,
+      "current_task_F1_difference_vs_SeqFT_pp": 0.4166666666666643,
+      "same_initial_weights_and_outputs": true
+    },
+    {
+      "anchor": 4,
+      "sequence": "repeat_anchor",
+      "method": "anchor_gradient_noop",
+      "stage2_first_raw_gradient_exact_SeqFT": true,
+      "anchor_F1_difference_vs_SeqFT_pp": 0.0,
+      "current_task_F1_difference_vs_SeqFT_pp": 0.0,
+      "same_initial_weights_and_outputs": true
+    }
+  ],
+  "source_sha256": {
+    "analysis/onevision_matched_activation_report.py": "ca9cc7368357a5fe1551a42eed65397c211fd563d3db45171e9729fb89a090e8",
+    "analysis/onevision_first_adam_geometry.py": "234b3150a83c0286076341a1a9344537a323bd76304d5e29df7c1190fc360b4b",
+    "analysis/answer_f1.py": "16c59998413d12b820d6f57269f9e1f45ac78e08595d20bf1f4fbc967fd94c4b",
+    "summary/onevision_diagnostics_20261016/matched_task_domain/CPU_PLAN_CHECK.json": "144739ac741f28eb5796ce3644b59773cdd7dc83fe7b0b4114325d2e95d40560",
+    "analysis/onevision_matched_task_domain.py": "ce2d3897ae02b12af376d78840e7a43188f4c6bb0d9dd4de01d3652e6547692f",
+    "analysis/onevision_task_domain_intervention.py": "9b9c413f3505afedb0fc1643f9c88136d8f6e2e66f16716b5f0b9adefb17968d",
+    "analysis/onevision_knowledge_intervention.py": "22512cc63ed0933f0f471f30b07f5707ba8e020c95137811430cdced2c3962a0",
+    "analysis/onevision_research_worker.py": "6db35a572ee8fca5f07e69eb22b36a8eebc40ce28a0b7977aa7b228373b81493",
+    "analysis/onevision_capacity_probe.py": "5319a4ad35dd78db4dbc40ad9d45387a55c17c6c911c74ad46b5680ff76db225",
+    "exp/onevision_diagnostics_20261016/run.py": "cf8ee1ac5af7faa595e05be05e05da5207d9f0596e518f8a8998ae8d3d0d7536",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/manifest.json": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T01_test.jsonl": "14705cad19879bbe9397add2d6871d6892146aee4be3885030700382307cd3bb",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T02_test.jsonl": "c319026d6857ee31722732ce54fd0348e189f0f8aaa574522fdb6623ca3bc572",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T03_test.jsonl": "809a68a36926ba0dab02597b9e4492bcebc2ec394f17103413e13a0e3e072d0b",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T04_test.jsonl": "e5046123567a5d9efe80aae17ed0b141e6261bf80c775f523791ef9022492ba2",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T05_test.jsonl": "7e13f0e2db2a9fb4f66249f152c23c336a566c1e5ccf30c929c2c04710be6264",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T06_test.jsonl": "18f04db0a28b6b0abd9b0f3f5ad7d030151085c47b88213d043752eacad98877",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T07_test.jsonl": "e424c1d3905db42165ad9f525f033045af1e8605e6b1e5848bba82573e54e221",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T08_test.jsonl": "2c3d5bc145141ac44d4a18722169bb421f47d41f1558d04d6da9a3dd365f8a86",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T09_test.jsonl": "3f554ff6047a98566520a39bc9d89ecf0bcf00a29e2e2d1f76bfb2b63097be95",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T10_test.jsonl": "f6c9fcfd7c3b385eb82829ebb478a7db522eecc4a53c33ded2ab8f82ff57e328",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T11_test.jsonl": "48e7b5e4177a001612d6640f6df92cc3621362792dffb0ad762476e562b6b21b",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T12_test.jsonl": "7948cf70e4996ec38532ff680638b8c81710d6e02cceb9589c58cb6403284013",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T13_test.jsonl": "4ca421c2594f1d2a36b749d42526706cc6caca9af05f9908b85d08cf7c9218b4",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T14_test.jsonl": "ff46c370c5b0a545c770e702e7fef159e79f4188c4a657356ca988da4b57866d",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T15_test.jsonl": "6ae35bde45e33788bcd31c99dc9f80a1d9236bd6062a807fd989e2c1fbe426cc",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T16_test.jsonl": "162ba8ad340a9fb898a3a942b3e720e581f23dddfacb70c289f3bd935d869206",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T17_test.jsonl": "f5a8de804f54aba60315eff839f05a0401ff96427920c0cd3112affcc19362e8",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T18_test.jsonl": "48e1bf7b181cf1a5d4c7b9be03e1fa11fe2e26b37ca2f4c8a4f4498ef20c403d",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T19_test.jsonl": "4af47721d341958f26e54744330927a14b5e5f5b8d84489607623b741eddbe2b",
+    "summary/onevision_diagnostics_20261016/matched_task_domain/T04_repeat_anchor__SeqFT_LoRA_complete.json": "3897faad7af4d0bf8b14e04967424414588b8ceb3da79cc68aed6dce6b163d10",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__SeqFT_LoRA/20261017_215632/adapters/stage_01.pt": "fbfc86a7c871a22795bf54922991d098949f413902d35ada2755a5e4422905a9",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__SeqFT_LoRA/20261017_215632/adapters/stage_02.pt": "140d92ead6296856e79bbcbcee531f881885ab7b252e9cb8de89f0832f49e78d",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__SeqFT_LoRA/20261017_215632/adapters/stage_03.pt": "58a0a6e783c19316cc420577f66b291bf7067d23883c2f9edeb0325846f6af5a",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__SeqFT_LoRA/20261017_215632/adapters/stage_04.pt": "4874848e3aca91dc280df282e7bbd6c739feeeb6cbc5ad899e3ec025ceba14f1",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__SeqFT_LoRA/20261017_215632/adapters/stage_05.pt": "f2b0081c9ea82a6a89c348262e6082eb504d6c9375f1ca26f971d4137a27a307",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__SeqFT_LoRA/20261017_215632/stage1_exact_gate.json": "edd6ca13f93a3cfba83bf2e3091e0a08b9c9a5c2de9f6837ac3892e720b66b9a",
+    "summary/onevision_diagnostics_20261016/matched_task_domain/canonical_anchor4.pt": "f2f9b2863b5da87bee4f4c87a9b00f06fc6a5dad006a86268089f743171fdb11",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__SeqFT_LoRA/20261017_215632/evaluations/anchor_after1/anchor_image.jsonl": "ce66e5d9bce7e3edd73c984e8ab99cee65c5cfdf6e2454cbfd3cdebbf7b88f99",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__SeqFT_LoRA/20261017_215632/evaluations/anchor_after5/anchor_image.jsonl": "e384c05a35fd61ba0663c7cef94ea88970fc8765bbb61bf57f92d43190590e6f",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__SeqFT_LoRA/20261017_215632/training/T04_repeat_anchor__SeqFT_LoRA/stage_01.json": "ec7b940280e76cb824078e0806b2d5e36f562546d734c1112b51c9df86d52356",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__SeqFT_LoRA/20261017_215632/raw_step_gradients/T04_repeat_anchor__SeqFT_LoRA/stage_01.pt": "aaddb8898e824157c7c92d63abd1f58556fd9f9a58453c5b255f8c61410b6f35",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__SeqFT_LoRA/20261017_215632/training/T04_repeat_anchor__SeqFT_LoRA/stage_02.json": "fd8246cb6720c94bc9111d3a99090c4b3cce2abf2c0f885dace35f2046efd9a2",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__SeqFT_LoRA/20261017_215632/raw_step_gradients/T04_repeat_anchor__SeqFT_LoRA/stage_02.pt": "4228343b2d1813b59ca7468bdd62b3788750ddd8c3876390508de1ba0b794a43",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__SeqFT_LoRA/20261017_215632/evaluations/plasticity_after2/current_image.jsonl": "2d7f270fc0705b8c212ee1f88c0e1f915740967c23ef938e5ad65dbe073f2064",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__SeqFT_LoRA/20261017_215632/training/T04_repeat_anchor__SeqFT_LoRA/stage_03.json": "af46c4faa680538e62d3976c5b793a48ab6ef01861fea12a434403217cff5ac8",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__SeqFT_LoRA/20261017_215632/raw_step_gradients/T04_repeat_anchor__SeqFT_LoRA/stage_03.pt": "eff6a7854a04aeed755a0d9fdf4b7486f210b0a024b5883ea63e7ebab9a988c1",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__SeqFT_LoRA/20261017_215632/evaluations/plasticity_after3/current_image.jsonl": "4fd1ce8dc7051bca05b8b7ed75a440fe1f40e0b655051108743a9a4e3a20eb90",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__SeqFT_LoRA/20261017_215632/training/T04_repeat_anchor__SeqFT_LoRA/stage_04.json": "2f97ea042247533aa5874969d6eab56984e811c2398d51020a537b95b07ad20e",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__SeqFT_LoRA/20261017_215632/raw_step_gradients/T04_repeat_anchor__SeqFT_LoRA/stage_04.pt": "0fb0b67f3ad8346221e9e41112e7b0a8ba59c43dd68fc74f9ded75a1117b62a0",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__SeqFT_LoRA/20261017_215632/evaluations/plasticity_after4/current_image.jsonl": "cc67ed6c64a1b201ce95753b607e4d43f61db69109088179300b5150555bae29",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__SeqFT_LoRA/20261017_215632/training/T04_repeat_anchor__SeqFT_LoRA/stage_05.json": "227357724a42f31926c0f1b5004b67af9062dce0adae127261748193421cf8dd",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__SeqFT_LoRA/20261017_215632/raw_step_gradients/T04_repeat_anchor__SeqFT_LoRA/stage_05.pt": "dba2603aa8f102a649bbf7ddc710eac85ee9c4edf086a2f2ff885d0f650bcb53",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__SeqFT_LoRA/20261017_215632/evaluations/plasticity_after5/current_image.jsonl": "0a93ffb2062cfbc1998bd6f70c0e30a48cccfd201ed2ce99b38de93340139145",
+    "summary/onevision_diagnostics_20261016/matched_task_domain/T04_repeat_anchor__ER_LoRA_complete.json": "8399754d022cfa4f0cb423ab648ecfe1961b2732cd77ad98428986a686251f61",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__ER_LoRA/20261017_220301/adapters/stage_01.pt": "fbfc86a7c871a22795bf54922991d098949f413902d35ada2755a5e4422905a9",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__ER_LoRA/20261017_220301/adapters/stage_02.pt": "5143fb2c9bc50f5929cd42d96fd3e5e2a9ce3d8b50fd357ef10f945592437763",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__ER_LoRA/20261017_220301/adapters/stage_03.pt": "0f4e35a6f66b238586324403e01cf3aa6edf220401b336ec0122363b6878d35b",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__ER_LoRA/20261017_220301/adapters/stage_04.pt": "bf0b4831fd31be853f31a76299be5d2a1e433460ac4957db6c8ecc2790cecf43",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__ER_LoRA/20261017_220301/adapters/stage_05.pt": "d08691e0f8d8fc6a269d6dbd81083178b7a8d34cf2320be3b5222a62c3d63a95",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__ER_LoRA/20261017_220301/stage1_exact_gate.json": "edd6ca13f93a3cfba83bf2e3091e0a08b9c9a5c2de9f6837ac3892e720b66b9a",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__ER_LoRA/20261017_220301/evaluations/anchor_after1/anchor_image.jsonl": "a86f40128eea88eef83fa1d228b1d7e6fb0153f00a7a762b80a5f705fa036146",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__ER_LoRA/20261017_220301/evaluations/anchor_after5/anchor_image.jsonl": "1bea9ae8f77df12decbfdd87f4a4b9207d2b9eda307c63cd319f0169f0a837bc",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__ER_LoRA/20261017_220301/training/T04_repeat_anchor__ER_LoRA/stage_01.json": "ec7b940280e76cb824078e0806b2d5e36f562546d734c1112b51c9df86d52356",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__ER_LoRA/20261017_220301/raw_step_gradients/T04_repeat_anchor__ER_LoRA/stage_01.pt": "aaddb8898e824157c7c92d63abd1f58556fd9f9a58453c5b255f8c61410b6f35",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__ER_LoRA/20261017_220301/training/T04_repeat_anchor__ER_LoRA/stage_02.json": "ef36d742da84f08ac453d9532c000d944c9a68c3c9c8730eccb78f0b2e2f63ea",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__ER_LoRA/20261017_220301/raw_step_gradients/T04_repeat_anchor__ER_LoRA/stage_02.pt": "c3f26f8187df87712aaada716493c6debbc47b0bcf7fd521cc55616c0d7422f1",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__ER_LoRA/20261017_220301/evaluations/plasticity_after2/current_image.jsonl": "945430b321bb1f3f8e1ef93fa3dbaaebf667d07e2a58e5b7a99c5db312542a89",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__ER_LoRA/20261017_220301/training/T04_repeat_anchor__ER_LoRA/stage_03.json": "6f908ae572cd23ead71ffd74ea7adaac2b8fd0ba06ab51af05494ddbb9c712bd",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__ER_LoRA/20261017_220301/raw_step_gradients/T04_repeat_anchor__ER_LoRA/stage_03.pt": "47d19a8f32173aef39d5b5b1bd24524308be3100ec352ecbfb5ef21fbd376c37",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__ER_LoRA/20261017_220301/evaluations/plasticity_after3/current_image.jsonl": "787c9dcf1a60e27c8137abeba0f452b1ea6f82ee7a5c6bd39d7f51d78f997eb7",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__ER_LoRA/20261017_220301/training/T04_repeat_anchor__ER_LoRA/stage_04.json": "0af27d2062bea1c46b2c414d71b048be2e3d4f27d8e7f4d4dcaa1828db03d677",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__ER_LoRA/20261017_220301/raw_step_gradients/T04_repeat_anchor__ER_LoRA/stage_04.pt": "c261101ab0fed046170755da0d465ae5d056c87c95d183d21672b161bb5b55a5",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__ER_LoRA/20261017_220301/evaluations/plasticity_after4/current_image.jsonl": "ac8b5451befa1e2294636e521a36aea408e869eb8ced4d08a729104b700ac267",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__ER_LoRA/20261017_220301/training/T04_repeat_anchor__ER_LoRA/stage_05.json": "e6e9f61e41395011889dfa0d844295a8e1a0052fa5e954c0f728059469e69b7f",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__ER_LoRA/20261017_220301/raw_step_gradients/T04_repeat_anchor__ER_LoRA/stage_05.pt": "be4bd9090f3b3a3e51fa7d335c6dc475b1bd940ebabb864137ec0220531e687b",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__ER_LoRA/20261017_220301/evaluations/plasticity_after5/current_image.jsonl": "bd38ebd4067fd1b2978b3b31b6b862551c822d2b090c3ec1ef2a40b0152e1263",
+    "summary/onevision_diagnostics_20261016/matched_task_domain/T04_repeat_anchor__EWC_lambda1_complete.json": "51350b78d9cb69aabb98efbc4da050c154ce04ce9ed2e71c25b90efae4fd877a",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda1/20261017_220557/adapters/stage_01.pt": "fbfc86a7c871a22795bf54922991d098949f413902d35ada2755a5e4422905a9",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda1/20261017_220557/adapters/stage_02.pt": "b7e68232b8ea88455f686aa3e1ddba1f64bb011dc307020d147a5936c2d64401",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda1/20261017_220557/adapters/stage_03.pt": "29a68f43ffcb12d924817015e24fa1728c67bdbc013c3f3dafd91bd942e96933",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda1/20261017_220557/adapters/stage_04.pt": "68764ade4cfd29f6ee00e55d324eba48db2ba448ee3a9dd3a12db374f2227e50",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda1/20261017_220557/adapters/stage_05.pt": "91e74b31bc592d04761b2687acb40c637c0af8480661bdf2c7d9f228bce16a34",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda1/20261017_220557/stage1_exact_gate.json": "edd6ca13f93a3cfba83bf2e3091e0a08b9c9a5c2de9f6837ac3892e720b66b9a",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda1/20261017_220557/evaluations/anchor_after1/anchor_image.jsonl": "da9187727923688e2af7d4710b462fed967649c765e3749d90e6e936e411976c",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda1/20261017_220557/evaluations/anchor_after5/anchor_image.jsonl": "45bdd210fe806d4ac7b5f72ae4bdeb51000b01905c7b0d2d7cafd9547f36e10b",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda1/20261017_220557/fishers/stage_01.pt": "332173831f425c7526579fedacd6542479904963a8c8732ba89dc5d77e43d490",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda1/20261017_220557/fishers/stage_02.pt": "ff1ea116fa5bf46794436c102fffbbc6fcc15db728fd05f59227408990d53cff",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda1/20261017_220557/fishers/stage_03.pt": "a5703c78b191f8e39164249ecbeb24f6266c99845d45ef2975597e80a13b14ad",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda1/20261017_220557/fishers/stage_04.pt": "6ee8a0f8731f6edf30ee7ed978c9ed6633dd54b14aca59fc3df95457f310bf9d",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda1/20261017_220557/fishers/stage_05.pt": "dfc0e59aaecd3868e6916892f38972ed9dc24c1942f0c74677ed322f73ecd9be",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda1/20261017_220557/training/T04_repeat_anchor__EWC_lambda1/stage_01.json": "428cc037358c4ce8ec4356b65e31876957c21571ea787e65685688624040f400",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda1/20261017_220557/raw_step_gradients/T04_repeat_anchor__EWC_lambda1/stage_01.pt": "aaddb8898e824157c7c92d63abd1f58556fd9f9a58453c5b255f8c61410b6f35",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda1/20261017_220557/training/T04_repeat_anchor__EWC_lambda1/stage_02.json": "30fc1efb9eac9a8cfb9f91548362708fe0287dfe1918092a43af24eaa81d2f29",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda1/20261017_220557/raw_step_gradients/T04_repeat_anchor__EWC_lambda1/stage_02.pt": "4228343b2d1813b59ca7468bdd62b3788750ddd8c3876390508de1ba0b794a43",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda1/20261017_220557/evaluations/plasticity_after2/current_image.jsonl": "8fd8e4e71d0e412aec813900ab0789b76a27d911c74a14dbfb5569d5dba3e23a",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda1/20261017_220557/training/T04_repeat_anchor__EWC_lambda1/stage_03.json": "528887d9213f776a416fff6679b157e0c663cec0fffa1fe1ab63e6bfcc981ebb",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda1/20261017_220557/raw_step_gradients/T04_repeat_anchor__EWC_lambda1/stage_03.pt": "0d74c727b94ed7eb13249a31d647e47c47ab74ff982082af006b9165d52a410f",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda1/20261017_220557/evaluations/plasticity_after3/current_image.jsonl": "699be63dc77e77eb0351b5f8eb6ed1f45e13eb6aa1847b4331b9bec596026b9d",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda1/20261017_220557/training/T04_repeat_anchor__EWC_lambda1/stage_04.json": "9fb62f52cdf496a374e7177754820c1a0c5c1985f6b95cfba9183c763b904860",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda1/20261017_220557/raw_step_gradients/T04_repeat_anchor__EWC_lambda1/stage_04.pt": "04cb4bc3799c63049d2ba5ef4f15631bc7e9e8209e42b21c6721cd786b709ebb",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda1/20261017_220557/evaluations/plasticity_after4/current_image.jsonl": "fe2f0c1384ac2180a06c5c8b7cd7bc51a6502589cecbbcc406fa83de1b38c7ac",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda1/20261017_220557/training/T04_repeat_anchor__EWC_lambda1/stage_05.json": "16f1e7392c1817d8f2d731294d93b4bb3c776d37350a4b46ce65c72b907abeee",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda1/20261017_220557/raw_step_gradients/T04_repeat_anchor__EWC_lambda1/stage_05.pt": "0408c96cf8d04e49bdb097f2f96d96637fabb6958a44f90b7ff16b6c2eac8344",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda1/20261017_220557/evaluations/plasticity_after5/current_image.jsonl": "ad0bbb6a0c71dad962d3f7404cd9288706b71564de74c5b1e12fa65af5403ac8",
+    "summary/onevision_diagnostics_20261016/matched_task_domain/T04_repeat_anchor__EWC_lambda100_complete.json": "f424dfe9307370842893ab2c92328af21212b8898ef84a4a9c3d813d91185039",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda100/20261017_220849/adapters/stage_01.pt": "fbfc86a7c871a22795bf54922991d098949f413902d35ada2755a5e4422905a9",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda100/20261017_220849/adapters/stage_02.pt": "300228653fafd295b8638510da3ffdf160cd06bec05361c2ab901035e1ae39c2",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda100/20261017_220849/adapters/stage_03.pt": "4d1745bbe224331602f77b4a003196d6c5654641eb36102d10b650e5a54f95f4",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda100/20261017_220849/adapters/stage_04.pt": "8523e56d4a8f6f855a67812c3a1c238b7459a2d5ff05e3e2d47de2502c057c8d",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda100/20261017_220849/adapters/stage_05.pt": "fc75ad2e56f42ea8ea26ecf908f1b32724e74e33fb8398f32011701a9d3ec015",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda100/20261017_220849/stage1_exact_gate.json": "edd6ca13f93a3cfba83bf2e3091e0a08b9c9a5c2de9f6837ac3892e720b66b9a",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda100/20261017_220849/evaluations/anchor_after1/anchor_image.jsonl": "d3872526fc1074d3f16b5c2bcdfbe2874e2a344072db8eddae9806a2ed96116e",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda100/20261017_220849/evaluations/anchor_after5/anchor_image.jsonl": "6471d7d7b8a53c175a5bc67ec5b7dd3396c030639084c307a6d7e35e5cd5fd71",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda100/20261017_220849/fishers/stage_01.pt": "332173831f425c7526579fedacd6542479904963a8c8732ba89dc5d77e43d490",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda100/20261017_220849/fishers/stage_02.pt": "b4170ee4bd7750595cc76f1a0945596ab60058d7aa2819f913f5847282f4fec5",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda100/20261017_220849/fishers/stage_03.pt": "592e8d5d4bba9cbb8e3dca0bed3532e578ef9bbd6c4b78f38feb76c52c6605e9",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda100/20261017_220849/fishers/stage_04.pt": "89788c730516fed292ff3847ee15d4706fd1799da5ddde9bd2831a34b32bc372",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda100/20261017_220849/fishers/stage_05.pt": "d45f714964589f70688364bc72a4c01ea89cabf9b57e874f8c0dda2206435fe8",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda100/20261017_220849/training/T04_repeat_anchor__EWC_lambda100/stage_01.json": "428cc037358c4ce8ec4356b65e31876957c21571ea787e65685688624040f400",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda100/20261017_220849/raw_step_gradients/T04_repeat_anchor__EWC_lambda100/stage_01.pt": "aaddb8898e824157c7c92d63abd1f58556fd9f9a58453c5b255f8c61410b6f35",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda100/20261017_220849/training/T04_repeat_anchor__EWC_lambda100/stage_02.json": "ef99aa56486df54e07343dc5d885035cad4f9a8f29e60d3df791822012ad2438",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda100/20261017_220849/raw_step_gradients/T04_repeat_anchor__EWC_lambda100/stage_02.pt": "4228343b2d1813b59ca7468bdd62b3788750ddd8c3876390508de1ba0b794a43",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda100/20261017_220849/evaluations/plasticity_after2/current_image.jsonl": "70a7703410f8857a31dd33a0813acf2a441bd3200f6bdd17ccc037e78bea5c5d",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda100/20261017_220849/training/T04_repeat_anchor__EWC_lambda100/stage_03.json": "89a4b50676ca941a4945f4b645cb14cde39efd059c9676abd150d5b188e4809c",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda100/20261017_220849/raw_step_gradients/T04_repeat_anchor__EWC_lambda100/stage_03.pt": "eed8ef33695fb01899b8ba0591e0c78102a5d56fdd74461a541c98253af110fb",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda100/20261017_220849/evaluations/plasticity_after3/current_image.jsonl": "4f56ac46c400a4c8d163ac4c36fb94cec0823a267bcf6498af2e864581fd10f2",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda100/20261017_220849/training/T04_repeat_anchor__EWC_lambda100/stage_04.json": "985f50b4fe842d78665f22292d1e0c65bf72d527436c4e3a4677337195d044e3",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda100/20261017_220849/raw_step_gradients/T04_repeat_anchor__EWC_lambda100/stage_04.pt": "3de01329fec692396ab855c4d66653c2cac4821ee54531583f78c70417ea27a0",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda100/20261017_220849/evaluations/plasticity_after4/current_image.jsonl": "7872c27ac97d624a093e010120125cb88160284b9fb2bc74aaa11b2524c81eb4",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda100/20261017_220849/training/T04_repeat_anchor__EWC_lambda100/stage_05.json": "ba45eacca920aa0b6bc6d6508953de48c47ad31b46417395fc6cb41c500826fb",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda100/20261017_220849/raw_step_gradients/T04_repeat_anchor__EWC_lambda100/stage_05.pt": "f6dc188ed882ad8c943b2f54bab5272168203bb58f013c7d0307e1e388e64012",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__EWC_lambda100/20261017_220849/evaluations/plasticity_after5/current_image.jsonl": "6a53bb9dcb0d63f4ccdea8f0c950da947759006dba8006307a6b6d814c7cd41e",
+    "summary/onevision_diagnostics_20261016/matched_task_domain/T04_repeat_anchor__anchor_gradient_noop_complete.json": "060ee1092574cd75be4e916cdc9f24de683c26b3b4cd59126826cf8e5d66000a",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__anchor_gradient_noop/20261017_221132/adapters/stage_01.pt": "fbfc86a7c871a22795bf54922991d098949f413902d35ada2755a5e4422905a9",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__anchor_gradient_noop/20261017_221132/adapters/stage_02.pt": "140d92ead6296856e79bbcbcee531f881885ab7b252e9cb8de89f0832f49e78d",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__anchor_gradient_noop/20261017_221132/adapters/stage_03.pt": "58a0a6e783c19316cc420577f66b291bf7067d23883c2f9edeb0325846f6af5a",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__anchor_gradient_noop/20261017_221132/adapters/stage_04.pt": "4874848e3aca91dc280df282e7bbd6c739feeeb6cbc5ad899e3ec025ceba14f1",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__anchor_gradient_noop/20261017_221132/adapters/stage_05.pt": "f2b0081c9ea82a6a89c348262e6082eb504d6c9375f1ca26f971d4137a27a307",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__anchor_gradient_noop/20261017_221132/stage1_exact_gate.json": "edd6ca13f93a3cfba83bf2e3091e0a08b9c9a5c2de9f6837ac3892e720b66b9a",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__anchor_gradient_noop/20261017_221132/evaluations/anchor_after1/anchor_image.jsonl": "7f1bc65b46ace621c37917aa3e84aa1b660fcbc38ba2ec6465bc864432e23d2f",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__anchor_gradient_noop/20261017_221132/evaluations/anchor_after5/anchor_image.jsonl": "fd898fe9131c1f07739914c0ed77874ace657940de772d86e77eff2f35cf1140",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__anchor_gradient_noop/20261017_221132/training/T04_repeat_anchor__anchor_gradient_noop/stage_01.json": "ec7b940280e76cb824078e0806b2d5e36f562546d734c1112b51c9df86d52356",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__anchor_gradient_noop/20261017_221132/raw_step_gradients/T04_repeat_anchor__anchor_gradient_noop/stage_01.pt": "aaddb8898e824157c7c92d63abd1f58556fd9f9a58453c5b255f8c61410b6f35",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__anchor_gradient_noop/20261017_221132/training/T04_repeat_anchor__anchor_gradient_noop/stage_02.json": "37bced1fa1b4bb36f4fa8bb5c0127acee912d5b7228d4b9e59e45045f4d35ace",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__anchor_gradient_noop/20261017_221132/raw_step_gradients/T04_repeat_anchor__anchor_gradient_noop/stage_02.pt": "2e714fc7a7053ed5cb8a41fb83cf0eba1635f932af6a5ea98ff21e89f3aa76a0",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__anchor_gradient_noop/20261017_221132/evaluations/plasticity_after2/current_image.jsonl": "9d7b398e0068576403ea2da20ea729ab7fcf221af414620129ab0870dfff878d",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__anchor_gradient_noop/20261017_221132/training/T04_repeat_anchor__anchor_gradient_noop/stage_03.json": "0cadb4853e3c57b66167d8a83330e7d56deacfe221578b7116508769f150c0e6",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__anchor_gradient_noop/20261017_221132/raw_step_gradients/T04_repeat_anchor__anchor_gradient_noop/stage_03.pt": "0956c44559a32ddd474554bf7bdcae090bb7e0b89d1a67753afc76b256f8a389",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__anchor_gradient_noop/20261017_221132/evaluations/plasticity_after3/current_image.jsonl": "58acc313341fb5b33cf5054d855c80b603b76c288361d81b93e9155f35b86f86",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__anchor_gradient_noop/20261017_221132/training/T04_repeat_anchor__anchor_gradient_noop/stage_04.json": "d5a22b11acd2edbb099652a9546b0fefe6dd0a81009cc3c713d8bfebf476909e",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__anchor_gradient_noop/20261017_221132/raw_step_gradients/T04_repeat_anchor__anchor_gradient_noop/stage_04.pt": "2a6181843d6f2a52d9348b12a6da035e6dd8292cbc76151f78d3caeb48f5f083",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__anchor_gradient_noop/20261017_221132/evaluations/plasticity_after4/current_image.jsonl": "87a110c8d031f5f65ca833f3c84d4e6af37e41ed467c87c4d92de6620f9c64be",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__anchor_gradient_noop/20261017_221132/training/T04_repeat_anchor__anchor_gradient_noop/stage_05.json": "5bd9670e6022dfd848ebb25421655173fadaae379d058173cb1007417afa1295",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__anchor_gradient_noop/20261017_221132/raw_step_gradients/T04_repeat_anchor__anchor_gradient_noop/stage_05.pt": "688240462eee14748205c082db85251390ab5375ec0999a345bfa401b0e80db7",
+    "exp/onevision_matched_task_domain_20261017/T04_repeat_anchor__anchor_gradient_noop/20261017_221132/evaluations/plasticity_after5/current_image.jsonl": "3fa4476a76f107ae01ced1f6834ce8eae51713c1f5415d9c9576f83e9f70f558"
+  },
+  "self_checks": {
+    "latest_center_zero_does_not_imply_earlier_terms_zero": true,
+    "CPU_only_no_optimizer_or_TEST_selection": true
+  },
+  "limits": [
+    "Projection counts are logged flags, not a claim that every flag changes final accuracy.",
+    "Only first minibatch raw gradients are stored; other updates have scalar logs, not full raw vectors.",
+    "EWC term reconstructed in FP64 at each run own state; no target-only GPU gradient invented.",
+    "Zero latest penalty does not imply harmful transfer; own first reference cosines may be positive.",
+    "Actual parameter/BA displacement is finite, but its norm does not measure generated learning quantity.",
+    "Two medical anchors and fixed tasks/order/seed; neither pure domain-count nor universal method superiority.",
+    "Current scores are32 stage observations, possibly repeated IDs; anchor test32, not full21454.",
+    "Paired uncertainty and full-anchor SeqFT controls are in the original verified score report; no TEST tuning."
+  ]
+}

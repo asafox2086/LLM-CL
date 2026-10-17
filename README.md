@@ -12,6 +12,8 @@
 
 ## 研究成果：按问题阅读
 
+新增[别人发现了哪些多领域问题](summary/onevision_diagnostics_20261016/LITERATURE_PROBLEMS.md)：10篇正式会议论文，逐篇列问题、对照证据、解决思路与适用边界；他人成果与本实验结论分开。
+
 **统一阅读入口：[问题发现总报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md)。** 12项均按「探究的问题／做的实验／结果／证明了什么／改进的方法／改进的效果」记录，首页区分已证实、被反例否定和未解决；细节按需进入[证据目录](summary/onevision_diagnostics_20261016/README.md)。
 
 | 重点发现 | 实际结果 | 结论边界 |
@@ -21,14 +23,14 @@
 | EWC最新中心首步梯度为0 | 32/32首批；增大λ不能改变该性质 | 后续步/更早中心可生效，未证最终准确率因果 |
 | 记住事实不保证迁移 | 16事实可回忆，目标医学/KG无普遍稳定改善 | 未排除知识不足、覆盖与视觉实体绑定 |
 | 总分掩盖异质性 | 155题22改善/18退化；任务宏平均与领域宏平均方向相反 | 诊断不能替代完整测试 |
-| 两模块是否有效 | 本次核验9/12小原型：T02/T11各四组均返回原更新，暂无收益 | 遥感消融及完整CL仍待运行，未宣称算法提升 |
+| 两模块是否有效 | 12/12原型完成，三任务四组均返回原更新，无新增收益 | 严格48组已启动，完整CL仍待运行，未宣称算法提升 |
 | 低显存增长不等于总资源低 | CPU专家池随容量增加；预热改变前后差 | 常驻总量、纯TRAIN峰值和额外计算均需比较 |
 
 新增[真实参数位移核验](summary/onevision_diagnostics_20261016/first_adam_geometry/VERIFIED_RESULTS.md)：两个同起点医学任务，完整LoRA矩阵余弦0.977，扣除共同旧功能后新增位移余弦0.205；高总相似度不证明新学方向重复。梯度范数相差1.919倍，实际参数位移范数近乎相同，不能直接把梯度大小当学习量或遗忘因果。已知优化器性质与本设置观察分开报告。
 
 原生AnyRes单LoRA控制已完成**21454题**：自然75.917、医学40.943、遥感49.010、金融12.991、交通31.916，19任务AP=41.361；完整FWT/BWT尚缺阶段评测。[完整结果及诊断偏差](summary/onevision_diagnostics_20261016/full_confirmation_evidence/CAP1_COMPLETION.md)。此研究与正式双骨干V2输入协议不同，不混排名。
 
-GPU1接续：余下原型→[严格48组归因](analysis/ONEVISION_MATCHED_TASK_DOMAIN_PROTOCOL.md)→[四组完整19阶段及全测试](summary/onevision_diagnostics_20261016/two_module_fullstream/PROTOCOL.md)→cap3完整确认→稀疏转移。正式基线持续nohup；“最优LoRA数量”“显著方法提升”“优于具体LoRA方法的内存增长”均尚未证明。[自动原型结果](summary/onevision_diagnostics_20261016/two_module_prototype/VERIFIED_PILOT_RESULTS.md)按完成证明更新，不用排队状态冒充结果。
+GPU1当前及接续：12原型已结束→[严格48组归因](analysis/ONEVISION_MATCHED_TASK_DOMAIN_PROTOCOL.md)→[四组完整19阶段及全测试](summary/onevision_diagnostics_20261016/two_module_fullstream/PROTOCOL.md)→cap3完整确认→稀疏转移。正式基线持续nohup；“最优LoRA数量”“显著方法提升”“优于具体LoRA方法的内存增长”均尚未证明。[自动原型结果](summary/onevision_diagnostics_20261016/two_module_prototype/VERIFIED_PILOT_RESULTS.md)按完成证明更新，不用排队状态冒充结果。
 
 ## 方法 × 方向二维表
 
