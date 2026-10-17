@@ -1,3 +1,5 @@
+> 知识格式审计17条件完成：部分原EM收益在固定前缀辅助检查下反转；原事实LoRA严格回忆仍未验证。足量写入控制已排队，仅CPU循环检查通过。见[证据](../../summary/onevision_diagnostics_20261016/KNOWLEDGE_FORMAT_AUDIT.md)和[操作核验协议](../../analysis/ONEVISION_KNOWLEDGE_FIT_PROTOCOL.md)。
+
 > 新证据：固定答案前缀导致原EM归零但存在标签判别；额外训练可使答案全部坍缩为urban。见[只读审计](../../summary/onevision_diagnostics_20261016/ACQUISITION_COLLAPSE_AUDIT.md)。原权重视觉／训练拟合控制已排队，尚无GPU结果。
 
 > 用户最新修订：暂停新方法设计，先做痛点因果诊断；参见[PAINPOINT_FIRST](../../summary/onevision_diagnostics_20261016/PAINPOINT_FIRST.md)。已有全量确认继续作为证据核验。

@@ -1,0 +1,5 @@
+{
+  "pid": 102936,
+  "traceback": "Traceback (most recent call last):\n  File \"/data1/liyapeng/program/LLMCL/analysis/onevision_knowledge_fit_probe.py\", line 209, in <module>\n    try:main()\n  File \"/data1/liyapeng/program/LLMCL/analysis/onevision_knowledge_fit_probe.py\", line 186, in main\n    loop=cpu_loop_check(pool['correct'])\n  File \"/data1/liyapeng/program/LLMCL/analysis/onevision_knowledge_fit_probe.py\", line 90, in cpu_loop_check\n    with contextlib.redirect_stdout(io.StringIO()):Intervention.train_facts(a,'reference',facts,epochs=8)\n  File \"/data1/liyapeng/program/LLMCL/analysis/onevision_knowledge_intervention.py\", line 119, in train_facts\n    loss,details=self.loss(row);assert torch.isfinite(loss);(loss/8).backward();losses.append(float(loss.detach()));tokens+=details['target_tokens']\nKeyError: 'target_tokens'\n",
+  "resolution": "CPU toy loss stub lacked target_tokens required by actual original trainer; added stub field. No GPU/model run occurred; original trainer unchanged."
+}

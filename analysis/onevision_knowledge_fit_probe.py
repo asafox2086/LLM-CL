@@ -1,0 +1,222 @@
+"""Knowledge manipulation check, not a new CL method: fixed8/64 prefixes.
+
+Wait both existing GPU1 queues. Three independent trajectories, no test-based
+budget/rank selection. The existing16-fact pool and original targetQA stay fixed.
+"""
+import os
+os.environ['CUBLAS_WORKSPACE_CONFIG']=':4096:8'
+import argparse,fcntl,hashlib,json,random,subprocess,sys,time,traceback
+from pathlib import Path
+import numpy as np
+import torch
+ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'analysis'))
+from onevision_knowledge_intervention import Intervention,reset_seed
+from onevision_knowledge_encoding_probe import fact_rows
+from onevision_research_worker import atomic_torch,digest
+from onevision_capacity_probe import finish_resources
+from run import freeze,write
+REPORT=ROOT/'summary/onevision_diagnostics_20261016/knowledge_fit'
+CASES=[('rank1_correct',1,'correct'),('rank8_correct',8,'correct'),('rank8_permuted',8,'permuted')]
+
+
+def plan():
+    manifest,data,_,tests,_,_,protocol=freeze()
+    proof=ROOT/'summary/onevision_mechanisms_20261016/knowledge_complete.json';original=json.loads(proof.read_text())
+    old=ROOT/original['run'];ref=json.loads((old/'shared_adapter_reference.json').read_text());shared=ROOT/ref['path']
+    assert digest(shared)==ref['sha256']
+    path=ROOT/'data/OneVisionMechanisms/20261016/knowledge16.json';pool=json.loads(path.read_text())
+    assert digest(path)==original['source_sha256']['knowledge16.json']
+    assert len(pool['correct'])==len(pool['permuted'])==16
+    assert [f['id'] for f in pool['correct']]==[f['id'] for f in pool['permuted']]
+    assert all(a['value']!=b['value'] for a,b in zip(pool['correct'],pool['permuted']))
+    source_paths=[Path(__file__),ROOT/'analysis/onevision_knowledge_intervention.py',ROOT/'analysis/onevision_knowledge_encoding_probe.py',
+                  ROOT/'analysis/onevision_research_worker.py',ROOT/'analysis/onevision_capacity_probe.py',ROOT/'exp/onevision_diagnostics_20261016/run.py']
+    spec={'source_sha256':{str(p.relative_to(ROOT)):digest(p) for p in source_paths},'pool_sha256':digest(path),
+          'shared_adapter_sha256':digest(shared),'manifest_sha256':protocol['source_manifest_sha256'],
+          'cases':CASES,'endpoints':[0,8,64],'updates':64,'epochs':32,'batch_QA':8,'learning_rate':1e-4,'weight_decay':0,
+          'seed':42,'backend':'deterministic default SDPA','prompt':'same original both; no prompt search',
+          'auxiliary_exposures_at8':64,'auxiliary_exposures_at64':1024,
+          'clinical_ids':{'medical':[r['id'] for r in tests['medical']],'medical_KG':[r['id'] for r in data[11,'test']]},
+          'fact_ids':[f['id'] for f in pool['correct']],
+          'scope':'manipulation/budget control; synthetic fact training, not formal1epoch target CL or full21454',
+          'rule':'run all predeclared64 updates; no early stopping or choice using clinical/fact evaluation scores',
+          'negative':'permuted author values are synthetic wrong targets, not factual truths',
+          'memory':'training windows0-8 and8-64 separate; overall peaks also include endpoint inference and checkpoint export'}
+    return manifest,{'medical':tests['medical'],'medical_KG':data[11,'test']},pool,shared,spec
+
+
+def train_rows(facts):
+    return [dict(r,id='external-KG:'+f['id']) for f,r in zip(facts,fact_rows(facts,'training')[:16])]
+
+
+def evaluate_preserving_rng(x,callback):
+    state=(random.getstate(),np.random.get_state(),torch.get_rng_state(),
+           torch.cuda.get_rng_state_all() if torch.cuda.is_initialized() else None)
+    was_training=x.model.training
+    try:x.model.eval();callback()
+    finally:
+        random.setstate(state[0]);np.random.set_state(state[1]);torch.set_rng_state(state[2])
+        if state[3] is not None:torch.cuda.set_rng_state_all(state[3])
+        x.model.train(was_training)
+
+
+def cpu_loop_check(facts):
+    """Actual old/new trainers on the same toy differentiable dropout model.
+
+    Checks16 optimizer updates, including a random-consuming endpoint callback
+    after8. This proves loop/RNG equivalence here, not GPU model learning.
+    """
+    import contextlib,copy,io,tempfile
+    from types import SimpleNamespace
+    assert not torch.cuda.is_initialized()
+    class TinyModel(torch.nn.Module):
+        def __init__(self):
+            super().__init__();self.A=torch.nn.Linear(3,2,bias=False);self.B=torch.nn.Linear(2,1,bias=False)
+            torch.nn.init.zeros_(self.B.weight);self.drop=torch.nn.Dropout(.1)
+        def forward(self,x):return self.B(self.A(self.drop(x)))
+    class Tiny:
+        def __init__(self,model,run):
+            self.model=model;self.run=run;self.monitor=SimpleNamespace(snapshot=lambda *a,**k:None)
+        def loss(self,row):
+            raw=hashlib.sha256(row['question'].encode()).digest();target=hashlib.sha256(row['answer'].encode()).digest()[0]/255
+            x=torch.tensor([v/255 for v in raw[:3]],dtype=torch.float32)
+            return (self.model(x)-target).square().mean(),{'target_tokens':1}
+        def snapshot(self):return {'tiny':{'A':self.model.A.weight.detach().clone(),'B':self.model.B.weight.detach().clone()}}
+    torch.manual_seed(42);model=TinyModel()
+    with tempfile.TemporaryDirectory(prefix='onevision-fit-cpu-') as tmp:
+        root=Path(tmp);a=Tiny(copy.deepcopy(model),root/'old');b=Tiny(copy.deepcopy(model),root/'new');b.run.mkdir()
+        def seed():random.seed(42);np.random.seed(42);torch.manual_seed(42)
+        seed()
+        with contextlib.redirect_stdout(io.StringIO()):Intervention.train_facts(a,'reference',facts,epochs=8)
+        seed()
+        def endpoint(step):random.random();np.random.rand();torch.rand(9)
+        fit(b,facts,b.run,endpoint,steps=16)
+        exact=all(torch.equal(a.model.state_dict()[k],b.model.state_dict()[k]) for k in a.model.state_dict())
+        assert exact and not torch.cuda.is_initialized()
+    return {'actual_old_new_toy_trainer16_updates_exact':True,'random_consuming_callback_after8_preserved':True,'GPU_executed':False}
+
+
+def fit(x,facts,run,endpoint,steps=64):
+    assert steps%2==0
+    rows=train_rows(facts);assert len(rows)==16
+    named=[(n,p) for n,p in x.model.named_parameters() if p.requires_grad]
+    parameters=[p for _,p in named];optimizer=torch.optim.AdamW(parameters,lr=1e-4,weight_decay=0)
+    x.model.train();records=[]
+    x.monitor.snapshot('fit_window_1_before',model=x.model)
+    if torch.cuda.is_initialized():torch.cuda.reset_peak_memory_stats()
+    for epoch in range(steps//2):
+        ordered=sorted(rows,key=lambda r:hashlib.sha256(f"42:{epoch}:{r['id']}".encode()).digest())
+        for offset in [0,8]:
+            step=len(records)+1;optimizer.zero_grad(set_to_none=True);losses=[]
+            for row in ordered[offset:offset+8]:
+                loss,_=x.loss(row);assert torch.isfinite(loss);(loss/8).backward();losses.append(float(loss.detach()))
+            vector=torch.cat([p.grad.detach().float().cpu().flatten() if p.grad is not None else torch.zeros(p.numel()) for _,p in named])
+            grad=torch.nn.utils.clip_grad_norm_(parameters,1.);assert torch.isfinite(grad)
+            optimizer.step();optimizer.zero_grad(set_to_none=True)
+            atomic_torch(run/'raw_gradients'/f'update_{step:02d}.pt',{'preclip_gradient':vector,'layout':[(n,list(p.shape)) for n,p in named],
+                         'TRAIN_fact_ids':[r['id'] for r in ordered[offset:offset+8]],'step':step})
+            record={'step':step,'pre_update_mean_loss':sum(losses)/8,'lr_used':optimizer.param_groups[0]['lr'],
+                    'gradient_L2_preclip':float(grad),'cumulative_auxiliary_QA':step*8}
+            records.append(record)
+            with (run/'training.jsonl').open('a') as f:f.write(json.dumps(record)+'\n');f.flush();os.fsync(f.fileno())
+            if step in [8,steps]:
+                x.monitor.snapshot('fit_window_1_after' if step==8 else 'fit_window_2_after',model=x.model)
+                atomic_torch(run/f'update_{step:02d}.pt',{'adapter':x.snapshot(),'updates':step})
+                evaluate_preserving_rng(x,lambda:endpoint(step))
+                if step<steps:
+                    x.monitor.snapshot('fit_window_2_before',model=x.model)
+                    if torch.cuda.is_initialized():torch.cuda.reset_peak_memory_stats()
+    return records
+
+
+def worker(index):
+    assert os.environ['CUDA_VISIBLE_DEVICES']=='1'
+    manifest,clinical,pool,shared_path,spec=plan();name,rank,kind=CASES[index]
+    pointer=REPORT/(name+'_attempt.json')
+    if pointer.exists():
+        previous=json.loads(pointer.read_text())
+        assert previous['spec']['source_sha256']==spec['source_sha256']
+        write(ROOT/previous['run']/'interrupted_attempt.json',{'incomplete':True,'reason':'fresh restart from shared adapter; no predictions or training state concatenated'})
+        write(REPORT/(name+'_previous_attempt_'+str(time.time_ns())+'.json'),previous)
+    root=ROOT/'exp/onevision_knowledge_fit_20261017'/name/time.strftime('%Y%m%d_%H%M%S');root.mkdir(parents=True)
+    write(root/'protocol.json',spec);write(REPORT/(name+'_attempt.json'),{'run':str(root.relative_to(ROOT)),'spec':spec})
+    torch.set_num_threads(6);torch.use_deterministic_algorithms(True);reset_seed();started=time.time()
+    x=Intervention(manifest,root);x.process_started=started;x.boot_id=Path('/proc/sys/kernel/random/boot_id').read_text().strip();x.prompt('both')
+    shared=torch.load(shared_path,map_location='cpu',weights_only=True)['adapter'];x.configure(shared);x.model.eval()
+    probe=fact_rows(pool['correct'],'relevant_true')[0]
+    with torch.no_grad():reference,_=x.loss(probe,'text')
+    reset_seed();x.configure(shared,rank if rank==1 else None,finetune_shared=rank==8);x.knowledge=None;x.model.eval()
+    with torch.no_grad():actual,_=x.loss(probe,'text')
+    assert abs(float(reference)-float(actual))<.005
+    count=sum(p.numel() for p in x.model.parameters() if p.requires_grad);assert count==(67584 if rank==1 else 540672)
+    write(root/'initial_function_gate.json',{'passed':True,'NLL_error':abs(float(reference)-float(actual)),'trainable_parameters':count,'no_optimizer_updates':True})
+    initial=x.snapshot();atomic_torch(root/'update_00.pt',{'adapter':initial,'updates':0})
+    x.monitor.snapshot('case_before',model=x.model)
+    def endpoint(step):
+        x.knowledge=None
+        for cohort in ['relevant_true','own_target']:
+            facts=pool['correct'] if cohort=='relevant_true' else pool[kind]
+            target=root/'evaluations'/f'update_{step:02d}'/(cohort+'_text.jsonl');target.parent.mkdir(parents=True,exist_ok=True)
+            assert not target.exists()
+            with torch.no_grad(),target.open('w') as stream:
+                for row in fact_rows(facts,cohort):
+                    loss,details=x.loss(row,'text');generated=x.generate(row,'text');assert torch.isfinite(loss)
+                    stream.write(json.dumps({'id':row['id'],'template':row['template'],'reference':row['answer'],'nll':float(loss),
+                                             'cohort':cohort,'synthetic_target':kind=='permuted' and cohort=='own_target',**generated},ensure_ascii=False)+'\n')
+                stream.flush();os.fsync(stream.fileno())
+        # Clinical groups overlap12 QA; original scorer/output retained separately.
+        x.evaluate(f'clinical_update_{step:02d}',clinical,clinical)
+        write(REPORT/'status.json',{'phase':'endpoint_complete','case':name,'updates':step,'pid':os.getpid(),'run':str(root.relative_to(ROOT))})
+    evaluate_preserving_rng(x,lambda:endpoint(0));reset_seed()
+    fit(x,pool[kind],root,endpoint)
+    if rank==1:
+        assert all(torch.equal(old.A.weight.detach().cpu(),shared[k]['A']) and torch.equal(old.B.weight.detach().cpu(),shared[k]['B']) for k,old in x.pristine.items())
+    x.monitor.snapshot('case_after',model=x.model)
+    finish_resources(x,root,'case_before','case_after','auxiliary_training_and_endpoint_inference; window-specific training memory in resources.jsonl')
+    files=[*root.rglob('*.jsonl'),*root.rglob('*.pt'),root/'protocol.json',root/'memory_summary.json',root/'initial_function_gate.json']
+    write(REPORT/(name+'_complete.json'),{'complete':True,'run':str(root.relative_to(ROOT)),'spec':spec,
+          'artifact_sha256':{str(p.relative_to(root)):digest(p) for p in files},'formal_full_test':False})
+
+
+def main():
+    REPORT.mkdir(parents=True,exist_ok=True)
+    parser=argparse.ArgumentParser();parser.add_argument('--case',type=int,choices=range(3));parser.add_argument('--check',action='store_true');args=parser.parse_args()
+    if args.check:
+        _,_,pool,_,spec=plan()
+        for facts in [pool['correct'],pool['permuted']]:
+            assert len(train_rows(facts))==16
+            for epoch in [0,3,31]:
+                a=sorted(train_rows(facts),key=lambda r:hashlib.sha256(f"42:{epoch}:{r['id']}".encode()).digest())
+                b=sorted(['external-KG:'+f['id'] for f in facts],key=lambda q:hashlib.sha256(f'42:{epoch}:{q}'.encode()).digest())
+                assert [r['id'] for r in a]==b
+        loop=cpu_loop_check(pool['correct'])
+        write(REPORT/'CPU_PLAN_CHECK.json',{'passed':True,'GPU_executed':False,'spec':spec,'trainer_loop_check':loop});print('CPU frozen-pool/hash/order/budget and actual old/new toy trainer checks passed');return
+    lock=(REPORT/('coordinator.lock' if args.case is None else f'case{args.case}.lock')).open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+    if (REPORT/'needs_attention.json').exists():return
+    if args.case is not None:worker(args.case);return
+    for index,(name,_,_) in enumerate(CASES):
+        completed=REPORT/(name+'_complete.json')
+        if completed.exists():
+            proof=json.loads(completed.read_text());assert proof['spec']['source_sha256']==plan()[-1]['source_sha256']
+            assert all(digest(ROOT/proof['run']/p)==h for p,h in proof['artifact_sha256'].items())
+            continue
+        while True:
+            owners={u:int(subprocess.check_output(['systemctl','--user','show',u,'-p','MainPID','--value'],text=True).strip() or 0) for u in ['llmcl-onevision-full-repair.service','llmcl-onevision-rural-collapse.service']}
+            pids=subprocess.check_output(['nvidia-smi','--id=1','--query-compute-apps=pid','--format=csv,noheader,nounits'],text=True).strip()
+            used,util=map(int,subprocess.check_output(['nvidia-smi','--id=1','--query-gpu=memory.used,utilization.gpu','--format=csv,noheader,nounits'],text=True).split(','))
+            if not any(owners.values()) and not pids and used<500 and util<10:break
+            write(REPORT/'queue_state.json',{'phase':'waiting_existing_queues_and_idle_GPU1','pid':os.getpid(),'services':owners,'GPU_PIDs':pids.splitlines()});time.sleep(15)
+        with (REPORT/(name+'_nohup.log')).open('a') as log:
+            p=subprocess.Popen(['/usr/bin/nohup',str(ROOT/'.vision-env/bin/python'),'-u',str(Path(__file__)),'--case',str(index)],cwd=ROOT,
+                               env=dict(os.environ,CUDA_VISIBLE_DEVICES='1',PYTHONUNBUFFERED='1'),stdout=log,stderr=subprocess.STDOUT)
+            write(REPORT/'queue_state.json',{'phase':'running','case':name,'pid':os.getpid(),'worker_pid':p.pid});code=p.wait()
+        assert code==0 and (REPORT/(name+'_complete.json')).exists(),'Worker failed; inspect preserved evidence'
+    write(REPORT/'complete.json',{'complete':True,'cases':[name for name,_,_ in CASES],'formal_full_test':False})
+    write(REPORT/'queue_state.json',{'phase':'completed','pid':os.getpid()})
+
+
+if __name__=='__main__':
+    try:main()
+    except BlockingIOError:pass
+    except Exception:
+        REPORT.mkdir(parents=True,exist_ok=True);write(REPORT/'needs_attention.json',{'pid':os.getpid(),'traceback':traceback.format_exc()});raise
