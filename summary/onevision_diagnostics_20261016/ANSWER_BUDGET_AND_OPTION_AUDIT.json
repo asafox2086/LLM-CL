@@ -1,0 +1,2569 @@
+{
+  "CPU_only": true,
+  "answer_budget_statistics": {
+    "natural": {
+      "train": {
+        "QA": 347,
+        "min": 1,
+        "median": 2,
+        "p95": 8,
+        "max": 14,
+        "greater_than_512": 0
+      },
+      "test": {
+        "QA": 5000,
+        "min": 1,
+        "median": 2,
+        "p95": 7,
+        "max": 24,
+        "greater_than_512": 0
+      }
+    },
+    "medical": {
+      "train": {
+        "QA": 99,
+        "min": 1,
+        "median": 2,
+        "p95": 4,
+        "max": 11,
+        "greater_than_512": 0
+      },
+      "test": {
+        "QA": 2094,
+        "min": 1,
+        "median": 1,
+        "p95": 5,
+        "max": 22,
+        "greater_than_512": 0
+      }
+    },
+    "geography": {
+      "train": {
+        "QA": 573,
+        "min": 1,
+        "median": 1,
+        "p95": 2,
+        "max": 4,
+        "greater_than_512": 0
+      },
+      "test": {
+        "QA": 10004,
+        "min": 1,
+        "median": 1,
+        "p95": 3,
+        "max": 5,
+        "greater_than_512": 0
+      }
+    },
+    "finance": {
+      "train": {
+        "QA": 89,
+        "min": 1,
+        "median": 1,
+        "p95": 4,
+        "max": 6,
+        "greater_than_512": 0
+      },
+      "test": {
+        "QA": 2233,
+        "min": 1,
+        "median": 1,
+        "p95": 4,
+        "max": 8,
+        "greater_than_512": 0
+      }
+    },
+    "traffic": {
+      "train": {
+        "QA": 205,
+        "min": 39,
+        "median": 89,
+        "p95": 325,
+        "max": 418,
+        "greater_than_512": 0
+      },
+      "test": {
+        "QA": 2123,
+        "min": 28,
+        "median": 91,
+        "p95": 326,
+        "max": 560,
+        "greater_than_512": 3
+      }
+    }
+  },
+  "original_test_answers_longer_than_loss_and_generation_budget": [
+    {
+      "id": "CODA-LM:Test:Test_general_10",
+      "domain": "traffic",
+      "split": "test",
+      "answer_tokens": 552,
+      "teacher_forced_scored_prefix": 512,
+      "configured_generation_budget": 512
+    },
+    {
+      "id": "CODA-LM:Test:Test_general_234",
+      "domain": "traffic",
+      "split": "test",
+      "answer_tokens": 560,
+      "teacher_forced_scored_prefix": 512,
+      "configured_generation_budget": 512
+    },
+    {
+      "id": "CODA-LM:Test:Test_general_380",
+      "domain": "traffic",
+      "split": "test",
+      "answer_tokens": 515,
+      "teacher_forced_scored_prefix": 512,
+      "configured_generation_budget": 512
+    }
+  ],
+  "deterministic_diagnostic": [
+    {
+      "domain": "natural",
+      "NLL_QA": 100,
+      "NLL_target_truncated": 0,
+      "generated_QA": 10,
+      "EM_correct": 4,
+      "token_F1": 57.38095238095237,
+      "rougeL": 57.38095238095237,
+      "prediction_retokenized_lengths": [
+        1,
+        1,
+        7,
+        8,
+        5,
+        3,
+        4,
+        2,
+        5,
+        2
+      ],
+      "prediction_retokenized_length_reaches_budget": 0,
+      "stop_reason": "Original runner did not retain generated token IDs/EOS reason. Retokenized length is descriptive, not exact proof of stop cause."
+    },
+    {
+      "domain": "medical",
+      "NLL_QA": 100,
+      "NLL_target_truncated": 0,
+      "generated_QA": 73,
+      "EM_correct": 25,
+      "token_F1": 46.057838660578376,
+      "rougeL": 45.60121765601217,
+      "prediction_retokenized_lengths": [
+        1,
+        2,
+        3,
+        1,
+        1,
+        1,
+        4,
+        2,
+        2,
+        1,
+        1,
+        2,
+        1,
+        4,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        4,
+        1,
+        2,
+        2,
+        1,
+        4,
+        1,
+        2
+      ],
+      "prediction_retokenized_length_reaches_budget": 0,
+      "stop_reason": "Original runner did not retain generated token IDs/EOS reason. Retokenized length is descriptive, not exact proof of stop cause."
+    },
+    {
+      "domain": "geography",
+      "NLL_QA": 100,
+      "NLL_target_truncated": 0,
+      "generated_QA": 32,
+      "EM_correct": 15,
+      "token_F1": 46.875,
+      "rougeL": 46.875,
+      "prediction_retokenized_lengths": [
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3,
+        2,
+        1,
+        10,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "prediction_retokenized_length_reaches_budget": 0,
+      "stop_reason": "Original runner did not retain generated token IDs/EOS reason. Retokenized length is descriptive, not exact proof of stop cause."
+    },
+    {
+      "domain": "finance",
+      "NLL_QA": 100,
+      "NLL_target_truncated": 0,
+      "generated_QA": 10,
+      "EM_correct": 3,
+      "token_F1": 30.0,
+      "rougeL": 30.0,
+      "prediction_retokenized_lengths": [
+        4,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "prediction_retokenized_length_reaches_budget": 0,
+      "stop_reason": "Original runner did not retain generated token IDs/EOS reason. Retokenized length is descriptive, not exact proof of stop cause."
+    },
+    {
+      "domain": "traffic",
+      "NLL_QA": 100,
+      "NLL_target_truncated": 0,
+      "generated_QA": 30,
+      "EM_correct": 0,
+      "token_F1": 30.465374358561384,
+      "rougeL": 17.286129108646016,
+      "prediction_retokenized_lengths": [
+        174,
+        137,
+        127,
+        194,
+        140,
+        512,
+        154,
+        133,
+        120,
+        512,
+        87,
+        512,
+        41,
+        38,
+        49,
+        88,
+        117,
+        101,
+        75,
+        72,
+        79,
+        104,
+        115,
+        98,
+        81,
+        104,
+        100,
+        80,
+        99,
+        55
+      ],
+      "prediction_retokenized_length_reaches_budget": 3,
+      "stop_reason": "Original runner did not retain generated token IDs/EOS reason. Retokenized length is descriptive, not exact proof of stop cause."
+    }
+  ],
+  "full_finance": {
+    "QA": 2233,
+    "counts": {
+      "raw_EM_correct": 260,
+      "strict_options_parseable": 1849,
+      "options_not_strictly_parseable": 384,
+      "exact_unique_option_text_outputs": 326,
+      "certified_content_correct_but_letter_EM_wrong": 129,
+      "matched_wrong_or_partial_or_already_correct": 197
+    },
+    "raw_EM_percent": 11.643528884908195,
+    "certified_format_penalty_pp": 5.776981639050605,
+    "certificates": [
+      {
+        "id": "FinMME:10965",
+        "prediction": "23.5",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "23.5%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:3140",
+        "prediction": "INR250.00",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "INR250.00",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:7327",
+        "prediction": "300",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "300",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:7015",
+        "prediction": "367 million CNY",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "367 million CNY",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:1249",
+        "prediction": "5.5",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "5.5%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:963",
+        "prediction": "8.4%",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "8.4%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:7963",
+        "prediction": "SC Lee",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "SC Lee",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:3424",
+        "prediction": "24%",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "24%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:545",
+        "prediction": "2023",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "2023",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:2325",
+        "prediction": "04/22",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "04/22",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:4132",
+        "prediction": "8.9",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "8.9",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:1997",
+        "prediction": "1.6%",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "1.6%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:1280",
+        "prediction": "China",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "China",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:9542",
+        "prediction": "2021/07/01",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "2021/07/01",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:10834",
+        "prediction": "01:22",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "01:22",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:5779",
+        "prediction": "2018",
+        "gold_letter": "C",
+        "matched_option_letter": "C",
+        "option_text": "2018",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:6123",
+        "prediction": "22.8%",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "22.8%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:7573",
+        "prediction": "14.1",
+        "gold_letter": "C",
+        "matched_option_letter": "C",
+        "option_text": "14.1%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:11077",
+        "prediction": "2023/01/01",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "2023/01/01",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:9190",
+        "prediction": "28%",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "28%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:7313",
+        "prediction": "8.2%",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "8.2%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:7687",
+        "prediction": "70",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "70%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:5271",
+        "prediction": "1Q21 to 2Q21",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "1Q21 to 2Q21",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:3906",
+        "prediction": "1000",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "1000",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:4440",
+        "prediction": "60.0",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "60.0",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:8629",
+        "prediction": "4%",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "4%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:9848",
+        "prediction": "CMB",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "CMB",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:8954",
+        "prediction": "8.50",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "8.50%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:9479",
+        "prediction": "50",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "50",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:7682",
+        "prediction": "100%",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "100%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:1828",
+        "prediction": "1,400",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "1,400",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:1674",
+        "prediction": "16.5%",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "16.5%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:10902",
+        "prediction": "Neuland",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "Neuland",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:1243",
+        "prediction": "1.2%",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "1.2%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:5452",
+        "prediction": "32.4",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "32.4%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:1458",
+        "prediction": "63",
+        "gold_letter": "D",
+        "matched_option_letter": "D",
+        "option_text": "63%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:10817",
+        "prediction": "Bajaj Consumer",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "Bajaj Consumer",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:8129",
+        "prediction": "18.0%",
+        "gold_letter": "C",
+        "matched_option_letter": "C",
+        "option_text": "18.0%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:6545",
+        "prediction": "Social Media",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "Social Media",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:4212",
+        "prediction": "2007",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "2007",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:2014",
+        "prediction": "Topsec",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "Topsec",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:5165",
+        "prediction": "3Q23",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "3Q23",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:8791",
+        "prediction": "36",
+        "gold_letter": "C",
+        "matched_option_letter": "C",
+        "option_text": "36",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:10537",
+        "prediction": "0.50",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "0.50%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:9398",
+        "prediction": "47.6",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "47.6%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:8071",
+        "prediction": "2QFY23",
+        "gold_letter": "D",
+        "matched_option_letter": "D",
+        "option_text": "2QFY23",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:4399",
+        "prediction": "2017",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "2017",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:9897",
+        "prediction": "1QFY21",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "1QFY21",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:8552",
+        "prediction": "13.6",
+        "gold_letter": "C",
+        "matched_option_letter": "C",
+        "option_text": "13.6%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:3688",
+        "prediction": "2,800 USD mm",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "2,800 USD mm",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:1628",
+        "prediction": "01:21",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "01:21",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:6827",
+        "prediction": "-0.8%",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "-0.8%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:8101",
+        "prediction": "150.0 HKD",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "150.0 HKD",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:9958",
+        "prediction": "2023/07/01",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "2023/07/01",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:2026",
+        "prediction": "26.0%",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "26.0%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:5188",
+        "prediction": "Cognizant",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "Cognizant",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:4914",
+        "prediction": "0.35",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "0.35",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:621",
+        "prediction": "1.8",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "1.8",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:6976",
+        "prediction": "0.04%",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "0.04%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:9869",
+        "prediction": "1970",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "1970",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:8471",
+        "prediction": "EU Manufacturing PMI New Orders/Inventory",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "EU Manufacturing PMI New Orders/Inventory",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:2867",
+        "prediction": "50",
+        "gold_letter": "C",
+        "matched_option_letter": "C",
+        "option_text": "50%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:9751",
+        "prediction": "2015",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "2015",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:10101",
+        "prediction": "0",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "0",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:6593",
+        "prediction": "16.1",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "16.1%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:4881",
+        "prediction": "0.8%",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "0.8%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:6070",
+        "prediction": "2.4",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "2.4%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:3909",
+        "prediction": "5%",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "5%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:2202",
+        "prediction": "10.5",
+        "gold_letter": "C",
+        "matched_option_letter": "C",
+        "option_text": "10.5%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:602",
+        "prediction": "7.5%",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "7.5%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:10664",
+        "prediction": "2.9",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "2.9%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:481",
+        "prediction": "80.0",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "80.0",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:5956",
+        "prediction": "0.34",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "0.34",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:4694",
+        "prediction": "Norway",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "Norway",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:413",
+        "prediction": "2010",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "2010",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:5456",
+        "prediction": "2013",
+        "gold_letter": "C",
+        "matched_option_letter": "C",
+        "option_text": "2013",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:5673",
+        "prediction": "63.8",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "63.8%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:6793",
+        "prediction": "2022/07/01",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "2022/07/01",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:9078",
+        "prediction": "2QFY21",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "2QFY21",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:9431",
+        "prediction": "62.0 million",
+        "gold_letter": "C",
+        "matched_option_letter": "C",
+        "option_text": "62.0 million",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:6139",
+        "prediction": "65.5%",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "65.5%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:8880",
+        "prediction": "11",
+        "gold_letter": "C",
+        "matched_option_letter": "C",
+        "option_text": "11",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:9588",
+        "prediction": "30%",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "30%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:4457",
+        "prediction": "TWD2,500",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "TWD2,500",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:174",
+        "prediction": "18%",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "18%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:8579",
+        "prediction": "2.1%",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "2.1%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:9581",
+        "prediction": "10.8",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "10.8%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:2446",
+        "prediction": "PAB",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "PAB",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:2042",
+        "prediction": "2013",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "2013",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:3943",
+        "prediction": "59.5%",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "59.5%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:4757",
+        "prediction": "16%",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "16%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:2538",
+        "prediction": "15",
+        "gold_letter": "C",
+        "matched_option_letter": "C",
+        "option_text": "15",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:10631",
+        "prediction": "Australia",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "Australia",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:5846",
+        "prediction": "2004",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "2004",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:1603",
+        "prediction": "5.31%",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "5.31%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:5342",
+        "prediction": "2021/07/01",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "2021/07/01",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:9990",
+        "prediction": "17",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "17%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:4307",
+        "prediction": "red",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "Red",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:5726",
+        "prediction": "100",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "100",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:2694",
+        "prediction": "2-year yield",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "2-year yield",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:4471",
+        "prediction": "2019",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "2019",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:4423",
+        "prediction": "Aena",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "Aena",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:1048",
+        "prediction": "32",
+        "gold_letter": "D",
+        "matched_option_letter": "D",
+        "option_text": "32",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:3732",
+        "prediction": "38",
+        "gold_letter": "C",
+        "matched_option_letter": "C",
+        "option_text": "38%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:8860",
+        "prediction": "5",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "5%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:8447",
+        "prediction": "2000",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "2000",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:6161",
+        "prediction": "2022",
+        "gold_letter": "C",
+        "matched_option_letter": "C",
+        "option_text": "2022",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:10557",
+        "prediction": "Steel scrap recycling",
+        "gold_letter": "C",
+        "matched_option_letter": "C",
+        "option_text": "Steel scrap recycling",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:7715",
+        "prediction": "BNP Paribas Data Surprise Index",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "BNP Paribas Data Surprise Index",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:1331",
+        "prediction": "CREDAG",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "CREDAG",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:10075",
+        "prediction": "11.7",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "11.7",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:1895",
+        "prediction": "FY20",
+        "gold_letter": "C",
+        "matched_option_letter": "C",
+        "option_text": "FY20",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:7501",
+        "prediction": "31.8%",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "31.8%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:9023",
+        "prediction": "2.6%",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "2.6%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:8091",
+        "prediction": "KRW tn",
+        "gold_letter": "D",
+        "matched_option_letter": "D",
+        "option_text": "KRW tn",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:5804",
+        "prediction": "0.79x",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "0.79x",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:1572",
+        "prediction": "7.8%",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "7.8%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:5818",
+        "prediction": "35",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "35%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:10735",
+        "prediction": "155",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "155",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:7173",
+        "prediction": "15%",
+        "gold_letter": "C",
+        "matched_option_letter": "C",
+        "option_text": "15%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:8048",
+        "prediction": "72%",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "72%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:9983",
+        "prediction": "17.1%",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "17.1%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:8693",
+        "prediction": "41%",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "41%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:10937",
+        "prediction": "12/6/2023",
+        "gold_letter": "B",
+        "matched_option_letter": "B",
+        "option_text": "12/6/2023",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:10948",
+        "prediction": "2015",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "2015",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:351",
+        "prediction": "Strong earnings recovery",
+        "gold_letter": "C",
+        "matched_option_letter": "C",
+        "option_text": "Strong earnings recovery",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:720",
+        "prediction": "1991",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "1991",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:10520",
+        "prediction": "72%",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "72%",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      },
+      {
+        "id": "FinMME:6469",
+        "prediction": "Inventory move",
+        "gold_letter": "A",
+        "matched_option_letter": "A",
+        "option_text": "Inventory move",
+        "raw_EM": 0,
+        "condition": "Unchanged output equals unique gold-selected option text under the existing primary normalizer."
+      }
+    ],
+    "other_exact_option_text_outputs": [
+      {
+        "id": "FinMME:2181",
+        "matched_letter": "C",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:5398",
+        "matched_letter": "C",
+        "gold": "D"
+      },
+      {
+        "id": "FinMME:8106",
+        "matched_letter": "B",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:107",
+        "matched_letter": "B",
+        "gold": "ABCD"
+      },
+      {
+        "id": "FinMME:3521",
+        "matched_letter": "C",
+        "gold": "AC"
+      },
+      {
+        "id": "FinMME:5625",
+        "matched_letter": "D",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:8392",
+        "matched_letter": "B",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:5967",
+        "matched_letter": "A",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:3641",
+        "matched_letter": "A",
+        "gold": "ABCD"
+      },
+      {
+        "id": "FinMME:7599",
+        "matched_letter": "A",
+        "gold": "D"
+      },
+      {
+        "id": "FinMME:8571",
+        "matched_letter": "A",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:10507",
+        "matched_letter": "A",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:9248",
+        "matched_letter": "D",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:4862",
+        "matched_letter": "B",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:9575",
+        "matched_letter": "B",
+        "gold": "D"
+      },
+      {
+        "id": "FinMME:5555",
+        "matched_letter": "B",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:10870",
+        "matched_letter": "B",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:6287",
+        "matched_letter": "B",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:9747",
+        "matched_letter": "A",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:840",
+        "matched_letter": "D",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:17",
+        "matched_letter": "B",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:7343",
+        "matched_letter": "B",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:9511",
+        "matched_letter": "A",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:3379",
+        "matched_letter": "B",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:5633",
+        "matched_letter": "D",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:4119",
+        "matched_letter": "B",
+        "gold": "D"
+      },
+      {
+        "id": "FinMME:7273",
+        "matched_letter": "A",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:9871",
+        "matched_letter": "D",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:1448",
+        "matched_letter": "D",
+        "gold": "BCD"
+      },
+      {
+        "id": "FinMME:1324",
+        "matched_letter": "A",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:11072",
+        "matched_letter": "C",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:552",
+        "matched_letter": "B",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:9830",
+        "matched_letter": "D",
+        "gold": "BC"
+      },
+      {
+        "id": "FinMME:4860",
+        "matched_letter": "A",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:8817",
+        "matched_letter": "B",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:167",
+        "matched_letter": "C",
+        "gold": "BC"
+      },
+      {
+        "id": "FinMME:710",
+        "matched_letter": "B",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:9414",
+        "matched_letter": "D",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:755",
+        "matched_letter": "D",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:10275",
+        "matched_letter": "B",
+        "gold": "AB"
+      },
+      {
+        "id": "FinMME:5404",
+        "matched_letter": "D",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:5800",
+        "matched_letter": "D",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:8153",
+        "matched_letter": "A",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:10057",
+        "matched_letter": "C",
+        "gold": "D"
+      },
+      {
+        "id": "FinMME:11031",
+        "matched_letter": "B",
+        "gold": "D"
+      },
+      {
+        "id": "FinMME:6232",
+        "matched_letter": "B",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:7407",
+        "matched_letter": "A",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:3277",
+        "matched_letter": "C",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:6861",
+        "matched_letter": "D",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:7061",
+        "matched_letter": "B",
+        "gold": "D"
+      },
+      {
+        "id": "FinMME:3796",
+        "matched_letter": "D",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:6360",
+        "matched_letter": "A",
+        "gold": "ABD"
+      },
+      {
+        "id": "FinMME:3003",
+        "matched_letter": "D",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:3401",
+        "matched_letter": "D",
+        "gold": "ABD"
+      },
+      {
+        "id": "FinMME:8978",
+        "matched_letter": "B",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:7773",
+        "matched_letter": "A",
+        "gold": "D"
+      },
+      {
+        "id": "FinMME:3857",
+        "matched_letter": "B",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:4333",
+        "matched_letter": "A",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:4264",
+        "matched_letter": "B",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:2000",
+        "matched_letter": "D",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:225",
+        "matched_letter": "D",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:6652",
+        "matched_letter": "B",
+        "gold": "AB"
+      },
+      {
+        "id": "FinMME:4083",
+        "matched_letter": "C",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:9223",
+        "matched_letter": "C",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:2274",
+        "matched_letter": "B",
+        "gold": "ABCD"
+      },
+      {
+        "id": "FinMME:502",
+        "matched_letter": "A",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:8033",
+        "matched_letter": "B",
+        "gold": "CD"
+      },
+      {
+        "id": "FinMME:8428",
+        "matched_letter": "C",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:6267",
+        "matched_letter": "C",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:584",
+        "matched_letter": "D",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:3348",
+        "matched_letter": "C",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:4987",
+        "matched_letter": "A",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:6651",
+        "matched_letter": "A",
+        "gold": "D"
+      },
+      {
+        "id": "FinMME:8988",
+        "matched_letter": "C",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:4319",
+        "matched_letter": "C",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:4051",
+        "matched_letter": "C",
+        "gold": "D"
+      },
+      {
+        "id": "FinMME:5978",
+        "matched_letter": "A",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:2257",
+        "matched_letter": "B",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:7708",
+        "matched_letter": "C",
+        "gold": "AD"
+      },
+      {
+        "id": "FinMME:2480",
+        "matched_letter": "B",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:2628",
+        "matched_letter": "B",
+        "gold": "D"
+      },
+      {
+        "id": "FinMME:2911",
+        "matched_letter": "C",
+        "gold": "ABC"
+      },
+      {
+        "id": "FinMME:610",
+        "matched_letter": "B",
+        "gold": "D"
+      },
+      {
+        "id": "FinMME:2154",
+        "matched_letter": "D",
+        "gold": "AC"
+      },
+      {
+        "id": "FinMME:201",
+        "matched_letter": "C",
+        "gold": "AB"
+      },
+      {
+        "id": "FinMME:8164",
+        "matched_letter": "C",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:5786",
+        "matched_letter": "A",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:1706",
+        "matched_letter": "B",
+        "gold": "D"
+      },
+      {
+        "id": "FinMME:5983",
+        "matched_letter": "D",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:3506",
+        "matched_letter": "C",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:643",
+        "matched_letter": "C",
+        "gold": "BC"
+      },
+      {
+        "id": "FinMME:4327",
+        "matched_letter": "C",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:4648",
+        "matched_letter": "A",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:8261",
+        "matched_letter": "A",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:1329",
+        "matched_letter": "A",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:8432",
+        "matched_letter": "A",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:6272",
+        "matched_letter": "B",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:9793",
+        "matched_letter": "A",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:2355",
+        "matched_letter": "D",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:5722",
+        "matched_letter": "C",
+        "gold": "BCD"
+      },
+      {
+        "id": "FinMME:7559",
+        "matched_letter": "B",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:10795",
+        "matched_letter": "C",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:7100",
+        "matched_letter": "B",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:3955",
+        "matched_letter": "B",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:5546",
+        "matched_letter": "C",
+        "gold": "D"
+      },
+      {
+        "id": "FinMME:4805",
+        "matched_letter": "A",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:5758",
+        "matched_letter": "C",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:6000",
+        "matched_letter": "C",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:2661",
+        "matched_letter": "A",
+        "gold": "D"
+      },
+      {
+        "id": "FinMME:5521",
+        "matched_letter": "A",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:4921",
+        "matched_letter": "A",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:5357",
+        "matched_letter": "D",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:2333",
+        "matched_letter": "A",
+        "gold": "ABC"
+      },
+      {
+        "id": "FinMME:9548",
+        "matched_letter": "B",
+        "gold": "ABC"
+      },
+      {
+        "id": "FinMME:6101",
+        "matched_letter": "B",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:7476",
+        "matched_letter": "D",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:4393",
+        "matched_letter": "A",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:8742",
+        "matched_letter": "A",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:3554",
+        "matched_letter": "B",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:5986",
+        "matched_letter": "C",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:9010",
+        "matched_letter": "B",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:10793",
+        "matched_letter": "B",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:7196",
+        "matched_letter": "A",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:5339",
+        "matched_letter": "D",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:2674",
+        "matched_letter": "D",
+        "gold": "AB"
+      },
+      {
+        "id": "FinMME:5415",
+        "matched_letter": "D",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:8308",
+        "matched_letter": "B",
+        "gold": "AD"
+      },
+      {
+        "id": "FinMME:9666",
+        "matched_letter": "C",
+        "gold": "D"
+      },
+      {
+        "id": "FinMME:1024",
+        "matched_letter": "A",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:1462",
+        "matched_letter": "B",
+        "gold": "ABC"
+      },
+      {
+        "id": "FinMME:10424",
+        "matched_letter": "A",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:7144",
+        "matched_letter": "C",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:10541",
+        "matched_letter": "D",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:3568",
+        "matched_letter": "A",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:1204",
+        "matched_letter": "B",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:7689",
+        "matched_letter": "D",
+        "gold": "AB"
+      },
+      {
+        "id": "FinMME:1338",
+        "matched_letter": "B",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:535",
+        "matched_letter": "C",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:2063",
+        "matched_letter": "C",
+        "gold": "D"
+      },
+      {
+        "id": "FinMME:4282",
+        "matched_letter": "B",
+        "gold": "BD"
+      },
+      {
+        "id": "FinMME:9589",
+        "matched_letter": "D",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:7338",
+        "matched_letter": "D",
+        "gold": "AD"
+      },
+      {
+        "id": "FinMME:6528",
+        "matched_letter": "C",
+        "gold": "AB"
+      },
+      {
+        "id": "FinMME:10329",
+        "matched_letter": "B",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:10675",
+        "matched_letter": "A",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:9946",
+        "matched_letter": "D",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:2324",
+        "matched_letter": "A",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:6403",
+        "matched_letter": "A",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:5765",
+        "matched_letter": "C",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:6257",
+        "matched_letter": "C",
+        "gold": "ACD"
+      },
+      {
+        "id": "FinMME:10977",
+        "matched_letter": "B",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:9585",
+        "matched_letter": "A",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:7049",
+        "matched_letter": "B",
+        "gold": "BC"
+      },
+      {
+        "id": "FinMME:4605",
+        "matched_letter": "B",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:7922",
+        "matched_letter": "B",
+        "gold": "ABC"
+      },
+      {
+        "id": "FinMME:7258",
+        "matched_letter": "B",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:8681",
+        "matched_letter": "B",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:7914",
+        "matched_letter": "A",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:4780",
+        "matched_letter": "B",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:7310",
+        "matched_letter": "A",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:1141",
+        "matched_letter": "C",
+        "gold": "AC"
+      },
+      {
+        "id": "FinMME:1119",
+        "matched_letter": "B",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:8332",
+        "matched_letter": "D",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:2029",
+        "matched_letter": "A",
+        "gold": "D"
+      },
+      {
+        "id": "FinMME:6998",
+        "matched_letter": "C",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:10093",
+        "matched_letter": "B",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:2893",
+        "matched_letter": "B",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:7065",
+        "matched_letter": "B",
+        "gold": "ABC"
+      },
+      {
+        "id": "FinMME:3710",
+        "matched_letter": "B",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:4473",
+        "matched_letter": "B",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:3497",
+        "matched_letter": "A",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:1547",
+        "matched_letter": "C",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:4621",
+        "matched_letter": "C",
+        "gold": "AD"
+      },
+      {
+        "id": "FinMME:1455",
+        "matched_letter": "C",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:1426",
+        "matched_letter": "B",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:2005",
+        "matched_letter": "C",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:5318",
+        "matched_letter": "D",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:1296",
+        "matched_letter": "A",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:7960",
+        "matched_letter": "A",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:9363",
+        "matched_letter": "A",
+        "gold": "AC"
+      },
+      {
+        "id": "FinMME:9387",
+        "matched_letter": "D",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:10472",
+        "matched_letter": "B",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:1453",
+        "matched_letter": "B",
+        "gold": "AD"
+      },
+      {
+        "id": "FinMME:4979",
+        "matched_letter": "D",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:1148",
+        "matched_letter": "B",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:3704",
+        "matched_letter": "D",
+        "gold": "ACD"
+      },
+      {
+        "id": "FinMME:6279",
+        "matched_letter": "C",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:5476",
+        "matched_letter": "C",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:4888",
+        "matched_letter": "B",
+        "gold": "A"
+      },
+      {
+        "id": "FinMME:11067",
+        "matched_letter": "D",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:622",
+        "matched_letter": "B",
+        "gold": "D"
+      },
+      {
+        "id": "FinMME:10077",
+        "matched_letter": "A",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:10829",
+        "matched_letter": "B",
+        "gold": "C"
+      },
+      {
+        "id": "FinMME:3605",
+        "matched_letter": "C",
+        "gold": "BD"
+      },
+      {
+        "id": "FinMME:4810",
+        "matched_letter": "C",
+        "gold": "B"
+      },
+      {
+        "id": "FinMME:6302",
+        "matched_letter": "B",
+        "gold": "ABCD"
+      },
+      {
+        "id": "FinMME:7159",
+        "matched_letter": "C",
+        "gold": "B"
+      }
+    ]
+  },
+  "sources": {
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/tokenizer.json": "3c0ce3213b50ff38d8aa1e91136a2d2cb142a3f569246170872e439cb2a29d15",
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/tokenizer_config.json": "494a5592a446535be00acc531ccf7a53fd6c6c392c122d444c389160261572e0",
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/special_tokens_map.json": "f4f79e08d97f4d1c87f8d89264f525c8789da3b73b3bb55d1e12f692f41a7b1b",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/manifest.json": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T01_train.jsonl": "5732cd30e78ea2d808526c62312ed2d25e9541a07b3ba5ad2b19d4f0123217c8",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T01_test.jsonl": "14705cad19879bbe9397add2d6871d6892146aee4be3885030700382307cd3bb",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T02_train.jsonl": "7f59b10ae613e76dc166c6bba157ba9b16d8839e1f8331c3d6feca9f42f790b4",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T02_test.jsonl": "c319026d6857ee31722732ce54fd0348e189f0f8aaa574522fdb6623ca3bc572",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T03_train.jsonl": "e9d909b32d60f8c4b59d751cc4eb3af5b1420650e38cdbee1aec449d9ecef769",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T03_test.jsonl": "809a68a36926ba0dab02597b9e4492bcebc2ec394f17103413e13a0e3e072d0b",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T04_train.jsonl": "fabc8d4b4bd730306db0b1447a530a54bf470faded22937ba4a32fb6ebcd2cc9",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T04_test.jsonl": "e5046123567a5d9efe80aae17ed0b141e6261bf80c775f523791ef9022492ba2",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T05_train.jsonl": "3a4210e379d0d487a97dabc092a1178e9cc13bb92a16ed76191eaa0385b920b3",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T05_test.jsonl": "7e13f0e2db2a9fb4f66249f152c23c336a566c1e5ccf30c929c2c04710be6264",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T06_train.jsonl": "6a299bce404105f75b691de06e176be0cbe908c593ff1bdcb2c8e3b20001633b",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T06_test.jsonl": "18f04db0a28b6b0abd9b0f3f5ad7d030151085c47b88213d043752eacad98877",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T07_train.jsonl": "fbbbb06aefe521ae3e0387bd2da145f643ce04eca6e64fcb7434d31c42cb2102",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T07_test.jsonl": "e424c1d3905db42165ad9f525f033045af1e8605e6b1e5848bba82573e54e221",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T08_train.jsonl": "dd327dec1b3433a2dd27a88c3b4724c4978b246e599b5e88787c6214b0a1efed",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T08_test.jsonl": "2c3d5bc145141ac44d4a18722169bb421f47d41f1558d04d6da9a3dd365f8a86",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T09_train.jsonl": "f48f1b60247ea91fe5ed6900e3643f4e43ed3202d4c50b2aa0b1ebc9906eda7d",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T09_test.jsonl": "3f554ff6047a98566520a39bc9d89ecf0bcf00a29e2e2d1f76bfb2b63097be95",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T10_train.jsonl": "3eeae855c9594ec529711123366ef681b10e446daba6e6505f95a762a93065e3",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T10_test.jsonl": "f6c9fcfd7c3b385eb82829ebb478a7db522eecc4a53c33ded2ab8f82ff57e328",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T11_train.jsonl": "c78aa32c98f7cd60b4950561281d2cb023ac5c84c438149044ce7429c0681e54",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T11_test.jsonl": "48e7b5e4177a001612d6640f6df92cc3621362792dffb0ad762476e562b6b21b",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T12_train.jsonl": "fe5ff5fea1b9af9a99d7139fcc6e314d353649db930a8c1e99cd5ff4ccf4995f",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T12_test.jsonl": "7948cf70e4996ec38532ff680638b8c81710d6e02cceb9589c58cb6403284013",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T13_train.jsonl": "57ec71ab8c67d006cfa4812d63fabd903dd9d36a0ba417a2ca71e5a79560309a",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T13_test.jsonl": "4ca421c2594f1d2a36b749d42526706cc6caca9af05f9908b85d08cf7c9218b4",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T14_train.jsonl": "3cae6b3004124eabccbcae69b073254d1c932a912d813edec7114c61821d1c83",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T14_test.jsonl": "ff46c370c5b0a545c770e702e7fef159e79f4188c4a657356ca988da4b57866d",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T15_train.jsonl": "eca0f26e0cb7612eee9ab28c5cc4f8f27898b4ba9cb1b257cfefb9037c7a10c2",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T15_test.jsonl": "6ae35bde45e33788bcd31c99dc9f80a1d9236bd6062a807fd989e2c1fbe426cc",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T16_train.jsonl": "5d7617d9873fbcfef60b33ec027a7eb2507b128cde0ff243df85f3b67843ab65",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T16_test.jsonl": "162ba8ad340a9fb898a3a942b3e720e581f23dddfacb70c289f3bd935d869206",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T17_train.jsonl": "03848e8d10485506685fe46d3d2530120001ed159dfd5f4239655bbbc590cb34",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T17_test.jsonl": "f5a8de804f54aba60315eff839f05a0401ff96427920c0cd3112affcc19362e8",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T18_train.jsonl": "1941cabc03d007d984282858ca3d6f0862ca4720d5fb0798fc866423200d3952",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T18_test.jsonl": "48e1bf7b181cf1a5d4c7b9be03e1fa11fe2e26b37ca2f4c8a4f4498ef20c403d",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T19_train.jsonl": "2a64cfde7c42d360ff0bd570f3487be0e8940526d08d4ed4bef389a04f5861b2",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T19_test.jsonl": "4af47721d341958f26e54744330927a14b5e5f5b8d84489607623b741eddbe2b",
+    "summary/onevision_diagnostics_20261016/deterministic_native/complete.json": "9593ebddf9d17e81f8358d61a2ede10bccaa94b3a5d0f919f3eb3713919f812a",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/evaluations/sequential_T19/natural_image.jsonl": "4cc3f496cdf16d76913fde199dce6c259b5cb58b057ff34a6cd4e76e1e21f122",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/evaluations/sequential_T19/medical_image.jsonl": "df7555d4d5e0ef8cd28e1d8f2931f1f2c1e055f7061815a5b946a1d9be98d16d",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/evaluations/sequential_T19/geography_image.jsonl": "88aef5e6d7eca2ddcf1cb3457ba8e939f242dac19c9a82e2456e10b8f63aa918",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/evaluations/sequential_T19/finance_image.jsonl": "2f80b23af4ab4c5377c0b8c159ec46fc02bc47952516836793c1d6c843b10512",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/evaluations/sequential_T19/traffic_image.jsonl": "965ca56e9985c9762ae481c33433bb4aba60cb2fe4cddfb2dfd1159a84777c91",
+    "summary/onevision_diagnostics_20261016/FULL_COMPLETED_DOMAINS_AUDIT.json": "d64adbf1342f8ab005c0806065a2011a6e70d630392bb1d2f5453338b57132c8",
+    "exp/onevision_capacity_20261016/cap1_full_confirm/20261017_091853/evaluations/final_full_input_router/finance_image.jsonl": "9b004889527c25fc3a12110f3a5515d2c429efb18391ade48e7093fc54c7f198"
+  },
+  "audit_source_sha256": "a112de5e171b8b8892290eaa5f1cca18baedd267d6734a1f61dce4bef82aa4db",
+  "limitations": [
+    "Retrospective auxiliary audit of previously inspected output; primary predictions/scores remain immutable. No new model accuracy or method gain.",
+    "Strict option-text equivalence certifies these particular outputs, not general semantic correctness or all finance errors. Multiple-answer partial selection remains wrong.",
+    "No test-based prompt/router/capacity tuning; parser uses input context only, then verifies its result against original gold.",
+    "Canonical reference lengths within budget reject mandatory reference-length truncation, not all generation/termination problems.",
+    "Raw generated IDs/EOS flags were not saved; output re-tokenization cannot establish exact stopping cause.",
+    "Three long TEST references remain in full evaluation unchanged. Their teacher-forced NLL is prefix-limited; generation scores retain original full references.",
+    "Neither textual overlap nor option correctness alone proves image use, expert knowledge sufficiency, or removal of continual-learning interference.",
+    "Only completed full finance2233 and diagnostic500/155 are analyzed. Full traffic/21454 completion is not asserted."
+  ]
+}
