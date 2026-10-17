@@ -1,0 +1,69 @@
+{
+  "changed": true,
+  "same_sources": true,
+  "same_upstream_methods": true,
+  "same_runtime_versions": [
+    "2.6.0+cu118",
+    "4.46.3",
+    "0.20.3",
+    "3.1.2"
+  ],
+  "same_pct01_manifest_sha256": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+  "preserved_new_GPU_workers": [
+    "3184",
+    "3189"
+  ],
+  "preserved_old_GPU_workers": [
+    "3920671",
+    "116097"
+  ],
+  "reassigned_to_old": [
+    "pct01:OSFT",
+    "pct01:SpaRTA"
+  ],
+  "requeued_fresh_new": [
+    "full:ER_LoRA",
+    "pct01:SMoLoRA"
+  ],
+  "prior_attempts_retained": true,
+  "no_training_code_or_hyperparameter_changes": true,
+  "GPU1_not_reassigned": true,
+  "new_CPU_coordinator_pid": "155493",
+  "archive": "summary/five_domain_native_cl_20261016_sparse/queue_recovery_20261017_150012",
+  "updated_local": "2026-10-17T15:02:43.330504+08:00",
+  "post_preflight_status": {
+    "pct01:OSFT": {
+      "host": "new3090",
+      "status": "waiting",
+      "gpu": null,
+      "pid": null
+    },
+    "pct01:SpaRTA": {
+      "host": "new3090",
+      "status": "waiting",
+      "gpu": null,
+      "pid": null
+    },
+    "full:ER_LoRA": {
+      "host": "new3090",
+      "status": "waiting",
+      "gpu": null,
+      "pid": null
+    },
+    "pct01:SMoLoRA": {
+      "host": "new3090",
+      "status": "waiting",
+      "gpu": null,
+      "pid": null
+    }
+  },
+  "old_11GB_preflight_OOM": [
+    "OSFT SVD init, attempted62MiB with34.75MiB free",
+    "SpaRTA native task17 forward, attempted28MiB with2.75MiB free"
+  ],
+  "automatic_fallback": "both requeued on new24GB GPU2; do not retry same old11GB admission without new evidence",
+  "completed_pct01": [
+    "SeqFT_LoRA",
+    "ER_LoRA"
+  ]
+}
