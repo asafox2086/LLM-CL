@@ -1,0 +1,53 @@
+{
+  "passed": true,
+  "CPU_only": true,
+  "inherited_checks": 11,
+  "new_checks": 12,
+  "GPU_started": false,
+  "current_action": [
+    "wait",
+    null
+  ],
+  "state": {
+    "old_CPU_owners": {
+      "llmcl-onevision-deferred-full.service": 0,
+      "llmcl-onevision-full-repair.service": 0,
+      "llmcl-onevision-matched-task-domain.service": 0
+    },
+    "GPU1_PIDs": [
+      "260315"
+    ],
+    "used_MiB": 4378,
+    "utilization": 34,
+    "shared_acquired_anchor": {
+      "4": {
+        "parent_ready": true,
+        "complete": false
+      },
+      "2": {
+        "parent_ready": false,
+        "complete": false
+      }
+    },
+    "language_cue_completed_runs": 0,
+    "language_cue_required_runs": 4,
+    "cosine_train_completed": 0,
+    "cosine_full_completed": 0
+  },
+  "entrypoint_sha256": "fae40ef9fe68fb2bd8cef9da89a569e91f1176bd31bb54e772e15e77d1c2328c",
+  "plan_sha256": "1a4a8cbc0ffde640581211db534f6e5629645db565556ea68e667e53e14f0f44",
+  "order": [
+    "cap1",
+    "pilot12",
+    "ready_shared_acquired_anchor",
+    "cosine_reuse_train2",
+    "fixed_language_cue4runs_all8fullcells",
+    "matched48_SeqFT_first",
+    "cosine_reuse_full2",
+    "full19x4",
+    "final21454x4",
+    "cap3",
+    "shared_initial21454",
+    "sparse_fullx4"
+  ]
+}

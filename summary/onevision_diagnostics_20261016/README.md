@@ -8,10 +8,12 @@
 
 | 想看什么 | 当前入口 | 内容与状态 |
 | --- | --- | --- |
+| 学习输入相似度、优先复用LoRA是否有效 | [新试验协议](learned_reuse/PROTOCOL.md)、[核验结果](learned_reuse/VERIFIED_RESULTS.md) | 固定/可学习两组Kmax3；13CPU机制检查通过，真实GPU训练/模块数/F1尚待 |
+| 最新唯一研究队列 | [学习复用CPU290886接续](learned_reuse_queue/README.md) | 旧277043计划退役，全部原实验保留；新2训练/2完整确认按协议排入，GPU1他人占用时等待 |
 | 别人发现了什么问题、怎样找原因 | [文献问题综述](LITERATURE_PROBLEMS.md) | 12篇正式论文+COAST版本；先看7类问题，附证据/方案/适用边界 |
 | 跨域差距是否混入语言变化 | [完整507题语言/题型审计](matched_task_domain/language_profile/T04_VERIFIED_RESULTS.md) | 中文差−21.102/英文−9.960pp；TRAIN中文曝光17/0，不能纯归因知识遗忘 |
 | 固定权重能否靠输出指令恢复 | [四指令干预](language_cue/PROTOCOL.md)、[结果](language_cue/VERIFIED_RESULTS.md) | 两权重×四既有指令，所有完整8格都测；CPU输入门槛通过，GPU效果待测 |
-| 最新研究接续 | [语言因果CPU队列](language_causal_queue/README.md) | 先可用共同S1，再4个固定推理进程，再继续原48/完整方法；不抢他人GPU1 |
+| 原语言干预接续 | [原语言因果CPU队列](language_causal_queue/README.md) | 已由新学习复用入口继承，所有4个固定推理进程保留；不恢复旧CPU277043 |
 | 正式基线的低分是否已在习得时存在 | [V2学习前/刚学完语言审计](baseline_language_profile/VERIFIED_RESULTS.md) | SeqFT/ER中文S3→S4 +17.559/+17.362pp，原26QA/2正LR更新；最终格待测，不与AnyRes拼接 |
 | 平均旧loss改善是否保护全部旧功能 | [TRAIN子组梯度/有限变化](train_language_geometry/VERIFIED_RESULTS.md) | 4条固定TRAIN、11个已学转移中6次均值改善掩盖组退化；反方向/同域例也保留，不作F1或语言因果 |
 | 已做什么、证明／证伪了什么、改进有没有用 | [RESEARCH_REPORT](RESEARCH_REPORT.md) | 主报告，12项统一六栏 |

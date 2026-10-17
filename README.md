@@ -12,6 +12,8 @@
 
 ## 研究成果：按问题阅读
 
+新增[可学习向量空间与LoRA优先复用试验](summary/onevision_diagnostics_20261016/learned_reuse/PROTOCOL.md)：固定/可学习两组同Kmax3、同1313训练QA/19阶段，模型按图像和问题的相似度决定复用或从基座新增。代码/CPU预检及[后台接续](summary/onevision_diagnostics_20261016/learned_reuse_queue/README.md)已完成；GPU1当前被其他用户占用，尚无模型训练或收益结果。[自动结果](summary/onevision_diagnostics_20261016/learned_reuse/VERIFIED_RESULTS.md)。
+
 新增[别人发现了哪些多领域问题](summary/onevision_diagnostics_20261016/LITERATURE_PROBLEMS.md)：12篇正式会议论文加COAST版本，逐篇列问题、对照证据、解决思路与适用边界；他人成果与本实验结论分开。
 
 **统一阅读入口：[问题发现总报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md)。** 12项均按「探究的问题／做的实验／结果／证明了什么／改进的方法／改进的效果」记录，首页区分已证实、被反例否定和未解决；细节按需进入[证据目录](summary/onevision_diagnostics_20261016/README.md)。

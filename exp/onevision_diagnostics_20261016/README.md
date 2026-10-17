@@ -1,4 +1,6 @@
-> 最新接续2026-10-18：[语言分布审计](../../summary/onevision_diagnostics_20261016/matched_task_domain/language_profile/T04_VERIFIED_RESULTS.md)显示跨域差距在中文更大，TRAIN语言也变，不能全归因知识遗忘。新[CPU277043队列](../../summary/onevision_diagnostics_20261016/language_causal_queue/README.md)已接纳固定两权重×四既有指令推理，先补可用共同S1，再全格语言对照，再接原48/完整方法；原265251已计划退役，仅CPU交接，GPU/基线/旧观察器保留。23CPU检查通过，GPU干预效果待测，其他用户占GPU1时健康等待。
+> 最新接续2026-10-18：[可学习向量空间试验](../../summary/onevision_diagnostics_20261016/learned_reuse/PROTOCOL.md)已接入新[CPU290886队列](../../summary/onevision_diagnostics_20261016/learned_reuse_queue/README.md)。同Kmax3的固定/学习两组，1313TRAIN/19阶段；先补可用共同S1、再两组训练、全格语言对照与原48，随后两组完整21454确认及原完整方法。原277043仅CPU计划退役，GPU/基线/旧观察器保留；13CPU机制+23策略检查通过，GPU1他人占用时健康等待，尚无GPU试验收益。以下为历史接续与原研究协议。
+
+> [语言分布审计](../../summary/onevision_diagnostics_20261016/matched_task_domain/language_profile/T04_VERIFIED_RESULTS.md)显示跨域差距在中文更大，TRAIN语言也变，不能全归因知识遗忘。原[语言队列](../../summary/onevision_diagnostics_20261016/language_causal_queue/README.md)已被上述新入口继承，固定两权重×四既有指令推理全部保留。
 
 > 共同S1完整旧锚补测原入[CPU测量队列](../../summary/onevision_diagnostics_20261016/causal_measurement_queue/README.md)，现由上述新入口继承，观察器265271不变，原48训练全保留。实际GPU重载/735题尚待。
 
