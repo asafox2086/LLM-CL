@@ -1,0 +1,67 @@
+{
+  "cap": 1,
+  "same_frozen_weights": true,
+  "full_QA": 21454,
+  "diagnostic_generated_QA": 155,
+  "domain_comparison": [
+    {
+      "domain": "natural",
+      "diagnostic_generated_QA": 10,
+      "diagnostic155_domain_F1": 57.38095238095237,
+      "full_QA": 5000,
+      "full_domain_F1": 75.91655527375974,
+      "full_minus_subset_pp": 18.53560289280737
+    },
+    {
+      "domain": "medical",
+      "diagnostic_generated_QA": 73,
+      "diagnostic155_domain_F1": 46.057838660578376,
+      "full_QA": 2094,
+      "full_domain_F1": 40.94344925924646,
+      "full_minus_subset_pp": -5.11438940133192
+    },
+    {
+      "domain": "geography",
+      "diagnostic_generated_QA": 32,
+      "diagnostic155_domain_F1": 46.875,
+      "full_QA": 10004,
+      "full_domain_F1": 49.01039584166333,
+      "full_minus_subset_pp": 2.135395841663332
+    },
+    {
+      "domain": "finance",
+      "diagnostic_generated_QA": 10,
+      "diagnostic155_domain_F1": 30.0,
+      "full_QA": 2233,
+      "full_domain_F1": 12.991032696403513,
+      "full_minus_subset_pp": -17.008967303596485
+    },
+    {
+      "domain": "traffic",
+      "diagnostic_generated_QA": 30,
+      "diagnostic155_domain_F1": 30.465374358561384,
+      "full_QA": 2123,
+      "full_domain_F1": 31.915630341460307,
+      "full_minus_subset_pp": 1.4502559828989234
+    }
+  ],
+  "diagnostic155_native_AP": 43.362536135144616,
+  "full_native_AP": 41.36112063128497,
+  "diagnostic155_domain_macro": 42.155833080018425,
+  "full_domain_macro": 42.15541268250667,
+  "source_sha256": {
+    "summary/onevision_diagnostics_20261016/full_confirmation_evidence/cap1_VERIFIED.json": "593f0f68426624ef0556c7adabdb07aa34118bc0d094bfe6e70dd359240ee6f9",
+    "exp/onevision_capacity_20261016/cap1/20261017_012451/evaluations/final_input_router/natural_image.jsonl": "b18ef2c3aced7cd669b8bccaa3808e24e1ba74ef913b795ca6cfe8c077fbb285",
+    "exp/onevision_capacity_20261016/cap1/20261017_012451/evaluations/final_input_router/medical_image.jsonl": "335c916bcc1fadd15e922287e86dbf3c1bb84f1053ba4c094e85b156d35647ba",
+    "exp/onevision_capacity_20261016/cap1/20261017_012451/evaluations/final_input_router/geography_image.jsonl": "be6c1063bf485cc1b4b9b8a2adc42b084a50312602cd9f09106b1abf9295a913",
+    "exp/onevision_capacity_20261016/cap1/20261017_012451/evaluations/final_input_router/finance_image.jsonl": "3928536dd4b6274151b2968f722327d968c9570cb66442f2bc5123feab925b19",
+    "exp/onevision_capacity_20261016/cap1/20261017_012451/evaluations/final_input_router/traffic_image.jsonl": "895d9dd750f3f5fc75acf6948c1da488fb210123dbc40fd1dd67db02b0dab10f"
+  },
+  "not_a_training_gain_or_causal_test": true,
+  "no_test_based_model_selection": true,
+  "limits": [
+    "Fixed overlapping reporting cohorts; differences are descriptive, not an independent-sample significance test.",
+    "Subset size and native-task composition differ; cannot infer training-data scarcity causes the score difference.",
+    "NativeAnyRes research protocol differs from formal V2 shared image resizing."
+  ]
+}

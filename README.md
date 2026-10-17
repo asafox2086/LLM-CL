@@ -12,6 +12,8 @@
 
 ## 研究成果：按问题阅读
 
+**完整测试进展：** 原生AnyRes单LoRA控制已测完21454题，五域F1=75.917/40.943/49.010/12.991/31.916，19任务AP=41.361。FWT/BWT仍缺阶段评测；与正式V2基线分开。[完整表/诊断集外推边界](summary/onevision_diagnostics_20261016/full_confirmation_evidence/CAP1_COMPLETION.md)。GPU1已自动进入原型实验，严格归因仍未完成。
+
 **当前F1结果入口：[Answer F1诊断重审](summary/onevision_diagnostics_20261016/PRIMARY_F1_REASSESSMENT.md)。** 155题诊断整体F1无确定下降，遥感坍缩与知识收益不一致仍存在；不是完整主表结果。旧机制表中的精确正确数仅为历史现象，不再作主指标。
 
 **主报告：[痛点探究报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md)。** 每项统一为「探究的问题／做的实验／结果／证明了什么／改进的方法／改进的效果」。[证据附件导航](summary/onevision_diagnostics_20261016/README.md)仅在需要核对时查阅。
@@ -22,7 +24,7 @@
 
 新增[容量资源核验](summary/onevision_diagnostics_20261016/capacity_resource_evidence/VERIFIED_RESULTS.md)：GPU可训练计数不包含整个CPU专家池；1→5个专家storage约2.06→10.31MiB，额外TRAIN计算及评价混合峰值另列，不据此宣称轻量优势。
 
-新补[容量与路由的分离核验](summary/onevision_diagnostics_20261016/ROUTING_MECHANISM_EVIDENCE.md)：从1到3个LoRA，19原型/500题原型选择都未改变；同一专家池换路线能改变遥感/金融NLL，但尚不能称生成F1提升。[完整确认入口](summary/onevision_diagnostics_20261016/full_confirmation_evidence/VERIFIED_RESULTS.md)等待21454题完整证明后自动填表。
+新补[容量与路由的分离核验](summary/onevision_diagnostics_20261016/ROUTING_MECHANISM_EVIDENCE.md)：从1到3个LoRA，19原型/500题原型选择都未改变；同一专家池换路线能改变遥感/金融NLL，但尚不能称生成F1提升。[完整确认入口](summary/onevision_diagnostics_20261016/full_confirmation_evidence/VERIFIED_RESULTS.md)已填cap1完整21454结果，cap3仍待测。
 
 | 问题 | 已验证结果 | 改进是否有效 |
 | --- | --- | --- |

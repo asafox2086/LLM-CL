@@ -11,7 +11,8 @@
 | 已做什么、证明／证伪了什么、改进有没有用 | [RESEARCH_REPORT](RESEARCH_REPORT.md) | 主报告，12项统一六栏 |
 | 低GPU增长能否代表总容量不变 | [容量资源核验](capacity_resource_evidence/VERIFIED_RESULTS.md) | 固定GPU计数仍可对应1/2/3/5个CPU专家；成本与峰值范围全报，无内存优势声明 |
 | 更多LoRA是否也改善选择 | [ROUTING_MECHANISM_EVIDENCE](ROUTING_MECHANISM_EVIDENCE.md) | 同池路线NLL对照；19原型/500选择跨容量相同，不声称F1提升 |
-| 完整21454确认是否完成 | [自动结果入口](full_confirmation_evidence/VERIFIED_RESULTS.md) | 完整proof前不读活动后缀；F1/QA/SHA/重合原结果全检，FWT/BWT为空 |
+| 完整确认/小诊断能否外推 | [cap1完成与衔接](full_confirmation_evidence/CAP1_COMPLETION.md) | 全量表/155题队列差异/原型启动；同宏平均可掩盖域间误差 |
+| 完整21454确认是否完成 | [自动结果入口](full_confirmation_evidence/VERIFIED_RESULTS.md) | cap1完整21454已核验，AP41.361；cap3待测，完整FWT/BWT为空 |
 | 遥感全部同答：是否没看图 | [RURAL_COLLAPSE_EVIDENCE](RURAL_COLLAPSE_EVIDENCE.md) | 5权重×3视图×TRAIN／TEST全部完成 |
 | 类别平衡有没有修复坍缩 | [RURAL_WEIGHT_EVIDENCE](RURAL_WEIGHT_EVIDENCE.md) | 三条轨迹全部完成；44→50，仍94题urban |
 | 知识是否真正写入、是否帮助问答 | [KNOWLEDGE_FIT_EVIDENCE.json](KNOWLEDGE_FIT_EVIDENCE.json) | 正确／错配×rank1／8、0／8／64步全部完成 |

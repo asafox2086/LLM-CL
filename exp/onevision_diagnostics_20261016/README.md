@@ -1,3 +1,5 @@
+> cap1已完成21454题并逐题核验，19任务AP41.361；当前首个原型已实际启动，六例官方输入门槛通过，尚无更新/提升结论。见[完成表与衔接](../../summary/onevision_diagnostics_20261016/full_confirmation_evidence/CAP1_COMPLETION.md)。原48归因继续保留优先级，基线不停。
+
 > 核心背景已固定为轻量、1%小数据、低内存增长。可以使用多个LoRA，须以同设置实测证明相对具体LoRA类方法的内存优势；当前单LoRA仅为既定原型。额外计算也计费，基线持续运行。见[规则021](../../rules/021_lightweight_data_limited_core_20261017.md)。
 
 > 最新唯一主指标为Answer F1（既有token_f1），不做选项映射；AP/FWT/BWT同口径。见[rules020](../../rules/020_answer_f1_primary_20261017.md)。原始分数/训练源码不改。

@@ -1,0 +1,76 @@
+{
+  "UTC": "2026-10-17T13:00:18.517591+00:00",
+  "cap1_full_completion_proof_sha256": "36e5ee870cf7cddd25135d33d8c70ba5ce89afefbbb86ffc30652100b6cca687",
+  "cap1_CPU_verified_sha256": "593f0f68426624ef0556c7adabdb07aa34118bc0d094bfe6e70dd359240ee6f9",
+  "cohort_comparison_sha256": "a25ff8cea68dddf6410e76bda1942c32a2d969611ac37e25ca2715e4159487b3",
+  "research_queue": {
+    "phase": "running",
+    "kind": "pilot",
+    "target": 0,
+    "pid": 220246,
+    "worker_pid": 230664,
+    "GPU1_only": true
+  },
+  "pilot_worker": {
+    "pid": 230664,
+    "state": "R",
+    "startticks": 8639464,
+    "command": "/data1/liyapeng/program/LLMCL/.vision-env/bin/python -u analysis/onevision_two_module_pilot.py --case 0 "
+  },
+  "pilot_official_forward_gate_sha256": "8ec0de0f74a23387450ad9d1aa4554e53dd4897b7a33b819a9b0c1f94b982125",
+  "pilot_optimizer_updates_proven_by_renderer_gate": 0,
+  "baseline_new": [
+    {
+      "pid": 174247,
+      "state": "R",
+      "startticks": 6934504,
+      "command": "/data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py --method SeqFT_LoRA --condition pct01 --run-dir /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209 "
+    },
+    {
+      "pid": 175176,
+      "state": "R",
+      "startticks": 6951892,
+      "command": "/data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py --method ER_LoRA --condition pct01 --run-dir /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502 "
+    }
+  ],
+  "baseline_old": [
+    {
+      "pid": 339855,
+      "state": "R",
+      "startticks": 692313448,
+      "command": "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python -u /data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py --method SeqFT_LoRA --condition pct01 --run-dir /data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154 "
+    },
+    {
+      "pid": 339875,
+      "state": "R",
+      "startticks": 692313464,
+      "command": "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python -u /data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py --method ER_LoRA --condition pct01 --run-dir /data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/ER_LoRA/training_20261017_161154 "
+    },
+    {
+      "pid": 341019,
+      "state": "R",
+      "startticks": 692328509,
+      "command": "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python -u /data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py --method CL_MoE --condition pct01 --run-dir /data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/CL_MoE/training_20261017_161424 "
+    },
+    {
+      "pid": 342152,
+      "state": "R",
+      "startticks": 692346567,
+      "command": "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python -u /data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py --method PASs_MoE --condition pct01 --run-dir /data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PASs_MoE/training_20261017_161725 "
+    }
+  ],
+  "note": "No worker/source/queue changes. Pilot renderer gate is not proof of finite optimizer training or F1 gain. Revalidate actual PIDs on later continuation.",
+  "pilot_first_control_update": {
+    "actual_learning_rate_used": 0.0001,
+    "nonzero_effective_updates": 1,
+    "actual_gradient_L2_preclip": 36.9022102355957,
+    "original_trainer_exact_gate": {
+      "passed": true,
+      "all_A_B_exact": true,
+      "loss_and_gradient_norm_exact": true
+    },
+    "gate_sha256": "65b46ca3c53d9b88d2f7a2245f25cb777c5e64ddfa9a91f250ba83b62d36c74b",
+    "training_sha256": "d7b4c3dbc49ad067f0559eba60d16172c6f895873e44ed1683f9de74e88db2c8",
+    "full_pilot_evaluation_still_pending": true
+  }
+}
