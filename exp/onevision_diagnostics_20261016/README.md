@@ -1,3 +1,5 @@
+> 当前调度：保留正在跑的cap1全量GPU进程，随后rural诊断、知识拟合，最后cap3全量。原全量CPU服务停用是预期；新deferred-full服务恢复原队列。首步保护为零不能直接归因为遗忘，见[FIRST_STEP_CAUSALITY](../../summary/onevision_diagnostics_20261016/FIRST_STEP_CAUSALITY_AUDIT.md)。
+
 > 用户要求重点记录机制发现：[KEY_FINDINGS K01](../../summary/onevision_diagnostics_20261016/KEY_FINDINGS.md)明确最新EWC项的首步梯度为零，区分旧项／后续更新可生效以及尚未验证的性能因果。
 
 > 知识格式审计17条件完成：部分原EM收益在固定前缀辅助检查下反转；原事实LoRA严格回忆仍未验证。足量写入控制已排队，仅CPU循环检查通过。见[证据](../../summary/onevision_diagnostics_20261016/KNOWLEDGE_FORMAT_AUDIT.md)和[操作核验协议](../../analysis/ONEVISION_KNOWLEDGE_FIT_PROTOCOL.md)。

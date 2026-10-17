@@ -2,40 +2,23 @@
 
 ## 当前研究：LLaVA-OneVision-0.5B诊断
 
-**重点机制发现K01：最新任务的EWC保护项在新阶段第一步为零。** 实际32个阶段首批都满足最新中心等于当前权重；第二阶段只有这一项，8/8条件全部正则梯度为零。严格确定性CPU在同一实际起点／目标梯度下，λ=0／1／100首步参数相同。较早历史项和后续更新可非零，不能概括为整个EWC无效。另8个控制自身检查点的真实旧TRAIN均值梯度非零，提示有限预算下中心二次项并不匹配真实旧任务一阶行为；准确率因果影响尚待验证。[关键机制发现台账K01](summary/onevision_diagnostics_20261016/KEY_FINDINGS.md)、[逐检查点证据](summary/onevision_diagnostics_20261016/EWC_ACTIVATION_AUDIT.md)。
+当前目标是解释1%小模型持续学习的痛点；**暂停新方法设计**。研究仅使用新服务器GPU1，Qwen2-VL基线在两机通过nohup继续运行，不跨骨干排序。OneVision语言骨干0.5B、完整模型约0.9B；共享冻结1313条TRAIN，诊断500题NLL／155题生成，完整测试21454题。小诊断不冒充全量成绩。
 
-该台账集中记录可写入论文分析的公式／生效条件／正负对照／SHA／未排除解释，严格区分数学性质、真实观察与性能因果结论。固定前缀辅助检查下，跨域／同域点估计差仍在，但SeqFT差上差的95%区间含0，不能把原显著差异直接解释为领域数的确定因果。
+**重点记录K01：最近旧任务对应的EWC二次项，在新阶段首步梯度为零。** 已验证32个首批；第二阶段只有一个历史项，8/8整个EWC梯度为零。后续更新与更早旧项可以生效，不能写成EWC始终无效。另8个控制检查点的真实旧TRAIN均值梯度非零，提示有限预算检查点与其中心二次项的一阶行为不匹配。[关键机制台账](summary/onevision_diagnostics_20261016/KEY_FINDINGS.md)、[实际权重／Fisher审计](summary/onevision_diagnostics_20261016/EWC_ACTIVATION_AUDIT.md)。
 
+**机制存在不等于已经找到遗忘原因。** 上述8个初始控制的新旧梯度cos均为正，局部Adam／实际4步位移的一阶诊断均指向旧TRAIN损失下降；不能把零正则项直接当坏更新证据，也不能将Taylor项冒充有限步实测NLL或生成准确率。[因果边界](summary/onevision_diagnostics_20261016/FIRST_STEP_CAUSALITY_AUDIT.md)。
 
-**知识诊断新增证据：原EM的正收益可在固定格式辅助检查下反转。** 同一both提示、医学100题中，基座加正确知识原EM0→9，而仅去一次The answer is前缀后正确数24→11（配对图像簇95%区间约−21.15至−5.05百分点，未校正多重比较）。共享LoRA加正确知识辅助15→21，但低相关同为21，仍非事实正确性的特异收益证明。原16事实训练模板在rank1／rank2／rank8知识LoRA上，即使去同一前缀仍严格0/16；格式混杂不能解释这项回忆失败，也不能据此断言语义知识不存在。[17条件、配对区间及事实回忆审计](summary/onevision_diagnostics_20261016/KNOWLEDGE_FORMAT_AUDIT.md)。
+格式与输出是已确认的混杂：遥感随机LoRA原EM0→62/100，但固定前缀辅助标签正确数64→62；旧AB1→4更新76→44/100且最终全答urban。确定性19任务习得／最终累计均47/155，却有9题丢失、9题新增。原评分保留，前缀规则仅事后辅助。[逐题审计与图](summary/onevision_diagnostics_20261016/ACQUISITION_COLLAPSE_AUDIT.md)。同域／跨域比较在格式检查后仍有点估计差，但区间可含0；默认4×6机制条件有S1数值混杂、单锚和内容／token差，不能作领域数唯一成因的严格结论。
 
-已部署知识写入操作核验：冻结同一16事实，rank1正确／rank8正确／rank8错配三条固定轨迹，0／8／64步共享前缀，真实梯度及内存窗口完整记录；无测试早停或rank选择。CPU旧／新训练循环在小dropout模型16步逐元素一致，OneVision GPU结果尚未产生；服务等待既有全量确认、rural诊断及空闲GPU1。这是足量拟合的控制，不是新方法或正式1epoch结果。[协议](analysis/ONEVISION_KNOWLEDGE_FIT_PROTOCOL.md)。
+知识17条件完成但特异收益未确证：医学基座加正确知识原EM0→9，固定前缀辅助24→11；共享LoRA正确与低相关均21/100。知识LoRA原16事实模板去同一前缀后仍严格0/16，不足以证明知识无用。[知识格式与回忆审计](summary/onevision_diagnostics_20261016/KNOWLEDGE_FORMAT_AUDIT.md)。原事实池与目标问题内容匹配有限，别名／部分语义和训练预算仍待排除。
 
+已完成：确定性19原生任务顺序／独立配对（完整T1逐元素相同）；默认4×6机制控制；知识17条件；训练后4模型×3视图；基底预算9轨迹／18终点；容量1/2/3/5诊断（47/47/53/55正确，共155题）。四容量都用满上限，未证明自动最优数量。[完整证据](summary/onevision_diagnostics_20261016/COMPLETED_CONTROLS.md)。新方法设计继续暂停。
 
-**新增痛点证据（2026-10-17）：评分格式会掩盖已有能力，额外训练也会造成答案坍缩。** 同155题，基座原EM1/155，删除固定英文前缀的辅助EM31/155，最终顺序模型两者均47/155；不能把原分数全部增长都解释为知识学习。遥感单任务随机LoRA的原EM由0升62/100，但同规则辅助标签正确数64→62；旧AB则76→44/100且最终100题全答urban。训练6题中urban4/rural2，多数答案偏置尚待因果确认。原主评分保留，前缀规则仅事后辅助，不是新主表或通用语义评分。[逐题／哈希证据与图](summary/onevision_diagnostics_20261016/ACQUISITION_COLLAPSE_AUDIT.md)。
+**GPU1执行优先级：当前cap1全量确认继续 → rural训练拟合／视觉诊断 → 知识写入8／64步核验 → cap3全量确认。** cap1原GPU进程及启动时刻保留，只停止原CPU调度器以延后cap3；旧`llmcl-onevision-full-repair.service`停用是预期状态，勿自动重启。新的`llmcl-onevision-deferred-full.service`在痛点诊断后恢复原全量队列；重启时也按该顺序调度，所有源码与冻结ID不变。[调度记录](summary/onevision_diagnostics_20261016/research_priority_20261017.json)、[rural协议](analysis/ONEVISION_RURAL_COLLAPSE_PROTOCOL.md)、[知识拟合协议](analysis/ONEVISION_KNOWLEDGE_FIT_PROTOCOL.md)。新诊断已通过CPU检查，GPU结果尚未产生。
 
-确定性19任务习得时点与最终累计都答对47/155，但38题保持正确、9题丢失、9题新增、99题始终错；习得时点跨模型，不能伪装同一快照。针对输出坍缩的原权重TRAIN／原图／错图／无图推理诊断已通过CPU计划检查，并由独立nohup服务排在完整确认之后，仅GPU1，无训练或新方法设计。[核验协议](analysis/ONEVISION_RURAL_COLLAPSE_PROTOCOL.md)。
+原cap1全量曾因FinMME:5082的2052占位token／2106视觉特征不一致失败，失败与部分预测保留，不拼接新运行；独立renderer只修正展开长度，官方forward核验通过。最终21454结果未完成；已看500与其余20954分别报告，不由最终评测推导完整FWT/BWT。
 
-
-**最新研究要求：先解释痛点，暂停新方法设计。** 优先检验更多训练反而退步、事实正确性不带来特异收益、聚合准确率掩盖旧答案丢失等现象；不能预设“LoRA无效”。[痛点与因果核验清单](summary/onevision_diagnostics_20261016/PAINPOINT_FIRST.md)。
-
-当前采用语言骨干0.5B、完整模型约0.9B的LLaVA-OneVision，独立使用新服务器GPU1。冻结1%训练1313条、诊断500条，完整测试21454条；Qwen2-VL基线在两机后台独立运行，不跨基座排序。
-
-**受限LoRA容量诊断已完成，但尚未证明自动找到最优数量。** Kmax=1/2/3/5四组实际保留1/2/3/5个专家，155题原生任务覆盖生成集答对47/47/53/55题。分配由当前与旧TRAIN探针NLL决定，输入路由只读取问题与图片，不使用测试答案。四组均达到上限；目前只是有上限的训练驱动复用／新增，尚无成本驱动的主动停止结论。新增收益主要来自遥感，金融未同步提高。[完整控制与配对区间](summary/onevision_diagnostics_20261016/COMPLETED_CONTROLS.md)。
-
-**基底／更新预算9条轨迹、18个终点已完成。** 随机A+零B、旧自然A+零B及完整旧A+B，在三个原生任务上做共享前缀的1／4更新控制。旧函数的收益区别于仅继承A；医学任务可随更新改善，但旧A+B遥感EM由76/100降至44/100，不能用“更新不足”解释全部低分。额外4遍是机制干预，不冒充正式1epoch结果。[设置](analysis/ONEVISION_BASIS_BUDGET_PROTOCOL.md)。
-
-**完整21454题确认正在独立重测。** 原cap1在FinMME:5082出现2052个图像占位token与2106行视觉特征不匹配；失败证据和旧部分结果保留，不计为完成。新脚本只校正连续占位token展开长度；五域TRAIN首题及故障题与官方完整forward的NLL误差均为0，原像素／问题／答案／权重不变。nohup服务仅用GPU1，按预先指定cap1、cap3从头全量测；500题已看诊断与其余20954题分别报告，最终评测不推导完整FWT/BWT。[修复脚本](analysis/onevision_full_input_repair.py)。
-
-知识干预17/17已完成：rank8正确／低相关／错配知识医学EM为16/31/23（各100题）；正确事实并未稳定胜过负对照。事实池字面关系及tail匹配有限，16事实编码的原模板回忆也未验证成功，因此不能据负结果断言专业知识无用。[知识阶段结果](summary/onevision_diagnostics_20261016/KNOWLEDGE_INTERIM.md)、[内容与参数审计](summary/onevision_diagnostics_20261016/KNOWLEDGE_MECHANISM_AUDIT.md)。医学100与原生KG267重叠12题，不合并为独立367题。
-
-训练后视觉4模型×3视图×300题已完成。最终顺序模型医学原图／无图／错图NLL为1.870／2.356／2.136，说明图像输入不能简单视为无效；这些是NLL诊断，不证明视觉能力充分或专业知识是主因。原基座医学正确图与错图差的区间仍跨0。[原基座视觉证据](summary/onevision_diagnostics_20261016/VISUAL_EVIDENCE.md)。
-
-默认后端任务／领域4×6对照已完成。同域最终锚EM9/23，跨域4/23；跨五域虽然总EM高于S1的2/23，S1答对的两题已全部丢失、另新增四题，必须区分旧答案遗忘与新答对题。[配对变化、梯度和预算审计](summary/onevision_diagnostics_20261016/TASK_DOMAIN_MECHANISM_AUDIT.md)。单一23题锚、默认数值差及内容／token预算混杂限制因果解释。
-
-新确定性19阶段顺序／独立任务控制已完成，完整T1权重逐元素复现通过。旧默认后端配对失败记录保留，不能用新结果回填旧运行。9个独立单更新任务A不变、B改变符合零B初始化的首步梯度规律，不是零学习率故障。[因子审计](summary/onevision_diagnostics_20261016/FACTOR_UPDATE_EVIDENCE.md)、[短数值复现](summary/onevision_diagnostics_20261016/REPRODUCIBILITY_EVIDENCE.md)。
-
-每阶段参数／RNG／SHA、loss、真实lr、梯度及CPU/GPU内存前后／峰值保留。固定TRAIN探针和基底预算控制保存原始梯度；不能声称知识训练保存了每一步原始梯度。旧Qwen九个单更新阶段存在ceil-warmup导致lr=0的混杂，活动源码不热改。基线与研究均通过nohup后台服务运行；研究尚未完成，不以小诊断集结果替代全量确认。
+逐步loss／实际lr／梯度及CPU/GPU内存前后、峰值、阶段参数与SHA保留；原知识训练只存梯度范数，新拟合探针计划存每步完整梯度，不能混称。旧Qwen九个单更新阶段有ceil-warmup零LR混杂，活动代码不热改。模型、数据、运行权重与私钥不进入Git。
 
 ## 方法 × 方向二维表
 
