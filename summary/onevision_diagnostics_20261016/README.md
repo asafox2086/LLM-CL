@@ -1,3 +1,5 @@
+> 当前唯一主指标与结论先看[Answer F1诊断重审](PRIMARY_F1_REASSESSMENT.md)。[冻结规则](../../rules/020_answer_f1_primary_20261017.md)明确无选项映射。旧原始EM/ROUGE记录仅追溯。
+
 # OneVision痛点研究：阅读入口
 
 **先读[探究总报告](RESEARCH_REPORT.md)。** 按8个问题统一写为：探究的问题 → 做的实验 → 结果 → 证明了什么 → 改进的方法 → 改进的效果。未完成、负结果、局部有效均明确标记。

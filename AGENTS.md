@@ -1,3 +1,12 @@
+# Matched-study report observer deployment — 2026-10-17
+
+- NewCPU-only llmcl-onevision-matched-report.service actualPID184250 after final metric-byte freeze, nohup --watch. Readscomplete caseproofs only; metricSHA/version lock enforced, fixedIDs/gold/rawF1 checked, stage1 A/B AND prediction/NLL exact gate. CPU72oldfiles/23confoundedstage1pairs rejection passed; actual new48GPU cases0 pending. Reports old/current AnswerF1 plus loss/grad/memory, allcontrasts, noEMco-primary. NoGPUworker/coordinator source changed; GPU1cap1 PID137966 and matchedCPU153460 preserved. Failure stopsreporter only, evidence saved; noautoblindretry. Read matched_task_domain/REPORTING.md/observer_status. Do not claim CPUvalidation proves actualGPUcase ingestion yet.
+
+# Latest user metric decision — Answer F1 only, no option mapping (2026-10-17)
+
+- User explicitly cancels letter/content mapping due workload. Primary score is EXACT existing raw token_f1, displayed Answer F1,0–100; same allmethods/backbones/full/pct01. No extra prefix removal, option normalization, judge, synonym/threshold selection. Read rules/020_answer_f1_primary_20261017.md and summary/primary_metric_20261017/metric_lock.json. Existing72files1365generatedrows exact equality verified. Prototype mapping never used by GPU/formalresults and is canceled; do not continue it. OldEM/ROUGE are archived provenance, not co-primary reporting.
+- PRIMARY_F1_REASSESSMENT rechecks129sourcefiles:155QA acquired40.798->final42.903,22qualityincreases/18decreases/115unchanged; deltaCI[-3.308,7.718], diagnostic nativeAP43.363/FWT15.301/BWT+1.504, NOT full21454. Do not claim universal forgetting. Ruraluniform76->44,balanced75->50 still true under F1. Knowledge rank1medical20.022->25.456 butKG8.978->6.494; rank8KG8.978->6.523. Correct-vspermuted medical F1 intervals include0 both ranks. Knowledge sufficiency/domaincount causality still unproven. Matched48GPU cases not started; exact gates pending. No active GPU sources changed.
+
 # Latest scoring/length diagnosis — 2026-10-17
 
 - CPU exact option-format audit on completed cap1 full-finance2233: rawEM260; strict unique input-option parsing1849, exactoptiontextoutputs326,129equal goldselected optiontext butrawEM0;197otherwrong/partial/alreadycorrect allretained.129/2233=5.777pp scoring-format difference, NOT modelgain or replacementmainaccuracy. Parser rejectsduplicate normalized options, usesinputcontext only, nogoldchoice/router tuning. Full proof SHA checked. No knowledge/vision sufficiency claim.

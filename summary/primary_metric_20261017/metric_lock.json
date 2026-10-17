@@ -1,0 +1,29 @@
+{
+  "metric_name": "Answer F1",
+  "version": "answer-f1-existing-token-v1-20261017",
+  "score_field": "token_f1",
+  "scale": [
+    0,
+    100
+  ],
+  "metric_sha256": "16c59998413d12b820d6f57269f9e1f45ac78e08595d20bf1f4fbc967fd94c4b",
+  "tokenization": "lowercase; regex [a-z0-9]+|[U+3400-U+9FFF], same as existing shared runtime",
+  "per_reference": "100 * 2 * multiset_token_overlap / (prediction_token_count + reference_token_count)",
+  "multiple_references": "maximum F1 over original references",
+  "empty_tokens": "same as stored runtime:100 when both empty,0 if one empty",
+  "option_mapping": false,
+  "additional_prefix_or_answer_extraction": false,
+  "semantic_judge": false,
+  "AP": "equal-weight19native-task final AnswerF1",
+  "FWT": "mean pre-task minus base for tasks2..19",
+  "BWT": "mean final minus just-acquired for tasks1..18",
+  "domain_final": "original QA-weighted full-test scores within domain; domain-macro separate",
+  "no_unmeasured_imputation": true,
+  "primary_only": true,
+  "selection_reason": "User prioritizes output content quality over strict complete-string matching; no metric-shopping based on winning method.",
+  "sources": [
+    "https://aclanthology.org/D16-1264/",
+    "https://github.com/rajpurkar/SQuAD-explorer/blob/master/evaluate-v2.0.py"
+  ],
+  "scope_note": "Same F1 formula as QA literature; existing multilingual tokenization is explicitly ours, not a claim of byte-identical SQuAD normalization."
+}

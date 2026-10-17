@@ -6,7 +6,11 @@
 
 > 全量训练原131019条中仅SLAKE:1622为空答案，经用户授权排除后为**131018条**；原始文件保留。1%训练1313条、完整测试21454条不变。[版本与两机核验](summary/two_backbone_native_cl_20261017_v2/README.md)。
 
+> 唯一主指标现为 **Answer F1（原始Token F1，0–100）**；不做选项映射。两骨干/全部方法及AP/FWT/BWT均用同一口径。[冻结规则](rules/020_answer_f1_primary_20261017.md)。
+
 ## 研究成果：按问题阅读
+
+**当前F1结果入口：[Answer F1诊断重审](summary/onevision_diagnostics_20261016/PRIMARY_F1_REASSESSMENT.md)。** 155题诊断整体F1无确定下降，遥感坍缩与知识收益不一致仍存在；不是完整主表结果。旧机制表中的精确正确数仅为历史现象，不再作主指标。
 
 **主报告：[痛点探究报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md)。** 每项统一为「探究的问题／做的实验／结果／证明了什么／改进的方法／改进的效果」。[证据附件导航](summary/onevision_diagnostics_20261016/README.md)仅在需要核对时查阅。
 
