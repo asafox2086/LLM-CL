@@ -1,11 +1,8 @@
-> cap1已完成21454题并逐题核验，19任务AP41.361；当前首个原型已实际启动，六例官方输入门槛通过，尚无更新/提升结论。见[完成表与衔接](../../summary/onevision_diagnostics_20261016/full_confirmation_evidence/CAP1_COMPLETION.md)。原48归因继续保留优先级，基线不停。
+> 成果统一看[问题发现总报告](../../summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md)：12个问题、每项六栏；首页列已证实、被反例否定与未解决。补入T02/T11初始/1/4步习得和两模块6/12完成快照，不把无实际改动解释成机制失败。
 
-> 核心背景已固定为轻量、1%小数据、低内存增长。可以使用多个LoRA，须以同设置实测证明相对具体LoRA类方法的内存优势；当前单LoRA仅为既定原型。额外计算也计费，基线持续运行。见[规则021](../../rules/021_lightweight_data_limited_core_20261017.md)。
+> 原生AnyRes SeqFT/cap1已完成21454题，19任务AP41.361；[完整表](../../summary/onevision_diagnostics_20261016/full_confirmation_evidence/CAP1_COMPLETION.md)。接续余下原型→严格48归因→四组完整19阶段/最终全测→cap3→完整稀疏转移。实际进度看[原型自动报告](../../summary/onevision_diagnostics_20261016/two_module_prototype/VERIFIED_PILOT_RESULTS.md)。基线不停，不热改活动/排队源码。
 
-> 最新唯一主指标为Answer F1（既有token_f1），不做选项映射；AP/FWT/BWT同口径。见[rules020](../../rules/020_answer_f1_primary_20261017.md)。原始分数/训练源码不改。
-
-> 当前成果统一看[探究总报告](../../summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md)：12个问题、每项六栏。用户已授权两模块设计；GPU1当前原cap1后，先12组原型、原48组归因，再[四组完整19阶段/最终全测试](../../summary/onevision_diagnostics_20261016/two_module_fullstream/PROTOCOL.md)，原cap3与稀疏FWT/BWT保留。新补同池路线NLL与真实参数核验，不冒称F1提升。原目标的原因归属不能由方法提升代替；完整代码已排队，尚无新GPU效果。原协议/失败保留，基线不改。
-
+> 核心背景为轻量、1%小数据、低内存增长。允许多个LoRA，当前单LoRA仅为既定原型；比较须计入CPU/GPU常驻总量、统一预热的训练前后/峰值及额外计算。[规则021](../../rules/021_lightweight_data_limited_core_20261017.md)。唯一主指标为Answer F1，不做选项映射；[规则020](../../rules/020_answer_f1_primary_20261017.md)。
 # OneVision 0.5B：先诊断，再设计方法
 
 独立实验ID：`onevision_diagnostics_20261016`。用户选择LLaVA-OneVision-Qwen2-0.5B-OV（语言0.5B，完整模型约0.9B），仅使用新机GPU1。Qwen基线继续；跨骨干结果不能混成同基座方法排名。

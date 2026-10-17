@@ -1,0 +1,329 @@
+{
+  "CPU_only": true,
+  "completed_control_tasks": 2,
+  "cases": [
+    {
+      "task": 2,
+      "TRAIN_unique_QA": 11,
+      "stages": [
+        {
+          "label": "initial",
+          "QA": 228,
+          "Answer_F1": 29.599693678641046,
+          "mean_NLL": 3.2156919873597327,
+          "target_QA_exposures": 0
+        },
+        {
+          "label": "one_update",
+          "QA": 228,
+          "Answer_F1": 29.26349965823649,
+          "mean_NLL": 2.5921658758531536,
+          "target_QA_exposures": 11
+        },
+        {
+          "label": "four_updates",
+          "QA": 228,
+          "Answer_F1": 51.95627958785857,
+          "mean_NLL": 1.3646165986071552,
+          "target_QA_exposures": 44
+        }
+      ],
+      "contrasts": [
+        {
+          "label": "initial_to_one",
+          "F1_difference_pp": {
+            "QA": 228,
+            "recipient_image_clusters": 161,
+            "mean_difference": -0.3361940204045458,
+            "image_cluster_95CI": [
+              -3.458874458874458,
+              2.836156466861861
+            ],
+            "bootstrap_replicates": 10000,
+            "seed": 42,
+            "multiple_comparison_corrected": false
+          },
+          "NLL_difference_nats": {
+            "QA": 228,
+            "recipient_image_clusters": 161,
+            "mean_difference": -0.6235261115065792,
+            "image_cluster_95CI": [
+              -0.6744279819805029,
+              -0.5735636350819883
+            ],
+            "bootstrap_replicates": 10000,
+            "seed": 42,
+            "multiple_comparison_corrected": false
+          },
+          "F1_up_down_same_QA": [
+            10,
+            32,
+            186
+          ]
+        },
+        {
+          "label": "one_to_four",
+          "F1_difference_pp": {
+            "QA": 228,
+            "recipient_image_clusters": 161,
+            "mean_difference": 22.692779929622052,
+            "image_cluster_95CI": [
+              16.45743145743146,
+              29.060563619387153
+            ],
+            "bootstrap_replicates": 10000,
+            "seed": 42,
+            "multiple_comparison_corrected": false
+          },
+          "NLL_difference_nats": {
+            "QA": 228,
+            "recipient_image_clusters": 161,
+            "mean_difference": -1.2275492772459984,
+            "image_cluster_95CI": [
+              -1.367104370067048,
+              -1.0978307141081352
+            ],
+            "bootstrap_replicates": 10000,
+            "seed": 42,
+            "multiple_comparison_corrected": false
+          },
+          "F1_up_down_same_QA": [
+            74,
+            19,
+            135
+          ]
+        },
+        {
+          "label": "initial_to_four",
+          "F1_difference_pp": {
+            "QA": 228,
+            "recipient_image_clusters": 161,
+            "mean_difference": 22.3565859092175,
+            "image_cluster_95CI": [
+              16.338791927027227,
+              28.64898166268029
+            ],
+            "bootstrap_replicates": 10000,
+            "seed": 42,
+            "multiple_comparison_corrected": false
+          },
+          "NLL_difference_nats": {
+            "QA": 228,
+            "recipient_image_clusters": 161,
+            "mean_difference": -1.8510753887525775,
+            "image_cluster_95CI": [
+              -2.010955527096593,
+              -1.695829372180191
+            ],
+            "bootstrap_replicates": 10000,
+            "seed": 42,
+            "multiple_comparison_corrected": false
+          },
+          "F1_up_down_same_QA": [
+            78,
+            27,
+            123
+          ]
+        }
+      ],
+      "first_update_48layer_AB_exact": true,
+      "first_update_all_TEST_outputs_and_NLL_exact": true
+    },
+    {
+      "task": 11,
+      "TRAIN_unique_QA": 12,
+      "stages": [
+        {
+          "label": "initial",
+          "QA": 267,
+          "Answer_F1": 5.510547063367376,
+          "mean_NLL": 3.8348188962829246,
+          "target_QA_exposures": 0
+        },
+        {
+          "label": "one_update",
+          "QA": 267,
+          "Answer_F1": 7.240447420904734,
+          "mean_NLL": 3.3210353130258423,
+          "target_QA_exposures": 12
+        },
+        {
+          "label": "four_updates",
+          "QA": 267,
+          "Answer_F1": 17.91802592198079,
+          "mean_NLL": 2.718395725171664,
+          "target_QA_exposures": 48
+        }
+      ],
+      "contrasts": [
+        {
+          "label": "initial_to_one",
+          "F1_difference_pp": {
+            "QA": 267,
+            "recipient_image_clusters": 103,
+            "mean_difference": 1.7299003575373586,
+            "image_cluster_95CI": [
+              -0.8836183405659289,
+              4.342343528811237
+            ],
+            "bootstrap_replicates": 10000,
+            "seed": 42,
+            "multiple_comparison_corrected": false
+          },
+          "NLL_difference_nats": {
+            "QA": 267,
+            "recipient_image_clusters": 103,
+            "mean_difference": -0.5137835832570823,
+            "image_cluster_95CI": [
+              -0.617214836878702,
+              -0.41288559459722957
+            ],
+            "bootstrap_replicates": 10000,
+            "seed": 42,
+            "multiple_comparison_corrected": false
+          },
+          "F1_up_down_same_QA": [
+            29,
+            20,
+            218
+          ]
+        },
+        {
+          "label": "one_to_four",
+          "F1_difference_pp": {
+            "QA": 267,
+            "recipient_image_clusters": 103,
+            "mean_difference": 10.677578501076058,
+            "image_cluster_95CI": [
+              6.967803370876628,
+              14.360409944132348
+            ],
+            "bootstrap_replicates": 10000,
+            "seed": 42,
+            "multiple_comparison_corrected": false
+          },
+          "NLL_difference_nats": {
+            "QA": 267,
+            "recipient_image_clusters": 103,
+            "mean_difference": -0.6026395878541783,
+            "image_cluster_95CI": [
+              -0.6911689751885004,
+              -0.5207783950770155
+            ],
+            "bootstrap_replicates": 10000,
+            "seed": 42,
+            "multiple_comparison_corrected": false
+          },
+          "F1_up_down_same_QA": [
+            46,
+            19,
+            202
+          ]
+        },
+        {
+          "label": "initial_to_four",
+          "F1_difference_pp": {
+            "QA": 267,
+            "recipient_image_clusters": 103,
+            "mean_difference": 12.407478858613414,
+            "image_cluster_95CI": [
+              8.35197213803687,
+              16.455045971196345
+            ],
+            "bootstrap_replicates": 10000,
+            "seed": 42,
+            "multiple_comparison_corrected": false
+          },
+          "NLL_difference_nats": {
+            "QA": 267,
+            "recipient_image_clusters": 103,
+            "mean_difference": -1.1164231711112604,
+            "image_cluster_95CI": [
+              -1.29719353812214,
+              -0.9424737952356264
+            ],
+            "bootstrap_replicates": 10000,
+            "seed": 42,
+            "multiple_comparison_corrected": false
+          },
+          "F1_up_down_same_QA": [
+            60,
+            28,
+            179
+          ]
+        }
+      ],
+      "first_update_48layer_AB_exact": true,
+      "first_update_all_TEST_outputs_and_NLL_exact": true
+    }
+  ],
+  "pending_control_tasks": [
+    12
+  ],
+  "source_sha256": {
+    "analysis/onevision_pilot_acquisition_controls.py": "854dce7f3b825536ffbf6111bb28a91a5d019ecb0a51492373037205d363727c",
+    "analysis/onevision_acquisition_budget_bridge.py": "4cc486dde7b010f5db6baea219edf40fa3dd60c53c115d2e3c1f692f50dcaf76",
+    "summary/onevision_diagnostics_20261016/two_module_prototype/CPU_PILOT_PLAN.json": "0ee3e1e83c900089cbeea4bd8f65e836df86cbeb0433fd786fd307a51fa526e1",
+    "summary/onevision_diagnostics_20261016/basis_budget/complete.json": "7bb96c10fbc42e2e830f4b5f3c6b1a8e3fcbdebb7613d6d4d2b9f04bc89fa333",
+    "exp/onevision_basis_budget_20261016/20261017_081359/protocol.json": "61c1e9de2b66939c486a9dd5a3da97831e3ad1553417697cac2038ecdfb3fe7b",
+    "analysis/onevision_basis_budget_probe.py": "512d8176f707a471fdcc1e53ec8ec046c7adf9ee3def1d10f27b04eaaf086ebe",
+    "analysis/onevision_knowledge_intervention.py": "22512cc63ed0933f0f471f30b07f5707ba8e020c95137811430cdced2c3962a0",
+    "analysis/onevision_research_worker.py": "6db35a572ee8fca5f07e69eb22b36a8eebc40ce28a0b7977aa7b228373b81493",
+    "analysis/onevision_capacity_probe.py": "5319a4ad35dd78db4dbc40ad9d45387a55c17c6c911c74ad46b5680ff76db225",
+    "exp/onevision_diagnostics_20261016/run.py": "cf8ee1ac5af7faa595e05be05e05da5207d9f0596e518f8a8998ae8d3d0d7536",
+    "analysis/onevision_two_module_pilot.py": "bf6daad9253d65bd8e5ffa4a682303a3c828e8078762f2c9881f89ce4297c578",
+    "analysis/onevision_two_module_core.py": "0afa2f600dca565f4b023d3fa1e92b4b276c965aaf74fdc37a2d7059f256d7a4",
+    "analysis/onevision_full_input_repair.py": "5758506a9f460ca7dd67a72d5c36a4760495249f6963553e54c86f668b3f7bcb",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/manifest.json": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+    "summary/primary_metric_20261017/metric_lock.json": "a146f037f835afb66251ce35498a4a5df8e7ea97468725b49ea34043f7d1c948",
+    "analysis/answer_f1.py": "16c59998413d12b820d6f57269f9e1f45ac78e08595d20bf1f4fbc967fd94c4b",
+    "summary/onevision_diagnostics_20261016/two_module_prototype/T02_control_complete.json": "5dbd58c478e21a96e60cc4ba93c4795b619d20665480b3ca9537264a2b58d62b",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T02_past_AB/complete.json": "13180db53f7be2e7ea6bd66cf4bcf90990677fe89d3b261a163d5e0cb4795f2e",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T02_past_AB/training.json": "836d8d26cfe936e21c4d4e6fc66da55d2874b623e327e7f711714f95441c3be8",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T02_past_AB/memory_summary.json": "b4b970ffb919e0d8f1ec3b378c7442fd91fffc203dd9327945c396c734ed8d25",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T02_past_AB/update_1.pt": "6dc83c9fbdefd8902e13f0ce124714fe8780b30342dd3d8343a5c75e4efcdd97",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T02_past_AB/update_4.pt": "d1e1b7ba61ee1be23595be7e1ca9b020a72ab7468f971893288e01d904265983",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T02_past_AB/raw_gradients/update_1.pt": "58cc2f950f509c1abd6ec0030940075c4433edc30dd0272380d48981e69b3f4c",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T02_past_AB/raw_gradients/update_2.pt": "4dbe609ddb6e1a4a2c51bdbecf0280f4a8937ad223b4448bfb5f2c6e97b45356",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T02_past_AB/raw_gradients/update_3.pt": "ed4f90e446b04d8de5519441421b2bc0b02849c973c7ee2ca74d52453da1f48b",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T02_past_AB/raw_gradients/update_4.pt": "a839a2a218feb7b34481dbd2c3514efaa3f999768fdcd04c10015d60aec67b53",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T02_past_AB/trained.json": "aa97ebbe80c750afebb4513717f0fa5a9001765281f18eda7ad164651402c62d",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T02_past_AB/evaluations/endpoint_1/native_image.jsonl": "5089af16491fb57124cd9f101bc30578d51e631d3cd28817cb553527f9680ade",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T02_past_AB/evaluations/endpoint_4/native_image.jsonl": "a6f5f8ba2fe46ba2dc285a3c9c84cb767a9991e8ffe0892a4106c228214dc42d",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T02_past_AB/evaluations/endpoint_1/durable_complete.json": "367d065296289751e127ed7aa222c5534cc0769e49c613766b7b4bd9420aeff0",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T02_past_AB/evaluations/endpoint_4/durable_complete.json": "73fafa8aa1b0af0e4f9367d5ff48c2b3c0b635e4736eee71e5631568379aa859",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T02_test.jsonl": "c319026d6857ee31722732ce54fd0348e189f0f8aaa574522fdb6623ca3bc572",
+    "exp/onevision_two_module_20261017/pilot/T02_control/20261017_205621/final_adapter.pt": "564a2617560f162cbfb51814e579f8df847284a77f0cb6c65d36c61025f477db",
+    "exp/onevision_two_module_20261017/pilot/T02_control/20261017_205621/evaluations/initial/target_image.jsonl": "28fe92bf54579a7ed09fff86dc01e12bd04ff2bf3ca61e4d7adaff0ee19ce7b6",
+    "exp/onevision_two_module_20261017/pilot/T02_control/20261017_205621/evaluations/final/target_image.jsonl": "04eeeffbc06e2802600dd25459d7bc195a0a0a2f6004eba5a6910bbe8a24f9de",
+    "exp/onevision_two_module_20261017/pilot/T02_control/20261017_205621/training.json": "d7b4c3dbc49ad067f0559eba60d16172c6f895873e44ed1683f9de74e88db2c8",
+    "summary/onevision_diagnostics_20261016/two_module_prototype/T11_control_complete.json": "d61bdee414ffc704ec11fc16a43223fc5521a88cf5cc382f67c1f28e4aa89275",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T11_past_AB/complete.json": "cd25fec6a2eec7766cb740cd38962f848d7f442dfe180f518b85ff72a54287ce",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T11_past_AB/training.json": "ada312ce564aee4a9cf3108ea2ad28abb02ea28c24a5a9305ce4aa4203c92738",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T11_past_AB/memory_summary.json": "05f6f9a4b19fba58b22ea61ae5a9178d6fc1d1a0301d587eb31891666361d8b2",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T11_past_AB/update_1.pt": "f36df96ecd773a04823aaa3acd8b0345702ffad366eb9791802afc665f61f712",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T11_past_AB/update_4.pt": "338e8a08b60d9a95a485a17332b9e33754a7c1f5227cb42412768edb41e7d27d",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T11_past_AB/raw_gradients/update_1.pt": "55bd252f5633f7cba0f1f805469754b6626cd534dc6a464e053eb9ce6742eb77",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T11_past_AB/raw_gradients/update_2.pt": "e4b581246f15e46234c5c86dfc8e5c1f40380a4f2dd6174ab4f85f80c005061a",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T11_past_AB/raw_gradients/update_3.pt": "2f56922e90cb23138222f370a0398e55a6d6fb96334f4283d9df56274c376028",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T11_past_AB/raw_gradients/update_4.pt": "9490ba464d6cb19ed50b17af27004d037bde151bbb9a732409124fc638c74bdd",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T11_past_AB/trained.json": "c96c0410982575865c256fc9bc1c69a5b26fb21b7929c3cbd625d0905d9290aa",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T11_past_AB/evaluations/endpoint_1/native_image.jsonl": "d458af09fcf50117c94de78d1b2430a92aa633c202f21b4145f0b7a9820d457a",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T11_past_AB/evaluations/endpoint_4/native_image.jsonl": "551b76051daf185d395c81a4d9ec2ee4762c3e82fe506bd9cc50c2faf4b55ded",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T11_past_AB/evaluations/endpoint_1/durable_complete.json": "ee23ebfed821f2d692998cc1c68d20bb8413d3a9560bc7b0475111e4d254561c",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T11_past_AB/evaluations/endpoint_4/durable_complete.json": "1b472c48aae864f1e2d0ec45e3658e2a8efc15900face4b038458ec143df6086",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T11_test.jsonl": "48e7b5e4177a001612d6640f6df92cc3621362792dffb0ad762476e562b6b21b",
+    "exp/onevision_two_module_20261017/pilot/T11_control/20261017_211544/final_adapter.pt": "de76f79e1831d3495a883e195e7cccd26f4dd255f9fd052c964dacffcf998472",
+    "exp/onevision_two_module_20261017/pilot/T11_control/20261017_211544/evaluations/initial/target_image.jsonl": "6ffde22e3780f3e94723b4af2314d3da8710aa639ef4109b1970e75efdc113a0",
+    "exp/onevision_two_module_20261017/pilot/T11_control/20261017_211544/evaluations/final/target_image.jsonl": "db4880a068bf41afc5a0a864acb061634c449179019b7d3499cd3a1301cbf601",
+    "exp/onevision_two_module_20261017/pilot/T11_control/20261017_211544/training.json": "d308097c4575bddb99e6e18493d4c3aeb9142676b1f539c89bf1f5e6887e6768"
+  },
+  "limits": [
+    "Initial-to-one and one-to-four are fixed task/seed interventions, not later19-stage CL or independent-seed replicates.",
+    "Increasing updates increases exposure and compute; no new unique data or parameters, but not a free method improvement.",
+    "F1 point drops with intervals including0 are not proven population harm or equivalence.",
+    "Old natural347TRAIN cost shared; no claim of absence of prior domains/knowledge or unique mechanism.",
+    "All3 tasks predeclared and retained, missing control results stay pending; no TEST-based setting choice.",
+    "F1/NLL and per-question gains/losses differ; no universal cure from more updates."
+  ]
+}

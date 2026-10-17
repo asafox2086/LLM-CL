@@ -12,39 +12,21 @@
 
 ## 研究成果：按问题阅读
 
-**当前习得的局部限制：** 同样11条TRAIN，医学F1初始29.600→1步29.263→4步51.956；首步F1区间含0，额外训练局部获益但遥感反例保留。[精确桥接](summary/onevision_diagnostics_20261016/acquisition_budget_bridge/VERIFIED_RESULTS.md)。[T02四组原型](summary/onevision_diagnostics_20261016/two_module_prototype/FIRST_T02_ACTIVATION.md)均返回原更新，无新增收益；[内存峰值](summary/onevision_diagnostics_20261016/two_module_resource_windows/VERIFIED_RESULTS.md)按TRAIN窗口重算。
+**统一阅读入口：[问题发现总报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md)。** 12项均按「探究的问题／做的实验／结果／证明了什么／改进的方法／改进的效果」记录，首页区分已证实、被反例否定和未解决；细节按需进入[证据目录](summary/onevision_diagnostics_20261016/README.md)。
 
-**完整测试进展：** 原生AnyRes单LoRA控制已测完21454题，五域F1=75.917/40.943/49.010/12.991/31.916，19任务AP=41.361。FWT/BWT仍缺阶段评测；与正式V2基线分开。[完整表/诊断集外推边界](summary/onevision_diagnostics_20261016/full_confirmation_evidence/CAP1_COMPLETION.md)。GPU1已自动进入原型实验，严格归因仍未完成。
-
-**当前F1结果入口：[Answer F1诊断重审](summary/onevision_diagnostics_20261016/PRIMARY_F1_REASSESSMENT.md)。** 155题诊断整体F1无确定下降，遥感坍缩与知识收益不一致仍存在；不是完整主表结果。旧机制表中的精确正确数仅为历史现象，不再作主指标。
-
-**主报告：[痛点探究报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md)。** 每项统一为「探究的问题／做的实验／结果／证明了什么／改进的方法／改进的效果」。[证据附件导航](summary/onevision_diagnostics_20261016/README.md)仅在需要核对时查阅。
-
-最新视觉核验见[训练后图像对照](summary/onevision_diagnostics_20261016/TRAINED_VISION_F1_EVIDENCE.md)：同一最终权重医学100题原图F1=43.022，错图30.889，无图24.310；分辨率/token混杂和配对区间一并报告，不宣称新方法提升。
-
-新增[两模块原型](summary/onevision_diagnostics_20261016/two_module_prototype/PROTOCOL.md)：从已验证问题出发，固定四种消融；[完整19阶段/21454测试代码与成本](summary/onevision_diagnostics_20261016/two_module_fullstream/PROTOCOL.md)已实现并排队。CPU准备通过，GPU性能尚待测；[诊断/完整结果分表](summary/onevision_diagnostics_20261016/two_module_fullstream/VERIFIED_RESULTS.md)，未测不填数，不按TEST挑候选。
-
-新增[容量资源核验](summary/onevision_diagnostics_20261016/capacity_resource_evidence/VERIFIED_RESULTS.md)：GPU可训练计数不包含整个CPU专家池；1→5个专家storage约2.06→10.31MiB，额外TRAIN计算及评价混合峰值另列，不据此宣称轻量优势。
-
-新补[容量与路由的分离核验](summary/onevision_diagnostics_20261016/ROUTING_MECHANISM_EVIDENCE.md)：从1到3个LoRA，19原型/500题原型选择都未改变；同一专家池换路线能改变遥感/金融NLL，但尚不能称生成F1提升。[完整确认入口](summary/onevision_diagnostics_20261016/full_confirmation_evidence/VERIFIED_RESULTS.md)已填cap1完整21454结果，cap3仍待测。
-
-| 问题 | 已验证结果 | 改进是否有效 |
+| 重点发现 | 实际结果 | 结论边界 |
 | --- | --- | --- |
-| 所有图片同答urban | 原图仍改变答案概率，输出决策偏移 | 平衡损失F1 44→50，仍局部缓解 |
-| 小数据多训是否通用 | 医学F1改善，遥感76→44 | 更多更新不是通用解药 |
-| 加知识是否足够 | 16事实已记住，医学F1有限改善、KG下降 | 没有证明极小知识足以解决目标问答 |
-| EWC是否每步保护 | 最新中心项首步32/32为0 | 调大λ不能激活该首步；后续可生效 |
-| 旧LoRA该怎么复用 | 一步A不变/B更新，继承A与AB收益依任务 | 未提出跨域通用路由 |
-| 评分如何统一 | 唯一Answer F1，规则与旧Token F1完全相同 | 无额外选项映射，不冒称语义准确率 |
-| 多域还是少任务 | 相同F1输出任务宏平均+1.425pp、域宏平均−1.178pp | 核心因果仍待严格双锚控制 |
-| 总分提高是否无损失 | 155题22质量上升/18下降；负点积26/31在后续批次 | 揭示相抵和时间位置，不等于因果已证实 |
-| 更多LoRA是否改善选择 | cap1/3的19原型与500题原型选择完全相同 | 同池路线影响NLL，尚无生成F1改进声明 |
+| 当前任务尚未学好，不全是后来忘了 | Modality初始/1/4步F1为29.600/29.263/51.956；KG为5.511/7.240/17.918 | 多训练局部有效，遥感却76→44；额外计算另计 |
+| 同答仍可保留图像信号 | 遥感全urban，原图仍改善正确答案概率；平衡损失44→50 | 只缓解坍缩，未证明视觉完好或唯一成因 |
+| EWC最新中心首步梯度为0 | 32/32首批；增大λ不能改变该性质 | 后续步/更早中心可生效，未证最终准确率因果 |
+| 记住事实不保证迁移 | 16事实可回忆，目标医学/KG无普遍稳定改善 | 未排除知识不足、覆盖与视觉实体绑定 |
+| 总分掩盖异质性 | 155题22改善/18退化；任务宏平均与领域宏平均方向相反 | 诊断不能替代完整测试 |
+| 两模块是否有效 | 本次核验6/12小原型：T02四组和T11 control/A暂无收益 | 多数条件及完整CL仍待运行，未宣称算法提升 |
+| 低显存增长不等于总资源低 | CPU专家池随容量增加；预热改变前后差 | 常驻总量、纯TRAIN峰值和额外计算均需比较 |
 
-研究使用LLaVA-OneVision-Qwen2-0.5B-OV（完整模型约0.9B），仅新GPU1；共享冻结1%共1313条TRAIN。500题NLL／155题生成等诊断集单独标注，不冒充完整21454题。知识16事实及重复训练均是额外机制干预，预算另计。
+原生AnyRes单LoRA控制已完成**21454题**：自然75.917、医学40.943、遥感49.010、金融12.991、交通31.916，19任务AP=41.361；完整FWT/BWT尚缺阶段评测。[完整结果及诊断偏差](summary/onevision_diagnostics_20261016/full_confirmation_evidence/CAP1_COMPLETION.md)。此研究与正式双骨干V2输入协议不同，不混排名。
 
-2026-10-17最新核验：知识4条0／8／64步轨迹、遥感3条损失权重轨迹全部完成；当前cap1完整确认继续。用户已重新授权设计两个模块，旧“暂停设计”是历史阶段要求。接续顺序为原型12→[严格双锚48机制复核](analysis/ONEVISION_MATCHED_TASK_DOMAIN_PROTOCOL.md)→四组完整方法训练/最终确认→原cap3→完整转移评测；CPU准备不等于GPU效果，尚未证明自动最优LoRA数量。正式基线继续nohup，不跨骨干/输入协议排名，旧Qwen零LR混杂隔离。
-
-逐题结果、阶段权重／SHA、loss、实际LR、原始可用梯度及[具体内存前后／峰值](summary/onevision_diagnostics_20261016/MEMORY_WINDOW_AUDIT.md)保留；模型、数据、checkpoint和私钥不入Git。
+GPU1接续：余下原型→[严格48组归因](analysis/ONEVISION_MATCHED_TASK_DOMAIN_PROTOCOL.md)→[四组完整19阶段及全测试](summary/onevision_diagnostics_20261016/two_module_fullstream/PROTOCOL.md)→cap3完整确认→稀疏转移。正式基线持续nohup；“最优LoRA数量”“显著方法提升”“优于具体LoRA方法的内存增长”均尚未证明。[自动原型结果](summary/onevision_diagnostics_20261016/two_module_prototype/VERIFIED_PILOT_RESULTS.md)按完成证明更新，不用排队状态冒充结果。
 
 ## 方法 × 方向二维表
 
