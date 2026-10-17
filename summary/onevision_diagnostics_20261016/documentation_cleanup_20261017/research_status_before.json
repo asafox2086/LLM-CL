@@ -1,0 +1,98 @@
+{
+  "updated_utc": "2026-10-17T02:21:23.141904+00:00",
+  "completed": {
+    "knowledge": 17,
+    "basis_trajectories": 9,
+    "basis_endpoints": 18,
+    "capacity_diagnostic_caps": [
+      1,
+      2,
+      3,
+      5
+    ],
+    "deterministic_native_stages": 19,
+    "trained_visual_views": 12
+  },
+  "capacity_full_confirmation": {
+    "phase": "cap1_intentionally_yielded_to_diagnostics",
+    "active_job": "cap1_full_confirm",
+    "pid": null,
+    "coordinator_pid": null,
+    "deferred_service": "llmcl-onevision-deferred-full.service",
+    "previous_worker_pid": 94614
+  },
+  "overall_complete": false,
+  "optimal_module_count_demonstrated": false,
+  "full21454_confirmation_complete": false,
+  "acquisition_collapse_CPU_audit_complete": true,
+  "rural_inference_followup": {
+    "phase": "inference",
+    "pid": 112549,
+    "checkpoint": "random_A_zero_B_update1",
+    "split": "TEST",
+    "view": "wrong",
+    "last_id": "RSVQA-LR:28508",
+    "run": "exp/onevision_rural_collapse_20261017/20261017_101243"
+  },
+  "knowledge_format_CPU_audit_complete": true,
+  "knowledge_fit_followup": {
+    "phase": "waiting_existing_queues_and_idle_GPU1",
+    "pid": 103530,
+    "services": {
+      "llmcl-onevision-full-repair.service": 94608,
+      "llmcl-onevision-rural-collapse.service": 99260
+    },
+    "GPU_PIDs": [
+      "94614"
+    ]
+  },
+  "key_findings_register": "KEY_FINDINGS.md",
+  "EWC_activation_CPU_audit": {
+    "latest_term_zero_first_batches": 32,
+    "stage2_whole_term_zero_cases": 8,
+    "same_start_CPU_equal_updates": 8,
+    "actual_nonstationary_old_gradient_controls": 8,
+    "accuracy_causality_proven": false
+  },
+  "first_step_causality_audit_complete": true,
+  "scheduling_priority": {
+    "stopped_CPU_coordinator_pid": 94608,
+    "running_sources_sha256_unchanged": {
+      "analysis/onevision_full_input_repair.py": "5758506a9f460ca7dd67a72d5c36a4760495249f6963553e54c86f668b3f7bcb",
+      "analysis/onevision_full_repair_queue.py": "0dd8c1f64170f5c09feb867db7428bcfcfa16542c2974fbadaf02af5bb87d410",
+      "analysis/onevision_rural_collapse_probe.py": "c8065fe466a0c563b4f6630163c3aa5a200044ff7da7c448858bc3f26a842de2",
+      "analysis/onevision_knowledge_fit_probe.py": "2b3795f931bfcd168e2dfa461d7680d88cdc720002c9cb84ad1b5681d1f7181b"
+    },
+    "order": [
+      "rural TRAIN/visual diagnostic",
+      "knowledge fitting diagnostic",
+      "resume same cap1 full inference",
+      "cap3 full inference"
+    ],
+    "reboot": "original full queue disabled; deferred service resumes unchanged full queue after diagnostics, including incomplete cap1 inference if needed",
+    "new_method_design": false,
+    "baseline_services_unchanged": true,
+    "previous_order": [
+      "current cap1 full confirmation",
+      "rural TRAIN/visual diagnostic",
+      "knowledge fitting diagnostic",
+      "remaining full confirmation cap3"
+    ],
+    "cap1_worker_intentionally_yielded": true,
+    "preserved_cap1_prefix": {
+      "natural_image.jsonl": {
+        "complete_rows": 3940,
+        "file_sha256": "954a19862b3f81b493b4b8854cd718056bfe96302d9cf91c23b73fe8ee02b637",
+        "bytes": 2099428,
+        "frozen_ID_and_gold_prefix_verified": true
+      }
+    },
+    "yielded_cap1_worker_pid": 94614,
+    "yielded_worker_original_start_ticks": "4454593",
+    "GPU_worker_preserved_during_initial_CPU_reorder": true,
+    "cap1_worker_currently_running": false,
+    "snapshot_unix": 1792203415.8763187,
+    "current_rural_worker_pid": 112549,
+    "intentional_yield_marker": "full_input_repair/cap1_intentional_yield.json"
+  }
+}

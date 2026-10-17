@@ -1,20 +1,4 @@
-> 当前顺序：知识写入 → 固定三组遥感损失权重诊断 → 原cap1／cap3全量续测。仅CPU等待调度器重排，运行中知识GPU进程未动。[新对照协议](../../analysis/ONEVISION_RURAL_WEIGHT_PROTOCOL.md)。
-
-> 原权重视觉／终点拟合对照已完成，新增[K07](../../summary/onevision_diagnostics_20261016/KEY_FINDINGS.md)：全部输出urban时仍保留图像条件信号。知识写入四轨迹对照已接续启动，结果待完成证明。
-
-> 最新：cap1长推理已主动让出GPU1，3940条兼容预测保留；rural真实GPU诊断正在执行，之后知识拟合，再原运行续测cap1／cap3。旧cap1 PID退出是预期，不是故障。
-
-> 当前调度：保留正在跑的cap1全量GPU进程，随后rural诊断、知识拟合，最后cap3全量。原全量CPU服务停用是预期；新deferred-full服务恢复原队列。首步保护为零不能直接归因为遗忘，见[FIRST_STEP_CAUSALITY](../../summary/onevision_diagnostics_20261016/FIRST_STEP_CAUSALITY_AUDIT.md)。
-
-> 用户要求重点记录机制发现：[KEY_FINDINGS K01](../../summary/onevision_diagnostics_20261016/KEY_FINDINGS.md)明确最新EWC项的首步梯度为零，区分旧项／后续更新可生效以及尚未验证的性能因果。
-
-> 知识格式审计17条件完成：部分原EM收益在固定前缀辅助检查下反转；原事实LoRA严格回忆仍未验证。足量写入控制已排队，仅CPU循环检查通过。见[证据](../../summary/onevision_diagnostics_20261016/KNOWLEDGE_FORMAT_AUDIT.md)和[操作核验协议](../../analysis/ONEVISION_KNOWLEDGE_FIT_PROTOCOL.md)。
-
-> 新证据：固定答案前缀导致原EM归零但存在标签判别；额外训练可使答案全部坍缩为urban。见[只读审计](../../summary/onevision_diagnostics_20261016/ACQUISITION_COLLAPSE_AUDIT.md)。原权重视觉／训练拟合控制已排队，尚无GPU结果。
-
-> 用户最新修订：暂停新方法设计，先做痛点因果诊断；参见[PAINPOINT_FIRST](../../summary/onevision_diagnostics_20261016/PAINPOINT_FIRST.md)。已有全量确认继续作为证据核验。
-
-> 2026-10-17更新：容量与基底／预算诊断已完成；全量确认因图像token不匹配失败后在独立修复运行重测，尚无完整21454结果。见[完成证据](../../summary/onevision_diagnostics_20261016/COMPLETED_CONTROLS.md)。全部原训练源码保持冻结。
+> 当前成果统一看[探究总报告](../../summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md)：8个问题、每项六栏，区分验证、证伪、部分改进和待证明。知识4轨迹及遥感权重3轨迹已完成；GPU1正在恢复原cap1完整确认，之后cap3。原协议与失败记录保留，基线不改。
 
 # OneVision 0.5B：先诊断，再设计方法
 
