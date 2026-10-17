@@ -23,3 +23,7 @@
 每项结论写明：现象、对照、排除的解释、仍存解释、样本／seed／计算后端限制。可以得到“目前不能排除”或否定原假设，不追求为了新奇而宣称LoRA无效。只有痛点能在有控制的参数／功能干预中复现，再讨论方法设计。
 
 证据入口：[基底与预算](COMPLETED_CONTROLS.md)、[因子更新](FACTOR_UPDATE_EVIDENCE.md)、[任务领域逐题变化](TASK_DOMAIN_MECHANISM_AUDIT.md)、[知识机制](KNOWLEDGE_MECHANISM_AUDIT.md)。
+
+## 重点机制入口
+
+用户要求着重保留这类机制发现，统一记入[KEY_FINDINGS](KEY_FINDINGS.md)。K01记录最新中心EWC项首步为零及实际32个首批证据，不能误写为全部EWC无效；性能因果待匹配条件核验。

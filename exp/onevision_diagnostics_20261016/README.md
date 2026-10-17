@@ -1,3 +1,5 @@
+> 用户要求重点记录机制发现：[KEY_FINDINGS K01](../../summary/onevision_diagnostics_20261016/KEY_FINDINGS.md)明确最新EWC项的首步梯度为零，区分旧项／后续更新可生效以及尚未验证的性能因果。
+
 > 知识格式审计17条件完成：部分原EM收益在固定前缀辅助检查下反转；原事实LoRA严格回忆仍未验证。足量写入控制已排队，仅CPU循环检查通过。见[证据](../../summary/onevision_diagnostics_20261016/KNOWLEDGE_FORMAT_AUDIT.md)和[操作核验协议](../../analysis/ONEVISION_KNOWLEDGE_FIT_PROTOCOL.md)。
 
 > 新证据：固定答案前缀导致原EM归零但存在标签判别；额外训练可使答案全部坍缩为urban。见[只读审计](../../summary/onevision_diagnostics_20261016/ACQUISITION_COLLAPSE_AUDIT.md)。原权重视觉／训练拟合控制已排队，尚无GPU结果。

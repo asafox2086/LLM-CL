@@ -1,0 +1,43 @@
+{
+  "initial_gate": "exact updated parameters after separately recomputed FP32 flat clipping",
+  "initial_gate_failed": true,
+  "diagnostic": [
+    {
+      "threads": 4,
+      "norms": [
+        118.62427520751953,
+        118.62427520751953,
+        118.62427520751953
+      ],
+      "exact": [
+        true,
+        true
+      ],
+      "max_abs": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "threads": 1,
+      "norms": [
+        118.62427520751953,
+        118.62427520751953,
+        118.62427520751953
+      ],
+      "exact": [
+        true,
+        true
+      ],
+      "max_abs": [
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "original_EWC_GPU_sources_unchanged": true,
+  "diagnostic_checkpoint_case": "repeat_anchor__EWC_lambda1",
+  "initial_failing_case": "not captured by original assertion",
+  "followup_probe_only": true,
+  "resolution": "Strict equality retained; deterministic CPU full audit passed8/8. Original uncontextualized failure cause remains unproven; do not attribute it to flags without paired reproduction."
+}
