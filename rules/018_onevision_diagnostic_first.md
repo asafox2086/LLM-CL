@@ -1,3 +1,5 @@
+> 最新接续2026-10-18：完整旧锚差距含语言分布混杂，见[K18](../summary/onevision_diagnostics_20261016/KEY_FINDINGS.md)。同nohup服务新CPU277043先补可用共同S1，再固定权重四指令全格推理，再接回全部原48/后续方法；旧265251已计划退役，历史队列不重启。实时[language_causal_queue](../summary/onevision_diagnostics_20261016/language_causal_queue/queue_state.json)，CPU23项通过，GPU效果未测。原问答/权重/Answer F1不变，禁止按TEST挑指令。
+
 > 最新容量约束：允许多个LoRA，以小内存增长为目标；当前单LoRA原型不是硬限制。轻量／1%数据受限背景、具体LoRA比较口径、全部成本和基线持续要求见[规则021](021_lightweight_data_limited_core_20261017.md)。不改冻结作业。
 
 # 2026-10-16：先找问题，再做自适应LoRA

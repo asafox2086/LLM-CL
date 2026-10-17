@@ -12,13 +12,14 @@
 
 ## 研究成果：按问题阅读
 
-新增[别人发现了哪些多领域问题](summary/onevision_diagnostics_20261016/LITERATURE_PROBLEMS.md)：10篇正式会议论文，逐篇列问题、对照证据、解决思路与适用边界；他人成果与本实验结论分开。
+新增[别人发现了哪些多领域问题](summary/onevision_diagnostics_20261016/LITERATURE_PROBLEMS.md)：12篇正式会议论文加COAST版本，逐篇列问题、对照证据、解决思路与适用边界；他人成果与本实验结论分开。
 
 **统一阅读入口：[问题发现总报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md)。** 12项均按「探究的问题／做的实验／结果／证明了什么／改进的方法／改进的效果」记录，首页区分已证实、被反例否定和未解决；细节按需进入[证据目录](summary/onevision_diagnostics_20261016/README.md)。
 
 | 重点发现 | 实际结果 | 结论边界 |
 | --- | --- | --- |
 | 固定名义预算的跨域替换影响旧锚 | 完整Organ507题跨四域18.626 vs同域34.168，差−15.542pp | 单锚/序列；全锚共同S1未测，不能将差距全算遗忘 |
+| 领域替换混入语言分布变化 | 中文F1同域22.336/跨域1.234；中文预测含汉字251/25，TRAIN后续中文曝光17/0 | 分层差异不是语言因果；不能断言知识完整或差距全为知识遗忘 |
 | 当前任务尚未学好，不全是后来忘了 | Modality初始/1/4步F1为29.600/29.263/51.956；KG为5.511/7.240/17.918 | 多训练局部有效，遥感却76→44；额外计算另计 |
 | 同答仍可保留图像信号 | 遥感全urban，原图仍改善正确答案概率；平衡损失44→50 | 只缓解坍缩，未证明视觉完好或唯一成因 |
 | EWC最新中心首步梯度为0 | 32/32首批；增大λ不能改变该性质 | 后续步/更早中心可生效，未证最终准确率因果 |
@@ -39,7 +40,9 @@
 
 共同S1完整507/228推理已[接入新CPU队列](summary/onevision_diagnostics_20261016/causal_measurement_queue/README.md)，用于分开遗忘与同域正迁移缺失；实际GPU评测尚待，不拿准备当结果。
 
-原48组内部现[优先两锚的SeqFT同域/跨域共同控制](summary/onevision_diagnostics_20261016/causal_anchor_first_queue/SCHEDULING.md)，再补所有机制。全部48保留，GPU源码/ID/设置不变；当前新CPU265251在GPU1空闲及父轨迹完成后接续。
+原48组内部[优先两锚的SeqFT同域/跨域共同控制](summary/onevision_diagnostics_20261016/causal_anchor_first_queue/SCHEDULING.md)，再补所有机制。全部48保留，GPU源码/ID/设置不变。
+
+最新[语言混杂因果接续](summary/onevision_diagnostics_20261016/language_causal_queue/README.md)：同nohup服务CPU277043先补可用共同S1，再运行固定两权重×四既有指令、0次训练的所有完整507题格，之后接回原48与后续队列。实际CPU门槛通过，GPU效果待测；原265251仅CPU退役，基线不停，GPU1他人进程存活时等待。[已核验观察](summary/onevision_diagnostics_20261016/matched_task_domain/language_profile/T04_VERIFIED_RESULTS.md)、[干预协议](summary/onevision_diagnostics_20261016/language_cue/PROTOCOL.md)。
 
 GPU1当前及接续：12原型已结束→[严格48组归因](analysis/ONEVISION_MATCHED_TASK_DOMAIN_PROTOCOL.md)→[四组完整19阶段及全测试](summary/onevision_diagnostics_20261016/two_module_fullstream/PROTOCOL.md)→cap3完整确认→稀疏转移。正式基线持续nohup；“最优LoRA数量”“显著方法提升”“优于具体LoRA方法的内存增长”均尚未证明。[自动原型结果](summary/onevision_diagnostics_20261016/two_module_prototype/VERIFIED_PILOT_RESULTS.md)按完成证明更新，不用排队状态冒充结果。
 

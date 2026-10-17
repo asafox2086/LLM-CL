@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-17T11:40:24.532126+00:00",
+  "updated_utc": "2026-10-17T16:04:19.455266+00:00",
   "completed": {
     "knowledge": 17,
     "basis_trajectories": 9,
@@ -17,11 +17,11 @@
     "rural_visual_checkpoint_cases": 5
   },
   "capacity_full_confirmation": {
-    "phase": "running",
-    "active_job": "cap1_full_confirm",
-    "pid": 137966,
-    "coordinator_pid": 212390,
-    "actual_worker_PID_exists_at_check": true
+    "phase": "cap1_completed_cap3_pending",
+    "cap1_complete": true,
+    "cap3_complete": false,
+    "proof_cap1": "full_input_repair/cap1_full_confirm_complete.json",
+    "no_stale_worker_PID_as_liveness": true
   },
   "overall_complete": false,
   "optimal_module_count_demonstrated": false,
@@ -46,10 +46,16 @@
   },
   "first_step_causality_audit_complete": true,
   "scheduling_priority": [
-    "cap1_same_run_full_confirmation",
-    "matched_two_anchor48_original_controls",
-    "two_module_pilot12",
-    "cap3_full_confirmation"
+    "cap1",
+    "pilot12",
+    "ready_shared_acquired_anchor",
+    "fixed_language_cue4runs_all8fullcells",
+    "matched48_SeqFT_first",
+    "full19x4",
+    "final21454x4",
+    "cap3",
+    "shared_initial21454",
+    "sparse_fullx4"
   ],
   "primary_report": "RESEARCH_REPORT.md",
   "rural_weight_followup": {
@@ -57,11 +63,12 @@
     "proof": "rural_weights/complete.json"
   },
   "matched_task_domain_followup": {
-    "phase": "waiting_current_cap1_then_original48",
-    "managed_by": "causal_priority_queue/queue_state.json",
-    "CPU_coordinator_pid": 194253,
-    "actual_GPU_cases_completed": 0,
-    "old_service_disabled": true
+    "phase": "waiting_GPU1_idle",
+    "managed_by": "language_causal_queue/queue_state.json",
+    "CPU_coordinator_pid": 277043,
+    "actual_GPU_cases_completed": 12,
+    "required_cases": 48,
+    "source_ID_settings_unchanged": true
   },
   "domain_boundary_readonly_audit": {
     "verified": true,
@@ -119,10 +126,11 @@
   },
   "active_research_coordinator": {
     "service": "llmcl-onevision-causal-priority.service",
-    "pid": 212390,
-    "queue": "two_module_priority_queue/queue_state.json",
-    "activation_proof": "two_module_priority_queue/ACTIVATION.json",
-    "user_delegated_GPU1_design": true
+    "pid": 277043,
+    "queue": "language_causal_queue/queue_state.json",
+    "activation_proof": "language_causal_queue/ACTIVATION.json",
+    "user_delegated_GPU1_design": true,
+    "observed_phase": "wait"
   },
   "matched_input_structure_preflight": {
     "CPU_passed": true,
@@ -143,11 +151,36 @@
     "CPU_core_checks": 8,
     "CPU_queue_checks": 7,
     "planned_GPU_pilots": 12,
-    "completed_GPU_pilots": 0,
+    "completed_GPU_pilots": 12,
     "trainable_parameters": 540672,
-    "GPU_gates_pending": true,
-    "full19_stage_implementation_pending": true,
+    "GPU_gates_pending": false,
+    "full19_stage_implementation_pending": false,
     "full21454_efficacy_pending": true,
-    "protocol": "two_module_prototype/PROTOCOL.md"
-  }
+    "protocol": "two_module_prototype/PROTOCOL.md",
+    "actual_parameter_intervention_or_added_gain_demonstrated": false
+  },
+  "language_profile": {
+    "CPU_verified": true,
+    "full_QA": 507,
+    "complete_conditions": 3,
+    "cross_minus_within_F1_en": -9.9604743083,
+    "cross_minus_within_F1_zh": -21.1023622047,
+    "language_causal_effect_established": false,
+    "knowledge_intact_established": false,
+    "report": "matched_task_domain/language_profile/T04_VERIFIED_RESULTS.md"
+  },
+  "language_cue": {
+    "CPU_input_checks_passed": 32,
+    "complete_GPU_runs": 0,
+    "required_runs": 4,
+    "all8_full_cells_required": true,
+    "GPU_outcomes_pending": true,
+    "protocol": "language_cue/PROTOCOL.md"
+  },
+  "shared_acquired_anchor": {
+    "completed_starts": 0,
+    "required_starts": 2,
+    "report": "shared_anchor_initial/VERIFIED_RESULTS.md"
+  },
+  "previous_status_archive": "exp/onevision_language_cue_20261017/status_revisions/1792253059454450388"
 }

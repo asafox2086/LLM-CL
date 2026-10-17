@@ -1,4 +1,6 @@
-> 共同S1完整旧锚补测已入[新CPU测量队列](../../summary/onevision_diagnostics_20261016/causal_measurement_queue/README.md)，当前CPU265251/观察器265271，原48训练全保留。实时`causal_measurement_queue/queue_state.json`；原258763已计划退役，不恢复。实际GPU重载/735题尚待。
+> 最新接续2026-10-18：[语言分布审计](../../summary/onevision_diagnostics_20261016/matched_task_domain/language_profile/T04_VERIFIED_RESULTS.md)显示跨域差距在中文更大，TRAIN语言也变，不能全归因知识遗忘。新[CPU277043队列](../../summary/onevision_diagnostics_20261016/language_causal_queue/README.md)已接纳固定两权重×四既有指令推理，先补可用共同S1，再全格语言对照，再接原48/完整方法；原265251已计划退役，仅CPU交接，GPU/基线/旧观察器保留。23CPU检查通过，GPU干预效果待测，其他用户占GPU1时健康等待。
+
+> 共同S1完整旧锚补测原入[CPU测量队列](../../summary/onevision_diagnostics_20261016/causal_measurement_queue/README.md)，现由上述新入口继承，观察器265271不变，原48训练全保留。实际GPU重载/735题尚待。
 
 > GPU1现优先原48组中的两个锚、四序列SeqFT共同控制，随后补齐所有机制；数据/训练/评测未改，当前作业自然结束。新[排队规则与保全过程](../../summary/onevision_diagnostics_20261016/causal_anchor_first_queue/SCHEDULING.md)，实时`causal_anchor_first_queue/queue_state.json`；旧CPU220246已计划退役，不恢复。
 
