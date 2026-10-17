@@ -8,7 +8,7 @@
 
 | 想看什么 | 当前入口 | 内容与状态 |
 | --- | --- | --- |
-| 别人发现了什么问题、怎样找原因 | [文献问题综述](LITERATURE_PROBLEMS.md) | 10篇正式会议论文，问题/对照/方案/边界分开 |
+| 别人发现了什么问题、怎样找原因 | [文献问题综述](LITERATURE_PROBLEMS.md) | 12篇正式论文+COAST版本；先看7类问题，附证据/方案/适用边界 |
 | 已做什么、证明／证伪了什么、改进有没有用 | [RESEARCH_REPORT](RESEARCH_REPORT.md) | 主报告，12项统一六栏 |
 | 首批跨域梯度是否已负冲突 | [精确共同起点TRAIN审计](matched_task_domain/first_transition_geometry/VERIFIED_RESULTS.md) | 三序列余弦均正，不能推断后续无冲突或有限F1因果 |
 | 跨域差距是遗忘还是少了同域正迁移 | [完整共同起点/净变化](shared_anchor_initial/VERIFIED_RESULTS.md) | 已入新CPU队列，实际完整起点0/2待测；先32精确重载再全735 |
