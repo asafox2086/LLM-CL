@@ -1,6 +1,6 @@
 """Knowledge manipulation check, not a new CL method: fixed8/64 prefixes.
 
-Wait both existing GPU1 queues. Three independent trajectories, no test-based
+Wait both existing GPU1 queues. Four independent trajectories, no test-based
 budget/rank selection. The existing16-fact pool and original targetQA stay fixed.
 """
 import os
@@ -16,7 +16,7 @@ from onevision_research_worker import atomic_torch,digest
 from onevision_capacity_probe import finish_resources
 from run import freeze,write
 REPORT=ROOT/'summary/onevision_diagnostics_20261016/knowledge_fit'
-CASES=[('rank1_correct',1,'correct'),('rank8_correct',8,'correct'),('rank8_permuted',8,'permuted')]
+CASES=[('rank1_correct',1,'correct'),('rank8_correct',8,'correct'),('rank8_permuted',8,'permuted'),('rank1_permuted',1,'permuted')]
 
 
 def plan():
@@ -31,11 +31,11 @@ def plan():
     assert all(a['value']!=b['value'] for a,b in zip(pool['correct'],pool['permuted']))
     source_paths=[Path(__file__),ROOT/'analysis/onevision_knowledge_intervention.py',ROOT/'analysis/onevision_knowledge_encoding_probe.py',
                   ROOT/'analysis/onevision_research_worker.py',ROOT/'analysis/onevision_capacity_probe.py',ROOT/'exp/onevision_diagnostics_20261016/run.py']
-    spec={'source_sha256':{str(p.relative_to(ROOT)):digest(p) for p in source_paths},'pool_sha256':digest(path),
+    spec={'protocol_version':3,'source_sha256':{str(p.relative_to(ROOT)):digest(p) for p in source_paths},'pool_sha256':digest(path),
           'shared_adapter_sha256':digest(shared),'manifest_sha256':protocol['source_manifest_sha256'],
           'cases':CASES,'endpoints':[0,8,64],'updates':64,'epochs':32,'batch_QA':8,'learning_rate':1e-4,'weight_decay':0,
           'seed':42,'backend':'deterministic default SDPA','prompt':'same original both; no prompt search',
-          'auxiliary_exposures_at8':64,'auxiliary_exposures_at64':1024,
+          'auxiliary_exposures_at8':8*8,'auxiliary_exposures_at64':64*8,
           'clinical_ids':{'medical':[r['id'] for r in tests['medical']],'medical_KG':[r['id'] for r in data[11,'test']]},
           'fact_ids':[f['id'] for f in pool['correct']],
           'scope':'manipulation/budget control; synthetic fact training, not formal1epoch target CL or full21454',
@@ -180,9 +180,12 @@ def worker(index):
 
 def main():
     REPORT.mkdir(parents=True,exist_ok=True)
-    parser=argparse.ArgumentParser();parser.add_argument('--case',type=int,choices=range(3));parser.add_argument('--check',action='store_true');args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('--case',type=int,choices=range(len(CASES)));parser.add_argument('--check',action='store_true');args=parser.parse_args()
     if args.check:
         _,_,pool,_,spec=plan()
+        assert spec['updates']==2*spec['epochs']
+        assert spec['auxiliary_exposures_at64']==spec['updates']*spec['batch_QA']==spec['epochs']*len(pool['correct'])==512
+        assert spec['auxiliary_exposures_at8']==8*spec['batch_QA']==64
         for facts in [pool['correct'],pool['permuted']]:
             assert len(train_rows(facts))==16
             for epoch in [0,3,31]:
