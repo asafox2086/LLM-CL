@@ -9,8 +9,8 @@ import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-EXP = ROOT / 'exp/two_backbone_native_cl_20261017'
-REPORT = ROOT / 'summary/two_backbone_native_cl_20261017'
+EXP = ROOT / 'exp/two_backbone_native_cl_20261017_v2'
+REPORT = ROOT / 'summary/two_backbone_native_cl_20261017_v2'
 
 
 def read(p):

@@ -1,3 +1,9 @@
+# Current baseline framework and one authorized label exclusion — 2026-10-17
+
+- Formal baseline V2 is exp/two_backbone_native_cl_20261017_v2; V1 stage0 superseded, no scores reuse. Same25Python files/7033 image SHA/Pillow12.3.0/common RGB BICUBIC max401408px/CPU LRU128MiB both backbones. Intrinsic tokenizer/processor differs; research GPU1 nativeAnyRes is separate protocol, not a strict formal-setting counterpart. No hot edits to active source.
+- User explicitly authorizes exclusion ONLY original empty-answer SLAKE:1622 from full TRAIN. Original131019 stays immutable; derived full131018, same pct01 TRAIN1313 and TEST21454. Derived manifest SHA cf737555dab3646c9916dc63a66f1d52285eebbeed4aa414e807ae5b08a0d952; data/FiveDomainCL/five_domain_native_cl_20261016_sparse_labeled_20261017/full/manifest.json. Both-host QA/lock/policy checks passed. Do not restore original full manifest for new jobs. Legacy full failed stage4 empty answer, service disabled; never call it completed or reuse incompatible predictions. See summary/two_backbone_native_cl_20261017_v2/README.md.
+- Old2080 OneVision four lanes, new3090 Qwen GPU2/3; newGPU0 reserved/GPU1 diagnostics unchanged. Deferred CPU hardware coordinator reads V2, then SMoLoRA nativeBF16 newGPU3, then future Qwen full. Native BF16 unsupported old2080; no unstable forcedFP16. Read actual current PIDs/status, not historical bullet PIDs. Policy-only CPU restart preserves all current GPU workers.
+
 # Latest research direction — OneVision diagnostic first, 2026-10-16
 
 - DeferredhardwareCPU queue actualservice llmcl-two-backbone-hardware-queue.service PID170059 atlaunch; noGPU itself. WaitQwen1%priorityterminal, thenOneVisionSMoLoRA newGPU3 nativeBF16 samecode/profile new3090_onevision; old2080can'tforceBF16. AfterSmo19validstages andnoQwenfailedcases, enablefutureQwenfullnewGPU3. NotoldserverQwenfull. Readhardware_queue.json/livePID; no hotqueue edits orfalseall20completedclaim.

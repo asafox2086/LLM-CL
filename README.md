@@ -1,8 +1,10 @@
 # LLMCL：小模型的五领域多模态持续学习
 
-> 当前正式1%对照已改用[双骨干共享框架](exp/two_backbone_native_cl_20261017/README.md)，旧Qwen单步零学习率轨迹已隔离，不能进入主表。旧机OneVision、新机Qwen；新GPU0保留、GPU1研究。
+> 当前正式1%对照已改用[双骨干共享框架](exp/two_backbone_native_cl_20261017_v2/README.md)，旧Qwen单步零学习率轨迹已隔离，不能进入主表。旧机OneVision、新机Qwen；新GPU0保留、GPU1研究。
 
 > 双骨干1%结果采用[分骨干主表](summary/two_backbone_pct01_20261017/MAIN_TABLE.md)：五领域最终成绩、AP、FWT、BWT；新正式实验与历史零学习率／小规模诊断分开。
+
+> 全量训练原131019条中仅SLAKE:1622为空答案，经用户授权排除后为**131018条**；原始文件保留。1%训练1313条、完整测试21454条不变。[版本与两机核验](summary/two_backbone_native_cl_20261017_v2/README.md)。
 
 ## 研究成果：按问题阅读
 

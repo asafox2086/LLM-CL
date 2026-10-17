@@ -10,7 +10,7 @@ AP为19原生任务最终成绩的等权平均，和五领域QA加权列的算�
 
 下列三种评分采用相同布局；归一化EM表示准确匹配，Token F1与ROUGE-L不是准确率。—表示尚无通过本主表准入的数值，不是0。Ours尚未设计／开训。
 
-当前正式代码：[共享框架](../../exp/two_backbone_native_cl_20261017/README.md)，逐项设置见[公平协议](../two_backbone_native_cl_20261017/FAIRNESS_PROTOCOL.json)。两种骨干同一份训练／评测代码，仅原生模型接口适配。
+当前正式代码：[共享框架](../../exp/two_backbone_native_cl_20261017_v2/README.md)，逐项设置见[公平协议](../two_backbone_native_cl_20261017_v2/FAIRNESS_PROTOCOL.json)。两种骨干同一份训练／评测代码，仅原生模型接口适配。
 
 **公平性状态：** 旧Qwen实验已知部分单更新阶段实际lr=0，其结果只作历史记录，不与统一正学习率的新LLaVA块直接排名。成对比较需要相同训练ID／任务顺序／步数／实际lr规则及逐方法作者机制；不得静默更改活动Qwen代码。OneVision的诊断500题／155题及知识干预不进入这张正式主表。
 

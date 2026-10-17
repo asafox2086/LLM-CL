@@ -1,3 +1,5 @@
+> 此V1在阶段0被[共享V2](../two_backbone_native_cl_20261017_v2/README.md)取代；旧准入/预测不构成当前正式结果。
+
 # 双骨干正式1%对照（共享框架）
 
 当前代码：exp/two_backbone_native_cl_20261017。表格入口：[五领域最终成绩＋AP/FWT/BWT，按骨干分块](../two_backbone_pct01_20261017/MAIN_TABLE.md)。两种骨干共用25份Python源码；[逐项公平协议](FAIRNESS_PROTOCOL.json)。所有主表单元格只从新版本完整有效结果产生。
