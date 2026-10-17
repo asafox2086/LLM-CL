@@ -1,3 +1,5 @@
+> 核心背景已固定为轻量、1%小数据、低内存增长。可以使用多个LoRA，须以同设置实测证明相对具体LoRA类方法的内存优势；当前单LoRA仅为既定原型。额外计算也计费，基线持续运行。见[规则021](../../rules/021_lightweight_data_limited_core_20261017.md)。
+
 > 最新唯一主指标为Answer F1（既有token_f1），不做选项映射；AP/FWT/BWT同口径。见[rules020](../../rules/020_answer_f1_primary_20261017.md)。原始分数/训练源码不改。
 
 > 当前成果统一看[探究总报告](../../summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md)：11个问题、每项六栏。用户已授权两模块设计；GPU1当前原cap1后，先12组原型、原48组归因，再[四组完整19阶段/最终全测试](../../summary/onevision_diagnostics_20261016/two_module_fullstream/PROTOCOL.md)，原cap3与稀疏FWT/BWT保留。新补同池路线NLL与真实参数核验，不冒称F1提升。原目标的原因归属不能由方法提升代替；完整代码已排队，尚无新GPU效果。原协议/失败保留，基线不改。

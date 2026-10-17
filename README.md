@@ -1,3 +1,5 @@
+> **核心背景：轻量、小数据、低内存增长。允许多个LoRA，单LoRA不是硬限制。** 先检验少量数据为何导致既有方法退化，再针对性提升；目标内存增长低于具体对比LoRA方法，须同设置实测，并报告额外计算成本。两台服务器基线持续后台运行。[核心规则](rules/021_lightweight_data_limited_core_20261017.md)。
+
 # LLMCL：小模型的五领域多模态持续学习
 
 > 当前正式1%对照已改用[双骨干共享框架](exp/two_backbone_native_cl_20261017_v2/README.md)，旧Qwen单步零学习率轨迹已隔离，不能进入主表。旧机OneVision、新机Qwen；新GPU0保留、GPU1研究。

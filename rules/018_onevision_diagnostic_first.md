@@ -1,3 +1,5 @@
+> 最新容量约束：允许多个LoRA，以小内存增长为目标；当前单LoRA原型不是硬限制。轻量／1%数据受限背景、具体LoRA比较口径、全部成本和基线持续要求见[规则021](021_lightweight_data_limited_core_20261017.md)。不改冻结作业。
+
 # 2026-10-16：先找问题，再做自适应LoRA
 
 - 用户确认使用LLaVA-OneVision-Qwen2-0.5B-OV（完整模型约0.9B）；官方HF revision74dd0bf867a4cda7950c17663794267c60cf4b40。独立实验onevision_diagnostics_20261016，仅新GPU1。现有Qwen2-VL基线继续，不能混入同骨干方法比较。
