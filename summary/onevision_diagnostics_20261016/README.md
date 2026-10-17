@@ -19,7 +19,7 @@
 | 同域／跨域及不同机制 | [TASK_DOMAIN_INTERIM](TASK_DOMAIN_INTERIM.md)、[TASK_DOMAIN_MECHANISM_AUDIT](TASK_DOMAIN_MECHANISM_AUDIT.md) | 24组合完成，数值／单锚限制未消除 |
 | 总分掩盖了什么 | [ACQUISITION_COLLAPSE_AUDIT](ACQUISITION_COLLAPSE_AUDIT.md) | 47→47中有9丢失、9新增 |
 | 参数、梯度与实际训练占用 | [KNOWLEDGE_TRAINING_AUDIT.json](KNOWLEDGE_TRAINING_AUDIT.json)、[MEMORY_WINDOW_AUDIT](MEMORY_WINDOW_AUDIT.md) | 4病例64步原始梯度及8个训练内存窗口 |
-| 原始协议、运行恢复和失败 | [实验README](../../exp/onevision_diagnostics_20261016/README.md)、[修复队列](full_input_repair/queue_state.json) | 全量cap1／cap3仍待完成，失败保留 |
+| 原始协议、运行恢复和失败 | [实验README](../../exp/onevision_diagnostics_20261016/README.md)、[修复队列](full_input_repair/queue_state.json) | 统一队列为cap1→核心48→cap3，失败保留 |
 
 `INTERIM_FINDINGS.md`、`MECHANISM_PROGRESS.md`等保留为过程快照，不能覆盖最新完成证明；`research_status.json`已同步本次核验状态。当前机器状态需同时核对真实PID与日志；单独状态文件不证明进程活着。
 
@@ -36,3 +36,5 @@
 - [梯度冲突的阶段内时间位置](GRADIENT_TIMING_EVIDENCE.md)：128更新31次负点积中26次在后续批次，原向量仅32首批可重算；非最终质量因果证明。总报告已按Answer F1完整重写，旧版归档。
 
 - [训练后的视觉输入作用](TRAINED_VISION_F1_EVIDENCE.md)：同一最终权重医学100题原图43.022、错图30.889、无图24.310；配对区间/同token反边界与300错图像素核验全部保留。无新训练、非完整测试。
+
+- [当前统一调度](causal_priority_queue/SCHEDULING_PROPOSAL.md)：用户已委托GPU1方案，由原cap1完成后优先核心48、cap3后排；只停旧CPU协调器，原GPU推理与基线保持。以新queue_state为准，旧协调器PID失效是计划停用。

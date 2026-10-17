@@ -19,7 +19,7 @@
 
 ## 评测与信息／计算预算
 
-1. 每锚从原生测试按固定ID哈希取32题，在stage1／3／5评原生成、EM／F1／ROUGE-L和NLL，所有条件同ID。
+1. 每锚从原生测试按固定ID哈希取32题，在stage1／3／5评原生成，以Answer F1为唯一性能指标、NLL为机制辅助，所有条件同ID。原文件附带EM/ROUGE仅保留追溯，不作为并列主成绩。
 2. 每任务固定8条held-out测试题，在stage2／3／4／5评价当前任务学习，避免只保护旧任务却不学新任务。原问题／图片／答案不改。
 3. SeqFT四种序列最终另外评完整原生锚：Organ507题、Modality228题。用于检查32题结论是否延续到同锚全测试；其他控制不能冒称已做完整735题，更不能当21454题主结果。
 4. 不复用旧默认后端预测。所有方法保存stage1–5适配参数／Fisher及逐阶段训练loss、实际LR、原始首批梯度和投影参考。原训练器只保存**每阶段首批**完整梯度与所有更新范数，不声称保存全部更新的原始梯度。
@@ -35,8 +35,12 @@
 - T4与T2、cross-short与cross-five分别报告，不选最好锚或序列。两锚均医学、单seed／顺序，领域与内容不能完全解耦；只主张该固定序列下的差异，不宣称已纯化任意领域数量的抽象因果。
 - 任何首阶段严格门槛／源SHA／原始ID错误，保存证据并停止；中断轨迹从基座新目录重跑，不拼接旧训练或预测。
 
-## 调度
+## 调度（2026-10-17用户授权后的优先级修订）
 
-`llmcl-onevision-matched-task-domain.service`是nohup CPU协调器，等既定cap1和cap3全量完成证明、现有服务退出且GPU1实际空闲后，才按每次一个独立GPU进程执行。**不暂停当前全量推理，不抢其他GPU。** 上游失败时记录upstream_needs_attention，不盲目执行。
+用户明确委托“这个gpu1的方案你自己定，我只要结论”。当前由nohup CPU服务`llmcl-onevision-causal-priority.service`统一管理：**原cap1推理自然完成 → 本协议48组原控制 → 原cap3完整确认**。原来等待两次完整确认的CPU协调器已停用，不能重启，否则会形成重复所有者。
+
+切换前已先设置并核验旧服务KillMode=process，再仅终止CPU父进程；当前GPU1原PID/startticks及基线均保留，不中断推理、不抢其他卡。新CPU服务发现任意GPU1进程/未空闲就等待；每个原案例用独立GPU进程调用同一`--case`入口，训练器源码和全部门槛不变。失败保留并停止，不盲重试。新服务已enabled支持重启接续，但中断训练仍须原规定从基座重跑，不能拼接。
+
+[用户授权](../summary/onevision_diagnostics_20261016/causal_priority_queue/AUTHORIZATION.json)、[实际切换证明](../summary/onevision_diagnostics_20261016/causal_priority_queue/ACTIVATION.json)、[实时统一队列](../summary/onevision_diagnostics_20261016/causal_priority_queue/queue_state.json)。调度变更不是实验结果或源代码变更；GPU48组实际门槛仍待执行。
 
 报告在`summary/onevision_diagnostics_20261016/matched_task_domain/`，大权重在服务器`exp/onevision_matched_task_domain_20261017/`；模型／数据／checkpoint不入Git。当前只有CPU检查，实际GPU门槛与48条轨迹结果尚未产生。

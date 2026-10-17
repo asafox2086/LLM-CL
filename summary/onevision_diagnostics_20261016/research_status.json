@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-17T09:22:17.151170+00:00",
+  "updated_utc": "2026-10-17T09:30:41.013163+00:00",
   "completed": {
     "knowledge": 17,
     "basis_trajectories": 9,
@@ -20,7 +20,7 @@
     "phase": "running",
     "active_job": "cap1_full_confirm",
     "pid": 137966,
-    "coordinator_pid": 122984,
+    "coordinator_pid": 194253,
     "actual_worker_PID_exists_at_check": true
   },
   "overall_complete": false,
@@ -47,6 +47,7 @@
   "first_step_causality_audit_complete": true,
   "scheduling_priority": [
     "cap1_same_run_full_confirmation",
+    "matched_two_anchor48_original_controls",
     "cap3_full_confirmation"
   ],
   "primary_report": "RESEARCH_REPORT.md",
@@ -55,19 +56,11 @@
     "proof": "rural_weights/complete.json"
   },
   "matched_task_domain_followup": {
-    "phase": "waiting_full_confirmations_and_idle_GPU1",
-    "pid": 153460,
-    "services": {
-      "llmcl-onevision-deferred-full.service": 122984,
-      "llmcl-onevision-full-repair.service": 0,
-      "llmcl-onevision-knowledge-fit.service": 0,
-      "llmcl-onevision-rural-weights.service": 0
-    },
-    "full_confirmations_complete": false,
-    "GPU_PIDs": [
-      "137966"
-    ],
-    "actual_CPU_coordinator_PID_exists_at_check": true
+    "phase": "waiting_current_cap1_then_original48",
+    "managed_by": "causal_priority_queue/queue_state.json",
+    "CPU_coordinator_pid": 194253,
+    "actual_GPU_cases_completed": 0,
+    "old_service_disabled": true
   },
   "domain_boundary_readonly_audit": {
     "verified": true,
@@ -122,5 +115,13 @@
     "pure_visual_semantics_independently_isolated": false,
     "new_GPU_training_or_inference": false,
     "report": "TRAINED_VISION_F1_EVIDENCE.md"
+  },
+  "active_research_coordinator": {
+    "service": "llmcl-onevision-causal-priority.service",
+    "pid": 194253,
+    "queue": "causal_priority_queue/queue_state.json",
+    "activation_proof": "causal_priority_queue/ACTIVATION.json",
+    "user_delegated_GPU1_design": true,
+    "old_CPU_coordinators_retired_intentionally": true
   }
 }

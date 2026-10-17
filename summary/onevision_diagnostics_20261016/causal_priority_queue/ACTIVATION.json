@@ -1,0 +1,143 @@
+{
+  "started_utc": "2026-10-17T09:29:28.157909+00:00",
+  "actual_GPU_workers_before": {
+    "137966": {
+      "pid": 137966,
+      "startticks": 5598716,
+      "cmdline": "/data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/onevision_full_input_repair.py --cap 1 ",
+      "ppid": 122984
+    },
+    "174247": {
+      "pid": 174247,
+      "startticks": 6934504,
+      "cmdline": "/data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py --method SeqFT_LoRA --condition pct01 --run-dir /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209 ",
+      "ppid": 2396
+    },
+    "175176": {
+      "pid": 175176,
+      "startticks": 6951892,
+      "cmdline": "/data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py --method ER_LoRA --condition pct01 --run-dir /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502 ",
+      "ppid": 2396
+    }
+  },
+  "old_services_before": {
+    "llmcl-onevision-deferred-full.service": {
+      "MainPID": "122984",
+      "KillMode": "control-group",
+      "ActiveState": "active",
+      "UnitFileState": "enabled"
+    },
+    "llmcl-onevision-matched-task-domain.service": {
+      "MainPID": "153460",
+      "KillMode": "control-group",
+      "ActiveState": "active",
+      "UnitFileState": "enabled"
+    },
+    "llmcl-onevision-full-repair.service": {
+      "MainPID": "0",
+      "KillMode": "process",
+      "ActiveState": "inactive",
+      "UnitFileState": "disabled"
+    }
+  },
+  "scope": "CPU coordinator replacement only; no signals to GPU workers, no active-source edits",
+  "steps": [
+    "All old launcher KillMode=process verified BEFORE any stop",
+    "Only old CPU coordinators stopped/disabled; original three GPU PIDs/startticks preserved",
+    "New nohup CPU priority service active/enabled; waits actual original GPU1 worker; no duplicate GPU job"
+  ],
+  "completed_utc": "2026-10-17T09:29:30.085228+00:00",
+  "new_service": {
+    "MainPID": "194253",
+    "KillMode": "process",
+    "ActiveState": "active",
+    "UnitFileState": "enabled"
+  },
+  "new_coordinator": {
+    "pid": 194253,
+    "startticks": 7398551,
+    "cmdline": "/data1/liyapeng/program/LLMCL/.assets-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/onevision_causal_priority_queue.py ",
+    "ppid": 2396
+  },
+  "queue_state": {
+    "phase": "wait",
+    "target": null,
+    "pid": 194253,
+    "state": {
+      "old_CPU_owners": {
+        "llmcl-onevision-deferred-full.service": 0,
+        "llmcl-onevision-full-repair.service": 0,
+        "llmcl-onevision-matched-task-domain.service": 0
+      },
+      "GPU1_PIDs": [
+        "137966"
+      ],
+      "used_MiB": 6656,
+      "utilization": 13
+    },
+    "GPU1_only": true
+  },
+  "actual_GPU_workers_after": {
+    "137966": {
+      "pid": 137966,
+      "startticks": 5598716,
+      "cmdline": "/data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/onevision_full_input_repair.py --cap 1 ",
+      "ppid": 2396
+    },
+    "174247": {
+      "pid": 174247,
+      "startticks": 6934504,
+      "cmdline": "/data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py --method SeqFT_LoRA --condition pct01 --run-dir /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209 ",
+      "ppid": 2396
+    },
+    "175176": {
+      "pid": 175176,
+      "startticks": 6951892,
+      "cmdline": "/data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py --method ER_LoRA --condition pct01 --run-dir /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502 ",
+      "ppid": 2396
+    }
+  },
+  "old_services_after": {
+    "llmcl-onevision-deferred-full.service": {
+      "MainPID": "0",
+      "KillMode": "process",
+      "ActiveState": "inactive",
+      "UnitFileState": "disabled"
+    },
+    "llmcl-onevision-matched-task-domain.service": {
+      "MainPID": "0",
+      "KillMode": "process",
+      "ActiveState": "inactive",
+      "UnitFileState": "disabled"
+    },
+    "llmcl-onevision-full-repair.service": {
+      "MainPID": "0",
+      "KillMode": "process",
+      "ActiveState": "inactive",
+      "UnitFileState": "disabled"
+    }
+  },
+  "activated": true,
+  "retired_queue_pointer_snapshots": {
+    "full_input_repair/queue_state.json": {
+      "phase": "running",
+      "active_job": "cap1_full_confirm",
+      "pid": 137966,
+      "coordinator_pid": 122984
+    },
+    "matched_task_domain/queue_state.json": {
+      "phase": "waiting_full_confirmations_and_idle_GPU1",
+      "pid": 153460,
+      "services": {
+        "llmcl-onevision-deferred-full.service": 122984,
+        "llmcl-onevision-full-repair.service": 0,
+        "llmcl-onevision-knowledge-fit.service": 0,
+        "llmcl-onevision-rural-weights.service": 0
+      },
+      "full_confirmations_complete": false,
+      "GPU_PIDs": [
+        "137966"
+      ]
+    }
+  }
+}
