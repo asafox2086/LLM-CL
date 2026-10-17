@@ -1,6 +1,6 @@
 # 16条知识干预：已完成结果
 
-已完成13/17个预定干预。医学100题与KG267题重叠12题，分开报告，不合并样本量。
+已完成17/17个预定干预。医学100题与KG267题重叠12题，分开报告，不合并样本量。
 
 本组统一使用预先固定的both提示，未根据测试挑提示。无知识NLL11.169不能与原提示视觉消融的9.595混算；上下文比较只在本组同提示内进行。
 
@@ -32,6 +32,14 @@
 | residual_rank2_correct | medical_KG | 267 | 4.129 | 2/267 | 7.246 | 7.093 |
 | residual_rank2_unrelated | medical | 100 | 3.495 | 10/100 | 16.501 | 16.434 |
 | residual_rank2_unrelated | medical_KG | 267 | 3.954 | 2/267 | 6.252 | 6.081 |
+| residual_rank2_permuted | medical | 100 | 3.620 | 9/100 | 16.209 | 16.143 |
+| residual_rank2_permuted | medical_KG | 267 | 4.121 | 2/267 | 6.680 | 6.551 |
+| continue_rank8_correct | medical | 100 | 2.762 | 16/100 | 22.804 | 22.804 |
+| continue_rank8_correct | medical_KG | 267 | 3.131 | 3/267 | 4.055 | 4.016 |
+| continue_rank8_unrelated | medical | 100 | 2.226 | 31/100 | 36.220 | 36.220 |
+| continue_rank8_unrelated | medical_KG | 267 | 2.854 | 22/267 | 12.202 | 12.136 |
+| continue_rank8_permuted | medical | 100 | 2.598 | 23/100 | 26.767 | 26.767 |
+| continue_rank8_permuted | medical_KG | 267 | 2.942 | 4/267 | 6.760 | 6.622 |
 
 注意：相关与低相关解剖知识都可能降低NLL；只有正确知识相对负对照的增量，才有助于定位知识内容作用。低相关组仍属医学，不能据其同样有效就断言所有专业知识均不需要。KG生成分数与NLL可能反向变化，不能以loss下降代替生成性能证据。
 

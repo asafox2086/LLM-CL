@@ -2,37 +2,23 @@
 
 ## 当前研究：LLaVA-OneVision-0.5B诊断
 
-知识内容匹配有额外限制：按原作者三元组审计，16条词汇相关事实仅与12条KG训练题中的6条同关系、4条同关系且固定tail匹配。这是字面诊断，不代表可回答率；不能据本轮小LoRA负结果断言专业知识无用。另已报告真实ΔW几何、原生OPEN/CLOSED及语言分组、具体训练内存前后值。[知识机制审计](summary/onevision_diagnostics_20261016/KNOWLEDGE_MECHANISM_AUDIT.md)。
+当前采用语言骨干0.5B、完整模型约0.9B的LLaVA-OneVision，独立使用新服务器GPU1。冻结1%训练1313条、诊断500条，完整测试21454条；Qwen2-VL基线在两机后台独立运行，不跨基座排序。
 
-极小知识LoRA已完成部分：rank1／rank2正确知识的医学EM均为9/100，原共享LoRA无知识为8/100，低相关知识两种rank均为10/100；尚无大幅生成提升。上下文负对照中，错配知识医学EM22/100，正确知识21/100。[知识干预已完成部分](summary/onevision_diagnostics_20261016/KNOWLEDGE_INTERIM.md)。为继续区分参数基底、旧输出功能与训练预算，已部署随机A／旧A清零B／完整旧A+B及1／4更新控制，等待现有GPU1队列退出后执行；CPU检查通过不代表实际GPU实验通过。[对照协议](analysis/ONEVISION_BASIS_BUDGET_PROTOCOL.md)。
+**受限LoRA容量诊断已完成，但尚未证明自动找到最优数量。** Kmax=1/2/3/5四组实际保留1/2/3/5个专家，155题原生任务覆盖生成集答对47/47/53/55题。分配由当前与旧TRAIN探针NLL决定，输入路由只读取问题与图片，不使用测试答案。四组均达到上限；目前只是有上限的训练驱动复用／新增，尚无成本驱动的主动停止结论。新增收益主要来自遥感，金融未同步提高。[完整控制与配对区间](summary/onevision_diagnostics_20261016/COMPLETED_CONTROLS.md)。
 
-新增参数证据：9个单更新独立任务都只改变B、A保持初始化；顺序训练对应阶段A均改变。零初始化B使首步A梯度为0，这是正学习率下的预期优化行为，不能据此断言缺少专业知识。[因子更新审计](summary/onevision_diagnostics_20261016/FACTOR_UPDATE_EVIDENCE.md)。知识负对照中，旧自然LoRA的医学EM从8/100升至正确知识的21/100，但低相关解剖知识同样21/100；提升尚不能归因于事实正确性。[按图像组配对分析](summary/onevision_diagnostics_20261016/KNOWLEDGE_PAIRED_EVIDENCE.md)。这些均为诊断子集结果。
+**基底／更新预算9条轨迹、18个终点已完成。** 随机A+零B、旧自然A+零B及完整旧A+B，在三个原生任务上做共享前缀的1／4更新控制。旧函数的收益区别于仅继承A；医学任务可随更新改善，但旧A+B遥感EM由76/100降至44/100，不能用“更新不足”解释全部低分。额外4遍是机制干预，不冒充正式1epoch结果。[设置](analysis/ONEVISION_BASIS_BUDGET_PROTOCOL.md)。
 
-任务／领域4×6对照已全部完成：SeqFT同域五任务锚EM为9/23，四域／五域序列均为4/23；跨域末值仍不低于其S1的2/23，因此是同域迁移更强的线索，不能笼统称为全面遗忘。正确与低相关解剖上下文均显著降低NLL，但KG生成指标没有同步改善，[知识阶段结果](summary/onevision_diagnostics_20261016/KNOWLEDGE_INTERIM.md)不支持把loss下降直接当专业知识收益。容量1/2/3/5的受控复用代码及CPU检查已部署，等待确定性配对通过；实际容量／全量结果尚未产生。[容量诊断协议](analysis/ONEVISION_CAPACITY_PROTOCOL.md)。
+**完整21454题确认正在独立重测。** 原cap1在FinMME:5082出现2052个图像占位token与2106行视觉特征不匹配；失败证据和旧部分结果保留，不计为完成。新脚本只校正连续占位token展开长度；五域TRAIN首题及故障题与官方完整forward的NLL误差均为0，原像素／问题／答案／权重不变。nohup服务仅用GPU1，按预先指定cap1、cap3从头全量测；500题已看诊断与其余20954题分别报告，最终评测不推导完整FWT/BWT。[修复脚本](analysis/onevision_full_input_repair.py)。
 
-数值复现已验证：同seed的默认计算两次有梯度／权重差异；确定性默认SDPA及确定性math各自两次完全一致。后续新建确定性顺序／独立任务配对，完整T1权重必须逐元素相同，旧失败结果不混用；当前只完成CPU预检，等待现有机制队列结束。[数值证据与新配对设置](summary/onevision_diagnostics_20261016/REPRODUCIBILITY_EVIDENCE.md)。已完成的任务／领域对照中，重复相同8条训练QA可使Organ锚EM由2/23增至8/23，提示训练预算值得排查；小样本和默认计算差异限制了方法排序。[完整阶段快照](summary/onevision_diagnostics_20261016/TASK_DOMAIN_INTERIM.md)。
+知识干预17/17已完成：rank8正确／低相关／错配知识医学EM为16/31/23（各100题）；正确事实并未稳定胜过负对照。事实池字面关系及tail匹配有限，16事实编码的原模板回忆也未验证成功，因此不能据负结果断言专业知识无用。[知识阶段结果](summary/onevision_diagnostics_20261016/KNOWLEDGE_INTERIM.md)、[内容与参数审计](summary/onevision_diagnostics_20261016/KNOWLEDGE_MECHANISM_AUDIT.md)。医学100与原生KG267重叠12题，不合并为独立367题。
 
-视觉排查：基座医学诊断100题原图／无图／错图NLL为9.595／8.517／9.470，遥感也未显示稳定的正确图像优势；自然和交通的表现不同。已核验输入视觉token、逐题ID和确定性错图来源路径。[视觉消融证据](summary/onevision_diagnostics_20261016/VISUAL_EVIDENCE.md)。训练后视觉对照已追加到GPU1队列，尚未执行；不能将这些基座现象直接归为专业知识不足或编码错误。
+训练后视觉4模型×3视图×300题已完成。最终顺序模型医学原图／无图／错图NLL为1.870／2.356／2.136，说明图像输入不能简单视为无效；这些是NLL诊断，不证明视觉能力充分或专业知识是主因。原基座医学正确图与错图差的区间仍跨0。[原基座视觉证据](summary/onevision_diagnostics_20261016/VISUAL_EVIDENCE.md)。
 
-复用线索：离线审计先用固定TRAIN探针选择此前领域LoRA，再读取诊断测试结果；医学域选择自然域旧LoRA后NLL为3.646，原基座为9.595。该比较含训练量／输出行为混杂，不能称专业知识问题已解决，也不是在线路由或Kmax结果。[只使用训练信息选择旧适配器的审计](summary/onevision_diagnostics_20261016/PAST_ADAPTER_REUSE_AUDIT.md)。
+默认后端任务／领域4×6对照已完成。同域最终锚EM9/23，跨域4/23；跨五域虽然总EM高于S1的2/23，S1答对的两题已全部丢失、另新增四题，必须区分旧答案遗忘与新答对题。[配对变化、梯度和预算审计](summary/onevision_diagnostics_20261016/TASK_DOMAIN_MECHANISM_AUDIT.md)。单一23题锚、默认数值差及内容／token预算混杂限制因果解释。
 
-最新证据：19阶段顺序诊断完成，93次更新全部使用正学习率；四种固定提示词对照完成。医学100题生成EM均为0，同问题语言提示的Token F1增量约+2.91点（图像簇bootstrap95%约−0.03至+5.91），尚不能将低分仅归于格式或证明知识不足。[提示词完整结果](summary/onevision_mechanisms_20261016/FORMAT_EVIDENCE.md)。旧独立控制第1阶段未通过权重复现检查，失败记录保留；短数值复现审计已完成，新确定性完整配对尚待执行。GPU1有其他用户作业时队列等待。[阶段完成、资源及故障报告](summary/onevision_diagnostics_20261016/MECHANISM_PROGRESS.md)。
+新确定性19阶段顺序／独立任务控制已完成，完整T1权重逐元素复现通过。旧默认后端配对失败记录保留，不能用新结果回填旧运行。9个独立单更新任务A不变、B改变符合零B初始化的首步梯度规律，不是零学习率故障。[因子审计](summary/onevision_diagnostics_20261016/FACTOR_UPDATE_EVIDENCE.md)、[短数值复现](summary/onevision_diagnostics_20261016/REPRODUCIBILITY_EVIDENCE.md)。
 
-机制研究在GPU1独立后台队列中运行：输出格式／语言、短数值审计及任务数与领域数控制（4序列×6机制）已完成；16条作者知识的上下文与rank1／rank2 LoRA干预正在执行。相关知识仅668字节／199token，新增参数67584／135168；这些是实验预算，尚不是有效性结论。[研究设置与证据边界](analysis/ONEVISION_MECHANISM_STUDIES.md)。[已完成阶段的NLL和梯度诊断](summary/onevision_diagnostics_20261016/SEQUENTIAL_EVIDENCE.md)仅用于定位问题，不能替代生成准确率和完整测试。
-
-后台执行：两服务器基线调度器均经`nohup`启动，保留用户服务的开机恢复，日志在各机`summary/five_domain_native_cl_20261016_sparse/nohup_pipeline.log`。现有训练进程不因切换调度器而重跑。GPU1研究使用独立`llmcl-onevision-research.service`及`research_nohup.log`，与基线并行。
-
-重启恢复说明：新机17:54重启打断了旧顺序阶段1；24个已完成独立控制保留，未完成阶段不续接。新run`sequential_recovery_20261016_181253`从基座重跑，已完成19阶段，并保存阶段LoRA／RNG／SHA及每域4条TRAIN探针的完整梯度，不能将它们称作历史每一步梯度。20:56再次重启后后台队列自动恢复；不同运行记录不拼接。[机制控制与完成标准](analysis/ONEVISION_CAUSAL_CONTROLS.md)。
-
-用户确认采用[**LLaVA-OneVision-Qwen2-0.5B-OV**](https://huggingface.co/llava-hf/llava-onevision-qwen2-0.5b-ov-hf)探索小模型问题；语言骨干约0.5B，完整图文模型约0.9B。独立实验`onevision_diagnostics_20261016`仅使用新服务器GPU1；已有Qwen2-VL基线继续，按骨干分别报告，不能混成同基座排名。
-
-先区分可学习性／领域能力、视觉依赖、顺序干扰与LoRA更新冗余：原基座与五域独立LoRA、19个逐任务独立LoRA与同一LoRA按19任务顺序训练、原图／无图／错配图、训练样本梯度余弦、实际`deltaW=B*A`余弦／奇异谱及5×5跨域迁移矩阵。逐任务独立与顺序控制使用相同数据、更新预算和诊断ID，五域汇总控制单列。固定同一1%训练池1313QA；快速诊断预先固定每域100个测试题（合计500），其中每域10题生成，其余先测NLL。**诊断子集成绩不是完整测试主表**，最终候选仍须完整21454QA测试确认。原始数据和正式划分不变。
-
-已确认调度混杂：旧Qwen队列使用ceil取整warmup，1%原生任务中有9个阶段只有一次更新，其首更新学习率为0。新诊断使用floor且保证warmup小于更新数，并记录实际学习率；旧作业不热改，其此类阶段结果暂不能解释为知识不足或遗忘。[数值核验](summary/onevision_diagnostics_20261016/scheduler_audit.json)。官方AnyRes在五域预检中使用的视觉token量另行记录，不能按0.5B名称直接推算速度。
-
-后续假设是：设置LoRA数量上限Kmax，让模型根据训练信息决定复用／新增和实际容量；先检查复用证据，再做容量—性能对照。不能按测试答案选择路由，不预先宣称大幅提升。模型直连下载、不走代理，官方版本和逐文件哈希固定。[诊断设计与边界](exp/onevision_diagnostics_20261016/README.md)。日志／报告：`summary/onevision_diagnostics_20261016/`；诊断参数／输出：`exp/onevision_diagnostics_20261016/runs/`。
-
-**五个领域、五个数据集、19个互斥原生任务阶段**。自然TextVQA、医学SLAKE、遥感RSVQA-LR、金融FinMME、交通CODA-LM；移除AQUA。新一轮移出Hyper-LLaVA，加入ER-LoRA回放对照和CL-MoE，共十个方法。
+每阶段参数／RNG／SHA、loss、真实lr、梯度及CPU/GPU内存前后／峰值保留。固定TRAIN探针和基底预算控制保存原始梯度；不能声称知识训练保存了每一步原始梯度。旧Qwen九个单更新阶段存在ceil-warmup导致lr=0的混杂，活动源码不热改。基线与研究均通过nohup后台服务运行；研究尚未完成，不以小诊断集结果替代全量确认。
 
 ## 方法 × 方向二维表
 

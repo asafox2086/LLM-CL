@@ -1,3 +1,5 @@
+> 2026-10-17更新：容量与基底／预算诊断已完成；全量确认因图像token不匹配失败后在独立修复运行重测，尚无完整21454结果。见[完成证据](../../summary/onevision_diagnostics_20261016/COMPLETED_CONTROLS.md)。全部原训练源码保持冻结。
+
 # OneVision 0.5B：先诊断，再设计方法
 
 独立实验ID：`onevision_diagnostics_20261016`。用户选择LLaVA-OneVision-Qwen2-0.5B-OV（语言0.5B，完整模型约0.9B），仅使用新机GPU1。Qwen基线继续；跨骨干结果不能混成同基座方法排名。

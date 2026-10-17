@@ -1,0 +1,2013 @@
+{
+  "basis_completion_sha256": "7bb96c10fbc42e2e830f4b5f3c6b1a8e3fcbdebb7613d6d4d2b9f04bc89fa333",
+  "basis_cases": [
+    {
+      "case": "T02_past_AB",
+      "endpoints": {
+        "1": {
+          "count": 228,
+          "correct": 59,
+          "summary": {
+            "count": 228,
+            "mean_nll": 2.5921658758531536,
+            "generated_count": 228,
+            "rougeL": 29.26349965823649,
+            "token_f1": 29.26349965823649,
+            "exact_match": 25.87719298245614
+          }
+        },
+        "4": {
+          "count": 228,
+          "correct": 106,
+          "summary": {
+            "count": 228,
+            "mean_nll": 1.3646165986071552,
+            "generated_count": 228,
+            "rougeL": 51.95627958785857,
+            "token_f1": 51.95627958785857,
+            "exact_match": 46.49122807017544
+          }
+        }
+      },
+      "memory_bytes": {
+        "unit": "bytes",
+        "pid": 89762,
+        "boot_id": "e6182f56-39be-4e37-908d-3cfadaa7448f",
+        "process_started_unix": 1792196862.7620234,
+        "before": {
+          "phase": "target_training_before",
+          "stage": 0,
+          "unix": 1792196872.585572,
+          "pid": 89762,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4145786880,
+          "VmRSS_bytes": 2418659328,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2192107520,
+          "Private_Clean_bytes": 79912960,
+          "Private_Dirty_bytes": 2019237888,
+          "cpu_uss_bytes": 2099150848,
+          "gpu_allocated_bytes": 1842766336,
+          "gpu_reserved_bytes": 2061500416,
+          "gpu_peak_allocated_bytes": 1971054080,
+          "gpu_peak_reserved_bytes": 2061500416,
+          "gpu_process_nvml_bytes": 2415919104,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "after": {
+          "phase": "target_training_after",
+          "stage": 0,
+          "unix": 1792196897.3851075,
+          "pid": 89762,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4145786880,
+          "VmRSS_bytes": 2516869120,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2278225920,
+          "Private_Clean_bytes": 81309696,
+          "Private_Dirty_bytes": 2092883968,
+          "cpu_uss_bytes": 2174193664,
+          "gpu_allocated_bytes": 1902872064,
+          "gpu_reserved_bytes": 3527409664,
+          "gpu_peak_allocated_bytes": 2835843584,
+          "gpu_peak_reserved_bytes": 3527409664,
+          "gpu_process_nvml_bytes": 3917479936,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "scope": "one trajectory4 updates; endpoint1 shares exact prefix; no endpoint evaluation in training peaks",
+        "growth_bytes": {
+          "VmRSS_bytes": 98209792,
+          "Pss_bytes": 86118400,
+          "cpu_uss_bytes": 75042816,
+          "gpu_allocated_bytes": 60105728,
+          "gpu_reserved_bytes": 1465909248,
+          "gpu_process_nvml_bytes": 1501560832
+        },
+        "observed_peak_bytes": {
+          "VmRSS_bytes": 2516938752,
+          "Pss_bytes": 2278231040,
+          "cpu_uss_bytes": 2210865152,
+          "gpu_allocated_bytes": 1998585344,
+          "gpu_reserved_bytes": 3527409664,
+          "gpu_process_nvml_bytes": 3917479936
+        },
+        "note": "Same-PID before/after; fresh process per cap. On recovery these describe resumed process only. Stage diagnostics are included in observed peaks; allocator cache is separate from parameter growth.",
+        "all_process_observed_peak_bytes": {
+          "VmRSS_bytes": 2516938752,
+          "Pss_bytes": 2278231040,
+          "cpu_uss_bytes": 2210865152,
+          "gpu_allocated_bytes": 1998585344,
+          "gpu_reserved_bytes": 3527409664,
+          "gpu_process_nvml_bytes": 3917479936
+        }
+      },
+      "proof_sha256": "13180db53f7be2e7ea6bd66cf4bcf90990677fe89d3b261a163d5e0cb4795f2e",
+      "training": {
+        "constant_learning_rate": 0.0001,
+        "fresh_optimizer_at_trajectory_start": true,
+        "records": [
+          {
+            "update": 1,
+            "loss": 3.381956999952143,
+            "gradient_l2_preclip": 36.9022102355957,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "SLAKE:9550",
+              "SLAKE:2954",
+              "SLAKE:663",
+              "SLAKE:8435",
+              "SLAKE:9588",
+              "SLAKE:187",
+              "SLAKE:1422",
+              "SLAKE:144",
+              "SLAKE:8462",
+              "SLAKE:3990",
+              "SLAKE:468"
+            ],
+            "cumulative_QA_exposures": 11,
+            "A_change_l2": 0.05845970844827058,
+            "B_change_l2": 0.04429932498565403
+          },
+          {
+            "update": 2,
+            "loss": 2.8116597695784136,
+            "gradient_l2_preclip": 41.0769157409668,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "SLAKE:9550",
+              "SLAKE:2954",
+              "SLAKE:663",
+              "SLAKE:8435",
+              "SLAKE:9588",
+              "SLAKE:187",
+              "SLAKE:1422",
+              "SLAKE:144",
+              "SLAKE:8462",
+              "SLAKE:3990",
+              "SLAKE:468"
+            ],
+            "cumulative_QA_exposures": 22,
+            "A_change_l2": 0.10609877433705964,
+            "B_change_l2": 0.08013354417045769
+          },
+          {
+            "update": 3,
+            "loss": 2.2668244621970435,
+            "gradient_l2_preclip": 42.78691864013672,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "SLAKE:9550",
+              "SLAKE:2954",
+              "SLAKE:663",
+              "SLAKE:8435",
+              "SLAKE:9588",
+              "SLAKE:187",
+              "SLAKE:1422",
+              "SLAKE:144",
+              "SLAKE:8462",
+              "SLAKE:3990",
+              "SLAKE:468"
+            ],
+            "cumulative_QA_exposures": 33,
+            "A_change_l2": 0.15247061084111288,
+            "B_change_l2": 0.11397704874958087
+          },
+          {
+            "update": 4,
+            "loss": 1.6293133605610242,
+            "gradient_l2_preclip": 36.3471565246582,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "SLAKE:9550",
+              "SLAKE:2954",
+              "SLAKE:663",
+              "SLAKE:8435",
+              "SLAKE:9588",
+              "SLAKE:187",
+              "SLAKE:1422",
+              "SLAKE:144",
+              "SLAKE:8462",
+              "SLAKE:3990",
+              "SLAKE:468"
+            ],
+            "cumulative_QA_exposures": 44,
+            "A_change_l2": 0.19775853242787167,
+            "B_change_l2": 0.14598972016117517
+          }
+        ],
+        "one_update_equals_one_pass": true,
+        "four_update_exposure_multiplier": 4
+      }
+    },
+    {
+      "case": "T02_past_A_zero_B",
+      "endpoints": {
+        "1": {
+          "count": 228,
+          "correct": 0,
+          "summary": {
+            "count": 228,
+            "mean_nll": 8.156246862913433,
+            "generated_count": 228,
+            "rougeL": 19.862914862914856,
+            "token_f1": 19.862914862914856,
+            "exact_match": 0.0
+          }
+        },
+        "4": {
+          "count": 228,
+          "correct": 8,
+          "summary": {
+            "count": 228,
+            "mean_nll": 3.446411086409761,
+            "generated_count": 228,
+            "rougeL": 23.127161112423877,
+            "token_f1": 23.127161112423877,
+            "exact_match": 3.508771929824561
+          }
+        }
+      },
+      "memory_bytes": {
+        "unit": "bytes",
+        "pid": 89289,
+        "boot_id": "e6182f56-39be-4e37-908d-3cfadaa7448f",
+        "process_started_unix": 1792196430.8868067,
+        "before": {
+          "phase": "target_training_before",
+          "stage": 0,
+          "unix": 1792196440.6652563,
+          "pid": 89289,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4503142400,
+          "VmRSS_bytes": 2728329216,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2519994368,
+          "Private_Clean_bytes": 94638080,
+          "Private_Dirty_bytes": 2336210944,
+          "cpu_uss_bytes": 2430849024,
+          "gpu_allocated_bytes": 1842766336,
+          "gpu_reserved_bytes": 2061500416,
+          "gpu_peak_allocated_bytes": 1971054080,
+          "gpu_peak_reserved_bytes": 2061500416,
+          "gpu_process_nvml_bytes": 2415919104,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "after": {
+          "phase": "target_training_after",
+          "stage": 0,
+          "unix": 1792196465.1013854,
+          "pid": 89289,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4503142400,
+          "VmRSS_bytes": 2765832192,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2540366848,
+          "Private_Clean_bytes": 100659200,
+          "Private_Dirty_bytes": 2341326848,
+          "cpu_uss_bytes": 2441986048,
+          "gpu_allocated_bytes": 1902872064,
+          "gpu_reserved_bytes": 3527409664,
+          "gpu_peak_allocated_bytes": 2835843584,
+          "gpu_peak_reserved_bytes": 3527409664,
+          "gpu_process_nvml_bytes": 3917479936,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "scope": "one trajectory4 updates; endpoint1 shares exact prefix; no endpoint evaluation in training peaks",
+        "growth_bytes": {
+          "VmRSS_bytes": 37502976,
+          "Pss_bytes": 20372480,
+          "cpu_uss_bytes": 11137024,
+          "gpu_allocated_bytes": 60105728,
+          "gpu_reserved_bytes": 1465909248,
+          "gpu_process_nvml_bytes": 1501560832
+        },
+        "observed_peak_bytes": {
+          "VmRSS_bytes": 2765901824,
+          "Pss_bytes": 2617569280,
+          "cpu_uss_bytes": 2573647872,
+          "gpu_allocated_bytes": 2267457024,
+          "gpu_reserved_bytes": 3527409664,
+          "gpu_process_nvml_bytes": 3917479936
+        },
+        "note": "Same-PID before/after; fresh process per cap. On recovery these describe resumed process only. Stage diagnostics are included in observed peaks; allocator cache is separate from parameter growth.",
+        "all_process_observed_peak_bytes": {
+          "VmRSS_bytes": 2765901824,
+          "Pss_bytes": 2617569280,
+          "cpu_uss_bytes": 2573647872,
+          "gpu_allocated_bytes": 2267457024,
+          "gpu_reserved_bytes": 3527409664,
+          "gpu_process_nvml_bytes": 3917479936
+        }
+      },
+      "proof_sha256": "954763b06d053f5e8cce89b852f97e5f89f14b4ba058d057c1ba943497f6a636",
+      "training": {
+        "constant_learning_rate": 0.0001,
+        "fresh_optimizer_at_trajectory_start": true,
+        "records": [
+          {
+            "update": 1,
+            "loss": 8.6616173657504,
+            "gradient_l2_preclip": 92.89323425292969,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "SLAKE:9550",
+              "SLAKE:2954",
+              "SLAKE:663",
+              "SLAKE:8435",
+              "SLAKE:9588",
+              "SLAKE:187",
+              "SLAKE:1422",
+              "SLAKE:144",
+              "SLAKE:8462",
+              "SLAKE:3990",
+              "SLAKE:468"
+            ],
+            "cumulative_QA_exposures": 11,
+            "A_change_l2": 0.0,
+            "B_change_l2": 0.04429594067813419
+          },
+          {
+            "update": 2,
+            "loss": 7.552724404768511,
+            "gradient_l2_preclip": 96.0438003540039,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "SLAKE:9550",
+              "SLAKE:2954",
+              "SLAKE:663",
+              "SLAKE:8435",
+              "SLAKE:9588",
+              "SLAKE:187",
+              "SLAKE:1422",
+              "SLAKE:144",
+              "SLAKE:8462",
+              "SLAKE:3990",
+              "SLAKE:468"
+            ],
+            "cumulative_QA_exposures": 22,
+            "A_change_l2": 0.043318486254567454,
+            "B_change_l2": 0.08390451719964404
+          },
+          {
+            "update": 3,
+            "loss": 5.832545497200706,
+            "gradient_l2_preclip": 117.05903625488281,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "SLAKE:9550",
+              "SLAKE:2954",
+              "SLAKE:663",
+              "SLAKE:8435",
+              "SLAKE:9588",
+              "SLAKE:187",
+              "SLAKE:1422",
+              "SLAKE:144",
+              "SLAKE:8462",
+              "SLAKE:3990",
+              "SLAKE:468"
+            ],
+            "cumulative_QA_exposures": 33,
+            "A_change_l2": 0.08962668510147016,
+            "B_change_l2": 0.12052564335959445
+          },
+          {
+            "update": 4,
+            "loss": 3.9526150876825508,
+            "gradient_l2_preclip": 115.24095153808594,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "SLAKE:9550",
+              "SLAKE:2954",
+              "SLAKE:663",
+              "SLAKE:8435",
+              "SLAKE:9588",
+              "SLAKE:187",
+              "SLAKE:1422",
+              "SLAKE:144",
+              "SLAKE:8462",
+              "SLAKE:3990",
+              "SLAKE:468"
+            ],
+            "cumulative_QA_exposures": 44,
+            "A_change_l2": 0.13755331505076993,
+            "B_change_l2": 0.15460283484995008
+          }
+        ],
+        "one_update_equals_one_pass": true,
+        "four_update_exposure_multiplier": 4
+      }
+    },
+    {
+      "case": "T02_random_A_zero_B",
+      "endpoints": {
+        "1": {
+          "count": 228,
+          "correct": 0,
+          "summary": {
+            "count": 228,
+            "mean_nll": 8.40515481170855,
+            "generated_count": 228,
+            "rougeL": 19.875825928457502,
+            "token_f1": 19.875825928457502,
+            "exact_match": 0.0
+          }
+        },
+        "4": {
+          "count": 228,
+          "correct": 3,
+          "summary": {
+            "count": 228,
+            "mean_nll": 3.9191583470817197,
+            "generated_count": 228,
+            "rougeL": 24.825001099239337,
+            "token_f1": 24.825001099239337,
+            "exact_match": 1.3157894736842106
+          }
+        }
+      },
+      "memory_bytes": {
+        "unit": "bytes",
+        "pid": 88850,
+        "boot_id": "e6182f56-39be-4e37-908d-3cfadaa7448f",
+        "process_started_unix": 1792196043.1508095,
+        "before": {
+          "phase": "target_training_before",
+          "stage": 0,
+          "unix": 1792196052.8891516,
+          "pid": 88850,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4139036672,
+          "VmRSS_bytes": 2412519424,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2207548416,
+          "Private_Clean_bytes": 95473664,
+          "Private_Dirty_bytes": 2023665664,
+          "cpu_uss_bytes": 2119139328,
+          "gpu_allocated_bytes": 1842766336,
+          "gpu_reserved_bytes": 2061500416,
+          "gpu_peak_allocated_bytes": 1971054080,
+          "gpu_peak_reserved_bytes": 2061500416,
+          "gpu_process_nvml_bytes": 2415919104,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "after": {
+          "phase": "target_training_after",
+          "stage": 0,
+          "unix": 1792196077.5965674,
+          "pid": 88850,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4139036672,
+          "VmRSS_bytes": 2520068096,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2295336960,
+          "Private_Clean_bytes": 100147200,
+          "Private_Dirty_bytes": 2097299456,
+          "cpu_uss_bytes": 2197446656,
+          "gpu_allocated_bytes": 1902872064,
+          "gpu_reserved_bytes": 3527409664,
+          "gpu_peak_allocated_bytes": 2835843584,
+          "gpu_peak_reserved_bytes": 3527409664,
+          "gpu_process_nvml_bytes": 3917479936,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "scope": "one trajectory4 updates; endpoint1 shares exact prefix; no endpoint evaluation in training peaks",
+        "growth_bytes": {
+          "VmRSS_bytes": 107548672,
+          "Pss_bytes": 87788544,
+          "cpu_uss_bytes": 78307328,
+          "gpu_allocated_bytes": 60105728,
+          "gpu_reserved_bytes": 1465909248,
+          "gpu_process_nvml_bytes": 1501560832
+        },
+        "observed_peak_bytes": {
+          "VmRSS_bytes": 2572279808,
+          "Pss_bytes": 2348249088,
+          "cpu_uss_bytes": 2250358784,
+          "gpu_allocated_bytes": 2027125248,
+          "gpu_reserved_bytes": 3527409664,
+          "gpu_process_nvml_bytes": 3917479936
+        },
+        "note": "Same-PID before/after; fresh process per cap. On recovery these describe resumed process only. Stage diagnostics are included in observed peaks; allocator cache is separate from parameter growth.",
+        "all_process_observed_peak_bytes": {
+          "VmRSS_bytes": 2572279808,
+          "Pss_bytes": 2348249088,
+          "cpu_uss_bytes": 2250358784,
+          "gpu_allocated_bytes": 2027125248,
+          "gpu_reserved_bytes": 3527409664,
+          "gpu_process_nvml_bytes": 3917479936
+        }
+      },
+      "proof_sha256": "698e7446fdb1bffd8e5889ce295237eeb826525dbdfe3e31b324e9018e86da73",
+      "training": {
+        "constant_learning_rate": 0.0001,
+        "fresh_optimizer_at_trajectory_start": true,
+        "records": [
+          {
+            "update": 1,
+            "loss": 8.6616173657504,
+            "gradient_l2_preclip": 80.6928939819336,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "SLAKE:9550",
+              "SLAKE:2954",
+              "SLAKE:663",
+              "SLAKE:8435",
+              "SLAKE:9588",
+              "SLAKE:187",
+              "SLAKE:1422",
+              "SLAKE:144",
+              "SLAKE:8462",
+              "SLAKE:3990",
+              "SLAKE:468"
+            ],
+            "cumulative_QA_exposures": 11,
+            "A_change_l2": 0.0,
+            "B_change_l2": 0.04429828421220332
+          },
+          {
+            "update": 2,
+            "loss": 7.775587211955678,
+            "gradient_l2_preclip": 82.18634033203125,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "SLAKE:9550",
+              "SLAKE:2954",
+              "SLAKE:663",
+              "SLAKE:8435",
+              "SLAKE:9588",
+              "SLAKE:187",
+              "SLAKE:1422",
+              "SLAKE:144",
+              "SLAKE:8462",
+              "SLAKE:3990",
+              "SLAKE:468"
+            ],
+            "cumulative_QA_exposures": 22,
+            "A_change_l2": 0.04334187223758801,
+            "B_change_l2": 0.08394808011735559
+          },
+          {
+            "update": 3,
+            "loss": 6.419460860165683,
+            "gradient_l2_preclip": 93.6013412475586,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "SLAKE:9550",
+              "SLAKE:2954",
+              "SLAKE:663",
+              "SLAKE:8435",
+              "SLAKE:9588",
+              "SLAKE:187",
+              "SLAKE:1422",
+              "SLAKE:144",
+              "SLAKE:8462",
+              "SLAKE:3990",
+              "SLAKE:468"
+            ],
+            "cumulative_QA_exposures": 33,
+            "A_change_l2": 0.08980617493750333,
+            "B_change_l2": 0.12140152365935725
+          },
+          {
+            "update": 4,
+            "loss": 4.748334039341319,
+            "gradient_l2_preclip": 115.71250915527344,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "SLAKE:9550",
+              "SLAKE:2954",
+              "SLAKE:663",
+              "SLAKE:8435",
+              "SLAKE:9588",
+              "SLAKE:187",
+              "SLAKE:1422",
+              "SLAKE:144",
+              "SLAKE:8462",
+              "SLAKE:3990",
+              "SLAKE:468"
+            ],
+            "cumulative_QA_exposures": 44,
+            "A_change_l2": 0.13782367420878242,
+            "B_change_l2": 0.15636855525006915
+          }
+        ],
+        "one_update_equals_one_pass": true,
+        "four_update_exposure_multiplier": 4
+      }
+    },
+    {
+      "case": "T11_past_AB",
+      "endpoints": {
+        "1": {
+          "count": 267,
+          "correct": 15,
+          "summary": {
+            "count": 267,
+            "mean_nll": 3.3210353130258423,
+            "generated_count": 267,
+            "rougeL": 7.0012478949928,
+            "token_f1": 7.240447420904734,
+            "exact_match": 5.617977528089888
+          }
+        },
+        "4": {
+          "count": 267,
+          "correct": 36,
+          "summary": {
+            "count": 267,
+            "mean_nll": 2.718395725171664,
+            "generated_count": 267,
+            "rougeL": 17.828762359162518,
+            "token_f1": 17.91802592198079,
+            "exact_match": 13.48314606741573
+          }
+        }
+      },
+      "memory_bytes": {
+        "unit": "bytes",
+        "pid": 91348,
+        "boot_id": "e6182f56-39be-4e37-908d-3cfadaa7448f",
+        "process_started_unix": 1792198333.644392,
+        "before": {
+          "phase": "target_training_before",
+          "stage": 0,
+          "unix": 1792198342.7691727,
+          "pid": 91348,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4151164928,
+          "VmRSS_bytes": 2410909696,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2189200384,
+          "Private_Clean_bytes": 77934592,
+          "Private_Dirty_bytes": 2018439168,
+          "cpu_uss_bytes": 2096373760,
+          "gpu_allocated_bytes": 1842766336,
+          "gpu_reserved_bytes": 2453667840,
+          "gpu_peak_allocated_bytes": 2158139904,
+          "gpu_peak_reserved_bytes": 2453667840,
+          "gpu_process_nvml_bytes": 2808086528,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "after": {
+          "phase": "target_training_after",
+          "stage": 0,
+          "unix": 1792198370.4640808,
+          "pid": 91348,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4151164928,
+          "VmRSS_bytes": 2530668544,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2293370880,
+          "Private_Clean_bytes": 80322560,
+          "Private_Dirty_bytes": 2109493248,
+          "cpu_uss_bytes": 2189815808,
+          "gpu_allocated_bytes": 1902861824,
+          "gpu_reserved_bytes": 3412066304,
+          "gpu_peak_allocated_bytes": 2836238848,
+          "gpu_peak_reserved_bytes": 3412066304,
+          "gpu_process_nvml_bytes": 3802136576,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "scope": "one trajectory4 updates; endpoint1 shares exact prefix; no endpoint evaluation in training peaks",
+        "growth_bytes": {
+          "VmRSS_bytes": 119758848,
+          "Pss_bytes": 104170496,
+          "cpu_uss_bytes": 93442048,
+          "gpu_allocated_bytes": 60095488,
+          "gpu_reserved_bytes": 958398464,
+          "gpu_process_nvml_bytes": 994050048
+        },
+        "observed_peak_bytes": {
+          "VmRSS_bytes": 2530734080,
+          "Pss_bytes": 2293371904,
+          "cpu_uss_bytes": 2210205696,
+          "gpu_allocated_bytes": 2204461568,
+          "gpu_reserved_bytes": 3412066304,
+          "gpu_process_nvml_bytes": 3802136576
+        },
+        "note": "Same-PID before/after; fresh process per cap. On recovery these describe resumed process only. Stage diagnostics are included in observed peaks; allocator cache is separate from parameter growth.",
+        "all_process_observed_peak_bytes": {
+          "VmRSS_bytes": 2530734080,
+          "Pss_bytes": 2293371904,
+          "cpu_uss_bytes": 2210205696,
+          "gpu_allocated_bytes": 2204461568,
+          "gpu_reserved_bytes": 3412066304,
+          "gpu_process_nvml_bytes": 3802136576
+        }
+      },
+      "proof_sha256": "cd25fec6a2eec7766cb740cd38962f848d7f442dfe180f518b85ff72a54287ce",
+      "training": {
+        "constant_learning_rate": 0.0001,
+        "fresh_optimizer_at_trajectory_start": true,
+        "records": [
+          {
+            "update": 1,
+            "loss": 3.550808608531952,
+            "gradient_l2_preclip": 70.8051528930664,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "SLAKE:7920",
+              "SLAKE:3048",
+              "SLAKE:2993",
+              "SLAKE:1980",
+              "SLAKE:8228",
+              "SLAKE:7415",
+              "SLAKE:3189",
+              "SLAKE:8210",
+              "SLAKE:2286",
+              "SLAKE:3947",
+              "SLAKE:8007",
+              "SLAKE:7024"
+            ],
+            "cumulative_QA_exposures": 12,
+            "A_change_l2": 0.05829637187730476,
+            "B_change_l2": 0.04428403620530244
+          },
+          {
+            "update": 2,
+            "loss": 2.915910611550013,
+            "gradient_l2_preclip": 25.95810317993164,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "SLAKE:7920",
+              "SLAKE:3048",
+              "SLAKE:2993",
+              "SLAKE:1980",
+              "SLAKE:8228",
+              "SLAKE:7415",
+              "SLAKE:3189",
+              "SLAKE:8210",
+              "SLAKE:2286",
+              "SLAKE:3947",
+              "SLAKE:8007",
+              "SLAKE:7024"
+            ],
+            "cumulative_QA_exposures": 24,
+            "A_change_l2": 0.10382118727082018,
+            "B_change_l2": 0.07661800869101508
+          },
+          {
+            "update": 3,
+            "loss": 2.6359454641739526,
+            "gradient_l2_preclip": 19.516023635864258,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "SLAKE:7920",
+              "SLAKE:3048",
+              "SLAKE:2993",
+              "SLAKE:1980",
+              "SLAKE:8228",
+              "SLAKE:7415",
+              "SLAKE:3189",
+              "SLAKE:8210",
+              "SLAKE:2286",
+              "SLAKE:3947",
+              "SLAKE:8007",
+              "SLAKE:7024"
+            ],
+            "cumulative_QA_exposures": 36,
+            "A_change_l2": 0.14745000818346163,
+            "B_change_l2": 0.10756630971643129
+          },
+          {
+            "update": 4,
+            "loss": 2.438053826491038,
+            "gradient_l2_preclip": 15.72744369506836,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "SLAKE:7920",
+              "SLAKE:3048",
+              "SLAKE:2993",
+              "SLAKE:1980",
+              "SLAKE:8228",
+              "SLAKE:7415",
+              "SLAKE:3189",
+              "SLAKE:8210",
+              "SLAKE:2286",
+              "SLAKE:3947",
+              "SLAKE:8007",
+              "SLAKE:7024"
+            ],
+            "cumulative_QA_exposures": 48,
+            "A_change_l2": 0.1900224214556144,
+            "B_change_l2": 0.13789053927505654
+          }
+        ],
+        "one_update_equals_one_pass": true,
+        "four_update_exposure_multiplier": 4
+      }
+    },
+    {
+      "case": "T11_past_A_zero_B",
+      "endpoints": {
+        "1": {
+          "count": 267,
+          "correct": 0,
+          "summary": {
+            "count": 267,
+            "mean_nll": 6.999260274658488,
+            "generated_count": 267,
+            "rougeL": 6.1734059600390125,
+            "token_f1": 6.253617372682777,
+            "exact_match": 0.0
+          }
+        },
+        "4": {
+          "count": 267,
+          "correct": 5,
+          "summary": {
+            "count": 267,
+            "mean_nll": 3.8439380086763073,
+            "generated_count": 267,
+            "rougeL": 3.2292487778173906,
+            "token_f1": 3.386880603716643,
+            "exact_match": 1.8726591760299625
+          }
+        }
+      },
+      "memory_bytes": {
+        "unit": "bytes",
+        "pid": 90757,
+        "boot_id": "e6182f56-39be-4e37-908d-3cfadaa7448f",
+        "process_started_unix": 1792197762.2960086,
+        "before": {
+          "phase": "target_training_before",
+          "stage": 0,
+          "unix": 1792197772.0835328,
+          "pid": 90757,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4483940352,
+          "VmRSS_bytes": 2715418624,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2500850688,
+          "Private_Clean_bytes": 91955200,
+          "Private_Dirty_bytes": 2319986688,
+          "cpu_uss_bytes": 2411941888,
+          "gpu_allocated_bytes": 1842766336,
+          "gpu_reserved_bytes": 2453667840,
+          "gpu_peak_allocated_bytes": 2158139904,
+          "gpu_peak_reserved_bytes": 2453667840,
+          "gpu_process_nvml_bytes": 2808086528,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "after": {
+          "phase": "target_training_after",
+          "stage": 0,
+          "unix": 1792197803.8773403,
+          "pid": 90757,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4483940352,
+          "VmRSS_bytes": 2749591552,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2524604416,
+          "Private_Clean_bytes": 97931264,
+          "Private_Dirty_bytes": 2328469504,
+          "cpu_uss_bytes": 2426400768,
+          "gpu_allocated_bytes": 1902861824,
+          "gpu_reserved_bytes": 3412066304,
+          "gpu_peak_allocated_bytes": 2836238848,
+          "gpu_peak_reserved_bytes": 3412066304,
+          "gpu_process_nvml_bytes": 3802136576,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "scope": "one trajectory4 updates; endpoint1 shares exact prefix; no endpoint evaluation in training peaks",
+        "growth_bytes": {
+          "VmRSS_bytes": 34172928,
+          "Pss_bytes": 23753728,
+          "cpu_uss_bytes": 14458880,
+          "gpu_allocated_bytes": 60095488,
+          "gpu_reserved_bytes": 958398464,
+          "gpu_process_nvml_bytes": 994050048
+        },
+        "observed_peak_bytes": {
+          "VmRSS_bytes": 2749661184,
+          "Pss_bytes": 2601631744,
+          "cpu_uss_bytes": 2557960192,
+          "gpu_allocated_bytes": 2223454208,
+          "gpu_reserved_bytes": 3412066304,
+          "gpu_process_nvml_bytes": 3802136576
+        },
+        "note": "Same-PID before/after; fresh process per cap. On recovery these describe resumed process only. Stage diagnostics are included in observed peaks; allocator cache is separate from parameter growth.",
+        "all_process_observed_peak_bytes": {
+          "VmRSS_bytes": 2749661184,
+          "Pss_bytes": 2601631744,
+          "cpu_uss_bytes": 2557960192,
+          "gpu_allocated_bytes": 2223454208,
+          "gpu_reserved_bytes": 3412066304,
+          "gpu_process_nvml_bytes": 3802136576
+        }
+      },
+      "proof_sha256": "851125c8f23edac8965d82ce3d344e93a38ac876a1f3eaa305968d9a78677398",
+      "training": {
+        "constant_learning_rate": 0.0001,
+        "fresh_optimizer_at_trajectory_start": true,
+        "records": [
+          {
+            "update": 1,
+            "loss": 7.9082238872845965,
+            "gradient_l2_preclip": 104.69115447998047,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "SLAKE:7920",
+              "SLAKE:3048",
+              "SLAKE:2993",
+              "SLAKE:1980",
+              "SLAKE:8228",
+              "SLAKE:7415",
+              "SLAKE:3189",
+              "SLAKE:8210",
+              "SLAKE:2286",
+              "SLAKE:3947",
+              "SLAKE:8007",
+              "SLAKE:7024"
+            ],
+            "cumulative_QA_exposures": 12,
+            "A_change_l2": 0.0,
+            "B_change_l2": 0.04429379116402986
+          },
+          {
+            "update": 2,
+            "loss": 6.664058287938436,
+            "gradient_l2_preclip": 95.48653411865234,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "SLAKE:7920",
+              "SLAKE:3048",
+              "SLAKE:2993",
+              "SLAKE:1980",
+              "SLAKE:8228",
+              "SLAKE:7415",
+              "SLAKE:3189",
+              "SLAKE:8210",
+              "SLAKE:2286",
+              "SLAKE:3947",
+              "SLAKE:8007",
+              "SLAKE:7024"
+            ],
+            "cumulative_QA_exposures": 24,
+            "A_change_l2": 0.04324995410643534,
+            "B_change_l2": 0.08354721045977043
+          },
+          {
+            "update": 3,
+            "loss": 5.372295518716176,
+            "gradient_l2_preclip": 73.69984436035156,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "SLAKE:7920",
+              "SLAKE:3048",
+              "SLAKE:2993",
+              "SLAKE:1980",
+              "SLAKE:8228",
+              "SLAKE:7415",
+              "SLAKE:3189",
+              "SLAKE:8210",
+              "SLAKE:2286",
+              "SLAKE:3947",
+              "SLAKE:8007",
+              "SLAKE:7024"
+            ],
+            "cumulative_QA_exposures": 36,
+            "A_change_l2": 0.08826965202410014,
+            "B_change_l2": 0.11791238779823525
+          },
+          {
+            "update": 4,
+            "loss": 4.343906243642171,
+            "gradient_l2_preclip": 87.68011474609375,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "SLAKE:7920",
+              "SLAKE:3048",
+              "SLAKE:2993",
+              "SLAKE:1980",
+              "SLAKE:8228",
+              "SLAKE:7415",
+              "SLAKE:3189",
+              "SLAKE:8210",
+              "SLAKE:2286",
+              "SLAKE:3947",
+              "SLAKE:8007",
+              "SLAKE:7024"
+            ],
+            "cumulative_QA_exposures": 48,
+            "A_change_l2": 0.132766766102735,
+            "B_change_l2": 0.1485841067357121
+          }
+        ],
+        "one_update_equals_one_pass": true,
+        "four_update_exposure_multiplier": 4
+      }
+    },
+    {
+      "case": "T11_random_A_zero_B",
+      "endpoints": {
+        "1": {
+          "count": 267,
+          "correct": 0,
+          "summary": {
+            "count": 267,
+            "mean_nll": 7.2194269453541615,
+            "generated_count": 267,
+            "rougeL": 6.172330520515232,
+            "token_f1": 6.208479364311232,
+            "exact_match": 0.0
+          }
+        },
+        "4": {
+          "count": 267,
+          "correct": 7,
+          "summary": {
+            "count": 267,
+            "mean_nll": 4.2348770805066,
+            "generated_count": 267,
+            "rougeL": 5.820322641805074,
+            "token_f1": 6.0075025036757586,
+            "exact_match": 2.6217228464419478
+          }
+        }
+      },
+      "memory_bytes": {
+        "unit": "bytes",
+        "pid": 90141,
+        "boot_id": "e6182f56-39be-4e37-908d-3cfadaa7448f",
+        "process_started_unix": 1792197171.9842427,
+        "before": {
+          "phase": "target_training_before",
+          "stage": 0,
+          "unix": 1792197181.792064,
+          "pid": 90141,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4136587264,
+          "VmRSS_bytes": 2407366656,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2200728576,
+          "Private_Clean_bytes": 86245376,
+          "Private_Dirty_bytes": 2023698432,
+          "cpu_uss_bytes": 2109943808,
+          "gpu_allocated_bytes": 1842766336,
+          "gpu_reserved_bytes": 2453667840,
+          "gpu_peak_allocated_bytes": 2158139904,
+          "gpu_peak_reserved_bytes": 2453667840,
+          "gpu_process_nvml_bytes": 2808086528,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "after": {
+          "phase": "target_training_after",
+          "stage": 0,
+          "unix": 1792197210.7514434,
+          "pid": 90141,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4136587264,
+          "VmRSS_bytes": 2536259584,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2306156544,
+          "Private_Clean_bytes": 90853376,
+          "Private_Dirty_bytes": 2114748416,
+          "cpu_uss_bytes": 2205601792,
+          "gpu_allocated_bytes": 1902861824,
+          "gpu_reserved_bytes": 3412066304,
+          "gpu_peak_allocated_bytes": 2836238848,
+          "gpu_peak_reserved_bytes": 3412066304,
+          "gpu_process_nvml_bytes": 3802136576,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "scope": "one trajectory4 updates; endpoint1 shares exact prefix; no endpoint evaluation in training peaks",
+        "growth_bytes": {
+          "VmRSS_bytes": 128892928,
+          "Pss_bytes": 105427968,
+          "cpu_uss_bytes": 95657984,
+          "gpu_allocated_bytes": 60095488,
+          "gpu_reserved_bytes": 958398464,
+          "gpu_process_nvml_bytes": 994050048
+        },
+        "observed_peak_bytes": {
+          "VmRSS_bytes": 2536333312,
+          "Pss_bytes": 2306156544,
+          "cpu_uss_bytes": 2209001472,
+          "gpu_allocated_bytes": 2119156736,
+          "gpu_reserved_bytes": 3412066304,
+          "gpu_process_nvml_bytes": 3802136576
+        },
+        "note": "Same-PID before/after; fresh process per cap. On recovery these describe resumed process only. Stage diagnostics are included in observed peaks; allocator cache is separate from parameter growth.",
+        "all_process_observed_peak_bytes": {
+          "VmRSS_bytes": 2536333312,
+          "Pss_bytes": 2306156544,
+          "cpu_uss_bytes": 2209001472,
+          "gpu_allocated_bytes": 2119156736,
+          "gpu_reserved_bytes": 3412066304,
+          "gpu_process_nvml_bytes": 3802136576
+        }
+      },
+      "proof_sha256": "b42073ecba09da39d8a391460b9fa05ea2bfa8c46d89f59182644e81406f37c1",
+      "training": {
+        "constant_learning_rate": 0.0001,
+        "fresh_optimizer_at_trajectory_start": true,
+        "records": [
+          {
+            "update": 1,
+            "loss": 7.9082238872845965,
+            "gradient_l2_preclip": 90.67393493652344,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "SLAKE:7920",
+              "SLAKE:3048",
+              "SLAKE:2993",
+              "SLAKE:1980",
+              "SLAKE:8228",
+              "SLAKE:7415",
+              "SLAKE:3189",
+              "SLAKE:8210",
+              "SLAKE:2286",
+              "SLAKE:3947",
+              "SLAKE:8007",
+              "SLAKE:7024"
+            ],
+            "cumulative_QA_exposures": 12,
+            "A_change_l2": 0.0,
+            "B_change_l2": 0.044294036296666645
+          },
+          {
+            "update": 2,
+            "loss": 6.890805462996165,
+            "gradient_l2_preclip": 85.98062133789062,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "SLAKE:7920",
+              "SLAKE:3048",
+              "SLAKE:2993",
+              "SLAKE:1980",
+              "SLAKE:8228",
+              "SLAKE:7415",
+              "SLAKE:3189",
+              "SLAKE:8210",
+              "SLAKE:2286",
+              "SLAKE:3947",
+              "SLAKE:8007",
+              "SLAKE:7024"
+            ],
+            "cumulative_QA_exposures": 24,
+            "A_change_l2": 0.0432764865067641,
+            "B_change_l2": 0.08373037602426107
+          },
+          {
+            "update": 3,
+            "loss": 5.692427357037862,
+            "gradient_l2_preclip": 67.78423309326172,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "SLAKE:7920",
+              "SLAKE:3048",
+              "SLAKE:2993",
+              "SLAKE:1980",
+              "SLAKE:8228",
+              "SLAKE:7415",
+              "SLAKE:3189",
+              "SLAKE:8210",
+              "SLAKE:2286",
+              "SLAKE:3947",
+              "SLAKE:8007",
+              "SLAKE:7024"
+            ],
+            "cumulative_QA_exposures": 36,
+            "A_change_l2": 0.0892009950274064,
+            "B_change_l2": 0.12026802206234916
+          },
+          {
+            "update": 4,
+            "loss": 4.852895458539327,
+            "gradient_l2_preclip": 73.45995330810547,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "SLAKE:7920",
+              "SLAKE:3048",
+              "SLAKE:2993",
+              "SLAKE:1980",
+              "SLAKE:8228",
+              "SLAKE:7415",
+              "SLAKE:3189",
+              "SLAKE:8210",
+              "SLAKE:2286",
+              "SLAKE:3947",
+              "SLAKE:8007",
+              "SLAKE:7024"
+            ],
+            "cumulative_QA_exposures": 48,
+            "A_change_l2": 0.13442288771732694,
+            "B_change_l2": 0.15229901072762064
+          }
+        ],
+        "one_update_equals_one_pass": true,
+        "four_update_exposure_multiplier": 4
+      }
+    },
+    {
+      "case": "T12_past_AB",
+      "endpoints": {
+        "1": {
+          "count": 100,
+          "correct": 76,
+          "summary": {
+            "count": 100,
+            "mean_nll": 0.2958478645980358,
+            "generated_count": 100,
+            "rougeL": 76.0,
+            "token_f1": 76.0,
+            "exact_match": 76.0
+          }
+        },
+        "4": {
+          "count": 100,
+          "correct": 44,
+          "summary": {
+            "count": 100,
+            "mean_nll": 0.373677910938859,
+            "generated_count": 100,
+            "rougeL": 44.0,
+            "token_f1": 44.0,
+            "exact_match": 44.0
+          }
+        }
+      },
+      "memory_bytes": {
+        "unit": "bytes",
+        "pid": 92388,
+        "boot_id": "e6182f56-39be-4e37-908d-3cfadaa7448f",
+        "process_started_unix": 1792199164.6246302,
+        "before": {
+          "phase": "target_training_before",
+          "stage": 0,
+          "unix": 1792199174.577277,
+          "pid": 92388,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4160745472,
+          "VmRSS_bytes": 2442465280,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2217068544,
+          "Private_Clean_bytes": 78016512,
+          "Private_Dirty_bytes": 2045792256,
+          "cpu_uss_bytes": 2123808768,
+          "gpu_allocated_bytes": 1842766336,
+          "gpu_reserved_bytes": 2061500416,
+          "gpu_peak_allocated_bytes": 1971054080,
+          "gpu_peak_reserved_bytes": 2061500416,
+          "gpu_process_nvml_bytes": 2415919104,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "after": {
+          "phase": "target_training_after",
+          "stage": 0,
+          "unix": 1792199185.399352,
+          "pid": 92388,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4160745472,
+          "VmRSS_bytes": 2499489792,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2263570432,
+          "Private_Clean_bytes": 80957440,
+          "Private_Dirty_bytes": 2079498240,
+          "cpu_uss_bytes": 2160455680,
+          "gpu_allocated_bytes": 1883399680,
+          "gpu_reserved_bytes": 2185232384,
+          "gpu_peak_allocated_bytes": 2088814592,
+          "gpu_peak_reserved_bytes": 2185232384,
+          "gpu_process_nvml_bytes": 2573205504,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "scope": "one trajectory4 updates; endpoint1 shares exact prefix; no endpoint evaluation in training peaks",
+        "growth_bytes": {
+          "VmRSS_bytes": 57024512,
+          "Pss_bytes": 46501888,
+          "cpu_uss_bytes": 36646912,
+          "gpu_allocated_bytes": 40633344,
+          "gpu_reserved_bytes": 123731968,
+          "gpu_process_nvml_bytes": 157286400
+        },
+        "observed_peak_bytes": {
+          "VmRSS_bytes": 2499584000,
+          "Pss_bytes": 2275076096,
+          "cpu_uss_bytes": 2229014528,
+          "gpu_allocated_bytes": 1973416448,
+          "gpu_reserved_bytes": 2185232384,
+          "gpu_process_nvml_bytes": 2573205504
+        },
+        "note": "Same-PID before/after; fresh process per cap. On recovery these describe resumed process only. Stage diagnostics are included in observed peaks; allocator cache is separate from parameter growth.",
+        "all_process_observed_peak_bytes": {
+          "VmRSS_bytes": 2499584000,
+          "Pss_bytes": 2275076096,
+          "cpu_uss_bytes": 2229014528,
+          "gpu_allocated_bytes": 1973416448,
+          "gpu_reserved_bytes": 2185232384,
+          "gpu_process_nvml_bytes": 2573205504
+        }
+      },
+      "proof_sha256": "1b488a1cb9eb55b4657ca172a8bbca4783aaf1b4627a32bb41ad77f6746ab193",
+      "training": {
+        "constant_learning_rate": 0.0001,
+        "fresh_optimizer_at_trajectory_start": true,
+        "records": [
+          {
+            "update": 1,
+            "loss": 0.5560586800177892,
+            "gradient_l2_preclip": 28.1492862701416,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "RSVQA-LR:68528",
+              "RSVQA-LR:16107",
+              "RSVQA-LR:46118",
+              "RSVQA-LR:74031",
+              "RSVQA-LR:6002",
+              "RSVQA-LR:66927"
+            ],
+            "cumulative_QA_exposures": 6,
+            "A_change_l2": 0.05838671778635313,
+            "B_change_l2": 0.04427848929285159
+          },
+          {
+            "update": 2,
+            "loss": 0.3295431509613991,
+            "gradient_l2_preclip": 8.748198509216309,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "RSVQA-LR:68528",
+              "RSVQA-LR:16107",
+              "RSVQA-LR:46118",
+              "RSVQA-LR:74031",
+              "RSVQA-LR:6002",
+              "RSVQA-LR:66927"
+            ],
+            "cumulative_QA_exposures": 12,
+            "A_change_l2": 0.09545092137405702,
+            "B_change_l2": 0.07582697309861612
+          },
+          {
+            "update": 3,
+            "loss": 0.2616366222500801,
+            "gradient_l2_preclip": 3.6511340141296387,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "RSVQA-LR:68528",
+              "RSVQA-LR:16107",
+              "RSVQA-LR:46118",
+              "RSVQA-LR:74031",
+              "RSVQA-LR:6002",
+              "RSVQA-LR:66927"
+            ],
+            "cumulative_QA_exposures": 18,
+            "A_change_l2": 0.12879163857338471,
+            "B_change_l2": 0.10449152824022943
+          },
+          {
+            "update": 4,
+            "loss": 0.23542938008904457,
+            "gradient_l2_preclip": 2.3132224082946777,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "RSVQA-LR:68528",
+              "RSVQA-LR:16107",
+              "RSVQA-LR:46118",
+              "RSVQA-LR:74031",
+              "RSVQA-LR:6002",
+              "RSVQA-LR:66927"
+            ],
+            "cumulative_QA_exposures": 24,
+            "A_change_l2": 0.15208037059305712,
+            "B_change_l2": 0.12465976304050147
+          }
+        ],
+        "one_update_equals_one_pass": true,
+        "four_update_exposure_multiplier": 4
+      }
+    },
+    {
+      "case": "T12_past_A_zero_B",
+      "endpoints": {
+        "1": {
+          "count": 100,
+          "correct": 0,
+          "summary": {
+            "count": 100,
+            "mean_nll": 4.550470955371857,
+            "generated_count": 100,
+            "rougeL": 26.4,
+            "token_f1": 26.4,
+            "exact_match": 0.0
+          }
+        },
+        "4": {
+          "count": 100,
+          "correct": 69,
+          "summary": {
+            "count": 100,
+            "mean_nll": 0.300760502666235,
+            "generated_count": 100,
+            "rougeL": 69.0,
+            "token_f1": 69.0,
+            "exact_match": 69.0
+          }
+        }
+      },
+      "memory_bytes": {
+        "unit": "bytes",
+        "pid": 92186,
+        "boot_id": "e6182f56-39be-4e37-908d-3cfadaa7448f",
+        "process_started_unix": 1792199038.1420548,
+        "before": {
+          "phase": "target_training_before",
+          "stage": 0,
+          "unix": 1792199047.9089627,
+          "pid": 92186,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4152942592,
+          "VmRSS_bytes": 2421288960,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2204565504,
+          "Private_Clean_bytes": 89653248,
+          "Private_Dirty_bytes": 2025496576,
+          "cpu_uss_bytes": 2115149824,
+          "gpu_allocated_bytes": 1842766336,
+          "gpu_reserved_bytes": 2061500416,
+          "gpu_peak_allocated_bytes": 1971054080,
+          "gpu_peak_reserved_bytes": 2061500416,
+          "gpu_process_nvml_bytes": 2415919104,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "after": {
+          "phase": "target_training_after",
+          "stage": 0,
+          "unix": 1792199058.5311735,
+          "pid": 92186,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4152942592,
+          "VmRSS_bytes": 2478780416,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2251665408,
+          "Private_Clean_bytes": 93536256,
+          "Private_Dirty_bytes": 2059169792,
+          "cpu_uss_bytes": 2152706048,
+          "gpu_allocated_bytes": 1883399680,
+          "gpu_reserved_bytes": 2185232384,
+          "gpu_peak_allocated_bytes": 2088814592,
+          "gpu_peak_reserved_bytes": 2185232384,
+          "gpu_process_nvml_bytes": 2573205504,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "scope": "one trajectory4 updates; endpoint1 shares exact prefix; no endpoint evaluation in training peaks",
+        "growth_bytes": {
+          "VmRSS_bytes": 57491456,
+          "Pss_bytes": 47099904,
+          "cpu_uss_bytes": 37556224,
+          "gpu_allocated_bytes": 40633344,
+          "gpu_reserved_bytes": 123731968,
+          "gpu_process_nvml_bytes": 157286400
+        },
+        "observed_peak_bytes": {
+          "VmRSS_bytes": 2478788608,
+          "Pss_bytes": 2259083264,
+          "cpu_uss_bytes": 2214920192,
+          "gpu_allocated_bytes": 2017901056,
+          "gpu_reserved_bytes": 2185232384,
+          "gpu_process_nvml_bytes": 2573205504
+        },
+        "note": "Same-PID before/after; fresh process per cap. On recovery these describe resumed process only. Stage diagnostics are included in observed peaks; allocator cache is separate from parameter growth.",
+        "all_process_observed_peak_bytes": {
+          "VmRSS_bytes": 2478788608,
+          "Pss_bytes": 2259083264,
+          "cpu_uss_bytes": 2214920192,
+          "gpu_allocated_bytes": 2017901056,
+          "gpu_reserved_bytes": 2185232384,
+          "gpu_process_nvml_bytes": 2573205504
+        }
+      },
+      "proof_sha256": "9932f838da28a7b861e3e7db6a9c4fba62211c666d20798f685e692c3a619c77",
+      "training": {
+        "constant_learning_rate": 0.0001,
+        "fresh_optimizer_at_trajectory_start": true,
+        "records": [
+          {
+            "update": 1,
+            "loss": 8.809724489847818,
+            "gradient_l2_preclip": 314.42236328125,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "RSVQA-LR:68528",
+              "RSVQA-LR:16107",
+              "RSVQA-LR:46118",
+              "RSVQA-LR:74031",
+              "RSVQA-LR:6002",
+              "RSVQA-LR:66927"
+            ],
+            "cumulative_QA_exposures": 6,
+            "A_change_l2": 0.0,
+            "B_change_l2": 0.0442689990538096
+          },
+          {
+            "update": 2,
+            "loss": 5.068709969520569,
+            "gradient_l2_preclip": 350.44110107421875,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "RSVQA-LR:68528",
+              "RSVQA-LR:16107",
+              "RSVQA-LR:46118",
+              "RSVQA-LR:74031",
+              "RSVQA-LR:6002",
+              "RSVQA-LR:66927"
+            ],
+            "cumulative_QA_exposures": 12,
+            "A_change_l2": 0.043184349724841205,
+            "B_change_l2": 0.08210027809697858
+          },
+          {
+            "update": 3,
+            "loss": 1.3366091350714366,
+            "gradient_l2_preclip": 158.67918395996094,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "RSVQA-LR:68528",
+              "RSVQA-LR:16107",
+              "RSVQA-LR:46118",
+              "RSVQA-LR:74031",
+              "RSVQA-LR:6002",
+              "RSVQA-LR:66927"
+            ],
+            "cumulative_QA_exposures": 18,
+            "A_change_l2": 0.08790485890412462,
+            "B_change_l2": 0.115125940970442
+          },
+          {
+            "update": 4,
+            "loss": 0.49850717186927795,
+            "gradient_l2_preclip": 23.202619552612305,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "RSVQA-LR:68528",
+              "RSVQA-LR:16107",
+              "RSVQA-LR:46118",
+              "RSVQA-LR:74031",
+              "RSVQA-LR:6002",
+              "RSVQA-LR:66927"
+            ],
+            "cumulative_QA_exposures": 24,
+            "A_change_l2": 0.12996078562596022,
+            "B_change_l2": 0.14179972764486556
+          }
+        ],
+        "one_update_equals_one_pass": true,
+        "four_update_exposure_multiplier": 4
+      }
+    },
+    {
+      "case": "T12_random_A_zero_B",
+      "endpoints": {
+        "1": {
+          "count": 100,
+          "correct": 0,
+          "summary": {
+            "count": 100,
+            "mean_nll": 5.212939031124115,
+            "generated_count": 100,
+            "rougeL": 25.6,
+            "token_f1": 25.6,
+            "exact_match": 0.0
+          }
+        },
+        "4": {
+          "count": 100,
+          "correct": 62,
+          "summary": {
+            "count": 100,
+            "mean_nll": 0.33588205188512804,
+            "generated_count": 100,
+            "rougeL": 62.0,
+            "token_f1": 62.0,
+            "exact_match": 62.0
+          }
+        }
+      },
+      "memory_bytes": {
+        "unit": "bytes",
+        "pid": 91984,
+        "boot_id": "e6182f56-39be-4e37-908d-3cfadaa7448f",
+        "process_started_unix": 1792198910.5060766,
+        "before": {
+          "phase": "target_training_before",
+          "stage": 0,
+          "unix": 1792198920.2405005,
+          "pid": 91984,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4487667712,
+          "VmRSS_bytes": 2709147648,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2507547648,
+          "Private_Clean_bytes": 90193920,
+          "Private_Dirty_bytes": 2327805952,
+          "cpu_uss_bytes": 2417999872,
+          "gpu_allocated_bytes": 1842766336,
+          "gpu_reserved_bytes": 2061500416,
+          "gpu_peak_allocated_bytes": 1971054080,
+          "gpu_peak_reserved_bytes": 2061500416,
+          "gpu_process_nvml_bytes": 2415919104,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "after": {
+          "phase": "target_training_after",
+          "stage": 0,
+          "unix": 1792198931.026486,
+          "pid": 91984,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4487667712,
+          "VmRSS_bytes": 2753347584,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2525885440,
+          "Private_Clean_bytes": 94076928,
+          "Private_Dirty_bytes": 2332717056,
+          "cpu_uss_bytes": 2426793984,
+          "gpu_allocated_bytes": 1883399680,
+          "gpu_reserved_bytes": 2185232384,
+          "gpu_peak_allocated_bytes": 2088814592,
+          "gpu_peak_reserved_bytes": 2185232384,
+          "gpu_process_nvml_bytes": 2573205504,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "scope": "one trajectory4 updates; endpoint1 shares exact prefix; no endpoint evaluation in training peaks",
+        "growth_bytes": {
+          "VmRSS_bytes": 44199936,
+          "Pss_bytes": 18337792,
+          "cpu_uss_bytes": 8794112,
+          "gpu_allocated_bytes": 40633344,
+          "gpu_reserved_bytes": 123731968,
+          "gpu_process_nvml_bytes": 157286400
+        },
+        "observed_peak_bytes": {
+          "VmRSS_bytes": 2753355776,
+          "Pss_bytes": 2609108992,
+          "cpu_uss_bytes": 2564960256,
+          "gpu_allocated_bytes": 1973129728,
+          "gpu_reserved_bytes": 2185232384,
+          "gpu_process_nvml_bytes": 2573205504
+        },
+        "note": "Same-PID before/after; fresh process per cap. On recovery these describe resumed process only. Stage diagnostics are included in observed peaks; allocator cache is separate from parameter growth.",
+        "all_process_observed_peak_bytes": {
+          "VmRSS_bytes": 2753355776,
+          "Pss_bytes": 2609108992,
+          "cpu_uss_bytes": 2564960256,
+          "gpu_allocated_bytes": 1973129728,
+          "gpu_reserved_bytes": 2185232384,
+          "gpu_process_nvml_bytes": 2573205504
+        }
+      },
+      "proof_sha256": "013ef306fff48382aa00655ad829b34a03367d3199c136363ca9603ed1643a0b",
+      "training": {
+        "constant_learning_rate": 0.0001,
+        "fresh_optimizer_at_trajectory_start": true,
+        "records": [
+          {
+            "update": 1,
+            "loss": 8.809724489847818,
+            "gradient_l2_preclip": 274.2741394042969,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "RSVQA-LR:68528",
+              "RSVQA-LR:16107",
+              "RSVQA-LR:46118",
+              "RSVQA-LR:74031",
+              "RSVQA-LR:6002",
+              "RSVQA-LR:66927"
+            ],
+            "cumulative_QA_exposures": 6,
+            "A_change_l2": 0.0,
+            "B_change_l2": 0.04426845832234627
+          },
+          {
+            "update": 2,
+            "loss": 5.832266887029012,
+            "gradient_l2_preclip": 310.66375732421875,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "RSVQA-LR:68528",
+              "RSVQA-LR:16107",
+              "RSVQA-LR:46118",
+              "RSVQA-LR:74031",
+              "RSVQA-LR:6002",
+              "RSVQA-LR:66927"
+            ],
+            "cumulative_QA_exposures": 12,
+            "A_change_l2": 0.043222145952175765,
+            "B_change_l2": 0.08244654277142925
+          },
+          {
+            "update": 3,
+            "loss": 2.119713842868805,
+            "gradient_l2_preclip": 208.962646484375,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "RSVQA-LR:68528",
+              "RSVQA-LR:16107",
+              "RSVQA-LR:46118",
+              "RSVQA-LR:74031",
+              "RSVQA-LR:6002",
+              "RSVQA-LR:66927"
+            ],
+            "cumulative_QA_exposures": 18,
+            "A_change_l2": 0.08835368490386979,
+            "B_change_l2": 0.11661081341154768
+          },
+          {
+            "update": 4,
+            "loss": 0.6084571406245232,
+            "gradient_l2_preclip": 38.11075210571289,
+            "learning_rate_used": 0.0001,
+            "TRAIN_ids": [
+              "RSVQA-LR:68528",
+              "RSVQA-LR:16107",
+              "RSVQA-LR:46118",
+              "RSVQA-LR:74031",
+              "RSVQA-LR:6002",
+              "RSVQA-LR:66927"
+            ],
+            "cumulative_QA_exposures": 24,
+            "A_change_l2": 0.13252277459284964,
+            "B_change_l2": 0.14578770614866673
+          }
+        ],
+        "one_update_equals_one_pass": true,
+        "four_update_exposure_multiplier": 4
+      }
+    }
+  ],
+  "basis_paired_contrasts": {
+    "T02_random_A_zero_B_4_minus_1": {
+      "delta_EM_pp": 1.3157894736842106,
+      "image_cluster_percentile_95": [
+        0.0,
+        3.0303030303030303
+      ],
+      "QA": 228,
+      "image_groups": 161,
+      "bootstrap_seed": 42,
+      "bootstrap_repeats": 10000
+    },
+    "T02_past_A_zero_B_4_minus_1": {
+      "delta_EM_pp": 3.508771929824561,
+      "image_cluster_percentile_95": [
+        1.3215859030837005,
+        6.0344827586206895
+      ],
+      "QA": 228,
+      "image_groups": 161,
+      "bootstrap_seed": 42,
+      "bootstrap_repeats": 10000
+    },
+    "T02_past_AB_4_minus_1": {
+      "delta_EM_pp": 20.614035087719298,
+      "image_cluster_percentile_95": [
+        13.537117903930131,
+        27.876106194690266
+      ],
+      "QA": 228,
+      "image_groups": 161,
+      "bootstrap_seed": 42,
+      "bootstrap_repeats": 10000
+    },
+    "T02_pastAB_minus_pastAzeroB_at1": {
+      "delta_EM_pp": 25.87719298245614,
+      "image_cluster_percentile_95": [
+        19.905589990817266,
+        32.30088495575221
+      ],
+      "QA": 228,
+      "image_groups": 161,
+      "bootstrap_seed": 42,
+      "bootstrap_repeats": 10000
+    },
+    "T02_pastAB_minus_pastAzeroB_at4": {
+      "delta_EM_pp": 42.98245614035088,
+      "image_cluster_percentile_95": [
+        36.134453781512605,
+        50.22836310838962
+      ],
+      "QA": 228,
+      "image_groups": 161,
+      "bootstrap_seed": 42,
+      "bootstrap_repeats": 10000
+    },
+    "T11_random_A_zero_B_4_minus_1": {
+      "delta_EM_pp": 2.6217228464419478,
+      "image_cluster_percentile_95": [
+        0.7633587786259542,
+        5.0
+      ],
+      "QA": 267,
+      "image_groups": 103,
+      "bootstrap_seed": 42,
+      "bootstrap_repeats": 10000
+    },
+    "T11_past_A_zero_B_4_minus_1": {
+      "delta_EM_pp": 1.8726591760299625,
+      "image_cluster_percentile_95": [
+        0.36363636363636365,
+        3.9840637450199203
+      ],
+      "QA": 267,
+      "image_groups": 103,
+      "bootstrap_seed": 42,
+      "bootstrap_repeats": 10000
+    },
+    "T11_past_AB_4_minus_1": {
+      "delta_EM_pp": 7.865168539325842,
+      "image_cluster_percentile_95": [
+        4.602390227480402,
+        11.152416356877323
+      ],
+      "QA": 267,
+      "image_groups": 103,
+      "bootstrap_seed": 42,
+      "bootstrap_repeats": 10000
+    },
+    "T11_pastAB_minus_pastAzeroB_at1": {
+      "delta_EM_pp": 5.617977528089888,
+      "image_cluster_percentile_95": [
+        2.7559055118110236,
+        8.745247148288973
+      ],
+      "QA": 267,
+      "image_groups": 103,
+      "bootstrap_seed": 42,
+      "bootstrap_repeats": 10000
+    },
+    "T11_pastAB_minus_pastAzeroB_at4": {
+      "delta_EM_pp": 11.610486891385769,
+      "image_cluster_percentile_95": [
+        8.045977011494253,
+        15.261044176706827
+      ],
+      "QA": 267,
+      "image_groups": 103,
+      "bootstrap_seed": 42,
+      "bootstrap_repeats": 10000
+    },
+    "T12_random_A_zero_B_4_minus_1": {
+      "delta_EM_pp": 62.0,
+      "image_cluster_percentile_95": [
+        52.0,
+        71.0
+      ],
+      "QA": 100,
+      "image_groups": 100,
+      "bootstrap_seed": 42,
+      "bootstrap_repeats": 10000
+    },
+    "T12_past_A_zero_B_4_minus_1": {
+      "delta_EM_pp": 69.0,
+      "image_cluster_percentile_95": [
+        60.0,
+        78.0
+      ],
+      "QA": 100,
+      "image_groups": 100,
+      "bootstrap_seed": 42,
+      "bootstrap_repeats": 10000
+    },
+    "T12_past_AB_4_minus_1": {
+      "delta_EM_pp": -32.0,
+      "image_cluster_percentile_95": [
+        -47.0,
+        -16.0
+      ],
+      "QA": 100,
+      "image_groups": 100,
+      "bootstrap_seed": 42,
+      "bootstrap_repeats": 10000
+    },
+    "T12_pastAB_minus_pastAzeroB_at1": {
+      "delta_EM_pp": 76.0,
+      "image_cluster_percentile_95": [
+        67.0,
+        84.0
+      ],
+      "QA": 100,
+      "image_groups": 100,
+      "bootstrap_seed": 42,
+      "bootstrap_repeats": 10000
+    },
+    "T12_pastAB_minus_pastAzeroB_at4": {
+      "delta_EM_pp": -25.0,
+      "image_cluster_percentile_95": [
+        -41.0,
+        -8.0
+      ],
+      "QA": 100,
+      "image_groups": 100,
+      "bootstrap_seed": 42,
+      "bootstrap_repeats": 10000
+    }
+  },
+  "capacity_diagnostic": [
+    {
+      "cap": 1,
+      "retained_experts": 1,
+      "generated_QA": 155,
+      "EM_correct": 47,
+      "completion_proof_sha256": "54ed36cb87f1416f5611af5bc158712c8fa7add4ba7107d2814ce4dac7501864"
+    },
+    {
+      "cap": 2,
+      "retained_experts": 2,
+      "generated_QA": 155,
+      "EM_correct": 47,
+      "completion_proof_sha256": "8cf2d388100bc7c1d950fb4cd737127ab802f2fbe8b382c76e431a06161c4561"
+    },
+    {
+      "cap": 3,
+      "retained_experts": 3,
+      "generated_QA": 155,
+      "EM_correct": 53,
+      "completion_proof_sha256": "23c9f88e7156094d8c590122030297a56b1fa6e876ca4c5859a409787230090c"
+    },
+    {
+      "cap": 5,
+      "retained_experts": 5,
+      "generated_QA": 155,
+      "EM_correct": 55,
+      "completion_proof_sha256": "d07ecae71b8e9fb9c3de171ed0a22ea73c072af37bb306e8ff759c564dd0577f"
+    }
+  ],
+  "capacity_paired_vs_cap1": {
+    "2": {
+      "delta_EM_pp": 0.0,
+      "image_cluster_percentile_95": [
+        -2.5974025974025974,
+        2.5806451612903225
+      ],
+      "QA": 155,
+      "image_groups": 140,
+      "bootstrap_seed": 42,
+      "bootstrap_repeats": 10000
+    },
+    "3": {
+      "delta_EM_pp": 3.870967741935484,
+      "image_cluster_percentile_95": [
+        0.0,
+        8.333333333333334
+      ],
+      "QA": 155,
+      "image_groups": 140,
+      "bootstrap_seed": 42,
+      "bootstrap_repeats": 10000
+    },
+    "5": {
+      "delta_EM_pp": 5.161290322580645,
+      "image_cluster_percentile_95": [
+        1.2658227848101267,
+        9.67741935483871
+      ],
+      "QA": 155,
+      "image_groups": 140,
+      "bootstrap_seed": 42,
+      "bootstrap_repeats": 10000
+    }
+  },
+  "limitations": [
+    "single seed, no multiplicity correction",
+    "basis uses extra4 passes, not formal one-epoch CL",
+    "155 generated/500 NLL diagnostic QA are not full21454 test",
+    "cap1/cap3 full confirmation restarted separately after image-token mismatch; no full result yet"
+  ]
+}

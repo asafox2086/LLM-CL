@@ -14,7 +14,11 @@
     "residual_rank1_unrelated",
     "residual_rank1_permuted",
     "residual_rank2_correct",
-    "residual_rank2_unrelated"
+    "residual_rank2_unrelated",
+    "residual_rank2_permuted",
+    "continue_rank8_correct",
+    "continue_rank8_unrelated",
+    "continue_rank8_permuted"
   ],
   "planned_cases": 17,
   "prompt": "predeclared both, shared across all knowledge cases; not original-prompt visual ablation",
@@ -278,6 +282,86 @@
       "exact_match": 0.7490636704119851,
       "token_f1": 6.252002742006064,
       "rougeL": 6.080560278930172
+    },
+    {
+      "case": "residual_rank2_permuted",
+      "group": "medical",
+      "count": 100,
+      "mean_nll": 3.619888334274292,
+      "EM_correct": 9,
+      "exact_match": 9.0,
+      "token_f1": 16.209230503795723,
+      "rougeL": 16.142563837129057
+    },
+    {
+      "case": "residual_rank2_permuted",
+      "group": "medical_KG",
+      "count": 267,
+      "mean_nll": 4.1207076451751625,
+      "EM_correct": 2,
+      "exact_match": 0.7490636704119851,
+      "token_f1": 6.679613799574949,
+      "rougeL": 6.551388260086106
+    },
+    {
+      "case": "continue_rank8_correct",
+      "group": "medical",
+      "count": 100,
+      "mean_nll": 2.7624654144048693,
+      "EM_correct": 16,
+      "exact_match": 16.0,
+      "token_f1": 22.803703703703704,
+      "rougeL": 22.803703703703704
+    },
+    {
+      "case": "continue_rank8_correct",
+      "group": "medical_KG",
+      "count": 267,
+      "mean_nll": 3.1313742090030554,
+      "EM_correct": 3,
+      "exact_match": 1.1235955056179776,
+      "token_f1": 4.055175395075101,
+      "rougeL": 4.016438090144846
+    },
+    {
+      "case": "continue_rank8_unrelated",
+      "group": "medical",
+      "count": 100,
+      "mean_nll": 2.225594389438629,
+      "EM_correct": 31,
+      "exact_match": 31.0,
+      "token_f1": 36.220304568527915,
+      "rougeL": 36.220304568527915
+    },
+    {
+      "case": "continue_rank8_unrelated",
+      "group": "medical_KG",
+      "count": 267,
+      "mean_nll": 2.8543048662304433,
+      "EM_correct": 22,
+      "exact_match": 8.239700374531836,
+      "token_f1": 12.20186631373098,
+      "rougeL": 12.135860304496113
+    },
+    {
+      "case": "continue_rank8_permuted",
+      "group": "medical",
+      "count": 100,
+      "mean_nll": 2.597839082479477,
+      "EM_correct": 23,
+      "exact_match": 23.0,
+      "token_f1": 26.766666666666666,
+      "rougeL": 26.766666666666666
+    },
+    {
+      "case": "continue_rank8_permuted",
+      "group": "medical_KG",
+      "count": 267,
+      "mean_nll": 2.9415133544121788,
+      "EM_correct": 4,
+      "exact_match": 1.4981273408239701,
+      "token_f1": 6.759949908322273,
+      "rougeL": 6.6215554831071595
     }
   ],
   "source_sha256": {
@@ -306,7 +390,15 @@
     "exp/onevision_mechanisms_20261016/knowledge/20261016_215455/evaluations/residual_rank2_correct/medical_image.jsonl": "7797582ff62693301a64736d847dbce1901f83095f5d885c79efbe81db03b20c",
     "exp/onevision_mechanisms_20261016/knowledge/20261016_215455/evaluations/residual_rank2_correct/medical_KG_image.jsonl": "64ff509df3c91643398ccd227343faa835780e39af2460183eabe4e91e66e6df",
     "exp/onevision_mechanisms_20261016/knowledge/20261016_215455/evaluations/residual_rank2_unrelated/medical_image.jsonl": "bf882bce6104c62c266b6535e5861fa12b360e6d31172f8230d407863c376cde",
-    "exp/onevision_mechanisms_20261016/knowledge/20261016_215455/evaluations/residual_rank2_unrelated/medical_KG_image.jsonl": "91abb98e3a0a506fcbade96a5d6a0ffad23144ae412b213afb4828d58452f092"
+    "exp/onevision_mechanisms_20261016/knowledge/20261016_215455/evaluations/residual_rank2_unrelated/medical_KG_image.jsonl": "91abb98e3a0a506fcbade96a5d6a0ffad23144ae412b213afb4828d58452f092",
+    "exp/onevision_mechanisms_20261016/knowledge/20261016_215455/evaluations/residual_rank2_permuted/medical_image.jsonl": "97babcedc1b1e51ea834fcedae1463cdf76c78c692b447dc23d357fe376ecc33",
+    "exp/onevision_mechanisms_20261016/knowledge/20261016_215455/evaluations/residual_rank2_permuted/medical_KG_image.jsonl": "f568857f5a6f192185adb938c0e829bfdf62c4caba19083dda0537661e346ce4",
+    "exp/onevision_mechanisms_20261016/knowledge/20261016_215455/evaluations/continue_rank8_correct/medical_image.jsonl": "abdf1b0d824a4e86db8cbe6bd171f405fd800a7901c4f21ffb3285a1b01a604d",
+    "exp/onevision_mechanisms_20261016/knowledge/20261016_215455/evaluations/continue_rank8_correct/medical_KG_image.jsonl": "31eb0d3863bb215a935334bef653f00b026533b22c3f69dd7df4935c7db739d7",
+    "exp/onevision_mechanisms_20261016/knowledge/20261016_215455/evaluations/continue_rank8_unrelated/medical_image.jsonl": "9fc3c27b5ced91721765732426c421cd00b3beae60036f46ffedcfd0a9ecf01f",
+    "exp/onevision_mechanisms_20261016/knowledge/20261016_215455/evaluations/continue_rank8_unrelated/medical_KG_image.jsonl": "64b57db18f1d690d7338769cbbfbf8315e24a4b81058bb7995524089b63eca2e",
+    "exp/onevision_mechanisms_20261016/knowledge/20261016_215455/evaluations/continue_rank8_permuted/medical_image.jsonl": "cf202e0e3abe9cca8454ccee2867ddfc84216ef03410ecb7624ed6a86695dc2e",
+    "exp/onevision_mechanisms_20261016/knowledge/20261016_215455/evaluations/continue_rank8_permuted/medical_KG_image.jsonl": "a3dd589d91f1e28c817a4fe446ab843303bd97c0284f16149733ea57c11bd713"
   },
   "group_overlap_qa": 12,
   "limitations": [
