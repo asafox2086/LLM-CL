@@ -112,5 +112,23 @@
       "116097": "688745784"
     },
     "no_blind_retries_after_failure": true
-  }
+  },
+  "async_observation": {
+    "PaRSP": {
+      "status": "preflight",
+      "pid": 316041,
+      "live": true,
+      "run": "exp/five_domain_native_cl_20261016_sparse/runs/pct01/PaRSP/preflight_20261017_151455",
+      "log_tail": "\": 1.2810662984848022, \"gradient_l2_preclip\": 24.34389305114746}\n{\"event\": \"preflight\", \"task\": 4, \"dataset\": \"SLAKE\", \"source_id\": \"SLAKE:8432\", \"image_count\": 1, \"loss\": 1.3962167501449585, \"gradient_l2_preclip\": 51.515872955322266}\n{\"event\": \"preflight\", \"task\": 5, \"dataset\": \"SLAKE\", \"source_id\": \"SLAKE:7844\", \"image_count\": 1, \"loss\": 1.5060734748840332, \"gradient_l2_preclip\": 49.43453598022461}\n{\"event\": \"preflight\", \"task\": 6, \"dataset\": \"SLAKE\", \"source_id\": \"SLAKE:6370\", \"image_count\": 1, \"loss\": 0.8437994122505188, \"gradient_l2_preclip\": 36.097137451171875}\n{\"event\": \"preflight\", \"task\": 7, \"dataset\": \"SLAKE\", \"source_id\": \"SLAKE:2750\", \"image_count\": 1, \"loss\": 0.2939266860485077, \"gradient_l2_preclip\": 26.554502487182617}\n{\"event\": \"preflight\", \"task\": 8, \"dataset\": \"SLAKE\", \"source_id\": \"SLAKE:1165\", \"image_count\": 1, \"loss\": 3.761928081512451, \"gradient_l2_preclip\": 43.37293243408203}\n{\"event\": \"preflight\", \"task\": 9, \"dataset\": \"SLAKE\", \"source_id\": \"SLAKE:1484\", \"image_count\": 1, \"loss\": 2.5677616596221924, \"gradient_l2_preclip\": 31.187761306762695}\n{\"event\": \"preflight\", \"task\": 10, \"dataset\": \"SLAKE\", \"source_id\": \"SLAKE:1892\", \"image_count\": 1, \"loss\": 0.9941575527191162, \"gradient_l2_preclip\": 41.301822662353516}\n{\"event\": \"preflight\", \"task\": 11, \"dataset\": \"SLAKE\", \"source_id\": \"SLAKE:8007\", \"image_count\": 1, \"loss\": 1.1226776838302612, \"gradient_l2_preclip\": 39.38258361816406}\n{\"event\": \"preflight\", \"task\": 12, \"dataset\": \"RSVQA-LR\", \"source_id\": \"RSVQA-LR:16107\", \"image_count\": 1, \"loss\": 1.6576480865478516, \"gradient_l2_preclip\": 55.43519973754883}\n"
+    },
+    "SpaRTA": {
+      "status": "failed_preflight",
+      "pid": 316100,
+      "live": false,
+      "run": "exp/five_domain_native_cl_20261016_sparse/runs/pct01/SpaRTA/preflight_20261017_151455",
+      "log_tail": "conda-env/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py\", line 1159, in forward\n    layer_outputs = decoder_layer(\n  File \"/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/torch/nn/modules/module.py\", line 1739, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/torch/nn/modules/module.py\", line 1750, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py\", line 906, in forward\n    hidden_states, self_attn_weights, present_key_value = self.self_attn(\n  File \"/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/torch/nn/modules/module.py\", line 1739, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/torch/nn/modules/module.py\", line 1750, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py\", line 800, in forward\n    query_states, key_states = apply_multimodal_rotary_pos_emb(\n  File \"/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py\", line 243, in apply_multimodal_rotary_pos_emb\n    q_embed = (q * cos) + (rotate_half(q) * sin)\ntorch.OutOfMemoryError: Allocation on device \n"
+    }
+  },
+  "latest_user_decision": "keep newGPU0 reserved; do not reassign",
+  "observation_time": "2026-10-17T15:16:57.590672+08:00"
 }
