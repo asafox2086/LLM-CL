@@ -1,0 +1,793 @@
+{
+  "CPU_only": true,
+  "host_label": "new3090",
+  "snapshot_unix": 1792253494.8730004,
+  "runs": [
+    {
+      "run": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209",
+      "method": "SeqFT_LoRA",
+      "backbone": "qwen",
+      "model_dtype": "torch.float16",
+      "image_area_cap": 401408,
+      "runtime_snapshot": {
+        "status": "initial_evaluation",
+        "completed_stage": 0
+      },
+      "config_primary_score_legacy_field": "rougeL",
+      "reported_metric": "locked raw Answer F1",
+      "stage4_training_events": [],
+      "cells": [
+        {
+          "stage": 0,
+          "phase": "verified_complete_cell",
+          "scores": {
+            "all": {
+              "QA": 507,
+              "Answer_F1": 40.63333749409231,
+              "predictions_contain_Han": 254,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "Yes",
+                  76
+                ],
+                [
+                  "No",
+                  74
+                ],
+                [
+                  "是的，图片中包含肝脏。",
+                  26
+                ],
+                [
+                  "是的，图片中包含脾脏。",
+                  23
+                ],
+                [
+                  "是的，图片中包含肾脏。",
+                  22
+                ],
+                [
+                  "不是",
+                  16
+                ]
+              ]
+            },
+            "q_lang=en": {
+              "QA": 253,
+              "Answer_F1": 51.37514830559373,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "Yes",
+                  76
+                ],
+                [
+                  "No",
+                  74
+                ],
+                [
+                  "The main organ in the image is the heart.",
+                  8
+                ],
+                [
+                  "The gray part on the left of the image is the liver.",
+                  7
+                ],
+                [
+                  "The image is of the thoracic cavity.",
+                  6
+                ],
+                [
+                  "The main organ in the image is the brain.",
+                  5
+                ]
+              ]
+            },
+            "q_lang=zh": {
+              "QA": 254,
+              "Answer_F1": 29.93381727633696,
+              "predictions_contain_Han": 254,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "是的，图片中包含肝脏。",
+                  26
+                ],
+                [
+                  "是的，图片中包含脾脏。",
+                  23
+                ],
+                [
+                  "是的，图片中包含肾脏。",
+                  22
+                ],
+                [
+                  "不是",
+                  16
+                ],
+                [
+                  "是的，图片中包含心脏。",
+                  15
+                ],
+                [
+                  "是的，图片中包含肺。",
+                  14
+                ]
+              ]
+            },
+            "answer_type=OPEN": {
+              "QA": 184,
+              "Answer_F1": 8.387035008788773,
+              "predictions_contain_Han": 85,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "图中是呼吸系统。",
+                  9
+                ],
+                [
+                  "The main organ in the image is the heart.",
+                  8
+                ],
+                [
+                  "The gray part on the left of the image is the liver.",
+                  7
+                ],
+                [
+                  "图像中的主要器官是肺。",
+                  7
+                ],
+                [
+                  "The image is of the thoracic cavity.",
+                  6
+                ],
+                [
+                  "The main organ in the image is the brain.",
+                  5
+                ]
+              ]
+            },
+            "answer_type=CLOSED": {
+              "QA": 323,
+              "Answer_F1": 59.002748197794645,
+              "predictions_contain_Han": 169,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "Yes",
+                  76
+                ],
+                [
+                  "No",
+                  74
+                ],
+                [
+                  "是的，图片中包含肝脏。",
+                  26
+                ],
+                [
+                  "是的，图片中包含脾脏。",
+                  23
+                ],
+                [
+                  "是的，图片中包含肾脏。",
+                  22
+                ],
+                [
+                  "不是",
+                  16
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=OPEN": {
+              "QA": 99,
+              "Answer_F1": 5.411013122151433,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "The main organ in the image is the heart.",
+                  8
+                ],
+                [
+                  "The gray part on the left of the image is the liver.",
+                  7
+                ],
+                [
+                  "The image is of the thoracic cavity.",
+                  6
+                ],
+                [
+                  "The main organ in the image is the brain.",
+                  5
+                ],
+                [
+                  "The organ on the top of the body in this image is the liver.",
+                  4
+                ],
+                [
+                  "The image is a chest X-ray, which is a radiographic image of the thoracic cavity.",
+                  4
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=CLOSED": {
+              "QA": 154,
+              "Answer_F1": 80.92352092352093,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "Yes",
+                  76
+                ],
+                [
+                  "No",
+                  74
+                ],
+                [
+                  "Yes, the temporal lobe is visible in this image.",
+                  1
+                ],
+                [
+                  "Yes, the parotid is visible in the image.",
+                  1
+                ],
+                [
+                  "Yes, the stomach is visible in the image.",
+                  1
+                ],
+                [
+                  "No, the stomach is not visible in the image.",
+                  1
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=OPEN": {
+              "QA": 85,
+              "Answer_F1": 11.853225206166384,
+              "predictions_contain_Han": 85,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "图中是呼吸系统。",
+                  9
+                ],
+                [
+                  "图像中的主要器官是肺。",
+                  7
+                ],
+                [
+                  "位于图片右下角的是肾脏。",
+                  5
+                ],
+                [
+                  "图像中的主要器官系统是肺。",
+                  4
+                ],
+                [
+                  "图片主要器官是大脑。",
+                  4
+                ],
+                [
+                  "图像中身体顶部的器官是肝脏。",
+                  3
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=CLOSED": {
+              "QA": 169,
+              "Answer_F1": 39.0276061873695,
+              "predictions_contain_Han": 169,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "是的，图片中包含肝脏。",
+                  26
+                ],
+                [
+                  "是的，图片中包含脾脏。",
+                  23
+                ],
+                [
+                  "是的，图片中包含肾脏。",
+                  22
+                ],
+                [
+                  "不是",
+                  16
+                ],
+                [
+                  "是的，图片中包含心脏。",
+                  15
+                ],
+                [
+                  "是的，图片中包含肺。",
+                  14
+                ]
+              ]
+            }
+          },
+          "prediction_sha256": "f9427f4ff556c2a8dd50418d52188ab0ddc51342a0d8985ebf3608f1e1a9e4a1",
+          "semantic_fields_sha256": "adb1e37c31c555edab432387292515832c9f422b345b29b47987b98b6781e523"
+        },
+        {
+          "stage": 3,
+          "phase": "pending",
+          "scores": null
+        },
+        {
+          "stage": 4,
+          "phase": "pending",
+          "scores": null
+        },
+        {
+          "stage": 19,
+          "phase": "pending",
+          "scores": null
+        }
+      ],
+      "transitions": []
+    },
+    {
+      "run": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502",
+      "method": "ER_LoRA",
+      "backbone": "qwen",
+      "model_dtype": "torch.float16",
+      "image_area_cap": 401408,
+      "runtime_snapshot": {
+        "status": "initial_evaluation",
+        "completed_stage": 0
+      },
+      "config_primary_score_legacy_field": "rougeL",
+      "reported_metric": "locked raw Answer F1",
+      "stage4_training_events": [],
+      "cells": [
+        {
+          "stage": 0,
+          "phase": "verified_complete_cell",
+          "scores": {
+            "all": {
+              "QA": 507,
+              "Answer_F1": 40.63333749409231,
+              "predictions_contain_Han": 254,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "Yes",
+                  76
+                ],
+                [
+                  "No",
+                  74
+                ],
+                [
+                  "是的，图片中包含肝脏。",
+                  26
+                ],
+                [
+                  "是的，图片中包含脾脏。",
+                  23
+                ],
+                [
+                  "是的，图片中包含肾脏。",
+                  22
+                ],
+                [
+                  "不是",
+                  16
+                ]
+              ]
+            },
+            "q_lang=en": {
+              "QA": 253,
+              "Answer_F1": 51.37514830559373,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "Yes",
+                  76
+                ],
+                [
+                  "No",
+                  74
+                ],
+                [
+                  "The main organ in the image is the heart.",
+                  8
+                ],
+                [
+                  "The gray part on the left of the image is the liver.",
+                  7
+                ],
+                [
+                  "The image is of the thoracic cavity.",
+                  6
+                ],
+                [
+                  "The main organ in the image is the brain.",
+                  5
+                ]
+              ]
+            },
+            "q_lang=zh": {
+              "QA": 254,
+              "Answer_F1": 29.93381727633696,
+              "predictions_contain_Han": 254,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "是的，图片中包含肝脏。",
+                  26
+                ],
+                [
+                  "是的，图片中包含脾脏。",
+                  23
+                ],
+                [
+                  "是的，图片中包含肾脏。",
+                  22
+                ],
+                [
+                  "不是",
+                  16
+                ],
+                [
+                  "是的，图片中包含心脏。",
+                  15
+                ],
+                [
+                  "是的，图片中包含肺。",
+                  14
+                ]
+              ]
+            },
+            "answer_type=OPEN": {
+              "QA": 184,
+              "Answer_F1": 8.387035008788773,
+              "predictions_contain_Han": 85,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "图中是呼吸系统。",
+                  9
+                ],
+                [
+                  "The main organ in the image is the heart.",
+                  8
+                ],
+                [
+                  "The gray part on the left of the image is the liver.",
+                  7
+                ],
+                [
+                  "图像中的主要器官是肺。",
+                  7
+                ],
+                [
+                  "The image is of the thoracic cavity.",
+                  6
+                ],
+                [
+                  "The main organ in the image is the brain.",
+                  5
+                ]
+              ]
+            },
+            "answer_type=CLOSED": {
+              "QA": 323,
+              "Answer_F1": 59.002748197794645,
+              "predictions_contain_Han": 169,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "Yes",
+                  76
+                ],
+                [
+                  "No",
+                  74
+                ],
+                [
+                  "是的，图片中包含肝脏。",
+                  26
+                ],
+                [
+                  "是的，图片中包含脾脏。",
+                  23
+                ],
+                [
+                  "是的，图片中包含肾脏。",
+                  22
+                ],
+                [
+                  "不是",
+                  16
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=OPEN": {
+              "QA": 99,
+              "Answer_F1": 5.411013122151433,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "The main organ in the image is the heart.",
+                  8
+                ],
+                [
+                  "The gray part on the left of the image is the liver.",
+                  7
+                ],
+                [
+                  "The image is of the thoracic cavity.",
+                  6
+                ],
+                [
+                  "The main organ in the image is the brain.",
+                  5
+                ],
+                [
+                  "The organ on the top of the body in this image is the liver.",
+                  4
+                ],
+                [
+                  "The image is a chest X-ray, which is a radiographic image of the thoracic cavity.",
+                  4
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=CLOSED": {
+              "QA": 154,
+              "Answer_F1": 80.92352092352093,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "Yes",
+                  76
+                ],
+                [
+                  "No",
+                  74
+                ],
+                [
+                  "Yes, the temporal lobe is visible in this image.",
+                  1
+                ],
+                [
+                  "Yes, the parotid is visible in the image.",
+                  1
+                ],
+                [
+                  "Yes, the stomach is visible in the image.",
+                  1
+                ],
+                [
+                  "No, the stomach is not visible in the image.",
+                  1
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=OPEN": {
+              "QA": 85,
+              "Answer_F1": 11.853225206166384,
+              "predictions_contain_Han": 85,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "图中是呼吸系统。",
+                  9
+                ],
+                [
+                  "图像中的主要器官是肺。",
+                  7
+                ],
+                [
+                  "位于图片右下角的是肾脏。",
+                  5
+                ],
+                [
+                  "图像中的主要器官系统是肺。",
+                  4
+                ],
+                [
+                  "图片主要器官是大脑。",
+                  4
+                ],
+                [
+                  "图像中身体顶部的器官是肝脏。",
+                  3
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=CLOSED": {
+              "QA": 169,
+              "Answer_F1": 39.0276061873695,
+              "predictions_contain_Han": 169,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "是的，图片中包含肝脏。",
+                  26
+                ],
+                [
+                  "是的，图片中包含脾脏。",
+                  23
+                ],
+                [
+                  "是的，图片中包含肾脏。",
+                  22
+                ],
+                [
+                  "不是",
+                  16
+                ],
+                [
+                  "是的，图片中包含心脏。",
+                  15
+                ],
+                [
+                  "是的，图片中包含肺。",
+                  14
+                ]
+              ]
+            }
+          },
+          "prediction_sha256": "b6cfecdb2e866771e6e8043708bd7817b7cbf674e5e0f3ab8cff56fcd5e0e8de",
+          "semantic_fields_sha256": "adb1e37c31c555edab432387292515832c9f422b345b29b47987b98b6781e523"
+        },
+        {
+          "stage": 3,
+          "phase": "pending",
+          "scores": null
+        },
+        {
+          "stage": 4,
+          "phase": "pending",
+          "scores": null
+        },
+        {
+          "stage": 19,
+          "phase": "pending",
+          "scores": null
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "source_sha256": {
+    "analysis/onevision_v2_language_snapshot.py": "0ac4034d4b2a0eed6738df2d466c5d9cce9c39f16b6dc898cc9d192d1dd1f73c",
+    "summary/primary_metric_20261017/metric_lock.json": "a146f037f835afb66251ce35498a4a5df8e7ea97468725b49ea34043f7d1c948",
+    "analysis/answer_f1.py": "16c59998413d12b820d6f57269f9e1f45ac78e08595d20bf1f4fbc967fd94c4b",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/manifest.json": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T04_train.jsonl": "fabc8d4b4bd730306db0b1447a530a54bf470faded22937ba4a32fb6ebcd2cc9",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T04_test.jsonl": "e5046123567a5d9efe80aae17ed0b141e6261bf80c775f523791ef9022492ba2",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209/config.json": "9db372397a602a25499fe83c74871fab9696bdadf5442352867a55277a2ccea1",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209/runner_source/parsp_adapter.py": "d1ebe1831e6d089d434bdde34b59db64eff17dc74d8d77f9ca4f080a51da8366",
+    "exp/two_backbone_native_cl_20261017_v2/parsp_adapter.py": "d1ebe1831e6d089d434bdde34b59db64eff17dc74d8d77f9ca4f080a51da8366",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209/runner_source/sparse_results.py": "07a7808beff8bc3330e92dc5b0fb5443401486846db764c912a5a0f57558fa3f",
+    "exp/two_backbone_native_cl_20261017_v2/sparse_results.py": "07a7808beff8bc3330e92dc5b0fb5443401486846db764c912a5a0f57558fa3f",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209/runner_source/osft_adapter.py": "60b05f3b59f3878e65ee9543657b54a5aa5da13c14e139123e1c3591f3007b34",
+    "exp/two_backbone_native_cl_20261017_v2/osft_adapter.py": "60b05f3b59f3878e65ee9543657b54a5aa5da13c14e139123e1c3591f3007b34",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209/runner_source/freeze_splits.py": "5b4d58451ef3bcdb9fc033c0c9bc15b72ddc36877a64ca22d50f12e9e301510a",
+    "exp/two_backbone_native_cl_20261017_v2/freeze_splits.py": "5b4d58451ef3bcdb9fc033c0c9bc15b72ddc36877a64ca22d50f12e9e301510a",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209/runner_source/retrieval.py": "7d7a9dd6cb223bf96cd9ab3499a4ddf69f8fbb60940d80db84582ad518f5c133",
+    "exp/two_backbone_native_cl_20261017_v2/retrieval.py": "7d7a9dd6cb223bf96cd9ab3499a4ddf69f8fbb60940d80db84582ad518f5c133",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209/runner_source/pipeline.py": "a05c27c773dc69369cbef90f89a77c6224d1f5a5d1716c1f8576ac3ff823be17",
+    "exp/two_backbone_native_cl_20261017_v2/pipeline.py": "a05c27c773dc69369cbef90f89a77c6224d1f5a5d1716c1f8576ac3ff823be17",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209/runner_source/checkpoint_probe.py": "71b38fb9f202fa2fa012e76a883e23322f68ef938c9f8ef9fac78d01886eb23f",
+    "exp/two_backbone_native_cl_20261017_v2/checkpoint_probe.py": "71b38fb9f202fa2fa012e76a883e23322f68ef938c9f8ef9fac78d01886eb23f",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209/runner_source/aler_adapter.py": "4a4c58024727e5e5d01254a6b90b721e873ee6ea9f74d59308da6aa424217635",
+    "exp/two_backbone_native_cl_20261017_v2/aler_adapter.py": "4a4c58024727e5e5d01254a6b90b721e873ee6ea9f74d59308da6aa424217635",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209/runner_source/checkpoints.py": "06c53eab2c6810901f5206edbfb1df9defabdc747b1856ace0afa31e74b37a78",
+    "exp/two_backbone_native_cl_20261017_v2/checkpoints.py": "06c53eab2c6810901f5206edbfb1df9defabdc747b1856ace0afa31e74b37a78",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209/runner_source/pass_adapter.py": "c8e23c85a93e97130d464b4b6d87110470035c5af37f9575fce705923c80c7c4",
+    "exp/two_backbone_native_cl_20261017_v2/pass_adapter.py": "c8e23c85a93e97130d464b4b6d87110470035c5af37f9575fce705923c80c7c4",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209/runner_source/fv_adapter.py": "85473b19726249703f645a30142b6cfb046a37f798430ca1a255e48213641fab",
+    "exp/two_backbone_native_cl_20261017_v2/fv_adapter.py": "85473b19726249703f645a30142b6cfb046a37f798430ca1a255e48213641fab",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209/runner_source/sparta_adapter.py": "8a00505b40663e5a233ddceb34e295d9b7b73d55f0679ac3d2b93318e77d7a44",
+    "exp/two_backbone_native_cl_20261017_v2/sparta_adapter.py": "8a00505b40663e5a233ddceb34e295d9b7b73d55f0679ac3d2b93318e77d7a44",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209/runner_source/host_adam.py": "5e733e6b87c12eb9331ff23e8919a142f1861a2beec82ec8b0361d878b9aec8c",
+    "exp/two_backbone_native_cl_20261017_v2/host_adam.py": "5e733e6b87c12eb9331ff23e8919a142f1861a2beec82ec8b0361d878b9aec8c",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209/runner_source/prepare_native.py": "200affb091e040e4f4492fb92389b9f1b54a3e71b33683e7de322ca6dd74cb4f",
+    "exp/two_backbone_native_cl_20261017_v2/prepare_native.py": "200affb091e040e4f4492fb92389b9f1b54a3e71b33683e7de322ca6dd74cb4f",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209/runner_source/native_auxiliary.py": "17f3345fb8d4b4cb3367de2a0b914b34bf69251ecc7f141ba1c7179006599682",
+    "exp/two_backbone_native_cl_20261017_v2/native_auxiliary.py": "17f3345fb8d4b4cb3367de2a0b914b34bf69251ecc7f141ba1c7179006599682",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209/runner_source/replay_adapter.py": "da07cfd8e44183ab3e29f1ab51ecbec0f6e7877ac6335efcf179158afff8d141",
+    "exp/two_backbone_native_cl_20261017_v2/replay_adapter.py": "da07cfd8e44183ab3e29f1ab51ecbec0f6e7877ac6335efcf179158afff8d141",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209/runner_source/resource_monitor.py": "a161c8a82bf762622795f64210c95164fb905c6fa80572b35ae5ee3dd7146533",
+    "exp/two_backbone_native_cl_20261017_v2/resource_monitor.py": "a161c8a82bf762622795f64210c95164fb905c6fa80572b35ae5ee3dd7146533",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209/runner_source/hyper_adapter.py": "518574b8c3d1c46400d240cc984f0d1c83cb01d96a7d1e2bf788bea4d4610976",
+    "exp/two_backbone_native_cl_20261017_v2/hyper_adapter.py": "518574b8c3d1c46400d240cc984f0d1c83cb01d96a7d1e2bf788bea4d4610976",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209/runner_source/frozen_vision.py": "8211651e92d17019f6ce6cf9615df7f6b5fcaeecc765aec4acdf916c448a35bd",
+    "exp/two_backbone_native_cl_20261017_v2/frozen_vision.py": "8211651e92d17019f6ce6cf9615df7f6b5fcaeecc765aec4acdf916c448a35bd",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209/runner_source/clmoe_adapter.py": "33946eddfc6424638ded0675ded68860273859c2f71993a6a60bd22556341be9",
+    "exp/two_backbone_native_cl_20261017_v2/clmoe_adapter.py": "33946eddfc6424638ded0675ded68860273859c2f71993a6a60bd22556341be9",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209/runner_source/methods.py": "e5bd8f51690b006274ed5adcfa4ef3b1a2c3b0f1d79476d948b71d1cfec41c5b",
+    "exp/two_backbone_native_cl_20261017_v2/methods.py": "e5bd8f51690b006274ed5adcfa4ef3b1a2c3b0f1d79476d948b71d1cfec41c5b",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209/runner_source/run.py": "0e1f794ff1daf0694bdf960c3f89ccd4078764577db75271d8f78684282a39a9",
+    "exp/two_backbone_native_cl_20261017_v2/run.py": "0e1f794ff1daf0694bdf960c3f89ccd4078764577db75271d8f78684282a39a9",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209/runner_source/training_validity.py": "0ec302d2fa4e8bb1a87b41c861c3aea78bf473e3df805b87d4dd450d21a2f735",
+    "exp/two_backbone_native_cl_20261017_v2/training_validity.py": "0ec302d2fa4e8bb1a87b41c861c3aea78bf473e3df805b87d4dd450d21a2f735",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209/runner_source/onevision_bridge.py": "f3b1dd38af3b58dbfa69073da698ea2bf39a3a11850fb1069a80e38d0e3669a9",
+    "exp/two_backbone_native_cl_20261017_v2/onevision_bridge.py": "f3b1dd38af3b58dbfa69073da698ea2bf39a3a11850fb1069a80e38d0e3669a9",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209/runner_source/runtime_utils.py": "4f5c4a34be046c29cfbcdaa4b2957faa907684872ba69083bdef53136a851240",
+    "exp/two_backbone_native_cl_20261017_v2/runtime_utils.py": "4f5c4a34be046c29cfbcdaa4b2957faa907684872ba69083bdef53136a851240",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209/evaluations/stage_00/T04_test_predictions.jsonl": "f9427f4ff556c2a8dd50418d52188ab0ddc51342a0d8985ebf3608f1e1a9e4a1",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209/evaluations/stage_00/T04_test_predictions.scores.json": "1ece57582aae47a8423633161e82284022284b1c393a081245d9a0be129129cd",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502/config.json": "c91e6c6a178033449e3e0c3f34fc9c5581841e3f62fa6e09ef58ac0072bf7b7d",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502/runner_source/parsp_adapter.py": "d1ebe1831e6d089d434bdde34b59db64eff17dc74d8d77f9ca4f080a51da8366",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502/runner_source/sparse_results.py": "07a7808beff8bc3330e92dc5b0fb5443401486846db764c912a5a0f57558fa3f",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502/runner_source/osft_adapter.py": "60b05f3b59f3878e65ee9543657b54a5aa5da13c14e139123e1c3591f3007b34",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502/runner_source/freeze_splits.py": "5b4d58451ef3bcdb9fc033c0c9bc15b72ddc36877a64ca22d50f12e9e301510a",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502/runner_source/retrieval.py": "7d7a9dd6cb223bf96cd9ab3499a4ddf69f8fbb60940d80db84582ad518f5c133",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502/runner_source/pipeline.py": "a05c27c773dc69369cbef90f89a77c6224d1f5a5d1716c1f8576ac3ff823be17",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502/runner_source/checkpoint_probe.py": "71b38fb9f202fa2fa012e76a883e23322f68ef938c9f8ef9fac78d01886eb23f",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502/runner_source/aler_adapter.py": "4a4c58024727e5e5d01254a6b90b721e873ee6ea9f74d59308da6aa424217635",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502/runner_source/checkpoints.py": "06c53eab2c6810901f5206edbfb1df9defabdc747b1856ace0afa31e74b37a78",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502/runner_source/pass_adapter.py": "c8e23c85a93e97130d464b4b6d87110470035c5af37f9575fce705923c80c7c4",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502/runner_source/fv_adapter.py": "85473b19726249703f645a30142b6cfb046a37f798430ca1a255e48213641fab",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502/runner_source/sparta_adapter.py": "8a00505b40663e5a233ddceb34e295d9b7b73d55f0679ac3d2b93318e77d7a44",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502/runner_source/host_adam.py": "5e733e6b87c12eb9331ff23e8919a142f1861a2beec82ec8b0361d878b9aec8c",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502/runner_source/prepare_native.py": "200affb091e040e4f4492fb92389b9f1b54a3e71b33683e7de322ca6dd74cb4f",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502/runner_source/native_auxiliary.py": "17f3345fb8d4b4cb3367de2a0b914b34bf69251ecc7f141ba1c7179006599682",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502/runner_source/replay_adapter.py": "da07cfd8e44183ab3e29f1ab51ecbec0f6e7877ac6335efcf179158afff8d141",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502/runner_source/resource_monitor.py": "a161c8a82bf762622795f64210c95164fb905c6fa80572b35ae5ee3dd7146533",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502/runner_source/hyper_adapter.py": "518574b8c3d1c46400d240cc984f0d1c83cb01d96a7d1e2bf788bea4d4610976",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502/runner_source/frozen_vision.py": "8211651e92d17019f6ce6cf9615df7f6b5fcaeecc765aec4acdf916c448a35bd",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502/runner_source/clmoe_adapter.py": "33946eddfc6424638ded0675ded68860273859c2f71993a6a60bd22556341be9",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502/runner_source/methods.py": "e5bd8f51690b006274ed5adcfa4ef3b1a2c3b0f1d79476d948b71d1cfec41c5b",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502/runner_source/run.py": "0e1f794ff1daf0694bdf960c3f89ccd4078764577db75271d8f78684282a39a9",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502/runner_source/training_validity.py": "0ec302d2fa4e8bb1a87b41c861c3aea78bf473e3df805b87d4dd450d21a2f735",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502/runner_source/onevision_bridge.py": "f3b1dd38af3b58dbfa69073da698ea2bf39a3a11850fb1069a80e38d0e3669a9",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502/runner_source/runtime_utils.py": "4f5c4a34be046c29cfbcdaa4b2957faa907684872ba69083bdef53136a851240",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502/evaluations/stage_00/T04_test_predictions.jsonl": "b6cfecdb2e866771e6e8043708bd7817b7cbf674e5e0f3ab8cff56fcd5e0e8de",
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261017_161502/evaluations/stage_00/T04_test_predictions.scores.json": "1ece57582aae47a8423633161e82284022284b1c393a081245d9a0be129129cd"
+  },
+  "training_event_prefixes": [],
+  "Organ_TRAIN_QA": 26,
+  "Organ_TRAIN_author_language_counts": {
+    "zh": 15,
+    "en": 11
+  },
+  "Organ_TEST_QA": 507,
+  "all_author_strata_included": true,
+  "stages_requested": [
+    0,
+    3,
+    4,
+    19
+  ],
+  "limits": [
+    "Same frozen formal V2 runs; not nativeAnyRes/BF16 research states, never fill its shared S1.",
+    "Pending cells remain null; a sealed task cell is not full21454 completion or a method ranking.",
+    "S3->S4 isolates observed current-stage learning along this curriculum, not a no-update randomized intervention.",
+    "S4->S19 combines within-medical and later cross-domain learning; cannot uniquely attribute domain count.",
+    "Language groups are not verified translation pairs; Han counts are literal flags, not correctness.",
+    "Paired image intervals condition on fixed single-seed fits; no multi-seed or causal knowledge sufficiency claim.",
+    "Only raw token_f1 is reported; legacy rougeL config field does not change this locked scoring or select models."
+  ]
+}

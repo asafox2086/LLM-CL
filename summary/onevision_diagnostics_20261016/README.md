@@ -12,6 +12,7 @@
 | 跨域差距是否混入语言变化 | [完整507题语言/题型审计](matched_task_domain/language_profile/T04_VERIFIED_RESULTS.md) | 中文差−21.102/英文−9.960pp；TRAIN中文曝光17/0，不能纯归因知识遗忘 |
 | 固定权重能否靠输出指令恢复 | [四指令干预](language_cue/PROTOCOL.md)、[结果](language_cue/VERIFIED_RESULTS.md) | 两权重×四既有指令，所有完整8格都测；CPU输入门槛通过，GPU效果待测 |
 | 最新研究接续 | [语言因果CPU队列](language_causal_queue/README.md) | 先可用共同S1，再4个固定推理进程，再继续原48/完整方法；不抢他人GPU1 |
+| 正式基线的低分是否已在习得时存在 | [V2学习前/刚学完语言审计](baseline_language_profile/VERIFIED_RESULTS.md) | SeqFT/ER中文S3→S4 +17.559/+17.362pp，原26QA/2正LR更新；最终格待测，不与AnyRes拼接 |
 | 已做什么、证明／证伪了什么、改进有没有用 | [RESEARCH_REPORT](RESEARCH_REPORT.md) | 主报告，12项统一六栏 |
 | 首批跨域梯度是否已负冲突 | [精确共同起点TRAIN审计](matched_task_domain/first_transition_geometry/VERIFIED_RESULTS.md) | 三序列余弦均正，不能推断后续无冲突或有限F1因果 |
 | 跨域差距是遗忘还是少了同域正迁移 | [完整共同起点/净变化](shared_anchor_initial/VERIFIED_RESULTS.md) | 已入新CPU队列，实际完整起点0/2待测；先32精确重载再全735 |
