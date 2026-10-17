@@ -42,6 +42,23 @@
       "uphill_raw_gradient_coordinates": 0,
       "optimizer_step_count_each_parameter": 1,
       "formula_is_bit_exact_GPU_reproduction": false
+    },
+    {
+      "task": 12,
+      "TRAIN_QA": 6,
+      "raw_gradient_L2_FP64": 28.149286709825326,
+      "raw_gradient_L2_GPU_record": 28.1492862701416,
+      "actual_parameter_displacement_L2": 0.07327750970051013,
+      "actual_BA_displacement_Frobenius": 0.10310634019671917,
+      "shared_initial_total_BA_Frobenius": 0.5793699477489974,
+      "final_total_BA_Frobenius": 0.5979853179419197,
+      "median_absolute_coordinate_step_over_LR": 0.9996816515922546,
+      "fraction_coordinates_step_at_least_99percent_LR": 0.9457064541903409,
+      "recorded_moment_formula_max_absolute_step_error": 1.8699211068451405e-09,
+      "moment_recovered_vs_clipped_gradient_relative_L2_error": 4.714074311658183e-08,
+      "uphill_raw_gradient_coordinates": 0,
+      "optimizer_step_count_each_parameter": 1,
+      "formula_is_bit_exact_GPU_reproduction": false
     }
   ],
   "comparisons": [
@@ -56,11 +73,33 @@
       "actual_parameter_displacement_cosine": 0.3105789374763786,
       "actual_BA_displacement_cosine": 0.20495833903422897,
       "final_total_BA_cosine_including_shared_initial": 0.9767039045406806
+    },
+    {
+      "tasks": [
+        2,
+        12
+      ],
+      "second_over_first_raw_gradient_norm": 0.762807609595081,
+      "second_over_first_actual_step_norm": 0.9990353767309232,
+      "raw_gradient_cosine": 0.06689972014664095,
+      "actual_parameter_displacement_cosine": 0.10394189141824434,
+      "actual_BA_displacement_cosine": 0.02666125154900643,
+      "final_total_BA_cosine_including_shared_initial": 0.9711538457502729
+    },
+    {
+      "tasks": [
+        11,
+        12
+      ],
+      "second_over_first_raw_gradient_norm": 0.39755985201071836,
+      "second_over_first_actual_step_norm": 1.0009371959594817,
+      "raw_gradient_cosine": 0.24711735027234158,
+      "actual_parameter_displacement_cosine": 0.19132580720809086,
+      "actual_BA_displacement_cosine": 0.09733187554840712,
+      "final_total_BA_cosine_including_shared_initial": 0.9734914275341955
     }
   ],
-  "pending_control_tasks": [
-    12
-  ],
+  "pending_control_tasks": [],
   "source_sha256": {
     "analysis/onevision_first_adam_geometry.py": "234b3150a83c0286076341a1a9344537a323bd76304d5e29df7c1190fc360b4b",
     "summary/onevision_diagnostics_20261016/two_module_prototype/CPU_PILOT_PLAN.json": "0ee3e1e83c900089cbeea4bd8f65e836df86cbeb0433fd786fd307a51fa526e1",
@@ -81,7 +120,12 @@
     "exp/onevision_two_module_20261017/pilot/T11_control/20261017_211544/training.json": "d308097c4575bddb99e6e18493d4c3aeb9142676b1f539c89bf1f5e6887e6768",
     "exp/onevision_two_module_20261017/pilot/T11_control/20261017_211544/raw_gradient.pt": "c24c09bf78f6738d324036b2e333ec466a66ccf71b7d5613d1f14d72869d02e0",
     "exp/onevision_two_module_20261017/pilot/T11_control/20261017_211544/optimizer_after.pt": "a01b24e47fa926d20af62c7367ed1ce164fbdc9bb7420ac11dadaf91c605da60",
-    "exp/onevision_two_module_20261017/pilot/T11_control/20261017_211544/final_adapter.pt": "de76f79e1831d3495a883e195e7cccd26f4dd255f9fd052c964dacffcf998472"
+    "exp/onevision_two_module_20261017/pilot/T11_control/20261017_211544/final_adapter.pt": "de76f79e1831d3495a883e195e7cccd26f4dd255f9fd052c964dacffcf998472",
+    "summary/onevision_diagnostics_20261016/two_module_prototype/T12_control_complete.json": "f3d50087f5cb79672a607e3e2cc89a1722f135841a0a23e0fa3caf95d41aa430",
+    "exp/onevision_two_module_20261017/pilot/T12_control/20261017_214553/training.json": "0b2cbee2679456f7596fef5418ade7676b5eba55f7d693d187d769b28e718888",
+    "exp/onevision_two_module_20261017/pilot/T12_control/20261017_214553/raw_gradient.pt": "a20f952a085ef8438f2cf946901e35c3911640cb0c21ccf3429d7fece1d45924",
+    "exp/onevision_two_module_20261017/pilot/T12_control/20261017_214553/optimizer_after.pt": "cac0cb3ad73c037d594d7c49e83ad17c3a2b670e0218ff066709a0316ad5e788",
+    "exp/onevision_two_module_20261017/pilot/T12_control/20261017_214553/final_adapter.pt": "8ba904bd1ade6881f1213f5a3f42b54889004466783afd567159ade40340b64f"
   },
   "limits": [
     "First Adam normalization is known optimizer algebra, not a new mathematical discovery.",

@@ -1,6 +1,6 @@
 {
   "CPU_only": true,
-  "completed_control_tasks": 2,
+  "completed_control_tasks": 3,
   "cases": [
     {
       "task": 2,
@@ -255,11 +255,136 @@
       ],
       "first_update_48layer_AB_exact": true,
       "first_update_all_TEST_outputs_and_NLL_exact": true
+    },
+    {
+      "task": 12,
+      "TRAIN_unique_QA": 6,
+      "stages": [
+        {
+          "label": "initial",
+          "QA": 100,
+          "Answer_F1": 56.0,
+          "mean_NLL": 0.47371292307972906,
+          "target_QA_exposures": 0
+        },
+        {
+          "label": "one_update",
+          "QA": 100,
+          "Answer_F1": 76.0,
+          "mean_NLL": 0.2958478645980358,
+          "target_QA_exposures": 6
+        },
+        {
+          "label": "four_updates",
+          "QA": 100,
+          "Answer_F1": 44.0,
+          "mean_NLL": 0.373677910938859,
+          "target_QA_exposures": 24
+        }
+      ],
+      "contrasts": [
+        {
+          "label": "initial_to_one",
+          "F1_difference_pp": {
+            "QA": 100,
+            "recipient_image_clusters": 100,
+            "mean_difference": 20.0,
+            "image_cluster_95CI": [
+              11.0,
+              29.0
+            ],
+            "bootstrap_replicates": 10000,
+            "seed": 42,
+            "multiple_comparison_corrected": false
+          },
+          "NLL_difference_nats": {
+            "QA": 100,
+            "recipient_image_clusters": 100,
+            "mean_difference": -0.17786505848169326,
+            "image_cluster_95CI": [
+              -0.22358246386051178,
+              -0.1326780676841736
+            ],
+            "bootstrap_replicates": 10000,
+            "seed": 42,
+            "multiple_comparison_corrected": false
+          },
+          "F1_up_down_same_QA": [
+            23,
+            3,
+            74
+          ]
+        },
+        {
+          "label": "one_to_four",
+          "F1_difference_pp": {
+            "QA": 100,
+            "recipient_image_clusters": 100,
+            "mean_difference": -32.0,
+            "image_cluster_95CI": [
+              -47.0,
+              -16.0
+            ],
+            "bootstrap_replicates": 10000,
+            "seed": 42,
+            "multiple_comparison_corrected": false
+          },
+          "NLL_difference_nats": {
+            "QA": 100,
+            "recipient_image_clusters": 100,
+            "mean_difference": 0.07783004634082318,
+            "image_cluster_95CI": [
+              0.008810831792652607,
+              0.14567290760576726
+            ],
+            "bootstrap_replicates": 10000,
+            "seed": 42,
+            "multiple_comparison_corrected": false
+          },
+          "F1_up_down_same_QA": [
+            21,
+            53,
+            26
+          ]
+        },
+        {
+          "label": "initial_to_four",
+          "F1_difference_pp": {
+            "QA": 100,
+            "recipient_image_clusters": 100,
+            "mean_difference": -12.0,
+            "image_cluster_95CI": [
+              -32.0,
+              8.0
+            ],
+            "bootstrap_replicates": 10000,
+            "seed": 42,
+            "multiple_comparison_corrected": false
+          },
+          "NLL_difference_nats": {
+            "QA": 100,
+            "recipient_image_clusters": 100,
+            "mean_difference": -0.1000350121408701,
+            "image_cluster_95CI": [
+              -0.21375287387520076,
+              0.012353200167417526
+            ],
+            "bootstrap_replicates": 10000,
+            "seed": 42,
+            "multiple_comparison_corrected": false
+          },
+          "F1_up_down_same_QA": [
+            44,
+            56,
+            0
+          ]
+        }
+      ],
+      "first_update_48layer_AB_exact": true,
+      "first_update_all_TEST_outputs_and_NLL_exact": true
     }
   ],
-  "pending_control_tasks": [
-    12
-  ],
+  "pending_control_tasks": [],
   "source_sha256": {
     "analysis/onevision_pilot_acquisition_controls.py": "854dce7f3b825536ffbf6111bb28a91a5d019ecb0a51492373037205d363727c",
     "analysis/onevision_acquisition_budget_bridge.py": "4cc486dde7b010f5db6baea219edf40fa3dd60c53c115d2e3c1f692f50dcaf76",
@@ -316,7 +441,27 @@
     "exp/onevision_two_module_20261017/pilot/T11_control/20261017_211544/final_adapter.pt": "de76f79e1831d3495a883e195e7cccd26f4dd255f9fd052c964dacffcf998472",
     "exp/onevision_two_module_20261017/pilot/T11_control/20261017_211544/evaluations/initial/target_image.jsonl": "6ffde22e3780f3e94723b4af2314d3da8710aa639ef4109b1970e75efdc113a0",
     "exp/onevision_two_module_20261017/pilot/T11_control/20261017_211544/evaluations/final/target_image.jsonl": "db4880a068bf41afc5a0a864acb061634c449179019b7d3499cd3a1301cbf601",
-    "exp/onevision_two_module_20261017/pilot/T11_control/20261017_211544/training.json": "d308097c4575bddb99e6e18493d4c3aeb9142676b1f539c89bf1f5e6887e6768"
+    "exp/onevision_two_module_20261017/pilot/T11_control/20261017_211544/training.json": "d308097c4575bddb99e6e18493d4c3aeb9142676b1f539c89bf1f5e6887e6768",
+    "summary/onevision_diagnostics_20261016/two_module_prototype/T12_control_complete.json": "f3d50087f5cb79672a607e3e2cc89a1722f135841a0a23e0fa3caf95d41aa430",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T12_past_AB/complete.json": "1b488a1cb9eb55b4657ca172a8bbca4783aaf1b4627a32bb41ad77f6746ab193",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T12_past_AB/training.json": "abbda6bfb46ac36e2257898ca02366eca1f3a828ecff2d8464ad87665e39a83e",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T12_past_AB/memory_summary.json": "86839e032ab6e5868b6464ac2abb60df9d8d582f897d8e643fd2feb12592d6d7",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T12_past_AB/update_1.pt": "df2de89f7b625be27c258c1fa8bf07e9b0a2aca8e844591359669bbc1bcf411d",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T12_past_AB/update_4.pt": "85e4254ced24d573cd2fd5eb8ac1f30c043b412c65cf95b36cc99d9d283cb1a4",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T12_past_AB/raw_gradients/update_1.pt": "7ba1c4ad628b5394e3ba3dafbe97dfece98e7db9f34f3e9262bd432911626be9",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T12_past_AB/raw_gradients/update_2.pt": "c7e72f2bd654e56973d10b3f72f0e710d69bc6776c56a755874ef83b968aeb67",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T12_past_AB/raw_gradients/update_3.pt": "4ba5ce6bbe2cfa7ce1351a3fbd25d58fe3c043ee1599e92f788e2dfda06d64da",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T12_past_AB/raw_gradients/update_4.pt": "03e2aa1fc2cdb44c84f7dc9e7ab53778d0aba80982e7e8a790eb5cecb651aede",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T12_past_AB/trained.json": "7a479df3eb93de8176b3974dbd5e73853b7dc2252398afba9f6d27ba2e9261fd",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T12_past_AB/evaluations/endpoint_1/native_image.jsonl": "fcb0a5965757ded9d12119eaae721cd43f0e5ba749b270274db1fa05481e8a32",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T12_past_AB/evaluations/endpoint_4/native_image.jsonl": "f37c586d8921b2307e9881d784ff5db47d8619bbd77f493691c19279ad57002a",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T12_past_AB/evaluations/endpoint_1/durable_complete.json": "4d5e8c7aeb3d6b0fc5dd240fc1104f1c2ece7a6a3940a1681c767780201ae746",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T12_past_AB/evaluations/endpoint_4/durable_complete.json": "a83cd193d7313a42071a02a59fb96abe824926247d3688b9f1bce98d1092674f",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T12_test.jsonl": "7948cf70e4996ec38532ff680638b8c81710d6e02cceb9589c58cb6403284013",
+    "exp/onevision_two_module_20261017/pilot/T12_control/20261017_214553/final_adapter.pt": "8ba904bd1ade6881f1213f5a3f42b54889004466783afd567159ade40340b64f",
+    "exp/onevision_two_module_20261017/pilot/T12_control/20261017_214553/evaluations/initial/target_image.jsonl": "039336514e549dabdaa7095a328f0731cc9899b07228c21856f097d11a98320a",
+    "exp/onevision_two_module_20261017/pilot/T12_control/20261017_214553/evaluations/final/target_image.jsonl": "6ccc96c3f70405aa7d7051519aa3bef489388f5e92ed76f9d43200525748ebda",
+    "exp/onevision_two_module_20261017/pilot/T12_control/20261017_214553/training.json": "0b2cbee2679456f7596fef5418ade7676b5eba55f7d693d187d769b28e718888"
   },
   "limits": [
     "Initial-to-one and one-to-four are fixed task/seed interventions, not later19-stage CL or independent-seed replicates.",
