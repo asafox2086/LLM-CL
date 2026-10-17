@@ -106,6 +106,8 @@ def main():
                     summaries.append({'case': name, 'step': step, 'group': cohort + ':' + template,
                                       'QA': 16, 'EM_correct': sum(r['scores']['exact_match'] == 100 for r in group),
                                       'prefix_aux_correct': sum(auxiliary(r, [r['reference']]) == 100 for r in group),
+                                      'token_F1': float(np.mean([r['scores']['token_f1'] for r in group])),
+                                      'ROUGE_L': float(np.mean([r['scores']['rougeL'] for r in group])),
                                       'mean_NLL': float(np.mean([r['nll'] for r in group]))})
             assert [r['prediction'] for r in cohorts['relevant_true']] == [r['prediction'] for r in cohorts['own_target']], 'Changing reference alone changed generation'
             for group, expected in clinical.items():
@@ -116,6 +118,8 @@ def main():
                 summaries.append({'case': name, 'step': step, 'group': group, 'QA': len(rows),
                                   'EM_correct': sum(r['scores']['exact_match'] == 100 for r in rows),
                                   'prefix_aux_correct': sum(auxiliary(r, e['answers']) == 100 for r, e in zip(rows, expected)),
+                                  'token_F1': float(np.mean([r['scores']['token_f1'] for r in rows])),
+                                  'ROUGE_L': float(np.mean([r['scores']['rougeL'] for r in rows])),
                                   'mean_NLL': float(np.mean([r['nll'] for r in rows]))})
         resources = records(run / 'resources.jsonl')
         windows = {}
@@ -135,9 +139,13 @@ def main():
         for step in [0, 8, 64]:
             for group, expected in clinical.items():
                 a, b = cached[correct, step, group], cached[wrong, step, group]
-                pairs.append({'rank': rank, 'step': step, 'group': group, 'difference': 'correct minus permuted',
-                              'EM_pp': paired_cluster([x['scores']['exact_match'] - y['scores']['exact_match'] for x, y in zip(a, b)], [tuple(r['images']) for r in expected]),
-                              'NLL': paired_cluster([x['nll'] - y['nll'] for x, y in zip(a, b)], [tuple(r['images']) for r in expected])})
+                metrics = {metric: paired_cluster([x['scores'][metric] - y['scores'][metric] for x, y in zip(a, b)],
+                                                  [tuple(r['images']) for r in expected])
+                           for metric in ['exact_match', 'token_f1', 'rougeL']}
+                metrics['prefix_aux_EM'] = paired_cluster([auxiliary(x, r['answers']) - auxiliary(y, r['answers'])
+                                                           for x, y, r in zip(a, b, expected)], [tuple(r['images']) for r in expected])
+                metrics['NLL'] = paired_cluster([x['nll'] - y['nll'] for x, y in zip(a, b)], [tuple(r['images']) for r in expected])
+                pairs.append({'rank': rank, 'step': step, 'group': group, 'difference': 'correct minus permuted', 'metrics': metrics})
     result = {'completed_cases': list(available), 'pending_cases': [n for n in CASES if n not in available],
               'sources_sha256': sources, 'summaries': summaries, 'audits': audits, 'paired_content_controls': pairs,
               'limitations': ['medical100 and KG267 overlap12, never pool as367 independent QA',
