@@ -1,0 +1,98 @@
+{
+  "sources_sha256": {
+    "analysis/onevision_knowledge_training_audit.py": "1cb506ad02989e166794ae447b30b5e9be26e14e588f70964e3ebe441ccbf74e",
+    "exp/onevision_knowledge_fit_20261017/rank1_correct/20261017_104029/update_00.pt": "d47e5c02b55b4d8ffbcfbb04f44a851d786d3edd6146fbfd253a497414116a4e",
+    "exp/onevision_knowledge_fit_20261017/rank1_correct/20261017_104029/update_08.pt": "c199fc100d1572bf52c505d1c3a65ee1be9d6fcfb97dbcc3264821a22cfc4c4a",
+    "exp/onevision_knowledge_fit_20261017/rank1_correct/20261017_104029/raw_gradients/update_01.pt": "1fe5a7906b5e048661b473728fa5a7a03db876b7c6d975ca389b4124d14166df",
+    "exp/onevision_knowledge_fit_20261017/rank1_correct/20261017_104029/raw_gradients/update_02.pt": "e9cf161459cf3831f75081e8bb01832bab95d2e9af9ad0136c13370459aa541a",
+    "exp/onevision_knowledge_fit_20261017/rank1_correct/20261017_104029/raw_gradients/update_03.pt": "160ca2eea83f3e90f362c1941dcf42223a6db0d89e42e9b6c43bb7fd4426083a",
+    "exp/onevision_knowledge_fit_20261017/rank1_correct/20261017_104029/raw_gradients/update_04.pt": "392ea0410c720b8f05dce74a242b79395d84835198e5563b772da549027092a4",
+    "exp/onevision_knowledge_fit_20261017/rank1_correct/20261017_104029/raw_gradients/update_05.pt": "6c6a30ce4db99a2c4e0226ded9bb7bc8803db8f07c3b2ad8b1d2bc2746946aca",
+    "exp/onevision_knowledge_fit_20261017/rank1_correct/20261017_104029/raw_gradients/update_06.pt": "3cda6b499465645556f58ea16aff2d5dce97892a636497d3d5d7fb737db05ae4",
+    "exp/onevision_knowledge_fit_20261017/rank1_correct/20261017_104029/raw_gradients/update_07.pt": "601d501926fcfe9a5613562b5f143d2d508e1b6af8700b9333729b357cf1a745",
+    "exp/onevision_knowledge_fit_20261017/rank1_correct/20261017_104029/raw_gradients/update_08.pt": "86f43af5f284fd838710553a8b741367f5c7acd49b892dd2bf66b5c1a2f037b2"
+  },
+  "TRAIN_only": true,
+  "cases": [
+    {
+      "case": "rank1_correct",
+      "run": "exp/onevision_knowledge_fit_20261017/rank1_correct/20261017_104029",
+      "durable_updates": 8,
+      "auxiliary_exposures": 64,
+      "parameter_displacement_L2": {
+        "A": 0.12069268861760966,
+        "B": 0.11057259502119147
+      },
+      "actual_deltaW_displacement_Frobenius": 0.25606946315230833,
+      "gradients": [
+        {
+          "step": 1,
+          "parameters": 67584,
+          "L2": 32.90504650157145,
+          "relative_error": 5.679341252679884e-08,
+          "A_gradient_L2": 0.0,
+          "B_gradient_L2": 32.90504650157143
+        },
+        {
+          "step": 2,
+          "parameters": 67584,
+          "L2": 35.018113946677964,
+          "relative_error": 5.0375664984464605e-08,
+          "A_gradient_L2": 1.074812105106212,
+          "B_gradient_L2": 35.00161543873697
+        },
+        {
+          "step": 3,
+          "parameters": 67584,
+          "L2": 33.92904304245921,
+          "relative_error": 6.6697166624882875e-09,
+          "A_gradient_L2": 2.0710963694835134,
+          "B_gradient_L2": 33.86577212474802
+        },
+        {
+          "step": 4,
+          "parameters": 67584,
+          "L2": 34.221591352601024,
+          "relative_error": 1.7441090346960146e-08,
+          "A_gradient_L2": 3.0721593622098213,
+          "B_gradient_L2": 34.08341461118003
+        },
+        {
+          "step": 5,
+          "parameters": 67584,
+          "L2": 29.929551777571806,
+          "relative_error": 1.0046099803852092e-08,
+          "A_gradient_L2": 3.291118300918167,
+          "B_gradient_L2": 29.748052204063843
+        },
+        {
+          "step": 6,
+          "parameters": 67584,
+          "L2": 30.076370266384835,
+          "relative_error": 9.019380385959328e-10,
+          "A_gradient_L2": 4.205057044287618,
+          "B_gradient_L2": 29.780959414615303
+        },
+        {
+          "step": 7,
+          "parameters": 67584,
+          "L2": 29.24446479018151,
+          "relative_error": 2.8752814759864353e-09,
+          "A_gradient_L2": 4.420173486022986,
+          "B_gradient_L2": 28.908489881306878
+        },
+        {
+          "step": 8,
+          "parameters": 67584,
+          "L2": 21.26634879373542,
+          "relative_error": 4.6963635236138494e-08,
+          "A_gradient_L2": 3.320098804510386,
+          "B_gradient_L2": 21.00558342310674
+        }
+      ],
+      "clinical_case_complete": false
+    }
+  ],
+  "scope": "durable checkpoint prefix, not completion of a64-update case; no clinical or recall scores",
+  "limitation": "positive LR, parameter change and nonzero deltaW do not prove successful fact encoding or downstream benefit"
+}

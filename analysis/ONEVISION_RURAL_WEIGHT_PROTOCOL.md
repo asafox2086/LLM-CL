@@ -21,3 +21,5 @@ uniform直接调用原基底预算训练器，必须在OneVision实际GPU上将�
 nohup服务`llmcl-onevision-rural-weights.service`只等待当前知识写入对照完成且GPU1真正空闲；不会中断运行中的训练、基线或其他用户。全量cap1／cap3恢复仍使用原源码／权重／ID／3940条兼容预测，在该诊断之后继续。调度等待器改动前先停止CPU协调器并保存旧源码与状态。原失败推理不拼接。
 
 本协议、三组权重与源码SHA在任何新GPU结果前固定。日志／证明在`summary/onevision_diagnostics_20261016/rural_weights/`，大权重及运行在服务器`exp/onevision_rural_weights_20261017/`，不进入Git。
+
+只读结果审计：`analysis/onevision_rural_weight_evidence.py`只接受完成证明及SHA通过的病例；复核uniform参数／既有生成，分开TRAIN／TEST与urban／rural原评分，报告全部预定比较、梯度／实际deltaW和内存。合成CPU三病例检查通过36格汇总／12格配对差异，并拒绝文件校验错误和无完成证明的评分；不是实际GPU结果。证据见`rural_weights/COLLECTOR_CPU_CHECK.json`。
