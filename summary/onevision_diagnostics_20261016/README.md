@@ -17,6 +17,9 @@
 | 类别平衡有没有修复坍缩 | [RURAL_WEIGHT_EVIDENCE](RURAL_WEIGHT_EVIDENCE.md) | 三条轨迹全部完成；44→50，仍94题urban |
 | 知识是否真正写入、是否帮助问答 | [KNOWLEDGE_FIT_EVIDENCE.json](KNOWLEDGE_FIT_EVIDENCE.json) | 正确／错配×rank1／8、0／8／64步全部完成 |
 | 早期知识对照的格式／内容混杂 | [KNOWLEDGE_FORMAT_AUDIT](KNOWLEDGE_FORMAT_AUDIT.md)、[KNOWLEDGE_MECHANISM_AUDIT](KNOWLEDGE_MECHANISM_AUDIT.md) | 原17条件与事实池边界；不与新64步结果混算 |
+| 当前任务先没学好，还是后来忘掉 | [初始/1/4步桥接](acquisition_budget_bridge/VERIFIED_RESULTS.md) | 同228题，首步NLL降但F1不见同步收益；多训局部改善并保留反例 |
+| 新模块实际改变什么 | [T02四组](two_module_prototype/FIRST_T02_ACTIVATION.md) | 强度/步长均1，状态/结果相同，无新增收益 |
+| 真实训练内存峰值 | [TRAIN窗口](two_module_resource_windows/VERIFIED_RESULTS.md) | bytes/重置峰值/预热差异，不据增长数直接比算法 |
 | 多训与旧LoRA复用 | [COMPLETED_CONTROLS](COMPLETED_CONTROLS.md)、[FACTOR_UPDATE_EVIDENCE](FACTOR_UPDATE_EVIDENCE.md) | 9轨迹18终点与单步A不变证据 |
 | 正则化什么时候生效 | [EWC_ACTIVATION_AUDIT](EWC_ACTIVATION_AUDIT.md)、[FIRST_STEP_CAUSALITY_AUDIT](FIRST_STEP_CAUSALITY_AUDIT.md) | 首步最新项0；不等于已证明首步有害 |
 | 补齐多域／少任务因果缺口 | [确定性双锚协议](../../analysis/ONEVISION_MATCHED_TASK_DOMAIN_PROTOCOL.md) | CPU验证通过并部署等待；GPU门槛及48轨迹结果未产生 |

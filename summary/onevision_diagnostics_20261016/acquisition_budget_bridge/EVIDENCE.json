@@ -1,0 +1,243 @@
+{
+  "CPU_only": true,
+  "actual_48_layer_AB_exact": true,
+  "actual_228_predictions_NLL_F1_exact": true,
+  "same_actual_first_update_loss_gradient_norm": true,
+  "target_unique_TRAIN_QA": 11,
+  "one_four_QA_exposures": [
+    11,
+    44
+  ],
+  "common_past_natural_TRAIN_QA_cost": 347,
+  "target_TRAIN_budget_changed_not_new_data_or_parameters": true,
+  "T02_stages": [
+    {
+      "stage": "initial",
+      "QA": 228,
+      "mean_NLL": 3.2156919873597327,
+      "Answer_F1": 29.599693678641046
+    },
+    {
+      "stage": "one_update",
+      "QA": 228,
+      "mean_NLL": 2.5921658758531536,
+      "Answer_F1": 29.26349965823649
+    },
+    {
+      "stage": "four_updates",
+      "QA": 228,
+      "mean_NLL": 1.3646165986071552,
+      "Answer_F1": 51.95627958785857
+    }
+  ],
+  "T02_paired": [
+    {
+      "comparison": "initial_to_one",
+      "F1_difference_pp": {
+        "QA": 228,
+        "recipient_image_clusters": 161,
+        "mean_difference": -0.3361940204045458,
+        "image_cluster_95CI": [
+          -3.458874458874458,
+          2.836156466861861
+        ],
+        "bootstrap_replicates": 10000,
+        "seed": 42,
+        "multiple_comparison_corrected": false
+      },
+      "NLL_difference_nats": {
+        "QA": 228,
+        "recipient_image_clusters": 161,
+        "mean_difference": -0.6235261115065792,
+        "image_cluster_95CI": [
+          -0.6744279819805029,
+          -0.5735636350819883
+        ],
+        "bootstrap_replicates": 10000,
+        "seed": 42,
+        "multiple_comparison_corrected": false
+      },
+      "F1_up_down_same_QA": [
+        10,
+        32,
+        186
+      ]
+    },
+    {
+      "comparison": "one_to_four",
+      "F1_difference_pp": {
+        "QA": 228,
+        "recipient_image_clusters": 161,
+        "mean_difference": 22.692779929622052,
+        "image_cluster_95CI": [
+          16.45743145743146,
+          29.060563619387153
+        ],
+        "bootstrap_replicates": 10000,
+        "seed": 42,
+        "multiple_comparison_corrected": false
+      },
+      "NLL_difference_nats": {
+        "QA": 228,
+        "recipient_image_clusters": 161,
+        "mean_difference": -1.2275492772459984,
+        "image_cluster_95CI": [
+          -1.367104370067048,
+          -1.0978307141081352
+        ],
+        "bootstrap_replicates": 10000,
+        "seed": 42,
+        "multiple_comparison_corrected": false
+      },
+      "F1_up_down_same_QA": [
+        74,
+        19,
+        135
+      ]
+    },
+    {
+      "comparison": "initial_to_four",
+      "F1_difference_pp": {
+        "QA": 228,
+        "recipient_image_clusters": 161,
+        "mean_difference": 22.3565859092175,
+        "image_cluster_95CI": [
+          16.338791927027227,
+          28.64898166268029
+        ],
+        "bootstrap_replicates": 10000,
+        "seed": 42,
+        "multiple_comparison_corrected": false
+      },
+      "NLL_difference_nats": {
+        "QA": 228,
+        "recipient_image_clusters": 161,
+        "mean_difference": -1.8510753887525775,
+        "image_cluster_95CI": [
+          -2.010955527096593,
+          -1.695829372180191
+        ],
+        "bootstrap_replicates": 10000,
+        "seed": 42,
+        "multiple_comparison_corrected": false
+      },
+      "F1_up_down_same_QA": [
+        78,
+        27,
+        123
+      ]
+    }
+  ],
+  "all_three_past_AB_budget_controls": [
+    {
+      "task": 2,
+      "one_update_F1": 29.26349965823649,
+      "four_update_F1": 51.95627958785857,
+      "one_to_four": {
+        "QA": 228,
+        "recipient_image_clusters": 161,
+        "mean_difference": 22.692779929622052,
+        "image_cluster_95CI": [
+          16.45743145743146,
+          29.060563619387153
+        ],
+        "bootstrap_replicates": 10000,
+        "seed": 42,
+        "multiple_comparison_corrected": false
+      }
+    },
+    {
+      "task": 11,
+      "one_update_F1": 7.240447420904734,
+      "four_update_F1": 17.91802592198079,
+      "one_to_four": {
+        "QA": 267,
+        "recipient_image_clusters": 103,
+        "mean_difference": 10.677578501076058,
+        "image_cluster_95CI": [
+          6.967803370876628,
+          14.360409944132348
+        ],
+        "bootstrap_replicates": 10000,
+        "seed": 42,
+        "multiple_comparison_corrected": false
+      }
+    },
+    {
+      "task": 12,
+      "one_update_F1": 76.0,
+      "four_update_F1": 44.0,
+      "one_to_four": {
+        "QA": 100,
+        "recipient_image_clusters": 100,
+        "mean_difference": -32.0,
+        "image_cluster_95CI": [
+          -47.0,
+          -16.0
+        ],
+        "bootstrap_replicates": 10000,
+        "seed": 42,
+        "multiple_comparison_corrected": false
+      }
+    }
+  ],
+  "source_sha256": {
+    "analysis/onevision_acquisition_budget_bridge.py": "4cc486dde7b010f5db6baea219edf40fa3dd60c53c115d2e3c1f692f50dcaf76",
+    "summary/onevision_diagnostics_20261016/two_module_prototype/T02_control_complete.json": "5dbd58c478e21a96e60cc4ba93c4795b619d20665480b3ca9537264a2b58d62b",
+    "analysis/onevision_two_module_pilot.py": "bf6daad9253d65bd8e5ffa4a682303a3c828e8078762f2c9881f89ce4297c578",
+    "analysis/onevision_two_module_core.py": "0afa2f600dca565f4b023d3fa1e92b4b276c965aaf74fdc37a2d7059f256d7a4",
+    "analysis/onevision_full_input_repair.py": "5758506a9f460ca7dd67a72d5c36a4760495249f6963553e54c86f668b3f7bcb",
+    "analysis/onevision_capacity_probe.py": "5319a4ad35dd78db4dbc40ad9d45387a55c17c6c911c74ad46b5680ff76db225",
+    "analysis/onevision_knowledge_intervention.py": "22512cc63ed0933f0f471f30b07f5707ba8e020c95137811430cdced2c3962a0",
+    "analysis/onevision_research_worker.py": "6db35a572ee8fca5f07e69eb22b36a8eebc40ce28a0b7977aa7b228373b81493",
+    "exp/onevision_diagnostics_20261016/run.py": "cf8ee1ac5af7faa595e05be05e05da5207d9f0596e518f8a8998ae8d3d0d7536",
+    "summary/onevision_diagnostics_20261016/basis_budget/complete.json": "7bb96c10fbc42e2e830f4b5f3c6b1a8e3fcbdebb7613d6d4d2b9f04bc89fa333",
+    "exp/onevision_basis_budget_20261016/20261017_081359/protocol.json": "61c1e9de2b66939c486a9dd5a3da97831e3ad1553417697cac2038ecdfb3fe7b",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T02_past_AB/complete.json": "13180db53f7be2e7ea6bd66cf4bcf90990677fe89d3b261a163d5e0cb4795f2e",
+    "analysis/onevision_basis_budget_probe.py": "512d8176f707a471fdcc1e53ec8ec046c7adf9ee3def1d10f27b04eaaf086ebe",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T11_past_AB/complete.json": "cd25fec6a2eec7766cb740cd38962f848d7f442dfe180f518b85ff72a54287ce",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T12_past_AB/complete.json": "1b488a1cb9eb55b4657ca172a8bbca4783aaf1b4627a32bb41ad77f6746ab193",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T02_past_AB/update_1.pt": "6dc83c9fbdefd8902e13f0ce124714fe8780b30342dd3d8343a5c75e4efcdd97",
+    "exp/onevision_two_module_20261017/pilot/T02_control/20261017_205621/final_adapter.pt": "564a2617560f162cbfb51814e579f8df847284a77f0cb6c65d36c61025f477db",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T02_past_AB/training.json": "836d8d26cfe936e21c4d4e6fc66da55d2874b623e327e7f711714f95441c3be8",
+    "exp/onevision_two_module_20261017/pilot/T02_control/20261017_205621/training.json": "d7b4c3dbc49ad067f0559eba60d16172c6f895873e44ed1683f9de74e88db2c8",
+    "summary/primary_metric_20261017/metric_lock.json": "a146f037f835afb66251ce35498a4a5df8e7ea97468725b49ea34043f7d1c948",
+    "analysis/answer_f1.py": "16c59998413d12b820d6f57269f9e1f45ac78e08595d20bf1f4fbc967fd94c4b",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/manifest.json": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T01_test.jsonl": "14705cad19879bbe9397add2d6871d6892146aee4be3885030700382307cd3bb",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T02_test.jsonl": "c319026d6857ee31722732ce54fd0348e189f0f8aaa574522fdb6623ca3bc572",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T03_test.jsonl": "809a68a36926ba0dab02597b9e4492bcebc2ec394f17103413e13a0e3e072d0b",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T04_test.jsonl": "e5046123567a5d9efe80aae17ed0b141e6261bf80c775f523791ef9022492ba2",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T05_test.jsonl": "7e13f0e2db2a9fb4f66249f152c23c336a566c1e5ccf30c929c2c04710be6264",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T06_test.jsonl": "18f04db0a28b6b0abd9b0f3f5ad7d030151085c47b88213d043752eacad98877",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T07_test.jsonl": "e424c1d3905db42165ad9f525f033045af1e8605e6b1e5848bba82573e54e221",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T08_test.jsonl": "2c3d5bc145141ac44d4a18722169bb421f47d41f1558d04d6da9a3dd365f8a86",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T09_test.jsonl": "3f554ff6047a98566520a39bc9d89ecf0bcf00a29e2e2d1f76bfb2b63097be95",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T10_test.jsonl": "f6c9fcfd7c3b385eb82829ebb478a7db522eecc4a53c33ded2ab8f82ff57e328",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T11_test.jsonl": "48e7b5e4177a001612d6640f6df92cc3621362792dffb0ad762476e562b6b21b",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T12_test.jsonl": "7948cf70e4996ec38532ff680638b8c81710d6e02cceb9589c58cb6403284013",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T13_test.jsonl": "4ca421c2594f1d2a36b749d42526706cc6caca9af05f9908b85d08cf7c9218b4",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T14_test.jsonl": "ff46c370c5b0a545c770e702e7fef159e79f4188c4a657356ca988da4b57866d",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T15_test.jsonl": "6ae35bde45e33788bcd31c99dc9f80a1d9236bd6062a807fd989e2c1fbe426cc",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T16_test.jsonl": "162ba8ad340a9fb898a3a942b3e720e581f23dddfacb70c289f3bd935d869206",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T17_test.jsonl": "f5a8de804f54aba60315eff839f05a0401ff96427920c0cd3112affcc19362e8",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T18_test.jsonl": "48e1bf7b181cf1a5d4c7b9be03e1fa11fe2e26b37ca2f4c8a4f4498ef20c403d",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T19_test.jsonl": "4af47721d341958f26e54744330927a14b5e5f5b8d84489607623b741eddbe2b",
+    "exp/onevision_two_module_20261017/pilot/T02_control/20261017_205621/evaluations/initial/target_image.jsonl": "28fe92bf54579a7ed09fff86dc01e12bd04ff2bf3ca61e4d7adaff0ee19ce7b6",
+    "exp/onevision_two_module_20261017/pilot/T02_control/20261017_205621/evaluations/final/target_image.jsonl": "04eeeffbc06e2802600dd25459d7bc195a0a0a2f6004eba5a6910bbe8a24f9de",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T02_past_AB/evaluations/endpoint_1/native_image.jsonl": "5089af16491fb57124cd9f101bc30578d51e631d3cd28817cb553527f9680ade",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T02_past_AB/evaluations/endpoint_4/native_image.jsonl": "a6f5f8ba2fe46ba2dc285a3c9c84cb767a9991e8ffe0892a4106c228214dc42d",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T11_past_AB/evaluations/endpoint_1/native_image.jsonl": "d458af09fcf50117c94de78d1b2430a92aa633c202f21b4145f0b7a9820d457a",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T11_past_AB/evaluations/endpoint_4/native_image.jsonl": "551b76051daf185d395c81a4d9ec2ee4762c3e82fe506bd9cc50c2faf4b55ded",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T12_past_AB/evaluations/endpoint_1/native_image.jsonl": "fcb0a5965757ded9d12119eaae721cd43f0e5ba749b270274db1fa05481e8a32",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T12_past_AB/evaluations/endpoint_4/native_image.jsonl": "f37c586d8921b2307e9881d784ff5db47d8619bbd77f493691c19279ad57002a"
+  },
+  "limits": [
+    "One fixed modality task/order/seed for the new initial-to-one bridge; no universal domain-count or knowledge sufficiency claim.",
+    "Four updates mean4passes/44 exposures and extra compute, not a fair1epoch method win or a proposed new algorithm.",
+    "Correct answer NLL and free-generation AnswerF1 measure different behavior; point-score decline does not establish population harm if CI includes0.",
+    "All three fixed budget tasks reported; rural reverses the direction, so extra updates are not a universal cure.",
+    "No later target task was trained in the initial-to-one comparison, but inherited natural training history is shared; not an experiment with no past domain.",
+    "Recipient-image bootstrap is fixed-weight and uncorrected; not multi-seed uncertainty or untouched confirmation."
+  ]
+}

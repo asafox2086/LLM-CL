@@ -37,3 +37,8 @@ B同时检查A的初始化候选，防止先重置旧功能、再声称后续更
 原型核心8项CPU检查通过，含实际48层LoRA A/B及BA缩放、有限双线性位移、不可行恢复合同和TRAIN/TEST输入拒绝。12组源/ID计划及7项队列互斥检查通过；真实GPU官方前向、原训练器精确门槛和准确率尚未产生。GPU1顺序：当前cap1完成→原48组归因控制→本12组原型→原cap3。源码冻结后不热改，基线不动。
 
 代码索引见code/OneVision_TwoModule/README.md；运行在exp/onevision_two_module_20261017/pilot，结果在summary/onevision_diagnostics_20261016/two_module_prototype。保存逐题输出、实际lr/loss、完整首步梯度、A/B快照、优化器、选择rho/步长、拒绝原因、参数数目与真实资源字节。原问题/图片不写入Git，模型/权重/私钥不入Git。
+
+
+## 完成资源报告的窗口修正
+
+原memory_summary的observed_peak按整个进程采样，包含初始/最终TEST；前后端点有效，该峰值不是纯TRAIN。以[TRAIN窗口](../two_module_resource_windows/VERIFIED_RESULTS.md)及after重置CUDA峰值为准。控制原训练器准入产生不同预热历史，增长差不作算法因果比较；日志与活动源码不改。

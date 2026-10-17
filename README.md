@@ -12,6 +12,8 @@
 
 ## 研究成果：按问题阅读
 
+**当前习得的局部限制：** 同样11条TRAIN，医学F1初始29.600→1步29.263→4步51.956；首步F1区间含0，额外训练局部获益但遥感反例保留。[精确桥接](summary/onevision_diagnostics_20261016/acquisition_budget_bridge/VERIFIED_RESULTS.md)。[T02四组原型](summary/onevision_diagnostics_20261016/two_module_prototype/FIRST_T02_ACTIVATION.md)均返回原更新，无新增收益；[内存峰值](summary/onevision_diagnostics_20261016/two_module_resource_windows/VERIFIED_RESULTS.md)按TRAIN窗口重算。
+
 **完整测试进展：** 原生AnyRes单LoRA控制已测完21454题，五域F1=75.917/40.943/49.010/12.991/31.916，19任务AP=41.361。FWT/BWT仍缺阶段评测；与正式V2基线分开。[完整表/诊断集外推边界](summary/onevision_diagnostics_20261016/full_confirmation_evidence/CAP1_COMPLETION.md)。GPU1已自动进入原型实验，严格归因仍未完成。
 
 **当前F1结果入口：[Answer F1诊断重审](summary/onevision_diagnostics_20261016/PRIMARY_F1_REASSESSMENT.md)。** 155题诊断整体F1无确定下降，遥感坍缩与知识收益不一致仍存在；不是完整主表结果。旧机制表中的精确正确数仅为历史现象，不再作主指标。

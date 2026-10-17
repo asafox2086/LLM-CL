@@ -1,0 +1,321 @@
+{
+  "completed_task": 2,
+  "cases": [
+    {
+      "variant": "control",
+      "target_Answer_F1": 29.26349965823649,
+      "old_natural10_Answer_F1": 75.19607843137256,
+      "training": {
+        "task": 2,
+        "variant": "control",
+        "original_target_TRAIN_QA": 11,
+        "actual_gradient_L2_preclip": 36.9022102355957,
+        "pre_update_loss": 3.381956999952143,
+        "actual_learning_rate_used": 0.0001,
+        "actual_step_fraction": 1.0,
+        "nonzero_effective_updates": 1,
+        "valid_training": true,
+        "selection": {
+          "chosen_strength": 1.0,
+          "disabled": true
+        },
+        "finite_step": {
+          "accepted_fraction": 1.0,
+          "disabled": true
+        },
+        "extra_TRAIN_probe_QA_forwards": 20,
+        "method_window_probe_QA_forwards": 10,
+        "original_trainer_admission_QA": 11,
+        "current_probe_NLL_before": 3.4343912303447723,
+        "current_probe_NLL_after": 2.8137360215187073,
+        "old_probe_NLL_before": {
+          "natural": 0.33697621524333954
+        },
+        "old_probe_NLL_after": {
+          "natural": 0.3410203456878662
+        },
+        "all_rejected_is_not_valid_CL_score": true
+      },
+      "adapter_gradient_optimizer_SHA": {
+        "final_adapter.pt": "564a2617560f162cbfb51814e579f8df847284a77f0cb6c65d36c61025f477db",
+        "raw_gradient.pt": "40a462547ebe16ccfe2cf0ded0b2a6007905e00a52b1117394d9161e7a460dc1",
+        "optimizer_after.pt": "fe1b06a2a3fcf6e3ef5bc9f7355d90abfe14de7b1d82386246ecbe0c1d2a5d2e"
+      },
+      "all_three_PT_files_byte_exact_to_control": true,
+      "prediction_all_non_timing_fields_exact": true,
+      "prediction_only_differences": {
+        "target": {},
+        "past_natural": {}
+      }
+    },
+    {
+      "variant": "A_only",
+      "target_Answer_F1": 29.26349965823649,
+      "old_natural10_Answer_F1": 75.19607843137256,
+      "training": {
+        "task": 2,
+        "variant": "A_only",
+        "original_target_TRAIN_QA": 11,
+        "actual_gradient_L2_preclip": 36.9022102355957,
+        "pre_update_loss": 3.381956999952143,
+        "actual_learning_rate_used": 0.0001,
+        "actual_step_fraction": 1.0,
+        "nonzero_effective_updates": 1,
+        "valid_training": true,
+        "selection": {
+          "chosen_strength": 1.0,
+          "all_candidates": [
+            {
+              "strength": 1.0,
+              "current_TRAIN_NLL": 3.4343912303447723,
+              "old_TRAIN_NLL": {
+                "natural": 0.33697621524333954
+              },
+              "eligible": true
+            },
+            {
+              "strength": 0.5,
+              "current_TRAIN_NLL": 5.89485228061676,
+              "old_TRAIN_NLL": {
+                "natural": 0.38919341564178467
+              },
+              "eligible": true
+            },
+            {
+              "strength": 0.0,
+              "current_TRAIN_NLL": 9.013831079006195,
+              "old_TRAIN_NLL": {
+                "natural": 6.005021691322327
+              },
+              "eligible": true
+            }
+          ],
+          "extra_TRAIN_forward_evaluations": 3,
+          "uses_TEST": false
+        },
+        "finite_step": {
+          "accepted_fraction": 1.0,
+          "disabled": true
+        },
+        "extra_TRAIN_probe_QA_forwards": 50,
+        "method_window_probe_QA_forwards": 40,
+        "original_trainer_admission_QA": 0,
+        "current_probe_NLL_before": 3.4343912303447723,
+        "current_probe_NLL_after": 2.8137360215187073,
+        "old_probe_NLL_before": {
+          "natural": 0.33697621524333954
+        },
+        "old_probe_NLL_after": {
+          "natural": 0.3410203456878662
+        },
+        "all_rejected_is_not_valid_CL_score": true
+      },
+      "adapter_gradient_optimizer_SHA": {
+        "final_adapter.pt": "564a2617560f162cbfb51814e579f8df847284a77f0cb6c65d36c61025f477db",
+        "raw_gradient.pt": "40a462547ebe16ccfe2cf0ded0b2a6007905e00a52b1117394d9161e7a460dc1",
+        "optimizer_after.pt": "fe1b06a2a3fcf6e3ef5bc9f7355d90abfe14de7b1d82386246ecbe0c1d2a5d2e"
+      },
+      "all_three_PT_files_byte_exact_to_control": true,
+      "prediction_all_non_timing_fields_exact": true,
+      "prediction_only_differences": {
+        "target": {
+          "generation_seconds": 228
+        },
+        "past_natural": {
+          "generation_seconds": 10
+        }
+      }
+    },
+    {
+      "variant": "B_only",
+      "target_Answer_F1": 29.26349965823649,
+      "old_natural10_Answer_F1": 75.19607843137256,
+      "training": {
+        "task": 2,
+        "variant": "B_only",
+        "original_target_TRAIN_QA": 11,
+        "actual_gradient_L2_preclip": 36.9022102355957,
+        "pre_update_loss": 3.381956999952143,
+        "actual_learning_rate_used": 0.0001,
+        "actual_step_fraction": 1.0,
+        "nonzero_effective_updates": 1,
+        "valid_training": true,
+        "selection": {
+          "chosen_strength": 1.0,
+          "disabled": true
+        },
+        "finite_step": {
+          "accepted_fraction": 1.0,
+          "trials": [
+            {
+              "fraction": 1.0,
+              "current_TRAIN_NLL": 2.8137360215187073,
+              "old_TRAIN_NLL": {
+                "natural": 0.3410203456878662
+              },
+              "accepted": true
+            }
+          ],
+          "current_before": 3.4343912303447723,
+          "uses_TEST": false
+        },
+        "extra_TRAIN_probe_QA_forwards": 40,
+        "method_window_probe_QA_forwards": 30,
+        "original_trainer_admission_QA": 0,
+        "current_probe_NLL_before": 3.4343912303447723,
+        "current_probe_NLL_after": 2.8137360215187073,
+        "old_probe_NLL_before": {
+          "natural": 0.33697621524333954
+        },
+        "old_probe_NLL_after": {
+          "natural": 0.3410203456878662
+        },
+        "all_rejected_is_not_valid_CL_score": true
+      },
+      "adapter_gradient_optimizer_SHA": {
+        "final_adapter.pt": "564a2617560f162cbfb51814e579f8df847284a77f0cb6c65d36c61025f477db",
+        "raw_gradient.pt": "40a462547ebe16ccfe2cf0ded0b2a6007905e00a52b1117394d9161e7a460dc1",
+        "optimizer_after.pt": "fe1b06a2a3fcf6e3ef5bc9f7355d90abfe14de7b1d82386246ecbe0c1d2a5d2e"
+      },
+      "all_three_PT_files_byte_exact_to_control": true,
+      "prediction_all_non_timing_fields_exact": true,
+      "prediction_only_differences": {
+        "target": {
+          "generation_seconds": 228
+        },
+        "past_natural": {
+          "generation_seconds": 10
+        }
+      }
+    },
+    {
+      "variant": "A_B",
+      "target_Answer_F1": 29.26349965823649,
+      "old_natural10_Answer_F1": 75.19607843137256,
+      "training": {
+        "task": 2,
+        "variant": "A_B",
+        "original_target_TRAIN_QA": 11,
+        "actual_gradient_L2_preclip": 36.9022102355957,
+        "pre_update_loss": 3.381956999952143,
+        "actual_learning_rate_used": 0.0001,
+        "actual_step_fraction": 1.0,
+        "nonzero_effective_updates": 1,
+        "valid_training": true,
+        "selection": {
+          "chosen_strength": 1.0,
+          "all_candidates": [
+            {
+              "strength": 1.0,
+              "current_TRAIN_NLL": 3.4343912303447723,
+              "old_TRAIN_NLL": {
+                "natural": 0.33697621524333954
+              },
+              "eligible": true
+            },
+            {
+              "strength": 0.5,
+              "current_TRAIN_NLL": 5.89485228061676,
+              "old_TRAIN_NLL": {
+                "natural": 0.38919341564178467
+              },
+              "eligible": false
+            },
+            {
+              "strength": 0.0,
+              "current_TRAIN_NLL": 9.013831079006195,
+              "old_TRAIN_NLL": {
+                "natural": 6.005021691322327
+              },
+              "eligible": false
+            }
+          ],
+          "extra_TRAIN_forward_evaluations": 3,
+          "uses_TEST": false
+        },
+        "finite_step": {
+          "accepted_fraction": 1.0,
+          "trials": [
+            {
+              "fraction": 1.0,
+              "current_TRAIN_NLL": 2.8137360215187073,
+              "old_TRAIN_NLL": {
+                "natural": 0.3410203456878662
+              },
+              "accepted": true
+            }
+          ],
+          "current_before": 3.4343912303447723,
+          "uses_TEST": false
+        },
+        "extra_TRAIN_probe_QA_forwards": 70,
+        "method_window_probe_QA_forwards": 60,
+        "original_trainer_admission_QA": 0,
+        "current_probe_NLL_before": 3.4343912303447723,
+        "current_probe_NLL_after": 2.8137360215187073,
+        "old_probe_NLL_before": {
+          "natural": 0.33697621524333954
+        },
+        "old_probe_NLL_after": {
+          "natural": 0.3410203456878662
+        },
+        "all_rejected_is_not_valid_CL_score": true
+      },
+      "adapter_gradient_optimizer_SHA": {
+        "final_adapter.pt": "564a2617560f162cbfb51814e579f8df847284a77f0cb6c65d36c61025f477db",
+        "raw_gradient.pt": "40a462547ebe16ccfe2cf0ded0b2a6007905e00a52b1117394d9161e7a460dc1",
+        "optimizer_after.pt": "fe1b06a2a3fcf6e3ef5bc9f7355d90abfe14de7b1d82386246ecbe0c1d2a5d2e"
+      },
+      "all_three_PT_files_byte_exact_to_control": true,
+      "prediction_all_non_timing_fields_exact": true,
+      "prediction_only_differences": {
+        "target": {
+          "generation_seconds": 228
+        },
+        "past_natural": {
+          "generation_seconds": 10
+        }
+      }
+    }
+  ],
+  "source_sha256": {
+    "summary/onevision_diagnostics_20261016/two_module_prototype/T02_control_complete.json": "5dbd58c478e21a96e60cc4ba93c4795b619d20665480b3ca9537264a2b58d62b",
+    "exp/onevision_two_module_20261017/pilot/T02_control/20261017_205621/training.json": "d7b4c3dbc49ad067f0559eba60d16172c6f895873e44ed1683f9de74e88db2c8",
+    "exp/onevision_two_module_20261017/pilot/T02_control/20261017_205621/final_adapter.pt": "564a2617560f162cbfb51814e579f8df847284a77f0cb6c65d36c61025f477db",
+    "exp/onevision_two_module_20261017/pilot/T02_control/20261017_205621/raw_gradient.pt": "40a462547ebe16ccfe2cf0ded0b2a6007905e00a52b1117394d9161e7a460dc1",
+    "exp/onevision_two_module_20261017/pilot/T02_control/20261017_205621/optimizer_after.pt": "fe1b06a2a3fcf6e3ef5bc9f7355d90abfe14de7b1d82386246ecbe0c1d2a5d2e",
+    "exp/onevision_two_module_20261017/pilot/T02_control/20261017_205621/evaluations/final/target_image.jsonl": "04eeeffbc06e2802600dd25459d7bc195a0a0a2f6004eba5a6910bbe8a24f9de",
+    "exp/onevision_two_module_20261017/pilot/T02_control/20261017_205621/evaluations/final/past_natural_image.jsonl": "a043b6ba5bd002b89ea13b963c6450ecbae6c82ddcdd04c67c3be5821b0ea06d",
+    "summary/onevision_diagnostics_20261016/two_module_prototype/T02_A_only_complete.json": "868de526171ad0a94825f9b98288131ae3a1b1abc127939b27181c5ecafa2127",
+    "exp/onevision_two_module_20261017/pilot/T02_A_only/20261017_210322/training.json": "77fe045fb9b2dceda963cb6675c30ef791b8ec3f339bc2fcd97fa02eeaf14784",
+    "exp/onevision_two_module_20261017/pilot/T02_A_only/20261017_210322/final_adapter.pt": "564a2617560f162cbfb51814e579f8df847284a77f0cb6c65d36c61025f477db",
+    "exp/onevision_two_module_20261017/pilot/T02_A_only/20261017_210322/raw_gradient.pt": "40a462547ebe16ccfe2cf0ded0b2a6007905e00a52b1117394d9161e7a460dc1",
+    "exp/onevision_two_module_20261017/pilot/T02_A_only/20261017_210322/optimizer_after.pt": "fe1b06a2a3fcf6e3ef5bc9f7355d90abfe14de7b1d82386246ecbe0c1d2a5d2e",
+    "exp/onevision_two_module_20261017/pilot/T02_A_only/20261017_210322/evaluations/final/target_image.jsonl": "7b0c01a1effd43fad4939699041465b3078e109f147524f834a96dd2e772a42a",
+    "exp/onevision_two_module_20261017/pilot/T02_A_only/20261017_210322/evaluations/final/past_natural_image.jsonl": "d676157b5572cedd02cbfe986e9b79cf0260400ec7118218f28c95bd87e9cf6f",
+    "summary/onevision_diagnostics_20261016/two_module_prototype/T02_B_only_complete.json": "ee452d967211b9234f6cdaae05f27c2f9148061a2671f81d6d92347a0195c304",
+    "exp/onevision_two_module_20261017/pilot/T02_B_only/20261017_210740/training.json": "c0e11ceedc3559b1c6be6a8ebbc61f4c5bc87b8e6a7c3de2b4c190bb213acc31",
+    "exp/onevision_two_module_20261017/pilot/T02_B_only/20261017_210740/final_adapter.pt": "564a2617560f162cbfb51814e579f8df847284a77f0cb6c65d36c61025f477db",
+    "exp/onevision_two_module_20261017/pilot/T02_B_only/20261017_210740/raw_gradient.pt": "40a462547ebe16ccfe2cf0ded0b2a6007905e00a52b1117394d9161e7a460dc1",
+    "exp/onevision_two_module_20261017/pilot/T02_B_only/20261017_210740/optimizer_after.pt": "fe1b06a2a3fcf6e3ef5bc9f7355d90abfe14de7b1d82386246ecbe0c1d2a5d2e",
+    "exp/onevision_two_module_20261017/pilot/T02_B_only/20261017_210740/evaluations/final/target_image.jsonl": "12071a09d0d8ecd1c678ab6615fd5eca9e403d25bf1894eb2c51b1a854054a85",
+    "exp/onevision_two_module_20261017/pilot/T02_B_only/20261017_210740/evaluations/final/past_natural_image.jsonl": "e25de5c5b626e904913c039569b210c01b2a356c3294eec0f8000e5351883798",
+    "summary/onevision_diagnostics_20261016/two_module_prototype/T02_A_B_complete.json": "c1ddf49f25b1b3af5b71b41332e99f9c512b8338176f531fc7ca1d477563a41d",
+    "exp/onevision_two_module_20261017/pilot/T02_A_B/20261017_211158/training.json": "8df86bd0eed7e7907261b9e9d53074a11739854be849ebc044965e81424db979",
+    "exp/onevision_two_module_20261017/pilot/T02_A_B/20261017_211158/final_adapter.pt": "564a2617560f162cbfb51814e579f8df847284a77f0cb6c65d36c61025f477db",
+    "exp/onevision_two_module_20261017/pilot/T02_A_B/20261017_211158/raw_gradient.pt": "40a462547ebe16ccfe2cf0ded0b2a6007905e00a52b1117394d9161e7a460dc1",
+    "exp/onevision_two_module_20261017/pilot/T02_A_B/20261017_211158/optimizer_after.pt": "fe1b06a2a3fcf6e3ef5bc9f7355d90abfe14de7b1d82386246ecbe0c1d2a5d2e",
+    "exp/onevision_two_module_20261017/pilot/T02_A_B/20261017_211158/evaluations/final/target_image.jsonl": "172b8264d833d2f8962251984f2a7119c1ce9035d7aa3f6600be1169295af473",
+    "exp/onevision_two_module_20261017/pilot/T02_A_B/20261017_211158/evaluations/final/past_natural_image.jsonl": "65694bee7dc16336daa04f614071d90ba74176835b08b9ca2aa5aad1d0db3e31"
+  },
+  "all_four_functional_states_and_outputs_exact": true,
+  "all_cases_positive_LR_actual_update": true,
+  "method_gain_demonstrated": false,
+  "mechanism_changed_initial_function_or_finite_step": false,
+  "limits": [
+    "A checked3TRAIN candidates and chose full inherited function; B accepted full Adam step. Rules ran but no realized update intervention on this task.",
+    "Only generation_seconds differs in prediction files; all other fields strictly exact. Original all-file-SHA equality assertion failure preserved with cause.",
+    "No claim A/B never helps: T11/T12 and strict48 remain pending.",
+    "Extra TRAIN checks cost compute even when returning identity."
+  ]
+}
