@@ -18,6 +18,8 @@
 
 新增[两模块原型](summary/onevision_diagnostics_20261016/two_module_prototype/PROTOCOL.md)：从已验证问题出发，固定四种消融；[完整19阶段/21454测试代码与成本](summary/onevision_diagnostics_20261016/two_module_fullstream/PROTOCOL.md)已实现并排队。CPU准备通过，GPU性能尚待测；[诊断/完整结果分表](summary/onevision_diagnostics_20261016/two_module_fullstream/VERIFIED_RESULTS.md)，未测不填数，不按TEST挑候选。
 
+新补[容量与路由的分离核验](summary/onevision_diagnostics_20261016/ROUTING_MECHANISM_EVIDENCE.md)：从1到3个LoRA，19原型/500题原型选择都未改变；同一专家池换路线能改变遥感/金融NLL，但尚不能称生成F1提升。[完整确认入口](summary/onevision_diagnostics_20261016/full_confirmation_evidence/VERIFIED_RESULTS.md)等待21454题完整证明后自动填表。
+
 | 问题 | 已验证结果 | 改进是否有效 |
 | --- | --- | --- |
 | 所有图片同答urban | 原图仍改变答案概率，输出决策偏移 | 平衡损失F1 44→50，仍局部缓解 |
@@ -28,10 +30,11 @@
 | 评分如何统一 | 唯一Answer F1，规则与旧Token F1完全相同 | 无额外选项映射，不冒称语义准确率 |
 | 多域还是少任务 | 相同F1输出任务宏平均+1.425pp、域宏平均−1.178pp | 核心因果仍待严格双锚控制 |
 | 总分提高是否无损失 | 155题22质量上升/18下降；负点积26/31在后续批次 | 揭示相抵和时间位置，不等于因果已证实 |
+| 更多LoRA是否改善选择 | cap1/3的19原型与500题原型选择完全相同 | 同池路线影响NLL，尚无生成F1改进声明 |
 
 研究使用LLaVA-OneVision-Qwen2-0.5B-OV（完整模型约0.9B），仅新GPU1；共享冻结1%共1313条TRAIN。500题NLL／155题生成等诊断集单独标注，不冒充完整21454题。知识16事实及重复训练均是额外机制干预，预算另计。
 
-2026-10-17最新核验：知识4条0／8／64步轨迹、遥感3条损失权重轨迹全部完成；cap1已恢复原兼容运行，之后cap3完整测试。未发布完整测试提升，未证明自动最优LoRA数量，暂停新方法／路由设计。 下一项[确定性双锚机制复核](analysis/ONEVISION_MATCHED_TASK_DOMAIN_PROTOCOL.md)已部署等待，等现有全量完成后执行；CPU通过不等于GPU结果。Qwen2-VL基线独立nohup运行，不跨骨干排名，旧Qwen零LR混杂单列。
+2026-10-17最新核验：知识4条0／8／64步轨迹、遥感3条损失权重轨迹全部完成；当前cap1完整确认继续。用户已重新授权设计两个模块，旧“暂停设计”是历史阶段要求。接续顺序为原型12→[严格双锚48机制复核](analysis/ONEVISION_MATCHED_TASK_DOMAIN_PROTOCOL.md)→四组完整方法训练/最终确认→原cap3→完整转移评测；CPU准备不等于GPU效果，尚未证明自动最优LoRA数量。正式基线继续nohup，不跨骨干/输入协议排名，旧Qwen零LR混杂隔离。
 
 逐题结果、阶段权重／SHA、loss、实际LR、原始可用梯度及[具体内存前后／峰值](summary/onevision_diagnostics_20261016/MEMORY_WINDOW_AUDIT.md)保留；模型、数据、checkpoint和私钥不入Git。
 
