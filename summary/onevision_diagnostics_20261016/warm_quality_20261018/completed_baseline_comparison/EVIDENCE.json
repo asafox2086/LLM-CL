@@ -1,0 +1,2020 @@
+{
+  "CPU_only": true,
+  "GPU_operations": 0,
+  "new_predictions": 0,
+  "evaluation_QA": 155,
+  "same_IDS_gold_metric": true,
+  "formal_ranking": false,
+  "limitations": [
+    "Research nativeAnyRes/BF16 differs from formalV2 image cap401408/FP16.",
+    "Same IDs alone do not establish matched training/inference protocol.",
+    "155 diagnostic scores cannot be compared to full21454 scores.",
+    "No TEST selection or hyperparameter changes; no full FWT/BWT from this subset."
+  ],
+  "research": {
+    "native_SeqFT": {
+      "domains": {
+        "natural": 57.38095238095239,
+        "medical": 46.05783866057838,
+        "geography": 46.875,
+        "finance": 30.0,
+        "traffic": 30.465374358561384
+      },
+      "AP": 43.362536135144616,
+      "domain_macro": 42.15583308001843
+    },
+    "A_plus_B": {
+      "domains": {
+        "natural": 60.71428571428571,
+        "medical": 46.38399652098282,
+        "geography": 46.875,
+        "finance": 30.0,
+        "traffic": 31.421294853830116
+      },
+      "AP": 44.16510002286875,
+      "domain_macro": 43.07891541781973
+    }
+  },
+  "baseline": {
+    "CPU_only": true,
+    "GPU_operations": 0,
+    "optimizer_updates": 0,
+    "new_predictions": 0,
+    "baseline_subset_QA": 155,
+    "results": [
+      {
+        "method": "PaRSP",
+        "cohort": {
+          "domains": {
+            "natural": 55.0,
+            "medical": 41.31244822071941,
+            "geography": 50.0,
+            "finance": 20.0,
+            "traffic": 32.45450707080001
+          },
+          "AP": 37.40058209949045,
+          "domain_macro": 39.75339105830388
+        },
+        "rows": [
+          {
+            "id": "TextVQA:36381",
+            "native_task": 1,
+            "domain": "natural",
+            "F1": 100.0
+          },
+          {
+            "id": "TextVQA:36629",
+            "native_task": 1,
+            "domain": "natural",
+            "F1": 50.0
+          },
+          {
+            "id": "TextVQA:36805",
+            "native_task": 1,
+            "domain": "natural",
+            "F1": 100.0
+          },
+          {
+            "id": "TextVQA:37088",
+            "native_task": 1,
+            "domain": "natural",
+            "F1": 100.0
+          },
+          {
+            "id": "TextVQA:37589",
+            "native_task": 1,
+            "domain": "natural",
+            "F1": 0.0
+          },
+          {
+            "id": "TextVQA:37711",
+            "native_task": 1,
+            "domain": "natural",
+            "F1": 0.0
+          },
+          {
+            "id": "TextVQA:37766",
+            "native_task": 1,
+            "domain": "natural",
+            "F1": 100.0
+          },
+          {
+            "id": "TextVQA:37926",
+            "native_task": 1,
+            "domain": "natural",
+            "F1": 0.0
+          },
+          {
+            "id": "TextVQA:38532",
+            "native_task": 1,
+            "domain": "natural",
+            "F1": 0.0
+          },
+          {
+            "id": "TextVQA:39436",
+            "native_task": 1,
+            "domain": "natural",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:12023",
+            "native_task": 2,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:12055",
+            "native_task": 2,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:12163",
+            "native_task": 2,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12279",
+            "native_task": 2,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:12489",
+            "native_task": 2,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:12747",
+            "native_task": 2,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:13145",
+            "native_task": 2,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:13797",
+            "native_task": 2,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:13876",
+            "native_task": 2,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:13902",
+            "native_task": 2,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:12091",
+            "native_task": 3,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12751",
+            "native_task": 3,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12939",
+            "native_task": 3,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:13077",
+            "native_task": 3,
+            "domain": "medical",
+            "F1": 66.66666666666666
+          },
+          {
+            "id": "SLAKE:13257",
+            "native_task": 3,
+            "domain": "medical",
+            "F1": 33.33333333333333
+          },
+          {
+            "id": "SLAKE:13766",
+            "native_task": 3,
+            "domain": "medical",
+            "F1": 66.66666666666666
+          },
+          {
+            "id": "SLAKE:13783",
+            "native_task": 3,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:13843",
+            "native_task": 3,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:14001",
+            "native_task": 3,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:14017",
+            "native_task": 3,
+            "domain": "medical",
+            "F1": 66.66666666666666
+          },
+          {
+            "id": "SLAKE:12124",
+            "native_task": 4,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:12213",
+            "native_task": 4,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:12259",
+            "native_task": 4,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12555",
+            "native_task": 4,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:12673",
+            "native_task": 4,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:12698",
+            "native_task": 4,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:13203",
+            "native_task": 4,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:13653",
+            "native_task": 4,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:13759",
+            "native_task": 4,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:13980",
+            "native_task": 4,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12108",
+            "native_task": 5,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:12864",
+            "native_task": 5,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12872",
+            "native_task": 5,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:13215",
+            "native_task": 5,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:13283",
+            "native_task": 5,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:13917",
+            "native_task": 5,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12101",
+            "native_task": 6,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12408",
+            "native_task": 6,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:12656",
+            "native_task": 6,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:13043",
+            "native_task": 6,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:13046",
+            "native_task": 6,
+            "domain": "medical",
+            "F1": 80.0
+          },
+          {
+            "id": "SLAKE:13078",
+            "native_task": 6,
+            "domain": "medical",
+            "F1": 80.0
+          },
+          {
+            "id": "SLAKE:13266",
+            "native_task": 6,
+            "domain": "medical",
+            "F1": 80.0
+          },
+          {
+            "id": "SLAKE:13371",
+            "native_task": 6,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:13569",
+            "native_task": 6,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:13854",
+            "native_task": 6,
+            "domain": "medical",
+            "F1": 22.22222222222222
+          },
+          {
+            "id": "SLAKE:12229",
+            "native_task": 7,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:12440",
+            "native_task": 7,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12787",
+            "native_task": 7,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:13518",
+            "native_task": 7,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:13907",
+            "native_task": 7,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12153",
+            "native_task": 8,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12204",
+            "native_task": 8,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12219",
+            "native_task": 8,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:13309",
+            "native_task": 8,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:13538",
+            "native_task": 8,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:13923",
+            "native_task": 8,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12584",
+            "native_task": 9,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12841",
+            "native_task": 9,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12334",
+            "native_task": 10,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12424",
+            "native_task": 10,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:13412",
+            "native_task": 10,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:13645",
+            "native_task": 10,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:12291",
+            "native_task": 11,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12322",
+            "native_task": 11,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12518",
+            "native_task": 11,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12545",
+            "native_task": 11,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12585",
+            "native_task": 11,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12692",
+            "native_task": 11,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:13362",
+            "native_task": 11,
+            "domain": "medical",
+            "F1": 20.253164556962027
+          },
+          {
+            "id": "SLAKE:13521",
+            "native_task": 11,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:13679",
+            "native_task": 11,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:13910",
+            "native_task": 11,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:23608",
+            "native_task": 12,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:32511",
+            "native_task": 12,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:23475",
+            "native_task": 13,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:24111",
+            "native_task": 13,
+            "domain": "geography",
+            "F1": 100.0
+          },
+          {
+            "id": "RSVQA-LR:25271",
+            "native_task": 13,
+            "domain": "geography",
+            "F1": 100.0
+          },
+          {
+            "id": "RSVQA-LR:25355",
+            "native_task": 13,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:26822",
+            "native_task": 13,
+            "domain": "geography",
+            "F1": 100.0
+          },
+          {
+            "id": "RSVQA-LR:27957",
+            "native_task": 13,
+            "domain": "geography",
+            "F1": 100.0
+          },
+          {
+            "id": "RSVQA-LR:29068",
+            "native_task": 13,
+            "domain": "geography",
+            "F1": 100.0
+          },
+          {
+            "id": "RSVQA-LR:30508",
+            "native_task": 13,
+            "domain": "geography",
+            "F1": 100.0
+          },
+          {
+            "id": "RSVQA-LR:30594",
+            "native_task": 13,
+            "domain": "geography",
+            "F1": 100.0
+          },
+          {
+            "id": "RSVQA-LR:30715",
+            "native_task": 13,
+            "domain": "geography",
+            "F1": 100.0
+          },
+          {
+            "id": "RSVQA-LR:26414",
+            "native_task": 14,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:26849",
+            "native_task": 14,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:27096",
+            "native_task": 14,
+            "domain": "geography",
+            "F1": 100.0
+          },
+          {
+            "id": "RSVQA-LR:29127",
+            "native_task": 14,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:29132",
+            "native_task": 14,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:29732",
+            "native_task": 14,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:30720",
+            "native_task": 14,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:30982",
+            "native_task": 14,
+            "domain": "geography",
+            "F1": 100.0
+          },
+          {
+            "id": "RSVQA-LR:31453",
+            "native_task": 14,
+            "domain": "geography",
+            "F1": 100.0
+          },
+          {
+            "id": "RSVQA-LR:33120",
+            "native_task": 14,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:23496",
+            "native_task": 15,
+            "domain": "geography",
+            "F1": 100.0
+          },
+          {
+            "id": "RSVQA-LR:23591",
+            "native_task": 15,
+            "domain": "geography",
+            "F1": 100.0
+          },
+          {
+            "id": "RSVQA-LR:26129",
+            "native_task": 15,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:26185",
+            "native_task": 15,
+            "domain": "geography",
+            "F1": 100.0
+          },
+          {
+            "id": "RSVQA-LR:26287",
+            "native_task": 15,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:27288",
+            "native_task": 15,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:28498",
+            "native_task": 15,
+            "domain": "geography",
+            "F1": 100.0
+          },
+          {
+            "id": "RSVQA-LR:28955",
+            "native_task": 15,
+            "domain": "geography",
+            "F1": 100.0
+          },
+          {
+            "id": "RSVQA-LR:32045",
+            "native_task": 15,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:32904",
+            "native_task": 15,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "FinMME:107",
+            "native_task": 16,
+            "domain": "finance",
+            "F1": 0.0
+          },
+          {
+            "id": "FinMME:6436",
+            "native_task": 16,
+            "domain": "finance",
+            "F1": 0.0
+          },
+          {
+            "id": "FinMME:7189",
+            "native_task": 16,
+            "domain": "finance",
+            "F1": 0.0
+          },
+          {
+            "id": "FinMME:10456",
+            "native_task": 16,
+            "domain": "finance",
+            "F1": 0.0
+          },
+          {
+            "id": "FinMME:4707",
+            "native_task": 16,
+            "domain": "finance",
+            "F1": 100.0
+          },
+          {
+            "id": "FinMME:5188",
+            "native_task": 16,
+            "domain": "finance",
+            "F1": 0.0
+          },
+          {
+            "id": "FinMME:2429",
+            "native_task": 16,
+            "domain": "finance",
+            "F1": 100.0
+          },
+          {
+            "id": "FinMME:7858",
+            "native_task": 16,
+            "domain": "finance",
+            "F1": 0.0
+          },
+          {
+            "id": "FinMME:9236",
+            "native_task": 16,
+            "domain": "finance",
+            "F1": 0.0
+          },
+          {
+            "id": "FinMME:4478",
+            "native_task": 16,
+            "domain": "finance",
+            "F1": 0.0
+          },
+          {
+            "id": "CODA-LM:Test:Test_general_31",
+            "native_task": 17,
+            "domain": "traffic",
+            "F1": 46.19164619164619
+          },
+          {
+            "id": "CODA-LM:Test:Test_general_34",
+            "native_task": 17,
+            "domain": "traffic",
+            "F1": 21.44
+          },
+          {
+            "id": "CODA-LM:Test:Test_general_141",
+            "native_task": 17,
+            "domain": "traffic",
+            "F1": 46.68769716088328
+          },
+          {
+            "id": "CODA-LM:Test:Test_general_155",
+            "native_task": 17,
+            "domain": "traffic",
+            "F1": 7.053941908713693
+          },
+          {
+            "id": "CODA-LM:Test:Test_general_239",
+            "native_task": 17,
+            "domain": "traffic",
+            "F1": 16.40378548895899
+          },
+          {
+            "id": "CODA-LM:Test:Test_general_321",
+            "native_task": 17,
+            "domain": "traffic",
+            "F1": 35.43689320388349
+          },
+          {
+            "id": "CODA-LM:Test:Test_general_340",
+            "native_task": 17,
+            "domain": "traffic",
+            "F1": 40.106951871657756
+          },
+          {
+            "id": "CODA-LM:Test:Test_general_464",
+            "native_task": 17,
+            "domain": "traffic",
+            "F1": 33.47107438016529
+          },
+          {
+            "id": "CODA-LM:Test:Test_general_474",
+            "native_task": 17,
+            "domain": "traffic",
+            "F1": 45.018450184501845
+          },
+          {
+            "id": "CODA-LM:Test:Test_general_494",
+            "native_task": 17,
+            "domain": "traffic",
+            "F1": 25.149700598802394
+          },
+          {
+            "id": "CODA-LM:Test:Test_regional_124",
+            "native_task": 18,
+            "domain": "traffic",
+            "F1": 26.31578947368421
+          },
+          {
+            "id": "CODA-LM:Test:Test_regional_142",
+            "native_task": 18,
+            "domain": "traffic",
+            "F1": 37.4331550802139
+          },
+          {
+            "id": "CODA-LM:Test:Test_regional_171",
+            "native_task": 18,
+            "domain": "traffic",
+            "F1": 33.11258278145696
+          },
+          {
+            "id": "CODA-LM:Test:Test_regional_288",
+            "native_task": 18,
+            "domain": "traffic",
+            "F1": 32.97872340425532
+          },
+          {
+            "id": "CODA-LM:Test:Test_regional_397",
+            "native_task": 18,
+            "domain": "traffic",
+            "F1": 30.87248322147651
+          },
+          {
+            "id": "CODA-LM:Test:Test_regional_513",
+            "native_task": 18,
+            "domain": "traffic",
+            "F1": 29.761904761904763
+          },
+          {
+            "id": "CODA-LM:Test:Test_regional_598",
+            "native_task": 18,
+            "domain": "traffic",
+            "F1": 35.526315789473685
+          },
+          {
+            "id": "CODA-LM:Test:Test_regional_711",
+            "native_task": 18,
+            "domain": "traffic",
+            "F1": 27.878787878787882
+          },
+          {
+            "id": "CODA-LM:Test:Test_regional_821",
+            "native_task": 18,
+            "domain": "traffic",
+            "F1": 26.573426573426573
+          },
+          {
+            "id": "CODA-LM:Test:Test_regional_908",
+            "native_task": 18,
+            "domain": "traffic",
+            "F1": 27.27272727272727
+          },
+          {
+            "id": "CODA-LM:Test:Test_suggestion_15",
+            "native_task": 19,
+            "domain": "traffic",
+            "F1": 31.08108108108108
+          },
+          {
+            "id": "CODA-LM:Test:Test_suggestion_61",
+            "native_task": 19,
+            "domain": "traffic",
+            "F1": 42.028985507246375
+          },
+          {
+            "id": "CODA-LM:Test:Test_suggestion_130",
+            "native_task": 19,
+            "domain": "traffic",
+            "F1": 39.0625
+          },
+          {
+            "id": "CODA-LM:Test:Test_suggestion_137",
+            "native_task": 19,
+            "domain": "traffic",
+            "F1": 30.23255813953488
+          },
+          {
+            "id": "CODA-LM:Test:Test_suggestion_144",
+            "native_task": 19,
+            "domain": "traffic",
+            "F1": 45.30386740331492
+          },
+          {
+            "id": "CODA-LM:Test:Test_suggestion_265",
+            "native_task": 19,
+            "domain": "traffic",
+            "F1": 34.61538461538461
+          },
+          {
+            "id": "CODA-LM:Test:Test_suggestion_370",
+            "native_task": 19,
+            "domain": "traffic",
+            "F1": 38.333333333333336
+          },
+          {
+            "id": "CODA-LM:Test:Test_suggestion_440",
+            "native_task": 19,
+            "domain": "traffic",
+            "F1": 32.25806451612903
+          },
+          {
+            "id": "CODA-LM:Test:Test_suggestion_476",
+            "native_task": 19,
+            "domain": "traffic",
+            "F1": 28.40909090909091
+          },
+          {
+            "id": "CODA-LM:Test:Test_suggestion_489",
+            "native_task": 19,
+            "domain": "traffic",
+            "F1": 27.624309392265197
+          }
+        ],
+        "full": {
+          "domains": {
+            "natural": 73.34602202441532,
+            "medical": 38.743475017589155,
+            "geography": 54.088364654138346,
+            "finance": 20.60850678053704,
+            "traffic": 32.654986107784495
+          },
+          "AP": 40.390067668460595,
+          "domain_macro": 43.88827091689287
+        },
+        "proof_file": "summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/completed/4448534f8895647f6409.json",
+        "proof_sha256": "0bcaf164ae433d7f123bef9804fa743d29606c1f53394aa12fc069efb170ffc0",
+        "prediction_sha256": {
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PaRSP/training_20261018_040230/evaluations/stage_19/T01_test_predictions.jsonl": "56d0e589bd0859866036bbc2cd0e4560b40f30f07358d865df473f4021c76ba9",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PaRSP/training_20261018_040230/evaluations/stage_19/T02_test_predictions.jsonl": "91fa5a4bc2f25364a9ecb617555ec10b5df2819f7c02679422cba2249f936d92",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PaRSP/training_20261018_040230/evaluations/stage_19/T03_test_predictions.jsonl": "ecb027990a48360a26e5681bfe8a9ae78ee7a688786db4de2a89b00e7dff2b73",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PaRSP/training_20261018_040230/evaluations/stage_19/T04_test_predictions.jsonl": "359d520d52fa5556d90fe9af8db3b26112e9973011325167011c1fcfd0a91872",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PaRSP/training_20261018_040230/evaluations/stage_19/T05_test_predictions.jsonl": "c797d8f638df22af502ac0dc8bf5341555aa3cb14f84c6d773f617754dfc2f62",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PaRSP/training_20261018_040230/evaluations/stage_19/T06_test_predictions.jsonl": "94e3ddd7f3e9dd664f0a28c4fe275f8fdaa74b330b3fb39f8b782892002e4a83",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PaRSP/training_20261018_040230/evaluations/stage_19/T07_test_predictions.jsonl": "69f619cf6e6ce495cb219921ee3a776145c28b6933eef8834a4fc90ad4d34fcb",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PaRSP/training_20261018_040230/evaluations/stage_19/T08_test_predictions.jsonl": "800576cd59f5071b524d4dc52c55c691d05ca1ad8d70f933bf18024c5f0f4f21",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PaRSP/training_20261018_040230/evaluations/stage_19/T09_test_predictions.jsonl": "664ffe8146451b9ae418c98572e22b874dd7071d240b79cc48037f01ebb39eae",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PaRSP/training_20261018_040230/evaluations/stage_19/T10_test_predictions.jsonl": "78b932f6d3538060304fd812fb61daa2ff1efba863b5089af5ba3368a208e444",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PaRSP/training_20261018_040230/evaluations/stage_19/T11_test_predictions.jsonl": "cfd7a3e5bdc8fabb65519bd43b8df7095e2e939d8e1513352c90e55b9bf141ae",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PaRSP/training_20261018_040230/evaluations/stage_19/T12_test_predictions.jsonl": "b1479fbe9686940d6038bd1a45d7a3b494f4c2c7866bc3e16e0671b44fced9b8",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PaRSP/training_20261018_040230/evaluations/stage_19/T13_test_predictions.jsonl": "9e3204e026921f27ed7eb6fb56949f623b0cf635d3457c8098cd07009d0ca5d3",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PaRSP/training_20261018_040230/evaluations/stage_19/T14_test_predictions.jsonl": "189821111b697a39297cfc51f67ca792072113a9c5974e41a5ad981b2ea1a0e7",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PaRSP/training_20261018_040230/evaluations/stage_19/T15_test_predictions.jsonl": "3cb2bf2d996e23dbe4928d229ee2033ae4e626123cdefd112cbc039fd51e9737",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PaRSP/training_20261018_040230/evaluations/stage_19/T16_test_predictions.jsonl": "ab9b0836651189b833948fefed7c0774fd38f4b49146a1851f668daa577fe955",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PaRSP/training_20261018_040230/evaluations/stage_19/T17_test_predictions.jsonl": "1cfc5da4f2caf280ef830e04e752550b608c1cd51de53381a74186a0b233db3c",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PaRSP/training_20261018_040230/evaluations/stage_19/T18_test_predictions.jsonl": "15c4c654bd98f09c7bafe1dc04d6665a61c41db3d0cf8e6365b12c77e532a849",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PaRSP/training_20261018_040230/evaluations/stage_19/T19_test_predictions.jsonl": "f97f04e6af29e3fc7cb4a83f32885dcd0e708ca55f743bbaccfb78103c059912"
+        }
+      },
+      {
+        "method": "SeqFT_LoRA",
+        "cohort": {
+          "domains": {
+            "natural": 57.38095238095237,
+            "medical": 42.85213231609896,
+            "geography": 46.875,
+            "finance": 20.0,
+            "traffic": 30.619344596833727
+          },
+          "AP": 41.570385781934405,
+          "domain_macro": 39.54548585877701
+        },
+        "rows": [
+          {
+            "id": "TextVQA:36381",
+            "native_task": 1,
+            "domain": "natural",
+            "F1": 100.0
+          },
+          {
+            "id": "TextVQA:36629",
+            "native_task": 1,
+            "domain": "natural",
+            "F1": 50.0
+          },
+          {
+            "id": "TextVQA:36805",
+            "native_task": 1,
+            "domain": "natural",
+            "F1": 100.0
+          },
+          {
+            "id": "TextVQA:37088",
+            "native_task": 1,
+            "domain": "natural",
+            "F1": 57.14285714285714
+          },
+          {
+            "id": "TextVQA:37589",
+            "native_task": 1,
+            "domain": "natural",
+            "F1": 0.0
+          },
+          {
+            "id": "TextVQA:37711",
+            "native_task": 1,
+            "domain": "natural",
+            "F1": 0.0
+          },
+          {
+            "id": "TextVQA:37766",
+            "native_task": 1,
+            "domain": "natural",
+            "F1": 100.0
+          },
+          {
+            "id": "TextVQA:37926",
+            "native_task": 1,
+            "domain": "natural",
+            "F1": 66.66666666666666
+          },
+          {
+            "id": "TextVQA:38532",
+            "native_task": 1,
+            "domain": "natural",
+            "F1": 0.0
+          },
+          {
+            "id": "TextVQA:39436",
+            "native_task": 1,
+            "domain": "natural",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:12023",
+            "native_task": 2,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:12055",
+            "native_task": 2,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:12163",
+            "native_task": 2,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12279",
+            "native_task": 2,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:12489",
+            "native_task": 2,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:12747",
+            "native_task": 2,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:13145",
+            "native_task": 2,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:13797",
+            "native_task": 2,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:13876",
+            "native_task": 2,
+            "domain": "medical",
+            "F1": 50.0
+          },
+          {
+            "id": "SLAKE:13902",
+            "native_task": 2,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:12091",
+            "native_task": 3,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12751",
+            "native_task": 3,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12939",
+            "native_task": 3,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:13077",
+            "native_task": 3,
+            "domain": "medical",
+            "F1": 66.66666666666666
+          },
+          {
+            "id": "SLAKE:13257",
+            "native_task": 3,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:13766",
+            "native_task": 3,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:13783",
+            "native_task": 3,
+            "domain": "medical",
+            "F1": 66.66666666666666
+          },
+          {
+            "id": "SLAKE:13843",
+            "native_task": 3,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:14001",
+            "native_task": 3,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:14017",
+            "native_task": 3,
+            "domain": "medical",
+            "F1": 57.14285714285714
+          },
+          {
+            "id": "SLAKE:12124",
+            "native_task": 4,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:12213",
+            "native_task": 4,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:12259",
+            "native_task": 4,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12555",
+            "native_task": 4,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12673",
+            "native_task": 4,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:12698",
+            "native_task": 4,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:13203",
+            "native_task": 4,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:13653",
+            "native_task": 4,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:13759",
+            "native_task": 4,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:13980",
+            "native_task": 4,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12108",
+            "native_task": 5,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:12864",
+            "native_task": 5,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12872",
+            "native_task": 5,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:13215",
+            "native_task": 5,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:13283",
+            "native_task": 5,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:13917",
+            "native_task": 5,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12101",
+            "native_task": 6,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12408",
+            "native_task": 6,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:12656",
+            "native_task": 6,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:13043",
+            "native_task": 6,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:13046",
+            "native_task": 6,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:13078",
+            "native_task": 6,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:13266",
+            "native_task": 6,
+            "domain": "medical",
+            "F1": 80.0
+          },
+          {
+            "id": "SLAKE:13371",
+            "native_task": 6,
+            "domain": "medical",
+            "F1": 66.66666666666666
+          },
+          {
+            "id": "SLAKE:13569",
+            "native_task": 6,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:13854",
+            "native_task": 6,
+            "domain": "medical",
+            "F1": 22.22222222222222
+          },
+          {
+            "id": "SLAKE:12229",
+            "native_task": 7,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:12440",
+            "native_task": 7,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12787",
+            "native_task": 7,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:13518",
+            "native_task": 7,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:13907",
+            "native_task": 7,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12153",
+            "native_task": 8,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12204",
+            "native_task": 8,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12219",
+            "native_task": 8,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:13309",
+            "native_task": 8,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:13538",
+            "native_task": 8,
+            "domain": "medical",
+            "F1": 50.0
+          },
+          {
+            "id": "SLAKE:13923",
+            "native_task": 8,
+            "domain": "medical",
+            "F1": 66.66666666666666
+          },
+          {
+            "id": "SLAKE:12584",
+            "native_task": 9,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12841",
+            "native_task": 9,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12334",
+            "native_task": 10,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12424",
+            "native_task": 10,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:13412",
+            "native_task": 10,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:13645",
+            "native_task": 10,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:12291",
+            "native_task": 11,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12322",
+            "native_task": 11,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12518",
+            "native_task": 11,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:12545",
+            "native_task": 11,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12585",
+            "native_task": 11,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:12692",
+            "native_task": 11,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:13362",
+            "native_task": 11,
+            "domain": "medical",
+            "F1": 2.1739130434782608
+          },
+          {
+            "id": "SLAKE:13521",
+            "native_task": 11,
+            "domain": "medical",
+            "F1": 100.0
+          },
+          {
+            "id": "SLAKE:13679",
+            "native_task": 11,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "SLAKE:13910",
+            "native_task": 11,
+            "domain": "medical",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:23608",
+            "native_task": 12,
+            "domain": "geography",
+            "F1": 100.0
+          },
+          {
+            "id": "RSVQA-LR:32511",
+            "native_task": 12,
+            "domain": "geography",
+            "F1": 100.0
+          },
+          {
+            "id": "RSVQA-LR:23475",
+            "native_task": 13,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:24111",
+            "native_task": 13,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:25271",
+            "native_task": 13,
+            "domain": "geography",
+            "F1": 100.0
+          },
+          {
+            "id": "RSVQA-LR:25355",
+            "native_task": 13,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:26822",
+            "native_task": 13,
+            "domain": "geography",
+            "F1": 100.0
+          },
+          {
+            "id": "RSVQA-LR:27957",
+            "native_task": 13,
+            "domain": "geography",
+            "F1": 100.0
+          },
+          {
+            "id": "RSVQA-LR:29068",
+            "native_task": 13,
+            "domain": "geography",
+            "F1": 100.0
+          },
+          {
+            "id": "RSVQA-LR:30508",
+            "native_task": 13,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:30594",
+            "native_task": 13,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:30715",
+            "native_task": 13,
+            "domain": "geography",
+            "F1": 100.0
+          },
+          {
+            "id": "RSVQA-LR:26414",
+            "native_task": 14,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:26849",
+            "native_task": 14,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:27096",
+            "native_task": 14,
+            "domain": "geography",
+            "F1": 100.0
+          },
+          {
+            "id": "RSVQA-LR:29127",
+            "native_task": 14,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:29132",
+            "native_task": 14,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:29732",
+            "native_task": 14,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:30720",
+            "native_task": 14,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:30982",
+            "native_task": 14,
+            "domain": "geography",
+            "F1": 100.0
+          },
+          {
+            "id": "RSVQA-LR:31453",
+            "native_task": 14,
+            "domain": "geography",
+            "F1": 100.0
+          },
+          {
+            "id": "RSVQA-LR:33120",
+            "native_task": 14,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:23496",
+            "native_task": 15,
+            "domain": "geography",
+            "F1": 100.0
+          },
+          {
+            "id": "RSVQA-LR:23591",
+            "native_task": 15,
+            "domain": "geography",
+            "F1": 100.0
+          },
+          {
+            "id": "RSVQA-LR:26129",
+            "native_task": 15,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:26185",
+            "native_task": 15,
+            "domain": "geography",
+            "F1": 100.0
+          },
+          {
+            "id": "RSVQA-LR:26287",
+            "native_task": 15,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:27288",
+            "native_task": 15,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:28498",
+            "native_task": 15,
+            "domain": "geography",
+            "F1": 100.0
+          },
+          {
+            "id": "RSVQA-LR:28955",
+            "native_task": 15,
+            "domain": "geography",
+            "F1": 100.0
+          },
+          {
+            "id": "RSVQA-LR:32045",
+            "native_task": 15,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "RSVQA-LR:32904",
+            "native_task": 15,
+            "domain": "geography",
+            "F1": 0.0
+          },
+          {
+            "id": "FinMME:107",
+            "native_task": 16,
+            "domain": "finance",
+            "F1": 0.0
+          },
+          {
+            "id": "FinMME:6436",
+            "native_task": 16,
+            "domain": "finance",
+            "F1": 100.0
+          },
+          {
+            "id": "FinMME:7189",
+            "native_task": 16,
+            "domain": "finance",
+            "F1": 0.0
+          },
+          {
+            "id": "FinMME:10456",
+            "native_task": 16,
+            "domain": "finance",
+            "F1": 0.0
+          },
+          {
+            "id": "FinMME:4707",
+            "native_task": 16,
+            "domain": "finance",
+            "F1": 0.0
+          },
+          {
+            "id": "FinMME:5188",
+            "native_task": 16,
+            "domain": "finance",
+            "F1": 0.0
+          },
+          {
+            "id": "FinMME:2429",
+            "native_task": 16,
+            "domain": "finance",
+            "F1": 100.0
+          },
+          {
+            "id": "FinMME:7858",
+            "native_task": 16,
+            "domain": "finance",
+            "F1": 0.0
+          },
+          {
+            "id": "FinMME:9236",
+            "native_task": 16,
+            "domain": "finance",
+            "F1": 0.0
+          },
+          {
+            "id": "FinMME:4478",
+            "native_task": 16,
+            "domain": "finance",
+            "F1": 0.0
+          },
+          {
+            "id": "CODA-LM:Test:Test_general_31",
+            "native_task": 17,
+            "domain": "traffic",
+            "F1": 39.20454545454545
+          },
+          {
+            "id": "CODA-LM:Test:Test_general_34",
+            "native_task": 17,
+            "domain": "traffic",
+            "F1": 42.81524926686217
+          },
+          {
+            "id": "CODA-LM:Test:Test_general_141",
+            "native_task": 17,
+            "domain": "traffic",
+            "F1": 36.241610738255034
+          },
+          {
+            "id": "CODA-LM:Test:Test_general_155",
+            "native_task": 17,
+            "domain": "traffic",
+            "F1": 22.75449101796407
+          },
+          {
+            "id": "CODA-LM:Test:Test_general_239",
+            "native_task": 17,
+            "domain": "traffic",
+            "F1": 38.87147335423197
+          },
+          {
+            "id": "CODA-LM:Test:Test_general_321",
+            "native_task": 17,
+            "domain": "traffic",
+            "F1": 30.997876857749468
+          },
+          {
+            "id": "CODA-LM:Test:Test_general_340",
+            "native_task": 17,
+            "domain": "traffic",
+            "F1": 31.024930747922436
+          },
+          {
+            "id": "CODA-LM:Test:Test_general_464",
+            "native_task": 17,
+            "domain": "traffic",
+            "F1": 32.1285140562249
+          },
+          {
+            "id": "CODA-LM:Test:Test_general_474",
+            "native_task": 17,
+            "domain": "traffic",
+            "F1": 21.03505843071786
+          },
+          {
+            "id": "CODA-LM:Test:Test_general_494",
+            "native_task": 17,
+            "domain": "traffic",
+            "F1": 36.74698795180723
+          },
+          {
+            "id": "CODA-LM:Test:Test_regional_124",
+            "native_task": 18,
+            "domain": "traffic",
+            "F1": 9.433962264150944
+          },
+          {
+            "id": "CODA-LM:Test:Test_regional_142",
+            "native_task": 18,
+            "domain": "traffic",
+            "F1": 36.470588235294116
+          },
+          {
+            "id": "CODA-LM:Test:Test_regional_171",
+            "native_task": 18,
+            "domain": "traffic",
+            "F1": 38.51851851851852
+          },
+          {
+            "id": "CODA-LM:Test:Test_regional_288",
+            "native_task": 18,
+            "domain": "traffic",
+            "F1": 35.6687898089172
+          },
+          {
+            "id": "CODA-LM:Test:Test_regional_397",
+            "native_task": 18,
+            "domain": "traffic",
+            "F1": 30.555555555555557
+          },
+          {
+            "id": "CODA-LM:Test:Test_regional_513",
+            "native_task": 18,
+            "domain": "traffic",
+            "F1": 25.0
+          },
+          {
+            "id": "CODA-LM:Test:Test_regional_598",
+            "native_task": 18,
+            "domain": "traffic",
+            "F1": 26.01626016260163
+          },
+          {
+            "id": "CODA-LM:Test:Test_regional_711",
+            "native_task": 18,
+            "domain": "traffic",
+            "F1": 24.193548387096776
+          },
+          {
+            "id": "CODA-LM:Test:Test_regional_821",
+            "native_task": 18,
+            "domain": "traffic",
+            "F1": 19.565217391304348
+          },
+          {
+            "id": "CODA-LM:Test:Test_regional_908",
+            "native_task": 18,
+            "domain": "traffic",
+            "F1": 27.81456953642384
+          },
+          {
+            "id": "CODA-LM:Test:Test_suggestion_15",
+            "native_task": 19,
+            "domain": "traffic",
+            "F1": 23.931623931623932
+          },
+          {
+            "id": "CODA-LM:Test:Test_suggestion_61",
+            "native_task": 19,
+            "domain": "traffic",
+            "F1": 27.06766917293233
+          },
+          {
+            "id": "CODA-LM:Test:Test_suggestion_130",
+            "native_task": 19,
+            "domain": "traffic",
+            "F1": 36.84210526315789
+          },
+          {
+            "id": "CODA-LM:Test:Test_suggestion_137",
+            "native_task": 19,
+            "domain": "traffic",
+            "F1": 20.869565217391305
+          },
+          {
+            "id": "CODA-LM:Test:Test_suggestion_144",
+            "native_task": 19,
+            "domain": "traffic",
+            "F1": 39.02439024390244
+          },
+          {
+            "id": "CODA-LM:Test:Test_suggestion_265",
+            "native_task": 19,
+            "domain": "traffic",
+            "F1": 37.10407239819005
+          },
+          {
+            "id": "CODA-LM:Test:Test_suggestion_370",
+            "native_task": 19,
+            "domain": "traffic",
+            "F1": 33.5483870967742
+          },
+          {
+            "id": "CODA-LM:Test:Test_suggestion_440",
+            "native_task": 19,
+            "domain": "traffic",
+            "F1": 32.87671232876712
+          },
+          {
+            "id": "CODA-LM:Test:Test_suggestion_476",
+            "native_task": 19,
+            "domain": "traffic",
+            "F1": 32.25806451612903
+          },
+          {
+            "id": "CODA-LM:Test:Test_suggestion_489",
+            "native_task": 19,
+            "domain": "traffic",
+            "F1": 30.0
+          }
+        ],
+        "full": {
+          "domains": {
+            "natural": 75.6318044684319,
+            "medical": 40.757679241686915,
+            "geography": 46.71131547381047,
+            "finance": 15.890773082166865,
+            "traffic": 31.93796946885061
+          },
+          "AP": 40.28615194242285,
+          "domain_macro": 42.18590834698935
+        },
+        "proof_file": "summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/completed/b463d0e9fdfecc9eb456.json",
+        "proof_sha256": "c0c010f18db89b088cd3ac13b92e79a76c560c13ee9f9960f0e5e2ddc8e88c69",
+        "prediction_sha256": {
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T01_test_predictions.jsonl": "b9c9d97a9524ccc3969db35b2f5a00187e0d1b7a60e31373650d86ae9b1dfb8d",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T02_test_predictions.jsonl": "487fe558834d2041e7236bbf0eae86e9fdbc1b0fc532130cfbb245ec3cb62909",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T03_test_predictions.jsonl": "0c9f5c7431f04fa1c75aa0c7700bd61f9c179a8a5647aa0f09b6edae70eb5150",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T04_test_predictions.jsonl": "779367f54a299638ed41cc725c2043f468df11d6b2ee9effc388fee047c6e178",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T05_test_predictions.jsonl": "31f36c2e7ba3a37646fee09b35149926f5b99b8da06d2d9953bd9df2635a6c08",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T06_test_predictions.jsonl": "e4a9ee841b641628726bbe6aa296cc73cb185b129fe84d0f6a0d26c6506d252e",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T07_test_predictions.jsonl": "ec331c8a905e1a73612a34c6f9cae46bb4c84b9234f4feb49b5f2cde80fe085c",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T08_test_predictions.jsonl": "d26dd83fbb84229e355ef36e201e1af339a98ca6961b408c4bc308378bf82059",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T09_test_predictions.jsonl": "b6e469387a8ec4729700a5c2048e6d48d6ff0928112eaeabb49dfa24985442db",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T10_test_predictions.jsonl": "273559db7932e23e7acb3c62017202996c5d83facb6da810534a97129faca57a",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T11_test_predictions.jsonl": "a1e301409c1c1ea08cabb623d872dc4b3093bc305d8572891c2cb78a146d3c4d",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T12_test_predictions.jsonl": "8bcf50f42dfc8f92c950ad1f2e83e61bbacb4f9605771ee2f90c65e6b5c6a1df",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T13_test_predictions.jsonl": "b856d0629a5513129e9417ca4f20adeac410751b96cb9a88344774a343a187ab",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T14_test_predictions.jsonl": "8bcbf9a27b42f7fb9dc261d691deee96690b683db5dd17cf8a4325bb3a5bcae1",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T15_test_predictions.jsonl": "4626278d508b5fd8cf0e3971fb296205b0c511d73736154d4ebe474de3f700ec",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T16_test_predictions.jsonl": "972d29e351553cf0d89eed18454d0ca873349bb285a4a8cfe8ef3b812548a49e",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T17_test_predictions.jsonl": "9e7abccef88e9a583dbcdd05123ed0be9b3d68895e76e5c67b59218a8b388c65",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T18_test_predictions.jsonl": "e926180e49da0ce4715ddbcb2fae1fb2de6b075bcb82d2bc9dff666b5af245f1",
+          "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T19_test_predictions.jsonl": "0d48144620f86afce6b161f8fbebc0fd5f7f5c2d9a155e14870dd0f0caf5fe49"
+        }
+      }
+    ]
+  },
+  "input_sources": {
+    "exp/onevision_deterministic_native_20261016/20261016_212934/evaluations/sequential_T19/natural_image.jsonl": "4cc3f496cdf16d76913fde199dce6c259b5cb58b057ff34a6cd4e76e1e21f122",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/evaluations/sequential_T19/medical_image.jsonl": "df7555d4d5e0ef8cd28e1d8f2931f1f2c1e055f7061815a5b946a1d9be98d16d",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/evaluations/sequential_T19/geography_image.jsonl": "88aef5e6d7eca2ddcf1cb3457ba8e939f242dac19c9a82e2456e10b8f63aa918",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/evaluations/sequential_T19/finance_image.jsonl": "2f80b23af4ab4c5377c0b8c159ec46fc02bc47952516836793c1d6c843b10512",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/evaluations/sequential_T19/traffic_image.jsonl": "965ca56e9985c9762ae481c33433bb4aba60cb2fe4cddfb2dfd1159a84777c91",
+    "exp/onevision_warm_quality_20261018/pilot/20261018_172327/evaluations/quality_hard/natural_image.jsonl": "9c5c6a1d2f26b9174c2ab26344ad40d83e0bd0dffc4b8e4d5f9ae821fe56cdef",
+    "exp/onevision_warm_quality_20261018/pilot/20261018_172327/evaluations/quality_hard/medical_image.jsonl": "0eb9c4528f11d1fe0391a37d1f279bc132ef6a5b8f8e3d976dc09ea3713d9d5d",
+    "exp/onevision_warm_quality_20261018/pilot/20261018_172327/evaluations/quality_hard/geography_image.jsonl": "c984a922f93224789f450d6db517bcf5311d5dd6ce487e8546588a81087b4625",
+    "exp/onevision_warm_quality_20261018/pilot/20261018_172327/evaluations/quality_hard/finance_image.jsonl": "8775f6d6daadf70a583527fcacab84811d62aa4b6be702f12cad157c6399b056",
+    "exp/onevision_warm_quality_20261018/pilot/20261018_172327/evaluations/quality_hard/traffic_image.jsonl": "714389ffc203d92293bc2a9ea7abc8381805f719d073cd9d28f62e5e9f8e3a0b"
+  },
+  "report_source_sha256": "4a7994feb229070ac6bb13ed31082bb362bb07da6f63aa45c66b3da60a57596a"
+}
