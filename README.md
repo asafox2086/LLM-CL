@@ -2,9 +2,9 @@
 
 **研究背景：轻量模型、1%数据、低内存增长。** 允许多个LoRA，但以实际领域总Answer F1、AP/FWT/BWT和资源成本评价，不要求每个语言、题型或样本都提升。LoRA是训练参数化，正则化是保护机制，两者可结合；不预设必须扩容或路由。[核心规则](rules/021_lightweight_data_limited_core_20261017.md) · [LoRA与正则化](summary/onevision_diagnostics_20261016/expert_cold_start_20261018/LORA_VS_REGULARIZATION.md)。
 
-**最新执行（2026-10-18）：** 原生连续LoRA＋缓存已完成19阶段/93次有效更新，逐层权重精确等于原顺序LoRA，四格评测尚未全部完成。服务器18:45重启后正式SeqFT接续；CL-MoE保留中断证据后已启动新的独立运行，其他GPU进程保全。[实际执行记录](summary/onevision_diagnostics_20261016/functional_state_cache_20261018/v1/execution_context/README.md)。研究在空闲GPU0/1择一，新机我们的作业最多占三张卡。
+**最新执行（2026-10-18）：** 原生连续LoRA＋缓存19阶段/93次更新及四格诊断已完整核验：同155题AP为顺序43.363、缓存几何45.700、缓存质量42.860；域宏差区间均含0，未证大幅稳定提升。相同32道遥感题出现NLL下降而F1下降，质量调用不能直接等同生成质量。[完整四格与边界](summary/onevision_diagnostics_20261016/functional_state_cache_20261018/v1/first_four_view_outcome/RESEARCH_FINDINGS.md)。服务器18:45重启后正式SeqFT接续；CL-MoE保留中断证据后已启动新的独立运行，其他GPU进程保全。[实际执行记录](summary/onevision_diagnostics_20261016/functional_state_cache_20261018/v1/execution_context/README.md)。研究在空闲GPU0/1择一，新机我们的作业最多占三张卡。
 
-**当前主线先保持简单：** 按用户最新要求，先用研究设置检验“冷启动难学，不等于跨域LoRA应当复用”。[固定五格](summary/onevision_diagnostics_20261016/initialization_source_controls_20261018/v1/PROTOCOL.md)比较冷启动、同域/跨域完整继承、同域/跨域只继承A并将B置零；各用相同26条目标TRAIN/2更新，最终同507题。已实现准入，当前作业自然完成后接续，暂无这五格GPU成效；不继续加路由模块。[唯一当前队列](summary/onevision_diagnostics_20261016/initialization_source_controls_20261018/v1/queue/README.md)。
+**当前主线先保持简单：** 按用户最新要求，先用研究设置检验“冷启动难学，不等于跨域LoRA应当复用”。[固定五格](summary/onevision_diagnostics_20261016/initialization_source_controls_20261018/v1/PROTOCOL.md)比较冷启动、同域/跨域完整继承、同域/跨域只继承A并将B置零；各用相同26条目标TRAIN/2更新，最终同507题。两个源历史已完成各12次QA曝光/2更新，冷启动目标对照已在GPU1开始；五格最终507题结果仍待，不继续加路由模块。[唯一当前队列](summary/onevision_diagnostics_20261016/initialization_source_controls_20261018/v1/queue/README.md)。
 
 [公共V2缓存候选](code/OneVision_FormalStateCache/README.md)的源码、正式SeqFT19阶段小状态和CPU集成已备妥，输入/精度/顺序等与正式框架一致；按最新要求暂后移两个完整确认，不删除。原训练93更新成本仍计入，原生155分数继续只作诊断，正式Ours未完成仍留空。
 
@@ -193,6 +193,6 @@ FinMME的ID3698、9806金答案为空，原记录单独保留审计，不伪造�
 
 最新机制证据：[恢复的医学专家就是顺序LoRA的已有功能](summary/onevision_diagnostics_20261016/warm_quality_20261018/calibration_audit/RESEARCH_FINDINGS.md)。T02—T11全部A/B精确桥接；TRAIN几何不变而功能质量改变。有界功能状态目前仅TRAIN筛查，无新F1。GPU1继续18条数据量/初始化控制；case00完整后包装器异常已保留，修复后的唯一调度为[queue_v4](summary/onevision_diagnostics_20261016/feature_identity_repair_20261018/queue_v4/README.md)，没有重训该结果。
 
-新候选：[连续习得＋有界功能缓存](code/OneVision_StateCache/README.md)，两个模块已实现、CPU门禁通过并准入唯一队列；当前GPU0/1均有他人进程，按新规则自动择空等待，尚无新方法F1。原[1条QA初始化配对](summary/onevision_diagnostics_20261016/cold_data_factorial_20261018/first_support_pair/RESEARCH_FINDINGS.md)已完成：1步温启动优势11.482pp，4步差−1.787pp区间含0，不能将一步冷启动弱习得写成永久低上限。更新/曝光预算、代价及全部原控制继续保留。
+新候选：[连续习得＋有界功能缓存](code/OneVision_StateCache/README.md)已完成四格诊断：缓存几何AP45.700对同设置顺序43.363；质量调用42.860。诊断域宏差95%区间均含0，未证明稳定、大幅或完整测试收益。两个完整21454确认仍保留并按最新指令后移；当前先完成五格初始化来源控制。
 
 研究硬件按最新授权采用[GPU0/1择空、我们最多占3卡](rules/022_research_gpu_flex_20261018.md)，实际唯一[flex_queue](summary/onevision_diagnostics_20261016/functional_state_cache_20261018/v1/flex_queue/README.md)保留所有科学条件/基线。当前两张研究候选卡均被他人占用，不能写成新方法GPU已启动。
