@@ -1,5 +1,7 @@
 # LLMCL：小模型的五领域多模态持续学习
 
+**正式基线新增：** OneVision OSFT已核验完整19阶段／74必要评测格／21454最终QA，AP=46.357、FWT=18.932、BWT=−1.616；SeqFT AP=40.286，差+6.071pp。五域结果已填下方主表。该正式V2结果不能与研究155诊断直接排名；也不能把冷启动局部问题推广成所有既有方法都会变差。[完整核验索引](summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/VERIFIED_INDEX.json)。
+
 **新增发现：** 同域／跨域源的函数补偿均已完成原507题：首步A恢复非零梯度后，F1=15.428／15.533，仍低于完整功能继承18.113／18.468，对应配对图像区间均不含0。不能把冷启动代价全部解释为首步A梯度为0；完整功能复用及正确调用应继续验证。新TRAIN-F1匹配已在GPU0实际启动，尚无新头F1结果。[修订的证明链](summary/onevision_diagnostics_20261016/expert_cold_start_20261018/COLD_START_PROOF.md) · [完整控制与边界](summary/onevision_diagnostics_20261016/function_neutral_init_20261018/v2/function_vs_factor/RESEARCH_FINDINGS.md)。
 
 **当前执行：** 三格函数补偿均已完成，v1导入故障保留、独立v2修复。新的[TRAIN输出质量反馈＋1792参数匹配](summary/onevision_diagnostics_20261016/answer_compatibility_20261018/v1/PROTOCOL.md)已实际取得60条TRAIN生成反馈及40次非零梯度更新；CPU独立精确重放参数与全部梯度。20个训练锚中7个对候选F1有区分，两个头的TRAIN自查询硬路由尚无变化；这不表示未见数据无效或已有F1收益。两个新条件正在GPU0完成同一诊断，随后均保留完整21454确认。[TRAIN实证与边界](summary/onevision_diagnostics_20261016/answer_compatibility_20261018/v1/TRAIN_FIT_FINDINGS.md) · [唯一队列](summary/onevision_diagnostics_20261016/answer_compatibility_20261018/v1/queue/README.md)。基线不停。
@@ -36,7 +38,7 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 | SMoLoRA | 架构 | [ICCV 2025](https://openaccess.thecvf.com/content/ICCV2025/html/Wang_SMoLoRA_Exploring_and_Defying_Dual_Catastrophic_Forgetting_in_Continual_Visual_ICCV_2025_paper.html) |  |  |  |  |  |  |  |  |
 | PASs-MoE | 架构（兼正则） | [ACL 2026](https://aclanthology.org/2026.acl-long.1474/) |  |  |  |  |  |  |  |  |
 | PaRSP | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.1244/) | 73.346 | 38.743 | 54.088 | 20.609 | 32.655 | 40.390 | 18.503 | -0.484 |
-| OSFT | 正则化 | [ICLR 2026](https://proceedings.iclr.cc/paper_files/paper/2026/hash/22620cccae29bbb3f18d226ea0320ff5-Abstract-Conference.html) |  |  |  |  |  |  |  |  |
+| OSFT | 正则化 | [ICLR 2026](https://proceedings.iclr.cc/paper_files/paper/2026/hash/22620cccae29bbb3f18d226ea0320ff5-Abstract-Conference.html) | 73.907 | 43.894 | 51.709 | 23.982 | 36.196 | 46.357 | 18.932 | -1.616 |
 | SpaRTA | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.334/) |  |  |  |  |  |  |  |  |
 | Ours | 自研方法 | 未发表 |  |  |  |  |  |  |  |  |
 

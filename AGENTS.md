@@ -1,3 +1,8 @@
+# Formal OSFT now complete; original CPU publisher safely resumed — 2026-10-18
+
+- 新封存OneVision OSFT完整核验：19正LR／有限训练阶段、74必要评测格、21454最终QA／原AnswerF1／checkpointSHA；AP46.356693/FWT18.931601/BWT−1.616191，域73.906682/43.894089/51.709316/23.981577/36.195526。正式SeqFT AP40.286152，OSFT+6.070541pp；三完整SeqFT/PaRSP/OSFT。这是否定“已有方法普遍无用”的泛化边界，不是冷启动局部控制的反证，native155不能直接排名。
+- 旧OSFT572431已正常完成，不重启；旧CL341019/PAS342152/Spa826894及新Qwen3256/7965实际存活。只读七方法发布器重启后inactive/success/MainPID0、无attention且锁空闲，原源码SHA核对后恢复既有nohupCPU watch，PID51266；无训练/GPU重启，全部受保护身份不变。见completion_observer_seven_20261018/boot_resume_20261018；外侧README由原冻结v2_readme_main_table填新结果，不改方法源或研究队列。后续有新封存才处理，不重复相同快照。
+
 # 最新实证：三格函数补偿完成；TRAIN兼容性头实际训练，五域效果待 — 2026-10-18
 
 - 唯一nohup服务仍为CPU34096/onevision_answer_compatibility_queue.py；当前权威answer_compatibility_20261018/v1/queue/queue_state.json与ACTIVATION。v2冷／同域／跨域三格全部507完成，不恢复旧CPU。新GPU40751在实际空闲GPU0执行反馈build，CPU34096及新基线3256/7965实查存活；PID只是本次快照，后续先查完成证明再查实际进程。一个研究流、新机我们的作业最多3卡、保全他人和两机基线，不热改冻结源码。
