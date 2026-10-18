@@ -1,4 +1,6 @@
-# 当前唯一研究调度
+# 历史研究调度：CPU366824已退役
+
+当前入口已改为[causal_feedback_queue](../causal_feedback_queue/README.md)，新CPU376997。旧状态文件redirect，不恢复366824；下文是此前激活记录。
 
 2026-10-18：同nohup服务`llmcl-onevision-causal-priority.service`现用冻结`onevision_cold_data_queue.py`，CPU366824/startticks14902957。它是原冻结warm队列循环的CPU准入适配，授权文件同时记录实际wrapper和不可变祖先的SHA，未修改旧文件。
 

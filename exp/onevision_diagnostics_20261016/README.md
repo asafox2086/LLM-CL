@@ -1,3 +1,5 @@
+> 当前唯一[CPU调度](../../summary/onevision_diagnostics_20261016/causal_feedback_queue/README.md)：376997保留GPU358091自然完成，之后原warm19/18数据因子提前至第二个完整确认之前；82CPU策略/6实际继承检查通过，GPU收益待。全部旧任务保留，下方旧队列记为历史。
+
 > 新增[正则化预算审计](../../summary/onevision_diagnostics_20261016/regularizer_budget_20261018/RESEARCH_FINDINGS.md)：9个单步阶段PASs附加项系数为0，CPU正负对照通过；实际F1因果待，活动训练不改。
 
 > 最新2026-10-18：[数据量因子控制](../../summary/onevision_diagnostics_20261016/cold_data_factorial_20261018/PROTOCOL.md)18轨迹已准入、GPU待。CPU366824/唯一cold_data_queue继承原完整评测358091；原两个完整确认和温启动19阶段先行，全部旧任务/基线保留，363113仅CPU退役。142设计/25新策略/28祖先策略/6实际继承CPU门槛通过，不是模型收益。
