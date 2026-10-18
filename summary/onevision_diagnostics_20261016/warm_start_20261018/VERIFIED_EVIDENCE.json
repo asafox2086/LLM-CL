@@ -1,0 +1,137 @@
+{
+  "CPU_only": true,
+  "raw_Answer_F1": true,
+  "formal_V2": false,
+  "TEST_selection": false,
+  "warm_train_complete": false,
+  "cold_full_complete": false,
+  "warm_full_complete": false,
+  "results": [
+    {
+      "variant": "learned_cosine_K3",
+      "phase": "train",
+      "generated": 155,
+      "domains": {
+        "natural": 58.57142857142857,
+        "medical": 15.841053514914007,
+        "geography": 46.875,
+        "finance": 20.0,
+        "traffic": 31.421294853830116
+      },
+      "AP": 31.02500019956796,
+      "FWT": null,
+      "BWT": null,
+      "QA_weighted_diagnostic_partitions": {
+        "in_diagnostic500": {
+          "QA": 155,
+          "F1": 28.288709922051034
+        },
+        "outside_diagnostic500": {
+          "QA": 0,
+          "F1": null
+        }
+      }
+    }
+  ],
+  "training": {
+    "learned_cosine_K3": {
+      "actual_updates": 93,
+      "positive_LR_finite_gradients": true,
+      "TRAIN_QA": 1313,
+      "experts": 3,
+      "runtime_initialization_gates": null,
+      "runtime_geometry_gates": null
+    }
+  },
+  "resources": {
+    "learned_cosine_K3/train": {
+      "unit": "bytes",
+      "pid": 303441,
+      "boot_id": "e6182f56-39be-4e37-908d-3cfadaa7448f",
+      "process_started_unix": 1792261483.780107,
+      "before": {
+        "phase": "reuse_training_before",
+        "stage": 0,
+        "unix": 1792261497.9695227,
+        "pid": 303441,
+        "visible_gpu": "1",
+        "VmHWM_bytes": 4490096640,
+        "VmRSS_bytes": 2681589760,
+        "VmSwap_bytes": 0,
+        "Pss_bytes": 2469025792,
+        "Private_Clean_bytes": 83263488,
+        "Private_Dirty_bytes": 2323599360,
+        "cpu_uss_bytes": 2406862848,
+        "gpu_allocated_bytes": 1842765824,
+        "gpu_reserved_bytes": 3275751424,
+        "gpu_peak_allocated_bytes": 2551966720,
+        "gpu_peak_reserved_bytes": 3275751424,
+        "gpu_process_nvml_bytes": 3630170112,
+        "trainable_parameters": 540672,
+        "trainable_parameter_bytes": 2162688,
+        "model_parameter_bytes": 1789513792
+      },
+      "after": {
+        "phase": "reuse_training_after",
+        "stage": 0,
+        "unix": 1792262733.9707718,
+        "pid": 303441,
+        "visible_gpu": "1",
+        "VmHWM_bytes": 4490096640,
+        "VmRSS_bytes": 3054198784,
+        "VmSwap_bytes": 0,
+        "Pss_bytes": 2798876672,
+        "Private_Clean_bytes": 89817088,
+        "Private_Dirty_bytes": 2624331776,
+        "cpu_uss_bytes": 2714148864,
+        "gpu_allocated_bytes": 1876320256,
+        "gpu_reserved_bytes": 10261364736,
+        "gpu_peak_allocated_bytes": 9752154112,
+        "gpu_peak_reserved_bytes": 11075059712,
+        "gpu_process_nvml_bytes": 10651435008,
+        "trainable_parameters": 540672,
+        "trainable_parameter_bytes": 2162688,
+        "model_parameter_bytes": 1789513792
+      },
+      "scope": "TRAIN feature extraction, model epochs, TRAIN probes and CPU router fit; final TEST excluded from before/after, global peak includes diagnostic",
+      "growth_bytes": {
+        "VmRSS_bytes": 372609024,
+        "Pss_bytes": 329850880,
+        "cpu_uss_bytes": 307286016,
+        "gpu_allocated_bytes": 33554432,
+        "gpu_reserved_bytes": 6985613312,
+        "gpu_process_nvml_bytes": 7021264896
+      },
+      "observed_peak_bytes": {
+        "VmRSS_bytes": 3253264384,
+        "Pss_bytes": 2993976320,
+        "cpu_uss_bytes": 2906947584,
+        "gpu_allocated_bytes": 10490956800,
+        "gpu_reserved_bytes": 19360907264,
+        "gpu_process_nvml_bytes": 19750977536
+      },
+      "note": "Same-PID before/after; fresh process per cap. On recovery these describe resumed process only. Stage diagnostics are included in observed peaks; allocator cache is separate from parameter growth.",
+      "all_process_observed_peak_bytes": {
+        "VmRSS_bytes": 3253264384,
+        "Pss_bytes": 2993976320,
+        "cpu_uss_bytes": 2906947584,
+        "gpu_allocated_bytes": 10490956800,
+        "gpu_reserved_bytes": 19360907264,
+        "gpu_process_nvml_bytes": 19750977536
+      }
+    }
+  },
+  "completion_sha256": {
+    "summary/onevision_diagnostics_20261016/learned_reuse/learned_cosine_K3_train_complete.json": "bec50f3729f495d1330004d981771301eac550b22e243a237912fb8e092d221c"
+  },
+  "source_sha256": {
+    "analysis/onevision_warm_start_report.py": "20cf0a70e0e8fc433a0067dec9d9b110186d12642629ebd6eaf5724a321a4ae7"
+  },
+  "limits": [
+    "155 diagnostic generated QA are separate from complete21454; no fullFWT/BWT from final-only.",
+    "Only new-expert initialization changes; geometry/allocation must match cold runtime gates.",
+    "A result here does not establish initialization x unique-data-size interaction or knowledge sufficiency.",
+    "CPU/GPU resident, optimizer, temporary clones/history/probes/metric and compute remain charged.",
+    "Outside diagnostic500 is not claimed untouched by every earlier study."
+  ]
+}

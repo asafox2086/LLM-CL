@@ -1,3 +1,5 @@
+> 最新2026-10-18：[初始化单变量控制](../../summary/onevision_diagnostics_20261016/warm_start_20261018/PROTOCOL.md)已准入，CPU363113继承完整评测GPU358091，两个既定21454确认先行。37机制/28策略/7实际继承CPU检查通过，GPU新增训练及效果待。旧356616已退役；[唯一队列](../../summary/onevision_diagnostics_20261016/warm_start_queue/README.md)。全部原任务/两机基线保留，不改活动源码。
+
 > 最新接续2026-10-18：[文献改造：TRAIN质量校准＋连续残差](../../summary/onevision_diagnostics_20261016/functional_router/PROTOCOL.md)已接入[CPU340143队列](../../summary/onevision_diagnostics_20261016/functional_router_queue/README.md)，只退役CPU336769，原GPU338128归因作业保留自然结束，缺完整证明就停不盲重跑。固定池/零新增LoRA/16参数头；四视图诊断与两个预定完整确认全部报告。15机制＋10调度＋3继承安全CPU检查通过，GPU收益待测。原两组相似度试验已19阶段完成：同155AP固定22.391/学习31.025，低于SeqFT43.363，完整0/2保留。共同T04完整S1及四指令全格已完成；旧待测段落作为历史记录，以最新报告为准。新机磁盘事故已保全并核验续跑，见[恢复](../../summary/storage_recovery_20261018/README.md)。
 
 > [语言分布审计](../../summary/onevision_diagnostics_20261016/matched_task_domain/language_profile/T04_VERIFIED_RESULTS.md)显示跨域差距在中文更大，TRAIN语言也变，不能全归因知识遗忘。原[语言队列](../../summary/onevision_diagnostics_20261016/language_causal_queue/README.md)已被上述新入口继承，固定两权重×四既有指令推理全部保留。

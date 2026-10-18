@@ -1,5 +1,7 @@
 > **核心背景：轻量、小数据、低内存增长。允许多个LoRA，单LoRA不是硬限制。** 先检验少量数据为何导致既有方法退化，再针对性提升；目标内存增长低于具体对比LoRA方法，须同设置实测，并报告额外计算成本。两台服务器基线持续后台运行。[核心规则](rules/021_lightweight_data_limited_core_20261017.md)。
 
+最新研究：已接入[冷启动初始化单变量控制](summary/onevision_diagnostics_20261016/warm_start_20261018/PROTOCOL.md)，同1313TRAIN/19阶段/3专家仅改新LoRA的完整A/B继承；37项CPU机制通过，GPU结果待。当前完整评测和两机6基线持续；[唯一研究队列](summary/onevision_diagnostics_20261016/warm_start_queue/README.md)。
+
 新[冷启动桥接](summary/onevision_diagnostics_20261016/expert_cold_start_20261018/RESEARCH_FINDINGS.md)：实际e1只训练11条/一步且以后权重未变；同目标预算控制中，从基座新建19.876、继承旧适配29.263。不是所有方法/最终AP原因的泛化。
 
 最新完整四视图诊断已核验：同155题AP，原调用31.025→质量硬36.704／几何软35.996／质量软36.387，仍低于顺序43.363。完整21454候选已启动、尚未完成；正式V2主表仍只填已完成SeqFT/ER。见[五域主表格式与边界](summary/onevision_diagnostics_20261016/functional_router/MAIN_TABLE_DIAGNOSTIC.md)。
