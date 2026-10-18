@@ -1,0 +1,349 @@
+{
+  "CPU_only": true,
+  "analyzer_sha256": "658f811cdb930c0377224619e49e14ca76989f842154c85ef8eacc0a2ee334c4",
+  "proof_sha256": {
+    "within_compensated_complete.json": "a6cc2101926ca211319eb83cb9c5e0cc426e1cd772f2a3ba0a86a8eb76276cbb",
+    "cold_compensated_complete.json": "c1d7cc94e2207c4fb118fcb10ca698d6ff78c11ed2f7d937ef78c748274e3b75",
+    "cross_compensated_complete.json": "ec776f0ad44f21bdec83321ebaaf7e7ce4711d3827d06aa93814827a10703c09"
+  },
+  "scoring_audit_sha256": "be7ebc384f37cc77250bf2ed050bd5e3f35434616883b822b121fb608cf30602",
+  "sources": {
+    "within": {
+      "source_factor_values_exact": true,
+      "trainable_parameters": 540672,
+      "frozen_reference_parameters_compensated_only": 540672,
+      "target_TRAIN_QA": 26,
+      "target_updates": 2,
+      "source_history_QA_exposures": 12,
+      "source_history_updates": 2,
+      "actual_target_budgets": [
+        {
+          "qa_seen": 16,
+          "total_qa": 26,
+          "learning_rate_used": 0.0001,
+          "warmup_updates": 0
+        },
+        {
+          "qa_seen": 26,
+          "total_qa": 26,
+          "learning_rate_used": 5e-05,
+          "warmup_updates": 0
+        }
+      ],
+      "initial32": {
+        "full": {
+          "QA": 32,
+          "mean_NLL": 6.859870295971632,
+          "raw_file_sha256": "2a2c36bd3967e05aa1d4f662369aa1d4a56cc5f879c31fb1f91c8b9a3a6554b6"
+        },
+        "compensated": {
+          "QA": 32,
+          "mean_NLL": 8.726991832256317,
+          "raw_file_sha256": "587be844f6d10a3ed300de9869ad4645e1a1f95296ebf7bf8c3dc624ed5283d9"
+        }
+      },
+      "raw_preclip_gradients": {
+        "full": [
+          {
+            "TRAIN_ids": [
+              "SLAKE:4367",
+              "SLAKE:1276",
+              "SLAKE:2673",
+              "SLAKE:9791",
+              "SLAKE:7867",
+              "SLAKE:5162",
+              "SLAKE:974",
+              "SLAKE:894",
+              "SLAKE:9372",
+              "SLAKE:9010",
+              "SLAKE:7928",
+              "SLAKE:9452",
+              "SLAKE:6439",
+              "SLAKE:3350",
+              "SLAKE:6391",
+              "SLAKE:24"
+            ],
+            "preclip_A_gradient_l2": 5.031494590163589,
+            "preclip_B_gradient_l2": 149.0344758377953,
+            "nonzero_gradient_layers": {
+              "A": 48,
+              "B": 48
+            },
+            "zero_vector_does_not_distinguish_missing_gradient_from_exact_zero": true
+          },
+          {
+            "TRAIN_ids": [
+              "SLAKE:1146",
+              "SLAKE:8432",
+              "SLAKE:6268",
+              "SLAKE:4539",
+              "SLAKE:6561",
+              "SLAKE:3186",
+              "SLAKE:6286",
+              "SLAKE:3748",
+              "SLAKE:5803",
+              "SLAKE:9284"
+            ],
+            "preclip_A_gradient_l2": 5.313143054124646,
+            "preclip_B_gradient_l2": 91.836670497092,
+            "nonzero_gradient_layers": {
+              "A": 48,
+              "B": 48
+            },
+            "zero_vector_does_not_distinguish_missing_gradient_from_exact_zero": true
+          }
+        ],
+        "compensated": [
+          {
+            "TRAIN_ids": [
+              "SLAKE:4367",
+              "SLAKE:1276",
+              "SLAKE:2673",
+              "SLAKE:9791",
+              "SLAKE:7867",
+              "SLAKE:5162",
+              "SLAKE:974",
+              "SLAKE:894",
+              "SLAKE:9372",
+              "SLAKE:9010",
+              "SLAKE:7928",
+              "SLAKE:9452",
+              "SLAKE:6439",
+              "SLAKE:3350",
+              "SLAKE:6391",
+              "SLAKE:24"
+            ],
+            "preclip_A_gradient_l2": 5.413650567691347,
+            "preclip_B_gradient_l2": 151.0314710428751,
+            "nonzero_gradient_layers": {
+              "A": 48,
+              "B": 48
+            },
+            "zero_vector_does_not_distinguish_missing_gradient_from_exact_zero": true
+          },
+          {
+            "TRAIN_ids": [
+              "SLAKE:1146",
+              "SLAKE:8432",
+              "SLAKE:6268",
+              "SLAKE:4539",
+              "SLAKE:6561",
+              "SLAKE:3186",
+              "SLAKE:6286",
+              "SLAKE:3748",
+              "SLAKE:5803",
+              "SLAKE:9284"
+            ],
+            "preclip_A_gradient_l2": 8.084832545920314,
+            "preclip_B_gradient_l2": 130.9643248754777,
+            "nonzero_gradient_layers": {
+              "A": 48,
+              "B": 48
+            },
+            "zero_vector_does_not_distinguish_missing_gradient_from_exact_zero": true
+          }
+        ]
+      },
+      "final507": {
+        "full": {
+          "F1": 18.112613881844656,
+          "NLL": 5.477558685654014,
+          "proof_sha256": "3e919605f1a415ac412acfe33a52c9c4cd349d0298f8b2191c5e779c72a9cb49",
+          "run": "exp/onevision_initialization_source_20261018/v1/within_full/20261018_194825"
+        },
+        "compensated": {
+          "F1": 15.427820043204651,
+          "NLL": 6.877902411850246,
+          "proof_sha256": "a6cc2101926ca211319eb83cb9c5e0cc426e1cd772f2a3ba0a86a8eb76276cbb",
+          "run": "exp/onevision_function_neutral_init_20261018/v2/within_compensated/20261018_203600"
+        }
+      },
+      "contrast": {
+        "target": "within_compensated",
+        "reference": "within_full",
+        "delta_F1": -2.684793838639993,
+        "image_95CI": [
+          -5.214627945634106,
+          -0.44081086249760937
+        ],
+        "uncorrected": true
+      },
+      "full_complete_sha256": "3e919605f1a415ac412acfe33a52c9c4cd349d0298f8b2191c5e779c72a9cb49",
+      "compensated_complete_sha256": "a6cc2101926ca211319eb83cb9c5e0cc426e1cd772f2a3ba0a86a8eb76276cbb"
+    },
+    "cross": {
+      "source_factor_values_exact": true,
+      "trainable_parameters": 540672,
+      "frozen_reference_parameters_compensated_only": 540672,
+      "target_TRAIN_QA": 26,
+      "target_updates": 2,
+      "source_history_QA_exposures": 12,
+      "source_history_updates": 2,
+      "actual_target_budgets": [
+        {
+          "qa_seen": 16,
+          "total_qa": 26,
+          "learning_rate_used": 0.0001,
+          "warmup_updates": 0
+        },
+        {
+          "qa_seen": 26,
+          "total_qa": 26,
+          "learning_rate_used": 5e-05,
+          "warmup_updates": 0
+        }
+      ],
+      "initial32": {
+        "full": {
+          "QA": 32,
+          "mean_NLL": 7.0903628654778,
+          "raw_file_sha256": "33c6106e5fc1d8db68cc3f7ab936e14229c68cb18d98473168355b531c5c6c57"
+        },
+        "compensated": {
+          "QA": 32,
+          "mean_NLL": 8.726991832256317,
+          "raw_file_sha256": "c33fa7ceb6506e2b142862027bc0c8c80feb72d2d55a7c7dbbce1cc73ed7a734"
+        }
+      },
+      "raw_preclip_gradients": {
+        "full": [
+          {
+            "TRAIN_ids": [
+              "SLAKE:4367",
+              "SLAKE:1276",
+              "SLAKE:2673",
+              "SLAKE:9791",
+              "SLAKE:7867",
+              "SLAKE:5162",
+              "SLAKE:974",
+              "SLAKE:894",
+              "SLAKE:9372",
+              "SLAKE:9010",
+              "SLAKE:7928",
+              "SLAKE:9452",
+              "SLAKE:6439",
+              "SLAKE:3350",
+              "SLAKE:6391",
+              "SLAKE:24"
+            ],
+            "preclip_A_gradient_l2": 4.629770128719343,
+            "preclip_B_gradient_l2": 119.95630275581465,
+            "nonzero_gradient_layers": {
+              "A": 48,
+              "B": 48
+            },
+            "zero_vector_does_not_distinguish_missing_gradient_from_exact_zero": true
+          },
+          {
+            "TRAIN_ids": [
+              "SLAKE:1146",
+              "SLAKE:8432",
+              "SLAKE:6268",
+              "SLAKE:4539",
+              "SLAKE:6561",
+              "SLAKE:3186",
+              "SLAKE:6286",
+              "SLAKE:3748",
+              "SLAKE:5803",
+              "SLAKE:9284"
+            ],
+            "preclip_A_gradient_l2": 3.9692928738690534,
+            "preclip_B_gradient_l2": 72.7369425320057,
+            "nonzero_gradient_layers": {
+              "A": 48,
+              "B": 48
+            },
+            "zero_vector_does_not_distinguish_missing_gradient_from_exact_zero": true
+          }
+        ],
+        "compensated": [
+          {
+            "TRAIN_ids": [
+              "SLAKE:4367",
+              "SLAKE:1276",
+              "SLAKE:2673",
+              "SLAKE:9791",
+              "SLAKE:7867",
+              "SLAKE:5162",
+              "SLAKE:974",
+              "SLAKE:894",
+              "SLAKE:9372",
+              "SLAKE:9010",
+              "SLAKE:7928",
+              "SLAKE:9452",
+              "SLAKE:6439",
+              "SLAKE:3350",
+              "SLAKE:6391",
+              "SLAKE:24"
+            ],
+            "preclip_A_gradient_l2": 5.357184041255091,
+            "preclip_B_gradient_l2": 150.60861455626403,
+            "nonzero_gradient_layers": {
+              "A": 48,
+              "B": 48
+            },
+            "zero_vector_does_not_distinguish_missing_gradient_from_exact_zero": true
+          },
+          {
+            "TRAIN_ids": [
+              "SLAKE:1146",
+              "SLAKE:8432",
+              "SLAKE:6268",
+              "SLAKE:4539",
+              "SLAKE:6561",
+              "SLAKE:3186",
+              "SLAKE:6286",
+              "SLAKE:3748",
+              "SLAKE:5803",
+              "SLAKE:9284"
+            ],
+            "preclip_A_gradient_l2": 8.69351727883496,
+            "preclip_B_gradient_l2": 138.34910792544142,
+            "nonzero_gradient_layers": {
+              "A": 48,
+              "B": 48
+            },
+            "zero_vector_does_not_distinguish_missing_gradient_from_exact_zero": true
+          }
+        ]
+      },
+      "final507": {
+        "full": {
+          "F1": 18.467643467643473,
+          "NLL": 5.685544412987237,
+          "proof_sha256": "33d1987f017f89e962b28e962bdf4f40742348331225b1a6793ff12ba089a089",
+          "run": "exp/onevision_initialization_source_20261018/v1/cross_full/20261018_195410"
+        },
+        "compensated": {
+          "F1": 15.533013994552448,
+          "NLL": 6.890695904133588,
+          "proof_sha256": "ec776f0ad44f21bdec83321ebaaf7e7ce4711d3827d06aa93814827a10703c09",
+          "run": "exp/onevision_function_neutral_init_20261018/v2/cross_compensated/20261018_204318"
+        }
+      },
+      "contrast": {
+        "target": "cross_compensated",
+        "reference": "cross_full",
+        "delta_F1": -2.9346294730910114,
+        "image_95CI": [
+          -5.303030303030304,
+          -0.8317214700193426
+        ],
+        "uncorrected": true
+      },
+      "full_complete_sha256": "33d1987f017f89e962b28e962bdf4f40742348331225b1a6793ff12ba089a089",
+      "compensated_complete_sha256": "ec776f0ad44f21bdec83321ebaaf7e7ce4711d3827d06aa93814827a10703c09"
+    }
+  },
+  "pending": [],
+  "new_model_updates": 0,
+  "new_GPU_or_predictions": false,
+  "limits": [
+    "This exact compensation changes source function, activations, gradients and translated function family.",
+    "Not a pure knowledge intervention or universal proof nonzero initialization is ineffective.",
+    "Initial32 is not full507 acquisition reference; never subtract their means.",
+    "Same source history charged to both; one target/two fixed sources/single seed.",
+    "All reported paired image intervals are uncorrected, not multi-seed uncertainty.",
+    "Larger raw A-gradient norm does not identify better Adam updates or causal semantic capacity."
+  ]
+}

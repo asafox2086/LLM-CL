@@ -1,3 +1,5 @@
+**2026-10-18现行入口：** [唯一队列](../../summary/onevision_diagnostics_20261016/answer_compatibility_20261018/v1/queue/queue_state.json) CPU34096；三格函数补偿507全部完成，新TRAIN-F1匹配在GPU0实际运行。60TRAIN反馈／40次1792维头更新已独立精确核验，新两诊断尚待完整证明。先看[K44和边界](../../summary/onevision_diagnostics_20261016/function_neutral_init_20261018/v2/function_vs_factor/RESEARCH_FINDINGS.md)、[TRAIN阶段实证](../../summary/onevision_diagnostics_20261016/answer_compatibility_20261018/v1/TRAIN_FIT_FINDINGS.md)。表示／复用为开放方向，不锁定LoRA或线性空间；全部原控制／完整确认和两机基线保留。研究一流、空闲GPU0／1择一、我们的新机作业至多三卡。下方旧状态／PID均为历史，不恢复旧调度。
+
 当前唯一研究[flex_queue](../../summary/onevision_diagnostics_20261016/functional_state_cache_20261018/v1/flex_queue/README.md) CPU436033，按最新用户授权选择空闲GPU0或1、我们最多占3卡；当前两卡他人进程存活，健康等待。下方GPU0保留/仅GPU1与旧CPU号均为历史；所有科学门槛和基线不变。
 
 最新：新连续习得/有界功能缓存已实现并准入[唯一队列](../../summary/onevision_diagnostics_20261016/functional_state_cache_20261018/v1/queue/README.md)，CPU434457；GPU1他人432429实际存活，健康等待，不能称新方法在跑。原数据因子2/18封存，[单QA配对](../../summary/onevision_diagnostics_20261016/cold_data_factorial_20261018/first_support_pair/RESEARCH_FINDINGS.md)表明一步初始化优势随更新/曝光预算缩小。新47CPU检查不是GPU成效，原所有任务和基线保留。下文队列说明为历史。

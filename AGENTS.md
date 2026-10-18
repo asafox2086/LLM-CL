@@ -1,3 +1,13 @@
+# 最新实证：三格函数补偿完成；TRAIN兼容性头实际训练，五域效果待 — 2026-10-18
+
+- 唯一nohup服务仍为CPU34096/onevision_answer_compatibility_queue.py；当前权威answer_compatibility_20261018/v1/queue/queue_state.json与ACTIVATION。v2冷／同域／跨域三格全部507完成，不恢复旧CPU。新GPU40751在实际空闲GPU0执行反馈build，CPU34096及新基线3256/7965实查存活；PID只是本次快照，后续先查完成证明再查实际进程。一个研究流、新机我们的作业最多3卡、保全他人和两机基线，不热改冻结源码。
+- 新K44：相同源A/B、26TRAIN／2更新／真实LR，补偿首步48层A/B非零且A范数更大，但同域／跨域F1仅15.427820／15.533014，对完整继承18.112614／18.467643差−2.684794／−2.934629，图像95%区间[-5.214628,-.440811]／[-5.303030,-.831721]。冷补偿两步梯度／参数及507逐项精确原cold。首步A梯度恢复不足以恢复完整继承收益；非纯专业知识因果，补偿功能族／激活／优化路径和参考成本均保留。见function_neutral_init_20261018/v2/function_vs_factor与修订COLD_START_PROOF。
+- 新反馈实际60条TRAIN生成完成、GPU原cache_geometry500/155精确复现门槛通过。1792维匹配头确实40次非零梯度更新、1792维变化；独立CPU精确重放全部40梯度／theta／日志。原20QA仅7条专家F1有差别；固定与学习头在20条TRAIN自查询硬路由均选18，0改变。TRAIN自查询不是泛化验证，不能以参数变化或拟合下降宣称F1收益／最优数量；新两条件500/155仍在执行，两个完整21454均保留。见TRAIN_FIT_VERIFIED.json和TRAIN_FIT_FINDINGS.md，不重复同一CPU审计冒充进展。
+- 新共享基底仅权重CPU原型：三个FP32状态6.1875->3.5625MiB张量载荷，函数误差4.95%/1.45%/1.62%，差分6.54%/6.59%/9.18%；不是部署内存或F1收益，不替换／新增当前GPU条件。candidate checkpoint仅exp，不进Git。已有子空间文献不能冒充新理论。
+- 最新用户只是表示／迁移兼容性／选择复用的方向，不锁定LoRA、余弦或线性空间（规则023）。继续TRAIN-only、公平冻结1313/19/21454与唯一原始Answer F1；nativeAnyRes不混正式V2。待本次真实结果再解释，不按TEST调参／删负条件，原18数据因子／原所有完整确认和两机基线继续。
+
+以下旧快照保留作为历史，最新权威以上述入口和实时证明为准。
+
 # CURRENT sole queue: TRAIN-answer compatibility ADMITTED, GPU head outcomes pending — 2026-10-18
 
 - SAME nohup service now CPU34096/onevision_answer_compatibility_queue.py, authority answer_compatibility_20261018/v1/queue/queue_state.json+ACTIVATION. CPU30721 intentionally retired KillMode=process; protected current neutralGPU33289, baselines3256/7965 and foreignGPU33604 PID/startticks preserved. FEEDBACK_INHERITED receipt waits current v2within naturalcompletion; then remainingv2cross, then newfeedbackbuild; all3neutral must finish before newmethod. Bothnewfull21454 deferred until all18original data controls complete; every oldjob/full preserved. New9policy/2commands plus all ancestors pass; actual old/new CPUdispatch/gold-field invariance and actual full source-reference reporter checks pass, not GPU head performance. New core/trial/entry/report/queue/dispatch/activation now FROZEN, repairsnewversion. Do not revive oldCPU30721/26045/12470.

@@ -1,3 +1,5 @@
+**2026-10-18现行入口：** [唯一队列](answer_compatibility_20261018/v1/queue/queue_state.json) CPU34096；三格函数补偿507全部完成，新TRAIN-F1匹配在GPU0实际运行。60TRAIN反馈／40次1792维头更新已独立精确核验，新两诊断尚待完整证明。先看[K44和边界](function_neutral_init_20261018/v2/function_vs_factor/RESEARCH_FINDINGS.md)、[TRAIN阶段实证](answer_compatibility_20261018/v1/TRAIN_FIT_FINDINGS.md)。表示／复用为开放方向，不锁定LoRA或线性空间；全部原控制／完整确认和两机基线保留。研究一流、空闲GPU0／1择一、我们的新机作业至多三卡。下方旧状态／PID均为历史，不恢复旧调度。
+
 最新硬件接续：CPU436033/[flex_queue](functional_state_cache_20261018/v1/flex_queue/README.md)已启用0/1择空与我们最多占3卡；当前两卡他人占用，新方法GPU未启动。旧CPU434457退役，科学协议/原全部作业不变。
 
 2026-10-18最新接续：新[连续LoRA＋有界功能缓存候选](functional_state_cache_20261018/v1/PROTOCOL.md)已实现并准入同nohup，47CPU机制/集成＋21调度＋8命令检查通过；CPU434457当前因实际他人GPU1进程432429存活健康等待，尚无新GPU/F1。原18数据因子现2/18、[第一对单QA](cold_data_factorial_20261018/first_support_pair/RESEARCH_FINDINGS.md)显示1步温−冷+11.482pp、4步−1.787pp区间含0，优势缩小−13.269pp区间[-18.729,-7.991]；更新与曝光共同变化，不能宣称冷启动永久低上限或4步稳定反超。全部旧作业保留、基线继续。

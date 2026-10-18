@@ -6,8 +6,8 @@
 | within_full | 18.113 | 5.4776 |
 | cross_full | 18.468 | 5.6855 |
 | cold_compensated | 14.681 | 7.1256 |
-| within_compensated | — | — |
-| cross_compensated | — | — |
+| within_compensated | 15.428 | 6.8779 |
+| cross_compensated | 15.533 | 6.8907 |
 
 三补偿条件必须全部测，不用测试挑选赢家。初始32精确函数门槛、真实梯度／更新门槛、冷组两步和507逐项等价均绑定于各完成证明。尚待项不是零收益。
 

@@ -1,15 +1,17 @@
-# 当前研究入口：先区分冷启动与跨域复用
+# 当前研究入口：从冷启动机制约束到学习迁移兼容性
 
-当前以[五格初始化来源控制](initialization_source_controls_20261018/v1/PROTOCOL.md)为主线：同一Organ目标26条TRAIN／2次更新，比较cold、同域／跨域完整继承、同域／跨域A-only，五组最终均测原507题。源历史已实际完成，冷启动目标对照已开始；五组最终507结果仍待，不新增路由或扩容模块。
+**2026-10-18现行入口：** [唯一队列](answer_compatibility_20261018/v1/queue/queue_state.json) CPU34096；三格函数补偿507全部完成，新TRAIN-F1匹配在GPU0实际运行。60TRAIN反馈／40次1792维头更新已独立精确核验，新两诊断尚待完整证明。先看[K44和边界](function_neutral_init_20261018/v2/function_vs_factor/RESEARCH_FINDINGS.md)、[TRAIN阶段实证](answer_compatibility_20261018/v1/TRAIN_FIT_FINDINGS.md)。表示／复用为开放方向，不锁定LoRA或线性空间；全部原控制／完整确认和两机基线保留。研究一流、空闲GPU0／1择一、我们的新机作业至多三卡。下方旧状态／PID均为历史，不恢复旧调度。
 
 | 入口 | 用途 |
 | --- | --- |
-| [唯一研究调度](initialization_source_controls_20261018/v1/queue/README.md) | 实际状态读该目录queue_state.json及进程；以下历史PID不作为当前调度依据 |
-| [五格结果](initialization_source_controls_20261018/v1/VERIFIED_RESULTS.md) | 只接受封存证明；未完成留空，不表示零收益 |
+| [唯一研究调度](answer_compatibility_20261018/v1/queue/README.md) | 实际状态读该目录queue_state.json及进程；先查完成证明，再判断PID退出是否正常 |
+| [函数／因子控制](function_neutral_init_20261018/v2/function_vs_factor/RESEARCH_FINDINGS.md) | 首步A通道恢复不足以恢复完整功能继承收益；完整507及真实梯度／预算 |
+| [新匹配全部条件](answer_compatibility_20261018/v1/VERIFIED_RESULTS.md) | 只接受封存SHA证明，两个新条件都保留21454完整确认 |
 | [问题发现总报告](RESEARCH_REPORT.md) | 问题、实验、结果、证明、改进、效果及局限 |
-| [不依赖跨域旧LoRA的初始化文献](expert_cold_start_20261018/CURRENT_TASK_INITIALIZATION_PRIOR_ART.md) | EVA NeurIPS2025、CorDA NeurIPS2024；已核验已有工作，未在本研究实施 |
+| [方向约束](../../rules/023_transfer_compatibility_direction_20261018.md) | 学习可迁移关系；LoRA、余弦、线性空间均不是硬要求 |
+| [共享基底权重探针](shared_basis_probe_20261018/v1/RESEARCH_FINDINGS.md) | CPU权重压缩与差分误差，尚无部署内存／F1证明，不是新增GPU候选 |
 
-正式V2公共完整确认已按最新用户要求后移，源码和原作业保留；两机正式基线继续后台运行。原生AnyRes／BF16研究与正式V2结果不混排。原生连续19阶段/93更新及四视图现已完整核验，缓存几何AP45.700、顺序43.363、质量42.860，域宏区间均含0；[六栏、同题NLL反例及全部区间](functional_state_cache_20261018/v1/first_four_view_outcome/RESEARCH_FINDINGS.md)。新五格仍须各自完成507题，不把诊断当完整提升。
+正式V2公共完整确认仍后移保留，原生AnyRes与正式V2不混排，未完成Ours不填主表。
 
 ## 历史更新与证据导航
 

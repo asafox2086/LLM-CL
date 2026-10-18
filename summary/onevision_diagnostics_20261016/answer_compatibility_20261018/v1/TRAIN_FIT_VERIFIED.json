@@ -1,0 +1,145 @@
+{
+  "CPU_only": true,
+  "TRAIN_stage_complete_not_GPU_build_complete": true,
+  "auditor_sha256": "db18f54c9f35480e03d322ac914260360f7a55d3ff0b5bd66929c64f5bcc7330",
+  "TRAIN_artifact_sha256": {
+    "feedback_state.pt": "ed8082623d778e5a537f5086bc6730793f4ffe168059afe02f0b375797a083f1",
+    "router_raw_gradients.pt": "f5946bdc6495ceaf54fdfc9859b9114020d32e899c420a44d72329252c00ebe7",
+    "router_TRAIN.json": "b9f235d80f5ed3369610621ad0fd4e867b8b54f415a9b8d22355b1384c24132e"
+  },
+  "source_pool_sha256": "0cb865380231f4bca94fc93bed83c1c5ea93566f3fefff72562a8fd9b95a248a",
+  "teacher_predictions": 60,
+  "informative_TRAIN_QA": 7,
+  "actual_metric_parameters": 1792,
+  "actual_nonzero_gradient_steps": 40,
+  "actual_changed_dimensions": 1792,
+  "theta_l2": 28.112619400024414,
+  "first_event": {
+    "step": 1,
+    "loss": 0.03319214656949043,
+    "mean_TRAIN_LOO_soft_regret": 0.03319214656949043,
+    "raw_gradient_l2": 0.0010059402557089925,
+    "actual_parameter_delta_l2": 1.2630308866500854,
+    "LR": 0.03
+  },
+  "last_event": {
+    "step": 40,
+    "loss": 0.01944655552506447,
+    "mean_TRAIN_LOO_soft_regret": 0.015125742182135582,
+    "raw_gradient_l2": 0.00047468478442169726,
+    "actual_parameter_delta_l2": 0.6199430227279663,
+    "LR": 0.03
+  },
+  "all40_raw_gradients_and_parameters_exactly_replayed": true,
+  "TRAIN_routes": [
+    {
+      "TRAIN_id": "CODA-LM:Train:Train_general_1892",
+      "fixed": 18,
+      "learned": 18
+    },
+    {
+      "TRAIN_id": "CODA-LM:Train:Train_general_4284",
+      "fixed": 18,
+      "learned": 18
+    },
+    {
+      "TRAIN_id": "CODA-LM:Train:Train_regional_10674",
+      "fixed": 18,
+      "learned": 18
+    },
+    {
+      "TRAIN_id": "CODA-LM:Train:Train_regional_8866",
+      "fixed": 18,
+      "learned": 18
+    },
+    {
+      "TRAIN_id": "FinMME:10127",
+      "fixed": 18,
+      "learned": 18
+    },
+    {
+      "TRAIN_id": "FinMME:750",
+      "fixed": 18,
+      "learned": 18
+    },
+    {
+      "TRAIN_id": "FinMME:8136",
+      "fixed": 18,
+      "learned": 18
+    },
+    {
+      "TRAIN_id": "FinMME:9474",
+      "fixed": 18,
+      "learned": 18
+    },
+    {
+      "TRAIN_id": "RSVQA-LR:4298",
+      "fixed": 18,
+      "learned": 18
+    },
+    {
+      "TRAIN_id": "RSVQA-LR:65747",
+      "fixed": 18,
+      "learned": 18
+    },
+    {
+      "TRAIN_id": "RSVQA-LR:69847",
+      "fixed": 18,
+      "learned": 18
+    },
+    {
+      "TRAIN_id": "RSVQA-LR:70692",
+      "fixed": 18,
+      "learned": 18
+    },
+    {
+      "TRAIN_id": "SLAKE:1165",
+      "fixed": 18,
+      "learned": 18
+    },
+    {
+      "TRAIN_id": "SLAKE:24",
+      "fixed": 18,
+      "learned": 18
+    },
+    {
+      "TRAIN_id": "SLAKE:7014",
+      "fixed": 18,
+      "learned": 18
+    },
+    {
+      "TRAIN_id": "SLAKE:7618",
+      "fixed": 18,
+      "learned": 18
+    },
+    {
+      "TRAIN_id": "TextVQA:14509",
+      "fixed": 18,
+      "learned": 18
+    },
+    {
+      "TRAIN_id": "TextVQA:25544",
+      "fixed": 18,
+      "learned": 18
+    },
+    {
+      "TRAIN_id": "TextVQA:28930",
+      "fixed": 18,
+      "learned": 18
+    },
+    {
+      "TRAIN_id": "TextVQA:34459",
+      "fixed": 18,
+      "learned": 18
+    }
+  ],
+  "TRAIN_route_changes": 0,
+  "TEST_predictions_or_answers_parsed": false,
+  "new_GPU_or_model_training": false,
+  "limits": [
+    "Head supervision includes all20 TRAIN scores; image-excluded neighbors are not independent validation.",
+    "TRAIN hard routing above includes own anchor and is resubstitution, not unseen performance.",
+    "Parameter/gradient changes do not establish full TEST route changes or Answer F1 gain.",
+    "CPU audit replay is validation overhead, not another proposed method condition."
+  ]
+}
