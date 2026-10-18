@@ -1,0 +1,59 @@
+{
+  "actual_model_execution": true,
+  "run": "exp/onevision_learned_reuse_20261018/warm_inherit_K3_v1/train/20261018_165303",
+  "TEST_performance_claim": false,
+  "first_task_native_AB_exact": {
+    "passed": true,
+    "native_reference": true,
+    "no_tolerance": true
+  },
+  "first_task_TRAIN_QA": 347,
+  "first_task_positive_updates": 22,
+  "first_new_expert_inherited_initialization": {
+    "passed": true,
+    "stage": 2,
+    "destination": "e1",
+    "source": "e0",
+    "mode": "inherit_existing_complete_AB",
+    "allocation_exact_cold": true,
+    "cold_decision_sha256": "7e118375eddfd6fbbd7c0efe7edf63cee77bf05ab084c7a3b700cbb94032f3ad",
+    "TRAIN_ids": [
+      "SLAKE:3990",
+      "SLAKE:9588",
+      "SLAKE:2954",
+      "SLAKE:9550",
+      "SLAKE:8435",
+      "SLAKE:468",
+      "SLAKE:144",
+      "SLAKE:1422",
+      "SLAKE:8462",
+      "SLAKE:187",
+      "SLAKE:663"
+    ],
+    "initial_AB_sha256": "b748482c56e091414d4aa519f3b9f3f620fbd22c8835c9df2b439c7f9a8d98a6",
+    "different_from_base": true,
+    "source_selection": "original TRAIN geometric vote/mean/key, no gold/domain/TEST",
+    "extra_LM_forwards": 0,
+    "complete_AB_not_A_only": true,
+    "temporary_CPU_clone_parameters": 540672
+  },
+  "second_task_positive_updates": 1,
+  "second_task_raw_gradient_l2": 39.876346588134766,
+  "second_task_learning_rate": 0.0001,
+  "events_prefix_bytes": 11719,
+  "events_prefix_sha256": "e54c1267a0203db5b7a9ab8127b84b01b253cc2e92849604b92241d7554cbbbb",
+  "artifact_sha256": {
+    "first_task_exact_gate.json": "ee348e1e743471f3c0a364a91ab768b13527c4f7f6ca11e8fe216d45fc268b51",
+    "geometry_gates/S01.json": "1c1436452c648158d50bd4ad8af2d705c00ff9e3f54b472f03ad26f53e3b7e78",
+    "initialization_gates/T01.json": "3286a316eec433a0734a4b3841b59c871ede56adc292e9e2067933fa81b8569a",
+    "initialization_gates/T02.json": "7196ea426110a24530a8291b1c0e70d974a083643b2d1b201f51c06154ffd420",
+    "candidates/reuse_T01.pt": "5297538aa40355916d62ae956a3c34b4aaac260d3b1023dd7a8e642f7e0370c7",
+    "candidates/reuse_T02.pt": "e6e5adf0f14a51950810e4d6cc3aa111c55e9d5be3cb3903b1e00006bd72a41f",
+    "feature_identity_repair_execution.json": "97f9a8f17873c7cb9025824404872f6bfacd01d78a3724c9eb04526b5fc47735"
+  },
+  "limits": [
+    "Only first task exact and first inherited expert actual activation, not all19 complete.",
+    "No final five-domain or full21454 AnswerF1 is available from this gate.",
+    "Later compatible-input/geometry and complete-prediction gates remain mandatory."
+  ]
+}
