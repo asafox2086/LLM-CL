@@ -1,11 +1,43 @@
 {
   "CPU_only": true,
   "collector_sha256": "d7aac920f738c6ee8fde9a636560f2d2d6ee7ea1ba9de9e030e6548b4b4cad0a",
-  "verified_method_backbone_pairs": 1,
+  "verified_method_backbone_pairs": 2,
   "required_pairs": 14,
   "TEST_best_run_selection": false,
   "primary_AP19_unchanged": true,
   "methods": [
+    {
+      "backbone": "onevision",
+      "method": "PaRSP",
+      "proof_file": "summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/completed/4448534f8895647f6409.json",
+      "aggregate": {
+        "AP": 40.390067668460595,
+        "FWT": 18.502770653290156,
+        "BWT": -0.4836789065703364
+      },
+      "domains": {
+        "natural": {
+          "F1": 73.34602202441532,
+          "QA": 5000
+        },
+        "medical": {
+          "F1": 38.74347501758914,
+          "QA": 2094
+        },
+        "geography": {
+          "F1": 54.088364654138346,
+          "QA": 10004
+        },
+        "finance": {
+          "F1": 20.60850678053704,
+          "QA": 2233
+        },
+        "traffic": {
+          "F1": 32.65498610778443,
+          "QA": 2123
+        }
+      }
+    },
     {
       "backbone": "onevision",
       "method": "SeqFT_LoRA",

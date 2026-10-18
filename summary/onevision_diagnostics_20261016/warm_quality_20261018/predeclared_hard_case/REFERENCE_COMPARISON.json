@@ -1,0 +1,226 @@
+{
+  "CPU_only": true,
+  "GPU_operations": 0,
+  "optimizer_updates": 0,
+  "scope": "Same500NLL/155generated diagnostic only",
+  "TEST_selection": false,
+  "domains": [
+    {
+      "domain": "natural",
+      "QA": 10,
+      "reference_F1": 57.38095238095237,
+      "combined_F1": 60.71428571428571,
+      "paired_difference": {
+        "QA": 10,
+        "recipient_image_clusters": 10,
+        "mean_difference": 3.3333333333333344,
+        "image_cluster_95CI": [
+          0.0,
+          10.000000000000004
+        ],
+        "bootstrap_replicates": 10000,
+        "seed": 42,
+        "multiple_comparison_corrected": false
+      }
+    },
+    {
+      "domain": "medical",
+      "QA": 73,
+      "reference_F1": 46.057838660578376,
+      "combined_F1": 46.38399652098282,
+      "paired_difference": {
+        "QA": 73,
+        "recipient_image_clusters": 63,
+        "mean_difference": 0.32615786040443595,
+        "image_cluster_95CI": [
+          -5.532212885154061,
+          6.328320802005012
+        ],
+        "bootstrap_replicates": 10000,
+        "seed": 42,
+        "multiple_comparison_corrected": false
+      }
+    },
+    {
+      "domain": "geography",
+      "QA": 32,
+      "reference_F1": 46.875,
+      "combined_F1": 46.875,
+      "paired_difference": {
+        "QA": 32,
+        "recipient_image_clusters": 27,
+        "mean_difference": 0.0,
+        "image_cluster_95CI": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_replicates": 10000,
+        "seed": 42,
+        "multiple_comparison_corrected": false
+      }
+    },
+    {
+      "domain": "finance",
+      "QA": 10,
+      "reference_F1": 30.0,
+      "combined_F1": 30.0,
+      "paired_difference": {
+        "QA": 10,
+        "recipient_image_clusters": 10,
+        "mean_difference": 0.0,
+        "image_cluster_95CI": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_replicates": 10000,
+        "seed": 42,
+        "multiple_comparison_corrected": false
+      }
+    },
+    {
+      "domain": "traffic",
+      "QA": 30,
+      "reference_F1": 30.465374358561384,
+      "combined_F1": 31.421294853830116,
+      "paired_difference": {
+        "QA": 30,
+        "recipient_image_clusters": 30,
+        "mean_difference": 0.9559204952687348,
+        "image_cluster_95CI": [
+          -1.8504562239539097,
+          3.9912028835108937
+        ],
+        "bootstrap_replicates": 10000,
+        "seed": 42,
+        "multiple_comparison_corrected": false
+      }
+    }
+  ],
+  "aggregate": {
+    "reference": {
+      "AP": 43.362536135144616,
+      "domain_macro": 42.155833080018425
+    },
+    "combined": {
+      "AP": 44.16510002286875,
+      "domain_macro": 43.07891541781973
+    }
+  },
+  "AP_difference": 0.8025638877241335,
+  "domain_macro_difference": 0.9230823378013042,
+  "domain_stratified_image_bootstrap_95CI": [
+    -0.7603862754252052,
+    2.871735026314858
+  ],
+  "replicates": 10000,
+  "seed": 42,
+  "multiple_comparison_corrected": false,
+  "input_sha256": {
+    "summary/onevision_diagnostics_20261016/warm_quality_20261018/predeclared_hard_case/VERIFIED_EVIDENCE.json": "d02b882d99a02547a8c65f140db4485718f0d7d0ad836de326e9aac0c68e5570",
+    "summary/onevision_diagnostics_20261016/warm_quality_20261018/predeclared_hard_case/INPUT_SNAPSHOT_MAP.json": "3483adc51591b9159da27637ddd7fcf5c566c3b7b8504879ebe23aa05a8f230c",
+    "summary/onevision_diagnostics_20261016/warm_quality_20261018/pilot_attempt.json": "9b65d7c0c75c9ba4031db1b4683d75b08b07e04b38479128623bb4119c420220",
+    "summary/onevision_diagnostics_20261016/warm_quality_20261018/CPU_PLAN_CHECK.json": "e005876235f588a0b7bde85d091f3b459e6e6d7b408897b405cb9999166a0801",
+    "analysis/onevision_learned_reuse_core.py": "dda2963ace22a0727049ca0727b17c746e7f7f35a8c9dbd6a50448fbdc43d99c",
+    "analysis/onevision_learned_reuse_trial.py": "f8d6e5aadd5cbb65213b54f8a7ebcdd819483d2d56c4d83fccdeb1b05f737c91",
+    "analysis/onevision_full_input_repair.py": "5758506a9f460ca7dd67a72d5c36a4760495249f6963553e54c86f668b3f7bcb",
+    "analysis/onevision_capacity_probe.py": "5319a4ad35dd78db4dbc40ad9d45387a55c17c6c911c74ad46b5680ff76db225",
+    "analysis/onevision_capacity_queue.py": "1d6a6b4d3e5e41faa8dc2cfefdac38e67e03694c4b23856b1f37d6638c852a61",
+    "analysis/onevision_knowledge_intervention.py": "22512cc63ed0933f0f471f30b07f5707ba8e020c95137811430cdced2c3962a0",
+    "analysis/onevision_research_worker.py": "6db35a572ee8fca5f07e69eb22b36a8eebc40ce28a0b7977aa7b228373b81493",
+    "analysis/onevision_deterministic_native.py": "489bdcf5f8d7b07f9c6e70cd4e8ed79596bf39970e70a9f73f7154988530e60c",
+    "analysis/onevision_matched_native_controls.py": "5b17a76f6bfd235ff0abc2a81ac256307e4ffe20eb65697a0be3460c096d1652",
+    "analysis/onevision_trained_visual_probe.py": "82d68f6038ad2e83e09458f39efbae9a0e240f375e6be083e871fd2192b730d2",
+    "exp/onevision_diagnostics_20261016/download_model.py": "aac15b5d8f9c88841cd86bebabace6c08dc1ce615aa22d10d646a9316717dd75",
+    "exp/onevision_diagnostics_20261016/geometry.py": "a2fa74b4e5f71a25d925216c06f756edb5a1fe76677dea3038a0b23df32d06df",
+    "exp/onevision_diagnostics_20261016/launch.py": "d2315fec5814f28de267c34ffc1310a5304926f9345fd34d264490f530490f56",
+    "exp/onevision_diagnostics_20261016/run.py": "cf8ee1ac5af7faa595e05be05e05da5207d9f0596e518f8a8998ae8d3d0d7536",
+    "exp/five_domain_native_cl_20261016_sparse/runtime_utils.py": "e9097bdd608474b84ba7ed551e1d9316a0c4a2743269d5d2c9addb3b5ab30cb5",
+    "exp/five_domain_native_cl_20261016_sparse/resource_monitor.py": "a161c8a82bf762622795f64210c95164fb905c6fa80572b35ae5ee3dd7146533",
+    "analysis/onevision_warm_start_trial.py": "0d1b426d8439243b89f618296a8109f2aa9a87bee8340f91feb5ebf5686c5a31",
+    "analysis/onevision_functional_router_core.py": "f6767747c76d691134a693fea37f82a37f22e8173cb01cc15c818100341231b5",
+    "analysis/onevision_functional_router_probe.py": "7a473e20b568deb958974c6a39da58ae8ec611c55f28e1e65db8923a694c6c3b",
+    "analysis/onevision_warm_quality_probe.py": "bd4fcd8da29e97d8e95d239a8bb0d2b80ffc974451c0ad890481332217e2f386",
+    "summary/onevision_diagnostics_20261016/warm_start_20261018/warm_inherit_K3_v1_train_complete.json": "ffa27eb739d05bc3963d3af7d3f3374094fdc625da56e83d6ec41700e43d7033",
+    "exp/onevision_learned_reuse_20261018/warm_inherit_K3_v1/train/20261018_165303/latest.pt": "ba0086182c2b5d82af4a84b90d8fac34f46ebcbd64e614ed10525096eda35334",
+    "summary/primary_metric_20261017/metric_lock.json": "a146f037f835afb66251ce35498a4a5df8e7ea97468725b49ea34043f7d1c948",
+    "analysis/answer_f1.py": "16c59998413d12b820d6f57269f9e1f45ac78e08595d20bf1f4fbc967fd94c4b",
+    "exp/onevision_warm_quality_20261018/pilot/20261018_172327/original_exact_gate.json": "229b634e3cbec5d101f21b3cc834eccafb20ed70e5409a9527e48f44c9059a53",
+    "exp/onevision_warm_quality_20261018/pilot/20261018_172327/calibration_summary.json": "f708502ce317d100fbf7f42fe9c3c160b5dffce0c8c46cdd2453cdd654efecd2",
+    "exp/onevision_warm_quality_20261018/pilot/20261018_172327/calibration.pt": "404445db3ab934e4dacc926ccfee5c82b997ea2e563fb9a0af091b0d0f53343c",
+    "exp/onevision_warm_quality_20261018/pilot/20261018_172327/calibration.json": "6f33fbb512872289c5d6a41bb871677a09def741fcd262078ed5cfda8738b95a",
+    "exp/onevision_warm_quality_20261018/pilot/20261018_172327/feature_identity_repair_execution.json": "97f9a8f17873c7cb9025824404872f6bfacd01d78a3724c9eb04526b5fc47735",
+    "exp/onevision_warm_quality_20261018/pilot/20261018_172327/evaluations/original_hard/durable_complete.json": "b4d8470db8726381c62def70c1137c345ceb78b3c142cb2aa14be42de657395d",
+    "exp/onevision_warm_quality_20261018/pilot/20261018_172327/evaluations/original_hard/natural_image.jsonl": "1ba4449d1393e852e390efc6ee54dc5247505e61c34c0b3f70865e3081d97bf9",
+    "exp/onevision_warm_quality_20261018/pilot/20261018_172327/evaluations/original_hard/medical_image.jsonl": "f7409eb7774535e9042e257b0d6897a9fdfe9b73ca9d4d360d2fbc4d8508071f",
+    "exp/onevision_warm_quality_20261018/pilot/20261018_172327/evaluations/original_hard/geography_image.jsonl": "0fb0f8d676cde36feeb5eec32f6a72f217a64aa78304ca3698ea5f6d4fb29ea4",
+    "exp/onevision_warm_quality_20261018/pilot/20261018_172327/evaluations/original_hard/finance_image.jsonl": "9aac7893f0840cacc7bcf0ff583bb2186c061a3aea02387154a257fc7f900667",
+    "exp/onevision_warm_quality_20261018/pilot/20261018_172327/evaluations/original_hard/traffic_image.jsonl": "188bf1e7a5fc90017623e41f3c9d22346c971fe71bb409d5dfb89a14ddd7c222",
+    "exp/onevision_warm_quality_20261018/pilot/20261018_172327/evaluations/quality_hard/durable_complete.json": "173f05abfca9a58d0f394ee345cbf7599093a412b5c2200af64f09eb1564ab3c",
+    "exp/onevision_warm_quality_20261018/pilot/20261018_172327/evaluations/quality_hard/natural_image.jsonl": "9c5c6a1d2f26b9174c2ab26344ad40d83e0bd0dffc4b8e4d5f9ae821fe56cdef",
+    "exp/onevision_warm_quality_20261018/pilot/20261018_172327/evaluations/quality_hard/medical_image.jsonl": "0eb9c4528f11d1fe0391a37d1f279bc132ef6a5b8f8e3d976dc09ea3713d9d5d",
+    "exp/onevision_warm_quality_20261018/pilot/20261018_172327/evaluations/quality_hard/geography_image.jsonl": "c984a922f93224789f450d6db517bcf5311d5dd6ce487e8546588a81087b4625",
+    "exp/onevision_warm_quality_20261018/pilot/20261018_172327/evaluations/quality_hard/finance_image.jsonl": "8775f6d6daadf70a583527fcacab84811d62aa4b6be702f12cad157c6399b056",
+    "exp/onevision_warm_quality_20261018/pilot/20261018_172327/evaluations/quality_hard/traffic_image.jsonl": "714389ffc203d92293bc2a9ea7abc8381805f719d073cd9d28f62e5e9f8e3a0b",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/manifest.json": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T01_train.jsonl": "5732cd30e78ea2d808526c62312ed2d25e9541a07b3ba5ad2b19d4f0123217c8",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T01_test.jsonl": "14705cad19879bbe9397add2d6871d6892146aee4be3885030700382307cd3bb",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T02_train.jsonl": "7f59b10ae613e76dc166c6bba157ba9b16d8839e1f8331c3d6feca9f42f790b4",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T02_test.jsonl": "c319026d6857ee31722732ce54fd0348e189f0f8aaa574522fdb6623ca3bc572",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T03_train.jsonl": "e9d909b32d60f8c4b59d751cc4eb3af5b1420650e38cdbee1aec449d9ecef769",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T03_test.jsonl": "809a68a36926ba0dab02597b9e4492bcebc2ec394f17103413e13a0e3e072d0b",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T04_train.jsonl": "fabc8d4b4bd730306db0b1447a530a54bf470faded22937ba4a32fb6ebcd2cc9",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T04_test.jsonl": "e5046123567a5d9efe80aae17ed0b141e6261bf80c775f523791ef9022492ba2",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T05_train.jsonl": "3a4210e379d0d487a97dabc092a1178e9cc13bb92a16ed76191eaa0385b920b3",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T05_test.jsonl": "7e13f0e2db2a9fb4f66249f152c23c336a566c1e5ccf30c929c2c04710be6264",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T06_train.jsonl": "6a299bce404105f75b691de06e176be0cbe908c593ff1bdcb2c8e3b20001633b",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T06_test.jsonl": "18f04db0a28b6b0abd9b0f3f5ad7d030151085c47b88213d043752eacad98877",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T07_train.jsonl": "fbbbb06aefe521ae3e0387bd2da145f643ce04eca6e64fcb7434d31c42cb2102",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T07_test.jsonl": "e424c1d3905db42165ad9f525f033045af1e8605e6b1e5848bba82573e54e221",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T08_train.jsonl": "dd327dec1b3433a2dd27a88c3b4724c4978b246e599b5e88787c6214b0a1efed",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T08_test.jsonl": "2c3d5bc145141ac44d4a18722169bb421f47d41f1558d04d6da9a3dd365f8a86",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T09_train.jsonl": "f48f1b60247ea91fe5ed6900e3643f4e43ed3202d4c50b2aa0b1ebc9906eda7d",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T09_test.jsonl": "3f554ff6047a98566520a39bc9d89ecf0bcf00a29e2e2d1f76bfb2b63097be95",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T10_train.jsonl": "3eeae855c9594ec529711123366ef681b10e446daba6e6505f95a762a93065e3",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T10_test.jsonl": "f6c9fcfd7c3b385eb82829ebb478a7db522eecc4a53c33ded2ab8f82ff57e328",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T11_train.jsonl": "c78aa32c98f7cd60b4950561281d2cb023ac5c84c438149044ce7429c0681e54",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T11_test.jsonl": "48e7b5e4177a001612d6640f6df92cc3621362792dffb0ad762476e562b6b21b",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T12_train.jsonl": "fe5ff5fea1b9af9a99d7139fcc6e314d353649db930a8c1e99cd5ff4ccf4995f",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T12_test.jsonl": "7948cf70e4996ec38532ff680638b8c81710d6e02cceb9589c58cb6403284013",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T13_train.jsonl": "57ec71ab8c67d006cfa4812d63fabd903dd9d36a0ba417a2ca71e5a79560309a",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T13_test.jsonl": "4ca421c2594f1d2a36b749d42526706cc6caca9af05f9908b85d08cf7c9218b4",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T14_train.jsonl": "3cae6b3004124eabccbcae69b073254d1c932a912d813edec7114c61821d1c83",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T14_test.jsonl": "ff46c370c5b0a545c770e702e7fef159e79f4188c4a657356ca988da4b57866d",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T15_train.jsonl": "eca0f26e0cb7612eee9ab28c5cc4f8f27898b4ba9cb1b257cfefb9037c7a10c2",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T15_test.jsonl": "6ae35bde45e33788bcd31c99dc9f80a1d9236bd6062a807fd989e2c1fbe426cc",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T16_train.jsonl": "5d7617d9873fbcfef60b33ec027a7eb2507b128cde0ff243df85f3b67843ab65",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T16_test.jsonl": "162ba8ad340a9fb898a3a942b3e720e581f23dddfacb70c289f3bd935d869206",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T17_train.jsonl": "03848e8d10485506685fe46d3d2530120001ed159dfd5f4239655bbbc590cb34",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T17_test.jsonl": "f5a8de804f54aba60315eff839f05a0401ff96427920c0cd3112affcc19362e8",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T18_train.jsonl": "1941cabc03d007d984282858ca3d6f0862ca4720d5fb0798fc866423200d3952",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T18_test.jsonl": "48e1bf7b181cf1a5d4c7b9be03e1fa11fe2e26b37ca2f4c8a4f4498ef20c403d",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T19_train.jsonl": "2a64cfde7c42d360ff0bd570f3487be0e8940526d08d4ed4bef389a04f5861b2",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T19_test.jsonl": "4af47721d341958f26e54744330927a14b5e5f5b8d84489607623b741eddbe2b",
+    "exp/onevision_learned_reuse_20261018/warm_inherit_K3_v1/train/20261018_165303/evaluations/final_diagnostic/natural_image.jsonl": "ff1ad516f4256947c22c063f13ab0137b37c73c3f3272d03525f543c3f0a6ce0",
+    "exp/onevision_learned_reuse_20261018/warm_inherit_K3_v1/train/20261018_165303/evaluations/final_diagnostic/medical_image.jsonl": "23916bf4ac756305cb6d6f3d00989e2c585d38bc854d3254a91f1a747a5f8f94",
+    "exp/onevision_learned_reuse_20261018/warm_inherit_K3_v1/train/20261018_165303/evaluations/final_diagnostic/geography_image.jsonl": "753c71db342ee2a033544f228849f44c5b824da34ea6d8fb4dce9d7630406db2",
+    "exp/onevision_learned_reuse_20261018/warm_inherit_K3_v1/train/20261018_165303/evaluations/final_diagnostic/finance_image.jsonl": "08363f27861079a80f1450c3bea78b94c9fbfcf6a55c229ce87b5794bfd8b963",
+    "exp/onevision_learned_reuse_20261018/warm_inherit_K3_v1/train/20261018_165303/evaluations/final_diagnostic/traffic_image.jsonl": "d74f0d321f9e57624cf69e6a09a9aae83e8243a63b6c8dbe08ce366c9c567b93",
+    "summary/onevision_diagnostics_20261016/warm_quality_20261018/FOUR_CELL_EVIDENCE.json": "a70549df38105ed3635836bef2f59e2fe91a89b1b6b7f5cd8c79a92c20830075",
+    "analysis/onevision_cold_quality_queue.py": "079ea767b07f51fef8a0410d8e51857e67a37969617aadac554948f9bc274c11",
+    "analysis/onevision_cold_quality_report.py": "29ef81fafd8c73a584cb2ea2ebc96a11c95d97e7575cc12eb32dcdf58113d93c",
+    "analysis/onevision_causal_feedback_queue.py": "0544a1c6c185af9aed26724d6c279d63708941585136cdb4ca3df63930821d03",
+    "summary/onevision_diagnostics_20261016/deterministic_native/complete.json": "9593ebddf9d17e81f8358d61a2ede10bccaa94b3a5d0f919f3eb3713919f812a",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/evaluations/sequential_T19/natural_image.jsonl": "4cc3f496cdf16d76913fde199dce6c259b5cb58b057ff34a6cd4e76e1e21f122",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/evaluations/sequential_T19/medical_image.jsonl": "df7555d4d5e0ef8cd28e1d8f2931f1f2c1e055f7061815a5b946a1d9be98d16d",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/evaluations/sequential_T19/geography_image.jsonl": "88aef5e6d7eca2ddcf1cb3457ba8e939f242dac19c9a82e2456e10b8f63aa918",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/evaluations/sequential_T19/finance_image.jsonl": "2f80b23af4ab4c5377c0b8c159ec46fc02bc47952516836793c1d6c843b10512",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/evaluations/sequential_T19/traffic_image.jsonl": "965ca56e9985c9762ae481c33433bb4aba60cb2fe4cddfb2dfd1159a84777c91"
+  },
+  "report_source_sha256": "418ed2f962c3f7b5150f94d5a519d2a6aa4c221531d4e37a3a9497096343a83e",
+  "limits": [
+    "Diagnostic point advantage is not large or established on complete21454.",
+    "Fixed-weight image intervals do not establish multi-training-seed superiority.",
+    "NativeAnyRes research is separate from formalV2; extra pool/router/compute costs differ.",
+    "Do not compare diagnostic44.165 against full-test41.361 as if the cohorts matched."
+  ]
+}

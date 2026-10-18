@@ -25,7 +25,7 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 | CL-MoE | 架构 | [CVPR 2025](https://openaccess.thecvf.com/content/CVPR2025/html/Huai_CL-MoE_Enhancing_Multimodal_Large_Language_Model_with_Dual_Momentum_Mixture-of-Experts_CVPR_2025_paper.html) |  |  |  |  |  |  |  |  |
 | SMoLoRA | 架构 | [ICCV 2025](https://openaccess.thecvf.com/content/ICCV2025/html/Wang_SMoLoRA_Exploring_and_Defying_Dual_Catastrophic_Forgetting_in_Continual_Visual_ICCV_2025_paper.html) |  |  |  |  |  |  |  |  |
 | PASs-MoE | 架构（兼正则） | [ACL 2026](https://aclanthology.org/2026.acl-long.1474/) |  |  |  |  |  |  |  |  |
-| PaRSP | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.1244/) |  |  |  |  |  |  |  |  |
+| PaRSP | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.1244/) | 73.346 | 38.743 | 54.088 | 20.609 | 32.655 | 40.390 | 18.503 | -0.484 |
 | OSFT | 正则化 | [ICLR 2026](https://proceedings.iclr.cc/paper_files/paper/2026/hash/22620cccae29bbb3f18d226ea0320ff5-Abstract-Conference.html) |  |  |  |  |  |  |  |  |
 | SpaRTA | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.334/) |  |  |  |  |  |  |  |  |
 | Ours | 自研方法 | 未发表 |  |  |  |  |  |  |  |  |
@@ -45,6 +45,7 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 | [正式V2框架与公平性](summary/two_backbone_native_cl_20261017_v2/README.md) | 两机共享TRAIN/TEST ID、原生任务顺序、方法代码、预算、公共图像输入与评分；原生processor/tokenizer因骨干而异。旧零LR/V1结果隔离。 |
 | [当前两模块源码索引](code/OneVision_ColdStartQuality/README.md) | A完整继承+B TRAIN质量调用；源文件、实际包装器、四格协议和证据入口。与早期位移保护原型分开，不混结果。 |
 | [问题发现总报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md) | 按问题、实验、结果、证明、改进、效果记录；区分已证实、已反驳、未解决。[关键发现](summary/onevision_diagnostics_20261016/KEY_FINDINGS.md)提供证据索引。 |
+| [两模块四格诊断](summary/onevision_diagnostics_20261016/warm_quality_20261018/predeclared_hard_case/RESEARCH_FINDINGS.md) | 同155题四格与SeqFT逐题比较；点优势小且域宏差区间含0，完整21454待。 |
 | [研究诊断表](summary/onevision_diagnostics_20261016/functional_router/MAIN_TABLE_DIAGNOSTIC.md) | 原生AnyRes/BF16、同155题的六方法对照；不能混入正式V2或当完整21454题结果。 |
 | [唯一研究队列](summary/onevision_diagnostics_20261016/feature_identity_repair_20261018/README.md) | 实时状态以该目录queue_state及实际进程为准，旧队列路径保留为历史/redirect，不能恢复旧CPU所有者。 |
 | [文献问题与启发](summary/onevision_diagnostics_20261016/LITERATURE_PROBLEMS.md) | 他人发现、验证角度、解决方式及适用边界；不是本模型已证实原因。 |
@@ -53,15 +54,17 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 
 当前温池质量头已用43历史TRAIN/172次NLL前向完成400次CPU更新，16参数确实改变；这不是Answer F1。评测期间新增外部GPU1作业，已[记录共享设备上下文](summary/onevision_diagnostics_20261016/warm_quality_20261018/execution_context/FOREIGN_GPU_OVERLAP_20261018.json)，当前评测继续、后续待实际空闲；共享时段耗时不作为方法速度优势。
 
+当前预定A+B硬调用条件的500NLL/155生成已核验：AP44.165，较同题原生SeqFT43.363高0.803；域宏平均+0.923、95%区间[-0.760,2.872]含0。它恢复弱冷池，但尚未确立稳定/大幅超过简单基线。见[四格、五域、对照与成本](summary/onevision_diagnostics_20261016/warm_quality_20261018/predeclared_hard_case/RESEARCH_FINDINGS.md)。其余辅助视图继续，完整21454及正式表Ours仍待；不把该条件完成当成全pilot完成。
+
 ## 研究成果：已知什么，尚缺什么
 
-新增[模块输入控制](summary/onevision_diagnostics_20261016/functional_router/input_dependence_20261018/RESEARCH_FINDINGS.md)：质量头在已见TRAIN上确实使用输入，但其11处调用改动全部绕开弱e1，A/B收益可能重叠；四格将检验温启动后B是否仍有额外价值，不把两个局部收益相加。
+新增[模块输入控制](summary/onevision_diagnostics_20261016/functional_router/input_dependence_20261018/RESEARCH_FINDINGS.md)曾提示A/B可能重叠；新四格诊断已观察到B在温池仍有+9.140 AP增量。完整收益和统计互补性仍待，不把两个局部收益相加。
 
-**方法开发：** [两个问题、两个模块与四格消融](summary/onevision_diagnostics_20261016/warm_quality_20261018/PROBLEM_AND_METHOD.md)：A继承完整旧适配，B用TRAIN质量校准调用。固定池诊断支持调用贡献，但组合入口已准入自动调度，温启动父池已封存、诊断AP31.025→35.025，质量调用GPU组合已启动；完整效果仍待。
+**方法开发：** [两个问题、两个模块与四格消融](summary/onevision_diagnostics_20261016/warm_quality_20261018/PROBLEM_AND_METHOD.md)：A继承完整旧适配，B用TRAIN质量校准调用。固定池诊断支持调用贡献，但组合入口已准入自动调度，温启动父池已封存、诊断AP31.025→35.025，预定质量硬调用诊断AP44.165已完成，其余视图/完整21454仍待。
 
-新增[实际首步梯度对照](summary/onevision_diagnostics_20261016/expert_cold_start_20261018/first_factor_gradient/RESEARCH_FINDINGS.md)：同11TRAIN/一步，冷启动48层A均未更新，完整继承后48层A均更新。完整继承同时改变旧功能与优化通道；不能全归旧知识，也不是新增F1。温启动19阶段/155诊断已完成；完整21454及四格收益仍待。
+新增[实际首步梯度对照](summary/onevision_diagnostics_20261016/expert_cold_start_20261018/first_factor_gradient/RESEARCH_FINDINGS.md)：同11TRAIN/一步，冷启动48层A均未更新，完整继承后48层A均更新。完整继承同时改变旧功能与优化通道；不能全归旧知识，也不是新增F1。温启动19阶段/155诊断已完成；完整21454及稳定大幅收益仍待。
 
-[模块A的完整19阶段对照](summary/onevision_diagnostics_20261016/warm_start_20261018/first19_outcome/RESEARCH_FINDINGS.md)已完成：同155题诊断AP31.025→35.025、医学F1 15.841→25.339，另外四域答案不变；500条调用精确一致。支持初始化贡献，但仍低于同诊断SeqFT 43.363；完整21454、模块B在温池的增量及大幅提升目标未完成。
+[模块A的完整19阶段对照](summary/onevision_diagnostics_20261016/warm_start_20261018/first19_outcome/RESEARCH_FINDINGS.md)已完成：同155题诊断AP31.025→35.025、医学F1 15.841→25.339，另外四域答案不变；500条调用精确一致。支持初始化贡献，但仅A仍低于同诊断SeqFT 43.363；B在温池的诊断增量+9.140已取得，完整21454及大幅提升目标仍待。
 
 **后续主线：新LoRA冷启动与弱习得。** 独立[证明过程与下一步判据](summary/onevision_diagnostics_20261016/expert_cold_start_20261018/COLD_START_PROOF.md)串联真实分配、权重不变与初始化干预；已支持一个少数据任务的局部继承收益，完整流程及数据量交互待测。
 

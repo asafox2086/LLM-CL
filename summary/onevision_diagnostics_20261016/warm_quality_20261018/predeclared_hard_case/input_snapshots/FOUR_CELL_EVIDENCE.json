@@ -1,0 +1,257 @@
+{
+  "CPU_only": true,
+  "raw_Answer_F1": true,
+  "formal_V2": false,
+  "TEST_selects_anything": false,
+  "rows": {
+    "diagnostic155": [
+      {
+        "cell": "00",
+        "generated": 155,
+        "domains": {
+          "natural": 58.57142857142857,
+          "medical": 15.841053514914007,
+          "geography": 46.875,
+          "finance": 20.0,
+          "traffic": 31.421294853830116
+        },
+        "AP": 31.02500019956796,
+        "domain_macro": 34.54175538803454,
+        "FWT": null,
+        "BWT": null
+      },
+      {
+        "cell": "01",
+        "generated": 155,
+        "domains": {
+          "natural": 60.71428571428571,
+          "medical": 30.282417944203488,
+          "geography": 46.875,
+          "finance": 30.0,
+          "traffic": 31.421294853830116
+        },
+        "AP": 36.703850242199735,
+        "domain_macro": 39.85859970246386,
+        "FWT": null,
+        "BWT": null
+      },
+      {
+        "cell": "10",
+        "generated": 155,
+        "domains": {
+          "natural": 58.57142857142857,
+          "medical": 25.338770409891175,
+          "geography": 46.875,
+          "finance": 20.0,
+          "traffic": 31.421294853830116
+        },
+        "AP": 35.025000199567955,
+        "domain_macro": 36.44129876702998,
+        "FWT": null,
+        "BWT": null
+      }
+    ],
+    "full21454": []
+  },
+  "interaction": {},
+  "parent_warm19_complete": true,
+  "warm_plan_ready": true,
+  "complete_full_cells": 0,
+  "required_full_cells": 4,
+  "resources": {
+    "initialization_controls": {
+      "learned_cosine_K3/train": {
+        "unit": "bytes",
+        "pid": 303441,
+        "boot_id": "e6182f56-39be-4e37-908d-3cfadaa7448f",
+        "process_started_unix": 1792261483.780107,
+        "before": {
+          "phase": "reuse_training_before",
+          "stage": 0,
+          "unix": 1792261497.9695227,
+          "pid": 303441,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4490096640,
+          "VmRSS_bytes": 2681589760,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2469025792,
+          "Private_Clean_bytes": 83263488,
+          "Private_Dirty_bytes": 2323599360,
+          "cpu_uss_bytes": 2406862848,
+          "gpu_allocated_bytes": 1842765824,
+          "gpu_reserved_bytes": 3275751424,
+          "gpu_peak_allocated_bytes": 2551966720,
+          "gpu_peak_reserved_bytes": 3275751424,
+          "gpu_process_nvml_bytes": 3630170112,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "after": {
+          "phase": "reuse_training_after",
+          "stage": 0,
+          "unix": 1792262733.9707718,
+          "pid": 303441,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4490096640,
+          "VmRSS_bytes": 3054198784,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2798876672,
+          "Private_Clean_bytes": 89817088,
+          "Private_Dirty_bytes": 2624331776,
+          "cpu_uss_bytes": 2714148864,
+          "gpu_allocated_bytes": 1876320256,
+          "gpu_reserved_bytes": 10261364736,
+          "gpu_peak_allocated_bytes": 9752154112,
+          "gpu_peak_reserved_bytes": 11075059712,
+          "gpu_process_nvml_bytes": 10651435008,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "scope": "TRAIN feature extraction, model epochs, TRAIN probes and CPU router fit; final TEST excluded from before/after, global peak includes diagnostic",
+        "growth_bytes": {
+          "VmRSS_bytes": 372609024,
+          "Pss_bytes": 329850880,
+          "cpu_uss_bytes": 307286016,
+          "gpu_allocated_bytes": 33554432,
+          "gpu_reserved_bytes": 6985613312,
+          "gpu_process_nvml_bytes": 7021264896
+        },
+        "observed_peak_bytes": {
+          "VmRSS_bytes": 3253264384,
+          "Pss_bytes": 2993976320,
+          "cpu_uss_bytes": 2906947584,
+          "gpu_allocated_bytes": 10490956800,
+          "gpu_reserved_bytes": 19360907264,
+          "gpu_process_nvml_bytes": 19750977536
+        },
+        "note": "Same-PID before/after; fresh process per cap. On recovery these describe resumed process only. Stage diagnostics are included in observed peaks; allocator cache is separate from parameter growth.",
+        "all_process_observed_peak_bytes": {
+          "VmRSS_bytes": 3253264384,
+          "Pss_bytes": 2993976320,
+          "cpu_uss_bytes": 2906947584,
+          "gpu_allocated_bytes": 10490956800,
+          "gpu_reserved_bytes": 19360907264,
+          "gpu_process_nvml_bytes": 19750977536
+        }
+      },
+      "warm_inherit_K3_v1/train": {
+        "unit": "bytes",
+        "pid": 405584,
+        "boot_id": "e6182f56-39be-4e37-908d-3cfadaa7448f",
+        "process_started_unix": 1792313583.5792532,
+        "before": {
+          "phase": "reuse_training_before",
+          "stage": 0,
+          "unix": 1792313596.7069898,
+          "pid": 405584,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4130185216,
+          "VmRSS_bytes": 2403344384,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2199671808,
+          "Private_Clean_bytes": 69185536,
+          "Private_Dirty_bytes": 2046603264,
+          "cpu_uss_bytes": 2115788800,
+          "gpu_allocated_bytes": 1842765824,
+          "gpu_reserved_bytes": 3275751424,
+          "gpu_peak_allocated_bytes": 2551966720,
+          "gpu_peak_reserved_bytes": 3275751424,
+          "gpu_process_nvml_bytes": 3630170112,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "after": {
+          "phase": "reuse_training_after",
+          "stage": 0,
+          "unix": 1792314788.273071,
+          "pid": 405584,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4130185216,
+          "VmRSS_bytes": 2988457984,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2743597056,
+          "Private_Clean_bytes": 75595776,
+          "Private_Dirty_bytes": 2559623168,
+          "cpu_uss_bytes": 2635218944,
+          "gpu_allocated_bytes": 1876320256,
+          "gpu_reserved_bytes": 10261364736,
+          "gpu_peak_allocated_bytes": 9752154112,
+          "gpu_peak_reserved_bytes": 11075059712,
+          "gpu_process_nvml_bytes": 10651435008,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "scope": "TRAIN feature extraction, model epochs, TRAIN probes and CPU router fit; final TEST excluded from before/after, global peak includes diagnostic",
+        "growth_bytes": {
+          "VmRSS_bytes": 585113600,
+          "Pss_bytes": 543925248,
+          "cpu_uss_bytes": 519430144,
+          "gpu_allocated_bytes": 33554432,
+          "gpu_reserved_bytes": 6985613312,
+          "gpu_process_nvml_bytes": 7021264896
+        },
+        "observed_peak_bytes": {
+          "VmRSS_bytes": 3218173952,
+          "Pss_bytes": 2966577152,
+          "cpu_uss_bytes": 2853277696,
+          "gpu_allocated_bytes": 11038077952,
+          "gpu_reserved_bytes": 18593349632,
+          "gpu_process_nvml_bytes": 18983419904
+        },
+        "note": "Same-PID before/after; fresh process per cap. On recovery these describe resumed process only. Stage diagnostics are included in observed peaks; allocator cache is separate from parameter growth.",
+        "all_process_observed_peak_bytes": {
+          "VmRSS_bytes": 3218173952,
+          "Pss_bytes": 2966577152,
+          "cpu_uss_bytes": 2853277696,
+          "gpu_allocated_bytes": 11038077952,
+          "gpu_reserved_bytes": 18593349632,
+          "gpu_process_nvml_bytes": 18983419904
+        }
+      }
+    },
+    "quality_inference": {}
+  },
+  "calibration": [],
+  "completion_sha256": {
+    "initialization": {
+      "summary/onevision_diagnostics_20261016/learned_reuse/learned_cosine_K3_train_complete.json": "bec50f3729f495d1330004d981771301eac550b22e243a237912fb8e092d221c",
+      "summary/onevision_diagnostics_20261016/warm_start_20261018/warm_inherit_K3_v1_train_complete.json": "ffa27eb739d05bc3963d3af7d3f3374094fdc625da56e83d6ec41700e43d7033"
+    },
+    "cold_quality": {
+      "pilot_complete.json": "019dafbd03c9f76367ef1cf86a0e4d15e9dd54c329332e1faa659f9d738180eb"
+    },
+    "warm_quality": {}
+  },
+  "source_sha256": {
+    "analysis/onevision_warm_quality_probe.py": "bd4fcd8da29e97d8e95d239a8bb0d2b80ffc974451c0ad890481332217e2f386",
+    "analysis/onevision_cold_quality_queue.py": "079ea767b07f51fef8a0410d8e51857e67a37969617aadac554948f9bc274c11",
+    "analysis/onevision_cold_quality_report.py": "29ef81fafd8c73a584cb2ea2ebc96a11c95d97e7575cc12eb32dcdf58113d93c",
+    "analysis/onevision_functional_router_probe.py": "7a473e20b568deb958974c6a39da58ae8ec611c55f28e1e65db8923a694c6c3b",
+    "analysis/onevision_functional_router_core.py": "f6767747c76d691134a693fea37f82a37f22e8173cb01cc15c818100341231b5",
+    "analysis/onevision_warm_start_trial.py": "0d1b426d8439243b89f618296a8109f2aa9a87bee8340f91feb5ebf5686c5a31",
+    "analysis/onevision_causal_feedback_queue.py": "0544a1c6c185af9aed26724d6c279d63708941585136cdb4ca3df63930821d03"
+  },
+  "limits": [
+    "Local inherited-control evidence does not prove all-method or knowledge-only causes.",
+    "155 diagnostic generated answers are not complete21454.",
+    "No fullFWT/BWT from final-only. Missing rows remain pending, not zero.",
+    "Both quality cells charge43 historical TRAIN,172NLL forwards and16parameter CPU fit.",
+    "Interaction is a descriptive four-cell contrast, not multi-seed significance.",
+    "No cold/warm gains are added together to invent combined performance."
+  ],
+  "feature_identity_repair": {
+    "metadata_only": true,
+    "old_failed_full_not_reused": true,
+    "proofs_checked": [
+      {
+        "proof": "summary/onevision_diagnostics_20261016/warm_start_20261018/warm_inherit_K3_v1_train_complete.json",
+        "execution_receipt_sha256": "97f9a8f17873c7cb9025824404872f6bfacd01d78a3724c9eb04526b5fc47735"
+      }
+    ],
+    "reporter_sha256": "5032461c0d6aee0f194d28980b891deed4a8b15ba22c3a5331c34504c4f75d66"
+  }
+}

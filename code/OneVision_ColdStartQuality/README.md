@@ -12,7 +12,7 @@
 
 **已经完成：** A的19阶段/93有效更新及500NLL/155生成；同155题AP31.025→35.025，医学F1 15.841→25.339，另四域答案不变、500条调用精确一致。仍低于同诊断SeqFT43.363。见[六栏结果、全部19任务及资源](../../summary/onevision_diagnostics_20261016/warm_start_20261018/first19_outcome/RESEARCH_FINDINGS.md)。
 
-**当前B阶段：** GPU415408已通过原温池500NLL/155预测精确重载，已用43历史TRAIN/172次NLL前向完成16参数头的400次CPU更新（TRAIN校准CE 8.825→1.096），正在评测；这不是Answer F1，全部视图以[实时四格报告](../../summary/onevision_diagnostics_20261016/warm_quality_20261018/FOUR_CELL_RESULTS.md)及完整证明为准。尚无完整A+B收益，不能把原228题继承+9.388、A诊断+4和冷池B诊断+5.679相加。
+**当前B阶段：** GPU415408已通过原温池500NLL/155预测精确重载，已用43历史TRAIN/172次NLL前向完成16参数头的400次CPU更新（TRAIN校准CE 8.825→1.096），预定硬调用500/155条件已完成、组合AP44.165；仅比同题SeqFT高.803且域宏差区间含0，其他视图/21454待。校准CE不是Answer F1，全部视图以[实时四格报告](../../summary/onevision_diagnostics_20261016/warm_quality_20261018/FOUR_CELL_RESULTS.md)及完整证明为准。完整21454的A+B收益仍待；[预定硬调用诊断四格](../../summary/onevision_diagnostics_20261016/warm_quality_20261018/predeclared_hard_case/RESEARCH_FINDINGS.md)已完成，不能把原228题继承+9.388、A诊断+4和冷池B诊断+5.679相加。
 
 [两个问题与协议](../../summary/onevision_diagnostics_20261016/warm_quality_20261018/PROBLEM_AND_METHOD.md) · [冷启动证明](../../summary/onevision_diagnostics_20261016/expert_cold_start_20261018/COLD_START_PROOF.md) · [当前执行与故障证据](../../summary/onevision_diagnostics_20261016/feature_identity_repair_20261018/README.md)。
 
