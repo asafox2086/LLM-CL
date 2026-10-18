@@ -11,30 +11,28 @@
 | **Qwen2-VL-2B-Instruct** | | | | | | | | |
 | SeqFT-LoRA | — | — | — | — | — | — | — | — |
 | ER-LoRA | — | — | — | — | — | — | — | — |
+| FOREVER（待准入） | — | — | — | — | — | — | — | — |
 | CL-MoE | — | — | — | — | — | — | — | — |
 | SMoLoRA | — | — | — | — | — | — | — | — |
 | PASs-MoE | — | — | — | — | — | — | — | — |
 | PaRSP | — | — | — | — | — | — | — | — |
 | OSFT | — | — | — | — | — | — | — | — |
 | SpaRTA | — | — | — | — | — | — | — | — |
-| FV-guided Training | — | — | — | — | — | — | — | — |
-| ALER | — | — | — | — | — | — | — | — |
 | Ours | — | — | — | — | — | — | — | — |
 | **LLaVA-OneVision-Qwen2-0.5B-OV** | | | | | | | | |
 | SeqFT-LoRA | 75.632 | 40.758 | 46.711 | 15.891 | 31.938 | 40.286 | 14.783 | 1.775 |
 | ER-LoRA | 75.149 | 38.622 | 53.199 | 16.698 | 31.122 | 39.275 | 14.441 | 1.039 |
+| FOREVER（待准入） | — | — | — | — | — | — | — | — |
 | CL-MoE | — | — | — | — | — | — | — | — |
 | SMoLoRA | — | — | — | — | — | — | — | — |
 | PASs-MoE | — | — | — | — | — | — | — | — |
 | PaRSP | — | — | — | — | — | — | — | — |
 | OSFT | — | — | — | — | — | — | — | — |
 | SpaRTA | — | — | — | — | — | — | — | — |
-| FV-guided Training | — | — | — | — | — | — | — | — |
-| ALER | — | — | — | — | — | — | — | — |
 | Ours | — | — | — | — | — | — | — | — |
 
-2026-10-18：SeqFT/ER各74个所需评测格逐题按原Answer F1、原ID/金标重算，最终21454QA与最终参数SHA均核验；[证据](COMPLETED_20261018.json)。这两行是V2公共图像协议，不混入研究原生AnyRes155题。其余4个方法运行、4个等待；状态为当次快照。
+2026-10-18：SeqFT/ER各74个所需评测格逐题按原Answer F1、原ID/金标重算，最终21454QA与最终参数SHA均核验；[证据](COMPLETED_20261018.json)。这两行是V2公共图像协议，不混入研究原生AnyRes155题。此处为当次历史完成快照，实时范围及进度见新核验索引。
 
 补充汇总说明：上表领域列按域内QA加权，AP按19个原生任务等权，两者不是同一权重。原实现已有的五领域宏平均为SeqFT **42.186**、ER **42.958**；ER在该补充汇总较高，原主AP仍较低。主表AP/FWT/BWT及唯一原始Answer F1均不改。[完整42908题复算与两层权重分解](../onevision_diagnostics_20261016/v2_aggregation_20261018/RESEARCH_FINDINGS.md)。
 
-后续完成结果由[只读CPU发布器](completion_observer_20261018/README.md)按19阶段有效更新、全部74格原始Answer F1及最终checkpoint核验后入表；范围为两骨干各十个既定方法，不表示20组已经跑完。[核验索引](completion_observer_20261018/VERIFIED_INDEX.json)。
+后续完成结果由[只读CPU发布器](completion_observer_eight_20261018/README.md)按19阶段有效更新、全部74格原始Answer F1及最终checkpoint核验后入表；当前范围为两骨干各8个已准入方法，不表示16组已经跑完。FOREVER为第9项计划比较，未准入的占位不计完成。[发表信息及调整依据](BASELINES.md)。[核验索引](completion_observer_eight_20261018/VERIFIED_INDEX.json)。

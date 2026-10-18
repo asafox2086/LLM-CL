@@ -1,3 +1,5 @@
+2026-10-18当前方法范围：移出未进入正式训练的FV-guided Training与ALER，保留8项已准入方法；新增FOREVER（ACL2026）待图文适配及GPU准入，计划9项。原作者FOREVER为文本任务，不能称原生多模态或直接以作者多轮脚本冒充同预算。见[方法清单及准入要求](../two_backbone_pct01_20261017/BASELINES.md)。
+
 # 双骨干公平持续学习：V2
 
 当前正式框架 `two_backbone_native_cl_20261017_v2`：旧机运行OneVision 0.5B，新机运行Qwen2-VL 2B。新GPU0保留，GPU1研究，GPU2/3优先Qwen 1%。19个原生任务，seed42，一轮，无验证集。训练/测试ID、顺序、方法实现、优化预算、共同图像输入、评分一致；原生模型/tokenizer/processor因骨干而异，耗时与显存按硬件分开报告。

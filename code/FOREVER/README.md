@@ -1,3 +1,5 @@
+2026-10-18当前方法范围：移出未进入正式训练的FV-guided Training与ALER，保留8项已准入方法；新增FOREVER（ACL2026）待图文适配及GPU准入，计划9项。原作者FOREVER为文本任务，不能称原生多模态或直接以作者多轮脚本冒充同预算。见[方法清单及准入要求](../../summary/two_backbone_pct01_20261017/BASELINES.md)。
+
 # FOREVER
 
 论文：[ACL 2026](https://aclanthology.org/2026.acl-long.1144/)；分类：replay。

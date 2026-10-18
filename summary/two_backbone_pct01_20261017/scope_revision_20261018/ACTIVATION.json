@@ -1,0 +1,425 @@
+{
+  "CPU_only": true,
+  "user_removed": [
+    "FV_guided_Training",
+    "ALER"
+  ],
+  "admitted_methods": [
+    "SeqFT_LoRA",
+    "ER_LoRA",
+    "CL_MoE",
+    "SMoLoRA",
+    "PASs_MoE",
+    "PaRSP",
+    "OSFT",
+    "SpaRTA"
+  ],
+  "pending_not_admitted": [
+    "FOREVER"
+  ],
+  "policy_sha256": "bdb9f5fda17b72b98e1f21d12772c2f2a4e564b0489a0db2a1f99ca9dfee3485",
+  "two_hosts_policy_identical": true,
+  "new_host": {
+    "CPU_only_scope_change": true,
+    "before": {
+      "CPU_unit": "MainPID=336392\nKillMode=process",
+      "GPU_trainers": [
+        {
+          "pid": 336398,
+          "startticks": 14120026,
+          "argv": [
+            "/data1/liyapeng/program/LLMCL/.vision-env/bin/python",
+            "-u",
+            "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py",
+            "--method",
+            "SeqFT_LoRA",
+            "--condition",
+            "pct01",
+            "--run-dir",
+            "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209",
+            "--resume"
+          ]
+        },
+        {
+          "pid": 336411,
+          "startticks": 14120031,
+          "argv": [
+            "/data1/liyapeng/program/LLMCL/.vision-env/bin/python",
+            "-u",
+            "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py",
+            "--method",
+            "ER_LoRA",
+            "--condition",
+            "pct01",
+            "--run-dir",
+            "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261018_120944"
+          ]
+        }
+      ],
+      "policy_sha256": "c30b0345ffd7535d551b2fefbf64442eed5a9ce1802326f2ecbc87329d1aeeda",
+      "frame_python_sha256": {
+        "parsp_adapter.py": "d1ebe1831e6d089d434bdde34b59db64eff17dc74d8d77f9ca4f080a51da8366",
+        "sparse_results.py": "07a7808beff8bc3330e92dc5b0fb5443401486846db764c912a5a0f57558fa3f",
+        "osft_adapter.py": "60b05f3b59f3878e65ee9543657b54a5aa5da13c14e139123e1c3591f3007b34",
+        "freeze_splits.py": "5b4d58451ef3bcdb9fc033c0c9bc15b72ddc36877a64ca22d50f12e9e301510a",
+        "retrieval.py": "7d7a9dd6cb223bf96cd9ab3499a4ddf69f8fbb60940d80db84582ad518f5c133",
+        "pipeline.py": "a05c27c773dc69369cbef90f89a77c6224d1f5a5d1716c1f8576ac3ff823be17",
+        "checkpoint_probe.py": "71b38fb9f202fa2fa012e76a883e23322f68ef938c9f8ef9fac78d01886eb23f",
+        "aler_adapter.py": "4a4c58024727e5e5d01254a6b90b721e873ee6ea9f74d59308da6aa424217635",
+        "checkpoints.py": "06c53eab2c6810901f5206edbfb1df9defabdc747b1856ace0afa31e74b37a78",
+        "pass_adapter.py": "c8e23c85a93e97130d464b4b6d87110470035c5af37f9575fce705923c80c7c4",
+        "fv_adapter.py": "85473b19726249703f645a30142b6cfb046a37f798430ca1a255e48213641fab",
+        "sparta_adapter.py": "8a00505b40663e5a233ddceb34e295d9b7b73d55f0679ac3d2b93318e77d7a44",
+        "host_adam.py": "5e733e6b87c12eb9331ff23e8919a142f1861a2beec82ec8b0361d878b9aec8c",
+        "prepare_native.py": "200affb091e040e4f4492fb92389b9f1b54a3e71b33683e7de322ca6dd74cb4f",
+        "native_auxiliary.py": "17f3345fb8d4b4cb3367de2a0b914b34bf69251ecc7f141ba1c7179006599682",
+        "replay_adapter.py": "da07cfd8e44183ab3e29f1ab51ecbec0f6e7877ac6335efcf179158afff8d141",
+        "resource_monitor.py": "a161c8a82bf762622795f64210c95164fb905c6fa80572b35ae5ee3dd7146533",
+        "hyper_adapter.py": "518574b8c3d1c46400d240cc984f0d1c83cb01d96a7d1e2bf788bea4d4610976",
+        "frozen_vision.py": "8211651e92d17019f6ce6cf9615df7f6b5fcaeecc765aec4acdf916c448a35bd",
+        "clmoe_adapter.py": "33946eddfc6424638ded0675ded68860273859c2f71993a6a60bd22556341be9",
+        "methods.py": "e5bd8f51690b006274ed5adcfa4ef3b1a2c3b0f1d79476d948b71d1cfec41c5b",
+        "run.py": "0e1f794ff1daf0694bdf960c3f89ccd4078764577db75271d8f78684282a39a9",
+        "training_validity.py": "0ec302d2fa4e8bb1a87b41c861c3aea78bf473e3df805b87d4dd450d21a2f735",
+        "onevision_bridge.py": "f3b1dd38af3b58dbfa69073da698ea2bf39a3a11850fb1069a80e38d0e3669a9",
+        "runtime_utils.py": "4f5c4a34be046c29cfbcdaa4b2957faa907684872ba69083bdef53136a851240"
+      }
+    },
+    "after": {
+      "CPU_unit": "MainPID=398517\nKillMode=process",
+      "GPU_trainers": [
+        {
+          "pid": 336398,
+          "startticks": 14120026,
+          "argv": [
+            "/data1/liyapeng/program/LLMCL/.vision-env/bin/python",
+            "-u",
+            "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py",
+            "--method",
+            "SeqFT_LoRA",
+            "--condition",
+            "pct01",
+            "--run-dir",
+            "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209",
+            "--resume"
+          ]
+        },
+        {
+          "pid": 336411,
+          "startticks": 14120031,
+          "argv": [
+            "/data1/liyapeng/program/LLMCL/.vision-env/bin/python",
+            "-u",
+            "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py",
+            "--method",
+            "ER_LoRA",
+            "--condition",
+            "pct01",
+            "--run-dir",
+            "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261018_120944"
+          ]
+        }
+      ],
+      "policy_sha256": "bdb9f5fda17b72b98e1f21d12772c2f2a4e564b0489a0db2a1f99ca9dfee3485",
+      "frame_python_sha256": {
+        "parsp_adapter.py": "d1ebe1831e6d089d434bdde34b59db64eff17dc74d8d77f9ca4f080a51da8366",
+        "sparse_results.py": "07a7808beff8bc3330e92dc5b0fb5443401486846db764c912a5a0f57558fa3f",
+        "osft_adapter.py": "60b05f3b59f3878e65ee9543657b54a5aa5da13c14e139123e1c3591f3007b34",
+        "freeze_splits.py": "5b4d58451ef3bcdb9fc033c0c9bc15b72ddc36877a64ca22d50f12e9e301510a",
+        "retrieval.py": "7d7a9dd6cb223bf96cd9ab3499a4ddf69f8fbb60940d80db84582ad518f5c133",
+        "pipeline.py": "a05c27c773dc69369cbef90f89a77c6224d1f5a5d1716c1f8576ac3ff823be17",
+        "checkpoint_probe.py": "71b38fb9f202fa2fa012e76a883e23322f68ef938c9f8ef9fac78d01886eb23f",
+        "aler_adapter.py": "4a4c58024727e5e5d01254a6b90b721e873ee6ea9f74d59308da6aa424217635",
+        "checkpoints.py": "06c53eab2c6810901f5206edbfb1df9defabdc747b1856ace0afa31e74b37a78",
+        "pass_adapter.py": "c8e23c85a93e97130d464b4b6d87110470035c5af37f9575fce705923c80c7c4",
+        "fv_adapter.py": "85473b19726249703f645a30142b6cfb046a37f798430ca1a255e48213641fab",
+        "sparta_adapter.py": "8a00505b40663e5a233ddceb34e295d9b7b73d55f0679ac3d2b93318e77d7a44",
+        "host_adam.py": "5e733e6b87c12eb9331ff23e8919a142f1861a2beec82ec8b0361d878b9aec8c",
+        "prepare_native.py": "200affb091e040e4f4492fb92389b9f1b54a3e71b33683e7de322ca6dd74cb4f",
+        "native_auxiliary.py": "17f3345fb8d4b4cb3367de2a0b914b34bf69251ecc7f141ba1c7179006599682",
+        "replay_adapter.py": "da07cfd8e44183ab3e29f1ab51ecbec0f6e7877ac6335efcf179158afff8d141",
+        "resource_monitor.py": "a161c8a82bf762622795f64210c95164fb905c6fa80572b35ae5ee3dd7146533",
+        "hyper_adapter.py": "518574b8c3d1c46400d240cc984f0d1c83cb01d96a7d1e2bf788bea4d4610976",
+        "frozen_vision.py": "8211651e92d17019f6ce6cf9615df7f6b5fcaeecc765aec4acdf916c448a35bd",
+        "clmoe_adapter.py": "33946eddfc6424638ded0675ded68860273859c2f71993a6a60bd22556341be9",
+        "methods.py": "e5bd8f51690b006274ed5adcfa4ef3b1a2c3b0f1d79476d948b71d1cfec41c5b",
+        "run.py": "0e1f794ff1daf0694bdf960c3f89ccd4078764577db75271d8f78684282a39a9",
+        "training_validity.py": "0ec302d2fa4e8bb1a87b41c861c3aea78bf473e3df805b87d4dd450d21a2f735",
+        "onevision_bridge.py": "f3b1dd38af3b58dbfa69073da698ea2bf39a3a11850fb1069a80e38d0e3669a9",
+        "runtime_utils.py": "4f5c4a34be046c29cfbcdaa4b2957faa907684872ba69083bdef53136a851240"
+      }
+    },
+    "GPU_trainers_preserved_exact": true,
+    "frame_python_unchanged": true,
+    "removed_methods": [
+      "FV_guided_Training",
+      "ALER"
+    ],
+    "FOREVER_pending_not_admitted": true
+  },
+  "old_host": {
+    "CPU_only_scope_change": true,
+    "before": {
+      "CPU_unit": "MainPID=344328\nKillMode=process",
+      "GPU_trainers": [
+        {
+          "pid": 341019,
+          "startticks": 692328509,
+          "argv": [
+            "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+            "-u",
+            "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py",
+            "--method",
+            "CL_MoE",
+            "--condition",
+            "pct01",
+            "--run-dir",
+            "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/CL_MoE/training_20261017_161424"
+          ]
+        },
+        {
+          "pid": 342152,
+          "startticks": 692346567,
+          "argv": [
+            "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+            "-u",
+            "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py",
+            "--method",
+            "PASs_MoE",
+            "--condition",
+            "pct01",
+            "--run-dir",
+            "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PASs_MoE/training_20261017_161725"
+          ]
+        },
+        {
+          "pid": 560900,
+          "startticks": 696577113,
+          "argv": [
+            "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+            "-u",
+            "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py",
+            "--method",
+            "PaRSP",
+            "--condition",
+            "pct01",
+            "--run-dir",
+            "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PaRSP/training_20261018_040230"
+          ]
+        },
+        {
+          "pid": 572431,
+          "startticks": 696808421,
+          "argv": [
+            "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+            "-u",
+            "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py",
+            "--method",
+            "OSFT",
+            "--condition",
+            "pct01",
+            "--run-dir",
+            "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/OSFT/training_20261018_044103"
+          ]
+        }
+      ],
+      "policy_sha256": "c30b0345ffd7535d551b2fefbf64442eed5a9ce1802326f2ecbc87329d1aeeda",
+      "frame_python_sha256": {
+        "training_validity.py": "0ec302d2fa4e8bb1a87b41c861c3aea78bf473e3df805b87d4dd450d21a2f735",
+        "parsp_adapter.py": "d1ebe1831e6d089d434bdde34b59db64eff17dc74d8d77f9ca4f080a51da8366",
+        "pass_adapter.py": "c8e23c85a93e97130d464b4b6d87110470035c5af37f9575fce705923c80c7c4",
+        "frozen_vision.py": "8211651e92d17019f6ce6cf9615df7f6b5fcaeecc765aec4acdf916c448a35bd",
+        "clmoe_adapter.py": "33946eddfc6424638ded0675ded68860273859c2f71993a6a60bd22556341be9",
+        "replay_adapter.py": "da07cfd8e44183ab3e29f1ab51ecbec0f6e7877ac6335efcf179158afff8d141",
+        "osft_adapter.py": "60b05f3b59f3878e65ee9543657b54a5aa5da13c14e139123e1c3591f3007b34",
+        "sparta_adapter.py": "8a00505b40663e5a233ddceb34e295d9b7b73d55f0679ac3d2b93318e77d7a44",
+        "native_auxiliary.py": "17f3345fb8d4b4cb3367de2a0b914b34bf69251ecc7f141ba1c7179006599682",
+        "pipeline.py": "a05c27c773dc69369cbef90f89a77c6224d1f5a5d1716c1f8576ac3ff823be17",
+        "hyper_adapter.py": "518574b8c3d1c46400d240cc984f0d1c83cb01d96a7d1e2bf788bea4d4610976",
+        "sparse_results.py": "07a7808beff8bc3330e92dc5b0fb5443401486846db764c912a5a0f57558fa3f",
+        "fv_adapter.py": "85473b19726249703f645a30142b6cfb046a37f798430ca1a255e48213641fab",
+        "methods.py": "e5bd8f51690b006274ed5adcfa4ef3b1a2c3b0f1d79476d948b71d1cfec41c5b",
+        "prepare_native.py": "200affb091e040e4f4492fb92389b9f1b54a3e71b33683e7de322ca6dd74cb4f",
+        "retrieval.py": "7d7a9dd6cb223bf96cd9ab3499a4ddf69f8fbb60940d80db84582ad518f5c133",
+        "checkpoints.py": "06c53eab2c6810901f5206edbfb1df9defabdc747b1856ace0afa31e74b37a78",
+        "checkpoint_probe.py": "71b38fb9f202fa2fa012e76a883e23322f68ef938c9f8ef9fac78d01886eb23f",
+        "host_adam.py": "5e733e6b87c12eb9331ff23e8919a142f1861a2beec82ec8b0361d878b9aec8c",
+        "run.py": "0e1f794ff1daf0694bdf960c3f89ccd4078764577db75271d8f78684282a39a9",
+        "freeze_splits.py": "5b4d58451ef3bcdb9fc033c0c9bc15b72ddc36877a64ca22d50f12e9e301510a",
+        "onevision_bridge.py": "f3b1dd38af3b58dbfa69073da698ea2bf39a3a11850fb1069a80e38d0e3669a9",
+        "resource_monitor.py": "a161c8a82bf762622795f64210c95164fb905c6fa80572b35ae5ee3dd7146533",
+        "aler_adapter.py": "4a4c58024727e5e5d01254a6b90b721e873ee6ea9f74d59308da6aa424217635",
+        "runtime_utils.py": "4f5c4a34be046c29cfbcdaa4b2957faa907684872ba69083bdef53136a851240"
+      }
+    },
+    "after": {
+      "CPU_unit": "MainPID=798066\nKillMode=process",
+      "GPU_trainers": [
+        {
+          "pid": 341019,
+          "startticks": 692328509,
+          "argv": [
+            "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+            "-u",
+            "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py",
+            "--method",
+            "CL_MoE",
+            "--condition",
+            "pct01",
+            "--run-dir",
+            "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/CL_MoE/training_20261017_161424"
+          ]
+        },
+        {
+          "pid": 342152,
+          "startticks": 692346567,
+          "argv": [
+            "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+            "-u",
+            "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py",
+            "--method",
+            "PASs_MoE",
+            "--condition",
+            "pct01",
+            "--run-dir",
+            "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PASs_MoE/training_20261017_161725"
+          ]
+        },
+        {
+          "pid": 560900,
+          "startticks": 696577113,
+          "argv": [
+            "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+            "-u",
+            "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py",
+            "--method",
+            "PaRSP",
+            "--condition",
+            "pct01",
+            "--run-dir",
+            "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PaRSP/training_20261018_040230"
+          ]
+        },
+        {
+          "pid": 572431,
+          "startticks": 696808421,
+          "argv": [
+            "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+            "-u",
+            "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py",
+            "--method",
+            "OSFT",
+            "--condition",
+            "pct01",
+            "--run-dir",
+            "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/OSFT/training_20261018_044103"
+          ]
+        }
+      ],
+      "policy_sha256": "bdb9f5fda17b72b98e1f21d12772c2f2a4e564b0489a0db2a1f99ca9dfee3485",
+      "frame_python_sha256": {
+        "training_validity.py": "0ec302d2fa4e8bb1a87b41c861c3aea78bf473e3df805b87d4dd450d21a2f735",
+        "parsp_adapter.py": "d1ebe1831e6d089d434bdde34b59db64eff17dc74d8d77f9ca4f080a51da8366",
+        "pass_adapter.py": "c8e23c85a93e97130d464b4b6d87110470035c5af37f9575fce705923c80c7c4",
+        "frozen_vision.py": "8211651e92d17019f6ce6cf9615df7f6b5fcaeecc765aec4acdf916c448a35bd",
+        "clmoe_adapter.py": "33946eddfc6424638ded0675ded68860273859c2f71993a6a60bd22556341be9",
+        "replay_adapter.py": "da07cfd8e44183ab3e29f1ab51ecbec0f6e7877ac6335efcf179158afff8d141",
+        "osft_adapter.py": "60b05f3b59f3878e65ee9543657b54a5aa5da13c14e139123e1c3591f3007b34",
+        "sparta_adapter.py": "8a00505b40663e5a233ddceb34e295d9b7b73d55f0679ac3d2b93318e77d7a44",
+        "native_auxiliary.py": "17f3345fb8d4b4cb3367de2a0b914b34bf69251ecc7f141ba1c7179006599682",
+        "pipeline.py": "a05c27c773dc69369cbef90f89a77c6224d1f5a5d1716c1f8576ac3ff823be17",
+        "hyper_adapter.py": "518574b8c3d1c46400d240cc984f0d1c83cb01d96a7d1e2bf788bea4d4610976",
+        "sparse_results.py": "07a7808beff8bc3330e92dc5b0fb5443401486846db764c912a5a0f57558fa3f",
+        "fv_adapter.py": "85473b19726249703f645a30142b6cfb046a37f798430ca1a255e48213641fab",
+        "methods.py": "e5bd8f51690b006274ed5adcfa4ef3b1a2c3b0f1d79476d948b71d1cfec41c5b",
+        "prepare_native.py": "200affb091e040e4f4492fb92389b9f1b54a3e71b33683e7de322ca6dd74cb4f",
+        "retrieval.py": "7d7a9dd6cb223bf96cd9ab3499a4ddf69f8fbb60940d80db84582ad518f5c133",
+        "checkpoints.py": "06c53eab2c6810901f5206edbfb1df9defabdc747b1856ace0afa31e74b37a78",
+        "checkpoint_probe.py": "71b38fb9f202fa2fa012e76a883e23322f68ef938c9f8ef9fac78d01886eb23f",
+        "host_adam.py": "5e733e6b87c12eb9331ff23e8919a142f1861a2beec82ec8b0361d878b9aec8c",
+        "run.py": "0e1f794ff1daf0694bdf960c3f89ccd4078764577db75271d8f78684282a39a9",
+        "freeze_splits.py": "5b4d58451ef3bcdb9fc033c0c9bc15b72ddc36877a64ca22d50f12e9e301510a",
+        "onevision_bridge.py": "f3b1dd38af3b58dbfa69073da698ea2bf39a3a11850fb1069a80e38d0e3669a9",
+        "resource_monitor.py": "a161c8a82bf762622795f64210c95164fb905c6fa80572b35ae5ee3dd7146533",
+        "aler_adapter.py": "4a4c58024727e5e5d01254a6b90b721e873ee6ea9f74d59308da6aa424217635",
+        "runtime_utils.py": "4f5c4a34be046c29cfbcdaa4b2957faa907684872ba69083bdef53136a851240"
+      }
+    },
+    "GPU_trainers_preserved_exact": true,
+    "frame_python_unchanged": true,
+    "removed_methods": [
+      "FV_guided_Training",
+      "ALER"
+    ],
+    "FOREVER_pending_not_admitted": true
+  },
+  "research_processes_preserved_exact": {
+    "358091": {
+      "startticks": 14710479,
+      "cmdline_sha256": "c8e0845252c9ed0dacc2e503986a3aee572f6ae8e9ea6afdc6d7c32cfa927334"
+    },
+    "389122": {
+      "startticks": 15440343,
+      "cmdline_sha256": "32d11cfc6f4e636d3558104f14a13ca9dbaf074ef2ba05268321a3ec17287170"
+    },
+    "389384": {
+      "startticks": 15442634,
+      "cmdline_sha256": "f66cc4abc01be8f75b27450234ad172650051a0d11e9f888bd96c32d12d483c6"
+    }
+  },
+  "original_completion_proof_bytes_preserved": {
+    "8bd1be13afb3be224732.json": "5e312feaef38be922f7eda0fa937cf7755fe6f4e5d0b2c7a8372e35968ea13c7",
+    "b463d0e9fdfecc9eb456.json": "c0c010f18db89b088cd3ac13b92e79a76c560c13ee9f9960f0e5e2ddc8e88c69"
+  },
+  "publisher_CPU_checks": {
+    "CPU_only": true,
+    "original_checks": 8,
+    "required_pairs": 16,
+    "pending_not_admitted": [
+      "FOREVER"
+    ]
+  },
+  "publisher_status": {
+    "pid": 398521,
+    "CPU_only": true,
+    "verified_pairs": 2,
+    "required_pairs": 16,
+    "new_pairs_verified_this_poll": false,
+    "last_checked_unix": 1792312404.4574356,
+    "no_GPU_or_training_started": true,
+    "scope_wrapper_sha256": "5745dfdd34b0d6a8fab2e41845eae0bb677061598f0a99a568fb5b2fb46cab97",
+    "removed_before_formal_training": [
+      "ALER",
+      "FV_guided_Training"
+    ],
+    "pending_not_admitted": [
+      "FOREVER"
+    ],
+    "methods_in_scope": [
+      "SeqFT_LoRA",
+      "ER_LoRA",
+      "CL_MoE",
+      "SMoLoRA",
+      "PASs_MoE",
+      "PaRSP",
+      "OSFT",
+      "SpaRTA"
+    ]
+  },
+  "CPU_units_after": {
+    "llmcl-two-backbone-hardware-queue.service": "MainPID=398532\nKillMode=process\nActiveState=active\n",
+    "llmcl-v2-verified-results-eight.service": "MainPID=398530\nKillMode=process\nActiveState=active\n",
+    "llmcl-two-backbone-native.service": "MainPID=398517\nKillMode=process\nActiveState=active\n",
+    "llmcl-v2-verified-results.service": "MainPID=0\nKillMode=process\nActiveState=inactive\n"
+  },
+  "frame_python_sources_unchanged": true,
+  "no_model_data_checkpoint_deleted": true,
+  "activated_unix": 1792312404.8044062,
+  "policy_EOL_canonicalization": {
+    "original_activated_sha256": "bdb9f5fda17b72b98e1f21d12772c2f2a4e564b0489a0db2a1f99ca9dfee3485",
+    "current_both_hosts_sha256": "1f8bd9f0106e38b5fb76f9bef49dd6de821747546b2604c4bc1f562f999e0872",
+    "JSON_values_exactly_unchanged": true,
+    "CPU_GPU_restarted": false,
+    "reason": "Preserve repository LF JSON format; remove Windows transport CRLF only"
+  }
+}
