@@ -2,6 +2,8 @@
 
 **研究背景：轻量模型、1%数据、低内存增长。** 允许多个LoRA，但以实际领域总Answer F1、AP/FWT/BWT和资源成本评价，不要求每个语言、题型或样本都提升。LoRA是训练参数化，正则化是保护机制，两者可结合；不预设必须扩容或路由。[核心规则](rules/021_lightweight_data_limited_core_20261017.md) · [LoRA与正则化](summary/onevision_diagnostics_20261016/expert_cold_start_20261018/LORA_VS_REGULARIZATION.md)。
 
+**最新执行（2026-10-18）：** 连续LoRA＋有界功能缓存已在GPU1首次实际训练，图像与特征门槛通过，尚无新F1结果。服务器18:45重启后正式SeqFT接续；无阶段checkpoint的CL-MoE已保留中断证据、恢复独立新run排队，活动GPU进程保全。[实际执行记录](summary/onevision_diagnostics_20261016/functional_state_cache_20261018/v1/execution_context/README.md)。研究按最新规则在空闲GPU0/1择一，新机我们的作业最多占三张卡。
+
 <!-- FORMAL_MAIN_TABLE_BEGIN -->
 ## 主实验：双骨干1%多领域持续学习
 

@@ -1,5 +1,7 @@
 # 问题发现总报告
 
+2026-10-18 18:48实际启动：新连续LoRA＋功能缓存候选已在GPU1首次训练，原生图像及特征修复门槛通过、早期更新学习率正且梯度有限。19阶段精确等价和Answer F1尚未完成，不能把启动写成提升。服务器18:45重启后原服务恢复；正式SeqFT接原checkpoint，CL-MoE无阶段checkpoint，已保留中断证据并恢复为独立新run待跑，所有活动GPU不受影响。[实际执行与CPU流程检查边界](functional_state_cache_20261018/v1/execution_context/README.md)。以下旧PID/等待记录保留为历史。
+
 2026-10-18最新接续：新[连续LoRA＋有界功能缓存候选](functional_state_cache_20261018/v1/PROTOCOL.md)已实现并准入同nohup，47CPU机制/集成＋21调度＋8命令检查通过；CPU434457当前因实际他人GPU1进程432429存活健康等待，尚无新GPU/F1。原18数据因子现2/18、[第一对单QA](cold_data_factorial_20261018/first_support_pair/RESEARCH_FINDINGS.md)显示1步温−冷+11.482pp、4步−1.787pp区间含0，优势缩小−13.269pp区间[-18.729,-7.991]；更新与曝光共同变化，不能宣称冷启动永久低上限或4步稳定反超。全部旧作业保留、基线继续。
 
 

@@ -1,0 +1,229 @@
+{
+  "observed_unix": 1792320667.272937,
+  "boot_id": "67761366-2821-401b-b80d-c97ee7ad37c8",
+  "uptime_seconds": 355.22,
+  "queue": {
+    "pid": 2468,
+    "phase": "running",
+    "kind": "flex_research",
+    "target": {
+      "gpu": 1,
+      "kind": "cache",
+      "phase": "build",
+      "view": null
+    },
+    "worker_pid": 4363,
+    "research_allowed_GPUs": [
+      0,
+      1
+    ],
+    "max_our_GPU_cards": 3,
+    "physical_GPU": 1
+  },
+  "actual_processes": [
+    {
+      "pid": 2468,
+      "startticks": 10045,
+      "state": "S",
+      "UID": 1004,
+      "cmdline_sha256": "c2a2006eaddad187836970650763aab6a686dda4c6c734053670eab22bc74d7e",
+      "own_command": "/data1/liyapeng/program/LLMCL/.assets-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/onevision_state_cache_flexible_queue.py "
+    },
+    {
+      "pid": 4363,
+      "startticks": 22088,
+      "state": "R",
+      "UID": 1004,
+      "cmdline_sha256": "76829ef16a7e5e0b95686113182f8511dfa306243ff412414b76d1a844f785dc",
+      "own_command": "/data1/liyapeng/program/LLMCL/.vision-env/bin/python -u analysis/onevision_research_device_entry.py --gpu 1 --kind cache --phase build "
+    },
+    {
+      "pid": 3256,
+      "startticks": 11255,
+      "state": "R",
+      "UID": 1004,
+      "cmdline_sha256": "c48045c47f27f53abc9dbd63d38b116a4f5dde94ce9935ae94e2d0ce42d279bf",
+      "own_command": "/data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py --method SeqFT_LoRA --condition pct01 --run-dir /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209 --resume "
+    },
+    {
+      "pid": 3263,
+      "startticks": 11266,
+      "state": "S",
+      "UID": 1004,
+      "cmdline_sha256": "46f479414c36ab04e2a2fb197f23df6e2977d73913294ddfb71b7205d60bd7a3",
+      "own_command": "/data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py --method SMoLoRA --condition pct01 --run-dir /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SMoLoRA/preflight_20261018_184704 --preflight-only "
+    }
+  ],
+  "research_run": "exp/onevision_state_cache_20261018/v1/build/20261018_184856",
+  "train_updates_observed": 5,
+  "last_train": {
+    "event": "train",
+    "label": "continuous_T01",
+    "qa_seen": 80,
+    "total_qa": 347,
+    "loss": 1.744779612403363,
+    "gradient_l2_preclip": 28.842777252197266,
+    "learning_rate_used": 9.206267664155907e-05,
+    "warmup_updates": 0,
+    "seconds": 10.432573977000004,
+    "gpu_allocated_bytes": 1901683712,
+    "prompt_tokens": 4863,
+    "target_tokens": 2,
+    "target_truncated": false,
+    "visual_tokens": 4829,
+    "route_mode": "fixed_training_or_TRAIN_probe"
+  },
+  "renderer_gate": {
+    "passed": true,
+    "cases": [
+      {
+        "id": "TextVQA:23399",
+        "processor_tokens": 7207,
+        "actual_features": 7207,
+        "native_forward_nll_error": 0.0,
+        "unchanged_when_compatible": true
+      },
+      {
+        "id": "SLAKE:3990",
+        "processor_tokens": 1485,
+        "actual_features": 1485,
+        "native_forward_nll_error": 0.0,
+        "unchanged_when_compatible": true
+      },
+      {
+        "id": "RSVQA-LR:16107",
+        "processor_tokens": 1485,
+        "actual_features": 1485,
+        "native_forward_nll_error": 0.0,
+        "unchanged_when_compatible": true
+      },
+      {
+        "id": "FinMME:523",
+        "processor_tokens": 4173,
+        "actual_features": 4173,
+        "native_forward_nll_error": 0.0,
+        "unchanged_when_compatible": true
+      },
+      {
+        "id": "CODA-LM:Train:Train_general_3203",
+        "processor_tokens": 5967,
+        "actual_features": 5967,
+        "native_forward_nll_error": 0.0,
+        "unchanged_when_compatible": true
+      },
+      {
+        "id": "FinMME:5082",
+        "processor_tokens": 2052,
+        "actual_features": 2106,
+        "native_forward_nll_error": 0.0,
+        "unchanged_when_compatible": false
+      }
+    ],
+    "optimizer_updates": 0
+  },
+  "feature_gate": {
+    "passed": true,
+    "known_failure_reproduced": "FinMME:5082",
+    "compatible_feature_exact": true,
+    "parameter_versions_and_RNG_exact": true,
+    "additional_feature_calls": 4,
+    "optimizer_updates": 0,
+    "TEST_answers_used": false,
+    "source_sha256": "779c8dc05965d1ec59cdb3e01ef5a6d8352e02384fa3ca88274c350aaeac85cb",
+    "repair_source_sha256": "51d1578d3553e2d9655f844ab1a1d047eb920a1584b0b46f1dbaf539c61a1bcd"
+  },
+  "device_receipt": {
+    "physical_GPU": 1,
+    "CUDA_VISIBLE_DEVICES": "1",
+    "local_CUDA_device": 0,
+    "our_GPU_cards_before": [
+      3
+    ],
+    "max_our_GPU_cards": 3,
+    "admission_inventory": {
+      "0": {
+        "uuid": "GPU-0fc921a0-8588-6976-7e2c-172705ab6980",
+        "memory_MiB": 5,
+        "utilization": 0,
+        "owners": []
+      },
+      "1": {
+        "uuid": "GPU-3f5b86c8-feeb-110c-c68c-e04716c0f84c",
+        "memory_MiB": 5,
+        "utilization": 0,
+        "owners": []
+      },
+      "2": {
+        "uuid": "GPU-01bbc8c7-11be-9e3c-b786-7c075e675e0a",
+        "memory_MiB": 5,
+        "utilization": 1,
+        "owners": []
+      },
+      "3": {
+        "uuid": "GPU-fb856f23-d2d1-87af-54d4-f805742da76f",
+        "memory_MiB": 496,
+        "utilization": 0,
+        "owners": [
+          {
+            "pid": 3263,
+            "uid": 1004
+          }
+        ]
+      }
+    },
+    "only_guard_literal_changed": true,
+    "algorithm_source_sha256": "779c8dc05965d1ec59cdb3e01ef5a6d8352e02384fa3ca88274c350aaeac85cb",
+    "device_entry_sha256": "eff8a8319f578222020020a9af5b3d8e94540cd7643d60efcec2836832ca8814",
+    "no_source_hot_edit": true,
+    "QA_and_training_and_scoring_unchanged": true,
+    "actual_device_name": "NVIDIA GeForce RTX 3090",
+    "actual_CUDA_VISIBLE_DEVICES": "1"
+  },
+  "formal_jobs": {
+    "pct01:SeqFT_LoRA": {
+      "method": "SeqFT_LoRA",
+      "status": "training",
+      "run_dir": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209",
+      "pid": 3256
+    },
+    "pct01:CL_MoE": {
+      "method": "CL_MoE",
+      "status": "failed_training",
+      "run_dir": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261018_164257",
+      "pid": 402507
+    },
+    "pct01:SMoLoRA": {
+      "method": "SMoLoRA",
+      "status": "preflight",
+      "run_dir": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SMoLoRA/preflight_20261018_184704",
+      "pid": 3263
+    },
+    "pct01:PASs_MoE": {
+      "method": "PASs_MoE",
+      "status": "waiting",
+      "run_dir": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/PASs_MoE/preflight_20261018_044024"
+    },
+    "pct01:PaRSP": {
+      "method": "PaRSP",
+      "status": "waiting",
+      "run_dir": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/PaRSP/preflight_20261018_044024"
+    },
+    "pct01:OSFT": {
+      "method": "OSFT",
+      "status": "waiting",
+      "run_dir": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/OSFT/preflight_20261018_044943"
+    },
+    "pct01:SpaRTA": {
+      "method": "SpaRTA",
+      "status": "waiting",
+      "run_dir": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SpaRTA/preflight_20261018_044943"
+    }
+  },
+  "baseline_resume": {
+    "SeqFT": "same run --resume; actual original PID command recorded",
+    "other_lane": "SMoLoRA preflight, not training completion"
+  },
+  "old_boot_activation_is_historical_not_current_liveness": true,
+  "no_restart_or_GPU_mutation_by_this_audit": true,
+  "no_F1_or_completion_claim": true
+}
