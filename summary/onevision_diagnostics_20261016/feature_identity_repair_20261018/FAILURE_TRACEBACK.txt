@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "/data1/liyapeng/program/LLMCL/analysis/onevision_functional_router_probe.py", line 254, in <module>
+    run_probe(args.scope, args.view)
+  File "/data1/liyapeng/program/LLMCL/analysis/onevision_functional_router_probe.py", line 230, in run_probe
+    evaluate("final_full_input_router", full, full, view)
+  File "/data1/liyapeng/program/LLMCL/analysis/onevision_functional_router_probe.py", line 172, in evaluate
+    x.evaluate(label, selected, generated)
+  File "/data1/liyapeng/program/LLMCL/analysis/onevision_knowledge_intervention.py", line 82, in evaluate
+    super().evaluate(case,tests,generation,views)
+  File "/data1/liyapeng/program/LLMCL/exp/onevision_diagnostics_20261016/run.py", line 163, in evaluate
+    with torch.no_grad():loss,details=self.loss(row,view,wrong if view=='wrong' else None)
+  File "/data1/liyapeng/program/LLMCL/analysis/onevision_learned_reuse_trial.py", line 138, in loss
+    return super().loss(row, view, wrong)
+  File "/data1/liyapeng/program/LLMCL/analysis/onevision_capacity_probe.py", line 92, in loss
+    self.activate_route(row);loss,details=super().loss(row,view,wrong)
+  File "/data1/liyapeng/program/LLMCL/analysis/onevision_functional_router_probe.py", line 98, in activate_route
+    keys, scores = metric.similarities(self.feature(row)[None], state["memory"], state["weight"])
+  File "/data1/liyapeng/program/LLMCL/analysis/onevision_learned_reuse_trial.py", line 105, in feature
+    batch = self.inputs(aux)
+  File "/data1/liyapeng/program/LLMCL/analysis/onevision_full_input_repair.py", line 47, in inputs
+    f.write(json.dumps({'id':row['id'],'processor_tokens':len(positions),'packed_tokens':actual,
+KeyError: 'id'

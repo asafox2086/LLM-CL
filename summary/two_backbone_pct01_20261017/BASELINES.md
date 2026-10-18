@@ -29,3 +29,5 @@
 - [ALER](https://proceedings.mlr.press/v306/xia26j.html)：ICML 2026。Qwen仅有失败预检，未进入正式训练；OneVision未启动。
 
 移除范围包括两机1%及未来全量队列；不删历史预检、论文或源码，不改变其余方法配置、数据划分与已取得分数。
+
+FOREVER接入前已完成[TRAIN与原代码审计](forever_preflight_20261018/RESEARCH_FINDINGS.md)：本预算动态日程可能被校准耗尽，按答案类保留一题又使真实缓冲超过2%。适配必须报告这些原默认行为及真实成本，不能无声调整来制造轻量或宣称整方法无效；模型F1仍未测。
