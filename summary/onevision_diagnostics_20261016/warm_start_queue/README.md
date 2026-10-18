@@ -1,3 +1,5 @@
+> 当前唯一调度已接续到[CPU366824/cold_data_queue](../cold_data_queue/README.md)；本页保留前次准入过程，旧363113不恢复。原温启动实验仍保留，另新增均匀曝光的数据量因子控制，GPU效果均待。
+
 # 当前唯一研究CPU调度入口
 
 2026-10-18：`llmcl-onevision-causal-priority.service`改用新冻结`analysis/onevision_warm_start_queue.py`，CPU363113/startticks14840433。旧356616仅CPU计划退役，KillMode=process；完整评测GPU358091/startticks14710479原样保留并自然运行。原观察器、两机6个基线实际PID已核验，源码不变。
