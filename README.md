@@ -17,6 +17,8 @@
 
 ## 研究成果：已知什么，尚缺什么
 
+新增[模块输入控制](summary/onevision_diagnostics_20261016/functional_router/input_dependence_20261018/RESEARCH_FINDINGS.md)：质量头在已见TRAIN上确实使用输入，但其11处调用改动全部绕开弱e1，A/B收益可能重叠；四格将检验温启动后B是否仍有额外价值，不把两个局部收益相加。
+
 **方法开发：** [两个问题、两个模块与四格消融](summary/onevision_diagnostics_20261016/warm_quality_20261018/PROBLEM_AND_METHOD.md)：A继承完整旧适配，B用TRAIN质量校准调用。固定池诊断支持调用贡献，但组合入口已准入自动调度，实际温启动父池及GPU组合效果仍待；当前GPU与基线保全。
 
 **后续主线：新LoRA冷启动与弱习得。** 独立[证明过程与下一步判据](summary/onevision_diagnostics_20261016/expert_cold_start_20261018/COLD_START_PROOF.md)串联真实分配、权重不变与初始化干预；已支持一个少数据任务的局部继承收益，完整流程及数据量交互待测。
