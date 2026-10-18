@@ -1,5 +1,7 @@
 # 原目标的完成审计：尚未完成
 
+2026-10-18最新调度：同nohup服务新CPU356616接续GPU348381自然完成，两个预定完整21454QA候选提前到四视图之后；原48/旧完整测试/其余全部任务保留，基线不中断，不按TEST挑赢家。18策略/4继承门槛通过，尚不代表收益。实时入口见[functional_confirmation_queue](functional_confirmation_queue/README.md)。
+
 **新TRAIN调用证据：** 固定43条记忆和专家，质量头将11条e1调用改为e2，每条NLL均降，整体3.313454→1.852542；43次逐图排除仅头拟合后选择仍一致。旧专家/向量已见TRAIN，不能当TESTF1或知识充分证明；不替换活动头，四视图完整结果仍待。见[六栏](functional_router/calibration_audit/RESEARCH_FINDINGS.md)。
 
 **当前任务内部的新痛点已定位：** V3全原生任务审计，8run/7到锚、共同13任务。CL-MoE当前Organ训练OPEN−5.707区间为负、CLOSED+6.935，后续领域未发生；排除全由后来跨域导致，未证唯一机制。总体7/7少更新增量较低，在医学内3方法反转，不能作步数因果。PaRSP/OSFT开放净增极小但参数确有更新；OSFT初始函数与Seq不同，用自身S0。新V3排除Qwen损坏资源日志，不修改基线、不拼失败快照；GPU1四视图已实际启动，精确重载和TRAIN校准通过、结果仍待，完整目标不缩小。[六栏与全部证据](native_acquisition_20261018_v3/RESEARCH_FINDINGS.md)。
