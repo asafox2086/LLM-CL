@@ -1,0 +1,181 @@
+{
+  "CPU_only": true,
+  "same_155_original_ids_gold": true,
+  "raw_Answer_F1": true,
+  "formal_V2_main_table": false,
+  "TEST_selection": false,
+  "results": [
+    {
+      "method": "SeqFT-LoRA（原生研究参考）",
+      "variant": "sequential_LoRA_cap1",
+      "domains": {
+        "natural": 57.38095238095237,
+        "medical": 46.057838660578376,
+        "geography": 46.875,
+        "finance": 30.0,
+        "traffic": 30.465374358561384
+      },
+      "generated_per_domain": {
+        "natural": 10,
+        "medical": 73,
+        "geography": 32,
+        "finance": 10,
+        "traffic": 30
+      },
+      "AP": 43.362536135144616,
+      "FWT": null,
+      "BWT": null
+    },
+    {
+      "method": "固定相似度K3",
+      "variant": "fixed_cosine_K3",
+      "domains": {
+        "natural": 56.998778998778995,
+        "medical": 12.87084259949761,
+        "geography": 38.958333333333336,
+        "finance": 0.0,
+        "traffic": 30.35822556084735
+      },
+      "generated_per_domain": {
+        "natural": 10,
+        "medical": 73,
+        "geography": 32,
+        "finance": 10,
+        "traffic": 30
+      },
+      "AP": 22.390917476551532,
+      "FWT": null,
+      "BWT": null
+    },
+    {
+      "method": "可学习相似度K3",
+      "variant": "learned_cosine_K3",
+      "domains": {
+        "natural": 58.57142857142857,
+        "medical": 15.841053514914007,
+        "geography": 46.875,
+        "finance": 20.0,
+        "traffic": 31.421294853830116
+      },
+      "generated_per_domain": {
+        "natural": 10,
+        "medical": 73,
+        "geography": 32,
+        "finance": 10,
+        "traffic": 30
+      },
+      "AP": 31.02500019956796,
+      "FWT": null,
+      "BWT": null
+    },
+    {
+      "method": "TRAIN质量校准＋硬调用",
+      "variant": "quality_hard",
+      "domains": {
+        "natural": 60.71428571428571,
+        "medical": 30.282417944203488,
+        "geography": 46.875,
+        "finance": 30.0,
+        "traffic": 31.421294853830116
+      },
+      "generated_per_domain": {
+        "natural": 10,
+        "medical": 73,
+        "geography": 32,
+        "finance": 10,
+        "traffic": 30
+      },
+      "AP": 36.703850242199735,
+      "FWT": null,
+      "BWT": null
+    },
+    {
+      "method": "几何软残差",
+      "variant": "geometry_soft",
+      "domains": {
+        "natural": 57.38095238095237,
+        "medical": 26.88385303878927,
+        "geography": 46.875,
+        "finance": 30.0,
+        "traffic": 31.42782996975985
+      },
+      "generated_per_domain": {
+        "natural": 10,
+        "medical": 73,
+        "geography": 32,
+        "finance": 10,
+        "traffic": 30
+      },
+      "AP": 35.99560891965229,
+      "FWT": null,
+      "BWT": null
+    },
+    {
+      "method": "TRAIN质量校准＋软残差",
+      "variant": "quality_soft",
+      "domains": {
+        "natural": 57.38095238095237,
+        "medical": 30.50159602639527,
+        "geography": 46.875,
+        "finance": 30.0,
+        "traffic": 29.990750554302984
+      },
+      "generated_per_domain": {
+        "natural": 10,
+        "medical": 73,
+        "geography": 32,
+        "finance": 10,
+        "traffic": 30
+      },
+      "AP": 36.386746756309485,
+      "FWT": null,
+      "BWT": null
+    }
+  ],
+  "input_sha256": {
+    "summary/onevision_diagnostics_20261016/capacity/cap1_complete.json": "54ed36cb87f1416f5611af5bc158712c8fa7add4ba7107d2814ce4dac7501864",
+    "exp/onevision_capacity_20261016/cap1/20261017_012451/evaluations/final_input_router/natural_image.jsonl": "b18ef2c3aced7cd669b8bccaa3808e24e1ba74ef913b795ca6cfe8c077fbb285",
+    "exp/onevision_capacity_20261016/cap1/20261017_012451/evaluations/final_input_router/medical_image.jsonl": "335c916bcc1fadd15e922287e86dbf3c1bb84f1053ba4c094e85b156d35647ba",
+    "exp/onevision_capacity_20261016/cap1/20261017_012451/evaluations/final_input_router/geography_image.jsonl": "be6c1063bf485cc1b4b9b8a2adc42b084a50312602cd9f09106b1abf9295a913",
+    "exp/onevision_capacity_20261016/cap1/20261017_012451/evaluations/final_input_router/finance_image.jsonl": "3928536dd4b6274151b2968f722327d968c9570cb66442f2bc5123feab925b19",
+    "exp/onevision_capacity_20261016/cap1/20261017_012451/evaluations/final_input_router/traffic_image.jsonl": "895d9dd750f3f5fc75acf6948c1da488fb210123dbc40fd1dd67db02b0dab10f",
+    "summary/onevision_diagnostics_20261016/learned_reuse/fixed_cosine_K3_train_complete.json": "4455756a3e64938bfe8c5bb195ff33cb4cb197976db0b604eaed29a2a6240ff2",
+    "exp/onevision_learned_reuse_20261018/fixed_cosine_K3/train/20261018_015412/evaluations/final_diagnostic/natural_image.jsonl": "d301977acf52324054017cb3ecf189b0093b1f8daed729050235e62639b3842b",
+    "exp/onevision_learned_reuse_20261018/fixed_cosine_K3/train/20261018_015412/evaluations/final_diagnostic/medical_image.jsonl": "f25dec19671faf4df969078f70378621dcdbac1294d9adac33e8b3596f8eb980",
+    "exp/onevision_learned_reuse_20261018/fixed_cosine_K3/train/20261018_015412/evaluations/final_diagnostic/geography_image.jsonl": "acce97a3b327dadf20ee2491824868c1620943539b3702d3b5dd68e727b70161",
+    "exp/onevision_learned_reuse_20261018/fixed_cosine_K3/train/20261018_015412/evaluations/final_diagnostic/finance_image.jsonl": "5626bbb07dacce48425cd938ee2650d5a0cc0744994ddd2511fdcdacd4170bbf",
+    "exp/onevision_learned_reuse_20261018/fixed_cosine_K3/train/20261018_015412/evaluations/final_diagnostic/traffic_image.jsonl": "b72f87b7006cf6eb160cf2e3d1ab12a5f75ea306719dfa3c5191924c1ab27d67",
+    "summary/onevision_diagnostics_20261016/learned_reuse/learned_cosine_K3_train_complete.json": "bec50f3729f495d1330004d981771301eac550b22e243a237912fb8e092d221c",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/evaluations/final_diagnostic/natural_image.jsonl": "813a61b43f9f87bdab86f5c73fde0b04019b3ebe06c954a23c7b5b89d3a75adb",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/evaluations/final_diagnostic/medical_image.jsonl": "eee82cbbacbe080c76b7f0828bf733eed1c63e5330dd2185c6c4fd5f63a4bc4d",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/evaluations/final_diagnostic/geography_image.jsonl": "0ba383cc4acda20c997021a5ecef825f5534a71df1e093776a1d3094cd5e4994",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/evaluations/final_diagnostic/finance_image.jsonl": "6eed8d975035bfa21c3b03b1cc4a43565413c37202ffbe1b326b9d34a7d10f83",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/evaluations/final_diagnostic/traffic_image.jsonl": "d9518e3e741333f35387d991d2f6c871dd92f822f563298a48315cb4851c6b75",
+    "summary/onevision_diagnostics_20261016/functional_router/pilot_complete.json": "019dafbd03c9f76367ef1cf86a0e4d15e9dd54c329332e1faa659f9d738180eb",
+    "exp/onevision_functional_router_20261018/pilot/20261018_130735/evaluations/quality_hard/natural_image.jsonl": "f94e101bd8a5e6bb51b92892db14344b45f5f8c23145e3a774bb4eedcc2de61c",
+    "exp/onevision_functional_router_20261018/pilot/20261018_130735/evaluations/quality_hard/medical_image.jsonl": "8978f96b08e6a431fd518857a08fe676f8e4055432be3231d45f00906135ac7f",
+    "exp/onevision_functional_router_20261018/pilot/20261018_130735/evaluations/quality_hard/geography_image.jsonl": "1cdfa31d28e66d22e72027cf3e80a3d8e4daa38e08eab0407cae59cd6aa81c46",
+    "exp/onevision_functional_router_20261018/pilot/20261018_130735/evaluations/quality_hard/finance_image.jsonl": "4aede97c1030e8de1978f1dae371200cda206360d709302037fbc33c676133e6",
+    "exp/onevision_functional_router_20261018/pilot/20261018_130735/evaluations/quality_hard/traffic_image.jsonl": "266d71cccfec9116c5d4b130407a6535bfddefcc9cde914e1361ac1dd4b534a7",
+    "exp/onevision_functional_router_20261018/pilot/20261018_130735/evaluations/geometry_soft/natural_image.jsonl": "00394e903d25033b9bbc56cfdc81a808cd2ef403e3c7c9f8e22d76d40725adb2",
+    "exp/onevision_functional_router_20261018/pilot/20261018_130735/evaluations/geometry_soft/medical_image.jsonl": "b043273cd0bc5b5780c855818428c0ead2b00011c57dfb9d98a2a54089c65fcf",
+    "exp/onevision_functional_router_20261018/pilot/20261018_130735/evaluations/geometry_soft/geography_image.jsonl": "f03afec520354fe7b2c50fe53e3c118e98cb882eef76dcd299515bbba6958abd",
+    "exp/onevision_functional_router_20261018/pilot/20261018_130735/evaluations/geometry_soft/finance_image.jsonl": "05881a1432215afb7c6f90a589eb68d8e2dfd8e1eec455364a526117a478bd78",
+    "exp/onevision_functional_router_20261018/pilot/20261018_130735/evaluations/geometry_soft/traffic_image.jsonl": "c96f9cb070fc8f3ebb9af4dcf0b0c672ecb1fd64352dfa5f26ad4e69a6dce4b2",
+    "exp/onevision_functional_router_20261018/pilot/20261018_130735/evaluations/quality_soft/natural_image.jsonl": "37029797c3b0d21513db6c52e5e83c037008cc5680cfbf2ce4a5e6645a6c96ca",
+    "exp/onevision_functional_router_20261018/pilot/20261018_130735/evaluations/quality_soft/medical_image.jsonl": "181dd0a8a2b8c386f0ac37d8c4c36915415e5ec2fc14c3d436b7151f514ed858",
+    "exp/onevision_functional_router_20261018/pilot/20261018_130735/evaluations/quality_soft/geography_image.jsonl": "87babddd6f2f281756f00bb54f5829cd11edc06b60fe4de957cf596ac3eb731a",
+    "exp/onevision_functional_router_20261018/pilot/20261018_130735/evaluations/quality_soft/finance_image.jsonl": "badb379afd19db83b356fa5dcade8a8483e9ffd81e349ab106a14e2e7ca2ff64",
+    "exp/onevision_functional_router_20261018/pilot/20261018_130735/evaluations/quality_soft/traffic_image.jsonl": "39fa136aaa248fb20cfa9e0485cd1beca50f08510c1eb42c4277ea29f3b99ad8"
+  },
+  "reference_report_sha256": "ee3b5245100f5632cf3199167b3350d17d43a67b891f358bd45bdc17e03eb3c2",
+  "source_sha256": {
+    "analysis/onevision_functional_main_table.py": "3ff1be3b0f88af62f250ada362b6fabfc7c7a42942f4ff353ea608ee6a89cac2"
+  },
+  "limits": [
+    "155 generated diagnostic QA, NOT complete21454; nativeAnyRes, NOT formalV2.",
+    "Quality/aggregation variants adapt D-MoLE/MVP principles, not original paper reproductions.",
+    "All methods and both predeclared full candidates retained, regardless scores.",
+    "No full transfer metrics inferred from final diagnostics."
+  ]
+}

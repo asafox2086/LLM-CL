@@ -1,5 +1,9 @@
 > **核心背景：轻量、小数据、低内存增长。允许多个LoRA，单LoRA不是硬限制。** 先检验少量数据为何导致既有方法退化，再针对性提升；目标内存增长低于具体对比LoRA方法，须同设置实测，并报告额外计算成本。两台服务器基线持续后台运行。[核心规则](rules/021_lightweight_data_limited_core_20261017.md)。
 
+新[冷启动桥接](summary/onevision_diagnostics_20261016/expert_cold_start_20261018/RESEARCH_FINDINGS.md)：实际e1只训练11条/一步且以后权重未变；同目标预算控制中，从基座新建19.876、继承旧适配29.263。不是所有方法/最终AP原因的泛化。
+
+最新完整四视图诊断已核验：同155题AP，原调用31.025→质量硬36.704／几何软35.996／质量软36.387，仍低于顺序43.363。完整21454候选已启动、尚未完成；正式V2主表仍只填已完成SeqFT/ER。见[五域主表格式与边界](summary/onevision_diagnostics_20261016/functional_router/MAIN_TABLE_DIAGNOSTIC.md)。
+
 2026-10-18最新调度：同nohup服务新CPU356616接续GPU348381自然完成，两个预定完整21454QA候选提前到四视图之后；原48/旧完整测试/其余全部任务保留，基线不中断，不按TEST挑赢家。18策略/4继承门槛通过，尚不代表收益。实时入口见[functional_confirmation_queue](summary/onevision_diagnostics_20261016/functional_confirmation_queue/README.md)。
 
 新[TRAIN调用控制](summary/onevision_diagnostics_20261016/functional_router/calibration_audit/RESEARCH_FINDINGS.md)：同一专家池43条训练记忆，16参数校准将平均NLL3.313454降至1.852542；仅头逐图排除后调用不变。这是调用质量的TRAIN证据，尚不是测试F1收益，未增加LoRA或知识。

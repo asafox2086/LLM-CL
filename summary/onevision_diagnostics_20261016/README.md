@@ -1,5 +1,9 @@
 # 2026-10-18最新入口
 
+新冷启动精确桥接：三专家训练量1214/11/88；e1只训练一步，随后17阶段权重完全没变，不是后来被覆盖。对应同11TRAIN/一步/228TEST控制，从基座新建F1 19.876，继承完整旧自然LoRA29.263（差+9.388，图像区间[4.559,14.330]）。它不是nativeSeq权重，不能拼主表；仅定位初始化/旧功能未继承的局部问题，未证知识唯一原因或整体热启动方案收益。见[六栏和限制](expert_cold_start_20261018/RESEARCH_FINDINGS.md)。
+
+最新完整四视图诊断已核验：同155题AP，原调用31.025→质量硬36.704／几何软35.996／质量软36.387，仍低于顺序43.363。完整21454候选已启动、尚未完成；正式V2主表仍只填已完成SeqFT/ER。见[五域主表格式与边界](functional_router/MAIN_TABLE_DIAGNOSTIC.md)。
+
 2026-10-18最新调度：同nohup服务新CPU356616接续GPU348381自然完成，两个预定完整21454QA候选提前到四视图之后；原48/旧完整测试/其余全部任务保留，基线不中断，不按TEST挑赢家。18策略/4继承门槛通过，尚不代表收益。实时入口见[functional_confirmation_queue](functional_confirmation_queue/README.md)。
 
 新增[固定池TRAIN调用与仅头逐图排除](functional_router/calibration_audit/RESEARCH_FINDINGS.md)：43条记忆、16参数实际拟合、44次CPU分析；与完整测试收益严格分开。

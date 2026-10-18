@@ -1,0 +1,82 @@
+{
+  "scope": "Single PID, all four inference views plus original TRAIN NLL and CPU16parameter calibration; not LM TRAIN peak or per-variant memory comparison",
+  "run": "exp/onevision_functional_router_20261018/pilot/20261018_130735",
+  "memory_summary_sha256": "e40215c7c1ac7280dab3fd34831950b5878e8ae587831e12dba7468467320aef",
+  "pilot_proof_sha256": "019dafbd03c9f76367ef1cf86a0e4d15e9dd54c329332e1faa659f9d738180eb",
+  "original_memory_summary": {
+    "unit": "bytes",
+    "pid": 348381,
+    "boot_id": "e6182f56-39be-4e37-908d-3cfadaa7448f",
+    "process_started_unix": 1792300055.0244846,
+    "before": {
+      "phase": "functional_inference_before",
+      "stage": 0,
+      "unix": 1792300068.859573,
+      "pid": 348381,
+      "visible_gpu": "1",
+      "VmHWM_bytes": 4158771200,
+      "VmRSS_bytes": 2393354240,
+      "VmSwap_bytes": 0,
+      "Pss_bytes": 2189657088,
+      "Private_Clean_bytes": 69742592,
+      "Private_Dirty_bytes": 2037800960,
+      "cpu_uss_bytes": 2107543552,
+      "gpu_allocated_bytes": 1842765824,
+      "gpu_reserved_bytes": 3275751424,
+      "gpu_peak_allocated_bytes": 2551966720,
+      "gpu_peak_reserved_bytes": 3275751424,
+      "gpu_process_nvml_bytes": 3630170112,
+      "trainable_parameters": 0,
+      "trainable_parameter_bytes": 0,
+      "model_parameter_bytes": 1789513792
+    },
+    "after": {
+      "phase": "functional_inference_after",
+      "stage": 0,
+      "unix": 1792302470.236229,
+      "pid": 348381,
+      "visible_gpu": "1",
+      "VmHWM_bytes": 4158771200,
+      "VmRSS_bytes": 2998300672,
+      "VmSwap_bytes": 0,
+      "Pss_bytes": 2758849536,
+      "Private_Clean_bytes": 73814016,
+      "Private_Dirty_bytes": 2580459520,
+      "cpu_uss_bytes": 2654273536,
+      "gpu_allocated_bytes": 1842766336,
+      "gpu_reserved_bytes": 4821352448,
+      "gpu_peak_allocated_bytes": 3419423232,
+      "gpu_peak_reserved_bytes": 4821352448,
+      "gpu_process_nvml_bytes": 5177868288,
+      "trainable_parameters": 0,
+      "trainable_parameter_bytes": 0,
+      "model_parameter_bytes": 1789513792
+    },
+    "scope": "inference + TRAIN NLL calibration and16parameter CPU fit; no LoRA optimizer",
+    "growth_bytes": {
+      "VmRSS_bytes": 604946432,
+      "Pss_bytes": 569192448,
+      "cpu_uss_bytes": 546729984,
+      "gpu_allocated_bytes": 512,
+      "gpu_reserved_bytes": 1545601024,
+      "gpu_process_nvml_bytes": 1547698176
+    },
+    "observed_peak_bytes": {
+      "VmRSS_bytes": 2998366208,
+      "Pss_bytes": 2758850560,
+      "cpu_uss_bytes": 2654273536,
+      "gpu_allocated_bytes": 2308301824,
+      "gpu_reserved_bytes": 4821352448,
+      "gpu_process_nvml_bytes": 5177868288
+    },
+    "note": "Same-PID before/after; fresh process per cap. On recovery these describe resumed process only. Stage diagnostics are included in observed peaks; allocator cache is separate from parameter growth.",
+    "all_process_observed_peak_bytes": {
+      "VmRSS_bytes": 2998366208,
+      "Pss_bytes": 2758850560,
+      "cpu_uss_bytes": 2654273536,
+      "gpu_allocated_bytes": 2308301824,
+      "gpu_reserved_bytes": 4821352448,
+      "gpu_process_nvml_bytes": 5177868288
+    }
+  }
+}

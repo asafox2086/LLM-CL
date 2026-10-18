@@ -1,0 +1,332 @@
+{
+  "CPU_only": true,
+  "new_GPU_operations": 0,
+  "TEST_selected_cases_or_parameters": false,
+  "expert_TRAIN_QA": {
+    "e0": 1214,
+    "e1": 11,
+    "e2": 88
+  },
+  "expert_stages": {
+    "e0": [
+      1,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "e1": [
+      2
+    ],
+    "e2": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ]
+  },
+  "actual_allocation": [
+    {
+      "stage": 1,
+      "expert": "e0",
+      "TRAIN_QA": 347,
+      "action": "new_from_base"
+    },
+    {
+      "stage": 2,
+      "expert": "e1",
+      "TRAIN_QA": 11,
+      "action": "new_from_base"
+    },
+    {
+      "stage": 3,
+      "expert": "e2",
+      "TRAIN_QA": 17,
+      "action": "new_from_base"
+    },
+    {
+      "stage": 4,
+      "expert": "e2",
+      "TRAIN_QA": 26,
+      "action": "reuse"
+    },
+    {
+      "stage": 5,
+      "expert": "e2",
+      "TRAIN_QA": 6,
+      "action": "reuse"
+    },
+    {
+      "stage": 6,
+      "expert": "e2",
+      "TRAIN_QA": 14,
+      "action": "reuse"
+    },
+    {
+      "stage": 7,
+      "expert": "e2",
+      "TRAIN_QA": 4,
+      "action": "reuse"
+    },
+    {
+      "stage": 8,
+      "expert": "e2",
+      "TRAIN_QA": 5,
+      "action": "reuse"
+    },
+    {
+      "stage": 9,
+      "expert": "e2",
+      "TRAIN_QA": 1,
+      "action": "reuse"
+    },
+    {
+      "stage": 10,
+      "expert": "e2",
+      "TRAIN_QA": 3,
+      "action": "reuse"
+    },
+    {
+      "stage": 11,
+      "expert": "e2",
+      "TRAIN_QA": 12,
+      "action": "reuse"
+    },
+    {
+      "stage": 12,
+      "expert": "e0",
+      "TRAIN_QA": 6,
+      "action": "reuse"
+    },
+    {
+      "stage": 13,
+      "expert": "e0",
+      "TRAIN_QA": 170,
+      "action": "reuse"
+    },
+    {
+      "stage": 14,
+      "expert": "e0",
+      "TRAIN_QA": 171,
+      "action": "reuse"
+    },
+    {
+      "stage": 15,
+      "expert": "e0",
+      "TRAIN_QA": 226,
+      "action": "reuse"
+    },
+    {
+      "stage": 16,
+      "expert": "e0",
+      "TRAIN_QA": 89,
+      "action": "reuse"
+    },
+    {
+      "stage": 17,
+      "expert": "e0",
+      "TRAIN_QA": 49,
+      "action": "reuse"
+    },
+    {
+      "stage": 18,
+      "expert": "e0",
+      "TRAIN_QA": 107,
+      "action": "reuse"
+    },
+    {
+      "stage": 19,
+      "expert": "e0",
+      "TRAIN_QA": 49,
+      "action": "reuse"
+    }
+  ],
+  "initial_new_expert_bridges": [
+    {
+      "stage": 1,
+      "new_expert_exact_native_isolated": true,
+      "new_expert_exact_native_sequential": true
+    },
+    {
+      "stage": 2,
+      "new_expert_exact_native_isolated": true,
+      "new_expert_exact_native_sequential": false
+    },
+    {
+      "stage": 3,
+      "new_expert_exact_native_isolated": true,
+      "new_expert_exact_native_sequential": false
+    }
+  ],
+  "e1_exact_first_state_at_stages": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "e1_actual_training_event": [
+    {
+      "event": "train",
+      "label": "reuse_T02",
+      "qa_seen": 11,
+      "total_qa": 11,
+      "loss": 8.6616173657504,
+      "gradient_l2_preclip": 80.6928939819336,
+      "learning_rate_used": 0.0001,
+      "warmup_updates": 0,
+      "seconds": 7.068194695995771,
+      "gpu_allocated_bytes": 1909359616,
+      "prompt_tokens": 7405,
+      "target_tokens": 3,
+      "target_truncated": false,
+      "visual_tokens": 7371,
+      "route_mode": "fixed_training_or_probe"
+    }
+  ],
+  "full228_controls": [
+    {
+      "start": "random_A_zero_B",
+      "QA": 228,
+      "TRAIN_QA": 11,
+      "updates": 1,
+      "Answer_F1": 19.875825928457502,
+      "NLL": 8.40515481170855,
+      "exact_actual_e1_checkpoint": true,
+      "exact_native_sequential_checkpoint": false
+    },
+    {
+      "start": "past_A_zero_B",
+      "QA": 228,
+      "TRAIN_QA": 11,
+      "updates": 1,
+      "Answer_F1": 19.862914862914856,
+      "NLL": 8.156246862913433,
+      "exact_actual_e1_checkpoint": false,
+      "exact_native_sequential_checkpoint": false
+    },
+    {
+      "start": "past_AB",
+      "QA": 228,
+      "TRAIN_QA": 11,
+      "updates": 1,
+      "Answer_F1": 29.26349965823649,
+      "NLL": 2.5921658758531536,
+      "exact_actual_e1_checkpoint": false,
+      "exact_native_sequential_checkpoint": false
+    }
+  ],
+  "fresh_e1_native_full_overlap_exact_NLL": 11,
+  "full228_past_AB_minus_fresh": {
+    "QA": 228,
+    "recipient_image_clusters": 161,
+    "mean_difference": 9.387673729778992,
+    "image_cluster_95CI": [
+      4.559487123046442,
+      14.3299620733249
+    ],
+    "bootstrap_replicates": 10000,
+    "seed": 42,
+    "multiple_comparison_corrected": false
+  },
+  "input_sha256": {
+    "summary/onevision_diagnostics_20261016/learned_reuse/learned_cosine_K3_train_complete.json": "bec50f3729f495d1330004d981771301eac550b22e243a237912fb8e092d221c",
+    "summary/onevision_diagnostics_20261016/deterministic_native/complete.json": "9593ebddf9d17e81f8358d61a2ede10bccaa94b3a5d0f919f3eb3713919f812a",
+    "summary/onevision_diagnostics_20261016/basis_budget/complete.json": "7bb96c10fbc42e2e830f4b5f3c6b1a8e3fcbdebb7613d6d4d2b9f04bc89fa333",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/decisions/reuse_T01.json": "3215f3ddea9aba813b158aef88f5ef0b5395e75e9fab0aadf0af7681c1e2ecff",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/decisions/reuse_T02.json": "7e118375eddfd6fbbd7c0efe7edf63cee77bf05ab084c7a3b700cbb94032f3ad",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/decisions/reuse_T03.json": "9d5ea335f2bbb9a6745c207bc1bd608a9ad767dab1d4eeefef26ea0316af9ea7",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/decisions/reuse_T04.json": "83cfaf3c25e7b2ca7d0db5b0e72fb3def82619729b5ebcefb33ad846e89d82d8",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/decisions/reuse_T05.json": "92ead9ec85f20d0defa460aa692b697c673f02774293f3be4ed37b2cd31128e9",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/decisions/reuse_T06.json": "167d7038bd5e087b4eb6d5d2b53045c3897f629721283d25ce3f0f32b0013cca",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/decisions/reuse_T07.json": "7be6e8eee437a0838601767ef5cb7bba49d0ae0b3ce8662f321999f22dacaacd",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/decisions/reuse_T08.json": "b6b75ce279ac068c690ae049996aa9e5a6865733551453740646164976c956d5",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/decisions/reuse_T09.json": "c3f71100bcbe9ecf6684757fb304e2cf690ca88bdb04490527c3f0c42445cc02",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/decisions/reuse_T10.json": "531666733b3c0ce80f0b2f64d95cbc4ab61bb7812b681d98f32eff593d045a84",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/decisions/reuse_T11.json": "b56df17e6113748b69e82d1e542f540091c13fd06da15daed683c78bb154e474",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/decisions/reuse_T12.json": "ed9f819bf564634058a538aad86cb57343a22380a3a7a7929220efb085e8f0fa",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/decisions/reuse_T13.json": "411b7a4f62a51365e94caf5970c541fec9b79ad9ab6dac2a9124142609b29763",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/decisions/reuse_T14.json": "cd07a1085b377a6250ed89be38ac22d0bfc7639d9ab10f47d006107aa238e10b",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/decisions/reuse_T15.json": "a1ced48c12004a4b7afa017316b3d58ab01002dd1b035cb9c31d90fba32cf420",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/decisions/reuse_T16.json": "ead4118ed5931d6e9b72f786d423f31a98cf800d3648dff8517c26c8edda9672",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/decisions/reuse_T17.json": "8478bc5c80664ff9bb9969e9a0652624371a7647d53c9f5e9ba8d92ccb0a063c",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/decisions/reuse_T18.json": "ef0e858a9eb21f806dc908ac5d3f6354a6d25bc21cfd3f673579d4ed2e0abd9a",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/decisions/reuse_T19.json": "ddec91518ba527254274a5953ec56612aec99b7e576502c19d24b713bfca4e0c",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/candidates/reuse_T01.pt": "8b3debbef94ca6fc2510e24e6820208bf1e79b6754f6df59401a964c62aa2feb",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/adapters/matched_native_T01.pt": "b001358da973d3340860b4987c8fa3376b127d7bc4f54c285d4016764ac8dc92",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/adapters/sequential_T01.pt": "668ab174ef19b4944262ab77ed4dcb0adf918549ed8e841641bd1468936c0b93",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/candidates/reuse_T02.pt": "1b4ef1b3a4ddd564631e00f29ed799b71de13602cfe125272b55d3675ff53452",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/adapters/matched_native_T02.pt": "d06880134b7c33fade284e866400f7a551610d992a1055e413b0c4481688b9e5",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/adapters/sequential_T02.pt": "8a3dc66059bdada98d4e0ed52d81c5c0fe0a1c878f8b4ebcf54eb87b8047e754",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/candidates/reuse_T03.pt": "80edda7a8262157588af4474a66983dca57271b2d34350972505b76e1a493ed8",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/adapters/matched_native_T03.pt": "e7f2f42969e8ac2de3c83a283b4a44a9c049df1b8dd580d0169dffaf9b9812ac",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/adapters/sequential_T03.pt": "d90e73b9c8f8bef0e80646e07ca149186dd53a3f21fc68ef6b95817ccfc9ceeb",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/states/reuse_T02.pt": "9cc862a585b7c7ff2a82ad15386142b0336b4349337360dfa73c1e57fa6aebf8",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/states/reuse_T03.pt": "a4cdb6300733888d6a432ea9f4f84896fd6c41e30e56f77833c99daa073a2135",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/states/reuse_T04.pt": "6ea9c5703e7f36ab0bd5e96814d85f6529595d4b21f7f3331340f760c6b3d6ac",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/states/reuse_T05.pt": "62dc664fdf3cfd8667d5d946ded519442b13a9369605198179cbf41248a74409",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/states/reuse_T06.pt": "0a1e070489c6733a77ceb90b1854287b13c6bdde0ebfce0384bcbd36861ec0d7",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/states/reuse_T07.pt": "57100b9e4e1fcbd599513be8c19dac2927107e1e4c7678700d88982a5427625d",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/states/reuse_T08.pt": "a1bcba2e7bbd4257961eb1c0d4ba0e9aae9f2d34e8227c7128d13c733c099614",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/states/reuse_T09.pt": "ce3e597e265006613c212ffa0e5c17ea91cb78ccd4535fdbd2c750dc8b92e55a",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/states/reuse_T10.pt": "db3fb3ddf80a5b473c8d60278f9065bef716d5bda9d851b9b3f9c9ac0a05db71",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/states/reuse_T11.pt": "9c8f49d9ae6c4a75dfd294d0516175b078ce9238781a4142e2b4e282af760875",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/states/reuse_T12.pt": "3ead4e7a2cb76acbed2a5f8ca75a7920081063a08f952a4e392c4eb66a9181f5",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/states/reuse_T13.pt": "500d6ca11c512524ed4ead63a092fc0422d559518e365d9a934559cf5210a922",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/states/reuse_T14.pt": "82cb2d649ccc9c2b62def4dad63f391e4202b66f970fdabb2f119011d5132db2",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/states/reuse_T15.pt": "2a7dfa5cc4aca70682b7716237915fe8ad0be5492153c22a1c8ff9c1182867a6",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/states/reuse_T16.pt": "56d2717ce91094a32dee9dde1aa0c06ad874363fd5c3f063cbc101363285c21a",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/states/reuse_T17.pt": "de903a7a7b244a8afd47cd9552cfedebdcb89a42f38a271c79163cad034cc326",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/states/reuse_T18.pt": "acf061ea1a93dd7732656f425b650ce54505914acf2e864e5b8982b3b7866232",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/states/reuse_T19.pt": "df797ac81ef0bd175b53d2bae271c1d4f3adab2ec27e370fc635bace91094e29",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/events.jsonl": "41bde425a4e84dbd2e68b3cc7feac27f66f31509727515a0360b66e5c5eaafce",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/manifest.json": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T02_test.jsonl": "c319026d6857ee31722732ce54fd0348e189f0f8aaa574522fdb6623ca3bc572",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T02_random_A_zero_B/complete.json": "698e7446fdb1bffd8e5889ce295237eeb826525dbdfe3e31b324e9018e86da73",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T02_random_A_zero_B/update_1.pt": "100256fcfea53692621ecf93f70ba45927aa7726fb38a6f642710914027b1188",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T02_random_A_zero_B/evaluations/endpoint_1/native_image.jsonl": "6a92a2e85141fddf52e918a43a44bf88b860a9bc033f2224c8358361479402bf",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T02_random_A_zero_B/training.json": "a662c55938f7038c94a52fdc907fc300736fc0385096949652ac133916412802",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T02_past_A_zero_B/complete.json": "954763b06d053f5e8cce89b852f97e5f89f14b4ba058d057c1ba943497f6a636",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T02_past_A_zero_B/update_1.pt": "55cd9b1778a597a1b2cec9eebbbe33db6a59cbe8ec81f63e1aaa0de0baf03b23",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T02_past_A_zero_B/evaluations/endpoint_1/native_image.jsonl": "d7819b9939b08ac125561458834e69e2e750654ddbf0b2462194dff76128f762",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T02_past_A_zero_B/training.json": "6a970e3fd7a6201d4343ba1c796722821b36d72c19d00ff7f28baf54bb25d4c1",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T02_past_AB/complete.json": "13180db53f7be2e7ea6bd66cf4bcf90990677fe89d3b261a163d5e0cb4795f2e",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T02_past_AB/update_1.pt": "6dc83c9fbdefd8902e13f0ce124714fe8780b30342dd3d8343a5c75e4efcdd97",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T02_past_AB/evaluations/endpoint_1/native_image.jsonl": "5089af16491fb57124cd9f101bc30578d51e631d3cd28817cb553527f9680ade",
+    "exp/onevision_basis_budget_20261016/20261017_081359/T02_past_AB/training.json": "836d8d26cfe936e21c4d4e6fc66da55d2874b623e327e7f711714f95441c3be8",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/evaluations/matched_native_T02/medical_image.jsonl": "262b3e99162d832ea0595865957424e40b347e2d68e8922c0d9049d55f4b9d5f"
+  },
+  "source_sha256": {
+    "analysis/onevision_expert_cold_start_audit.py": "3d7b771a89b423279ce59e054ccaa628a19c622ccee6dd52ec144c78db2f5925"
+  },
+  "limits": [
+    "Actual e1 is unchanged after its first stage; this excludes later parameter overwriting for that expert only.",
+    "Warm control is NOT bitwise the native sequential checkpoint; never splice its full scores into a native CL main table.",
+    "11 target TRAIN/one update matched; inherited natural347 TRAIN history is disclosed and not free.",
+    "The overall pool already trained natural347, but the new expert skipped its parameters; no full warm-started-pool intervention is measured.",
+    "Prior output behavior, knowledge, visual alignment and nonzero-B optimization differ together; not isolated professional-knowledge causality.",
+    "Single task/seed; no proof all methods, all domains or the final6.659 AP gap share this cause."
+  ]
+}
