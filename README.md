@@ -90,17 +90,19 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 
 **后续主线：新LoRA冷启动与弱习得。** 独立[证明过程与下一步判据](summary/onevision_diagnostics_20261016/expert_cold_start_20261018/COLD_START_PROOF.md)串联真实分配、权重不变与初始化干预；已支持一个少数据任务的局部继承收益，完整流程及数据量交互待测。
 
-| 探究的问题 | 已有证据 | 仍不能证明什么 |
+下表分数均为 Answer F1（越高越好）；小规模诊断的结论仅适用于对应实验。
+
+| 探究的问题 | 做了什么实验，结果是什么 | 结论 |
 | --- | --- | --- |
-| 比简单基线差是否也受汇总影响？ | 完整V2结果：ER−SeqFT的AP19为−1.011，原领域宏平均却+0.772；同42908条最终预测逐题重算。[权重分解](summary/onevision_diagnostics_20261016/v2_aggregation_20261018/RESEARCH_FINDINGS.md) | 主AP不改；领域间任务数与领域内QA数两层权重不同，不是知识/遗忘成因或新方法提升。 |
-| 分数低是否全是后来忘掉？ | 医学Modality初始/1/4步F1为29.600/29.263/51.956；遥感额外训练却76→44。习得预算本身会影响结果。[总报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md) | 不能统一给所有领域加步数，也未隔离所有知识/视觉因素。 |
-| 新LoRA是否丢失了有利旧适配？ | 实际e1仅11QA/一步，此后权重不变；同目标预算完整228题fresh19.876、继承旧适配29.263，差+9.388pp。[冷启动桥接](summary/onevision_diagnostics_20261016/expert_cold_start_20261018/RESEARCH_FINDINGS.md) | 局部温启动不是nativeSeq权重；未证明所有论文方法或整个AP差距由冷启动造成。 |
-| 多领域差距是否全是遗忘？ | Organ共同习得点20.361，同域后续34.168、跨域18.626；跨域净变区间含0，同域还有正迁移。[总报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md) | 语言/内容/顺序仍混杂，不能把同域−跨域差全归知识遗忘或领域数量。 |
-| 输入相近是否等于专家会回答？ | 同155题AP固定相似度22.391、学习相似度31.025；TRAIN质量硬调用36.704，仍低于顺序LoRA43.363。[完整四视图诊断](summary/onevision_diagnostics_20261016/functional_router/PILOT_FINDINGS_20261018.md) | 尚无完整21454确认；没有超过简单基线，也未证明最优LoRA数量或两模块叠加收益。 |
-| 记住专业事实是否就够了？ | 16事实可以记住，但目标医学/KG未获得稳定普遍改善。[总报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md) | 未证明知识充分、知识无用或视觉绑定是唯一原因。 |
-| 极少更新时保护是否启动？ | PASs当前9个单步阶段的进度预热使该项系数始终0；原作者CPU算子正负对照验证。最新中心EWC首步梯度0是另一限制。[保护日程审计](summary/onevision_diagnostics_20261016/regularizer_budget_20261018/RESEARCH_FINDINGS.md) | 不是零任务LR、所有组件无效或已证实的最终F1损害。 |
-| 标为可训练的门是否真正学会选择？ | SMoLoRA原硬argmax/one-hot前向CPU对照中，两个选择门grad=None，融合/专家梯度非零；固定门也能随输入改变选择。[路由梯度审计](summary/onevision_diagnostics_20261016/smolora_gate_20261018/RESEARCH_FINDINGS.md) | 不是实际OneVision性能因果或所有MoE问题；未运行原作者全部训练流程。 |
-| 低参数量是否等于低内存？ | CPU专家池、优化器、历史、临时候选、缓存和额外前向都需计入；预热/测量窗口也会改变占用。[资源规则](rules/021_lightweight_data_limited_core_20261017.md) | 尚未证明新方案内存增长低于具体LoRA对比方法。 |
+| 方法排名会受平均方式影响吗？ | 对同一批完整测试结果重新汇总：回放比顺序训练的任务平均分低1.01分，领域平均分却高0.77分。[证据](summary/onevision_diagnostics_20261016/v2_aggregation_20261018/RESEARCH_FINDINGS.md) | 平均方式会改变排名；比较时必须统一口径。 |
+| 低分是没学好，还是后来忘了？ | 增加训练更新：医学任务从29.26升至51.96，遥感任务却从76降至44。[证据](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md) | 初次学习不足也是问题；增加训练并非总有效。 |
+| 少数据下，新建LoRA是否不如继承已有LoRA？ | 同样用11条医学问答训练一次，完整228题测试：从头训练19.88，继承已有LoRA后29.26；原新LoRA此后没有被修改。[证据](summary/onevision_diagnostics_20261016/expert_cold_start_20261018/RESEARCH_FINDINGS.md) | 本例从头训练就没学好；继承已有适配提高9.39分。 |
+| 跨领域训练后的差距都是遗忘吗？ | 同一医学任务学完为20.36分；继续学同领域后34.17，改学其他领域后18.63。[证据](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md) | 差距也包含同领域训练的帮助，不能全部算作遗忘。 |
+| 按输入相似度选择LoRA，能选对吗？ | 在同155题上比较选择方式：固定相似度22.39、学习相似度31.03、依据训练题答题质量选择36.70；顺序训练单LoRA为43.36。[证据](summary/onevision_diagnostics_20261016/functional_router/PILOT_FINDINGS_20261018.md) | 输入相近不保证回答好；这几种选择方式仍未超过简单基线。 |
+| 补充专业知识就能提高问答表现吗？ | 让模型学习16条专业事实：能记住这些事实，但相关医学问答未稳定改善。[证据](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md) | 记住知识不等于能在目标问题中用好知识。 |
+| 更新次数很少时，保护旧知识的约束会生效吗？ | 检查PASs-MoE：9个只更新一次的阶段中，一项保护系数始终为0；另验得EWC以当前参数为保护中心时，第一步保护梯度为0。[证据](summary/onevision_diagnostics_20261016/regularizer_budget_20261018/RESEARCH_FINDINGS.md) | 少量更新可能让部分保护机制来不及发挥作用，尚未证明会降低最终分数。 |
+| 专家选择器真的在学习吗？ | 对SMoLoRA原代码做梯度检查：两个选择器没有收到梯度，专家本身正常更新；不更新选择器也能随输入切换专家。[证据](summary/onevision_diagnostics_20261016/smolora_gate_20261018/RESEARCH_FINDINGS.md) | 本次代码检查中，选择发生变化不代表选择器学会了；尚无性能因果结论。 |
+| 训练参数少，就一定省内存吗？ | 核对资源统计：除训练参数外，冻结专家、优化器、缓存和临时候选也占内存；尚无同条件下更省内存的完整对照。[口径](rules/021_lightweight_data_limited_core_20261017.md) | 参数少不等于内存低；当前尚未证明内存优势。 |
 
 原生AnyRes单LoRA参考已完成21454题：自然75.917、医学40.943、遥感49.010、金融12.991、交通31.916，19任务AP41.361；完整FWT/BWT仍缺阶段格，不能从最终分数补算。[完整结果](summary/onevision_diagnostics_20261016/full_confirmation_evidence/CAP1_COMPLETION.md)。
 
