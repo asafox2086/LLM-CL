@@ -1,3 +1,5 @@
+**当前唯一调度：** [SVD预算对照v2](../../summary/onevision_diagnostics_20261016/osft_budget_20261018/v2/queue/README.md)，CPU75694；旧73625模型前故障退役，旧61499计划退役。原coverage两诊断完整结束，新SVD等待实际空闲0/1，原18、全部full及两机基线保留。下方旧快照均以新入口为准。
+
 **2026-10-18实际启动：** 同预算覆盖对照已准入[唯一新队列](../../summary/onevision_diagnostics_20261016/feedback_coverage_20261018/v1/queue/README.md)，CPU61499；旧34096已计划退役，所有GPU／基线身份保全。新worker61528在GPU0先精确重现原500／155；新60TRAIN和两新结果尚待。主1313TRAIN／20锚／60生成／1792维／40步预算、源池和评分不变，只改反馈分配；同题次不等于同token／耗时。原数据控制4／18已核验，其余与所有完整确认保留，正式主表不混研究诊断。下方旧状态为历史，以新实时证明为准。
 
 **2026-10-18最新核验：** 新固定F1／学习距离两格完整诊断均AP19=42.859583，500调用／NLL及155生成完全相同，未取得收益；原Seq43.362536、几何45.699911。[全部配对与资源](../../summary/onevision_diagnostics_20261016/answer_compatibility_20261018/v1/all_five_outcome/RESEARCH_FINDINGS.md)。20锚只覆盖11／19任务，TRAIN逐题最优比最佳固定仅+.143978pp；这是反馈设计限制，非1%普遍定理。[新同20锚覆盖控制](../../summary/onevision_diagnostics_20261016/feedback_coverage_20261018/v1/PROTOCOL.md)已冻结CPU计划，GPU未实现／准入。当前唯一CPU34096已在空闲GPU0自动接续原case03（实际58188）；原所有作业／完整确认及两机基线保留。[合法前缀评测计划](../../summary/onevision_diagnostics_20261016/answer_compatibility_20261018/v1/prefix_sparse/PROTOCOL.md)不能代替已测FWT/BWT。下方旧状态为历史。

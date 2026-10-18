@@ -1,3 +1,11 @@
+# 当前v2 SVD对照已准入；覆盖改进仅小幅诊断收益 — 2026-10-18
+
+- 唯一nohup llmcl-onevision-causal-priority.service现CPU75694/frozen onevision_osft_budget_queue_v2.py；权威osft_budget_20261018/v2/queue/queue_state.json与ACTIVATION。旧73625因模型前CPU autocast故障停用、旧61499计划退役，不恢复。原coverage worker61528正常完整结束，所有实际GPU/两机基线/CPU发布器身份保全。新GPU0/1现分别被UID1024/1020作业实际占用，健康wait，未启动新SVD GPU，不能说新算法有效。
+- v1新SVD核心在任何GPU/QA训练前被CPU autocast正故障控制拦截，原FP32重建underBF16相对误差.003179>原2e-5；旧源码/READY/ACTIVATION/PRE_MODEL_AUTOCAST_FAILURE保留。独立v2只在current_weight重建区显式禁用autocast，core运行函数只此改变，另补检查；trial科学函数只plan路径/版本不同，所有超参/QA/评分/门槛不变，真实四矩阵重建在有无外层CPU autocast时逐位相同。V1_REPAIR_EQUIVALENCE与新的5worker/10policy/3新旧命令和全部祖先检查已过，源已FROZEN；修复需新版本。不因GPU等待恢复旧版本。
+- 新两组svd_qv_r8_free/orthogonal完整1313TRAIN/19stage/rank8/qv/540672训练坐标/S冻结，无专家路由。每阶段沿用CURRENT权重重分解；free/protected共享精确stage00及500/155，首批原始梯度同后才投影。作者梯度和post-Adam参数投影都实现，记录实际raw/projected梯度、LR/loss/因子/FP32及BF16权重变化、CPU/GPU前后/纯TRAIN/全程峰值，保留全部19状态。冻结因子166821888bytes比原BF16 qv44040192大，额外eval cache约42MiB，低训练参数不是低内存证明；两新完整21454都保留，缺合法prefix FWT/BWT仍null。顺序当前自然finish→两新TRAIN19→原18余项→两新full→所有旧full/工作；不按TEST调序/删条件。
+- 新K48 coverage两诊断完整SHA已独立核验、全部6条件/15配对公布。AP19 oldfixed/oldmetric42.859583，新coveragefixed43.564654/newmetric43.594648，Seq43.362536、geometry45.699911。新metric对fixed实际13/500调用变，155F1升1/降1/平153、文本2变，AP仅+.029994；对Seq仅+.232112，非大幅完整改善。点估计非显著性，native155不填正式Ours，所有负条件和full保留。见feedback_coverage_20261018/v1/all_six_outcome。
+- 当前方向提议见DIRECTION_20261018.md：少数据下保留已有功能、在固定预算内选择有效更新。连续训练本身是SeqFT原则，不能当创新；LoRA/SVD未锁定。新SVD控制尚无GPU结果，不宣称已找到原创两个模块或实际内存优势。前一轮K46/47 CPU实证已完成，不重复相同审计冒充进展。
+
 # OSFT优势首先体现在习得；新覆盖TRAIN已精确重放 — 2026-10-18
 
 - 新CPU正式证据K46：两条已封存完整V2各37个习得/最终格独立复算原AnswerF1，与原74格完整证明逐文件SHA绑定。OSFT/SeqFT刚习得均分47.887821/38.604705，BWT−1.616191/+1.774861，AP46.356693/40.286152。AP差精确分解为习得差+9.283116及后续变化差−3.212575；记账非因果，不能说本次OSFT相对Seq更防遗忘。实际113766144/540672训练参数=210.416倍、首LR1e-5/1e-4，均93正LR/有限更新。固定25%作者实现不是论文按层自适应分配；保护/容量/位置/初始化/LR尚未隔离。见osft_acquisition_20261018/RESEARCH_FINDINGS.md。低参数方向控制值得研究，但还未实现/准入新OSFT轻量GPU版本。
