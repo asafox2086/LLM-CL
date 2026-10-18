@@ -141,3 +141,7 @@
 ### 本次增补的核验范围
 
 本次重新查看CoIN正式PDF、DGG作者全文及CVF会议检索页、Hyper-LLaVA正式摘要、PASs-MoE正式摘要、CL-MoE作者全文；新增阅读SMoLoRA/MVP作者全文及会议PDF索引、COAST的v2全文。新增数据量/顺序/剪枝数值分别定位CoIN Table7、COAST Table4、MVP Table3。其他既有条目保留上轮核验范围，ECA仍仅摘要级，未冒充本次全部重读。CVF部分HTML直连失败时使用作者全文或正式PDF/索引，未采用第三方论文笔记作为机制证据。
+
+## 初始化相关工作：不是多领域原因已被证明
+
+新增正式来源核验：[NeurIPS 2024 LoRA-GA、初始化动力学与ICML 2025非零初始化](expert_cold_start_20261018/INITIALIZATION_PRIOR_ART.md)。这些工作已从更新几何/学习率解释初始化差异；我们真实19阶段+4诊断AP仍不能只归旧知识，也不能称首次发现初始化问题。该文献记录不新增比较方法、GPU任务或模块，不替代当前质量调用和完整21454确认。
