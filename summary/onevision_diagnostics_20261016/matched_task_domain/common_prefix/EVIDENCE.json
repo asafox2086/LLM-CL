@@ -1,0 +1,328 @@
+{
+  "CPU_only": true,
+  "complete_pairs": 1,
+  "planned_pairs": 12,
+  "pairs": [
+    {
+      "anchor": 4,
+      "method": "SeqFT_LoRA",
+      "shared_first3_tasks": [
+        4,
+        1,
+        13
+      ],
+      "all3_states_and_first_gradients_exact": true,
+      "stage1_and3_outputs_scores_NLL_exact": true,
+      "cross5_minus_cross4_after_shared_stage3": {
+        "Answer_F1": {
+          "mean": 0.0,
+          "image_cluster_95CI": [
+            -9.375,
+            9.375
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        },
+        "NLL": {
+          "mean": 0.10572361201047897,
+          "image_cluster_95CI": [
+            -0.059002930118191625,
+            0.2894345944927585
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        }
+      },
+      "cross4_stage3_to5": {
+        "QA": 32,
+        "Answer_F1_before": 24.687499999999996,
+        "Answer_F1_after": 15.3125,
+        "quality_changes": {
+          "increased": 1,
+          "decreased": 5,
+          "unchanged": 26
+        },
+        "delta_Answer_F1": {
+          "mean": -9.375,
+          "image_cluster_95CI": [
+            -22.916666666666657,
+            3.125
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        },
+        "delta_NLL": {
+          "mean": -0.5536330938339233,
+          "image_cluster_95CI": [
+            -0.9281420169338104,
+            -0.15770835429430008
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        }
+      },
+      "cross5_stage3_to5": {
+        "QA": 32,
+        "Answer_F1_before": 24.687499999999996,
+        "Answer_F1_after": 15.3125,
+        "quality_changes": {
+          "increased": 1,
+          "decreased": 5,
+          "unchanged": 26
+        },
+        "delta_Answer_F1": {
+          "mean": -9.375,
+          "image_cluster_95CI": [
+            -23.33333333333333,
+            2.2988505747126444
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        },
+        "delta_NLL": {
+          "mean": -0.44790948182344437,
+          "image_cluster_95CI": [
+            -0.6858466321771796,
+            -0.18499773740768433
+          ],
+          "QA": 32,
+          "image_clusters": 29,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        }
+      },
+      "full_native_anchor_final_cross5_minus_cross4": {
+        "QA": 507,
+        "Answer_F1_before": 18.625904010519395,
+        "Answer_F1_after": 17.19592373438527,
+        "quality_changes": {
+          "increased": 34,
+          "decreased": 41,
+          "unchanged": 432
+        },
+        "delta_Answer_F1": {
+          "mean": -1.4299802761341225,
+          "image_cluster_95CI": [
+            -4.67548834278513,
+            1.4217443249701311
+          ],
+          "QA": 507,
+          "image_clusters": 158,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        },
+        "delta_NLL": {
+          "mean": 0.1579083747412326,
+          "image_cluster_95CI": [
+            0.0974931024329763,
+            0.22827950219901122
+          ],
+          "QA": 507,
+          "image_clusters": 158,
+          "scope": "conditional on fitted models; uncorrected QA cluster interval, not seed/order uncertainty"
+        }
+      }
+    }
+  ],
+  "pending": [
+    {
+      "anchor": 4,
+      "method": "ER_LoRA"
+    },
+    {
+      "anchor": 4,
+      "method": "EWC_lambda1"
+    },
+    {
+      "anchor": 4,
+      "method": "EWC_lambda100"
+    },
+    {
+      "anchor": 4,
+      "method": "anchor_gradient_noop"
+    },
+    {
+      "anchor": 4,
+      "method": "anchor_gradient_projection"
+    },
+    {
+      "anchor": 2,
+      "method": "SeqFT_LoRA"
+    },
+    {
+      "anchor": 2,
+      "method": "ER_LoRA"
+    },
+    {
+      "anchor": 2,
+      "method": "EWC_lambda1"
+    },
+    {
+      "anchor": 2,
+      "method": "EWC_lambda100"
+    },
+    {
+      "anchor": 2,
+      "method": "anchor_gradient_noop"
+    },
+    {
+      "anchor": 2,
+      "method": "anchor_gradient_projection"
+    }
+  ],
+  "source_sha256": {
+    "analysis/onevision_matched_prefix_audit.py": "a2de2c42030a4354449c4dc5b59f6991cc3cf20839a7fa521016d48475b86dc2",
+    "summary/onevision_diagnostics_20261016/matched_task_domain/CPU_PLAN_CHECK.json": "144739ac741f28eb5796ce3644b59773cdd7dc83fe7b0b4114325d2e95d40560",
+    "analysis/onevision_matched_task_domain.py": "ce2d3897ae02b12af376d78840e7a43188f4c6bb0d9dd4de01d3652e6547692f",
+    "analysis/onevision_task_domain_intervention.py": "9b9c413f3505afedb0fc1643f9c88136d8f6e2e66f16716b5f0b9adefb17968d",
+    "analysis/onevision_knowledge_intervention.py": "22512cc63ed0933f0f471f30b07f5707ba8e020c95137811430cdced2c3962a0",
+    "analysis/onevision_research_worker.py": "6db35a572ee8fca5f07e69eb22b36a8eebc40ce28a0b7977aa7b228373b81493",
+    "analysis/onevision_capacity_probe.py": "5319a4ad35dd78db4dbc40ad9d45387a55c17c6c911c74ad46b5680ff76db225",
+    "exp/onevision_diagnostics_20261016/run.py": "cf8ee1ac5af7faa595e05be05e05da5207d9f0596e518f8a8998ae8d3d0d7536",
+    "summary/primary_metric_20261017/metric_lock.json": "a146f037f835afb66251ce35498a4a5df8e7ea97468725b49ea34043f7d1c948",
+    "analysis/answer_f1.py": "16c59998413d12b820d6f57269f9e1f45ac78e08595d20bf1f4fbc967fd94c4b",
+    "analysis/onevision_matched_task_domain_report.py": "8377d485264748489e8f6e677f9ed30521c9b4f8a5dd07ac0de119d3a142f4bd",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/manifest.json": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T01_test.jsonl": "14705cad19879bbe9397add2d6871d6892146aee4be3885030700382307cd3bb",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T02_test.jsonl": "c319026d6857ee31722732ce54fd0348e189f0f8aaa574522fdb6623ca3bc572",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T03_test.jsonl": "809a68a36926ba0dab02597b9e4492bcebc2ec394f17103413e13a0e3e072d0b",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T04_test.jsonl": "e5046123567a5d9efe80aae17ed0b141e6261bf80c775f523791ef9022492ba2",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T05_test.jsonl": "7e13f0e2db2a9fb4f66249f152c23c336a566c1e5ccf30c929c2c04710be6264",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T06_test.jsonl": "18f04db0a28b6b0abd9b0f3f5ad7d030151085c47b88213d043752eacad98877",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T07_test.jsonl": "e424c1d3905db42165ad9f525f033045af1e8605e6b1e5848bba82573e54e221",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T08_test.jsonl": "2c3d5bc145141ac44d4a18722169bb421f47d41f1558d04d6da9a3dd365f8a86",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T09_test.jsonl": "3f554ff6047a98566520a39bc9d89ecf0bcf00a29e2e2d1f76bfb2b63097be95",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T10_test.jsonl": "f6c9fcfd7c3b385eb82829ebb478a7db522eecc4a53c33ded2ab8f82ff57e328",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T11_test.jsonl": "48e7b5e4177a001612d6640f6df92cc3621362792dffb0ad762476e562b6b21b",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T12_test.jsonl": "7948cf70e4996ec38532ff680638b8c81710d6e02cceb9589c58cb6403284013",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T13_test.jsonl": "4ca421c2594f1d2a36b749d42526706cc6caca9af05f9908b85d08cf7c9218b4",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T14_test.jsonl": "ff46c370c5b0a545c770e702e7fef159e79f4188c4a657356ca988da4b57866d",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T15_test.jsonl": "6ae35bde45e33788bcd31c99dc9f80a1d9236bd6062a807fd989e2c1fbe426cc",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T16_test.jsonl": "162ba8ad340a9fb898a3a942b3e720e581f23dddfacb70c289f3bd935d869206",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T17_test.jsonl": "f5a8de804f54aba60315eff839f05a0401ff96427920c0cd3112affcc19362e8",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T18_test.jsonl": "48e1bf7b181cf1a5d4c7b9be03e1fa11fe2e26b37ca2f4c8a4f4498ef20c403d",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T19_test.jsonl": "4af47721d341958f26e54744330927a14b5e5f5b8d84489607623b741eddbe2b",
+    "summary/onevision_diagnostics_20261016/matched_task_domain/T04_cross_short__SeqFT_LoRA_complete.json": "538365741c396adf7994a08a5701ea698a81c33e1c8563b183fbf5376e0bc160",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/adapters/stage_05.pt": "d17501ad0818926c2fa5492d6a88e34c3c2990717470b939095ca42aa38dabfa",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/adapters/stage_04.pt": "0ffe0a3e1919f6989fd7d8c72f6c072c084e92c3908cf658e3a27d742c392547",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/adapters/stage_03.pt": "9e8e997e51d039623e41e6d6a9d8602e481c944580b3754b59c670dbe135262d",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/adapters/stage_02.pt": "5522ef2c4634838f4a2c7d4984eea0ed21915ee82ad611206bc41c9785d86924",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/adapters/stage_01.pt": "fbfc86a7c871a22795bf54922991d098949f413902d35ada2755a5e4422905a9",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/raw_step_gradients/T04_cross_short__SeqFT_LoRA/stage_05.pt": "945c743a0e12288b6c68d6af7f8224cc3fd270163d76e958a3bbe04dcf46795f",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/raw_step_gradients/T04_cross_short__SeqFT_LoRA/stage_04.pt": "7359acab8afe70fd32058c60866173a9805a81d99896e486f70f70f15dbfdf07",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/raw_step_gradients/T04_cross_short__SeqFT_LoRA/stage_03.pt": "9592300fb845205df9ce40b0ae7be232b31a4bd8a06cfb6e66bba2f48111722c",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/raw_step_gradients/T04_cross_short__SeqFT_LoRA/stage_02.pt": "a7717e8236cbed3e77a266429b10621dea78f6b35feb7fdd798faa9db3883057",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/raw_step_gradients/T04_cross_short__SeqFT_LoRA/stage_01.pt": "aaddb8898e824157c7c92d63abd1f58556fd9f9a58453c5b255f8c61410b6f35",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/resources.jsonl": "3acbb6779e0d5f81b020161f99e1a9f0d059cfe595b8e3a4d468ac658c47f7bf",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/evaluations/anchor_after3/anchor_image.jsonl": "1d7eb4b7d3054393db49bfd12f57f5c7976429682f634c8293da4afb07b5f015",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/evaluations/final_native_anchor/anchor_image.jsonl": "27dff6c5ec7b53bbe12b3a4f0a58723e6a7c0ac72199a6bb0e35a4580c7f662b",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/evaluations/plasticity_after4/current_image.jsonl": "ef4c785faac4a0512cfe030aafa4a01cd181ed3cfd8a3ee1061b0d09e9ad89b9",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/evaluations/anchor_after5/anchor_image.jsonl": "c6ffe738c448cc6f13b5e707ece7ed7eab6bb7cf9e78a7682b0ac47546391adc",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/evaluations/plasticity_after2/current_image.jsonl": "c0e677e3d5b5397affe9bea99de362e6f8684c8cfec900c9185088df7169ea0d",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/evaluations/anchor_after1/anchor_image.jsonl": "94a429cbd52c76fed1a8f61dcf0cfce6f0d6f6970f04d4376a12e58d6e1bad1e",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/evaluations/plasticity_after3/current_image.jsonl": "16650fea7126081f046ff7efa6be7b357ff2cd68116d081fdc3e247f44608bcc",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/evaluations/plasticity_after5/current_image.jsonl": "eb6fdbbb568adebf64c89cd15c2473f5a1ed42077fa7968f1cf1432322a9b281",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/memory_summary.json": "62290f3ab4f52d23aaadccda1cbec6ad6d2d613a24a9a011b8339ed1f6acdca4",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/stage1_exact_gate.json": "edd6ca13f93a3cfba83bf2e3091e0a08b9c9a5c2de9f6837ac3892e720b66b9a",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/protocol.json": "19598dfd4c979a9ab0da9455d6950434630a76804f7236d6d072153b9000064b",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/training/T04_cross_short__SeqFT_LoRA/stage_04.json": "93f1be2f5bde55ef92ce53c89b115d16f1cb8adff02dd6180b83b70d69cc5237",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/training/T04_cross_short__SeqFT_LoRA/stage_02.json": "0d0a75ab91c612244c53e3082b1ade786bb8b4155c8237335c2c5834fce189e3",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/training/T04_cross_short__SeqFT_LoRA/stage_01.json": "ec7b940280e76cb824078e0806b2d5e36f562546d734c1112b51c9df86d52356",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/training/T04_cross_short__SeqFT_LoRA/stage_05.json": "3339d149ff490320d851873decfb239fc01cb63c5eb7bf7319f265e4c9f94fdf",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/training/T04_cross_short__SeqFT_LoRA/stage_03.json": "6ec3ef22e4dcce83dac49bd290386a580fffc9b95dd078b4d9d9772123635e6f",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/evaluations/anchor_after3/summary.json": "bd59c5763a8a9abfcae61d68660bc8fbd8fa26e33afd7fb4b1a5ce5e90a03e60",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/evaluations/anchor_after3/durable_complete.json": "6401da4d7d5c6a41c2241767b9b9c29cb7d7f424147f497bb407f4cbc1ff2e23",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/evaluations/final_native_anchor/summary.json": "88cfb7048b2ac8137f442b37898ec3824f199a1abda05d7ba4bd53005f48d581",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/evaluations/final_native_anchor/durable_complete.json": "c128d53b27f0ffd8bdd269df7708f10261bf333434b04a28d8a49e627a67702d",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/evaluations/plasticity_after4/summary.json": "36586442ae64e4e6c37970e7ee3f00c9672b43f6d8401dd25edbedaefb80ea6b",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/evaluations/plasticity_after4/durable_complete.json": "e820cefe8e08e92f33d5ef1803dafdc162afe89d968b6075727122b4a00fc811",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/evaluations/anchor_after5/summary.json": "218fea540c1e1c555c4d23401617d90bc1f701ed15a45c99738ff5e392a25dae",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/evaluations/anchor_after5/durable_complete.json": "19b35d08ef4286eb9ec8982fd9b7ad99f6acb8580e759b8d98e26b29de580b65",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/evaluations/plasticity_after2/summary.json": "463be935579a94c0488c2db74f2ad03a53f1f9538db1ddc84855899a072aa7b5",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/evaluations/plasticity_after2/durable_complete.json": "fbf51947aa2f27c0c98e3669e96703acc7fc099f563b1a90ea8cc2c4671d4f2e",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/evaluations/anchor_after1/summary.json": "00bb651a20d2558e70c39c8fba3efa7e4a3bbc26f8ab6ceb656d079b1bdef1c5",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/evaluations/anchor_after1/durable_complete.json": "4d47de22ee6c1702637f042a55ab9221a71acc2a00f86bf80b15b4d6c743376f",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/evaluations/plasticity_after3/summary.json": "2608f68e5fdc694b4785f3a0eb32a00d9e3fe8ba57bcaad970ef2b2f98947ab2",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/evaluations/plasticity_after3/durable_complete.json": "d52d279c1a35f12adf30ad2f73137fdf635d6b2021884ceb488871549f52d2a3",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/evaluations/plasticity_after5/summary.json": "71bbbe9536c9540bf7d1f9325fc6494866edc6ff0290e394d275c75741e4f597",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/evaluations/plasticity_after5/durable_complete.json": "291982430b56a2c46fd9eb775584043aba75d686b86bbe5fba24556fe64b9183",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/adapters/stage_04.json": "fddadff83008a283e83f60343fc1d66759777060e8e18ac1a6286fd98994ce7e",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/adapters/stage_02.json": "d1aa867c7387ee45017dac3b561c83c57407c5e63e50a9fefd51f95fbc0c851c",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/adapters/stage_01.json": "d9569aefc75fecf8fb2ecd839b3b8bf4001ae4f7613b824efffeaf7b4a420ce5",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/adapters/stage_05.json": "c19d5c936f53a68cdfb3f7e49e8c04e402614767b65568956bf1cf4e347c76a1",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/adapters/stage_03.json": "3cc5e3194c36014cb08a9da0294d678da556b5f17231eacc571d6bd9a0fb2444",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/raw_step_gradients/T04_cross_short__SeqFT_LoRA/stage_04.json": "a3e9cff4e8951d37c8b1118f126e0f277c2514b6cdd42975af4db4318de0db82",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/raw_step_gradients/T04_cross_short__SeqFT_LoRA/stage_02.json": "24c22f55e459e97940edf61f3ef6cb0b44d5b7e894cb0b890cb8bb17a8b554d4",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/raw_step_gradients/T04_cross_short__SeqFT_LoRA/stage_01.json": "2427291998d7b7036e6947f797cd9bf3a73ae25d231b00dc5d8c2c5fb85da998",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/raw_step_gradients/T04_cross_short__SeqFT_LoRA/stage_05.json": "3f4d4893603f8284d447e2a1ce3a243a10096c7e5a8efddb1b2df28dc11b53bf",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_short__SeqFT_LoRA/20261017_223821/raw_step_gradients/T04_cross_short__SeqFT_LoRA/stage_03.json": "bff34c7edd16b119322ce89a0e662388417c51be6ad42b6ef120e3feb911c45f",
+    "summary/onevision_diagnostics_20261016/matched_task_domain/T04_cross_five_domains__SeqFT_LoRA_complete.json": "d34006e730a454837e41e619c5683395c01ca4a00f7972f333938e392a624453",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/adapters/stage_05.pt": "984197c0d942f76c2cd6b497bd557eb19b5fa186dcaf4f4db60568aa23858d6e",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/adapters/stage_04.pt": "1f66897807f1b691bdb8d839ee5e6b7a57a4a6a6207ef8e9ca45e1f4c3052590",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/adapters/stage_03.pt": "9e8e997e51d039623e41e6d6a9d8602e481c944580b3754b59c670dbe135262d",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/adapters/stage_02.pt": "5522ef2c4634838f4a2c7d4984eea0ed21915ee82ad611206bc41c9785d86924",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/adapters/stage_01.pt": "fbfc86a7c871a22795bf54922991d098949f413902d35ada2755a5e4422905a9",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/raw_step_gradients/T04_cross_five_domains__SeqFT_LoRA/stage_05.pt": "786d4f72e3912d792c41e6ad62d5f86ac389e67e5844b60aa8f4b1cddeb9f76f",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/raw_step_gradients/T04_cross_five_domains__SeqFT_LoRA/stage_04.pt": "8c4153f2964407a549f5e23380e34047fcbc59c6697634edac87513f8b2b030e",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/raw_step_gradients/T04_cross_five_domains__SeqFT_LoRA/stage_03.pt": "9592300fb845205df9ce40b0ae7be232b31a4bd8a06cfb6e66bba2f48111722c",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/raw_step_gradients/T04_cross_five_domains__SeqFT_LoRA/stage_02.pt": "a7717e8236cbed3e77a266429b10621dea78f6b35feb7fdd798faa9db3883057",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/raw_step_gradients/T04_cross_five_domains__SeqFT_LoRA/stage_01.pt": "aaddb8898e824157c7c92d63abd1f58556fd9f9a58453c5b255f8c61410b6f35",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/resources.jsonl": "7266f36fc23c854dfb517659ad69a5cee99ed00131ce5a46db65072382178352",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/evaluations/anchor_after3/anchor_image.jsonl": "6a4f00a06d8a8faf8bfa25ecc7e7a0047579af6351dc95990cc73c359c2929b8",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/evaluations/final_native_anchor/anchor_image.jsonl": "e9a963212935a04971d95e2fa0a9bf210b49e85b70e74dba7c19db9551cd029b",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/evaluations/plasticity_after4/current_image.jsonl": "1aa70bbac7f07ec9619ecd1267fa18d67b6bd99343a0052c3abb1c6aec1daf2a",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/evaluations/anchor_after5/anchor_image.jsonl": "2546522ce97115fbb31d08203097fc453459578bbd7bf443834e0739246f8a1a",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/evaluations/plasticity_after2/current_image.jsonl": "354cb759bf67cf84f02cd7f4e449a9f92143a0b7d46a6eeb6009ad0263d67813",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/evaluations/anchor_after1/anchor_image.jsonl": "7b899f5e0a1cf6b0112e84b0a0c47160afed08a55463bd35f5e9820c05df2e1a",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/evaluations/plasticity_after3/current_image.jsonl": "96ce64d03d3adee02221eb4c60aac535c63ad1a4b9ca3d0804060fab8fca205f",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/evaluations/plasticity_after5/current_image.jsonl": "db980f5d278e65282c8ec5a55eed9a96996f0e6169995a1adfc958729eb92a03",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/memory_summary.json": "9ef149ced518fddcf1f38b739af662f1c68cc69e5e50d93fef1b916c72aed4d0",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/stage1_exact_gate.json": "edd6ca13f93a3cfba83bf2e3091e0a08b9c9a5c2de9f6837ac3892e720b66b9a",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/protocol.json": "19598dfd4c979a9ab0da9455d6950434630a76804f7236d6d072153b9000064b",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/training/T04_cross_five_domains__SeqFT_LoRA/stage_04.json": "760a928a67cfbcfaa7ef8873276e75a5c6cfe0075139e8463bd296e9a853bb91",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/training/T04_cross_five_domains__SeqFT_LoRA/stage_02.json": "0d0a75ab91c612244c53e3082b1ade786bb8b4155c8237335c2c5834fce189e3",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/training/T04_cross_five_domains__SeqFT_LoRA/stage_01.json": "ec7b940280e76cb824078e0806b2d5e36f562546d734c1112b51c9df86d52356",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/training/T04_cross_five_domains__SeqFT_LoRA/stage_05.json": "8888f087fc88b198e192e1cbc9ee4f35d59dea7267979a519f9a93cf8e57d051",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/training/T04_cross_five_domains__SeqFT_LoRA/stage_03.json": "6ec3ef22e4dcce83dac49bd290386a580fffc9b95dd078b4d9d9772123635e6f",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/evaluations/anchor_after3/summary.json": "bd59c5763a8a9abfcae61d68660bc8fbd8fa26e33afd7fb4b1a5ce5e90a03e60",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/evaluations/anchor_after3/durable_complete.json": "c543132627aed68724704a2353aedbef67ecd2f6632631758d764c5227795546",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/evaluations/final_native_anchor/summary.json": "b4906306f1d905a6cf2c667a527607ee3c8e93ee8f4fc097a7485d55e00e6454",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/evaluations/final_native_anchor/durable_complete.json": "e63bfa091e2a927dc9b6c2e3c32cb57e6ee45e9ff6843d12f8c96a03ea9c45e1",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/evaluations/plasticity_after4/summary.json": "73dff636e3339106d06a9a1068bed350121692ac7e532fde941768aad34f41ed",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/evaluations/plasticity_after4/durable_complete.json": "788e524b0f5536eff30546e1e4d66216663a0718a381837f115bb108f64dd09f",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/evaluations/anchor_after5/summary.json": "f498022978a6423941f647513c2e6877962088e87ad41739be09ed4096f193cd",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/evaluations/anchor_after5/durable_complete.json": "45c75076cb2728d296371b27b151e6b0035dd5b092edef78495d67c558fef2a0",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/evaluations/plasticity_after2/summary.json": "463be935579a94c0488c2db74f2ad03a53f1f9538db1ddc84855899a072aa7b5",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/evaluations/plasticity_after2/durable_complete.json": "e25bdf231ddc41ea5cd49456947069347bfc93aedb0927e0bffbc0141ec52ee6",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/evaluations/anchor_after1/summary.json": "00bb651a20d2558e70c39c8fba3efa7e4a3bbc26f8ab6ceb656d079b1bdef1c5",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/evaluations/anchor_after1/durable_complete.json": "431983f49fc63a132c65ba0aafc113be1b27a6299d876b382faaad0d4d3364f7",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/evaluations/plasticity_after3/summary.json": "2608f68e5fdc694b4785f3a0eb32a00d9e3fe8ba57bcaad970ef2b2f98947ab2",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/evaluations/plasticity_after3/durable_complete.json": "d4dc9e9650112f01765e9834cebfc7c4fef96551741de72b221c205680ebe69b",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/evaluations/plasticity_after5/summary.json": "0221673e5089ad4780782c2791808eadbb4cd449028824ff0baacbb098441b2c",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/evaluations/plasticity_after5/durable_complete.json": "2d23634a74f5f6b95504f7ee6554cfb3b6a4ce637f9c380c0ff146e97c76499b",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/adapters/stage_04.json": "cebad02a1c821defae7b88d86beb75daff35fc5c561156c7051b2dbb00f98367",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/adapters/stage_02.json": "d1aa867c7387ee45017dac3b561c83c57407c5e63e50a9fefd51f95fbc0c851c",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/adapters/stage_01.json": "d9569aefc75fecf8fb2ecd839b3b8bf4001ae4f7613b824efffeaf7b4a420ce5",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/adapters/stage_05.json": "fb677af0797cdcfc3b7007c6a5bf3c3187a924610b972f7f09521366294ff355",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/adapters/stage_03.json": "3cc5e3194c36014cb08a9da0294d678da556b5f17231eacc571d6bd9a0fb2444",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/raw_step_gradients/T04_cross_five_domains__SeqFT_LoRA/stage_04.json": "69e0f4220cab21ff25511114819b6bfbd981f18dfdf619482f9d0cf0093d93dd",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/raw_step_gradients/T04_cross_five_domains__SeqFT_LoRA/stage_02.json": "24c22f55e459e97940edf61f3ef6cb0b44d5b7e894cb0b890cb8bb17a8b554d4",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/raw_step_gradients/T04_cross_five_domains__SeqFT_LoRA/stage_01.json": "2427291998d7b7036e6947f797cd9bf3a73ae25d231b00dc5d8c2c5fb85da998",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/raw_step_gradients/T04_cross_five_domains__SeqFT_LoRA/stage_05.json": "f6530c1d26f68fe9f457d14ac524f2d81efb786cbc7e4d564fc74cf48f2b85d8",
+    "exp/onevision_matched_task_domain_20261017/T04_cross_five_domains__SeqFT_LoRA/20261018_122041/raw_step_gradients/T04_cross_five_domains__SeqFT_LoRA/stage_03.json": "bff34c7edd16b119322ce89a0e662388417c51be6ad42b6ef120e3feb911c45f"
+  },
+  "self_checks": {
+    "same_prefix_exact": true,
+    "one_ULP_mismatch_rejected": true,
+    "CPU_only": true
+  },
+  "limits": [
+    "Shared three-stage history exactly checked, but later task contents/order also differ, not a pure count effect.",
+    "32QA diagnostic and single seed/order; full native anchor final only SeqFT507/228, not21454.",
+    "Original score/ID/source preserved; no TEST tuning or incomplete prediction splice.",
+    "Conditional image intervals uncorrected, not seed/order replication."
+  ]
+}

@@ -12,6 +12,7 @@
 
 | 想看什么 | 当前入口 | 内容与状态 |
 | --- | --- | --- |
+| 同学习历史下四域换五域会怎样 | [前三阶段精确匹配及全507对照](matched_task_domain/common_prefix/VERIFIED_RESULTS.md) | F1差−1.430区间含0，NLL+0.157908区间为正；中文245/254题两边F1均0，不能据此推领域数因果或两模型等价 |
 | 学习输入相似度、优先复用LoRA是否有效 | [同155题实际结果](learned_reuse/INTERIM_RESULT_20261018.md)、[核验结果](learned_reuse/VERIFIED_RESULTS.md) | 两组19阶段完成，学习AP31.025低于顺序43.363；均用满3模块，完整确认0/2 |
 | 最新唯一研究队列 | [质量校准与软聚合CPU340143](functional_router_queue/README.md) | 旧336769仅CPU退役、原GPU338128自然结束后接续；全部旧任务保留，新四视图与2完整候选待测 |
 | 文献机制如何适配小模型／1% | [固定池轻量改造](functional_router/PROTOCOL.md) | 43TRAIN/172NLL、16参数头＋单专家连续残差，零新增LoRA；CPU通过不是GPU提升 |
