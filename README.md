@@ -2,7 +2,11 @@
 
 **研究背景：轻量模型、1%数据、低内存增长。** 允许多个LoRA，但以实际领域总Answer F1、AP/FWT/BWT和资源成本评价，不要求每个语言、题型或样本都提升。LoRA是训练参数化，正则化是保护机制，两者可结合；不预设必须扩容或路由。[核心规则](rules/021_lightweight_data_limited_core_20261017.md) · [LoRA与正则化](summary/onevision_diagnostics_20261016/expert_cold_start_20261018/LORA_VS_REGULARIZATION.md)。
 
-**最新执行（2026-10-18）：** 连续LoRA＋有界功能缓存已在GPU1首次实际训练，图像与特征门槛通过，尚无新F1结果。服务器18:45重启后正式SeqFT接续；无阶段checkpoint的CL-MoE已保留中断证据、恢复独立新run排队，活动GPU进程保全。[实际执行记录](summary/onevision_diagnostics_20261016/functional_state_cache_20261018/v1/execution_context/README.md)。研究按最新规则在空闲GPU0/1择一，新机我们的作业最多占三张卡。
+**最新执行（2026-10-18）：** 原生连续LoRA＋缓存已完成19阶段/93次有效更新，逐层权重精确等于原顺序LoRA，四格评测尚未全部完成。服务器18:45重启后正式SeqFT接续；CL-MoE保留中断证据后已启动新的独立运行，其他GPU进程保全。[实际执行记录](summary/onevision_diagnostics_20261016/functional_state_cache_20261018/v1/execution_context/README.md)。研究在空闲GPU0/1择一，新机我们的作业最多占三张卡。
+
+**当前主线先保持简单：** 按用户最新要求，先用研究设置检验“冷启动难学，不等于跨域LoRA应当复用”。[固定五格](summary/onevision_diagnostics_20261016/initialization_source_controls_20261018/v1/PROTOCOL.md)比较冷启动、同域/跨域完整继承、同域/跨域只继承A并将B置零；各用相同26条目标TRAIN/2更新，最终同507题。已实现准入，当前作业自然完成后接续，暂无这五格GPU成效；不继续加路由模块。[唯一当前队列](summary/onevision_diagnostics_20261016/initialization_source_controls_20261018/v1/queue/README.md)。
+
+[公共V2缓存候选](code/OneVision_FormalStateCache/README.md)的源码、正式SeqFT19阶段小状态和CPU集成已备妥，输入/精度/顺序等与正式框架一致；按最新要求暂后移两个完整确认，不删除。原训练93更新成本仍计入，原生155分数继续只作诊断，正式Ours未完成仍留空。
 
 <!-- FORMAL_MAIN_TABLE_BEGIN -->
 ## 主实验：双骨干1%多领域持续学习
