@@ -1,3 +1,5 @@
+**直接轻量改造已准入：** 按最新要求优先试论文方案，[连续主方向小系数及随机方向对照](summary/onevision_diagnostics_20261016/directional_coeff_20261018/v1/README.md)仅12288训练参数，跨任务不扩容；GPU与完整效果尚待，正式Ours保持空缺。原SVDfree同155题AP25.181，未改善原生Seq43.363，负结果保留。
+
 **研究重点更新：** 按最新要求先核验数据受限下哪些更新机制有效，暂停预设模块数量；[他人更新方式、已知结果及验证方案](summary/onevision_diagnostics_20261016/DATA_LIMITED_PRIORITY.md)。SVD机制对照v3已实际在GPU1进入初始评测，无新成绩；正式主表口径不变。
 
 **研究接续：** [同20反馈覆盖修正](summary/onevision_diagnostics_20261016/feedback_coverage_20261018/v1/all_six_outcome/RESEARCH_FINDINGS.md)两诊断已完成，AP43.565/43.595对Seq43.363仅小幅点提升。已准入[固定训练参数预算SVD对照v2](summary/onevision_diagnostics_20261016/osft_budget_20261018/v2/queue/README.md)，在真正空闲GPU0/1启动；当前他人占用而等待，不能称已训练。[当前方向](summary/onevision_diagnostics_20261016/DIRECTION_20261018.md)保持小模型／少数据／低资源目标，正式Ours无新结果继续留空。

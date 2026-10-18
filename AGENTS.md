@@ -1,3 +1,15 @@
+# 新候选已实际接上GPU1 — 2026-10-18
+
+- 新principal_coeff_r16 worker96818/startticks1839357在GPU1通过六真实图文前向、12288训练参数／stage00／冻结基底已核验，STARTED_GATE.json绑定；初始500/155精确native门槛尚待，不能称TRAIN完成或F1提升。原86799已正常完整退出，继承回执通过。唯一CPU95973保留、所有基线和观察器持续。后续先实查新worker／证明，不恢复原旧PID、不热改新冻结源。
+
+# 最新用户：直接改造论文方案；连续小系数候选已准入 — 2026-10-18
+
+- 最新人类授权直接借鉴有效更新方向／轻量方法试验，不再把细归因当方法前提，不预设模块数量，优先rules/025。局部冷启动／少数据习得困难作为动机，不扩大为所有LoRA无效。当前新候选借鉴PiSSA NeurIPS2024及LoRA-XS（作者v3声明ECAI2025接收），不称原创或原配方复现；来源code/LoRA_XS/source_manifest.json，revision e50b1a82b5d7b7e87a0c46bc62e07e54f6648d31。
+- 新principal_coeff_r16／random_coeff_r16为两个条件而非模块：冻结q/v原W和16维方向，只训练R16x16，跨19任务同R连续保留，无新专家／路由／重置／合并。principal用US,V；random用按层名seed42随机正交方向和同S。共12288训练参数，比rank8Seq540672少44倍；冻结基底1081344参数约4.125MiB，另奇异值／CPU Gram／梯度／优化器／激活／CPU SVD成本计费，不能说总显存少44倍。作者R小高斯，本改造R=0保完全同初始，公共LR1e-4/dropout.1，固定1%1313/19/93更新、双21454不按诊断挑赢家。
+- 8项真实CPU实现／48实际BF16矩阵及原native500/155参考schema-ID／0与1实际导入门槛通过，8新调度策略／2新旧命令和所有祖先门槛过，不是GPU性能。新core/trial/entry/cpu/report/queue/activation及协议在READY后FROZEN，修复新版本。stage00初始须精确native base_initial500/155、第二条件也同第一初始；保存一次基底及20个R状态、每步raw梯度／loss／LR／位移、每阶段真实资源／固定至多2TRAIN NLL前后。源／数据不变；full先fresh最终500/155和基底逐张量精确，再21454。FWT/BWT缺合法格仍null，155不填正式Ours。
+- 同nohup唯一CPU95973/startticks1824688，入口onevision_directional_coeff_queue.py，权威directional_coeff_20261018/v1/queue/queue_state.json+ACTIVATION。原CPU86675仅CPU计划退役KillMode=process；所有受保护GPU/基线/观察器PID/startticks保全。继承原GPU1 worker86799/startticks1649052自然完成，不并行抢卡。顺序当前自然finish→新两19TRAIN→新两21454→原SVD剩余／18数据因子／所有旧完整，旧任务只后移不删。CPU/core准备不冒充已运行XS；实际worker需后续实查。
+- 新原SVDfree已完整19/93及500/155封存核验，AP155=25.180547（初始19.550070），域55.000/12.359/40.625/10.000/30.699，低于原native Seq43.362536。不是大幅提升，protected／双full仍待；dropout／参数化／舍入等不同，不由此证明全部低奇异方向或OSFT无效。新XS方向／rank／顺序在该结果发布前已准入，不按此TEST结果调参，负条件全保留。见osft_budget_20261018/v3/VERIFIED_RESULTS.md。
+
 # 最新用户：先探明少数据机制，不预设模块数量；SVD v3已实际启动 — 2026-10-18
 
 - 最新用户“问题没找好，先不要分模块来限制自己”优先于历史目标中的两模块结构。按rules/024，重点核对他人多领域更新方式及数据量×机制交互，先问题后方法、载体开放，不预设模块数量。CL-MoE沿用旧专家后动量合并，OSFT/PaRSP直接更新原权重；不能统称每任务从零新LoRA或用原冷启动解释所有基线。正式OSFT在1% AP+6.071仍是反例，“少数据使很多方法变差”待匹配数据量因果。见DATA_LIMITED_PRIORITY.md。

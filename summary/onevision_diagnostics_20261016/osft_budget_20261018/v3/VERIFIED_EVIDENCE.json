@@ -1,9 +1,116 @@
 {
   "CPU_only": true,
   "reporter_sha256": "585a5c73afb75cec19424484ba3435a6c57308492983d91a35065c36c3389912",
-  "proof_sha256": {},
+  "proof_sha256": {
+    "train_svd_qv_r8_free_complete.json": "1b2e8c3e09ae1538c73e20c3df25b050ed0d100fa1920819f8a3518494e9c3ea"
+  },
   "conditions": {
-    "svd_qv_r8_free": {},
+    "svd_qv_r8_free": {
+      "initial_diagnostic": {
+        "domains": {
+          "natural": 39.88766788766789,
+          "medical": 12.832889684832367,
+          "geography": 17.708333333333332,
+          "finance": 0.0,
+          "traffic": 31.19928731773584
+        },
+        "AP19": 19.550070464519262,
+        "domain_macro": 20.325635644713884,
+        "QA": 155,
+        "full_FWT": null,
+        "full_BWT": null
+      },
+      "final_diagnostic": {
+        "domains": {
+          "natural": 55.0,
+          "medical": 12.359208523592084,
+          "geography": 40.625,
+          "finance": 10.0,
+          "traffic": 30.699019351486857
+        },
+        "AP19": 25.18054691514705,
+        "domain_macro": 29.736645575015793,
+        "QA": 155,
+        "full_FWT": null,
+        "full_BWT": null
+      },
+      "resources": {
+        "unit": "bytes",
+        "pid": 86799,
+        "boot_id": "67761366-2821-401b-b80d-c97ee7ad37c8",
+        "process_started_unix": 1792336805.6976297,
+        "before": {
+          "phase": "SVD_process_before",
+          "stage": 0,
+          "unix": 1792336823.43694,
+          "pid": 86799,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4149178368,
+          "VmRSS_bytes": 2443722752,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2223515648,
+          "Private_Clean_bytes": 73109504,
+          "Private_Dirty_bytes": 2075041792,
+          "cpu_uss_bytes": 2148151296,
+          "gpu_allocated_bytes": 2014593024,
+          "gpu_reserved_bytes": 3288334336,
+          "gpu_peak_allocated_bytes": 2551966720,
+          "gpu_peak_reserved_bytes": 3288334336,
+          "gpu_process_nvml_bytes": 3642753024,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1745475136
+        },
+        "after": {
+          "phase": "SVD_process_after",
+          "stage": 0,
+          "unix": 1792338601.7343707,
+          "pid": 86799,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4149178368,
+          "VmRSS_bytes": 3060523008,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2796947456,
+          "Private_Clean_bytes": 76562432,
+          "Private_Dirty_bytes": 2617827328,
+          "cpu_uss_bytes": 2694389760,
+          "gpu_allocated_bytes": 2095772672,
+          "gpu_reserved_bytes": 5119148032,
+          "gpu_peak_allocated_bytes": 3672430592,
+          "gpu_peak_reserved_bytes": 5119148032,
+          "gpu_process_nvml_bytes": 5509218304,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1745475136
+        },
+        "scope": "whole process includes SVD, checkpointing and evaluation; TRAIN windows separately reset",
+        "growth_bytes": {
+          "VmRSS_bytes": 616800256,
+          "Pss_bytes": 573431808,
+          "cpu_uss_bytes": 546238464,
+          "gpu_allocated_bytes": 81179648,
+          "gpu_reserved_bytes": 1830813696,
+          "gpu_process_nvml_bytes": 1866465280
+        },
+        "observed_peak_bytes": {
+          "VmRSS_bytes": 3072954368,
+          "Pss_bytes": 2809380864,
+          "cpu_uss_bytes": 2706825216,
+          "gpu_allocated_bytes": 2834268672,
+          "gpu_reserved_bytes": 5926551552,
+          "gpu_process_nvml_bytes": 6316621824
+        },
+        "note": "Same-PID before/after; fresh process per cap. On recovery these describe resumed process only. Stage diagnostics are included in observed peaks; allocator cache is separate from parameter growth.",
+        "all_process_observed_peak_bytes": {
+          "VmRSS_bytes": 3072954368,
+          "Pss_bytes": 2809380864,
+          "cpu_uss_bytes": 2706825216,
+          "gpu_allocated_bytes": 2834268672,
+          "gpu_reserved_bytes": 5926551552,
+          "gpu_process_nvml_bytes": 6316621824
+        }
+      }
+    },
     "svd_qv_r8_orthogonal": {}
   },
   "no_TEST_selection": true,
