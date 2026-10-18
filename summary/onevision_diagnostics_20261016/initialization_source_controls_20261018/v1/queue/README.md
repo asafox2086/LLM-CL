@@ -1,5 +1,7 @@
 # 当前唯一研究队列：简化初始化来源控制优先
 
+> 2026-10-18已完成五格，CPU12470已计划退役，本目录是历史记录；唯一实时入口转至[函数补偿诊断队列](../../../function_neutral_init_20261018/v1/queue/README.md)，CPU26045。原GPU25656因子case2保持自然结束，不重启旧所有者。下文为原准入记录。
+
 同nohup研究服务当前实际CPU12470，源码onevision_initialization_source_queue.py；旧11463/10233/2468仅CPU计划退役，不能恢复旧所有者。当前继承原生GPU1 worker4363/startticks22088，自然完成四格，不中断。实际入口是本目录queue_state.json、ACTIVATION.json与FORMAL_INHERITED_WORKER/COMPLETE。
 
 最新用户要求先使用研究设置、方法简洁，质疑跨域复用。接续顺序：当前自然完成→同域/无关域两个固定源各6条/2轮→全部五个目标初始化控制（26TRAIN/2更新、同507最终）→返回原18数据因子等诊断。公共V2两完整确认后移不删除，所有原作业保留，不按TEST赢家筛选。没有新增路由或扩容模块。

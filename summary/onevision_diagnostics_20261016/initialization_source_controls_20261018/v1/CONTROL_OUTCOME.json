@@ -5,12 +5,14 @@
   "analyzer_sha256": "2a03084670c40ae76e072d02e9c786e3b97cfc6211bec327f2f6684e6b759c0b",
   "proof_sha256": {
     "cold_complete.json": "1188192c254ad543050a5d3dcc5831cf341a84d2397e07adfcb0943d5e8cc62e",
+    "within_A_only_complete.json": "f80e11eba4a12b561b993aa724d7307cdf9ecca97a3152666db1f956266c6f40",
+    "cross_A_only_complete.json": "679c4a4b3c84206462d82a256a1029cc27bf7f8a6f12794c1aed3bb41bf928bc",
     "within_full_complete.json": "3e919605f1a415ac412acfe33a52c9c4cd349d0298f8b2191c5e779c72a9cb49",
     "sources_complete.json": "76ee9a776ceaf637b72c6c65c3fd24cd837b523e1cd5d65af4e3d6d0bc643d8a",
     "cross_full_complete.json": "33d1987f017f89e962b28e962bdf4f40742348331225b1a6793ff12ba089a089"
   },
-  "score_audit_sha256": "be90dc92bb59acfb89af3ce1b371fd697b3962518b8a1bbe751250280607adf3",
-  "TRAIN_parameter_audit_sha256": "3af64af97f4337c1bf2b304f8b47334cb62fff6550f6afabebc6ecb38b86c9b5",
+  "score_audit_sha256": "cd6f52951dddc6df5aafc19609a6fdf622d2e0398832a54114b6f0356eff5884",
+  "TRAIN_parameter_audit_sha256": "823edfc90f43714bdd7995cc531a8bdee6f46f252ab4613c620f42789c62483c",
   "conditions": {
     "cold": {
       "scores": {
@@ -2831,6 +2833,1886 @@
         ],
         "run": "exp/onevision_initialization_source_20261018/v1/cross_full/20261018_195410"
       }
+    },
+    "within_A_only": {
+      "scores": {
+        "condition": "within_A_only",
+        "initial_probe": {
+          "QA": 32,
+          "F1": 7.5,
+          "NLL": 8.726991832256317
+        },
+        "target_full507": {
+          "QA": 507,
+          "F1": 14.33972010895087,
+          "NLL": 7.01621577725608
+        },
+        "target_updates": 2,
+        "run": "exp/onevision_initialization_source_20261018/v1/within_A_only/20261018_195943"
+      },
+      "parameters": {
+        "parameter_change": {
+          "layers": [
+            {
+              "layer": "language_model.model.layers.0.self_attn.q_proj",
+              "relative_A_displacement": 0.0018673042962175236,
+              "normalized_projector_distance": 3.3772891137040517e-06,
+              "principal_cosines": [
+                0.9999997436609979,
+                0.9999996973170647,
+                0.9999996477820676,
+                0.9999995155143648,
+                0.9999993771739818,
+                0.9999990787936959,
+                0.9999959690412732,
+                0.9999934615297229
+              ],
+              "A_displacement_l2": 0.003043990288757402,
+              "B_displacement_l2": 0.011968103195152282,
+              "effective_deltaW_displacement_l2": 0.027717001732210443
+            },
+            {
+              "layer": "language_model.model.layers.0.self_attn.v_proj",
+              "relative_A_displacement": 0.001919617281552583,
+              "normalized_projector_distance": 3.6273279458987062e-06,
+              "principal_cosines": [
+                0.9999998055662735,
+                0.9999996381780036,
+                0.9999994890228758,
+                0.9999993819093731,
+                0.9999991663349547,
+                0.9999990732156785,
+                0.9999972907889264,
+                0.9999916456323803
+              ],
+              "A_displacement_l2": 0.003134852086262236,
+              "B_displacement_l2": 0.004568626721269444,
+              "effective_deltaW_displacement_l2": 0.010631921192528761
+            },
+            {
+              "layer": "language_model.model.layers.1.self_attn.q_proj",
+              "relative_A_displacement": 0.0019029971373055845,
+              "normalized_projector_distance": 3.6489869099654015e-06,
+              "principal_cosines": [
+                0.999999553791973,
+                0.9999994916551102,
+                0.9999993603943867,
+                0.9999993337683942,
+                0.9999992556859622,
+                0.9999984963778622,
+                0.99999577746078,
+                0.9999941348897143
+              ],
+              "A_displacement_l2": 0.003123454708495502,
+              "B_displacement_l2": 0.012032552340293616,
+              "effective_deltaW_displacement_l2": 0.027830130383012245
+            },
+            {
+              "layer": "language_model.model.layers.1.self_attn.v_proj",
+              "relative_A_displacement": 0.0019303489873662178,
+              "normalized_projector_distance": 3.595964517377759e-06,
+              "principal_cosines": [
+                0.9999994771768801,
+                0.9999994281365402,
+                0.9999992856570655,
+                0.9999991284790172,
+                0.9999989451695719,
+                0.9999979777618039,
+                0.9999961999072278,
+                0.9999951738314216
+              ],
+              "A_displacement_l2": 0.0031353582876102234,
+              "B_displacement_l2": 0.0045833311033393765,
+              "effective_deltaW_displacement_l2": 0.010622176727052594
+            },
+            {
+              "layer": "language_model.model.layers.2.self_attn.q_proj",
+              "relative_A_displacement": 0.0019313755666165065,
+              "normalized_projector_distance": 3.6515987750229684e-06,
+              "principal_cosines": [
+                0.9999998190324458,
+                0.999999600444136,
+                0.9999993604550175,
+                0.9999992837992857,
+                0.9999988983213919,
+                0.9999983384236923,
+                0.999997900367896,
+                0.9999921927258093
+              ],
+              "A_displacement_l2": 0.0031225036717419845,
+              "B_displacement_l2": 0.01200257004722184,
+              "effective_deltaW_displacement_l2": 0.027586565227187804
+            },
+            {
+              "layer": "language_model.model.layers.2.self_attn.v_proj",
+              "relative_A_displacement": 0.00194018223096779,
+              "normalized_projector_distance": 3.768382876745413e-06,
+              "principal_cosines": [
+                0.9999997886153373,
+                0.999999694404048,
+                0.9999995838803992,
+                0.9999994646288142,
+                0.9999993449375153,
+                0.9999991388609386,
+                0.9999982352615744,
+                0.99998967582413
+              ],
+              "A_displacement_l2": 0.003136222151219859,
+              "B_displacement_l2": 0.004584289260847449,
+              "effective_deltaW_displacement_l2": 0.010438026262209221
+            },
+            {
+              "layer": "language_model.model.layers.3.self_attn.q_proj",
+              "relative_A_displacement": 0.001919056488770887,
+              "normalized_projector_distance": 3.6246588382971012e-06,
+              "principal_cosines": [
+                0.9999995818800428,
+                0.999999326511449,
+                0.9999992532412161,
+                0.9999991864356337,
+                0.9999989073053699,
+                0.9999976994423192,
+                0.9999969485799587,
+                0.9999945979452437
+              ],
+              "A_displacement_l2": 0.0031295647286842523,
+              "B_displacement_l2": 0.01194844213304802,
+              "effective_deltaW_displacement_l2": 0.027579149361775007
+            },
+            {
+              "layer": "language_model.model.layers.3.self_attn.v_proj",
+              "relative_A_displacement": 0.0019165695235936482,
+              "normalized_projector_distance": 3.7134602526300853e-06,
+              "principal_cosines": [
+                0.9999997368258735,
+                0.9999995143595235,
+                0.9999994869165472,
+                0.9999993001702476,
+                0.9999992366369006,
+                0.9999985781421579,
+                0.999997187665751,
+                0.9999921054050401
+              ],
+              "A_displacement_l2": 0.003135559682280173,
+              "B_displacement_l2": 0.004556449621842529,
+              "effective_deltaW_displacement_l2": 0.010415354883682304
+            },
+            {
+              "layer": "language_model.model.layers.4.self_attn.q_proj",
+              "relative_A_displacement": 0.0019338682272785658,
+              "normalized_projector_distance": 3.684466386211227e-06,
+              "principal_cosines": [
+                0.9999997699678556,
+                0.9999997154754896,
+                0.9999994930503976,
+                0.9999993512030324,
+                0.9999989689383286,
+                0.9999983604985604,
+                0.9999967493348134,
+                0.9999928536328775
+              ],
+              "A_displacement_l2": 0.0031317071422958917,
+              "B_displacement_l2": 0.01204004586015656,
+              "effective_deltaW_displacement_l2": 0.027527825008366244
+            },
+            {
+              "layer": "language_model.model.layers.4.self_attn.v_proj",
+              "relative_A_displacement": 0.0019061527306336679,
+              "normalized_projector_distance": 3.617309066616947e-06,
+              "principal_cosines": [
+                0.9999997595433263,
+                0.999999358867755,
+                0.9999992604403739,
+                0.9999991881267896,
+                0.9999984462911349,
+                0.9999975759603298,
+                0.9999966092390559,
+                0.9999953322733433
+              ],
+              "A_displacement_l2": 0.003126395298027343,
+              "B_displacement_l2": 0.004521051622095711,
+              "effective_deltaW_displacement_l2": 0.01044261924801525
+            },
+            {
+              "layer": "language_model.model.layers.5.self_attn.q_proj",
+              "relative_A_displacement": 0.0019291947940391085,
+              "normalized_projector_distance": 3.6351125175526633e-06,
+              "principal_cosines": [
+                0.9999995674023814,
+                0.9999994740597679,
+                0.9999993749459744,
+                0.9999990374836825,
+                0.9999988429640151,
+                0.9999978971616471,
+                0.9999967888074156,
+                0.9999944767008658
+              ],
+              "A_displacement_l2": 0.003134759602856337,
+              "B_displacement_l2": 0.012005113989287003,
+              "effective_deltaW_displacement_l2": 0.027934936009251832
+            },
+            {
+              "layer": "language_model.model.layers.5.self_attn.v_proj",
+              "relative_A_displacement": 0.0019150473420469914,
+              "normalized_projector_distance": 3.633115644552376e-06,
+              "principal_cosines": [
+                0.9999995682932944,
+                0.9999995166228091,
+                0.999999325673059,
+                0.9999991471123686,
+                0.999998720964772,
+                0.9999986051937921,
+                0.999996076017522,
+                0.9999945076344307
+              ],
+              "A_displacement_l2": 0.0031315825094379683,
+              "B_displacement_l2": 0.0046005589689985926,
+              "effective_deltaW_displacement_l2": 0.01063990937220145
+            },
+            {
+              "layer": "language_model.model.layers.6.self_attn.q_proj",
+              "relative_A_displacement": 0.001927202670860187,
+              "normalized_projector_distance": 3.6126839848549253e-06,
+              "principal_cosines": [
+                0.9999996665284124,
+                0.999999530956204,
+                0.9999993404819598,
+                0.9999992303954278,
+                0.9999990994956467,
+                0.99999755287014,
+                0.9999971774858663,
+                0.9999939510240462
+              ],
+              "A_displacement_l2": 0.0031332399111527343,
+              "B_displacement_l2": 0.011858673209333525,
+              "effective_deltaW_displacement_l2": 0.027428036053942867
+            },
+            {
+              "layer": "language_model.model.layers.6.self_attn.v_proj",
+              "relative_A_displacement": 0.001922679618820076,
+              "normalized_projector_distance": 3.54461207707768e-06,
+              "principal_cosines": [
+                0.9999995799042363,
+                0.9999994883562227,
+                0.9999993765113989,
+                0.9999991944471922,
+                0.9999991626203582,
+                0.9999983092090765,
+                0.9999974639239197,
+                0.999993246550749
+              ],
+              "A_displacement_l2": 0.0031309442727657398,
+              "B_displacement_l2": 0.004552633153558403,
+              "effective_deltaW_displacement_l2": 0.010705169088570742
+            },
+            {
+              "layer": "language_model.model.layers.7.self_attn.q_proj",
+              "relative_A_displacement": 0.001920359749494633,
+              "normalized_projector_distance": 3.6863175363333056e-06,
+              "principal_cosines": [
+                0.9999997242390943,
+                0.9999996615573519,
+                0.9999995802949759,
+                0.9999993792739501,
+                0.9999991833462042,
+                0.9999990146924693,
+                0.9999959769466348,
+                0.9999927343434919
+              ],
+              "A_displacement_l2": 0.0031379434015687967,
+              "B_displacement_l2": 0.011926034623526094,
+              "effective_deltaW_displacement_l2": 0.027576245258479792
+            },
+            {
+              "layer": "language_model.model.layers.7.self_attn.v_proj",
+              "relative_A_displacement": 0.00193198246951902,
+              "normalized_projector_distance": 3.597449564463062e-06,
+              "principal_cosines": [
+                0.9999997745996207,
+                0.999999698217885,
+                0.999999642130908,
+                0.9999995025770275,
+                0.9999992634490075,
+                0.9999988211096889,
+                0.9999977970253852,
+                0.9999911110490616
+              ],
+              "A_displacement_l2": 0.003135186454195357,
+              "B_displacement_l2": 0.004541220905362402,
+              "effective_deltaW_displacement_l2": 0.010573957874376094
+            },
+            {
+              "layer": "language_model.model.layers.8.self_attn.q_proj",
+              "relative_A_displacement": 0.001925236203045792,
+              "normalized_projector_distance": 3.7753282076113948e-06,
+              "principal_cosines": [
+                0.9999997195675968,
+                0.9999996403061168,
+                0.9999996225738019,
+                0.9999995656313112,
+                0.9999992159307016,
+                0.9999987344968094,
+                0.9999968212830075,
+                0.9999915788559366
+              ],
+              "A_displacement_l2": 0.0031354230048843443,
+              "B_displacement_l2": 0.012089476568019408,
+              "effective_deltaW_displacement_l2": 0.027466778494080142
+            },
+            {
+              "layer": "language_model.model.layers.8.self_attn.v_proj",
+              "relative_A_displacement": 0.0019185353218461594,
+              "normalized_projector_distance": 3.439638510349674e-06,
+              "principal_cosines": [
+                0.9999998822893164,
+                0.999999802730716,
+                0.9999997720949765,
+                0.9999996286912364,
+                0.99999936858972,
+                0.9999992277030403,
+                0.9999981549744907,
+                0.9999904043241025
+              ],
+              "A_displacement_l2": 0.0031378152308309273,
+              "B_displacement_l2": 0.004595502032177353,
+              "effective_deltaW_displacement_l2": 0.010885348847697571
+            },
+            {
+              "layer": "language_model.model.layers.9.self_attn.q_proj",
+              "relative_A_displacement": 0.0019276427655125908,
+              "normalized_projector_distance": 3.6969506251871564e-06,
+              "principal_cosines": [
+                0.9999999063337341,
+                0.9999998615995683,
+                0.9999997526193553,
+                0.9999997326834508,
+                0.9999995256333233,
+                0.9999991998226101,
+                0.9999978558182842,
+                0.9999893776279442
+              ],
+              "A_displacement_l2": 0.0031407609550681537,
+              "B_displacement_l2": 0.011671642655566751,
+              "effective_deltaW_displacement_l2": 0.026971277969641584
+            },
+            {
+              "layer": "language_model.model.layers.9.self_attn.v_proj",
+              "relative_A_displacement": 0.0019148980258837792,
+              "normalized_projector_distance": 3.5591143672242254e-06,
+              "principal_cosines": [
+                0.9999998538523038,
+                0.9999998034740653,
+                0.9999998001862006,
+                0.9999997524885965,
+                0.9999995784732268,
+                0.9999994382832834,
+                0.9999987767701216,
+                0.9999887599504886
+              ],
+              "A_displacement_l2": 0.003135771906458176,
+              "B_displacement_l2": 0.004599923814358725,
+              "effective_deltaW_displacement_l2": 0.010801833788251456
+            },
+            {
+              "layer": "language_model.model.layers.10.self_attn.q_proj",
+              "relative_A_displacement": 0.0019117919332262933,
+              "normalized_projector_distance": 3.7510847693544846e-06,
+              "principal_cosines": [
+                0.999999877644409,
+                0.9999998312223891,
+                0.9999998060557282,
+                0.9999997497804205,
+                0.9999994832916975,
+                0.9999992251238224,
+                0.9999982049734493,
+                0.9999888175043663
+              ],
+              "A_displacement_l2": 0.0031388592475410223,
+              "B_displacement_l2": 0.01188771992504184,
+              "effective_deltaW_displacement_l2": 0.027463044376913236
+            },
+            {
+              "layer": "language_model.model.layers.10.self_attn.v_proj",
+              "relative_A_displacement": 0.0019246768770920545,
+              "normalized_projector_distance": 3.6733675703448654e-06,
+              "principal_cosines": [
+                0.9999998520942841,
+                0.9999997140637347,
+                0.9999995809047407,
+                0.9999994535846426,
+                0.9999994329714066,
+                0.9999986275537611,
+                0.9999961571832829,
+                0.9999924881368768
+              ],
+              "A_displacement_l2": 0.003139653652577339,
+              "B_displacement_l2": 0.004590479659069389,
+              "effective_deltaW_displacement_l2": 0.010505200175592764
+            },
+            {
+              "layer": "language_model.model.layers.11.self_attn.q_proj",
+              "relative_A_displacement": 0.0019205951897560527,
+              "normalized_projector_distance": 3.626914549137439e-06,
+              "principal_cosines": [
+                0.9999999797107461,
+                0.9999999508163719,
+                0.9999999268536437,
+                0.9999999108929679,
+                0.9999998856551932,
+                0.9999997237734485,
+                0.999999106729248,
+                0.9999870078253342
+              ],
+              "A_displacement_l2": 0.003145250839389681,
+              "B_displacement_l2": 0.012007710218169947,
+              "effective_deltaW_displacement_l2": 0.027952372449546178
+            },
+            {
+              "layer": "language_model.model.layers.11.self_attn.v_proj",
+              "relative_A_displacement": 0.0019346198138051201,
+              "normalized_projector_distance": 3.6867864987577548e-06,
+              "principal_cosines": [
+                0.9999999536663043,
+                0.999999908793499,
+                0.99999974851705,
+                0.9999997241082805,
+                0.99999959325968,
+                0.9999990447050512,
+                0.9999976608875387,
+                0.9999896188593678
+              ],
+              "A_displacement_l2": 0.0031412065389572743,
+              "B_displacement_l2": 0.004576936402634394,
+              "effective_deltaW_displacement_l2": 0.01050231195164069
+            },
+            {
+              "layer": "language_model.model.layers.12.self_attn.q_proj",
+              "relative_A_displacement": 0.0019179781651477755,
+              "normalized_projector_distance": 3.584873972783953e-06,
+              "principal_cosines": [
+                0.9999999642900401,
+                0.999999941625589,
+                0.9999999011260876,
+                0.9999998859364421,
+                0.9999996809673863,
+                0.9999994678419946,
+                0.9999971613747107,
+                0.9999896572841374
+              ],
+              "A_displacement_l2": 0.0031421557550058068,
+              "B_displacement_l2": 0.012046704947012845,
+              "effective_deltaW_displacement_l2": 0.027978836198626785
+            },
+            {
+              "layer": "language_model.model.layers.12.self_attn.v_proj",
+              "relative_A_displacement": 0.0019349050505928543,
+              "normalized_projector_distance": 3.76863259332616e-06,
+              "principal_cosines": [
+                0.9999999334619963,
+                0.9999998988739439,
+                0.9999998401701866,
+                0.999999765316256,
+                0.9999997031946654,
+                0.9999995235156435,
+                0.9999988453132538,
+                0.9999874155436251
+              ],
+              "A_displacement_l2": 0.003141183465424121,
+              "B_displacement_l2": 0.004582018239065817,
+              "effective_deltaW_displacement_l2": 0.01042136347734077
+            },
+            {
+              "layer": "language_model.model.layers.13.self_attn.q_proj",
+              "relative_A_displacement": 0.0019241801085842839,
+              "normalized_projector_distance": 3.4933395658409694e-06,
+              "principal_cosines": [
+                0.9999999451956201,
+                0.9999998911960933,
+                0.9999998543208363,
+                0.9999998204774598,
+                0.9999996858893923,
+                0.9999994681461429,
+                0.9999991089822913,
+                0.9999882523642755
+              ],
+              "A_displacement_l2": 0.0031406854560723494,
+              "B_displacement_l2": 0.011928604980579014,
+              "effective_deltaW_displacement_l2": 0.02817447913212535
+            },
+            {
+              "layer": "language_model.model.layers.13.self_attn.v_proj",
+              "relative_A_displacement": 0.001919557610993059,
+              "normalized_projector_distance": 3.546271516996491e-06,
+              "principal_cosines": [
+                0.999999972800893,
+                0.9999998907018833,
+                0.999999888209578,
+                0.9999997927071484,
+                0.999999698247262,
+                0.9999994959121369,
+                0.9999992263513926,
+                0.9999878499093197
+              ],
+              "A_displacement_l2": 0.0031353360470133206,
+              "B_displacement_l2": 0.004548074440574637,
+              "effective_deltaW_displacement_l2": 0.0106004773914338
+            },
+            {
+              "layer": "language_model.model.layers.14.self_attn.q_proj",
+              "relative_A_displacement": 0.0019370733453628582,
+              "normalized_projector_distance": 3.672044749380987e-06,
+              "principal_cosines": [
+                0.9999999473415153,
+                0.9999998633233278,
+                0.999999798266091,
+                0.9999996358950143,
+                0.9999995810391386,
+                0.9999986679558786,
+                0.9999981234794255,
+                0.9999896944646763
+              ],
+              "A_displacement_l2": 0.003136909161030712,
+              "B_displacement_l2": 0.011987656858084053,
+              "effective_deltaW_displacement_l2": 0.02754159210491511
+            },
+            {
+              "layer": "language_model.model.layers.14.self_attn.v_proj",
+              "relative_A_displacement": 0.0019129381685044772,
+              "normalized_projector_distance": 3.623740521208063e-06,
+              "principal_cosines": [
+                0.9999998835363917,
+                0.9999997936461151,
+                0.9999996664616646,
+                0.9999995658192287,
+                0.9999993630408148,
+                0.9999988323439147,
+                0.9999975224470533,
+                0.9999908776969918
+              ],
+              "A_displacement_l2": 0.0031338234333654464,
+              "B_displacement_l2": 0.004542193278018023,
+              "effective_deltaW_displacement_l2": 0.010515945180855675
+            },
+            {
+              "layer": "language_model.model.layers.15.self_attn.q_proj",
+              "relative_A_displacement": 0.0019154959758952178,
+              "normalized_projector_distance": 3.5733202575771728e-06,
+              "principal_cosines": [
+                0.999999974560339,
+                0.9999999564604257,
+                0.9999999515257681,
+                0.9999998748798149,
+                0.9999998304108167,
+                0.9999996660340188,
+                0.9999990097728905,
+                0.9999874429954859
+              ],
+              "A_displacement_l2": 0.003137936980032955,
+              "B_displacement_l2": 0.012100701260217185,
+              "effective_deltaW_displacement_l2": 0.02825110172479844
+            },
+            {
+              "layer": "language_model.model.layers.15.self_attn.v_proj",
+              "relative_A_displacement": 0.0019116459838565809,
+              "normalized_projector_distance": 3.686395155244604e-06,
+              "principal_cosines": [
+                0.9999998173615264,
+                0.999999638523895,
+                0.9999995427246585,
+                0.9999993925607544,
+                0.9999993094159108,
+                0.9999985426549436,
+                0.999997079311952,
+                0.9999919318272539
+              ],
+              "A_displacement_l2": 0.003125961275806016,
+              "B_displacement_l2": 0.004570955984214456,
+              "effective_deltaW_displacement_l2": 0.010577132768919716
+            },
+            {
+              "layer": "language_model.model.layers.16.self_attn.q_proj",
+              "relative_A_displacement": 0.001940305484152156,
+              "normalized_projector_distance": 3.8050731407945904e-06,
+              "principal_cosines": [
+                0.9999999982726124,
+                0.9999999945649485,
+                0.9999999885041074,
+                0.9999999837670672,
+                0.9999999704123191,
+                0.9999999582873825,
+                0.9999998919881444,
+                0.9999849937982547
+              ],
+              "A_displacement_l2": 0.0031441313053594475,
+              "B_displacement_l2": 0.011889757263838835,
+              "effective_deltaW_displacement_l2": 0.027078924578570345
+            },
+            {
+              "layer": "language_model.model.layers.16.self_attn.v_proj",
+              "relative_A_displacement": 0.0019226456188929026,
+              "normalized_projector_distance": 3.6528974209915077e-06,
+              "principal_cosines": [
+                0.9999998710635054,
+                0.9999998160081203,
+                0.9999997062706599,
+                0.9999996834211505,
+                0.9999996537524373,
+                0.999999013098029,
+                0.9999964262381547,
+                0.9999912185126505
+              ],
+              "A_displacement_l2": 0.0031306696586055234,
+              "B_displacement_l2": 0.004600601644901527,
+              "effective_deltaW_displacement_l2": 0.010813614545000735
+            },
+            {
+              "layer": "language_model.model.layers.17.self_attn.q_proj",
+              "relative_A_displacement": 0.001901377440554525,
+              "normalized_projector_distance": 3.6800422648086695e-06,
+              "principal_cosines": [
+                0.9999999857480122,
+                0.9999999649736848,
+                0.999999950213851,
+                0.9999999340921675,
+                0.9999998938515179,
+                0.9999997741267165,
+                0.9999989361990688,
+                0.9999868405387357
+              ],
+              "A_displacement_l2": 0.003127171944546305,
+              "B_displacement_l2": 0.011623984330565301,
+              "effective_deltaW_displacement_l2": 0.027034204776224716
+            },
+            {
+              "layer": "language_model.model.layers.17.self_attn.v_proj",
+              "relative_A_displacement": 0.001912034818124151,
+              "normalized_projector_distance": 3.7653500772893977e-06,
+              "principal_cosines": [
+                0.9999999040161196,
+                0.9999998879889067,
+                0.9999997765058053,
+                0.9999996685447224,
+                0.9999995904034447,
+                0.9999992210705877,
+                0.9999971851248787,
+                0.9999897048877914
+              ],
+              "A_displacement_l2": 0.0031327390475740886,
+              "B_displacement_l2": 0.004538077183790214,
+              "effective_deltaW_displacement_l2": 0.010429923399960819
+            },
+            {
+              "layer": "language_model.model.layers.18.self_attn.q_proj",
+              "relative_A_displacement": 0.0019000445313808727,
+              "normalized_projector_distance": 3.684474133347493e-06,
+              "principal_cosines": [
+                0.9999999808921696,
+                0.9999999652752718,
+                0.9999999420858957,
+                0.9999999195973152,
+                0.999999884404599,
+                0.9999997211337545,
+                0.999999528035624,
+                0.999986320585111
+              ],
+              "A_displacement_l2": 0.0031294592354823804,
+              "B_displacement_l2": 0.011637577093807673,
+              "effective_deltaW_displacement_l2": 0.02705173156269549
+            },
+            {
+              "layer": "language_model.model.layers.18.self_attn.v_proj",
+              "relative_A_displacement": 0.001922975313200291,
+              "normalized_projector_distance": 3.656193526824225e-06,
+              "principal_cosines": [
+                0.9999999266879004,
+                0.9999998920996405,
+                0.9999998172477347,
+                0.9999996611361007,
+                0.9999993227962869,
+                0.9999991934131682,
+                0.9999967398133419,
+                0.9999908219836496
+              ],
+              "A_displacement_l2": 0.0031268395268244983,
+              "B_displacement_l2": 0.004587979935109076,
+              "effective_deltaW_displacement_l2": 0.010597811192285225
+            },
+            {
+              "layer": "language_model.model.layers.19.self_attn.q_proj",
+              "relative_A_displacement": 0.0019146990801447482,
+              "normalized_projector_distance": 3.519254222594803e-06,
+              "principal_cosines": [
+                0.999999995525693,
+                0.9999999873104044,
+                0.9999999753066121,
+                0.9999999569607518,
+                0.9999999513435822,
+                0.9999998878939663,
+                0.9999998385443092,
+                0.9999863300043345
+              ],
+              "A_displacement_l2": 0.0031355513617841307,
+              "B_displacement_l2": 0.012019883997813459,
+              "effective_deltaW_displacement_l2": 0.028297210102540712
+            },
+            {
+              "layer": "language_model.model.layers.19.self_attn.v_proj",
+              "relative_A_displacement": 0.0019152247467726657,
+              "normalized_projector_distance": 3.6827261524763344e-06,
+              "principal_cosines": [
+                0.9999999414583197,
+                0.9999999006052945,
+                0.9999998420568147,
+                0.9999997693476422,
+                0.9999997425365326,
+                0.9999990806495365,
+                0.9999961729691997,
+                0.9999908194220841
+              ],
+              "A_displacement_l2": 0.0031193890243632486,
+              "B_displacement_l2": 0.00451188559114594,
+              "effective_deltaW_displacement_l2": 0.010390085024554206
+            },
+            {
+              "layer": "language_model.model.layers.20.self_attn.q_proj",
+              "relative_A_displacement": 0.001928171280516299,
+              "normalized_projector_distance": 3.5660850573604463e-06,
+              "principal_cosines": [
+                0.9999999999629556,
+                0.9999999983459953,
+                0.9999999962405703,
+                0.9999999923524439,
+                0.9999999832372629,
+                0.9999999795229274,
+                0.9999998868017669,
+                0.999985899096424
+              ],
+              "A_displacement_l2": 0.0031409401185873535,
+              "B_displacement_l2": 0.012010500281736813,
+              "effective_deltaW_displacement_l2": 0.02795745420223358
+            },
+            {
+              "layer": "language_model.model.layers.20.self_attn.v_proj",
+              "relative_A_displacement": 0.0019085466276198512,
+              "normalized_projector_distance": 3.6268790403193307e-06,
+              "principal_cosines": [
+                0.9999999554480163,
+                0.9999999117666801,
+                0.9999998311912315,
+                0.9999997323471093,
+                0.999999597109436,
+                0.9999993302355012,
+                0.999997526173542,
+                0.9999896081549069
+              ],
+              "A_displacement_l2": 0.00311574454435703,
+              "B_displacement_l2": 0.004528826058593159,
+              "effective_deltaW_displacement_l2": 0.01037289276214134
+            },
+            {
+              "layer": "language_model.model.layers.21.self_attn.q_proj",
+              "relative_A_displacement": 0.0018976773924865744,
+              "normalized_projector_distance": 3.4943815290233715e-06,
+              "principal_cosines": [
+                0.999999995633725,
+                0.9999999911999251,
+                0.9999999851084092,
+                0.9999999596606529,
+                0.9999999565253666,
+                0.9999998858322923,
+                0.99999982133191,
+                0.9999864270894667
+              ],
+              "A_displacement_l2": 0.003108754860325724,
+              "B_displacement_l2": 0.011437460741891857,
+              "effective_deltaW_displacement_l2": 0.026781173014161868
+            },
+            {
+              "layer": "language_model.model.layers.21.self_attn.v_proj",
+              "relative_A_displacement": 0.0018072382540369023,
+              "normalized_projector_distance": 3.198741119425641e-06,
+              "principal_cosines": [
+                0.9999999933380629,
+                0.9999999828227525,
+                0.9999999599444221,
+                0.9999998986177185,
+                0.9999997536655001,
+                0.9999996010728627,
+                0.9999964355984422,
+                0.9999915799338439
+              ],
+              "A_displacement_l2": 0.0029375782074162206,
+              "B_displacement_l2": 0.0044262835982025375,
+              "effective_deltaW_displacement_l2": 0.010235470642509922
+            },
+            {
+              "layer": "language_model.model.layers.22.self_attn.q_proj",
+              "relative_A_displacement": 0.0019035584832321302,
+              "normalized_projector_distance": 3.820855671854417e-06,
+              "principal_cosines": [
+                0.9999999911447583,
+                0.9999999796877064,
+                0.9999999597457423,
+                0.9999999495310292,
+                0.999999881222577,
+                0.9999997862825254,
+                0.9999995373685769,
+                0.9999856314910303
+              ],
+              "A_displacement_l2": 0.0030989536456933315,
+              "B_displacement_l2": 0.011496701228708682,
+              "effective_deltaW_displacement_l2": 0.025753409587476742
+            },
+            {
+              "layer": "language_model.model.layers.22.self_attn.v_proj",
+              "relative_A_displacement": 0.0018594333619875417,
+              "normalized_projector_distance": 3.2760272489218423e-06,
+              "principal_cosines": [
+                0.9999999992128887,
+                0.9999999979705212,
+                0.9999999967713405,
+                0.9999999945575077,
+                0.9999999864204304,
+                0.9999999373653543,
+                0.9999998413949078,
+                0.9999871421153766
+              ],
+              "A_displacement_l2": 0.0030361719581810218,
+              "B_displacement_l2": 0.004650381313032587,
+              "effective_deltaW_displacement_l2": 0.010997267148166042
+            },
+            {
+              "layer": "language_model.model.layers.23.self_attn.q_proj",
+              "relative_A_displacement": 0.0018702261467807982,
+              "normalized_projector_distance": 3.286039962246967e-06,
+              "principal_cosines": [
+                0.9999999914433726,
+                0.9999999831084919,
+                0.9999999828521368,
+                0.9999999772472286,
+                0.9999999321788957,
+                0.9999998339390622,
+                0.9999996345227621,
+                0.9999875204702484
+              ],
+              "A_displacement_l2": 0.0030966054321601984,
+              "B_displacement_l2": 0.011534173664168212,
+              "effective_deltaW_displacement_l2": 0.02757046845553598
+            },
+            {
+              "layer": "language_model.model.layers.23.self_attn.v_proj",
+              "relative_A_displacement": 0.0018880343147165259,
+              "normalized_projector_distance": 3.617743186357103e-06,
+              "principal_cosines": [
+                0.999999995296023,
+                0.9999999825011755,
+                0.9999999778096088,
+                0.9999999275792031,
+                0.9999998741916217,
+                0.9999996368057836,
+                0.9999993199457557,
+                0.9999868148108503
+              ],
+              "A_displacement_l2": 0.0030797787625197258,
+              "B_displacement_l2": 0.0044072621769756706,
+              "effective_deltaW_displacement_l2": 0.01007323572499405
+            }
+          ],
+          "mean_normalized_projector_distance": 3.6147771498388583e-06,
+          "effective_deltaW_displacement_l2": 0.14441891590863568
+        },
+        "raw_preclip_gradients": [
+          {
+            "TRAIN_ids": [
+              "SLAKE:4367",
+              "SLAKE:1276",
+              "SLAKE:2673",
+              "SLAKE:9791",
+              "SLAKE:7867",
+              "SLAKE:5162",
+              "SLAKE:974",
+              "SLAKE:894",
+              "SLAKE:9372",
+              "SLAKE:9010",
+              "SLAKE:7928",
+              "SLAKE:9452",
+              "SLAKE:6439",
+              "SLAKE:3350",
+              "SLAKE:6391",
+              "SLAKE:24"
+            ],
+            "preclip_A_gradient_l2": 0.0,
+            "preclip_B_gradient_l2": 151.0314710428751,
+            "nonzero_gradient_layers": {
+              "A": 0,
+              "B": 48
+            },
+            "zero_vector_does_not_distinguish_missing_gradient_from_exact_zero": true
+          },
+          {
+            "TRAIN_ids": [
+              "SLAKE:1146",
+              "SLAKE:8432",
+              "SLAKE:6268",
+              "SLAKE:4539",
+              "SLAKE:6561",
+              "SLAKE:3186",
+              "SLAKE:6286",
+              "SLAKE:3748",
+              "SLAKE:5803",
+              "SLAKE:9284"
+            ],
+            "preclip_A_gradient_l2": 3.7785515972803347,
+            "preclip_B_gradient_l2": 122.37504512735971,
+            "nonzero_gradient_layers": {
+              "A": 48,
+              "B": 48
+            },
+            "zero_vector_does_not_distinguish_missing_gradient_from_exact_zero": true
+          }
+        ],
+        "run": "exp/onevision_initialization_source_20261018/v1/within_A_only/20261018_195943"
+      }
+    },
+    "cross_A_only": {
+      "scores": {
+        "condition": "cross_A_only",
+        "initial_probe": {
+          "QA": 32,
+          "F1": 7.5,
+          "NLL": 8.726991832256317
+        },
+        "target_full507": {
+          "QA": 507,
+          "F1": 14.463698694467917,
+          "NLL": 7.05365393594407
+        },
+        "target_updates": 2,
+        "run": "exp/onevision_initialization_source_20261018/v1/cross_A_only/20261018_200600"
+      },
+      "parameters": {
+        "parameter_change": {
+          "layers": [
+            {
+              "layer": "language_model.model.layers.0.self_attn.q_proj",
+              "relative_A_displacement": 0.0018678453300980955,
+              "normalized_projector_distance": 3.3789296239872257e-06,
+              "principal_cosines": [
+                0.9999997323885199,
+                0.9999996927266073,
+                0.9999996518282341,
+                0.9999995198212837,
+                0.9999993667065854,
+                0.9999990727761459,
+                0.9999958856354874,
+                0.9999935623685657
+              ],
+              "A_displacement_l2": 0.0030450259034264164,
+              "B_displacement_l2": 0.011981472843713915,
+              "effective_deltaW_displacement_l2": 0.027753405755262476
+            },
+            {
+              "layer": "language_model.model.layers.0.self_attn.v_proj",
+              "relative_A_displacement": 0.001919955396538534,
+              "normalized_projector_distance": 3.625266886020384e-06,
+              "principal_cosines": [
+                0.9999997894749296,
+                0.9999996393023808,
+                0.9999994732239476,
+                0.999999373996375,
+                0.9999991937718824,
+                0.9999990976328574,
+                0.9999972310194642,
+                0.9999917004711902
+              ],
+              "A_displacement_l2": 0.003135320872023344,
+              "B_displacement_l2": 0.004561720101615418,
+              "effective_deltaW_displacement_l2": 0.010613014730205702
+            },
+            {
+              "layer": "language_model.model.layers.1.self_attn.q_proj",
+              "relative_A_displacement": 0.0019027099118906568,
+              "normalized_projector_distance": 3.6446572222459395e-06,
+              "principal_cosines": [
+                0.9999995467373172,
+                0.9999994676636387,
+                0.9999993703797301,
+                0.9999993434774078,
+                0.9999992739456905,
+                0.9999984222071961,
+                0.9999956864541237,
+                0.999994310478352
+              ],
+              "A_displacement_l2": 0.003122883555822258,
+              "B_displacement_l2": 0.012021591973874398,
+              "effective_deltaW_displacement_l2": 0.027797189545938503
+            },
+            {
+              "layer": "language_model.model.layers.1.self_attn.v_proj",
+              "relative_A_displacement": 0.0019311124457609974,
+              "normalized_projector_distance": 3.596229542379703e-06,
+              "principal_cosines": [
+                0.9999994705415659,
+                0.9999994201340145,
+                0.9999993067686295,
+                0.9999991326441632,
+                0.9999989454170403,
+                0.9999978657231503,
+                0.9999961660439131,
+                0.9999953077872371
+              ],
+              "A_displacement_l2": 0.003136133055439105,
+              "B_displacement_l2": 0.004585068659475669,
+              "effective_deltaW_displacement_l2": 0.010625324062583751
+            },
+            {
+              "layer": "language_model.model.layers.2.self_attn.q_proj",
+              "relative_A_displacement": 0.0019318574847499081,
+              "normalized_projector_distance": 3.6626020417651617e-06,
+              "principal_cosines": [
+                0.9999998280872989,
+                0.9999996160420909,
+                0.9999993747934516,
+                0.9999992736492703,
+                0.9999989151714064,
+                0.9999984469565506,
+                0.9999977330900569,
+                0.9999921617660766
+              ],
+              "A_displacement_l2": 0.003123403671483373,
+              "B_displacement_l2": 0.012014342019743425,
+              "effective_deltaW_displacement_l2": 0.02759416244754916
+            },
+            {
+              "layer": "language_model.model.layers.2.self_attn.v_proj",
+              "relative_A_displacement": 0.0019409884119156748,
+              "normalized_projector_distance": 3.766480340061662e-06,
+              "principal_cosines": [
+                0.9999997848378297,
+                0.9999997060906595,
+                0.9999995426525302,
+                0.9999994181579791,
+                0.9999993882919576,
+                0.999999144751507,
+                0.9999980893592041,
+                0.9999898598828434
+              ],
+              "A_displacement_l2": 0.0031375187602714874,
+              "B_displacement_l2": 0.004586721524549501,
+              "effective_deltaW_displacement_l2": 0.010447076233147749
+            },
+            {
+              "layer": "language_model.model.layers.3.self_attn.q_proj",
+              "relative_A_displacement": 0.001918703671367985,
+              "normalized_projector_distance": 3.6240392647934883e-06,
+              "principal_cosines": [
+                0.9999995750260731,
+                0.9999993220964145,
+                0.9999992742187086,
+                0.9999991747757563,
+                0.9999988783592336,
+                0.9999976647912149,
+                0.9999968773472099,
+                0.9999947372053265
+              ],
+              "A_displacement_l2": 0.0031286866919691264,
+              "B_displacement_l2": 0.011960020355427406,
+              "effective_deltaW_displacement_l2": 0.027601610475603278
+            },
+            {
+              "layer": "language_model.model.layers.3.self_attn.v_proj",
+              "relative_A_displacement": 0.0019167460875767171,
+              "normalized_projector_distance": 3.719017719006068e-06,
+              "principal_cosines": [
+                0.9999997409851712,
+                0.9999995014840245,
+                0.999999479793265,
+                0.9999993516422909,
+                0.9999992714624605,
+                0.9999985690920209,
+                0.9999969892386757,
+                0.9999922201946281
+              ],
+              "A_displacement_l2": 0.0031357815400079652,
+              "B_displacement_l2": 0.004554242427499639,
+              "effective_deltaW_displacement_l2": 0.010408919393715464
+            },
+            {
+              "layer": "language_model.model.layers.4.self_attn.q_proj",
+              "relative_A_displacement": 0.0019347225950857106,
+              "normalized_projector_distance": 3.6904123934533573e-06,
+              "principal_cosines": [
+                0.9999997606112099,
+                0.9999997143518111,
+                0.9999994926050145,
+                0.9999993715199728,
+                0.9999989650090514,
+                0.9999983431439118,
+                0.9999967295944824,
+                0.9999928614818411
+              ],
+              "A_displacement_l2": 0.0031331229802185933,
+              "B_displacement_l2": 0.012037229871683118,
+              "effective_deltaW_displacement_l2": 0.027528496019528097
+            },
+            {
+              "layer": "language_model.model.layers.4.self_attn.v_proj",
+              "relative_A_displacement": 0.0019060772107103458,
+              "normalized_projector_distance": 3.623710272071534e-06,
+              "principal_cosines": [
+                0.9999997516224491,
+                0.9999993835923233,
+                0.9999992701147083,
+                0.9999991694958797,
+                0.9999984621913166,
+                0.9999978677107207,
+                0.9999965204324381,
+                0.9999950799766308
+              ],
+              "A_displacement_l2": 0.0031261315274222386,
+              "B_displacement_l2": 0.004523528587993874,
+              "effective_deltaW_displacement_l2": 0.010440382430339224
+            },
+            {
+              "layer": "language_model.model.layers.5.self_attn.q_proj",
+              "relative_A_displacement": 0.001928484931417516,
+              "normalized_projector_distance": 3.6502639304547557e-06,
+              "principal_cosines": [
+                0.9999995540451971,
+                0.9999994937819623,
+                0.9999993830761312,
+                0.9999989716339462,
+                0.9999988468658317,
+                0.999997923841932,
+                0.9999968078571836,
+                0.9999944178176521
+              ],
+              "A_displacement_l2": 0.0031335914495200677,
+              "B_displacement_l2": 0.012003627566055029,
+              "effective_deltaW_displacement_l2": 0.02791947018098585
+            },
+            {
+              "layer": "language_model.model.layers.5.self_attn.v_proj",
+              "relative_A_displacement": 0.0019145222805168507,
+              "normalized_projector_distance": 3.6277721093824766e-06,
+              "principal_cosines": [
+                0.9999995667394055,
+                0.9999994810328373,
+                0.9999993278665605,
+                0.9999991892336928,
+                0.9999987913739294,
+                0.9999985474270735,
+                0.9999959524159598,
+                0.99999463279694
+              ],
+              "A_displacement_l2": 0.003130608410420787,
+              "B_displacement_l2": 0.004605671003048873,
+              "effective_deltaW_displacement_l2": 0.010653748990292939
+            },
+            {
+              "layer": "language_model.model.layers.6.self_attn.q_proj",
+              "relative_A_displacement": 0.0019271077248020551,
+              "normalized_projector_distance": 3.611323305841019e-06,
+              "principal_cosines": [
+                0.9999996626734069,
+                0.9999995464870425,
+                0.9999993820188161,
+                0.9999992182346903,
+                0.9999990988758664,
+                0.9999976315157374,
+                0.9999971118841356,
+                0.9999939029904571
+              ],
+              "A_displacement_l2": 0.003132636648016425,
+              "B_displacement_l2": 0.011834925420457072,
+              "effective_deltaW_displacement_l2": 0.02737433266895876
+            },
+            {
+              "layer": "language_model.model.layers.6.self_attn.v_proj",
+              "relative_A_displacement": 0.0019231504611499362,
+              "normalized_projector_distance": 3.551200793650011e-06,
+              "principal_cosines": [
+                0.9999995898179723,
+                0.9999994625253162,
+                0.9999993487592498,
+                0.9999992027157232,
+                0.9999991547596047,
+                0.9999983282983319,
+                0.9999973766794081,
+                0.9999933316130315
+              ],
+              "A_displacement_l2": 0.003131581356920673,
+              "B_displacement_l2": 0.0045691893535313825,
+              "effective_deltaW_displacement_l2": 0.010740013428647685
+            },
+            {
+              "layer": "language_model.model.layers.7.self_attn.q_proj",
+              "relative_A_displacement": 0.0019206115586083675,
+              "normalized_projector_distance": 3.6905386061603096e-06,
+              "principal_cosines": [
+                0.9999997268598664,
+                0.9999996443734799,
+                0.9999995853714453,
+                0.9999993625690612,
+                0.9999991353719684,
+                0.9999990069758,
+                0.9999961440215035,
+                0.9999926322666179
+              ],
+              "A_displacement_l2": 0.003138382599792114,
+              "B_displacement_l2": 0.011942324411610136,
+              "effective_deltaW_displacement_l2": 0.027613201438112203
+            },
+            {
+              "layer": "language_model.model.layers.7.self_attn.v_proj",
+              "relative_A_displacement": 0.0019321229014292428,
+              "normalized_projector_distance": 3.602280037262595e-06,
+              "principal_cosines": [
+                0.999999765902038,
+                0.9999996895062179,
+                0.9999996249502757,
+                0.999999479060816,
+                0.999999223845295,
+                0.9999987756007771,
+                0.9999977328710496,
+                0.9999912991016268
+              ],
+              "A_displacement_l2": 0.003135310001390892,
+              "B_displacement_l2": 0.00453388505910179,
+              "effective_deltaW_displacement_l2": 0.010553766937840998
+            },
+            {
+              "layer": "language_model.model.layers.8.self_attn.q_proj",
+              "relative_A_displacement": 0.0019243542520601463,
+              "normalized_projector_distance": 3.7674571672363655e-06,
+              "principal_cosines": [
+                0.9999997156081214,
+                0.9999996380154099,
+                0.9999995927207123,
+                0.9999995181021781,
+                0.999999212051925,
+                0.999998840604695,
+                0.9999966673248977,
+                0.9999917457024842
+              ],
+              "A_displacement_l2": 0.0031337816129685544,
+              "B_displacement_l2": 0.012081354252648743,
+              "effective_deltaW_displacement_l2": 0.02745204381391172
+            },
+            {
+              "layer": "language_model.model.layers.8.self_attn.v_proj",
+              "relative_A_displacement": 0.0019189437796863667,
+              "normalized_projector_distance": 3.440647589614265e-06,
+              "principal_cosines": [
+                0.999999864354751,
+                0.9999998194841732,
+                0.9999997561415136,
+                0.9999996472188007,
+                0.9999993880857742,
+                0.9999992394022542,
+                0.9999981788225544,
+                0.9999903438509473
+              ],
+              "A_displacement_l2": 0.003138531052480664,
+              "B_displacement_l2": 0.004598458256319528,
+              "effective_deltaW_displacement_l2": 0.010889981306603487
+            },
+            {
+              "layer": "language_model.model.layers.9.self_attn.q_proj",
+              "relative_A_displacement": 0.0019273934346984343,
+              "normalized_projector_distance": 3.67387713096079e-06,
+              "principal_cosines": [
+                0.9999999100326575,
+                0.9999998642654356,
+                0.9999997593240137,
+                0.9999996976022372,
+                0.9999994837849319,
+                0.999999093508611,
+                0.9999976547594943,
+                0.9999898411591114
+              ],
+              "A_displacement_l2": 0.0031404219567229383,
+              "B_displacement_l2": 0.011661541934872911,
+              "effective_deltaW_displacement_l2": 0.026972628879208576
+            },
+            {
+              "layer": "language_model.model.layers.9.self_attn.v_proj",
+              "relative_A_displacement": 0.001915324103423213,
+              "normalized_projector_distance": 3.559233267780293e-06,
+              "principal_cosines": [
+                0.9999998425051497,
+                0.9999998096903298,
+                0.9999998037467286,
+                0.9999997481866658,
+                0.9999995853597767,
+                0.9999994213785228,
+                0.9999987708232214,
+                0.9999887813125142
+              ],
+              "A_displacement_l2": 0.0031364897585151623,
+              "B_displacement_l2": 0.004600972820311679,
+              "effective_deltaW_displacement_l2": 0.010805011557249859
+            },
+            {
+              "layer": "language_model.model.layers.10.self_attn.q_proj",
+              "relative_A_displacement": 0.001911863697521633,
+              "normalized_projector_distance": 3.75313258460519e-06,
+              "principal_cosines": [
+                0.9999999073812006,
+                0.9999998434793517,
+                0.999999820179602,
+                0.999999769348773,
+                0.9999994206909973,
+                0.9999992855827412,
+                0.9999981736436211,
+                0.9999887670981358
+              ],
+              "A_displacement_l2": 0.003138710104603212,
+              "B_displacement_l2": 0.011921467544184014,
+              "effective_deltaW_displacement_l2": 0.027531411764635874
+            },
+            {
+              "layer": "language_model.model.layers.10.self_attn.v_proj",
+              "relative_A_displacement": 0.0019246257541915106,
+              "normalized_projector_distance": 3.684838984385763e-06,
+              "principal_cosines": [
+                0.9999998254333117,
+                0.9999996969763091,
+                0.9999995847153007,
+                0.9999994704773958,
+                0.9999993644864608,
+                0.9999987886603532,
+                0.9999961590854606,
+                0.999992370771769
+              ],
+              "A_displacement_l2": 0.0031394231281789415,
+              "B_displacement_l2": 0.004589109891664789,
+              "effective_deltaW_displacement_l2": 0.010496730952604304
+            },
+            {
+              "layer": "language_model.model.layers.11.self_attn.q_proj",
+              "relative_A_displacement": 0.0019208156116240847,
+              "normalized_projector_distance": 3.6211796443641475e-06,
+              "principal_cosines": [
+                0.9999999815202462,
+                0.9999999421699292,
+                0.9999999297933514,
+                0.999999920327004,
+                0.9999998980583457,
+                0.9999998261922384,
+                0.99999943272114,
+                0.9999865844089901
+              ],
+              "A_displacement_l2": 0.003145515380310018,
+              "B_displacement_l2": 0.011995033950019437,
+              "effective_deltaW_displacement_l2": 0.027953194887157282
+            },
+            {
+              "layer": "language_model.model.layers.11.self_attn.v_proj",
+              "relative_A_displacement": 0.0019340537591060268,
+              "normalized_projector_distance": 3.6944427974638927e-06,
+              "principal_cosines": [
+                0.9999999525996616,
+                0.9999999095659121,
+                0.9999997415905187,
+                0.9999996915350378,
+                0.99999955139193,
+                0.9999992128192311,
+                0.9999976331473389,
+                0.9999895295210667
+              ],
+              "A_displacement_l2": 0.003140428480653072,
+              "B_displacement_l2": 0.004571802399602317,
+              "effective_deltaW_displacement_l2": 0.010485510148754248
+            },
+            {
+              "layer": "language_model.model.layers.12.self_attn.q_proj",
+              "relative_A_displacement": 0.001918296999926624,
+              "normalized_projector_distance": 3.600099543699109e-06,
+              "principal_cosines": [
+                0.9999999634517274,
+                0.9999999401564476,
+                0.9999998977521519,
+                0.9999998788038996,
+                0.9999996757663401,
+                0.9999995825795873,
+                0.9999969794605171,
+                0.9999896815732027
+              ],
+              "A_displacement_l2": 0.003142567263845522,
+              "B_displacement_l2": 0.0120592636828821,
+              "effective_deltaW_displacement_l2": 0.02799316491465232
+            },
+            {
+              "layer": "language_model.model.layers.12.self_attn.v_proj",
+              "relative_A_displacement": 0.0019345232028486537,
+              "normalized_projector_distance": 3.772337035634621e-06,
+              "principal_cosines": [
+                0.9999999365281462,
+                0.9999998921046316,
+                0.9999998374158021,
+                0.9999997571387992,
+                0.9999996843812268,
+                0.9999995183908552,
+                0.9999988461134701,
+                0.9999874384991484
+              ],
+              "A_displacement_l2": 0.003140427809023309,
+              "B_displacement_l2": 0.004581086783216751,
+              "effective_deltaW_displacement_l2": 0.010416194388264561
+            },
+            {
+              "layer": "language_model.model.layers.13.self_attn.q_proj",
+              "relative_A_displacement": 0.0019237825781650074,
+              "normalized_projector_distance": 3.4930524992482503e-06,
+              "principal_cosines": [
+                0.9999999531451511,
+                0.9999998850568531,
+                0.9999998685858089,
+                0.9999998186392818,
+                0.9999997041924665,
+                0.999999477227616,
+                0.9999991121666052,
+                0.9999882087060956
+              ],
+              "A_displacement_l2": 0.0031400503403671647,
+              "B_displacement_l2": 0.011939380119298229,
+              "effective_deltaW_displacement_l2": 0.028202146386172394
+            },
+            {
+              "layer": "language_model.model.layers.13.self_attn.v_proj",
+              "relative_A_displacement": 0.0019194674994528144,
+              "normalized_projector_distance": 3.547634942591138e-06,
+              "principal_cosines": [
+                0.9999999585420626,
+                0.9999998897117804,
+                0.9999998864841575,
+                0.9999997989221914,
+                0.9999996995268753,
+                0.9999994818706486,
+                0.9999992449484512,
+                0.9999878493797463
+              ],
+              "A_displacement_l2": 0.0031350438986112415,
+              "B_displacement_l2": 0.004546275339824177,
+              "effective_deltaW_displacement_l2": 0.01059561548469156
+            },
+            {
+              "layer": "language_model.model.layers.14.self_attn.q_proj",
+              "relative_A_displacement": 0.0019371981146036061,
+              "normalized_projector_distance": 3.7270654404952808e-06,
+              "principal_cosines": [
+                0.9999999553893442,
+                0.9999998691455692,
+                0.9999998287629654,
+                0.9999997819589937,
+                0.9999994262977533,
+                0.9999993401562143,
+                0.9999980646924407,
+                0.9999888252702168
+              ],
+              "A_displacement_l2": 0.0031368585480182035,
+              "B_displacement_l2": 0.011996209188724762,
+              "effective_deltaW_displacement_l2": 0.02752737470631104
+            },
+            {
+              "layer": "language_model.model.layers.14.self_attn.v_proj",
+              "relative_A_displacement": 0.0019131409494045804,
+              "normalized_projector_distance": 3.6509746554891365e-06,
+              "principal_cosines": [
+                0.9999998958776029,
+                0.9999997803217965,
+                0.999999647546146,
+                0.9999995646752715,
+                0.9999993865473051,
+                0.9999988635628974,
+                0.9999973272356447,
+                0.9999909302889919
+              ],
+              "A_displacement_l2": 0.0031338254731598197,
+              "B_displacement_l2": 0.004546804682509389,
+              "effective_deltaW_displacement_l2": 0.010518608531086758
+            },
+            {
+              "layer": "language_model.model.layers.15.self_attn.q_proj",
+              "relative_A_displacement": 0.0019152926498450925,
+              "normalized_projector_distance": 3.5795170982844127e-06,
+              "principal_cosines": [
+                0.9999999791006339,
+                0.9999999600447268,
+                0.9999999377826686,
+                0.9999998679927519,
+                0.9999997481128712,
+                0.9999996582132138,
+                0.9999989923894562,
+                0.9999875382170272
+              ],
+              "A_displacement_l2": 0.0031376249711423366,
+              "B_displacement_l2": 0.012089320967402553,
+              "effective_deltaW_displacement_l2": 0.02821798979225073
+            },
+            {
+              "layer": "language_model.model.layers.15.self_attn.v_proj",
+              "relative_A_displacement": 0.001911053116016259,
+              "normalized_projector_distance": 3.6862222975164727e-06,
+              "principal_cosines": [
+                0.9999998233295725,
+                0.9999996449131467,
+                0.9999995388794666,
+                0.9999993955860311,
+                0.9999993136647508,
+                0.999998520299181,
+                0.9999970753766354,
+                0.9999919430235937
+              ],
+              "A_displacement_l2": 0.003124831567245882,
+              "B_displacement_l2": 0.004573002849729934,
+              "effective_deltaW_displacement_l2": 0.010580692068114352
+            },
+            {
+              "layer": "language_model.model.layers.16.self_attn.q_proj",
+              "relative_A_displacement": 0.0019403648406516062,
+              "normalized_projector_distance": 3.8116715430636106e-06,
+              "principal_cosines": [
+                0.9999999999668782,
+                0.9999999937200381,
+                0.9999999875119367,
+                0.9999999854229074,
+                0.9999999594117136,
+                0.9999999480288304,
+                0.9999998539903717,
+                0.9999850251490157
+              ],
+              "A_displacement_l2": 0.0031441582016765884,
+              "B_displacement_l2": 0.011856602887828048,
+              "effective_deltaW_displacement_l2": 0.02701864494254728
+            },
+            {
+              "layer": "language_model.model.layers.16.self_attn.v_proj",
+              "relative_A_displacement": 0.001922950731506243,
+              "normalized_projector_distance": 3.631679109217245e-06,
+              "principal_cosines": [
+                0.9999998728412924,
+                0.99999985488371,
+                0.9999997220333772,
+                0.999999698373646,
+                0.9999996053294744,
+                0.9999991299897917,
+                0.9999967510375893,
+                0.9999908387468809
+              ],
+              "A_displacement_l2": 0.003131166929564131,
+              "B_displacement_l2": 0.00458330779017237,
+              "effective_deltaW_displacement_l2": 0.010787958450618777
+            },
+            {
+              "layer": "language_model.model.layers.17.self_attn.q_proj",
+              "relative_A_displacement": 0.0019052156599444919,
+              "normalized_projector_distance": 3.5670574913826414e-06,
+              "principal_cosines": [
+                0.999999990885221,
+                0.9999999685237556,
+                0.9999999562827327,
+                0.9999999417509384,
+                0.9999999250555158,
+                0.9999998886089067,
+                0.9999996107025841,
+                0.9999864498684893
+              ],
+              "A_displacement_l2": 0.0031334467705131175,
+              "B_displacement_l2": 0.011755133875156828,
+              "effective_deltaW_displacement_l2": 0.027493492980671146
+            },
+            {
+              "layer": "language_model.model.layers.17.self_attn.v_proj",
+              "relative_A_displacement": 0.001910911512986108,
+              "normalized_projector_distance": 3.7407028792291186e-06,
+              "principal_cosines": [
+                0.9999999119749107,
+                0.9999998727478578,
+                0.9999997454592621,
+                0.999999673621678,
+                0.9999995135958939,
+                0.9999991922767429,
+                0.9999970263081779,
+                0.9999901011500023
+              ],
+              "A_displacement_l2": 0.0031306854246133794,
+              "B_displacement_l2": 0.00453185779586429,
+              "effective_deltaW_displacement_l2": 0.01041782944650831
+            },
+            {
+              "layer": "language_model.model.layers.18.self_attn.q_proj",
+              "relative_A_displacement": 0.0018999506369072815,
+              "normalized_projector_distance": 3.692794094511953e-06,
+              "principal_cosines": [
+                0.9999999767325367,
+                0.999999962780904,
+                0.9999999325199593,
+                0.9999998988745195,
+                0.999999881409405,
+                0.9999997115431252,
+                0.9999995248719081,
+                0.9999863399977962
+              ],
+              "A_displacement_l2": 0.0031291726498713767,
+              "B_displacement_l2": 0.011634595163471158,
+              "effective_deltaW_displacement_l2": 0.027065166175389413
+            },
+            {
+              "layer": "language_model.model.layers.18.self_attn.v_proj",
+              "relative_A_displacement": 0.0019217546627837202,
+              "normalized_projector_distance": 3.6378016253779677e-06,
+              "principal_cosines": [
+                0.999999921797966,
+                0.9999998893423969,
+                0.9999998144381582,
+                0.9999996429384904,
+                0.999999565430679,
+                0.9999990966429503,
+                0.9999964563999348,
+                0.9999910617561054
+              ],
+              "A_displacement_l2": 0.003124868993273987,
+              "B_displacement_l2": 0.004590305655659581,
+              "effective_deltaW_displacement_l2": 0.010612272286369104
+            },
+            {
+              "layer": "language_model.model.layers.19.self_attn.q_proj",
+              "relative_A_displacement": 0.0019148091503829884,
+              "normalized_projector_distance": 3.527625609622831e-06,
+              "principal_cosines": [
+                0.9999999899600714,
+                0.9999999855745841,
+                0.9999999810049797,
+                0.9999999540847158,
+                0.9999999426859787,
+                0.9999998903837178,
+                0.9999998378589081,
+                0.9999863078508467
+              ],
+              "A_displacement_l2": 0.0031356424044359857,
+              "B_displacement_l2": 0.012015002785050884,
+              "effective_deltaW_displacement_l2": 0.02825438660590532
+            },
+            {
+              "layer": "language_model.model.layers.19.self_attn.v_proj",
+              "relative_A_displacement": 0.0019152881174286799,
+              "normalized_projector_distance": 3.6783767006776102e-06,
+              "principal_cosines": [
+                0.9999999375169899,
+                0.9999999104994278,
+                0.9999998217258235,
+                0.9999997683756403,
+                0.9999997194521336,
+                0.999999048044719,
+                0.999996089172731,
+                0.9999909916569691
+              ],
+              "A_displacement_l2": 0.003119808289757744,
+              "B_displacement_l2": 0.0045045415357613935,
+              "effective_deltaW_displacement_l2": 0.010377660333907603
+            },
+            {
+              "layer": "language_model.model.layers.20.self_attn.q_proj",
+              "relative_A_displacement": 0.0019277800713477394,
+              "normalized_projector_distance": 3.578057139685953e-06,
+              "principal_cosines": [
+                0.999999999197114,
+                0.9999999961362538,
+                0.9999999933550687,
+                0.9999999851385472,
+                0.9999999769406357,
+                0.9999999594307926,
+                0.999999876457702,
+                0.9999859010159278
+              ],
+              "A_displacement_l2": 0.0031398845009844635,
+              "B_displacement_l2": 0.011993928420634707,
+              "effective_deltaW_displacement_l2": 0.027896049010940276
+            },
+            {
+              "layer": "language_model.model.layers.20.self_attn.v_proj",
+              "relative_A_displacement": 0.0019067496563420602,
+              "normalized_projector_distance": 3.6439829042000937e-06,
+              "principal_cosines": [
+                0.9999999626596039,
+                0.9999999163143849,
+                0.9999998198541289,
+                0.9999997326830209,
+                0.9999995083257205,
+                0.9999992998437539,
+                0.9999973952362853,
+                0.9999897890955389
+              ],
+              "A_displacement_l2": 0.003112820336510995,
+              "B_displacement_l2": 0.00453387409639107,
+              "effective_deltaW_displacement_l2": 0.010372837849495053
+            },
+            {
+              "layer": "language_model.model.layers.21.self_attn.q_proj",
+              "relative_A_displacement": 0.0018962884209971784,
+              "normalized_projector_distance": 3.4928676762024935e-06,
+              "principal_cosines": [
+                0.9999999923936843,
+                0.9999999901964561,
+                0.999999987990368,
+                0.9999999611268395,
+                0.9999999494418664,
+                0.9999998776862993,
+                0.9999998437168685,
+                0.9999864258847629
+              ],
+              "A_displacement_l2": 0.0031065481184242745,
+              "B_displacement_l2": 0.011437876566132989,
+              "effective_deltaW_displacement_l2": 0.02677477588547608
+            },
+            {
+              "layer": "language_model.model.layers.21.self_attn.v_proj",
+              "relative_A_displacement": 0.0018053817286850452,
+              "normalized_projector_distance": 3.195940763145444e-06,
+              "principal_cosines": [
+                0.9999999928419,
+                0.9999999824648351,
+                0.9999999608950473,
+                0.99999989113242,
+                0.9999997494169094,
+                0.9999995204455835,
+                0.9999965639180044,
+                0.9999915550805328
+              ],
+              "A_displacement_l2": 0.0029343779867133423,
+              "B_displacement_l2": 0.004429481960764054,
+              "effective_deltaW_displacement_l2": 0.010239599654272452
+            },
+            {
+              "layer": "language_model.model.layers.22.self_attn.q_proj",
+              "relative_A_displacement": 0.001902516536371319,
+              "normalized_projector_distance": 3.813040258204836e-06,
+              "principal_cosines": [
+                0.999999985689465,
+                0.9999999783807222,
+                0.9999999591523384,
+                0.9999999495945024,
+                0.999999870623857,
+                0.9999997836416705,
+                0.9999995124015676,
+                0.9999857082525636
+              ],
+              "A_displacement_l2": 0.00309735099819774,
+              "B_displacement_l2": 0.011482874929091206,
+              "effective_deltaW_displacement_l2": 0.02573449458617038
+            },
+            {
+              "layer": "language_model.model.layers.22.self_attn.v_proj",
+              "relative_A_displacement": 0.0018575138807976075,
+              "normalized_projector_distance": 3.2639881858420594e-06,
+              "principal_cosines": [
+                0.9999999993607731,
+                0.999999998737575,
+                0.9999999972246499,
+                0.9999999937976108,
+                0.9999999843214867,
+                0.9999999434547019,
+                0.9999998370627031,
+                0.999987190005693
+              ],
+              "A_displacement_l2": 0.0030336551958266883,
+              "B_displacement_l2": 0.004644333734793806,
+              "effective_deltaW_displacement_l2": 0.010988472144588798
+            },
+            {
+              "layer": "language_model.model.layers.23.self_attn.q_proj",
+              "relative_A_displacement": 0.001868672768119084,
+              "normalized_projector_distance": 3.2825625261301283e-06,
+              "principal_cosines": [
+                0.9999999921257213,
+                0.9999999824140272,
+                0.9999999819467693,
+                0.9999999714886294,
+                0.9999999304140982,
+                0.9999997827266163,
+                0.9999995245227683,
+                0.9999877040355302
+              ],
+              "A_displacement_l2": 0.003093794408405741,
+              "B_displacement_l2": 0.011512880440061315,
+              "effective_deltaW_displacement_l2": 0.027511707805114863
+            },
+            {
+              "layer": "language_model.model.layers.23.self_attn.v_proj",
+              "relative_A_displacement": 0.0018874907031886296,
+              "normalized_projector_distance": 3.6163113373843814e-06,
+              "principal_cosines": [
+                0.999999988480194,
+                0.9999999833176685,
+                0.9999999731522656,
+                0.9999999321776847,
+                0.9999998826339092,
+                0.9999996006875165,
+                0.9999992709894484,
+                0.9999869032298456
+              ],
+              "A_displacement_l2": 0.003078513359414173,
+              "B_displacement_l2": 0.004404144304953183,
+              "effective_deltaW_displacement_l2": 0.01006141734826274
+            }
+          ],
+          "mean_normalized_projector_distance": 3.61439367941215e-06,
+          "effective_deltaW_displacement_l2": 0.14446648487418465
+        },
+        "raw_preclip_gradients": [
+          {
+            "TRAIN_ids": [
+              "SLAKE:4367",
+              "SLAKE:1276",
+              "SLAKE:2673",
+              "SLAKE:9791",
+              "SLAKE:7867",
+              "SLAKE:5162",
+              "SLAKE:974",
+              "SLAKE:894",
+              "SLAKE:9372",
+              "SLAKE:9010",
+              "SLAKE:7928",
+              "SLAKE:9452",
+              "SLAKE:6439",
+              "SLAKE:3350",
+              "SLAKE:6391",
+              "SLAKE:24"
+            ],
+            "preclip_A_gradient_l2": 0.0,
+            "preclip_B_gradient_l2": 150.60861455626403,
+            "nonzero_gradient_layers": {
+              "A": 0,
+              "B": 48
+            },
+            "zero_vector_does_not_distinguish_missing_gradient_from_exact_zero": true
+          },
+          {
+            "TRAIN_ids": [
+              "SLAKE:1146",
+              "SLAKE:8432",
+              "SLAKE:6268",
+              "SLAKE:4539",
+              "SLAKE:6561",
+              "SLAKE:3186",
+              "SLAKE:6286",
+              "SLAKE:3748",
+              "SLAKE:5803",
+              "SLAKE:9284"
+            ],
+            "preclip_A_gradient_l2": 3.8980294655124745,
+            "preclip_B_gradient_l2": 125.67229499660151,
+            "nonzero_gradient_layers": {
+              "A": 48,
+              "B": 48
+            },
+            "zero_vector_does_not_distinguish_missing_gradient_from_exact_zero": true
+          }
+        ],
+        "run": "exp/onevision_initialization_source_20261018/v1/cross_A_only/20261018_200600"
+      }
     }
   },
   "all_available_pairwise_contrasts": [
@@ -2855,6 +4737,26 @@
       "uncorrected": true
     },
     {
+      "target": "within_A_only",
+      "reference": "cold",
+      "delta_F1": -0.3409411101718794,
+      "image_95CI": [
+        -1.1458333333333333,
+        0.32811711256940934
+      ],
+      "uncorrected": true
+    },
+    {
+      "target": "cross_A_only",
+      "reference": "cold",
+      "delta_F1": -0.21696252465483234,
+      "image_95CI": [
+        -0.9745762711864406,
+        0.5335968379446641
+      ],
+      "uncorrected": true
+    },
+    {
       "target": "cross_full",
       "reference": "within_full",
       "delta_F1": 0.3550295857988166,
@@ -2863,12 +4765,59 @@
         1.393596986817326
       ],
       "uncorrected": true
+    },
+    {
+      "target": "within_A_only",
+      "reference": "within_full",
+      "delta_F1": -3.7728937728937733,
+      "image_95CI": [
+        -6.387096774193547,
+        -1.4168692051489784
+      ],
+      "uncorrected": true
+    },
+    {
+      "target": "cross_A_only",
+      "reference": "within_full",
+      "delta_F1": -3.6489151873767263,
+      "image_95CI": [
+        -6.256944444444444,
+        -1.291413116970926
+      ],
+      "uncorrected": true
+    },
+    {
+      "target": "within_A_only",
+      "reference": "cross_full",
+      "delta_F1": -4.12792335869259,
+      "image_95CI": [
+        -6.731688659399503,
+        -1.8012422360248448
+      ],
+      "uncorrected": true
+    },
+    {
+      "target": "cross_A_only",
+      "reference": "cross_full",
+      "delta_F1": -4.003944773175543,
+      "image_95CI": [
+        -6.565860215053763,
+        -1.710261569416499
+      ],
+      "uncorrected": true
+    },
+    {
+      "target": "cross_A_only",
+      "reference": "within_A_only",
+      "delta_F1": 0.12397858551704706,
+      "image_95CI": [
+        -0.625801487560913,
+        0.8955223880597015
+      ],
+      "uncorrected": true
     }
   ],
-  "missing_conditions": [
-    "within_A_only",
-    "cross_A_only"
-  ],
+  "missing_conditions": [],
   "no_TEST_selection": true,
   "limits": [
     "One target, two source tasks, one seed; source content/type differ. Not universal domain causality.",
