@@ -1,0 +1,157 @@
+{
+  "CPU_only": true,
+  "analyzer_sha256": "4f0b5cb26a44a861358a37465846c7ca16b0914676e448c36ec6f2d992b56f67",
+  "source_pool_sha256": "0cb865380231f4bca94fc93bed83c1c5ea93566f3fefff72562a8fd9b95a248a",
+  "TRAIN_teacher_sha256": {
+    "12": "bc215a646f1826cfde11a6744cc7ec9fae976f2662b510c096ffaacb21c9e3a7",
+    "18": "e6a0d3efa2b638474825f92311568acab683f8bb87e3b6764fab3f0c07e039d1",
+    "19": "a08be68d4387d707059a4ede109185eb99e482cfd9f24f58591014fda9700fcc"
+  },
+  "TRAIN_fit_proof_sha256": "9adc1329a3dc47e8cc1bacf5799872d1e68cedcaf1e0168fbe1a47fd83bae646",
+  "metric_source_sha256": "feb526931b516ed77274748187154de98081ce2e16ef0e92e15ed133a8df8c58",
+  "TRAIN_QA": 20,
+  "candidate_states": [
+    12,
+    18,
+    19
+  ],
+  "informative_QA": 7,
+  "global_TRAIN_means": {
+    "12": 35.32966977967583,
+    "18": 51.65269987704333,
+    "19": 51.29967016306041
+  },
+  "oracle_TRAIN_F1": 51.79667788572666,
+  "best_fixed_TRAIN_F1": 51.65269987704333,
+  "oracle_minus_best_fixed_pp": 0.14397800868332666,
+  "actual_image_excluded_training_decisions": {
+    "fixed": {
+      "image_excluded_TRAIN_choices": [
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18
+      ],
+      "raw_hard_TRAIN_F1": 51.65269987704333,
+      "soft_TRAIN_F1": 48.47746658325195,
+      "routing_counts": {
+        "18": 20
+      }
+    },
+    "learned": {
+      "image_excluded_TRAIN_choices": [
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18
+      ],
+      "raw_hard_TRAIN_F1": 51.65269987704333,
+      "soft_TRAIN_F1": 50.31135559082031,
+      "routing_counts": {
+        "18": 20
+      }
+    }
+  },
+  "TRAIN_domains": [
+    {
+      "domain": "finance",
+      "TRAIN_QA": 4,
+      "candidate_F1": {
+        "12": 0.0,
+        "18": 25.0,
+        "19": 25.0
+      },
+      "oracle_F1": 25.0,
+      "ceiling_minus_best_fixed": 0.0,
+      "informative_QA": 1
+    },
+    {
+      "domain": "geography",
+      "TRAIN_QA": 4,
+      "candidate_F1": {
+        "12": 50.0,
+        "18": 75.0,
+        "19": 75.0
+      },
+      "oracle_F1": 75.0,
+      "ceiling_minus_best_fixed": 0.0,
+      "informative_QA": 1
+    },
+    {
+      "domain": "medical",
+      "TRAIN_QA": 4,
+      "candidate_F1": {
+        "12": 30.0,
+        "18": 55.0,
+        "19": 55.0
+      },
+      "oracle_F1": 55.0,
+      "ceiling_minus_best_fixed": 0.0,
+      "informative_QA": 1
+    },
+    {
+      "domain": "natural",
+      "TRAIN_QA": 4,
+      "candidate_F1": {
+        "12": 62.5,
+        "18": 62.5,
+        "19": 62.5
+      },
+      "oracle_F1": 62.5,
+      "ceiling_minus_best_fixed": 0.0,
+      "informative_QA": 0
+    },
+    {
+      "domain": "traffic",
+      "TRAIN_QA": 4,
+      "candidate_F1": {
+        "12": 34.14834889837916,
+        "18": 40.76349938521667,
+        "19": 38.998350815302054
+      },
+      "oracle_F1": 41.4833894286333,
+      "ceiling_minus_best_fixed": 0.7198900434166333,
+      "informative_QA": 4
+    }
+  ],
+  "TEST_questions_answers_predictions_parsed": false,
+  "new_GPU_or_optimizer_steps": false,
+  "limits": [
+    "Finite ceiling applies only to these20 TRAIN anchors and3 frozen states.",
+    "All20 score labels supervised theta; image masking is not held-out validation.",
+    "No TEST routing ceiling, generalization cause, or impossibility of learned representations follows.",
+    "No new settings selected or active GPU/queue source changed."
+  ]
+}

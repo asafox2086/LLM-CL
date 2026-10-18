@@ -1,3 +1,5 @@
+**2026-10-18最新核验：** 新固定F1／学习距离两格完整诊断均AP19=42.859583，500调用／NLL及155生成完全相同，未取得收益；原Seq43.362536、几何45.699911。[全部配对与资源](answer_compatibility_20261018/v1/all_five_outcome/RESEARCH_FINDINGS.md)。20锚只覆盖11／19任务，TRAIN逐题最优比最佳固定仅+.143978pp；这是反馈设计限制，非1%普遍定理。[新同20锚覆盖控制](feedback_coverage_20261018/v1/PROTOCOL.md)已冻结CPU计划，GPU未实现／准入。当前唯一CPU34096已在空闲GPU0自动接续原case03（实际58188）；原所有作业／完整确认及两机基线保留。[合法前缀评测计划](answer_compatibility_20261018/v1/prefix_sparse/PROTOCOL.md)不能代替已测FWT/BWT。下方旧状态为历史。
+
 # 当前研究入口：从冷启动机制约束到学习迁移兼容性
 
 **2026-10-18现行入口：** [唯一队列](answer_compatibility_20261018/v1/queue/queue_state.json) CPU34096；三格函数补偿507全部完成，新TRAIN-F1匹配在GPU0实际运行。60TRAIN反馈／40次1792维头更新已独立精确核验，新两诊断尚待完整证明。先看[K44和边界](function_neutral_init_20261018/v2/function_vs_factor/RESEARCH_FINDINGS.md)、[TRAIN阶段实证](answer_compatibility_20261018/v1/TRAIN_FIT_FINDINGS.md)。表示／复用为开放方向，不锁定LoRA或线性空间；全部原控制／完整确认和两机基线保留。研究一流、空闲GPU0／1择一、我们的新机作业至多三卡。下方旧状态／PID均为历史，不恢复旧调度。

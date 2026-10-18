@@ -1,0 +1,8 @@
+{
+  "CPU_auditor_failed_before_output": true,
+  "source_sha256": "372a886669b6b290f49b3739ea9221131a2604a6613ff2d3a3d04e59695cbb94",
+  "assertion": "torch.equal(torch.tensor(raw, dtype=torch.float32)/100, feedback[scores])",
+  "failure": "Original worker divides Python float by100 before FP32 tensor construction; auditor incorrectly rounded to FP32 before division.",
+  "repair": "Match the exact original worker conversion order; keep torch.equal, no tolerance relaxation.",
+  "no_GPU_training_or_predictions_changed": true
+}

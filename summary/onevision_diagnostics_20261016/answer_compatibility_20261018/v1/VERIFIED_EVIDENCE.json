@@ -1,6 +1,8 @@
 {
   "CPU_only": true,
-  "proof_sha256": {},
+  "proof_sha256": {
+    "build_complete.json": "50890d44783a70ae422805303a9b73e39daf6403dfc5cd81013ba88876797cbc"
+  },
   "reporter_sha256": "4a2e5b916ff872a6ef396c020b7305aa711bdc0016f883937170d79133b8bac7",
   "diagnostic_conditions": {
     "seq": {
@@ -53,9 +55,59 @@
         "full_FWT": null,
         "full_BWT": null
       }
+    },
+    "cache_AnswerF1": {
+      "source": "new complete build",
+      "scores": {
+        "QA": 155,
+        "domains": {
+          "natural": 57.38095238095237,
+          "medical": 44.68797564687975,
+          "geography": 46.875,
+          "finance": 30.0,
+          "traffic": 30.613337715741682
+        },
+        "AP19": 42.85958298101519,
+        "domain_macro": 41.91145314871476,
+        "full_FWT": null,
+        "full_BWT": null
+      }
+    },
+    "cache_AnswerF1_metric": {
+      "source": "new complete build",
+      "scores": {
+        "QA": 155,
+        "domains": {
+          "natural": 57.38095238095237,
+          "medical": 44.68797564687975,
+          "geography": 46.875,
+          "finance": 30.0,
+          "traffic": 30.613337715741682
+        },
+        "AP19": 42.85958298101519,
+        "domain_macro": 41.91145314871476,
+        "full_FWT": null,
+        "full_BWT": null
+      }
     }
   },
-  "teacher_TRAIN": null,
+  "teacher_TRAIN": [
+    {
+      "state": 12,
+      "QA": 20,
+      "mean_TRAIN_F1": 35.32966977967583
+    },
+    {
+      "state": 18,
+      "QA": 20,
+      "mean_TRAIN_F1": 51.65269987704333
+    },
+    {
+      "state": 19,
+      "QA": 20,
+      "mean_TRAIN_F1": 51.29967016306041
+    }
+  ],
   "full_conditions": {},
   "limits": [
     "155 diagnostic is not full21454 or formalV2.",

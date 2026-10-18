@@ -1,0 +1,1269 @@
+{
+  "CPU_only": true,
+  "build_proof_sha256": "50890d44783a70ae422805303a9b73e39daf6403dfc5cd81013ba88876797cbc",
+  "source_proof_sha256": "71af304b56beba23e19d4688bb04bc58a2ef568a491f92c693ec37af70baded9",
+  "analyzer_sha256": "f08306d1636037522af8b0a707a94d810bfd7d138de5e29dfb5fcf76ec26095d",
+  "new_model_updates": 0,
+  "new_predictions": 0,
+  "conditions": {
+    "seq": {
+      "source": "original sealed reference, not a new rerun",
+      "scores": {
+        "QA": 155,
+        "domains": {
+          "natural": 57.38095238095237,
+          "medical": 46.057838660578376,
+          "geography": 46.875,
+          "finance": 30.0,
+          "traffic": 30.465374358561384
+        },
+        "AP19": 43.362536135144616,
+        "domain_macro": 42.155833080018425,
+        "full_FWT": null,
+        "full_BWT": null
+      }
+    },
+    "cache_geometry": {
+      "source": "original sealed reference, not a new rerun",
+      "scores": {
+        "QA": 155,
+        "domains": {
+          "natural": 57.38095238095237,
+          "medical": 47.42770167427701,
+          "geography": 56.25,
+          "finance": 30.0,
+          "traffic": 31.93541558501965
+        },
+        "AP19": 45.69991106563803,
+        "domain_macro": 44.59881392804981,
+        "full_FWT": null,
+        "full_BWT": null
+      }
+    },
+    "cache_NLL": {
+      "source": "original sealed reference, not a new rerun",
+      "scores": {
+        "QA": 155,
+        "domains": {
+          "natural": 57.38095238095237,
+          "medical": 44.68797564687975,
+          "geography": 46.875,
+          "finance": 30.0,
+          "traffic": 30.613337715741682
+        },
+        "AP19": 42.85958298101519,
+        "domain_macro": 41.91145314871476,
+        "full_FWT": null,
+        "full_BWT": null
+      }
+    },
+    "cache_AnswerF1": {
+      "source": "new complete build",
+      "scores": {
+        "QA": 155,
+        "domains": {
+          "natural": 57.38095238095237,
+          "medical": 44.68797564687975,
+          "geography": 46.875,
+          "finance": 30.0,
+          "traffic": 30.613337715741682
+        },
+        "AP19": 42.85958298101519,
+        "domain_macro": 41.91145314871476,
+        "full_FWT": null,
+        "full_BWT": null
+      }
+    },
+    "cache_AnswerF1_metric": {
+      "source": "new complete build",
+      "scores": {
+        "QA": 155,
+        "domains": {
+          "natural": 57.38095238095237,
+          "medical": 44.68797564687975,
+          "geography": 46.875,
+          "finance": 30.0,
+          "traffic": 30.613337715741682
+        },
+        "AP19": 42.85958298101519,
+        "domain_macro": 41.91145314871476,
+        "full_FWT": null,
+        "full_BWT": null
+      }
+    }
+  },
+  "routes_500": {
+    "seq": {
+      "natural": {
+        "19": 100
+      },
+      "medical": {
+        "19": 100
+      },
+      "geography": {
+        "19": 100
+      },
+      "finance": {
+        "19": 100
+      },
+      "traffic": {
+        "19": 100
+      }
+    },
+    "cache_geometry": {
+      "natural": {
+        "19": 46,
+        "18": 54
+      },
+      "medical": {
+        "18": 77,
+        "19": 21,
+        "12": 2
+      },
+      "geography": {
+        "12": 67,
+        "18": 12,
+        "19": 21
+      },
+      "finance": {
+        "18": 37,
+        "19": 62,
+        "12": 1
+      },
+      "traffic": {
+        "19": 48,
+        "18": 52
+      }
+    },
+    "cache_NLL": {
+      "natural": {
+        "18": 100
+      },
+      "medical": {
+        "19": 52,
+        "18": 48
+      },
+      "geography": {
+        "18": 100
+      },
+      "finance": {
+        "18": 100
+      },
+      "traffic": {
+        "18": 100
+      }
+    },
+    "cache_AnswerF1": {
+      "natural": {
+        "18": 100
+      },
+      "medical": {
+        "18": 100
+      },
+      "geography": {
+        "18": 100
+      },
+      "finance": {
+        "18": 100
+      },
+      "traffic": {
+        "18": 100
+      }
+    },
+    "cache_AnswerF1_metric": {
+      "natural": {
+        "18": 100
+      },
+      "medical": {
+        "18": 100
+      },
+      "geography": {
+        "18": 100
+      },
+      "finance": {
+        "18": 100
+      },
+      "traffic": {
+        "18": 100
+      }
+    }
+  },
+  "contrasts": [
+    {
+      "target": "cache_geometry",
+      "reference": "seq",
+      "domains": {
+        "natural": {
+          "delta_F1": 0.0,
+          "image_95CI": [
+            0.0,
+            0.0
+          ],
+          "generated_QA": 10,
+          "F1_up": 0,
+          "F1_down": 0,
+          "F1_same": 10,
+          "route_changes_100": 54,
+          "route_changes_generated": 6
+        },
+        "medical": {
+          "delta_F1": 1.36986301369863,
+          "image_95CI": [
+            0.0,
+            4.3478260869565215
+          ],
+          "generated_QA": 73,
+          "F1_up": 1,
+          "F1_down": 0,
+          "F1_same": 72,
+          "route_changes_100": 79,
+          "route_changes_generated": 58
+        },
+        "geography": {
+          "delta_F1": 9.375,
+          "image_95CI": [
+            -9.090909090909092,
+            27.586206896551722
+          ],
+          "generated_QA": 32,
+          "F1_up": 6,
+          "F1_down": 3,
+          "F1_same": 23,
+          "route_changes_100": 79,
+          "route_changes_generated": 25
+        },
+        "finance": {
+          "delta_F1": 0.0,
+          "image_95CI": [
+            0.0,
+            0.0
+          ],
+          "generated_QA": 10,
+          "F1_up": 0,
+          "F1_down": 0,
+          "F1_same": 10,
+          "route_changes_100": 38,
+          "route_changes_generated": 4
+        },
+        "traffic": {
+          "delta_F1": 1.4700412264582674,
+          "image_95CI": [
+            0.11356177300703366,
+            3.23157714660782
+          ],
+          "generated_QA": 30,
+          "F1_up": 5,
+          "F1_down": 3,
+          "F1_same": 22,
+          "route_changes_100": 52,
+          "route_changes_generated": 10
+        }
+      },
+      "domain_macro_delta": 2.4429808480313797,
+      "domain_macro_image_95CI": [
+        -1.3418961190289638,
+        6.14329449704805
+      ],
+      "all500_route_changes": 302,
+      "all155_F1_up": 12,
+      "all155_F1_down": 6,
+      "all155_F1_same": 137
+    },
+    {
+      "target": "cache_NLL",
+      "reference": "seq",
+      "domains": {
+        "natural": {
+          "delta_F1": 0.0,
+          "image_95CI": [
+            0.0,
+            0.0
+          ],
+          "generated_QA": 10,
+          "F1_up": 0,
+          "F1_down": 0,
+          "F1_same": 10,
+          "route_changes_100": 100,
+          "route_changes_generated": 10
+        },
+        "medical": {
+          "delta_F1": -1.36986301369863,
+          "image_95CI": [
+            -4.3478260869565215,
+            0.0
+          ],
+          "generated_QA": 73,
+          "F1_up": 0,
+          "F1_down": 1,
+          "F1_same": 72,
+          "route_changes_100": 48,
+          "route_changes_generated": 36
+        },
+        "geography": {
+          "delta_F1": 0.0,
+          "image_95CI": [
+            0.0,
+            0.0
+          ],
+          "generated_QA": 32,
+          "F1_up": 0,
+          "F1_down": 0,
+          "F1_same": 32,
+          "route_changes_100": 100,
+          "route_changes_generated": 32
+        },
+        "finance": {
+          "delta_F1": 0.0,
+          "image_95CI": [
+            0.0,
+            0.0
+          ],
+          "generated_QA": 10,
+          "F1_up": 0,
+          "F1_down": 0,
+          "F1_same": 10,
+          "route_changes_100": 100,
+          "route_changes_generated": 10
+        },
+        "traffic": {
+          "delta_F1": 0.14796335718030892,
+          "image_95CI": [
+            -2.912022863808781,
+            3.187842153495008
+          ],
+          "generated_QA": 30,
+          "F1_up": 12,
+          "F1_down": 15,
+          "F1_same": 3,
+          "route_changes_100": 100,
+          "route_changes_generated": 30
+        }
+      },
+      "domain_macro_delta": -0.24437993130366423,
+      "domain_macro_image_95CI": [
+        -1.1119798541308559,
+        0.5007193044113609
+      ],
+      "all500_route_changes": 448,
+      "all155_F1_up": 12,
+      "all155_F1_down": 16,
+      "all155_F1_same": 127
+    },
+    {
+      "target": "cache_AnswerF1",
+      "reference": "seq",
+      "domains": {
+        "natural": {
+          "delta_F1": 0.0,
+          "image_95CI": [
+            0.0,
+            0.0
+          ],
+          "generated_QA": 10,
+          "F1_up": 0,
+          "F1_down": 0,
+          "F1_same": 10,
+          "route_changes_100": 100,
+          "route_changes_generated": 10
+        },
+        "medical": {
+          "delta_F1": -1.36986301369863,
+          "image_95CI": [
+            -4.3478260869565215,
+            0.0
+          ],
+          "generated_QA": 73,
+          "F1_up": 0,
+          "F1_down": 1,
+          "F1_same": 72,
+          "route_changes_100": 100,
+          "route_changes_generated": 73
+        },
+        "geography": {
+          "delta_F1": 0.0,
+          "image_95CI": [
+            0.0,
+            0.0
+          ],
+          "generated_QA": 32,
+          "F1_up": 0,
+          "F1_down": 0,
+          "F1_same": 32,
+          "route_changes_100": 100,
+          "route_changes_generated": 32
+        },
+        "finance": {
+          "delta_F1": 0.0,
+          "image_95CI": [
+            0.0,
+            0.0
+          ],
+          "generated_QA": 10,
+          "F1_up": 0,
+          "F1_down": 0,
+          "F1_same": 10,
+          "route_changes_100": 100,
+          "route_changes_generated": 10
+        },
+        "traffic": {
+          "delta_F1": 0.14796335718030892,
+          "image_95CI": [
+            -2.912022863808781,
+            3.187842153495008
+          ],
+          "generated_QA": 30,
+          "F1_up": 12,
+          "F1_down": 15,
+          "F1_same": 3,
+          "route_changes_100": 100,
+          "route_changes_generated": 30
+        }
+      },
+      "domain_macro_delta": -0.24437993130366423,
+      "domain_macro_image_95CI": [
+        -1.1119798541308559,
+        0.5007193044113609
+      ],
+      "all500_route_changes": 500,
+      "all155_F1_up": 12,
+      "all155_F1_down": 16,
+      "all155_F1_same": 127
+    },
+    {
+      "target": "cache_AnswerF1_metric",
+      "reference": "seq",
+      "domains": {
+        "natural": {
+          "delta_F1": 0.0,
+          "image_95CI": [
+            0.0,
+            0.0
+          ],
+          "generated_QA": 10,
+          "F1_up": 0,
+          "F1_down": 0,
+          "F1_same": 10,
+          "route_changes_100": 100,
+          "route_changes_generated": 10
+        },
+        "medical": {
+          "delta_F1": -1.36986301369863,
+          "image_95CI": [
+            -4.3478260869565215,
+            0.0
+          ],
+          "generated_QA": 73,
+          "F1_up": 0,
+          "F1_down": 1,
+          "F1_same": 72,
+          "route_changes_100": 100,
+          "route_changes_generated": 73
+        },
+        "geography": {
+          "delta_F1": 0.0,
+          "image_95CI": [
+            0.0,
+            0.0
+          ],
+          "generated_QA": 32,
+          "F1_up": 0,
+          "F1_down": 0,
+          "F1_same": 32,
+          "route_changes_100": 100,
+          "route_changes_generated": 32
+        },
+        "finance": {
+          "delta_F1": 0.0,
+          "image_95CI": [
+            0.0,
+            0.0
+          ],
+          "generated_QA": 10,
+          "F1_up": 0,
+          "F1_down": 0,
+          "F1_same": 10,
+          "route_changes_100": 100,
+          "route_changes_generated": 10
+        },
+        "traffic": {
+          "delta_F1": 0.14796335718030892,
+          "image_95CI": [
+            -2.912022863808781,
+            3.187842153495008
+          ],
+          "generated_QA": 30,
+          "F1_up": 12,
+          "F1_down": 15,
+          "F1_same": 3,
+          "route_changes_100": 100,
+          "route_changes_generated": 30
+        }
+      },
+      "domain_macro_delta": -0.24437993130366423,
+      "domain_macro_image_95CI": [
+        -1.1119798541308559,
+        0.5007193044113609
+      ],
+      "all500_route_changes": 500,
+      "all155_F1_up": 12,
+      "all155_F1_down": 16,
+      "all155_F1_same": 127
+    },
+    {
+      "target": "cache_NLL",
+      "reference": "cache_geometry",
+      "domains": {
+        "natural": {
+          "delta_F1": 0.0,
+          "image_95CI": [
+            0.0,
+            0.0
+          ],
+          "generated_QA": 10,
+          "F1_up": 0,
+          "F1_down": 0,
+          "F1_same": 10,
+          "route_changes_100": 46,
+          "route_changes_generated": 4
+        },
+        "medical": {
+          "delta_F1": -2.73972602739726,
+          "image_95CI": [
+            -7.042253521126761,
+            0.0
+          ],
+          "generated_QA": 73,
+          "F1_up": 0,
+          "F1_down": 2,
+          "F1_same": 71,
+          "route_changes_100": 54,
+          "route_changes_generated": 39
+        },
+        "geography": {
+          "delta_F1": -9.375,
+          "image_95CI": [
+            -27.586206896551722,
+            9.090909090909092
+          ],
+          "generated_QA": 32,
+          "F1_up": 3,
+          "F1_down": 6,
+          "F1_same": 23,
+          "route_changes_100": 88,
+          "route_changes_generated": 31
+        },
+        "finance": {
+          "delta_F1": 0.0,
+          "image_95CI": [
+            0.0,
+            0.0
+          ],
+          "generated_QA": 10,
+          "F1_up": 0,
+          "F1_down": 0,
+          "F1_same": 10,
+          "route_changes_100": 63,
+          "route_changes_generated": 6
+        },
+        "traffic": {
+          "delta_F1": -1.3220778692779585,
+          "image_95CI": [
+            -3.8765172311333704,
+            1.117262910745167
+          ],
+          "generated_QA": 30,
+          "F1_up": 7,
+          "F1_down": 12,
+          "F1_same": 11,
+          "route_changes_100": 48,
+          "route_changes_generated": 20
+        }
+      },
+      "domain_macro_delta": -2.6873607793350436,
+      "domain_macro_image_95CI": [
+        -6.416851254259851,
+        1.1410371490521232
+      ],
+      "all500_route_changes": 299,
+      "all155_F1_up": 10,
+      "all155_F1_down": 20,
+      "all155_F1_same": 125
+    },
+    {
+      "target": "cache_AnswerF1",
+      "reference": "cache_geometry",
+      "domains": {
+        "natural": {
+          "delta_F1": 0.0,
+          "image_95CI": [
+            0.0,
+            0.0
+          ],
+          "generated_QA": 10,
+          "F1_up": 0,
+          "F1_down": 0,
+          "F1_same": 10,
+          "route_changes_100": 46,
+          "route_changes_generated": 4
+        },
+        "medical": {
+          "delta_F1": -2.73972602739726,
+          "image_95CI": [
+            -7.042253521126761,
+            0.0
+          ],
+          "generated_QA": 73,
+          "F1_up": 0,
+          "F1_down": 2,
+          "F1_same": 71,
+          "route_changes_100": 23,
+          "route_changes_generated": 17
+        },
+        "geography": {
+          "delta_F1": -9.375,
+          "image_95CI": [
+            -27.586206896551722,
+            9.090909090909092
+          ],
+          "generated_QA": 32,
+          "F1_up": 3,
+          "F1_down": 6,
+          "F1_same": 23,
+          "route_changes_100": 88,
+          "route_changes_generated": 31
+        },
+        "finance": {
+          "delta_F1": 0.0,
+          "image_95CI": [
+            0.0,
+            0.0
+          ],
+          "generated_QA": 10,
+          "F1_up": 0,
+          "F1_down": 0,
+          "F1_same": 10,
+          "route_changes_100": 63,
+          "route_changes_generated": 6
+        },
+        "traffic": {
+          "delta_F1": -1.3220778692779585,
+          "image_95CI": [
+            -3.8765172311333704,
+            1.117262910745167
+          ],
+          "generated_QA": 30,
+          "F1_up": 7,
+          "F1_down": 12,
+          "F1_same": 11,
+          "route_changes_100": 48,
+          "route_changes_generated": 20
+        }
+      },
+      "domain_macro_delta": -2.6873607793350436,
+      "domain_macro_image_95CI": [
+        -6.416851254259851,
+        1.1410371490521232
+      ],
+      "all500_route_changes": 268,
+      "all155_F1_up": 10,
+      "all155_F1_down": 20,
+      "all155_F1_same": 125
+    },
+    {
+      "target": "cache_AnswerF1_metric",
+      "reference": "cache_geometry",
+      "domains": {
+        "natural": {
+          "delta_F1": 0.0,
+          "image_95CI": [
+            0.0,
+            0.0
+          ],
+          "generated_QA": 10,
+          "F1_up": 0,
+          "F1_down": 0,
+          "F1_same": 10,
+          "route_changes_100": 46,
+          "route_changes_generated": 4
+        },
+        "medical": {
+          "delta_F1": -2.73972602739726,
+          "image_95CI": [
+            -7.042253521126761,
+            0.0
+          ],
+          "generated_QA": 73,
+          "F1_up": 0,
+          "F1_down": 2,
+          "F1_same": 71,
+          "route_changes_100": 23,
+          "route_changes_generated": 17
+        },
+        "geography": {
+          "delta_F1": -9.375,
+          "image_95CI": [
+            -27.586206896551722,
+            9.090909090909092
+          ],
+          "generated_QA": 32,
+          "F1_up": 3,
+          "F1_down": 6,
+          "F1_same": 23,
+          "route_changes_100": 88,
+          "route_changes_generated": 31
+        },
+        "finance": {
+          "delta_F1": 0.0,
+          "image_95CI": [
+            0.0,
+            0.0
+          ],
+          "generated_QA": 10,
+          "F1_up": 0,
+          "F1_down": 0,
+          "F1_same": 10,
+          "route_changes_100": 63,
+          "route_changes_generated": 6
+        },
+        "traffic": {
+          "delta_F1": -1.3220778692779585,
+          "image_95CI": [
+            -3.8765172311333704,
+            1.117262910745167
+          ],
+          "generated_QA": 30,
+          "F1_up": 7,
+          "F1_down": 12,
+          "F1_same": 11,
+          "route_changes_100": 48,
+          "route_changes_generated": 20
+        }
+      },
+      "domain_macro_delta": -2.6873607793350436,
+      "domain_macro_image_95CI": [
+        -6.416851254259851,
+        1.1410371490521232
+      ],
+      "all500_route_changes": 268,
+      "all155_F1_up": 10,
+      "all155_F1_down": 20,
+      "all155_F1_same": 125
+    },
+    {
+      "target": "cache_AnswerF1",
+      "reference": "cache_NLL",
+      "domains": {
+        "natural": {
+          "delta_F1": 0.0,
+          "image_95CI": [
+            0.0,
+            0.0
+          ],
+          "generated_QA": 10,
+          "F1_up": 0,
+          "F1_down": 0,
+          "F1_same": 10,
+          "route_changes_100": 0,
+          "route_changes_generated": 0
+        },
+        "medical": {
+          "delta_F1": 0.0,
+          "image_95CI": [
+            0.0,
+            0.0
+          ],
+          "generated_QA": 73,
+          "F1_up": 0,
+          "F1_down": 0,
+          "F1_same": 73,
+          "route_changes_100": 52,
+          "route_changes_generated": 37
+        },
+        "geography": {
+          "delta_F1": 0.0,
+          "image_95CI": [
+            0.0,
+            0.0
+          ],
+          "generated_QA": 32,
+          "F1_up": 0,
+          "F1_down": 0,
+          "F1_same": 32,
+          "route_changes_100": 0,
+          "route_changes_generated": 0
+        },
+        "finance": {
+          "delta_F1": 0.0,
+          "image_95CI": [
+            0.0,
+            0.0
+          ],
+          "generated_QA": 10,
+          "F1_up": 0,
+          "F1_down": 0,
+          "F1_same": 10,
+          "route_changes_100": 0,
+          "route_changes_generated": 0
+        },
+        "traffic": {
+          "delta_F1": 0.0,
+          "image_95CI": [
+            0.0,
+            0.0
+          ],
+          "generated_QA": 30,
+          "F1_up": 0,
+          "F1_down": 0,
+          "F1_same": 30,
+          "route_changes_100": 0,
+          "route_changes_generated": 0
+        }
+      },
+      "domain_macro_delta": 0.0,
+      "domain_macro_image_95CI": [
+        0.0,
+        0.0
+      ],
+      "all500_route_changes": 52,
+      "all155_F1_up": 0,
+      "all155_F1_down": 0,
+      "all155_F1_same": 155
+    },
+    {
+      "target": "cache_AnswerF1_metric",
+      "reference": "cache_NLL",
+      "domains": {
+        "natural": {
+          "delta_F1": 0.0,
+          "image_95CI": [
+            0.0,
+            0.0
+          ],
+          "generated_QA": 10,
+          "F1_up": 0,
+          "F1_down": 0,
+          "F1_same": 10,
+          "route_changes_100": 0,
+          "route_changes_generated": 0
+        },
+        "medical": {
+          "delta_F1": 0.0,
+          "image_95CI": [
+            0.0,
+            0.0
+          ],
+          "generated_QA": 73,
+          "F1_up": 0,
+          "F1_down": 0,
+          "F1_same": 73,
+          "route_changes_100": 52,
+          "route_changes_generated": 37
+        },
+        "geography": {
+          "delta_F1": 0.0,
+          "image_95CI": [
+            0.0,
+            0.0
+          ],
+          "generated_QA": 32,
+          "F1_up": 0,
+          "F1_down": 0,
+          "F1_same": 32,
+          "route_changes_100": 0,
+          "route_changes_generated": 0
+        },
+        "finance": {
+          "delta_F1": 0.0,
+          "image_95CI": [
+            0.0,
+            0.0
+          ],
+          "generated_QA": 10,
+          "F1_up": 0,
+          "F1_down": 0,
+          "F1_same": 10,
+          "route_changes_100": 0,
+          "route_changes_generated": 0
+        },
+        "traffic": {
+          "delta_F1": 0.0,
+          "image_95CI": [
+            0.0,
+            0.0
+          ],
+          "generated_QA": 30,
+          "F1_up": 0,
+          "F1_down": 0,
+          "F1_same": 30,
+          "route_changes_100": 0,
+          "route_changes_generated": 0
+        }
+      },
+      "domain_macro_delta": 0.0,
+      "domain_macro_image_95CI": [
+        0.0,
+        0.0
+      ],
+      "all500_route_changes": 52,
+      "all155_F1_up": 0,
+      "all155_F1_down": 0,
+      "all155_F1_same": 155
+    },
+    {
+      "target": "cache_AnswerF1_metric",
+      "reference": "cache_AnswerF1",
+      "domains": {
+        "natural": {
+          "delta_F1": 0.0,
+          "image_95CI": [
+            0.0,
+            0.0
+          ],
+          "generated_QA": 10,
+          "F1_up": 0,
+          "F1_down": 0,
+          "F1_same": 10,
+          "route_changes_100": 0,
+          "route_changes_generated": 0
+        },
+        "medical": {
+          "delta_F1": 0.0,
+          "image_95CI": [
+            0.0,
+            0.0
+          ],
+          "generated_QA": 73,
+          "F1_up": 0,
+          "F1_down": 0,
+          "F1_same": 73,
+          "route_changes_100": 0,
+          "route_changes_generated": 0
+        },
+        "geography": {
+          "delta_F1": 0.0,
+          "image_95CI": [
+            0.0,
+            0.0
+          ],
+          "generated_QA": 32,
+          "F1_up": 0,
+          "F1_down": 0,
+          "F1_same": 32,
+          "route_changes_100": 0,
+          "route_changes_generated": 0
+        },
+        "finance": {
+          "delta_F1": 0.0,
+          "image_95CI": [
+            0.0,
+            0.0
+          ],
+          "generated_QA": 10,
+          "F1_up": 0,
+          "F1_down": 0,
+          "F1_same": 10,
+          "route_changes_100": 0,
+          "route_changes_generated": 0
+        },
+        "traffic": {
+          "delta_F1": 0.0,
+          "image_95CI": [
+            0.0,
+            0.0
+          ],
+          "generated_QA": 30,
+          "F1_up": 0,
+          "F1_down": 0,
+          "F1_same": 30,
+          "route_changes_100": 0,
+          "route_changes_generated": 0
+        }
+      },
+      "domain_macro_delta": 0.0,
+      "domain_macro_image_95CI": [
+        0.0,
+        0.0
+      ],
+      "all500_route_changes": 0,
+      "all155_F1_up": 0,
+      "all155_F1_down": 0,
+      "all155_F1_same": 155
+    }
+  ],
+  "all10_pairwise_contrasts_reported": true,
+  "TRAIN_fit": {
+    "CPU_only": true,
+    "TRAIN_stage_complete_not_GPU_build_complete": true,
+    "auditor_sha256": "db18f54c9f35480e03d322ac914260360f7a55d3ff0b5bd66929c64f5bcc7330",
+    "TRAIN_artifact_sha256": {
+      "feedback_state.pt": "ed8082623d778e5a537f5086bc6730793f4ffe168059afe02f0b375797a083f1",
+      "router_raw_gradients.pt": "f5946bdc6495ceaf54fdfc9859b9114020d32e899c420a44d72329252c00ebe7",
+      "router_TRAIN.json": "b9f235d80f5ed3369610621ad0fd4e867b8b54f415a9b8d22355b1384c24132e"
+    },
+    "source_pool_sha256": "0cb865380231f4bca94fc93bed83c1c5ea93566f3fefff72562a8fd9b95a248a",
+    "teacher_predictions": 60,
+    "informative_TRAIN_QA": 7,
+    "actual_metric_parameters": 1792,
+    "actual_nonzero_gradient_steps": 40,
+    "actual_changed_dimensions": 1792,
+    "theta_l2": 28.112619400024414,
+    "first_event": {
+      "step": 1,
+      "loss": 0.03319214656949043,
+      "mean_TRAIN_LOO_soft_regret": 0.03319214656949043,
+      "raw_gradient_l2": 0.0010059402557089925,
+      "actual_parameter_delta_l2": 1.2630308866500854,
+      "LR": 0.03
+    },
+    "last_event": {
+      "step": 40,
+      "loss": 0.01944655552506447,
+      "mean_TRAIN_LOO_soft_regret": 0.015125742182135582,
+      "raw_gradient_l2": 0.00047468478442169726,
+      "actual_parameter_delta_l2": 0.6199430227279663,
+      "LR": 0.03
+    },
+    "all40_raw_gradients_and_parameters_exactly_replayed": true,
+    "TRAIN_routes": [
+      {
+        "TRAIN_id": "CODA-LM:Train:Train_general_1892",
+        "fixed": 18,
+        "learned": 18
+      },
+      {
+        "TRAIN_id": "CODA-LM:Train:Train_general_4284",
+        "fixed": 18,
+        "learned": 18
+      },
+      {
+        "TRAIN_id": "CODA-LM:Train:Train_regional_10674",
+        "fixed": 18,
+        "learned": 18
+      },
+      {
+        "TRAIN_id": "CODA-LM:Train:Train_regional_8866",
+        "fixed": 18,
+        "learned": 18
+      },
+      {
+        "TRAIN_id": "FinMME:10127",
+        "fixed": 18,
+        "learned": 18
+      },
+      {
+        "TRAIN_id": "FinMME:750",
+        "fixed": 18,
+        "learned": 18
+      },
+      {
+        "TRAIN_id": "FinMME:8136",
+        "fixed": 18,
+        "learned": 18
+      },
+      {
+        "TRAIN_id": "FinMME:9474",
+        "fixed": 18,
+        "learned": 18
+      },
+      {
+        "TRAIN_id": "RSVQA-LR:4298",
+        "fixed": 18,
+        "learned": 18
+      },
+      {
+        "TRAIN_id": "RSVQA-LR:65747",
+        "fixed": 18,
+        "learned": 18
+      },
+      {
+        "TRAIN_id": "RSVQA-LR:69847",
+        "fixed": 18,
+        "learned": 18
+      },
+      {
+        "TRAIN_id": "RSVQA-LR:70692",
+        "fixed": 18,
+        "learned": 18
+      },
+      {
+        "TRAIN_id": "SLAKE:1165",
+        "fixed": 18,
+        "learned": 18
+      },
+      {
+        "TRAIN_id": "SLAKE:24",
+        "fixed": 18,
+        "learned": 18
+      },
+      {
+        "TRAIN_id": "SLAKE:7014",
+        "fixed": 18,
+        "learned": 18
+      },
+      {
+        "TRAIN_id": "SLAKE:7618",
+        "fixed": 18,
+        "learned": 18
+      },
+      {
+        "TRAIN_id": "TextVQA:14509",
+        "fixed": 18,
+        "learned": 18
+      },
+      {
+        "TRAIN_id": "TextVQA:25544",
+        "fixed": 18,
+        "learned": 18
+      },
+      {
+        "TRAIN_id": "TextVQA:28930",
+        "fixed": 18,
+        "learned": 18
+      },
+      {
+        "TRAIN_id": "TextVQA:34459",
+        "fixed": 18,
+        "learned": 18
+      }
+    ],
+    "TRAIN_route_changes": 0,
+    "TEST_predictions_or_answers_parsed": false,
+    "new_GPU_or_model_training": false,
+    "limits": [
+      "Head supervision includes all20 TRAIN scores; image-excluded neighbors are not independent validation.",
+      "TRAIN hard routing above includes own anchor and is resubstitution, not unseen performance.",
+      "Parameter/gradient changes do not establish full TEST route changes or Answer F1 gain.",
+      "CPU audit replay is validation overhead, not another proposed method condition."
+    ]
+  },
+  "actual_process_memory": {
+    "unit": "bytes",
+    "pid": 40751,
+    "boot_id": "67761366-2821-401b-b80d-c97ee7ad37c8",
+    "process_started_unix": 1792327820.8224473,
+    "before": {
+      "phase": "feedback_process_before",
+      "stage": 0,
+      "unix": 1792327833.6356335,
+      "pid": 40751,
+      "visible_gpu": "0",
+      "VmHWM_bytes": 4145393664,
+      "VmRSS_bytes": 2401787904,
+      "VmSwap_bytes": 0,
+      "Pss_bytes": 2186818560,
+      "Private_Clean_bytes": 69685248,
+      "Private_Dirty_bytes": 2042716160,
+      "cpu_uss_bytes": 2112401408,
+      "gpu_allocated_bytes": 1842765824,
+      "gpu_reserved_bytes": 3275751424,
+      "gpu_peak_allocated_bytes": 2551966720,
+      "gpu_peak_reserved_bytes": 3275751424,
+      "gpu_process_nvml_bytes": 3630170112,
+      "trainable_parameters": 0,
+      "trainable_parameter_bytes": 0,
+      "model_parameter_bytes": 1789513792
+    },
+    "after": {
+      "phase": "feedback_process_after",
+      "stage": 0,
+      "unix": 1792330180.1671584,
+      "pid": 40751,
+      "visible_gpu": "0",
+      "VmHWM_bytes": 4145393664,
+      "VmRSS_bytes": 2993840128,
+      "VmSwap_bytes": 0,
+      "Pss_bytes": 2739899392,
+      "Private_Clean_bytes": 73035776,
+      "Private_Dirty_bytes": 2572132352,
+      "cpu_uss_bytes": 2645168128,
+      "gpu_allocated_bytes": 1842765824,
+      "gpu_reserved_bytes": 4819255296,
+      "gpu_peak_allocated_bytes": 3419422720,
+      "gpu_peak_reserved_bytes": 4819255296,
+      "gpu_process_nvml_bytes": 5175771136,
+      "trainable_parameters": 0,
+      "trainable_parameter_bytes": 0,
+      "model_parameter_bytes": 1789513792
+    },
+    "scope": "samePID feedback/inference; zero new backboneTRAIN; CPU router window separate; historical93updates charged",
+    "growth_bytes": {
+      "VmRSS_bytes": 592052224,
+      "Pss_bytes": 553080832,
+      "cpu_uss_bytes": 532766720,
+      "gpu_allocated_bytes": 0,
+      "gpu_reserved_bytes": 1543503872,
+      "gpu_process_nvml_bytes": 1545601024
+    },
+    "observed_peak_bytes": {
+      "VmRSS_bytes": 3005689856,
+      "Pss_bytes": 2751828992,
+      "cpu_uss_bytes": 2657017856,
+      "gpu_allocated_bytes": 2544951296,
+      "gpu_reserved_bytes": 4819255296,
+      "gpu_process_nvml_bytes": 5175771136
+    },
+    "note": "Same-PID before/after; fresh process per cap. On recovery these describe resumed process only. Stage diagnostics are included in observed peaks; allocator cache is separate from parameter growth.",
+    "all_process_observed_peak_bytes": {
+      "VmRSS_bytes": 3005689856,
+      "Pss_bytes": 2751828992,
+      "cpu_uss_bytes": 2657017856,
+      "gpu_allocated_bytes": 2544951296,
+      "gpu_reserved_bytes": 4819255296,
+      "gpu_process_nvml_bytes": 5175771136
+    }
+  },
+  "CPU_metric_window": [
+    {
+      "phase": "CPU_router_TRAIN_before",
+      "stage": 0,
+      "unix": 1792328540.614173,
+      "pid": 40751,
+      "visible_gpu": "0",
+      "VmHWM_bytes": 4145393664,
+      "VmRSS_bytes": 2883715072,
+      "VmSwap_bytes": 0,
+      "Pss_bytes": 2630922240,
+      "Private_Clean_bytes": 70574080,
+      "Private_Dirty_bytes": 2466045952,
+      "cpu_uss_bytes": 2536620032,
+      "gpu_allocated_bytes": 1842765824,
+      "gpu_reserved_bytes": 4819255296,
+      "gpu_peak_allocated_bytes": 3419422720,
+      "gpu_peak_reserved_bytes": 4819255296,
+      "gpu_process_nvml_bytes": 5175771136,
+      "trainable_parameters": 0,
+      "trainable_parameter_bytes": 0,
+      "model_parameter_bytes": 1789513792
+    },
+    {
+      "phase": "CPU_router_TRAIN_after",
+      "stage": 0,
+      "unix": 1792328540.820836,
+      "pid": 40751,
+      "visible_gpu": "0",
+      "VmHWM_bytes": 4145393664,
+      "VmRSS_bytes": 2887667712,
+      "VmSwap_bytes": 0,
+      "Pss_bytes": 2634441728,
+      "Private_Clean_bytes": 73166848,
+      "Private_Dirty_bytes": 2466353152,
+      "cpu_uss_bytes": 2539520000,
+      "gpu_allocated_bytes": 1842765824,
+      "gpu_reserved_bytes": 4819255296,
+      "gpu_peak_allocated_bytes": 3419422720,
+      "gpu_peak_reserved_bytes": 4819255296,
+      "gpu_process_nvml_bytes": 5175771136,
+      "trainable_parameters": 0,
+      "trainable_parameter_bytes": 0,
+      "model_parameter_bytes": 1789513792
+    }
+  ],
+  "resource_scope": "Same process: control+60 TRAIN generations+CPU head+both diagnostics; not isolated model TRAIN peak.",
+  "limits": [
+    "500 NLL/155 generation diagnostic only; full21454 and formal V2 ranking remain separate.",
+    "Uncorrected image bootstrap, fixed trained seed42. Domain-macro intervals are not AP19 intervals.",
+    "Actual parameter change is not necessarily realized hard-route or F1 intervention.",
+    "One process supplies both new views, so no independent per-view memory growth comparison.",
+    "Both new full confirmations and all negative conditions retained; no TEST tuning or selection."
+  ]
+}
