@@ -1,84 +1,36 @@
-新[路由梯度路径审计](summary/onevision_diagnostics_20261016/smolora_gate_20261018/RESEARCH_FINDINGS.md)：当前SMoLoRA作者硬选择门在非零B的CPU交叉熵对照中无任务梯度，连续融合/专家仍有梯度；固定门也可随输入改变选择。仅机制边界，未证明模型性能损害；原完整评测/基线照常。
-
-新[保护机制启用审计](summary/onevision_diagnostics_20261016/regularizer_budget_20261018/RESEARCH_FINDINGS.md)：PASs-MoE在当前9个单步阶段，任务进度预热使附加正则系数始终为0；原作者CPU算子正负对照已验证。不是零学习率，也未证明最终性能损害；两机基线与GPU1完整评测继续。
-
-> **核心背景：轻量、小数据、低内存增长。允许多个LoRA，单LoRA不是硬限制。** 先检验少量数据为何导致既有方法退化，再针对性提升；目标内存增长低于具体对比LoRA方法，须同设置实测，并报告额外计算成本。两台服务器基线持续后台运行。[核心规则](rules/021_lightweight_data_limited_core_20261017.md)。
-
-最新研究补齐[数据量×初始化对照](summary/onevision_diagnostics_20261016/cold_data_factorial_20261018/PROTOCOL.md)：原三个任务、相同更新/曝光、18轨迹全部预定，142项CPU检查通过，GPU结果待；当前完整评测/基线继续。[唯一研究队列](summary/onevision_diagnostics_20261016/cold_data_queue/README.md)。
-
-最新研究：已接入[冷启动初始化单变量控制](summary/onevision_diagnostics_20261016/warm_start_20261018/PROTOCOL.md)，同1313TRAIN/19阶段/3专家仅改新LoRA的完整A/B继承；37项CPU机制通过，GPU结果待。当前完整评测和两机6基线持续；[唯一研究队列](summary/onevision_diagnostics_20261016/warm_start_queue/README.md)。
-
-新[冷启动桥接](summary/onevision_diagnostics_20261016/expert_cold_start_20261018/RESEARCH_FINDINGS.md)：实际e1只训练11条/一步且以后权重未变；同目标预算控制中，从基座新建19.876、继承旧适配29.263。不是所有方法/最终AP原因的泛化。
-
-最新完整四视图诊断已核验：同155题AP，原调用31.025→质量硬36.704／几何软35.996／质量软36.387，仍低于顺序43.363。完整21454候选已启动、尚未完成；正式V2主表仍只填已完成SeqFT/ER。见[五域主表格式与边界](summary/onevision_diagnostics_20261016/functional_router/MAIN_TABLE_DIAGNOSTIC.md)。
-
-2026-10-18最新调度：同nohup服务新CPU356616接续GPU348381自然完成，两个预定完整21454QA候选提前到四视图之后；原48/旧完整测试/其余全部任务保留，基线不中断，不按TEST挑赢家。18策略/4继承门槛通过，尚不代表收益。实时入口见[functional_confirmation_queue](summary/onevision_diagnostics_20261016/functional_confirmation_queue/README.md)。
-
-新[TRAIN调用控制](summary/onevision_diagnostics_20261016/functional_router/calibration_audit/RESEARCH_FINDINGS.md)：同一专家池43条训练记忆，16参数校准将平均NLL3.313454降至1.852542；仅头逐图排除后调用不变。这是调用质量的TRAIN证据，尚不是测试F1收益，未增加LoRA或知识。
-
-评价口径：以各领域总Answer F1、最终AP/FWT/BWT及资源成本评价方法，不要求所有题型、语言或样本全面提升；细分诊断不否定整体增益，也不是必须报告的主结果。
-2026-10-18实际运行更新：GPU1 worker348381/startticks14466517已自动启动，原500NLL/155预测/路由精确重载门槛通过；43条TRAIN、172次NLL前向、400次CPU校准更新完成，16参数确有改变。四个完整诊断视图仍未完成，不能宣称TEST收益。外来GPU1进程350639在本作业准入之后进入，保留双方；共同运行墙钟时间不能当独占性能，下一作业仍等待实际空闲。两机基线不变。
 # LLMCL：小模型的五领域多模态持续学习
 
-> 当前正式1%对照已改用[双骨干共享框架](exp/two_backbone_native_cl_20261017_v2/README.md)，旧Qwen单步零学习率轨迹已隔离，不能进入主表。旧机OneVision、新机Qwen；新GPU0保留、GPU1研究。
+**研究背景：轻量模型、1%数据、低内存增长。** 允许多个LoRA，但以实际领域总Answer F1、AP/FWT/BWT和资源成本评价，不要求每个语言、题型或样本都提升。LoRA是训练参数化，正则化是保护机制，两者可结合；不预设必须扩容或路由。[核心规则](rules/021_lightweight_data_limited_core_20261017.md) · [LoRA与正则化](summary/onevision_diagnostics_20261016/expert_cold_start_20261018/LORA_VS_REGULARIZATION.md)。
 
-> 双骨干1%结果采用[分骨干主表](summary/two_backbone_pct01_20261017/MAIN_TABLE.md)：五领域最终成绩、AP、FWT、BWT；新正式实验与历史零学习率／小规模诊断分开。
+## 当前实验与阅读入口
 
-> 全量训练原131019条中仅SLAKE:1622为空答案，经用户授权排除后为**131018条**；原始文件保留。1%训练1313条、完整测试21454条不变。[版本与两机核验](summary/two_backbone_native_cl_20261017_v2/README.md)。
+| 入口 | 内容与边界 |
+| --- | --- |
+| [正式双骨干主表](summary/two_backbone_pct01_20261017/MAIN_TABLE.md) | Qwen2-VL-2B与OneVision 0.5B分块，五领域最终分数、AP/FWT/BWT。只填完整核验结果，当前OneVision SeqFT/ER已完成，AP40.286/39.275；其他结果待封存。 |
+| [正式V2框架与公平性](summary/two_backbone_native_cl_20261017_v2/README.md) | 两机共享TRAIN/TEST ID、原生任务顺序、方法代码、预算、公共图像输入与评分；原生processor/tokenizer因骨干而异。旧零LR/V1结果隔离。 |
+| [问题发现总报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md) | 按问题、实验、结果、证明、改进、效果记录；区分已证实、已反驳、未解决。[关键发现](summary/onevision_diagnostics_20261016/KEY_FINDINGS.md)提供证据索引。 |
+| [研究诊断表](summary/onevision_diagnostics_20261016/functional_router/MAIN_TABLE_DIAGNOSTIC.md) | 原生AnyRes/BF16、同155题的六方法对照；不能混入正式V2或当完整21454题结果。 |
+| [唯一研究队列](summary/onevision_diagnostics_20261016/cold_data_queue/README.md) | 实时状态以该目录queue_state及实际进程为准，旧队列路径保留为历史/redirect，不能恢复旧CPU所有者。 |
+| [文献问题与启发](summary/onevision_diagnostics_20261016/LITERATURE_PROBLEMS.md) | 他人发现、验证角度、解决方式及适用边界；不是本模型已证实原因。 |
 
-> 唯一主指标现为 **Answer F1（原始Token F1，0–100）**；不做选项映射。两骨干/全部方法及AP/FWT/BWT均用同一口径。[冻结规则](rules/020_answer_f1_primary_20261017.md)。
+2026-10-18运行快照：研究仅新GPU1，当前在进行质量硬调用的完整21454题确认。两个预定功能调用完整确认后，接温启动19阶段、18个数据量×初始化轨迹，原相似度完整确认/48机制控制/其他完整方法/稀疏转移均保留；不按TEST挑赢家。两机正式基线持续nohup，新GPU0保留。未完成的确认不报提升；旧调度与启动快照见[历史原README](summary/ago/readme_snapshot_20261018_0645/README.original.txt)。
 
-## 研究成果：按问题阅读
+## 研究成果：已知什么，尚缺什么
 
-新增[从多领域论文改造的两个轻量模块](summary/onevision_diagnostics_20261016/functional_router/PROTOCOL.md)：借鉴D-MoLE的识别与MVP的相关性聚合，固定已有专家池，用43条原TRAIN的172次NLL前向校准16参数质量头，再比较硬调用／连续LoRA残差。15项CPU机制、10项调度、3项接续安全检查通过，已接入[后台队列](summary/onevision_diagnostics_20261016/functional_router_queue/README.md)；GPU当前归因作业自然结束后执行，不宣称已获收益。两个预定候选均完整21454题确认，不按诊断挑赢家；专家池和额外计算成本仍计入。
-
-[相似度复用方案训练结果](summary/onevision_diagnostics_20261016/learned_reuse/INTERIM_RESULT_20261018.md)已出：同155题/19任务AP固定22.391、可学习31.025、顺序LoRA43.363。可学习版比固定版高8.634pp，仍比顺序LoRA低12.338pp；两组均前3阶段用满3个专家，尚未达到性能和自主少量模块目标。原两组完整测试0/2待测，继续保留。
-
-正式OneVision1%已有SeqFT／ER两方法完成，AP40.286／39.275；另4个在跑、4个待跑。[主表](summary/two_backbone_pct01_20261017/MAIN_TABLE.md)与上述研究AnyRes结果分开。新机曾发生磁盘写满，已保全故障证据、核验写盘及真实S9参数后续跑Qwen SeqFT，ER另建run重跑；[恢复记录](summary/storage_recovery_20261018/README.md)。
-
-新增[别人发现了哪些多领域问题](summary/onevision_diagnostics_20261016/LITERATURE_PROBLEMS.md)：12篇正式会议论文加COAST版本，逐篇列问题、对照证据、解决思路与适用边界；他人成果与本实验结论分开。
-
-**统一阅读入口：[问题发现总报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md)。** 14项均按「探究的问题／做的实验／结果／证明了什么／改进的方法／改进的效果」记录，首页区分已证实、被反例否定和未解决；细节按需进入[证据目录](summary/onevision_diagnostics_20261016/README.md)。
-
-| 重点发现 | 实际结果 | 结论边界 |
+| 探究的问题 | 已有证据 | 仍不能证明什么 |
 | --- | --- | --- |
-| 当前任务内部就能损伤开放功能 | CL-MoE Organ当前学习OPEN−5.707，CLOSED+6.935；后续领域还未训练 | 不是全由后来跨域遗忘；当前适配实现，尚未隔离路由/保护/数据原因，[全对照](summary/onevision_diagnostics_20261016/native_acquisition_20261018_v3/RESEARCH_FINDINGS.md) |
-| 少更新关联会在领域内反转 | 7方法共同13任务总体一次更新增量较低，医学内CL-MoE/PaRSP/OSFT反向 | 不将相关性当步数因果，不泛化原同任务预算控制 |
-| 回放均值稳定可以掩盖开放题退化 | 正式ER Organ全均值差区间含0，OPEN184题却35.661→23.533，−12.129pp区间为负；19个池无容量淘汰 | 排除本例旧TRAIN被容量挤掉，未证抽样覆盖是掉分原因，[全部证据](summary/onevision_diagnostics_20261016/baseline_language_followup_20261018/RESEARCH_FINDINGS.md) |
-| 总分与开放题能力、实际成本需分开 | Qwen S4 Organ总分45.209高于OneVision37.314，OPEN却20.985低于35.118；PAS中文强增主要闭式、参数约Seq260倍 | 单任务时点、架构/容量等混杂，不推出纯规模/知识因果或轻量优势 |
-| 共同历史后四域换五域，F1与loss可不同步 | Organ507题18.626→17.196，F1差−1.430区间含0，NLL+0.157908区间为正 | 前3阶段权重/首批梯度精确相同，后续内容/顺序仍不同；未证领域数因果，[完整对照](summary/onevision_diagnostics_20261016/matched_task_domain/common_prefix/VERIFIED_RESULTS.md) |
-| 跨域差距不全是遗忘 | Organ507共同习得点20.361，同域末34.168、跨域末18.626；跨域净变−1.735区间含0 | 同域存在+13.808pp后续收益；单锚/序列，不能把同域−跨域差全算遗忘 |
-| 固定权重改指令能改变语言输出质量 | 跨域双指令中文1.234→13.225，英文36.087→30.632；同域中文22.336→13.819 | 有恢复也有损害；不能按TEST选指令，未证明知识充分 |
-| 领域替换混入语言分布变化 | 中文F1同域22.336/跨域1.234；中文预测含汉字251/25，TRAIN后续中文曝光17/0 | 分层差异不是语言因果；不能断言知识完整或差距全为知识遗忘 |
-| 正式基线中文可少量习得 | 原Organ26QA/2更新，SeqFT/ER中文F1增量+17.559/+17.362pp | 完整507题学习前→刚学完；最终未完成，不与AnyRes混算 |
-| 当前任务尚未学好，不全是后来忘了 | Modality初始/1/4步F1为29.600/29.263/51.956；KG为5.511/7.240/17.918 | 多训练局部有效，遥感却76→44；额外计算另计 |
-| 同答仍可保留图像信号 | 遥感全urban，原图仍改善正确答案概率；平衡损失44→50 | 只缓解坍缩，未证明视觉完好或唯一成因 |
-| EWC最新中心首步梯度为0 | 32/32首批；增大λ不能改变该性质 | 后续步/更早中心可生效，未证最终准确率因果 |
-| 平均旧loss改善不保证子组稳定 | 4条医学TRAIN的11个已学转移中6次均值改善仍有组退化 | 两题一组、内容混杂；不是语言因果/F1或方法收益 |
-| 记住事实不保证迁移 | 16事实可回忆，目标医学/KG无普遍稳定改善 | 未排除知识不足、覆盖与视觉实体绑定 |
-| 总分掩盖异质性 | 155题22改善/18退化；任务宏平均与领域宏平均方向相反 | 诊断不能替代完整测试 |
-| 两模块是否有效 | 12/12原型完成，三任务四组均返回原更新，无新增收益 | 严格48组已启动，完整CL仍待运行，未宣称算法提升 |
-| 低显存增长不等于总资源低 | CPU专家池随容量增加；预热改变前后差 | 常驻总量、纯TRAIN峰值和额外计算均需比较 |
+| 分数低是否全是后来忘掉？ | 医学Modality初始/1/4步F1为29.600/29.263/51.956；遥感额外训练却76→44。习得预算本身会影响结果。[总报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md) | 不能统一给所有领域加步数，也未隔离所有知识/视觉因素。 |
+| 新LoRA是否丢失了有利旧适配？ | 实际e1仅11QA/一步，此后权重不变；同目标预算完整228题fresh19.876、继承旧适配29.263，差+9.388pp。[冷启动桥接](summary/onevision_diagnostics_20261016/expert_cold_start_20261018/RESEARCH_FINDINGS.md) | 局部温启动不是nativeSeq权重；未证明所有论文方法或整个AP差距由冷启动造成。 |
+| 多领域差距是否全是遗忘？ | Organ共同习得点20.361，同域后续34.168、跨域18.626；跨域净变区间含0，同域还有正迁移。[总报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md) | 语言/内容/顺序仍混杂，不能把同域−跨域差全归知识遗忘或领域数量。 |
+| 输入相近是否等于专家会回答？ | 同155题AP固定相似度22.391、学习相似度31.025；TRAIN质量硬调用36.704，仍低于顺序LoRA43.363。[完整四视图诊断](summary/onevision_diagnostics_20261016/functional_router/PILOT_FINDINGS_20261018.md) | 尚无完整21454确认；没有超过简单基线，也未证明最优LoRA数量或两模块叠加收益。 |
+| 记住专业事实是否就够了？ | 16事实可以记住，但目标医学/KG未获得稳定普遍改善。[总报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md) | 未证明知识充分、知识无用或视觉绑定是唯一原因。 |
+| 极少更新时保护是否启动？ | PASs当前9个单步阶段的进度预热使该项系数始终0；原作者CPU算子正负对照验证。最新中心EWC首步梯度0是另一限制。[保护日程审计](summary/onevision_diagnostics_20261016/regularizer_budget_20261018/RESEARCH_FINDINGS.md) | 不是零任务LR、所有组件无效或已证实的最终F1损害。 |
+| 标为可训练的门是否真正学会选择？ | SMoLoRA原硬argmax/one-hot前向CPU对照中，两个选择门grad=None，融合/专家梯度非零；固定门也能随输入改变选择。[路由梯度审计](summary/onevision_diagnostics_20261016/smolora_gate_20261018/RESEARCH_FINDINGS.md) | 不是实际OneVision性能因果或所有MoE问题；未运行原作者全部训练流程。 |
+| 低参数量是否等于低内存？ | CPU专家池、优化器、历史、临时候选、缓存和额外前向都需计入；预热/测量窗口也会改变占用。[资源规则](rules/021_lightweight_data_limited_core_20261017.md) | 尚未证明新方案内存增长低于具体LoRA对比方法。 |
 
-新增[回放实际保护了多少旧题](summary/onevision_diagnostics_20261016/matched_task_domain/replay_exposure/VERIFIED_RESULTS.md)：T04两个已完成控制同样回放32次，旧锚曝光却为32/15；预定跨域覆盖与实际完成分列，不拿容量或计划代替性能因果。
+原生AnyRes单LoRA参考已完成21454题：自然75.917、医学40.943、遥感49.010、金融12.991、交通31.916，19任务AP41.361；完整FWT/BWT仍缺阶段格，不能从最终分数补算。[完整结果](summary/onevision_diagnostics_20261016/full_confirmation_evidence/CAP1_COMPLETION.md)。
 
-新增[同一任务重复训练六控制](summary/onevision_diagnostics_20261016/matched_task_domain/repeat_control_evidence/T04_VERIFIED_RESULTS.md)：投影未触发时5状态/输出精确等于SeqFT；EWC后续会改变参数，λ100的辅助NLL更差，但F1差异区间包含0。不把无实际干预解释为方法失败，不把无域切换结果解释成跨域成因。
-
-新增[真实参数位移核验](summary/onevision_diagnostics_20261016/first_adam_geometry/VERIFIED_RESULTS.md)：两个同起点医学任务，完整LoRA矩阵余弦0.977，扣除共同旧功能后新增位移余弦0.205；高总相似度不证明新学方向重复。梯度范数相差1.919倍，实际参数位移范数近乎相同，不能直接把梯度大小当学习量或遗忘因果。已知优化器性质与本设置观察分开报告。
-
-原生AnyRes单LoRA控制已完成**21454题**：自然75.917、医学40.943、遥感49.010、金融12.991、交通31.916，19任务AP=41.361；完整FWT/BWT尚缺阶段评测。[完整结果及诊断偏差](summary/onevision_diagnostics_20261016/full_confirmation_evidence/CAP1_COMPLETION.md)。此研究与正式双骨干V2输入协议不同，不混排名。
-
-新增[严格同起点首批梯度](summary/onevision_diagnostics_20261016/matched_task_domain/first_transition_geometry/VERIFIED_RESULTS.md)：重复/同域/跨域新旧TRAIN余弦均为正；不以首批负冲突解释最终跨域差，也不把局部Taylor预测当有限F1结果。
-
-共同S1完整507/228推理已[接入新CPU队列](summary/onevision_diagnostics_20261016/causal_measurement_queue/README.md)，用于分开遗忘与同域正迁移缺失；实际GPU评测尚待，不拿准备当结果。
-
-原48组内部[优先两锚的SeqFT同域/跨域共同控制](summary/onevision_diagnostics_20261016/causal_anchor_first_queue/SCHEDULING.md)，再补所有机制。全部48保留，GPU源码/ID/设置不变。
-
-最新[语言混杂因果接续](summary/onevision_diagnostics_20261016/language_causal_queue/README.md)：同nohup服务CPU277043先补可用共同S1，再运行固定两权重×四既有指令、0次训练的所有完整507题格，之后接回原48与后续队列。实际CPU门槛通过，GPU效果待测；原265251仅CPU退役，基线不停，GPU1他人进程存活时等待。[已核验观察](summary/onevision_diagnostics_20261016/matched_task_domain/language_profile/T04_VERIFIED_RESULTS.md)、[干预协议](summary/onevision_diagnostics_20261016/language_cue/PROTOCOL.md)。
-
-新增[正式V2基线学习前/刚学完审计](summary/onevision_diagnostics_20261016/baseline_language_profile/VERIFIED_RESULTS.md)：同一507题上，OneVision SeqFT/ER中文F1约5.118→22.677/22.480，均仅2个实际更新；后续最终点待测。两机6运行10个封存格逐题复算，未改任何基线，也不把初始分数误当习得参照。
-
-GPU1当前及接续：12原型已结束→[严格48组归因](analysis/ONEVISION_MATCHED_TASK_DOMAIN_PROTOCOL.md)→[四组完整19阶段及全测试](summary/onevision_diagnostics_20261016/two_module_fullstream/PROTOCOL.md)→cap3完整确认→稀疏转移。正式基线持续nohup；“最优LoRA数量”“显著方法提升”“优于具体LoRA方法的内存增长”均尚未证明。[自动原型结果](summary/onevision_diagnostics_20261016/two_module_prototype/VERIFIED_PILOT_RESULTS.md)按完成证明更新，不用排队状态冒充结果。
+[仅改变新专家初始化的19阶段控制](summary/onevision_diagnostics_20261016/warm_start_20261018/PROTOCOL.md)与[独特TRAIN量×初始化×更新的18轨迹控制](summary/onevision_diagnostics_20261016/cold_data_factorial_20261018/PROTOCOL.md)已冻结并准入，GPU结果待测；CPU机制检查不算模型效果。已有[严格同起点/首批梯度](summary/onevision_diagnostics_20261016/matched_task_domain/first_transition_geometry/VERIFIED_RESULTS.md)、[重复任务六控制](summary/onevision_diagnostics_20261016/matched_task_domain/repeat_control_evidence/T04_VERIFIED_RESULTS.md)、[实际回放覆盖](summary/onevision_diagnostics_20261016/matched_task_domain/replay_exposure/VERIFIED_RESULTS.md)等证据继续保留。
 
 ## 方法 × 方向二维表
 
@@ -108,30 +60,17 @@ GPU1当前及接续：12原型已结束→[严格48组归因](analysis/ONEVISION
 
 ## 当前五数据集／19原生任务协议
 
-独立实验：`five_domain_native_cl_20261016_sparse`；代码／参数在`exp/five_domain_native_cl_20261016_sparse/`，日志报告在`summary/five_domain_native_cl_20261016_sparse/`，冻结清单在`data/FiveDomainCL/five_domain_native_cl_20261016_sparse/`。旧六领域实验已按用户要求停止，不复用旧预测。
-基座Qwen2-VL-2B-Instruct；seed42；一轮；无验证。十方法：SeqFT-LoRA、ER-LoRA、CL-MoE、SMoLoRA、PASs-MoE、PaRSP、OSFT、SpaRTA、FV-guided Training、ALER。SeqFT-LoRA是标准顺序微调基础对照的描述性名称，不作为独立论文算法。Hyper-LLaVA保留在文献表，移出本轮实验。
+当前正式框架为`exp/two_backbone_native_cl_20261017_v2/`，结果在`summary/two_backbone_pct01_20261017/`；冻结1%清单为`data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/manifest.json`。旧`exp/five_domain_native_cl_20261016_sparse/`及其2026-10-16启动快照是历史版本，不作为当前运行状态。磁盘写满后的故障保全、真实S9恢复与ER新run重跑见[恢复记录](summary/storage_recovery_20261018/README.md)。
 
-本轮新增：**ER-LoRA → 持续微调／基于回放**；**CL-MoE → 持续微调／基于架构／多模态，CVPR 2025主会**。ER是标准经验回放对照，也由CL-MoE论文评测，不计作新增2025论文。CL-MoE按论文公式5–12适配Qwen2-VL：8专家、总rank64、alpha128、top2、gamma0.7、beta0.5；保留实例路由、任务路由和按专家关系的动量更新。Qwen没有encoder CLS，任务中心使用冻结解码器最后一个问题token的特征；推理不传入测试任务ID。作者公开脚本中任务推断被注释、参数合并前缀不匹配，本轮按论文公式实现并披露差异，不能称原架构精确复现。ER容量5000，只访问过去训练样本；固定哈希选取和回放ID，当前／回放损失1:1。详见[适配说明](exp/five_domain_native_cl_20261016_sparse/METHOD_ADAPTATIONS.md)。
+两骨干为Qwen2-VL-2B-Instruct与LLaVA-OneVision-Qwen2-0.5B-OV。相同1313条TRAIN、21454条TEST、19阶段、seed42、一轮、有效batch16/microbatch1，无验证集；公共图像预算401408像素及128MiB CPU缓存。各方法保留已披露的作者差异，同方法跨骨干共享实现。新GPU2/3当前优先Qwen1%，旧GPU0—3运行OneVision1%；SMoLoRA需BF16，等待新机支持硬件的专用lane。新GPU0保留、GPU1只做研究，不抢占他人作业。全量版本已就绪，不把数据就绪写成全量实验已经完成。
 
-两台服务器Python 3.10.21、55项已安装分发版本、23个执行源码文件及策略哈希已逐项匹配。新服务器GPU0保留、GPU1留给自研方法，GPU2跑1%、GPU3跑全量；旧服务器GPU0–3跑1%。SMoLoRA遵循作者BF16配置，仅安排支持BF16的3090，其他方法基础权重FP16；分主机记录硬件和耗时。
-新服务器GPU0保留、GPU1留给自研，GPU3全量，GPU2抽样；旧服务器GPU0–3均用于抽样。每卡一个进程；分工互斥，显存预检不足的旧机方法回到新机，不改算法或测试数据。
-原生任务顺序：TextVQA → SLAKE的Modality/Position/Organ/Size/Abnormality/Quantity/Plane/Shape/Color/KG → RSVQA-LR的rural_urban/presence/count/comp → FinMME → CODA-LM的general/regional/suggestion。标签是原标注，顺序是本研究预先固定，不声称是官方课程；金融答案格式、医学OPEN/CLOSED另行分组统计，不重复训练。
-初始全测19任务；中间只测刚学任务和下一任务；最终全测。共**74组测试／80,316条预测**；未评测格为null，不伪造完整20×19矩阵。不报告ForgetRate；保留原生任务等权AP/FWT/BWT、逐题EM正确数/总数、Token F1及ROUGE-L。领域最终分数按该域测试QA数加权，另报五领域宏平均，避免与19任务等权AP混淆。统一词面指标不等于原生评分：FinMME涉及数值容差和多选；CODA-LM原文采用LLM评审，EM不是它的官方准确率。
+十方法：SeqFT-LoRA、ER-LoRA、CL-MoE、SMoLoRA、PASs-MoE、PaRSP、OSFT、SpaRTA、FV-guided Training、ALER。SeqFT-LoRA是标准顺序微调对照的描述名；ER为标准回放对照，CL-MoE为CVPR2025多模态方法。Hyper-LLaVA移出本轮，DGG仅保留文献。主要机制归类与LoRA参数化不互斥，例如PASs既有专家架构，也有LoRA参数正则。[V2适配与准入](summary/two_backbone_native_cl_20261017_v2/README.md)。
 
-## 实际运行快照与诊断安排
+顺序为TextVQA → SLAKE的Modality/Position/Organ/Size/Abnormality/Quantity/Plane/Shape/Color/KG → RSVQA-LR的rural_urban/presence/count/comp → FinMME → CODA-LM的general/regional/suggestion。原生标签保持，顺序是研究预先冻结课程，不称官方课程。1%划分两机、所有方法完全共享，不重新抽样。
 
-2026-10-16 16:08（北京时间）核查：两机共六个正式运行进程，均处于初始完整评测，训练阶段完成数为0，不能把队列中的`training`状态解释为已经完成训练。CL-MoE已通过19任务真实2B反向传播，以及独立进程重载的损失等价／有限梯度检查，重载损失误差为0；诊断权重已丢弃，正式运行从原基座开始。
+唯一Acc为**原始Answer F1（0—100）**，不翻译、不映射选项、不额外抽取答案；不并列其他指标作为主Acc。[评分锁](rules/020_answer_f1_primary_20261017.md)。初始全19、中间当前+下一任务、最终全19，共74格/80316条预测；不报告历史峰值ForgetRate，缺格保持null。五领域最终分按各域QA加权，AP按19原生任务等权，二者不可混用。统一Answer F1不是FinMME/CODA-LM的原生官方评分。
 
-| 主机 | GPU | 当前正式进程 | 条件 | 实际阶段 |
-|---|---:|---|---|---|
-| 新3090 | 2 | CL-MoE | 1%训练／完整测试 | 初始评测 |
-| 新3090 | 3 | SeqFT-LoRA | 全量训练／完整测试 | 初始评测 |
-| 旧2080Ti | 0 | SeqFT-LoRA | 1%训练／完整测试 | 初始评测 |
-| 旧2080Ti | 1 | ER-LoRA | 1%训练／完整测试 | 初始评测 |
-| 旧2080Ti | 2 | PASs-MoE | 1%训练／完整测试 | 初始评测 |
-| 旧2080Ti | 3 | PaRSP | 1%训练／完整测试 | 初始评测 |
-
-其余任务排队接续；新服务器GPU1保持空闲，供后续诊断使用。当前不预设自研算法：先从已有实验分析单任务能否学会、跨任务遗忘、视觉依赖和资源开销，再决定要解决的问题。T5基座核查是独立调研，不切换正在运行的基座。[启动报告](summary/five_domain_native_cl_20261016_sparse/LAUNCH_REPORT.md) · [实际检查证据](summary/five_domain_native_cl_20261016_sparse/launch_proofs.json)。本节是带时间戳的静态快照，实时进度以服务器状态文件为准。
+正式V2公共输入与研究原生AnyRes/BF16分开报告；155生成题/500诊断不能冒充完整21454题或填补完整FWT/BWT。[正式执行策略](exp/two_backbone_native_cl_20261017_v2/execution_policy.json)。
 
 ## T5／VL-T5基座核查
 
@@ -150,18 +89,18 @@ VL-T5适合作为小模型诊断候选，但当前五域是否可用尚未实测
 | 领域 | 数据集（图文） | 提出者／首发 | 全量训练 | 1%训练 | 完整测试 | 划分 | 独立实际使用 |
 |---|---|---|---:|---:|---:|---|---|
 | D1 · 自然／通用 | TextVQA | [Amanpreet Singh等，CVPR 2019](https://textvqa.org/) | 34,602 | 347 | 5,000 | 官方train/validation；公开validation作测试 | CoIN（NeurIPS 2024）、SMoLoRA（ICCV 2025） |
-| D2 · 医学 | SLAKE | [Bo Liu等，ISBI 2021](https://www.med-vqa.com/slake/) | 9,835 | 99 | 2,094 | 官方train/test；双语；val2099不用 | Uncertainty-Driven Expert Control（ICCV 2025） |
+| D2 · 医学 | SLAKE | [Bo Liu等，ISBI 2021](https://www.med-vqa.com/slake/) | 9,834 | 99 | 2,094 | 官方train/test；仅排除用户授权的空答案SLAKE:1622；双语；val2099不用 | Uncertainty-Driven Expert Control（ICCV 2025） |
 | D3 · 地理／遥感 | RSVQA-LR | [Sylvain Lobry等，TGRS 2020](https://rsvqa.sylvainlobry.com/) | 57,223 | 573 | 10,004 | 官方active掩码train/test；val10005不用；不自行分箱 | GeoChat（CVPR 2024）、LHRS-Bot（ECCV 2024）、RSAdapter（TGRS 2024） |
 | D4 · 金融 | FinMME | [Junyu Luo等，ACL 2025主会](https://aclanthology.org/2025.acl-long.1426/) | 8,864 | 89 | 2,233 | 源池11099；2条缺答案单列；11097有标注QA按原图SHA256分组seed42研究80/20，非官方划分 | Beyond Real Weights（WACV 2026）实际评测；AgentFinVQA（2026预印本）实际评测 |
 | D5 · 交通／自动驾驶 | CODA-LM | [Kai Chen等，WACV 2025](https://github.com/DLUT-LYZ/CODA-LM) | 20,495 | 205 | 2,123 | 作者English LLaVA Train/Test；源卡20495/2123；Val18455、Mini193不用 | MPDrive（CVPR 2025）实际评测；RoboTron-Drive（ICCV 2025）实际训练和评测 |
 
-五数据集合计：全量训练 **131,019**，1%训练 **1,313**，共同完整测试 **21,454**。拆成19阶段不增加样本或重复训练。SLAKE的9,835/99训练QA是十类合计，不是每类数量；其1%最小类仅1条，细分类结果须结合测试样本数解释。
+五数据集合计：有效全量训练 **131,018**（原131,019条仅排除空答案SLAKE:1622），1%训练 **1,313**、完整测试 **21,454**均不变。[排除授权与逐行核验](summary/two_backbone_native_cl_20261017_v2/FULL_MISSING_LABEL_EXCLUSION.json)。拆成19阶段不增加或重复训练样本；SLAKE原全量9,835条、有效9,834条/1%99条是十类合计，最小1%类仅1条。原始源文件不改。
 FinMME的ID3698、9806金答案为空，原记录单独保留审计，不伪造、不以空串监督。作者仅发布名为train的评测池；本研究按图像字节SHA256分组，组哈希seed42排序，20%组留作测试。原选项作为输入，verified_caption/related_sentences只作来源元数据，不输入模型，避免泄漏答案。
 1%组按源题型分层，最大余数分配ceil(1%×各数据集训练量)，seed42哈希选ID；沿用父实验已冻结的ID，再按原生任务互斥拆分，不重新抽样。每阶段ID、顺序和测试SHA256事先冻结在[split_lock.json](data/FiveDomainCL/five_domain_native_cl_20261016_sparse/split_lock.json)；两服务器、十方法共用且启动核验，文件只读。[19阶段实际数量](data/FiveDomainCL/five_domain_native_cl_20261016_sparse/partition_audit.json)。不自行删掉选择、分类、是非题。CODA-LM保留作者原问题、答案和区域红框图。
 
 ## 多模态依据
 
-五个来源都有真实图像和问题文本，模型同时接收两种输入。**图文任务身份不等于每一道题都必须看图**：SLAKE知识题及语言偏置可能允许捷径。原始构成照常保留；若主张模型实际利用图像，需要额外的固定测试集遮图／错配图消融，当前未声称已做。
+五个来源都有真实图像和问题文本，模型同时接收两种输入。**图文任务身份不等于每一道题都必须看图**：SLAKE知识题及语言偏置可能允许捷径。原始构成照常保留；研究诊断包含固定的原图/遮图/错配图视图，证据见[问题发现总报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md)，小诊断不能证明所有任务/每道题均依赖图像。
 
 | 数据集 | 视觉来源与任务 |
 |---|---|
@@ -187,6 +126,8 @@ FinMME的ID3698、9806金答案为空，原记录单独保留审计，不伪造�
 
 ## 参数与资源记录
 
-参数保存在`exp/five_domain_native_cl_20261016_sparse/runs/<condition>/<method>/<run_id>/checkpoints/`。SeqFT-LoRA在两组均保存全部19阶段checkpoint；其他九方法每组只存最终第19阶段一份。保存完整模型及方法图（含冻结专家、合并权重、路由运行状态）、处理器、RNG、配置和SHA256，最终不重复导出。每个方法正式启动前必须在独立进程重载真实2B诊断checkpoint，检查前向损失等价和有限反向梯度。阶段边界重建优化器，故不保存旧优化器；SeqFT支持完整阶段边界恢复，其他方法中断后需新建run从基座开始。权重不进Git。
-两组每个方法记录loss、裁剪前后真实梯度范数、CPU RSS/PSS/USS、GPU allocated/reserved/NVML；单列训练前、训练后具体占用、变化与峰值。训练后测量在释放优化器后、最终参数导出前。
-[执行策略](exp/five_domain_native_cl_20261016_sparse/execution_policy.json) · [协议](rules/017_five_domain_native_sparse_two_hosts.md) · [进度](summary/five_domain_native_cl_20261016_sparse/progress.md)。
+正式运行保存在`exp/two_backbone_native_cl_20261017_v2/runs/<backbone>/<condition>/<method>/<run_id>/`。SeqFT-LoRA保存全部19阶段checkpoint，其余方法按冻结策略保存最终checkpoint；研究各组的全部阶段pool/router/参数要求见各自协议。阶段边界恢复必须使用真实有效checkpoint，不拼接不兼容run；权重、模型、数据与私钥不入Git。
+
+`logs/events.jsonl`保存每次实际loss、LR、裁剪前后梯度、QA/token数及缓存信息；`validity/`保存正更新数与参数前后SHA；资源日志保留CPU RSS/PSS/USS、GPU allocated/reserved/NVML和峰值。区分`stage_training_end_with_optimizer`、释放优化器后的`stage_training_end_persistent`与评价窗口；不同PID前后占用不直接相减。方法状态/历史/临时副本与额外计算一并计费，不由参数量直接宣称显存优势。
+
+[执行策略](exp/two_backbone_native_cl_20261017_v2/execution_policy.json) · [正式结果](summary/two_backbone_pct01_20261017/MAIN_TABLE.md) · [研究结果与边界](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md)。
