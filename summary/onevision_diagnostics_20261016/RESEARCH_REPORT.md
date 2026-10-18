@@ -2,7 +2,9 @@
 
 最新用户要求先沿用研究设置、方法简洁直击少数据冷启动，并质疑跨域复用。已准入[五格初始化来源控制](initialization_source_controls_20261018/v1/PROTOCOL.md)：相同目标26TRAIN/2更新，冷启动/同域或跨域全继承/同域或跨域只继承A，最终同507题；初始32只做函数门槛。CPU12470保全当前GPU4363四格自然结束后接续，两机基线不停止；公共完整确认暂后移不删除，不追加路由/扩容模块。当前这五格暂无GPU结果，不能预设哪种复用有用。[唯一当前队列](initialization_source_controls_20261018/v1/queue/README.md)。
 
-2026-10-18公共对比已落实：[正式V2两模块协议](formal_v2_state_cache_20261018/v1/PROTOCOL.md)与源码已实现、CPU核验并准入唯一队列CPU10233。主训练精确复用正式SeqFT封存19阶段（每阶段540672 A/B参数），原93更新及资源成本仍计入，采用正式FP16/公共图像、原输入/损失/评测；不搬用研究版不同顺序/RNG/精度的权重。先保全原生worker4363四格自然完成，再公共四格与两个完整21454；原作业/基线全部保留。公共实际GPU与F1尚待，CPU合成集成不是成果，Ours预定cache_quality，正式结果未封存继续留空。[唯一当前队列](formal_v2_state_cache_20261018/v1/queue/README.md)。
+[新增初始化文献核验](expert_cold_start_20261018/CURRENT_TASK_INITIALIZATION_PRIOR_ART.md)：EVA和CorDA说明当前任务数据驱动的初始化已有正式研究；不将跨域复用视为必要前提，也不将文献收益充作本模型成效。五格控制不变，尚未启动这两种文献方法。
+
+**历史公共协议准入说明（当前已后移，由顶部五格来源控制优先；以下PID为历史）：** 2026-10-18公共对比已实现：[正式V2两模块协议](formal_v2_state_cache_20261018/v1/PROTOCOL.md)与源码已实现、CPU核验并准入唯一队列CPU10233。主训练精确复用正式SeqFT封存19阶段（每阶段540672 A/B参数），原93更新及资源成本仍计入，采用正式FP16/公共图像、原输入/损失/评测；不搬用研究版不同顺序/RNG/精度的权重。先保全原生worker4363四格自然完成，再公共四格与两个完整21454；原作业/基线全部保留。公共实际GPU与F1尚待，CPU合成集成不是成果，Ours预定cache_quality，正式结果未封存继续留空。[已保留的公共协议队列记录](formal_v2_state_cache_20261018/v1/queue/README.md)。
 
 2026-10-18 18:48实际启动：新连续LoRA＋功能缓存候选已在GPU1首次训练，原生图像及特征修复门槛通过、早期更新学习率正且梯度有限。19阶段精确等价和Answer F1尚未完成，不能把启动写成提升。服务器18:45重启后原服务恢复；正式SeqFT接原checkpoint，CL-MoE无阶段checkpoint，已保留中断证据并恢复为独立新run待跑，所有活动GPU不受影响。[实际执行与CPU流程检查边界](functional_state_cache_20261018/v1/execution_context/README.md)。以下旧PID/等待记录保留为历史。
 
