@@ -1,0 +1,40 @@
+{
+  "UTC": "2026-10-18T07:15:16.423171+00:00",
+  "unit": "llmcl-v2-verified-results.service",
+  "PID": 382456,
+  "startticks": 15233185,
+  "source_sha256": "d7aac920f738c6ee8fde9a636560f2d2d6ee7ea1ba9de9e030e6548b4b4cad0a",
+  "CPU_only": true,
+  "actual_status": {
+    "pid": 382456,
+    "CPU_only": true,
+    "verified_pairs": 2,
+    "required_pairs": 20,
+    "new_pairs_verified_this_poll": false,
+    "last_checked_unix": 1792307716.3326113,
+    "no_GPU_or_training_started": true
+  },
+  "protected_before": {
+    "358091": 14710479,
+    "376997": 15081765,
+    "336398": 14120026,
+    "336411": 14120031,
+    "340149": 14237159,
+    "363745": 14856440,
+    "367273": 14910750,
+    "381186": 15195745
+  },
+  "protected_after": {
+    "358091": 14710479,
+    "376997": 15081765,
+    "336398": 14120026,
+    "336411": 14120031,
+    "340149": 14237159,
+    "363745": 14856440,
+    "367273": 14910750,
+    "381186": 15195745
+  },
+  "unit_text": "[Unit]\nDescription=CPU-only verified all-method V2 baseline completion publisher\nAfter=default.target\n[Service]\nType=simple\nWorkingDirectory=/data1/liyapeng/program/LLMCL\nEnvironment=CUDA_VISIBLE_DEVICES=\nEnvironment=PYTHONUNBUFFERED=1\nExecStart=/usr/bin/nohup /data1/liyapeng/program/LLMCL/.assets-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/v2_verified_baseline_report.py --mode watch\nStandardInput=null\nStandardOutput=append:/data1/liyapeng/program/LLMCL/summary/two_backbone_pct01_20261017/completion_observer_20261018/observer_nohup.log\nStandardError=inherit\nRestart=no\nKillMode=process\n[Install]\nWantedBy=default.target\n",
+  "no_existing_service_stopped": true,
+  "no_GPU_or_training_started": true
+}

@@ -1,0 +1,74 @@
+{
+  "CPU_only": true,
+  "collector_sha256": "d7aac920f738c6ee8fde9a636560f2d2d6ee7ea1ba9de9e030e6548b4b4cad0a",
+  "verified_method_backbone_pairs": 2,
+  "required_pairs": 20,
+  "TEST_best_run_selection": false,
+  "primary_AP19_unchanged": true,
+  "methods": [
+    {
+      "backbone": "onevision",
+      "method": "ER_LoRA",
+      "proof_file": "summary/two_backbone_pct01_20261017/completion_observer_20261018/completed/8bd1be13afb3be224732.json",
+      "aggregate": {
+        "AP": 39.27523294841321,
+        "FWT": 14.440846592976701,
+        "BWT": 1.0387286289903743
+      },
+      "domains": {
+        "natural": {
+          "F1": 75.14925135648677,
+          "QA": 5000
+        },
+        "medical": {
+          "F1": 38.62189209273032,
+          "QA": 2094
+        },
+        "geography": {
+          "F1": 53.19872051179528,
+          "QA": 10004
+        },
+        "finance": {
+          "F1": 16.697919036488283,
+          "QA": 2233
+        },
+        "traffic": {
+          "F1": 31.12249149400697,
+          "QA": 2123
+        }
+      }
+    },
+    {
+      "backbone": "onevision",
+      "method": "SeqFT_LoRA",
+      "proof_file": "summary/two_backbone_pct01_20261017/completion_observer_20261018/completed/b463d0e9fdfecc9eb456.json",
+      "aggregate": {
+        "AP": 40.28615194242285,
+        "FWT": 14.783131998469552,
+        "BWT": 1.7748605479377741
+      },
+      "domains": {
+        "natural": {
+          "F1": 75.6318044684319,
+          "QA": 5000
+        },
+        "medical": {
+          "F1": 40.75767924168686,
+          "QA": 2094
+        },
+        "geography": {
+          "F1": 46.71131547381047,
+          "QA": 10004
+        },
+        "finance": {
+          "F1": 15.890773082166865,
+          "QA": 2233
+        },
+        "traffic": {
+          "F1": 31.937969468850667,
+          "QA": 2123
+        }
+      }
+    }
+  ]
+}

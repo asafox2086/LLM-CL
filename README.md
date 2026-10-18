@@ -6,7 +6,7 @@
 
 | 入口 | 内容与边界 |
 | --- | --- |
-| [正式双骨干主表](summary/two_backbone_pct01_20261017/MAIN_TABLE.md) | Qwen2-VL-2B与OneVision 0.5B分块，五领域最终分数、AP/FWT/BWT。只填完整核验结果，当前OneVision SeqFT/ER已完成，AP40.286/39.275；其他结果待封存。 |
+| [正式双骨干主表](summary/two_backbone_pct01_20261017/MAIN_TABLE.md) | Qwen2-VL-2B与OneVision 0.5B分块，五领域最终分数、AP/FWT/BWT。只填完整核验结果；[只读发布器](summary/two_backbone_pct01_20261017/completion_observer_20261018/README.md)覆盖20个既定组合，未完成格留空，后续完成才核验入表。 |
 | [正式V2框架与公平性](summary/two_backbone_native_cl_20261017_v2/README.md) | 两机共享TRAIN/TEST ID、原生任务顺序、方法代码、预算、公共图像输入与评分；原生processor/tokenizer因骨干而异。旧零LR/V1结果隔离。 |
 | [问题发现总报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md) | 按问题、实验、结果、证明、改进、效果记录；区分已证实、已反驳、未解决。[关键发现](summary/onevision_diagnostics_20261016/KEY_FINDINGS.md)提供证据索引。 |
 | [研究诊断表](summary/onevision_diagnostics_20261016/functional_router/MAIN_TABLE_DIAGNOSTIC.md) | 原生AnyRes/BF16、同155题的六方法对照；不能混入正式V2或当完整21454题结果。 |
