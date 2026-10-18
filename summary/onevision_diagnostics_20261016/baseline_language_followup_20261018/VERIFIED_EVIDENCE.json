@@ -1,0 +1,6959 @@
+{
+  "CPU_only": true,
+  "new_GPU_operations": 0,
+  "accepted_cells": 17,
+  "newly_sealed_cells": [
+    [
+      "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154",
+      19
+    ],
+    [
+      "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/ER_LoRA/training_20261017_161154",
+      19
+    ],
+    [
+      "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/CL_MoE/training_20261017_161424",
+      3
+    ],
+    [
+      "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/CL_MoE/training_20261017_161424",
+      4
+    ],
+    [
+      "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PASs_MoE/training_20261017_161725",
+      3
+    ],
+    [
+      "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PASs_MoE/training_20261017_161725",
+      4
+    ],
+    [
+      "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209",
+      3
+    ],
+    [
+      "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209",
+      4
+    ]
+  ],
+  "runs": [
+    {
+      "run": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154",
+      "method": "SeqFT_LoRA",
+      "backbone": "onevision",
+      "model_dtype": "torch.float16",
+      "image_area_cap": 401408,
+      "runtime_snapshot": {
+        "status": "completed",
+        "completed_stage": 19,
+        "final_checkpoint": "checkpoints/stage_19.pt",
+        "final_parameter_file_bytes": 1926007972
+      },
+      "config_primary_score_legacy_field": "rougeL",
+      "reported_metric": "locked raw Answer F1",
+      "stage4_training_events": [
+        {
+          "stage": 4,
+          "step": 1,
+          "qa_seen": 16,
+          "total_qa": 26,
+          "loss": 2.5220174230635166,
+          "gradient_l2_preclip": 85.6148910522461,
+          "learning_rate_used": [
+            0.0001
+          ],
+          "warmup_updates": 0
+        },
+        {
+          "stage": 4,
+          "step": 2,
+          "qa_seen": 26,
+          "total_qa": 26,
+          "loss": 1.4746419847011565,
+          "gradient_l2_preclip": 35.21854782104492,
+          "learning_rate_used": [
+            5e-05
+          ],
+          "warmup_updates": 0
+        }
+      ],
+      "cells": [
+        {
+          "stage": 0,
+          "phase": "verified_complete_cell",
+          "scores": {
+            "all": {
+              "QA": 507,
+              "Answer_F1": 9.625716164177703,
+              "predictions_contain_Han": 46,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 489,
+              "raw_top6_predictions": [
+                [
+                  "The answer is yes",
+                  160
+                ],
+                [
+                  "The answer is Yes",
+                  102
+                ],
+                [
+                  "The answer is lungs",
+                  67
+                ],
+                [
+                  "The answer is liver",
+                  27
+                ],
+                [
+                  "The answer is no",
+                  26
+                ],
+                [
+                  "The answer is brain",
+                  15
+                ]
+              ]
+            },
+            "q_lang=en": {
+              "QA": 253,
+              "Answer_F1": 16.23941276115189,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 253,
+              "raw_top6_predictions": [
+                [
+                  "The answer is yes",
+                  120
+                ],
+                [
+                  "The answer is lungs",
+                  37
+                ],
+                [
+                  "The answer is liver",
+                  27
+                ],
+                [
+                  "The answer is no",
+                  20
+                ],
+                [
+                  "The answer is Yes",
+                  11
+                ],
+                [
+                  "The answer is brain",
+                  10
+                ]
+              ]
+            },
+            "q_lang=zh": {
+              "QA": 254,
+              "Answer_F1": 3.038057742782152,
+              "predictions_contain_Han": 46,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 236,
+              "raw_top6_predictions": [
+                [
+                  "The answer is Yes",
+                  91
+                ],
+                [
+                  "The answer is yes",
+                  40
+                ],
+                [
+                  "The answer is lungs",
+                  30
+                ],
+                [
+                  "The answer is \u809d\u810f",
+                  12
+                ],
+                [
+                  "assistant\nno",
+                  11
+                ],
+                [
+                  "The answer is \u80be",
+                  9
+                ]
+              ]
+            },
+            "answer_type=OPEN": {
+              "QA": 184,
+              "Answer_F1": 8.044772256728779,
+              "predictions_contain_Han": 42,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 184,
+              "raw_top6_predictions": [
+                [
+                  "The answer is lungs",
+                  67
+                ],
+                [
+                  "The answer is liver",
+                  27
+                ],
+                [
+                  "The answer is brain",
+                  15
+                ],
+                [
+                  "The answer is \u809d\u810f",
+                  12
+                ],
+                [
+                  "The answer is Brain",
+                  10
+                ],
+                [
+                  "The answer is \u80be",
+                  9
+                ]
+              ]
+            },
+            "answer_type=CLOSED": {
+              "QA": 323,
+              "Answer_F1": 10.526315789473685,
+              "predictions_contain_Han": 4,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 305,
+              "raw_top6_predictions": [
+                [
+                  "The answer is yes",
+                  160
+                ],
+                [
+                  "The answer is Yes",
+                  102
+                ],
+                [
+                  "The answer is no",
+                  26
+                ],
+                [
+                  "assistant\nno",
+                  11
+                ],
+                [
+                  "The answer is No",
+                  7
+                ],
+                [
+                  "Answer: Yes",
+                  4
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=OPEN": {
+              "QA": 99,
+              "Answer_F1": 7.157287157287157,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 99,
+              "raw_top6_predictions": [
+                [
+                  "The answer is lungs",
+                  37
+                ],
+                [
+                  "The answer is liver",
+                  27
+                ],
+                [
+                  "The answer is brain",
+                  10
+                ],
+                [
+                  "The answer is Brain",
+                  8
+                ],
+                [
+                  "The answer is abdomen",
+                  5
+                ],
+                [
+                  "The answer is spine",
+                  4
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=CLOSED": {
+              "QA": 154,
+              "Answer_F1": 22.07792207792208,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 154,
+              "raw_top6_predictions": [
+                [
+                  "The answer is yes",
+                  120
+                ],
+                [
+                  "The answer is no",
+                  20
+                ],
+                [
+                  "The answer is Yes",
+                  11
+                ],
+                [
+                  "The answer is No",
+                  3
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=OPEN": {
+              "QA": 85,
+              "Answer_F1": 9.07843137254902,
+              "predictions_contain_Han": 42,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 85,
+              "raw_top6_predictions": [
+                [
+                  "The answer is lungs",
+                  30
+                ],
+                [
+                  "The answer is \u809d\u810f",
+                  12
+                ],
+                [
+                  "The answer is \u80be",
+                  9
+                ],
+                [
+                  "The answer is \u80a0",
+                  7
+                ],
+                [
+                  "The answer is \u80ba",
+                  7
+                ],
+                [
+                  "The answer is \u8111",
+                  5
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=CLOSED": {
+              "QA": 169,
+              "Answer_F1": 0.0,
+              "predictions_contain_Han": 4,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 151,
+              "raw_top6_predictions": [
+                [
+                  "The answer is Yes",
+                  91
+                ],
+                [
+                  "The answer is yes",
+                  40
+                ],
+                [
+                  "assistant\nno",
+                  11
+                ],
+                [
+                  "The answer is no",
+                  6
+                ],
+                [
+                  "Answer: Yes",
+                  4
+                ],
+                [
+                  "The answer is No",
+                  4
+                ]
+              ]
+            }
+          },
+          "prediction_sha256": "7a778ad562a633599a778ddf50bc8c1a267a8095d23d7e4ff3dea4dbbfcff79e",
+          "semantic_fields_sha256": "e5ba2fa1d43460ca910c344ceb9ff98225ceb13f118817bf2542a92efe0dee72"
+        },
+        {
+          "stage": 3,
+          "phase": "verified_complete_cell",
+          "scores": {
+            "all": {
+              "QA": 507,
+              "Answer_F1": 27.920649370353512,
+              "predictions_contain_Han": 40,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "yes",
+                  237
+                ],
+                [
+                  "no",
+                  81
+                ],
+                [
+                  "brain",
+                  32
+                ],
+                [
+                  " lungs",
+                  21
+                ],
+                [
+                  "lung",
+                  19
+                ],
+                [
+                  "chest",
+                  13
+                ]
+              ]
+            },
+            "q_lang=en": {
+              "QA": 253,
+              "Answer_F1": 50.813317117664944,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "yes",
+                  93
+                ],
+                [
+                  "no",
+                  56
+                ],
+                [
+                  "brain",
+                  18
+                ],
+                [
+                  "chest",
+                  13
+                ],
+                [
+                  "lung",
+                  10
+                ],
+                [
+                  "Liver",
+                  10
+                ]
+              ]
+            },
+            "q_lang=zh": {
+              "QA": 254,
+              "Answer_F1": 5.118110236220472,
+              "predictions_contain_Han": 40,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "yes",
+                  144
+                ],
+                [
+                  "no",
+                  25
+                ],
+                [
+                  " lungs",
+                  18
+                ],
+                [
+                  "brain",
+                  14
+                ],
+                [
+                  "\u809d\u810f",
+                  9
+                ],
+                [
+                  "lung",
+                  9
+                ]
+              ]
+            },
+            "answer_type=OPEN": {
+              "QA": 184,
+              "Answer_F1": 25.30309364548495,
+              "predictions_contain_Han": 40,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "brain",
+                  32
+                ],
+                [
+                  " lungs",
+                  21
+                ],
+                [
+                  "lung",
+                  19
+                ],
+                [
+                  "chest",
+                  13
+                ],
+                [
+                  "Liver",
+                  10
+                ],
+                [
+                  "\u809d\u810f",
+                  9
+                ]
+              ]
+            },
+            "answer_type=CLOSED": {
+              "QA": 323,
+              "Answer_F1": 29.41176470588235,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "yes",
+                  237
+                ],
+                [
+                  "no",
+                  81
+                ],
+                [
+                  "No",
+                  5
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=OPEN": {
+              "QA": 99,
+              "Answer_F1": 33.8966588966589,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "brain",
+                  18
+                ],
+                [
+                  "chest",
+                  13
+                ],
+                [
+                  "lung",
+                  10
+                ],
+                [
+                  "Liver",
+                  10
+                ],
+                [
+                  "spine",
+                  5
+                ],
+                [
+                  "kidney",
+                  5
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=CLOSED": {
+              "QA": 154,
+              "Answer_F1": 61.688311688311686,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "yes",
+                  93
+                ],
+                [
+                  "no",
+                  56
+                ],
+                [
+                  "No",
+                  5
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=OPEN": {
+              "QA": 85,
+              "Answer_F1": 15.294117647058824,
+              "predictions_contain_Han": 40,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  " lungs",
+                  18
+                ],
+                [
+                  "brain",
+                  14
+                ],
+                [
+                  "\u809d\u810f",
+                  9
+                ],
+                [
+                  "lung",
+                  9
+                ],
+                [
+                  "\u813e\u810f",
+                  8
+                ],
+                [
+                  "\u810a\u67f1",
+                  5
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=CLOSED": {
+              "QA": 169,
+              "Answer_F1": 0.0,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "yes",
+                  144
+                ],
+                [
+                  "no",
+                  25
+                ]
+              ]
+            }
+          },
+          "prediction_sha256": "726575064ff20eb1176d3f3bcab82193b2097063c50064b2d3439a3a1327980b",
+          "semantic_fields_sha256": "5c69289576d07e4852c2a863c3db6fc63be90590847468524f13dc7eef19f2a1"
+        },
+        {
+          "stage": 4,
+          "phase": "verified_complete_cell",
+          "scores": {
+            "all": {
+              "QA": 507,
+              "Answer_F1": 37.314266929651545,
+              "predictions_contain_Han": 167,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "yes",
+                  178
+                ],
+                [
+                  "no",
+                  60
+                ],
+                [
+                  "\u662f\u7684",
+                  25
+                ],
+                [
+                  "\u662f",
+                  22
+                ],
+                [
+                  "brain",
+                  17
+                ],
+                [
+                  "Liver",
+                  16
+                ]
+              ]
+            },
+            "q_lang=en": {
+              "QA": 253,
+              "Answer_F1": 52.00922266139658,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "yes",
+                  99
+                ],
+                [
+                  "no",
+                  54
+                ],
+                [
+                  "brain",
+                  17
+                ],
+                [
+                  "Liver",
+                  16
+                ],
+                [
+                  "chest",
+                  11
+                ],
+                [
+                  "lung",
+                  9
+                ]
+              ]
+            },
+            "q_lang=zh": {
+              "QA": 254,
+              "Answer_F1": 22.677165354330707,
+              "predictions_contain_Han": 167,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "yes",
+                  79
+                ],
+                [
+                  "\u662f\u7684",
+                  25
+                ],
+                [
+                  "\u662f",
+                  22
+                ],
+                [
+                  "\u80ba",
+                  15
+                ],
+                [
+                  "\u6ca1\u6709",
+                  15
+                ],
+                [
+                  "\u813e\u810f",
+                  13
+                ]
+              ]
+            },
+            "answer_type=OPEN": {
+              "QA": 184,
+              "Answer_F1": 35.117753623188406,
+              "predictions_contain_Han": 83,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "brain",
+                  17
+                ],
+                [
+                  "Liver",
+                  16
+                ],
+                [
+                  "\u80ba",
+                  15
+                ],
+                [
+                  "\u813e\u810f",
+                  13
+                ],
+                [
+                  "chest",
+                  11
+                ],
+                [
+                  "\u809d\u810f",
+                  11
+                ]
+              ]
+            },
+            "answer_type=CLOSED": {
+              "QA": 323,
+              "Answer_F1": 38.565531475748195,
+              "predictions_contain_Han": 84,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "yes",
+                  178
+                ],
+                [
+                  "no",
+                  60
+                ],
+                [
+                  "\u662f\u7684",
+                  25
+                ],
+                [
+                  "\u662f",
+                  22
+                ],
+                [
+                  "\u6ca1\u6709",
+                  15
+                ],
+                [
+                  "\u6ca1\u6709\u5fc3\u810f",
+                  10
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=OPEN": {
+              "QA": 99,
+              "Answer_F1": 34.93265993265993,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "brain",
+                  17
+                ],
+                [
+                  "Liver",
+                  16
+                ],
+                [
+                  "chest",
+                  11
+                ],
+                [
+                  "lung",
+                  9
+                ],
+                [
+                  "Kidney",
+                  7
+                ],
+                [
+                  "The lungs",
+                  7
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=CLOSED": {
+              "QA": 154,
+              "Answer_F1": 62.98701298701299,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "yes",
+                  99
+                ],
+                [
+                  "no",
+                  54
+                ],
+                [
+                  "No",
+                  1
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=OPEN": {
+              "QA": 85,
+              "Answer_F1": 35.333333333333336,
+              "predictions_contain_Han": 83,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u80ba",
+                  15
+                ],
+                [
+                  "\u813e\u810f",
+                  13
+                ],
+                [
+                  "\u809d\u810f",
+                  11
+                ],
+                [
+                  "\u662f\u80ba\u90e8",
+                  8
+                ],
+                [
+                  "\u5927\u8111",
+                  6
+                ],
+                [
+                  "\u6c14\u7ba1",
+                  5
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=CLOSED": {
+              "QA": 169,
+              "Answer_F1": 16.31163708086785,
+              "predictions_contain_Han": 84,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "yes",
+                  79
+                ],
+                [
+                  "\u662f\u7684",
+                  25
+                ],
+                [
+                  "\u662f",
+                  22
+                ],
+                [
+                  "\u6ca1\u6709",
+                  15
+                ],
+                [
+                  "\u6ca1\u6709\u5fc3\u810f",
+                  10
+                ],
+                [
+                  "no",
+                  6
+                ]
+              ]
+            }
+          },
+          "prediction_sha256": "844559b6b38cd4bbaf6a16d22627e930190308c81a9ebebebf544dc6bee980e5",
+          "semantic_fields_sha256": "883df53a8bc6ab7accd0e9e88593ea58b5367770be9f9a11e3fa6bce4fe32110"
+        },
+        {
+          "stage": 19,
+          "phase": "verified_complete_cell",
+          "scores": {
+            "all": {
+              "QA": 507,
+              "Answer_F1": 37.444856969743846,
+              "predictions_contain_Han": 227,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "no",
+                  94
+                ],
+                [
+                  "\u662f",
+                  79
+                ],
+                [
+                  "yes",
+                  37
+                ],
+                [
+                  "\u662f\u7684",
+                  33
+                ],
+                [
+                  "\u6ca1\u6709",
+                  32
+                ],
+                [
+                  "No",
+                  26
+                ]
+              ]
+            },
+            "q_lang=en": {
+              "QA": 253,
+              "Answer_F1": 52.85941253971944,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "no",
+                  88
+                ],
+                [
+                  "yes",
+                  37
+                ],
+                [
+                  "No",
+                  26
+                ],
+                [
+                  "Liver",
+                  21
+                ],
+                [
+                  "chest",
+                  13
+                ],
+                [
+                  "brain",
+                  11
+                ]
+              ]
+            },
+            "q_lang=zh": {
+              "QA": 254,
+              "Answer_F1": 22.090988626421698,
+              "predictions_contain_Han": 227,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u662f",
+                  79
+                ],
+                [
+                  "\u662f\u7684",
+                  33
+                ],
+                [
+                  "\u6ca1\u6709",
+                  32
+                ],
+                [
+                  " lungs",
+                  21
+                ],
+                [
+                  "\u809d\u810f",
+                  17
+                ],
+                [
+                  "\u6ca1\u6709\u5fc3\u810f",
+                  10
+                ]
+              ]
+            },
+            "answer_type=OPEN": {
+              "QA": 184,
+              "Answer_F1": 31.830242966751918,
+              "predictions_contain_Han": 64,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  " lungs",
+                  22
+                ],
+                [
+                  "Liver",
+                  21
+                ],
+                [
+                  "\u809d\u810f",
+                  17
+                ],
+                [
+                  "chest",
+                  13
+                ],
+                [
+                  "brain",
+                  11
+                ],
+                [
+                  "Lungs",
+                  7
+                ]
+              ]
+            },
+            "answer_type=CLOSED": {
+              "QA": 323,
+              "Answer_F1": 40.64327485380117,
+              "predictions_contain_Han": 163,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "no",
+                  94
+                ],
+                [
+                  "\u662f",
+                  79
+                ],
+                [
+                  "yes",
+                  37
+                ],
+                [
+                  "\u662f\u7684",
+                  33
+                ],
+                [
+                  "\u6ca1\u6709",
+                  32
+                ],
+                [
+                  "No",
+                  26
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=OPEN": {
+              "QA": 99,
+              "Answer_F1": 34.075064369182016,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "Liver",
+                  21
+                ],
+                [
+                  "chest",
+                  13
+                ],
+                [
+                  "brain",
+                  11
+                ],
+                [
+                  "Lungs",
+                  7
+                ],
+                [
+                  "Heart",
+                  6
+                ],
+                [
+                  "Brain",
+                  6
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=CLOSED": {
+              "QA": 154,
+              "Answer_F1": 64.93506493506493,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "no",
+                  88
+                ],
+                [
+                  "yes",
+                  37
+                ],
+                [
+                  "No",
+                  26
+                ],
+                [
+                  "Yes",
+                  3
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=OPEN": {
+              "QA": 85,
+              "Answer_F1": 29.215686274509807,
+              "predictions_contain_Han": 64,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  " lungs",
+                  21
+                ],
+                [
+                  "\u809d\u810f",
+                  17
+                ],
+                [
+                  "\u80ba",
+                  7
+                ],
+                [
+                  "\u8111",
+                  7
+                ],
+                [
+                  "\u813e\u810f",
+                  6
+                ],
+                [
+                  "\u5fc3\u810f",
+                  5
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=CLOSED": {
+              "QA": 169,
+              "Answer_F1": 18.50756081525312,
+              "predictions_contain_Han": 163,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u662f",
+                  79
+                ],
+                [
+                  "\u662f\u7684",
+                  33
+                ],
+                [
+                  "\u6ca1\u6709",
+                  32
+                ],
+                [
+                  "\u6ca1\u6709\u5fc3\u810f",
+                  10
+                ],
+                [
+                  "no",
+                  6
+                ],
+                [
+                  "\u80ba\u4e0d\u5728\u56fe\u7247\u4e2d",
+                  5
+                ]
+              ]
+            }
+          },
+          "prediction_sha256": "779367f54a299638ed41cc725c2043f468df11d6b2ee9effc388fee047c6e178",
+          "semantic_fields_sha256": "cc5ea53aa9313bc519fee9feb05890c85b2caffc3913c806a553766b8f3d7ec5"
+        }
+      ],
+      "transitions": [
+        {
+          "before": 0,
+          "after": 3,
+          "label": "prior_tasks",
+          "groups": {
+            "all": {
+              "delta_F1": {
+                "mean": 18.294933206175802,
+                "image_cluster_95CI": [
+                  14.275435448904842,
+                  22.27793497254575
+                ],
+                "QA": 507,
+                "image_clusters": 158
+              },
+              "increased": 147,
+              "decreased": 32,
+              "unchanged": 328
+            },
+            "q_lang=en": {
+              "delta_F1": {
+                "mean": 34.57390435651305,
+                "image_cluster_95CI": [
+                  28.499278499278503,
+                  41.13493759327093
+                ],
+                "QA": 253,
+                "image_clusters": 84
+              },
+              "increased": 131,
+              "decreased": 19,
+              "unchanged": 103
+            },
+            "q_lang=zh": {
+              "delta_F1": {
+                "mean": 2.0800524934383198,
+                "image_cluster_95CI": [
+                  0.12698412698412714,
+                  4.257820282924886
+                ],
+                "QA": 254,
+                "image_clusters": 84
+              },
+              "increased": 16,
+              "decreased": 13,
+              "unchanged": 225
+            },
+            "answer_type=OPEN": {
+              "delta_F1": {
+                "mean": 17.258321388756155,
+                "image_cluster_95CI": [
+                  11.656526148051576,
+                  22.82790309106099
+                ],
+                "QA": 184,
+                "image_clusters": 114
+              },
+              "increased": 52,
+              "decreased": 18,
+              "unchanged": 114
+            },
+            "answer_type=CLOSED": {
+              "delta_F1": {
+                "mean": 18.88544891640867,
+                "image_cluster_95CI": [
+                  14.144736842105264,
+                  23.896848137535816
+                ],
+                "QA": 323,
+                "image_clusters": 125
+              },
+              "increased": 95,
+              "decreased": 14,
+              "unchanged": 214
+            }
+          }
+        },
+        {
+          "before": 3,
+          "after": 4,
+          "label": "current_Organ_acquisition",
+          "groups": {
+            "all": {
+              "delta_F1": {
+                "mean": 9.39361755929803,
+                "image_cluster_95CI": [
+                  6.6073810582481105,
+                  12.412280701754383
+                ],
+                "QA": 507,
+                "image_clusters": 158
+              },
+              "increased": 65,
+              "decreased": 9,
+              "unchanged": 433
+            },
+            "q_lang=en": {
+              "delta_F1": {
+                "mean": 1.1959055437316306,
+                "image_cluster_95CI": [
+                  -1.9375361480624633,
+                  3.8461538461538463
+                ],
+                "QA": 253,
+                "image_clusters": 84
+              },
+              "increased": 9,
+              "decreased": 5,
+              "unchanged": 239
+            },
+            "q_lang=zh": {
+              "delta_F1": {
+                "mean": 17.559055118110237,
+                "image_cluster_95CI": [
+                  12.493540051679586,
+                  23.391304347826086
+                ],
+                "QA": 254,
+                "image_clusters": 84
+              },
+              "increased": 56,
+              "decreased": 4,
+              "unchanged": 194
+            },
+            "answer_type=OPEN": {
+              "delta_F1": {
+                "mean": 9.814659977703457,
+                "image_cluster_95CI": [
+                  4.739541160593793,
+                  15.044655718813022
+                ],
+                "QA": 184,
+                "image_clusters": 114
+              },
+              "increased": 24,
+              "decreased": 6,
+              "unchanged": 154
+            },
+            "answer_type=CLOSED": {
+              "delta_F1": {
+                "mean": 9.15376676986584,
+                "image_cluster_95CI": [
+                  5.726027397260274,
+                  12.98189563365282
+                ],
+                "QA": 323,
+                "image_clusters": 125
+              },
+              "increased": 41,
+              "decreased": 3,
+              "unchanged": 279
+            }
+          }
+        },
+        {
+          "before": 4,
+          "after": 19,
+          "label": "post_acquisition_retention",
+          "groups": {
+            "all": {
+              "delta_F1": {
+                "mean": 0.13059004009230227,
+                "image_cluster_95CI": [
+                  -3.1460437710437716,
+                  3.3904761904761918
+                ],
+                "QA": 507,
+                "image_clusters": 158
+              },
+              "increased": 55,
+              "decreased": 50,
+              "unchanged": 402
+            },
+            "q_lang=en": {
+              "delta_F1": {
+                "mean": 0.8501898783228706,
+                "image_cluster_95CI": [
+                  -5.676219205630971,
+                  7.2603921568627445
+                ],
+                "QA": 253,
+                "image_clusters": 84
+              },
+              "increased": 35,
+              "decreased": 32,
+              "unchanged": 186
+            },
+            "q_lang=zh": {
+              "delta_F1": {
+                "mean": -0.5861767279090115,
+                "image_cluster_95CI": [
+                  -4.117341640706128,
+                  2.453392990305741
+                ],
+                "QA": 254,
+                "image_clusters": 84
+              },
+              "increased": 20,
+              "decreased": 18,
+              "unchanged": 216
+            },
+            "answer_type=OPEN": {
+              "delta_F1": {
+                "mean": -3.287510656436488,
+                "image_cluster_95CI": [
+                  -7.817258883248731,
+                  0.805356288857006
+                ],
+                "QA": 184,
+                "image_clusters": 114
+              },
+              "increased": 10,
+              "decreased": 16,
+              "unchanged": 158
+            },
+            "answer_type=CLOSED": {
+              "delta_F1": {
+                "mean": 2.0777433780529746,
+                "image_cluster_95CI": [
+                  -2.854030501089325,
+                  6.9498910675381245
+                ],
+                "QA": 323,
+                "image_clusters": 125
+              },
+              "increased": 45,
+              "decreased": 34,
+              "unchanged": 244
+            }
+          }
+        },
+        {
+          "before": 0,
+          "after": 19,
+          "label": "total_change",
+          "groups": {
+            "all": {
+              "delta_F1": {
+                "mean": 27.819140805566132,
+                "image_cluster_95CI": [
+                  23.786900093370683,
+                  31.924125604999155
+                ],
+                "QA": 507,
+                "image_clusters": 158
+              },
+              "increased": 211,
+              "decreased": 46,
+              "unchanged": 250
+            },
+            "q_lang=en": {
+              "delta_F1": {
+                "mean": 36.61999977856755,
+                "image_cluster_95CI": [
+                  30.278196748784985,
+                  42.91556027615507
+                ],
+                "QA": 253,
+                "image_clusters": 84
+              },
+              "increased": 137,
+              "decreased": 40,
+              "unchanged": 76
+            },
+            "q_lang=zh": {
+              "delta_F1": {
+                "mean": 19.05293088363954,
+                "image_cluster_95CI": [
+                  14.22924297924298,
+                  24.865608465608464
+                ],
+                "QA": 254,
+                "image_clusters": 84
+              },
+              "increased": 74,
+              "decreased": 6,
+              "unchanged": 174
+            },
+            "answer_type=OPEN": {
+              "delta_F1": {
+                "mean": 23.78547071002313,
+                "image_cluster_95CI": [
+                  18.348404579222994,
+                  29.373626373626376
+                ],
+                "QA": 184,
+                "image_clusters": 114
+              },
+              "increased": 66,
+              "decreased": 8,
+              "unchanged": 110
+            },
+            "answer_type=CLOSED": {
+              "delta_F1": {
+                "mean": 30.116959064327485,
+                "image_cluster_95CI": [
+                  24.036484245439482,
+                  36.37931034482759
+                ],
+                "QA": 323,
+                "image_clusters": 125
+              },
+              "increased": 145,
+              "decreased": 38,
+              "unchanged": 140
+            }
+          }
+        }
+      ]
+    },
+    {
+      "run": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/ER_LoRA/training_20261017_161154",
+      "method": "ER_LoRA",
+      "backbone": "onevision",
+      "model_dtype": "torch.float16",
+      "image_area_cap": 401408,
+      "runtime_snapshot": {
+        "status": "completed",
+        "completed_stage": 19,
+        "final_checkpoint": "checkpoints/stage_19.pt",
+        "final_parameter_file_bytes": 1949512100
+      },
+      "config_primary_score_legacy_field": "rougeL",
+      "reported_metric": "locked raw Answer F1",
+      "stage4_training_events": [
+        {
+          "stage": 4,
+          "step": 1,
+          "qa_seen": 16,
+          "total_qa": 26,
+          "loss": 1.5525773838162422,
+          "gradient_l2_preclip": 42.531227111816406,
+          "learning_rate_used": [
+            0.0001
+          ],
+          "warmup_updates": 0
+        },
+        {
+          "stage": 4,
+          "step": 2,
+          "qa_seen": 26,
+          "total_qa": 26,
+          "loss": 1.2238463103771209,
+          "gradient_l2_preclip": 16.91448402404785,
+          "learning_rate_used": [
+            5e-05
+          ],
+          "warmup_updates": 0
+        }
+      ],
+      "cells": [
+        {
+          "stage": 0,
+          "phase": "verified_complete_cell",
+          "scores": {
+            "all": {
+              "QA": 507,
+              "Answer_F1": 9.625716164177703,
+              "predictions_contain_Han": 46,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 489,
+              "raw_top6_predictions": [
+                [
+                  "The answer is yes",
+                  160
+                ],
+                [
+                  "The answer is Yes",
+                  102
+                ],
+                [
+                  "The answer is lungs",
+                  67
+                ],
+                [
+                  "The answer is liver",
+                  27
+                ],
+                [
+                  "The answer is no",
+                  26
+                ],
+                [
+                  "The answer is brain",
+                  15
+                ]
+              ]
+            },
+            "q_lang=en": {
+              "QA": 253,
+              "Answer_F1": 16.23941276115189,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 253,
+              "raw_top6_predictions": [
+                [
+                  "The answer is yes",
+                  120
+                ],
+                [
+                  "The answer is lungs",
+                  37
+                ],
+                [
+                  "The answer is liver",
+                  27
+                ],
+                [
+                  "The answer is no",
+                  20
+                ],
+                [
+                  "The answer is Yes",
+                  11
+                ],
+                [
+                  "The answer is brain",
+                  10
+                ]
+              ]
+            },
+            "q_lang=zh": {
+              "QA": 254,
+              "Answer_F1": 3.038057742782152,
+              "predictions_contain_Han": 46,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 236,
+              "raw_top6_predictions": [
+                [
+                  "The answer is Yes",
+                  91
+                ],
+                [
+                  "The answer is yes",
+                  40
+                ],
+                [
+                  "The answer is lungs",
+                  30
+                ],
+                [
+                  "The answer is \u809d\u810f",
+                  12
+                ],
+                [
+                  "assistant\nno",
+                  11
+                ],
+                [
+                  "The answer is \u80be",
+                  9
+                ]
+              ]
+            },
+            "answer_type=OPEN": {
+              "QA": 184,
+              "Answer_F1": 8.044772256728779,
+              "predictions_contain_Han": 42,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 184,
+              "raw_top6_predictions": [
+                [
+                  "The answer is lungs",
+                  67
+                ],
+                [
+                  "The answer is liver",
+                  27
+                ],
+                [
+                  "The answer is brain",
+                  15
+                ],
+                [
+                  "The answer is \u809d\u810f",
+                  12
+                ],
+                [
+                  "The answer is Brain",
+                  10
+                ],
+                [
+                  "The answer is \u80be",
+                  9
+                ]
+              ]
+            },
+            "answer_type=CLOSED": {
+              "QA": 323,
+              "Answer_F1": 10.526315789473685,
+              "predictions_contain_Han": 4,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 305,
+              "raw_top6_predictions": [
+                [
+                  "The answer is yes",
+                  160
+                ],
+                [
+                  "The answer is Yes",
+                  102
+                ],
+                [
+                  "The answer is no",
+                  26
+                ],
+                [
+                  "assistant\nno",
+                  11
+                ],
+                [
+                  "The answer is No",
+                  7
+                ],
+                [
+                  "Answer: Yes",
+                  4
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=OPEN": {
+              "QA": 99,
+              "Answer_F1": 7.157287157287157,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 99,
+              "raw_top6_predictions": [
+                [
+                  "The answer is lungs",
+                  37
+                ],
+                [
+                  "The answer is liver",
+                  27
+                ],
+                [
+                  "The answer is brain",
+                  10
+                ],
+                [
+                  "The answer is Brain",
+                  8
+                ],
+                [
+                  "The answer is abdomen",
+                  5
+                ],
+                [
+                  "The answer is spine",
+                  4
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=CLOSED": {
+              "QA": 154,
+              "Answer_F1": 22.07792207792208,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 154,
+              "raw_top6_predictions": [
+                [
+                  "The answer is yes",
+                  120
+                ],
+                [
+                  "The answer is no",
+                  20
+                ],
+                [
+                  "The answer is Yes",
+                  11
+                ],
+                [
+                  "The answer is No",
+                  3
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=OPEN": {
+              "QA": 85,
+              "Answer_F1": 9.07843137254902,
+              "predictions_contain_Han": 42,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 85,
+              "raw_top6_predictions": [
+                [
+                  "The answer is lungs",
+                  30
+                ],
+                [
+                  "The answer is \u809d\u810f",
+                  12
+                ],
+                [
+                  "The answer is \u80be",
+                  9
+                ],
+                [
+                  "The answer is \u80a0",
+                  7
+                ],
+                [
+                  "The answer is \u80ba",
+                  7
+                ],
+                [
+                  "The answer is \u8111",
+                  5
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=CLOSED": {
+              "QA": 169,
+              "Answer_F1": 0.0,
+              "predictions_contain_Han": 4,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 151,
+              "raw_top6_predictions": [
+                [
+                  "The answer is Yes",
+                  91
+                ],
+                [
+                  "The answer is yes",
+                  40
+                ],
+                [
+                  "assistant\nno",
+                  11
+                ],
+                [
+                  "The answer is no",
+                  6
+                ],
+                [
+                  "Answer: Yes",
+                  4
+                ],
+                [
+                  "The answer is No",
+                  4
+                ]
+              ]
+            }
+          },
+          "prediction_sha256": "e1bd7ddea230e9e1a1ca0ac5281b6858dd9a9a40946af1548c2cbaab331e5728",
+          "semantic_fields_sha256": "e5ba2fa1d43460ca910c344ceb9ff98225ceb13f118817bf2542a92efe0dee72"
+        },
+        {
+          "stage": 3,
+          "phase": "verified_complete_cell",
+          "scores": {
+            "all": {
+              "QA": 507,
+              "Answer_F1": 27.753755120619026,
+              "predictions_contain_Han": 40,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "yes",
+                  233
+                ],
+                [
+                  "no",
+                  84
+                ],
+                [
+                  "brain",
+                  30
+                ],
+                [
+                  " lungs",
+                  21
+                ],
+                [
+                  "lung",
+                  18
+                ],
+                [
+                  "chest",
+                  13
+                ]
+              ]
+            },
+            "q_lang=en": {
+              "QA": 253,
+              "Answer_F1": 50.478868957129826,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "yes",
+                  92
+                ],
+                [
+                  "no",
+                  56
+                ],
+                [
+                  "brain",
+                  17
+                ],
+                [
+                  "chest",
+                  13
+                ],
+                [
+                  "Liver",
+                  10
+                ],
+                [
+                  "lung",
+                  9
+                ]
+              ]
+            },
+            "q_lang=zh": {
+              "QA": 254,
+              "Answer_F1": 5.118110236220472,
+              "predictions_contain_Han": 40,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "yes",
+                  141
+                ],
+                [
+                  "no",
+                  28
+                ],
+                [
+                  " lungs",
+                  18
+                ],
+                [
+                  "brain",
+                  13
+                ],
+                [
+                  "\u809d\u810f",
+                  9
+                ],
+                [
+                  "lung",
+                  9
+                ]
+              ]
+            },
+            "answer_type=OPEN": {
+              "QA": 184,
+              "Answer_F1": 25.386705685618725,
+              "predictions_contain_Han": 40,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "brain",
+                  30
+                ],
+                [
+                  " lungs",
+                  21
+                ],
+                [
+                  "lung",
+                  18
+                ],
+                [
+                  "chest",
+                  13
+                ],
+                [
+                  "Liver",
+                  10
+                ],
+                [
+                  "\u809d\u810f",
+                  9
+                ]
+              ]
+            },
+            "answer_type=CLOSED": {
+              "QA": 323,
+              "Answer_F1": 29.102167182662537,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "yes",
+                  233
+                ],
+                [
+                  "no",
+                  84
+                ],
+                [
+                  "No",
+                  6
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=OPEN": {
+              "QA": 99,
+              "Answer_F1": 34.05205905205905,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "brain",
+                  17
+                ],
+                [
+                  "chest",
+                  13
+                ],
+                [
+                  "Liver",
+                  10
+                ],
+                [
+                  "lung",
+                  9
+                ],
+                [
+                  "spine",
+                  5
+                ],
+                [
+                  "The lungs",
+                  5
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=CLOSED": {
+              "QA": 154,
+              "Answer_F1": 61.03896103896104,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "yes",
+                  92
+                ],
+                [
+                  "no",
+                  56
+                ],
+                [
+                  "No",
+                  6
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=OPEN": {
+              "QA": 85,
+              "Answer_F1": 15.294117647058824,
+              "predictions_contain_Han": 40,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  " lungs",
+                  18
+                ],
+                [
+                  "brain",
+                  13
+                ],
+                [
+                  "\u809d\u810f",
+                  9
+                ],
+                [
+                  "lung",
+                  9
+                ],
+                [
+                  "\u813e\u810f",
+                  8
+                ],
+                [
+                  "\u810a\u67f1",
+                  5
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=CLOSED": {
+              "QA": 169,
+              "Answer_F1": 0.0,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "yes",
+                  141
+                ],
+                [
+                  "no",
+                  28
+                ]
+              ]
+            }
+          },
+          "prediction_sha256": "381e354c97e2c565b3638737f1837b88eb9e2add8d5dd290ada94b7917908ee6",
+          "semantic_fields_sha256": "6f059570927893496704968231751058ae66a25566cf9e4079f60823cc1e9813"
+        },
+        {
+          "stage": 4,
+          "phase": "verified_complete_cell",
+          "scores": {
+            "all": {
+              "QA": 507,
+              "Answer_F1": 37.01840894148586,
+              "predictions_contain_Han": 160,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "yes",
+                  185
+                ],
+                [
+                  "no",
+                  59
+                ],
+                [
+                  "\u662f\u7684",
+                  28
+                ],
+                [
+                  "brain",
+                  17
+                ],
+                [
+                  "Liver",
+                  16
+                ],
+                [
+                  "\u80ba",
+                  14
+                ]
+              ]
+            },
+            "q_lang=en": {
+              "QA": 253,
+              "Answer_F1": 51.61396574440053,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "yes",
+                  100
+                ],
+                [
+                  "no",
+                  52
+                ],
+                [
+                  "brain",
+                  17
+                ],
+                [
+                  "Liver",
+                  16
+                ],
+                [
+                  "chest",
+                  11
+                ],
+                [
+                  "lung",
+                  9
+                ]
+              ]
+            },
+            "q_lang=zh": {
+              "QA": 254,
+              "Answer_F1": 22.480314960629922,
+              "predictions_contain_Han": 160,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "yes",
+                  85
+                ],
+                [
+                  "\u662f\u7684",
+                  28
+                ],
+                [
+                  "\u80ba",
+                  14
+                ],
+                [
+                  "\u662f",
+                  13
+                ],
+                [
+                  "\u813e\u810f",
+                  13
+                ],
+                [
+                  "\u6ca1\u6709",
+                  13
+                ]
+              ]
+            },
+            "answer_type=OPEN": {
+              "QA": 184,
+              "Answer_F1": 35.661231884057976,
+              "predictions_contain_Han": 83,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "brain",
+                  17
+                ],
+                [
+                  "Liver",
+                  16
+                ],
+                [
+                  "\u80ba",
+                  14
+                ],
+                [
+                  "\u813e\u810f",
+                  13
+                ],
+                [
+                  "chest",
+                  11
+                ],
+                [
+                  "\u809d\u810f",
+                  11
+                ]
+              ]
+            },
+            "answer_type=CLOSED": {
+              "QA": 323,
+              "Answer_F1": 37.791537667698655,
+              "predictions_contain_Han": 77,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "yes",
+                  185
+                ],
+                [
+                  "no",
+                  59
+                ],
+                [
+                  "\u662f\u7684",
+                  28
+                ],
+                [
+                  "\u662f",
+                  13
+                ],
+                [
+                  "\u6ca1\u6709",
+                  13
+                ],
+                [
+                  "\u6ca1\u6709\u5fc3\u810f",
+                  9
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=OPEN": {
+              "QA": 99,
+              "Answer_F1": 34.93265993265993,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "brain",
+                  17
+                ],
+                [
+                  "Liver",
+                  16
+                ],
+                [
+                  "chest",
+                  11
+                ],
+                [
+                  "lung",
+                  9
+                ],
+                [
+                  "Kidney",
+                  7
+                ],
+                [
+                  "The lungs",
+                  7
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=CLOSED": {
+              "QA": 154,
+              "Answer_F1": 62.33766233766234,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "yes",
+                  100
+                ],
+                [
+                  "no",
+                  52
+                ],
+                [
+                  "No",
+                  2
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=OPEN": {
+              "QA": 85,
+              "Answer_F1": 36.50980392156863,
+              "predictions_contain_Han": 83,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u80ba",
+                  14
+                ],
+                [
+                  "\u813e\u810f",
+                  13
+                ],
+                [
+                  "\u809d\u810f",
+                  11
+                ],
+                [
+                  "\u662f\u80ba\u90e8",
+                  8
+                ],
+                [
+                  "\u5927\u8111",
+                  6
+                ],
+                [
+                  "\u6c14\u7ba1",
+                  5
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=CLOSED": {
+              "QA": 169,
+              "Answer_F1": 15.424063116370808,
+              "predictions_contain_Han": 77,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "yes",
+                  85
+                ],
+                [
+                  "\u662f\u7684",
+                  28
+                ],
+                [
+                  "\u662f",
+                  13
+                ],
+                [
+                  "\u6ca1\u6709",
+                  13
+                ],
+                [
+                  "\u6ca1\u6709\u5fc3\u810f",
+                  9
+                ],
+                [
+                  "no",
+                  7
+                ]
+              ]
+            }
+          },
+          "prediction_sha256": "e58f6be928e3d26b96ad86fbbff8466b4da8569900b686ca1b199ab2f2c9f1fc",
+          "semantic_fields_sha256": "863ac37c3fd4efffca7aea301da630248bdd0ec2ccb1ed333d40b1efeb0d48ef"
+        },
+        {
+          "stage": 19,
+          "phase": "verified_complete_cell",
+          "scores": {
+            "all": {
+              "QA": 507,
+              "Answer_F1": 35.857988165680474,
+              "predictions_contain_Han": 232,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "No",
+                  126
+                ],
+                [
+                  "\u662f\u7684",
+                  106
+                ],
+                [
+                  "\u6ca1\u6709",
+                  53
+                ],
+                [
+                  "Yes",
+                  31
+                ],
+                [
+                  "Liver",
+                  23
+                ],
+                [
+                  "Lungs",
+                  19
+                ]
+              ]
+            },
+            "q_lang=en": {
+              "QA": 253,
+              "Answer_F1": 46.047430830039524,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "No",
+                  123
+                ],
+                [
+                  "Yes",
+                  31
+                ],
+                [
+                  "Liver",
+                  23
+                ],
+                [
+                  "Lungs",
+                  19
+                ],
+                [
+                  "Brain",
+                  19
+                ],
+                [
+                  "Heart",
+                  14
+                ]
+              ]
+            },
+            "q_lang=zh": {
+              "QA": 254,
+              "Answer_F1": 25.708661417322833,
+              "predictions_contain_Han": 232,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u662f\u7684",
+                  106
+                ],
+                [
+                  "\u6ca1\u6709",
+                  53
+                ],
+                [
+                  " lungs",
+                  19
+                ],
+                [
+                  "\u809d\u810f",
+                  18
+                ],
+                [
+                  "\u80ba",
+                  14
+                ],
+                [
+                  "\u5927\u8111",
+                  7
+                ]
+              ]
+            },
+            "answer_type=OPEN": {
+              "QA": 184,
+              "Answer_F1": 23.532608695652176,
+              "predictions_contain_Han": 66,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "Liver",
+                  23
+                ],
+                [
+                  "Lungs",
+                  19
+                ],
+                [
+                  "Brain",
+                  19
+                ],
+                [
+                  " lungs",
+                  19
+                ],
+                [
+                  "\u809d\u810f",
+                  18
+                ],
+                [
+                  "Heart",
+                  14
+                ]
+              ]
+            },
+            "answer_type=CLOSED": {
+              "QA": 323,
+              "Answer_F1": 42.87925696594427,
+              "predictions_contain_Han": 166,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "No",
+                  126
+                ],
+                [
+                  "\u662f\u7684",
+                  106
+                ],
+                [
+                  "\u6ca1\u6709",
+                  53
+                ],
+                [
+                  "Yes",
+                  31
+                ],
+                [
+                  "\u662f",
+                  4
+                ],
+                [
+                  "\u4e0d\u662f",
+                  3
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=OPEN": {
+              "QA": 99,
+              "Answer_F1": 15.656565656565656,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "Liver",
+                  23
+                ],
+                [
+                  "Lungs",
+                  19
+                ],
+                [
+                  "Brain",
+                  19
+                ],
+                [
+                  "Heart",
+                  14
+                ],
+                [
+                  "Spine",
+                  6
+                ],
+                [
+                  "Kidney",
+                  6
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=CLOSED": {
+              "QA": 154,
+              "Answer_F1": 65.58441558441558,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "No",
+                  123
+                ],
+                [
+                  "Yes",
+                  31
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=OPEN": {
+              "QA": 85,
+              "Answer_F1": 32.705882352941174,
+              "predictions_contain_Han": 66,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  " lungs",
+                  19
+                ],
+                [
+                  "\u809d\u810f",
+                  18
+                ],
+                [
+                  "\u80ba",
+                  14
+                ],
+                [
+                  "\u5927\u8111",
+                  7
+                ],
+                [
+                  "\u810a\u67f1",
+                  6
+                ],
+                [
+                  "\u813e",
+                  5
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=CLOSED": {
+              "QA": 169,
+              "Answer_F1": 22.189349112426036,
+              "predictions_contain_Han": 166,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u662f\u7684",
+                  106
+                ],
+                [
+                  "\u6ca1\u6709",
+                  53
+                ],
+                [
+                  "\u662f",
+                  4
+                ],
+                [
+                  "No",
+                  3
+                ],
+                [
+                  "\u4e0d\u662f",
+                  3
+                ]
+              ]
+            }
+          },
+          "prediction_sha256": "d661b96d89a87b4eb47ad6dc8ad0bb68154efae2baeca44e8e876de19a7e483b",
+          "semantic_fields_sha256": "ce411564fbcbac0515fdcce6191db2a7213c7e1274368cb05dfb2c4c150244ab"
+        }
+      ],
+      "transitions": [
+        {
+          "before": 0,
+          "after": 3,
+          "label": "prior_tasks",
+          "groups": {
+            "all": {
+              "delta_F1": {
+                "mean": 18.128038956441316,
+                "image_cluster_95CI": [
+                  14.220994361443804,
+                  22.10904198928151
+                ],
+                "QA": 507,
+                "image_clusters": 158
+              },
+              "increased": 146,
+              "decreased": 33,
+              "unchanged": 328
+            },
+            "q_lang=en": {
+              "delta_F1": {
+                "mean": 34.23945619597793,
+                "image_cluster_95CI": [
+                  28.206309819213043,
+                  40.758582502768554
+                ],
+                "QA": 253,
+                "image_clusters": 84
+              },
+              "increased": 130,
+              "decreased": 20,
+              "unchanged": 103
+            },
+            "q_lang=zh": {
+              "delta_F1": {
+                "mean": 2.0800524934383198,
+                "image_cluster_95CI": [
+                  0.12698412698412714,
+                  4.257820282924886
+                ],
+                "QA": 254,
+                "image_clusters": 84
+              },
+              "increased": 16,
+              "decreased": 13,
+              "unchanged": 225
+            },
+            "answer_type=OPEN": {
+              "delta_F1": {
+                "mean": 17.341933428889934,
+                "image_cluster_95CI": [
+                  11.75760655529442,
+                  22.969334854580755
+                ],
+                "QA": 184,
+                "image_clusters": 114
+              },
+              "increased": 52,
+              "decreased": 18,
+              "unchanged": 114
+            },
+            "answer_type=CLOSED": {
+              "delta_F1": {
+                "mean": 18.575851393188856,
+                "image_cluster_95CI": [
+                  13.768115942028986,
+                  23.60655737704918
+                ],
+                "QA": 323,
+                "image_clusters": 125
+              },
+              "increased": 94,
+              "decreased": 15,
+              "unchanged": 214
+            }
+          }
+        },
+        {
+          "before": 3,
+          "after": 4,
+          "label": "current_Organ_acquisition",
+          "groups": {
+            "all": {
+              "delta_F1": {
+                "mean": 9.264653820866837,
+                "image_cluster_95CI": [
+                  6.42864241701451,
+                  12.42315493836792
+                ],
+                "QA": 507,
+                "image_clusters": 158
+              },
+              "increased": 65,
+              "decreased": 10,
+              "unchanged": 432
+            },
+            "q_lang=en": {
+              "delta_F1": {
+                "mean": 1.1350967872707003,
+                "image_cluster_95CI": [
+                  -2.1050274325383493,
+                  3.9039907460960097
+                ],
+                "QA": 253,
+                "image_clusters": 84
+              },
+              "increased": 10,
+              "decreased": 6,
+              "unchanged": 237
+            },
+            "q_lang=zh": {
+              "delta_F1": {
+                "mean": 17.362204724409448,
+                "image_cluster_95CI": [
+                  12.253521126760564,
+                  23.19838056680162
+                ],
+                "QA": 254,
+                "image_clusters": 84
+              },
+              "increased": 55,
+              "decreased": 4,
+              "unchanged": 195
+            },
+            "answer_type=OPEN": {
+              "delta_F1": {
+                "mean": 10.274526198439242,
+                "image_cluster_95CI": [
+                  5.32469342251951,
+                  15.468706920319825
+                ],
+                "QA": 184,
+                "image_clusters": 114
+              },
+              "increased": 25,
+              "decreased": 6,
+              "unchanged": 153
+            },
+            "answer_type=CLOSED": {
+              "delta_F1": {
+                "mean": 8.689370485036118,
+                "image_cluster_95CI": [
+                  5.2053486150907355,
+                  12.51054852320675
+                ],
+                "QA": 323,
+                "image_clusters": 125
+              },
+              "increased": 40,
+              "decreased": 4,
+              "unchanged": 279
+            }
+          }
+        },
+        {
+          "before": 4,
+          "after": 19,
+          "label": "post_acquisition_retention",
+          "groups": {
+            "all": {
+              "delta_F1": {
+                "mean": -1.1604207758053902,
+                "image_cluster_95CI": [
+                  -5.281888653981679,
+                  2.8047989623865113
+                ],
+                "QA": 507,
+                "image_clusters": 158
+              },
+              "increased": 62,
+              "decreased": 64,
+              "unchanged": 381
+            },
+            "q_lang=en": {
+              "delta_F1": {
+                "mean": -5.566534914361001,
+                "image_cluster_95CI": [
+                  -13.443072702331962,
+                  1.6809728183118744
+                ],
+                "QA": 253,
+                "image_clusters": 84
+              },
+              "increased": 37,
+              "decreased": 53,
+              "unchanged": 163
+            },
+            "q_lang=zh": {
+              "delta_F1": {
+                "mean": 3.2283464566929134,
+                "image_cluster_95CI": [
+                  -0.17156862745098037,
+                  6.748299319727891
+                ],
+                "QA": 254,
+                "image_clusters": 84
+              },
+              "increased": 25,
+              "decreased": 11,
+              "unchanged": 218
+            },
+            "answer_type=OPEN": {
+              "delta_F1": {
+                "mean": -12.128623188405793,
+                "image_cluster_95CI": [
+                  -18.26510721247563,
+                  -6.835205992509362
+                ],
+                "QA": 184,
+                "image_clusters": 114
+              },
+              "increased": 9,
+              "decreased": 32,
+              "unchanged": 143
+            },
+            "answer_type=CLOSED": {
+              "delta_F1": {
+                "mean": 5.087719298245614,
+                "image_cluster_95CI": [
+                  -0.19960079840319417,
+                  10.455026455026456
+                ],
+                "QA": 323,
+                "image_clusters": 125
+              },
+              "increased": 53,
+              "decreased": 32,
+              "unchanged": 238
+            }
+          }
+        },
+        {
+          "before": 0,
+          "after": 19,
+          "label": "total_change",
+          "groups": {
+            "all": {
+              "delta_F1": {
+                "mean": 26.232272001502757,
+                "image_cluster_95CI": [
+                  22.111661620332136,
+                  30.538437597261126
+                ],
+                "QA": 507,
+                "image_clusters": 158
+              },
+              "increased": 194,
+              "decreased": 48,
+              "unchanged": 265
+            },
+            "q_lang=en": {
+              "delta_F1": {
+                "mean": 29.808018068887634,
+                "image_cluster_95CI": [
+                  23.49344978165939,
+                  35.692640692640694
+                ],
+                "QA": 253,
+                "image_clusters": 84
+              },
+              "increased": 117,
+              "decreased": 44,
+              "unchanged": 92
+            },
+            "q_lang=zh": {
+              "delta_F1": {
+                "mean": 22.67060367454069,
+                "image_cluster_95CI": [
+                  16.857499554128772,
+                  29.09297052154195
+                ],
+                "QA": 254,
+                "image_clusters": 84
+              },
+              "increased": 77,
+              "decreased": 4,
+              "unchanged": 173
+            },
+            "answer_type=OPEN": {
+              "delta_F1": {
+                "mean": 15.487836438923395,
+                "image_cluster_95CI": [
+                  11.207658321060386,
+                  20.308843537414962
+                ],
+                "QA": 184,
+                "image_clusters": 114
+              },
+              "increased": 47,
+              "decreased": 6,
+              "unchanged": 131
+            },
+            "answer_type=CLOSED": {
+              "delta_F1": {
+                "mean": 32.35294117647059,
+                "image_cluster_95CI": [
+                  25.923497267759565,
+                  39.77553310886643
+                ],
+                "QA": 323,
+                "image_clusters": 125
+              },
+              "increased": 147,
+              "decreased": 42,
+              "unchanged": 134
+            }
+          }
+        }
+      ]
+    },
+    {
+      "run": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/CL_MoE/training_20261017_161424",
+      "method": "CL_MoE",
+      "backbone": "onevision",
+      "model_dtype": "torch.float16",
+      "image_area_cap": 401408,
+      "runtime_snapshot": {
+        "status": "evaluation",
+        "completed_stage": 13,
+        "active_stage": 14
+      },
+      "config_primary_score_legacy_field": "rougeL",
+      "reported_metric": "locked raw Answer F1",
+      "stage4_training_events": [
+        {
+          "stage": 4,
+          "step": 1,
+          "qa_seen": 16,
+          "total_qa": 26,
+          "loss": 1.6123395394533873,
+          "gradient_l2_preclip": 5.777759552001953,
+          "learning_rate_used": [
+            0.0002
+          ],
+          "warmup_updates": 0
+        },
+        {
+          "stage": 4,
+          "step": 2,
+          "qa_seen": 26,
+          "total_qa": 26,
+          "loss": 0.69767035394907,
+          "gradient_l2_preclip": 1.7360255718231201,
+          "learning_rate_used": [
+            0.0001
+          ],
+          "warmup_updates": 0
+        }
+      ],
+      "cells": [
+        {
+          "stage": 0,
+          "phase": "verified_complete_cell",
+          "scores": {
+            "all": {
+              "QA": 507,
+              "Answer_F1": 9.625716164177703,
+              "predictions_contain_Han": 46,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 489,
+              "raw_top6_predictions": [
+                [
+                  "The answer is yes",
+                  160
+                ],
+                [
+                  "The answer is Yes",
+                  102
+                ],
+                [
+                  "The answer is lungs",
+                  67
+                ],
+                [
+                  "The answer is liver",
+                  27
+                ],
+                [
+                  "The answer is no",
+                  26
+                ],
+                [
+                  "The answer is brain",
+                  15
+                ]
+              ]
+            },
+            "q_lang=en": {
+              "QA": 253,
+              "Answer_F1": 16.23941276115189,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 253,
+              "raw_top6_predictions": [
+                [
+                  "The answer is yes",
+                  120
+                ],
+                [
+                  "The answer is lungs",
+                  37
+                ],
+                [
+                  "The answer is liver",
+                  27
+                ],
+                [
+                  "The answer is no",
+                  20
+                ],
+                [
+                  "The answer is Yes",
+                  11
+                ],
+                [
+                  "The answer is brain",
+                  10
+                ]
+              ]
+            },
+            "q_lang=zh": {
+              "QA": 254,
+              "Answer_F1": 3.038057742782152,
+              "predictions_contain_Han": 46,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 236,
+              "raw_top6_predictions": [
+                [
+                  "The answer is Yes",
+                  91
+                ],
+                [
+                  "The answer is yes",
+                  40
+                ],
+                [
+                  "The answer is lungs",
+                  30
+                ],
+                [
+                  "The answer is \u809d\u810f",
+                  12
+                ],
+                [
+                  "assistant\nno",
+                  11
+                ],
+                [
+                  "The answer is \u80be",
+                  9
+                ]
+              ]
+            },
+            "answer_type=OPEN": {
+              "QA": 184,
+              "Answer_F1": 8.044772256728779,
+              "predictions_contain_Han": 42,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 184,
+              "raw_top6_predictions": [
+                [
+                  "The answer is lungs",
+                  67
+                ],
+                [
+                  "The answer is liver",
+                  27
+                ],
+                [
+                  "The answer is brain",
+                  15
+                ],
+                [
+                  "The answer is \u809d\u810f",
+                  12
+                ],
+                [
+                  "The answer is Brain",
+                  10
+                ],
+                [
+                  "The answer is \u80be",
+                  9
+                ]
+              ]
+            },
+            "answer_type=CLOSED": {
+              "QA": 323,
+              "Answer_F1": 10.526315789473685,
+              "predictions_contain_Han": 4,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 305,
+              "raw_top6_predictions": [
+                [
+                  "The answer is yes",
+                  160
+                ],
+                [
+                  "The answer is Yes",
+                  102
+                ],
+                [
+                  "The answer is no",
+                  26
+                ],
+                [
+                  "assistant\nno",
+                  11
+                ],
+                [
+                  "The answer is No",
+                  7
+                ],
+                [
+                  "Answer: Yes",
+                  4
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=OPEN": {
+              "QA": 99,
+              "Answer_F1": 7.157287157287157,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 99,
+              "raw_top6_predictions": [
+                [
+                  "The answer is lungs",
+                  37
+                ],
+                [
+                  "The answer is liver",
+                  27
+                ],
+                [
+                  "The answer is brain",
+                  10
+                ],
+                [
+                  "The answer is Brain",
+                  8
+                ],
+                [
+                  "The answer is abdomen",
+                  5
+                ],
+                [
+                  "The answer is spine",
+                  4
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=CLOSED": {
+              "QA": 154,
+              "Answer_F1": 22.07792207792208,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 154,
+              "raw_top6_predictions": [
+                [
+                  "The answer is yes",
+                  120
+                ],
+                [
+                  "The answer is no",
+                  20
+                ],
+                [
+                  "The answer is Yes",
+                  11
+                ],
+                [
+                  "The answer is No",
+                  3
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=OPEN": {
+              "QA": 85,
+              "Answer_F1": 9.07843137254902,
+              "predictions_contain_Han": 42,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 85,
+              "raw_top6_predictions": [
+                [
+                  "The answer is lungs",
+                  30
+                ],
+                [
+                  "The answer is \u809d\u810f",
+                  12
+                ],
+                [
+                  "The answer is \u80be",
+                  9
+                ],
+                [
+                  "The answer is \u80a0",
+                  7
+                ],
+                [
+                  "The answer is \u80ba",
+                  7
+                ],
+                [
+                  "The answer is \u8111",
+                  5
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=CLOSED": {
+              "QA": 169,
+              "Answer_F1": 0.0,
+              "predictions_contain_Han": 4,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 151,
+              "raw_top6_predictions": [
+                [
+                  "The answer is Yes",
+                  91
+                ],
+                [
+                  "The answer is yes",
+                  40
+                ],
+                [
+                  "assistant\nno",
+                  11
+                ],
+                [
+                  "The answer is no",
+                  6
+                ],
+                [
+                  "Answer: Yes",
+                  4
+                ],
+                [
+                  "The answer is No",
+                  4
+                ]
+              ]
+            }
+          },
+          "prediction_sha256": "5e02c5c67fa8cd56b0539a33658f62f923ec4fabb9f1c7e1413b1d56c74316a2",
+          "semantic_fields_sha256": "e5ba2fa1d43460ca910c344ceb9ff98225ceb13f118817bf2542a92efe0dee72"
+        },
+        {
+          "stage": 3,
+          "phase": "verified_complete_cell",
+          "scores": {
+            "all": {
+              "QA": 507,
+              "Answer_F1": 36.24917817225509,
+              "predictions_contain_Han": 178,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "yes",
+                  169
+                ],
+                [
+                  "\u662f\u7684",
+                  78
+                ],
+                [
+                  "no",
+                  54
+                ],
+                [
+                  "\u80ba",
+                  21
+                ],
+                [
+                  "Liver",
+                  18
+                ],
+                [
+                  "\u809d\u810f",
+                  15
+                ]
+              ]
+            },
+            "q_lang=en": {
+              "QA": 253,
+              "Answer_F1": 49.50592885375494,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "yes",
+                  101
+                ],
+                [
+                  "no",
+                  49
+                ],
+                [
+                  "Liver",
+                  18
+                ],
+                [
+                  "brain",
+                  14
+                ],
+                [
+                  "lung",
+                  9
+                ],
+                [
+                  "chest",
+                  9
+                ]
+              ]
+            },
+            "q_lang=zh": {
+              "QA": 254,
+              "Answer_F1": 23.04461942257218,
+              "predictions_contain_Han": 178,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u662f\u7684",
+                  78
+                ],
+                [
+                  "yes",
+                  68
+                ],
+                [
+                  "\u80ba",
+                  21
+                ],
+                [
+                  "\u809d\u810f",
+                  15
+                ],
+                [
+                  "\u6ca1\u6709",
+                  10
+                ],
+                [
+                  "\u810a\u67f1",
+                  7
+                ]
+              ]
+            },
+            "answer_type=OPEN": {
+              "QA": 184,
+              "Answer_F1": 34.483695652173914,
+              "predictions_contain_Han": 82,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u80ba",
+                  21
+                ],
+                [
+                  "Liver",
+                  18
+                ],
+                [
+                  "\u809d\u810f",
+                  15
+                ],
+                [
+                  "brain",
+                  14
+                ],
+                [
+                  "lung",
+                  9
+                ],
+                [
+                  "chest",
+                  9
+                ]
+              ]
+            },
+            "answer_type=CLOSED": {
+              "QA": 323,
+              "Answer_F1": 37.254901960784316,
+              "predictions_contain_Han": 96,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "yes",
+                  169
+                ],
+                [
+                  "\u662f\u7684",
+                  78
+                ],
+                [
+                  "no",
+                  54
+                ],
+                [
+                  "\u6ca1\u6709",
+                  10
+                ],
+                [
+                  "No",
+                  4
+                ],
+                [
+                  "\u662f",
+                  3
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=OPEN": {
+              "QA": 99,
+              "Answer_F1": 32.57575757575758,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "Liver",
+                  18
+                ],
+                [
+                  "brain",
+                  14
+                ],
+                [
+                  "lung",
+                  9
+                ],
+                [
+                  "chest",
+                  9
+                ],
+                [
+                  "Kidney",
+                  8
+                ],
+                [
+                  "Brain",
+                  5
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=CLOSED": {
+              "QA": 154,
+              "Answer_F1": 60.38961038961039,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "yes",
+                  101
+                ],
+                [
+                  "no",
+                  49
+                ],
+                [
+                  "No",
+                  4
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=OPEN": {
+              "QA": 85,
+              "Answer_F1": 36.705882352941174,
+              "predictions_contain_Han": 82,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u80ba",
+                  21
+                ],
+                [
+                  "\u809d\u810f",
+                  15
+                ],
+                [
+                  "\u810a\u67f1",
+                  7
+                ],
+                [
+                  "\u662f\u80ba",
+                  7
+                ],
+                [
+                  "\u813e",
+                  6
+                ],
+                [
+                  "\u5927\u8111",
+                  4
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=CLOSED": {
+              "QA": 169,
+              "Answer_F1": 16.17357001972387,
+              "predictions_contain_Han": 96,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u662f\u7684",
+                  78
+                ],
+                [
+                  "yes",
+                  68
+                ],
+                [
+                  "\u6ca1\u6709",
+                  10
+                ],
+                [
+                  "no",
+                  5
+                ],
+                [
+                  "\u662f",
+                  3
+                ],
+                [
+                  "\u6ca1\u6709\u5fc3\u810f",
+                  1
+                ]
+              ]
+            }
+          },
+          "prediction_sha256": "d60ec9ffae278cb15cd7846578b04cf8186b8992fc0d76d54170248c7b8e48f2",
+          "semantic_fields_sha256": "9745b8d7a508d6206ff89faa8e6113d197cc6b6d8cd2c0e881d5c36d92d13c4b"
+        },
+        {
+          "stage": 4,
+          "phase": "verified_complete_cell",
+          "scores": {
+            "all": {
+              "QA": 507,
+              "Answer_F1": 38.59631821170282,
+              "predictions_contain_Han": 254,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "No",
+                  98
+                ],
+                [
+                  "\u662f\u7684",
+                  84
+                ],
+                [
+                  "\u6ca1\u6709",
+                  48
+                ],
+                [
+                  "yes",
+                  33
+                ],
+                [
+                  "\u80ba",
+                  24
+                ],
+                [
+                  "Yes",
+                  22
+                ]
+              ]
+            },
+            "q_lang=en": {
+              "QA": 253,
+              "Answer_F1": 49.17654808959156,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "No",
+                  98
+                ],
+                [
+                  "yes",
+                  33
+                ],
+                [
+                  "Yes",
+                  22
+                ],
+                [
+                  "Liver",
+                  19
+                ],
+                [
+                  "Brain",
+                  13
+                ],
+                [
+                  "Lungs",
+                  11
+                ]
+              ]
+            },
+            "q_lang=zh": {
+              "QA": 254,
+              "Answer_F1": 28.057742782152232,
+              "predictions_contain_Han": 254,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u662f\u7684",
+                  84
+                ],
+                [
+                  "\u6ca1\u6709",
+                  48
+                ],
+                [
+                  "\u80ba",
+                  24
+                ],
+                [
+                  "\u662f",
+                  16
+                ],
+                [
+                  "\u809d\u810f",
+                  16
+                ],
+                [
+                  "\u6ca1\u6709\u5fc3\u810f",
+                  14
+                ]
+              ]
+            },
+            "answer_type=OPEN": {
+              "QA": 184,
+              "Answer_F1": 28.777173913043477,
+              "predictions_contain_Han": 85,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u80ba",
+                  24
+                ],
+                [
+                  "Liver",
+                  19
+                ],
+                [
+                  "\u809d\u810f",
+                  16
+                ],
+                [
+                  "Brain",
+                  13
+                ],
+                [
+                  "Lungs",
+                  11
+                ],
+                [
+                  "\u5927\u8111",
+                  9
+                ]
+              ]
+            },
+            "answer_type=CLOSED": {
+              "QA": 323,
+              "Answer_F1": 44.18988648090816,
+              "predictions_contain_Han": 169,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "No",
+                  98
+                ],
+                [
+                  "\u662f\u7684",
+                  84
+                ],
+                [
+                  "\u6ca1\u6709",
+                  48
+                ],
+                [
+                  "yes",
+                  33
+                ],
+                [
+                  "Yes",
+                  22
+                ],
+                [
+                  "\u662f",
+                  16
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=OPEN": {
+              "QA": 99,
+              "Answer_F1": 21.632996632996633,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "Liver",
+                  19
+                ],
+                [
+                  "Brain",
+                  13
+                ],
+                [
+                  "Lungs",
+                  11
+                ],
+                [
+                  "Kidney",
+                  8
+                ],
+                [
+                  "brain",
+                  6
+                ],
+                [
+                  "Heart",
+                  5
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=CLOSED": {
+              "QA": 154,
+              "Answer_F1": 66.88311688311688,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "No",
+                  98
+                ],
+                [
+                  "yes",
+                  33
+                ],
+                [
+                  "Yes",
+                  22
+                ],
+                [
+                  "no",
+                  1
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=OPEN": {
+              "QA": 85,
+              "Answer_F1": 37.09803921568628,
+              "predictions_contain_Han": 85,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u80ba",
+                  24
+                ],
+                [
+                  "\u809d\u810f",
+                  16
+                ],
+                [
+                  "\u5927\u8111",
+                  9
+                ],
+                [
+                  "\u810a\u67f1",
+                  7
+                ],
+                [
+                  "\u662f\u80ba",
+                  7
+                ],
+                [
+                  "\u813e",
+                  6
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=CLOSED": {
+              "QA": 169,
+              "Answer_F1": 23.51084812623274,
+              "predictions_contain_Han": 169,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u662f\u7684",
+                  84
+                ],
+                [
+                  "\u6ca1\u6709",
+                  48
+                ],
+                [
+                  "\u662f",
+                  16
+                ],
+                [
+                  "\u6ca1\u6709\u5fc3\u810f",
+                  14
+                ],
+                [
+                  "\u4e0d\u662f",
+                  5
+                ],
+                [
+                  "\u810a\u9ad3\u5728\u56fe\u50cf\u4e2d\u662f\u53ef\u89c1\u7684\u3002",
+                  1
+                ]
+              ]
+            }
+          },
+          "prediction_sha256": "6cfef1aecc24808ce01eba1a5f0670a9fde3cdfd76ca5a6f0beec68a1b9227d0",
+          "semantic_fields_sha256": "eaa6d8d4d0050799f39931604511ad2566143b7dfed0cb5480fbcf027edcf535"
+        },
+        {
+          "stage": 19,
+          "phase": "pending",
+          "scores": null
+        }
+      ],
+      "transitions": [
+        {
+          "before": 0,
+          "after": 3,
+          "label": "prior_tasks",
+          "groups": {
+            "all": {
+              "delta_F1": {
+                "mean": 26.623462008077393,
+                "image_cluster_95CI": [
+                  22.895604395604394,
+                  30.668865939950276
+                ],
+                "QA": 507,
+                "image_clusters": 158
+              },
+              "increased": 199,
+              "decreased": 19,
+              "unchanged": 289
+            },
+            "q_lang=en": {
+              "delta_F1": {
+                "mean": 33.266516092603055,
+                "image_cluster_95CI": [
+                  28.216253443526174,
+                  38.41025641025641
+                ],
+                "QA": 253,
+                "image_clusters": 84
+              },
+              "increased": 128,
+              "decreased": 13,
+              "unchanged": 112
+            },
+            "q_lang=zh": {
+              "delta_F1": {
+                "mean": 20.006561679790025,
+                "image_cluster_95CI": [
+                  14.715380405035575,
+                  26.15337043908472
+                ],
+                "QA": 254,
+                "image_clusters": 84
+              },
+              "increased": 71,
+              "decreased": 6,
+              "unchanged": 177
+            },
+            "answer_type=OPEN": {
+              "delta_F1": {
+                "mean": 26.43892339544513,
+                "image_cluster_95CI": [
+                  20.96138996138996,
+                  32.73417059131345
+                ],
+                "QA": 184,
+                "image_clusters": 114
+              },
+              "increased": 71,
+              "decreased": 8,
+              "unchanged": 105
+            },
+            "answer_type=CLOSED": {
+              "delta_F1": {
+                "mean": 26.72858617131063,
+                "image_cluster_95CI": [
+                  22.012779552715656,
+                  31.848390446521282
+                ],
+                "QA": 323,
+                "image_clusters": 125
+              },
+              "increased": 128,
+              "decreased": 11,
+              "unchanged": 184
+            }
+          }
+        },
+        {
+          "before": 3,
+          "after": 4,
+          "label": "current_Organ_acquisition",
+          "groups": {
+            "all": {
+              "delta_F1": {
+                "mean": 2.3471400394477313,
+                "image_cluster_95CI": [
+                  -0.7047216349541934,
+                  5.499021526418786
+                ],
+                "QA": 507,
+                "image_clusters": 158
+              },
+              "increased": 48,
+              "decreased": 34,
+              "unchanged": 425
+            },
+            "q_lang=en": {
+              "delta_F1": {
+                "mean": -0.3293807641633726,
+                "image_cluster_95CI": [
+                  -6.530612244897959,
+                  5.208333333333334
+                ],
+                "QA": 253,
+                "image_clusters": 84
+              },
+              "increased": 28,
+              "decreased": 30,
+              "unchanged": 195
+            },
+            "q_lang=zh": {
+              "delta_F1": {
+                "mean": 5.013123359580052,
+                "image_cluster_95CI": [
+                  2.150537634408603,
+                  8.357843137254902
+                ],
+                "QA": 254,
+                "image_clusters": 84
+              },
+              "increased": 20,
+              "decreased": 4,
+              "unchanged": 230
+            },
+            "answer_type=OPEN": {
+              "delta_F1": {
+                "mean": -5.706521739130436,
+                "image_cluster_95CI": [
+                  -9.249084249084248,
+                  -2.2768670309653913
+                ],
+                "QA": 184,
+                "image_clusters": 114
+              },
+              "increased": 4,
+              "decreased": 15,
+              "unchanged": 165
+            },
+            "answer_type=CLOSED": {
+              "delta_F1": {
+                "mean": 6.934984520123839,
+                "image_cluster_95CI": [
+                  2.9166666666666665,
+                  11.363636363636365
+                ],
+                "QA": 323,
+                "image_clusters": 125
+              },
+              "increased": 44,
+              "decreased": 19,
+              "unchanged": 260
+            }
+          }
+        }
+      ]
+    },
+    {
+      "run": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PASs_MoE/training_20261017_161725",
+      "method": "PASs_MoE",
+      "backbone": "onevision",
+      "model_dtype": "torch.float16",
+      "image_area_cap": 401408,
+      "runtime_snapshot": {
+        "status": "training",
+        "completed_stage": 15,
+        "active_stage": 16
+      },
+      "config_primary_score_legacy_field": "rougeL",
+      "reported_metric": "locked raw Answer F1",
+      "stage4_training_events": [
+        {
+          "stage": 4,
+          "step": 1,
+          "qa_seen": 16,
+          "total_qa": 26,
+          "loss": 1.829204961657524,
+          "gradient_l2_preclip": 16.860076904296875,
+          "learning_rate_used": [
+            0.0001
+          ],
+          "warmup_updates": 0
+        },
+        {
+          "stage": 4,
+          "step": 2,
+          "qa_seen": 26,
+          "total_qa": 26,
+          "loss": 0.6618002712726593,
+          "gradient_l2_preclip": 5.641138076782227,
+          "learning_rate_used": [
+            5e-05
+          ],
+          "warmup_updates": 0
+        }
+      ],
+      "cells": [
+        {
+          "stage": 0,
+          "phase": "verified_complete_cell",
+          "scores": {
+            "all": {
+              "QA": 507,
+              "Answer_F1": 9.625716164177703,
+              "predictions_contain_Han": 46,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 489,
+              "raw_top6_predictions": [
+                [
+                  "The answer is yes",
+                  160
+                ],
+                [
+                  "The answer is Yes",
+                  102
+                ],
+                [
+                  "The answer is lungs",
+                  67
+                ],
+                [
+                  "The answer is liver",
+                  27
+                ],
+                [
+                  "The answer is no",
+                  26
+                ],
+                [
+                  "The answer is brain",
+                  15
+                ]
+              ]
+            },
+            "q_lang=en": {
+              "QA": 253,
+              "Answer_F1": 16.23941276115189,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 253,
+              "raw_top6_predictions": [
+                [
+                  "The answer is yes",
+                  120
+                ],
+                [
+                  "The answer is lungs",
+                  37
+                ],
+                [
+                  "The answer is liver",
+                  27
+                ],
+                [
+                  "The answer is no",
+                  20
+                ],
+                [
+                  "The answer is Yes",
+                  11
+                ],
+                [
+                  "The answer is brain",
+                  10
+                ]
+              ]
+            },
+            "q_lang=zh": {
+              "QA": 254,
+              "Answer_F1": 3.038057742782152,
+              "predictions_contain_Han": 46,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 236,
+              "raw_top6_predictions": [
+                [
+                  "The answer is Yes",
+                  91
+                ],
+                [
+                  "The answer is yes",
+                  40
+                ],
+                [
+                  "The answer is lungs",
+                  30
+                ],
+                [
+                  "The answer is \u809d\u810f",
+                  12
+                ],
+                [
+                  "assistant\nno",
+                  11
+                ],
+                [
+                  "The answer is \u80be",
+                  9
+                ]
+              ]
+            },
+            "answer_type=OPEN": {
+              "QA": 184,
+              "Answer_F1": 8.044772256728779,
+              "predictions_contain_Han": 42,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 184,
+              "raw_top6_predictions": [
+                [
+                  "The answer is lungs",
+                  67
+                ],
+                [
+                  "The answer is liver",
+                  27
+                ],
+                [
+                  "The answer is brain",
+                  15
+                ],
+                [
+                  "The answer is \u809d\u810f",
+                  12
+                ],
+                [
+                  "The answer is Brain",
+                  10
+                ],
+                [
+                  "The answer is \u80be",
+                  9
+                ]
+              ]
+            },
+            "answer_type=CLOSED": {
+              "QA": 323,
+              "Answer_F1": 10.526315789473685,
+              "predictions_contain_Han": 4,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 305,
+              "raw_top6_predictions": [
+                [
+                  "The answer is yes",
+                  160
+                ],
+                [
+                  "The answer is Yes",
+                  102
+                ],
+                [
+                  "The answer is no",
+                  26
+                ],
+                [
+                  "assistant\nno",
+                  11
+                ],
+                [
+                  "The answer is No",
+                  7
+                ],
+                [
+                  "Answer: Yes",
+                  4
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=OPEN": {
+              "QA": 99,
+              "Answer_F1": 7.157287157287157,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 99,
+              "raw_top6_predictions": [
+                [
+                  "The answer is lungs",
+                  37
+                ],
+                [
+                  "The answer is liver",
+                  27
+                ],
+                [
+                  "The answer is brain",
+                  10
+                ],
+                [
+                  "The answer is Brain",
+                  8
+                ],
+                [
+                  "The answer is abdomen",
+                  5
+                ],
+                [
+                  "The answer is spine",
+                  4
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=CLOSED": {
+              "QA": 154,
+              "Answer_F1": 22.07792207792208,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 154,
+              "raw_top6_predictions": [
+                [
+                  "The answer is yes",
+                  120
+                ],
+                [
+                  "The answer is no",
+                  20
+                ],
+                [
+                  "The answer is Yes",
+                  11
+                ],
+                [
+                  "The answer is No",
+                  3
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=OPEN": {
+              "QA": 85,
+              "Answer_F1": 9.07843137254902,
+              "predictions_contain_Han": 42,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 85,
+              "raw_top6_predictions": [
+                [
+                  "The answer is lungs",
+                  30
+                ],
+                [
+                  "The answer is \u809d\u810f",
+                  12
+                ],
+                [
+                  "The answer is \u80be",
+                  9
+                ],
+                [
+                  "The answer is \u80a0",
+                  7
+                ],
+                [
+                  "The answer is \u80ba",
+                  7
+                ],
+                [
+                  "The answer is \u8111",
+                  5
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=CLOSED": {
+              "QA": 169,
+              "Answer_F1": 0.0,
+              "predictions_contain_Han": 4,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 151,
+              "raw_top6_predictions": [
+                [
+                  "The answer is Yes",
+                  91
+                ],
+                [
+                  "The answer is yes",
+                  40
+                ],
+                [
+                  "assistant\nno",
+                  11
+                ],
+                [
+                  "The answer is no",
+                  6
+                ],
+                [
+                  "Answer: Yes",
+                  4
+                ],
+                [
+                  "The answer is No",
+                  4
+                ]
+              ]
+            }
+          },
+          "prediction_sha256": "2a87d38eccf04f6de35a6bb8e503218f45a5cf81e3b53d59d8125f87bb1f12ad",
+          "semantic_fields_sha256": "e5ba2fa1d43460ca910c344ceb9ff98225ceb13f118817bf2542a92efe0dee72"
+        },
+        {
+          "stage": 3,
+          "phase": "verified_complete_cell",
+          "scores": {
+            "all": {
+              "QA": 507,
+              "Answer_F1": 34.201183431952664,
+              "predictions_contain_Han": 206,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "No",
+                  143
+                ],
+                [
+                  "\u662f",
+                  130
+                ],
+                [
+                  "Yes",
+                  49
+                ],
+                [
+                  "Chest",
+                  45
+                ],
+                [
+                  "\u80ba",
+                  25
+                ],
+                [
+                  "Liver",
+                  21
+                ]
+              ]
+            },
+            "q_lang=en": {
+              "QA": 253,
+              "Answer_F1": 51.18577075098814,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "No",
+                  137
+                ],
+                [
+                  "Chest",
+                  45
+                ],
+                [
+                  "Liver",
+                  21
+                ],
+                [
+                  "Yes",
+                  17
+                ],
+                [
+                  "Brain",
+                  17
+                ],
+                [
+                  "Kid",
+                  6
+                ]
+              ]
+            },
+            "q_lang=zh": {
+              "QA": 254,
+              "Answer_F1": 17.283464566929133,
+              "predictions_contain_Han": 206,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u662f",
+                  130
+                ],
+                [
+                  "Yes",
+                  32
+                ],
+                [
+                  "\u80ba",
+                  25
+                ],
+                [
+                  "\u809d\u810f",
+                  13
+                ],
+                [
+                  "\u8111",
+                  12
+                ],
+                [
+                  " lungs",
+                  10
+                ]
+              ]
+            },
+            "answer_type=OPEN": {
+              "QA": 184,
+              "Answer_F1": 33.369565217391305,
+              "predictions_contain_Han": 75,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "Chest",
+                  45
+                ],
+                [
+                  "\u80ba",
+                  25
+                ],
+                [
+                  "Liver",
+                  21
+                ],
+                [
+                  "Brain",
+                  17
+                ],
+                [
+                  "\u809d\u810f",
+                  13
+                ],
+                [
+                  "\u8111",
+                  12
+                ]
+              ]
+            },
+            "answer_type=CLOSED": {
+              "QA": 323,
+              "Answer_F1": 34.6749226006192,
+              "predictions_contain_Han": 131,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "No",
+                  143
+                ],
+                [
+                  "\u662f",
+                  130
+                ],
+                [
+                  "Yes",
+                  49
+                ],
+                [
+                  "\u6ca1\u6709",
+                  1
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=OPEN": {
+              "QA": 99,
+              "Answer_F1": 36.86868686868687,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "Chest",
+                  45
+                ],
+                [
+                  "Liver",
+                  21
+                ],
+                [
+                  "Brain",
+                  17
+                ],
+                [
+                  "Kid",
+                  6
+                ],
+                [
+                  "Spine",
+                  4
+                ],
+                [
+                  "Heart",
+                  3
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=CLOSED": {
+              "QA": 154,
+              "Answer_F1": 60.38961038961039,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "No",
+                  137
+                ],
+                [
+                  "Yes",
+                  17
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=OPEN": {
+              "QA": 85,
+              "Answer_F1": 29.294117647058822,
+              "predictions_contain_Han": 75,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u80ba",
+                  25
+                ],
+                [
+                  "\u809d\u810f",
+                  13
+                ],
+                [
+                  "\u8111",
+                  12
+                ],
+                [
+                  " lungs",
+                  10
+                ],
+                [
+                  "\u810a\u67f1",
+                  9
+                ],
+                [
+                  "\u5c0f\u80a0",
+                  4
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=CLOSED": {
+              "QA": 169,
+              "Answer_F1": 11.242603550295856,
+              "predictions_contain_Han": 131,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u662f",
+                  130
+                ],
+                [
+                  "Yes",
+                  32
+                ],
+                [
+                  "No",
+                  6
+                ],
+                [
+                  "\u6ca1\u6709",
+                  1
+                ]
+              ]
+            }
+          },
+          "prediction_sha256": "1090625fe365b38bf480bb5b928170982fd45f37f55098b86969fe4a77cf0f81",
+          "semantic_fields_sha256": "d4899658153430877607b291fd1c2ecd6d59a78b427cec103a48971dab9da0ee"
+        },
+        {
+          "stage": 4,
+          "phase": "verified_complete_cell",
+          "scores": {
+            "all": {
+              "QA": 507,
+              "Answer_F1": 55.85329200713816,
+              "predictions_contain_Han": 254,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "No",
+                  149
+                ],
+                [
+                  "\u5305\u542b",
+                  113
+                ],
+                [
+                  "Chest",
+                  37
+                ],
+                [
+                  "\u80ba",
+                  29
+                ],
+                [
+                  "Liver",
+                  23
+                ],
+                [
+                  "Brain",
+                  17
+                ]
+              ]
+            },
+            "q_lang=en": {
+              "QA": 253,
+              "Answer_F1": 45.3227931488801,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "No",
+                  149
+                ],
+                [
+                  "Chest",
+                  37
+                ],
+                [
+                  "Liver",
+                  23
+                ],
+                [
+                  "Brain",
+                  17
+                ],
+                [
+                  "Lung",
+                  6
+                ],
+                [
+                  "Kidneys",
+                  6
+                ]
+              ]
+            },
+            "q_lang=zh": {
+              "QA": 254,
+              "Answer_F1": 66.34233220847395,
+              "predictions_contain_Han": 254,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u5305\u542b",
+                  113
+                ],
+                [
+                  "\u80ba",
+                  29
+                ],
+                [
+                  "\u809d\u810f",
+                  16
+                ],
+                [
+                  "\u6ca1\u6709",
+                  15
+                ],
+                [
+                  "\u4e0d\u662f\u7684",
+                  15
+                ],
+                [
+                  "\u4e0d\u662f\u5934\u90e8",
+                  11
+                ]
+              ]
+            },
+            "answer_type=OPEN": {
+              "QA": 184,
+              "Answer_F1": 39.257246376811594,
+              "predictions_contain_Han": 85,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "Chest",
+                  37
+                ],
+                [
+                  "\u80ba",
+                  29
+                ],
+                [
+                  "Liver",
+                  23
+                ],
+                [
+                  "Brain",
+                  17
+                ],
+                [
+                  "\u809d\u810f",
+                  16
+                ],
+                [
+                  "\u810a\u67f1",
+                  10
+                ]
+              ]
+            },
+            "answer_type=CLOSED": {
+              "QA": 323,
+              "Answer_F1": 65.30738611233967,
+              "predictions_contain_Han": 169,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "No",
+                  149
+                ],
+                [
+                  "\u5305\u542b",
+                  113
+                ],
+                [
+                  "\u6ca1\u6709",
+                  15
+                ],
+                [
+                  "\u4e0d\u662f\u7684",
+                  15
+                ],
+                [
+                  "\u4e0d\u662f\u5934\u90e8",
+                  11
+                ],
+                [
+                  "Yes",
+                  5
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=OPEN": {
+              "QA": 99,
+              "Answer_F1": 40.06734006734007,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "Chest",
+                  37
+                ],
+                [
+                  "Liver",
+                  23
+                ],
+                [
+                  "Brain",
+                  17
+                ],
+                [
+                  "Lung",
+                  6
+                ],
+                [
+                  "Kidneys",
+                  6
+                ],
+                [
+                  "Lungs",
+                  4
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=CLOSED": {
+              "QA": 154,
+              "Answer_F1": 48.701298701298704,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "No",
+                  149
+                ],
+                [
+                  "Yes",
+                  5
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=OPEN": {
+              "QA": 85,
+              "Answer_F1": 38.31372549019608,
+              "predictions_contain_Han": 85,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u80ba",
+                  29
+                ],
+                [
+                  "\u809d\u810f",
+                  16
+                ],
+                [
+                  "\u810a\u67f1",
+                  10
+                ],
+                [
+                  "\u5fc3\u810f",
+                  7
+                ],
+                [
+                  "\u8111",
+                  7
+                ],
+                [
+                  "\u5927\u8111",
+                  5
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=CLOSED": {
+              "QA": 169,
+              "Answer_F1": 80.43956043956044,
+              "predictions_contain_Han": 169,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u5305\u542b",
+                  113
+                ],
+                [
+                  "\u6ca1\u6709",
+                  15
+                ],
+                [
+                  "\u4e0d\u662f\u7684",
+                  15
+                ],
+                [
+                  "\u4e0d\u662f\u5934\u90e8",
+                  11
+                ],
+                [
+                  "\u6ca1\u6709\u76f4\u80a0",
+                  4
+                ],
+                [
+                  "\u6ca1\u6709\u5c0f\u80a0",
+                  3
+                ]
+              ]
+            }
+          },
+          "prediction_sha256": "15291dc31bc0cdde2c6fd4cf37b11766060c8e81d770bbf903bd55c36ea50d0b",
+          "semantic_fields_sha256": "8e0f038a2ba3ad193c9e0cc2f35bceba50ada98298ef2ea24502216d399cc106"
+        },
+        {
+          "stage": 19,
+          "phase": "pending",
+          "scores": null
+        }
+      ],
+      "transitions": [
+        {
+          "before": 0,
+          "after": 3,
+          "label": "prior_tasks",
+          "groups": {
+            "all": {
+              "delta_F1": {
+                "mean": 24.575467267774936,
+                "image_cluster_95CI": [
+                  20.317615327380953,
+                  29.23374905517761
+                ],
+                "QA": 507,
+                "image_clusters": 158
+              },
+              "increased": 188,
+              "decreased": 60,
+              "unchanged": 259
+            },
+            "q_lang=en": {
+              "delta_F1": {
+                "mean": 34.94635798983626,
+                "image_cluster_95CI": [
+                  27.789473684210527,
+                  41.82648401826484
+                ],
+                "QA": 253,
+                "image_clusters": 84
+              },
+              "increased": 130,
+              "decreased": 55,
+              "unchanged": 68
+            },
+            "q_lang=zh": {
+              "delta_F1": {
+                "mean": 14.245406824146976,
+                "image_cluster_95CI": [
+                  10.654339750084427,
+                  18.370566333529293
+                ],
+                "QA": 254,
+                "image_clusters": 84
+              },
+              "increased": 58,
+              "decreased": 5,
+              "unchanged": 191
+            },
+            "answer_type=OPEN": {
+              "delta_F1": {
+                "mean": 25.324792960662514,
+                "image_cluster_95CI": [
+                  19.19680530440024,
+                  31.924899312959017
+                ],
+                "QA": 184,
+                "image_clusters": 114
+              },
+              "increased": 67,
+              "decreased": 7,
+              "unchanged": 110
+            },
+            "answer_type=CLOSED": {
+              "delta_F1": {
+                "mean": 24.148606811145537,
+                "image_cluster_95CI": [
+                  18.397085610200367,
+                  30.495495495495504
+                ],
+                "QA": 323,
+                "image_clusters": 125
+              },
+              "increased": 121,
+              "decreased": 53,
+              "unchanged": 149
+            }
+          }
+        },
+        {
+          "before": 3,
+          "after": 4,
+          "label": "current_Organ_acquisition",
+          "groups": {
+            "all": {
+              "delta_F1": {
+                "mean": 21.652108575185498,
+                "image_cluster_95CI": [
+                  15.138592750533048,
+                  28.017993456924756
+                ],
+                "QA": 507,
+                "image_clusters": 158
+              },
+              "increased": 172,
+              "decreased": 40,
+              "unchanged": 295
+            },
+            "q_lang=en": {
+              "delta_F1": {
+                "mean": -5.862977602108036,
+                "image_cluster_95CI": [
+                  -9.712230215827338,
+                  -2.272727272727273
+                ],
+                "QA": 253,
+                "image_clusters": 84
+              },
+              "increased": 7,
+              "decreased": 21,
+              "unchanged": 225
+            },
+            "q_lang=zh": {
+              "delta_F1": {
+                "mean": 49.05886764154481,
+                "image_cluster_95CI": [
+                  41.770062606715996,
+                  55.51651305683565
+                ],
+                "QA": 254,
+                "image_clusters": 84
+              },
+              "increased": 165,
+              "decreased": 19,
+              "unchanged": 70
+            },
+            "answer_type=OPEN": {
+              "delta_F1": {
+                "mean": 5.887681159420291,
+                "image_cluster_95CI": [
+                  1.7765567765567767,
+                  10.568181818181817
+                ],
+                "QA": 184,
+                "image_clusters": 114
+              },
+              "increased": 19,
+              "decreased": 8,
+              "unchanged": 157
+            },
+            "answer_type=CLOSED": {
+              "delta_F1": {
+                "mean": 30.632463511720488,
+                "image_cluster_95CI": [
+                  21.08262108262108,
+                  39.416666666666664
+                ],
+                "QA": 323,
+                "image_clusters": 125
+              },
+              "increased": 153,
+              "decreased": 32,
+              "unchanged": 138
+            }
+          }
+        }
+      ]
+    },
+    {
+      "run": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209",
+      "method": "SeqFT_LoRA",
+      "backbone": "qwen",
+      "model_dtype": "torch.float16",
+      "image_area_cap": 401408,
+      "runtime_snapshot": {
+        "status": "evaluation",
+        "completed_stage": 13,
+        "active_stage": 14
+      },
+      "config_primary_score_legacy_field": "rougeL",
+      "reported_metric": "locked raw Answer F1",
+      "stage4_training_events": [
+        {
+          "stage": 4,
+          "step": 1,
+          "qa_seen": 16,
+          "total_qa": 26,
+          "loss": 1.1327653294429183,
+          "gradient_l2_preclip": 7.495209217071533,
+          "learning_rate_used": [
+            0.0001
+          ],
+          "warmup_updates": 0
+        },
+        {
+          "stage": 4,
+          "step": 2,
+          "qa_seen": 26,
+          "total_qa": 26,
+          "loss": 0.869814595580101,
+          "gradient_l2_preclip": 5.341284275054932,
+          "learning_rate_used": [
+            5e-05
+          ],
+          "warmup_updates": 0
+        }
+      ],
+      "cells": [
+        {
+          "stage": 0,
+          "phase": "verified_complete_cell",
+          "scores": {
+            "all": {
+              "QA": 507,
+              "Answer_F1": 40.63333749409231,
+              "predictions_contain_Han": 254,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "Yes",
+                  76
+                ],
+                [
+                  "No",
+                  74
+                ],
+                [
+                  "\u662f\u7684\uff0c\u56fe\u7247\u4e2d\u5305\u542b\u809d\u810f\u3002",
+                  26
+                ],
+                [
+                  "\u662f\u7684\uff0c\u56fe\u7247\u4e2d\u5305\u542b\u813e\u810f\u3002",
+                  23
+                ],
+                [
+                  "\u662f\u7684\uff0c\u56fe\u7247\u4e2d\u5305\u542b\u80be\u810f\u3002",
+                  22
+                ],
+                [
+                  "\u4e0d\u662f",
+                  16
+                ]
+              ]
+            },
+            "q_lang=en": {
+              "QA": 253,
+              "Answer_F1": 51.37514830559373,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "Yes",
+                  76
+                ],
+                [
+                  "No",
+                  74
+                ],
+                [
+                  "The main organ in the image is the heart.",
+                  8
+                ],
+                [
+                  "The gray part on the left of the image is the liver.",
+                  7
+                ],
+                [
+                  "The image is of the thoracic cavity.",
+                  6
+                ],
+                [
+                  "The main organ in the image is the brain.",
+                  5
+                ]
+              ]
+            },
+            "q_lang=zh": {
+              "QA": 254,
+              "Answer_F1": 29.93381727633696,
+              "predictions_contain_Han": 254,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u662f\u7684\uff0c\u56fe\u7247\u4e2d\u5305\u542b\u809d\u810f\u3002",
+                  26
+                ],
+                [
+                  "\u662f\u7684\uff0c\u56fe\u7247\u4e2d\u5305\u542b\u813e\u810f\u3002",
+                  23
+                ],
+                [
+                  "\u662f\u7684\uff0c\u56fe\u7247\u4e2d\u5305\u542b\u80be\u810f\u3002",
+                  22
+                ],
+                [
+                  "\u4e0d\u662f",
+                  16
+                ],
+                [
+                  "\u662f\u7684\uff0c\u56fe\u7247\u4e2d\u5305\u542b\u5fc3\u810f\u3002",
+                  15
+                ],
+                [
+                  "\u662f\u7684\uff0c\u56fe\u7247\u4e2d\u5305\u542b\u80ba\u3002",
+                  14
+                ]
+              ]
+            },
+            "answer_type=OPEN": {
+              "QA": 184,
+              "Answer_F1": 8.387035008788773,
+              "predictions_contain_Han": 85,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u56fe\u4e2d\u662f\u547c\u5438\u7cfb\u7edf\u3002",
+                  9
+                ],
+                [
+                  "The main organ in the image is the heart.",
+                  8
+                ],
+                [
+                  "The gray part on the left of the image is the liver.",
+                  7
+                ],
+                [
+                  "\u56fe\u50cf\u4e2d\u7684\u4e3b\u8981\u5668\u5b98\u662f\u80ba\u3002",
+                  7
+                ],
+                [
+                  "The image is of the thoracic cavity.",
+                  6
+                ],
+                [
+                  "The main organ in the image is the brain.",
+                  5
+                ]
+              ]
+            },
+            "answer_type=CLOSED": {
+              "QA": 323,
+              "Answer_F1": 59.002748197794645,
+              "predictions_contain_Han": 169,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "Yes",
+                  76
+                ],
+                [
+                  "No",
+                  74
+                ],
+                [
+                  "\u662f\u7684\uff0c\u56fe\u7247\u4e2d\u5305\u542b\u809d\u810f\u3002",
+                  26
+                ],
+                [
+                  "\u662f\u7684\uff0c\u56fe\u7247\u4e2d\u5305\u542b\u813e\u810f\u3002",
+                  23
+                ],
+                [
+                  "\u662f\u7684\uff0c\u56fe\u7247\u4e2d\u5305\u542b\u80be\u810f\u3002",
+                  22
+                ],
+                [
+                  "\u4e0d\u662f",
+                  16
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=OPEN": {
+              "QA": 99,
+              "Answer_F1": 5.411013122151433,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "The main organ in the image is the heart.",
+                  8
+                ],
+                [
+                  "The gray part on the left of the image is the liver.",
+                  7
+                ],
+                [
+                  "The image is of the thoracic cavity.",
+                  6
+                ],
+                [
+                  "The main organ in the image is the brain.",
+                  5
+                ],
+                [
+                  "The organ on the top of the body in this image is the liver.",
+                  4
+                ],
+                [
+                  "The image is a chest X-ray, which is a radiographic image of the thoracic cavity.",
+                  4
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=CLOSED": {
+              "QA": 154,
+              "Answer_F1": 80.92352092352093,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "Yes",
+                  76
+                ],
+                [
+                  "No",
+                  74
+                ],
+                [
+                  "Yes, the temporal lobe is visible in this image.",
+                  1
+                ],
+                [
+                  "Yes, the parotid is visible in the image.",
+                  1
+                ],
+                [
+                  "Yes, the stomach is visible in the image.",
+                  1
+                ],
+                [
+                  "No, the stomach is not visible in the image.",
+                  1
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=OPEN": {
+              "QA": 85,
+              "Answer_F1": 11.853225206166384,
+              "predictions_contain_Han": 85,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u56fe\u4e2d\u662f\u547c\u5438\u7cfb\u7edf\u3002",
+                  9
+                ],
+                [
+                  "\u56fe\u50cf\u4e2d\u7684\u4e3b\u8981\u5668\u5b98\u662f\u80ba\u3002",
+                  7
+                ],
+                [
+                  "\u4f4d\u4e8e\u56fe\u7247\u53f3\u4e0b\u89d2\u7684\u662f\u80be\u810f\u3002",
+                  5
+                ],
+                [
+                  "\u56fe\u50cf\u4e2d\u7684\u4e3b\u8981\u5668\u5b98\u7cfb\u7edf\u662f\u80ba\u3002",
+                  4
+                ],
+                [
+                  "\u56fe\u7247\u4e3b\u8981\u5668\u5b98\u662f\u5927\u8111\u3002",
+                  4
+                ],
+                [
+                  "\u56fe\u50cf\u4e2d\u8eab\u4f53\u9876\u90e8\u7684\u5668\u5b98\u662f\u809d\u810f\u3002",
+                  3
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=CLOSED": {
+              "QA": 169,
+              "Answer_F1": 39.0276061873695,
+              "predictions_contain_Han": 169,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u662f\u7684\uff0c\u56fe\u7247\u4e2d\u5305\u542b\u809d\u810f\u3002",
+                  26
+                ],
+                [
+                  "\u662f\u7684\uff0c\u56fe\u7247\u4e2d\u5305\u542b\u813e\u810f\u3002",
+                  23
+                ],
+                [
+                  "\u662f\u7684\uff0c\u56fe\u7247\u4e2d\u5305\u542b\u80be\u810f\u3002",
+                  22
+                ],
+                [
+                  "\u4e0d\u662f",
+                  16
+                ],
+                [
+                  "\u662f\u7684\uff0c\u56fe\u7247\u4e2d\u5305\u542b\u5fc3\u810f\u3002",
+                  15
+                ],
+                [
+                  "\u662f\u7684\uff0c\u56fe\u7247\u4e2d\u5305\u542b\u80ba\u3002",
+                  14
+                ]
+              ]
+            }
+          },
+          "prediction_sha256": "f9427f4ff556c2a8dd50418d52188ab0ddc51342a0d8985ebf3608f1e1a9e4a1",
+          "semantic_fields_sha256": "adb1e37c31c555edab432387292515832c9f422b345b29b47987b98b6781e523"
+        },
+        {
+          "stage": 3,
+          "phase": "verified_complete_cell",
+          "scores": {
+            "all": {
+              "QA": 507,
+              "Answer_F1": 38.69527701932853,
+              "predictions_contain_Han": 254,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u662f",
+                  119
+                ],
+                [
+                  "No",
+                  77
+                ],
+                [
+                  "yes",
+                  52
+                ],
+                [
+                  "Yes",
+                  25
+                ],
+                [
+                  "Kidney",
+                  22
+                ],
+                [
+                  "\u4e0d\u662f",
+                  18
+                ]
+              ]
+            },
+            "q_lang=en": {
+              "QA": 253,
+              "Answer_F1": 52.39353996387244,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "No",
+                  77
+                ],
+                [
+                  "yes",
+                  52
+                ],
+                [
+                  "Yes",
+                  25
+                ],
+                [
+                  "Kidney",
+                  22
+                ],
+                [
+                  "Respiratory",
+                  15
+                ],
+                [
+                  "Brain",
+                  11
+                ]
+              ]
+            },
+            "q_lang=zh": {
+              "QA": 254,
+              "Answer_F1": 25.05094424385763,
+              "predictions_contain_Han": 254,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u662f",
+                  119
+                ],
+                [
+                  "\u4e0d\u662f",
+                  18
+                ],
+                [
+                  "\u6ca1\u6709",
+                  13
+                ],
+                [
+                  "\u4e0d\u5305\u542b",
+                  8
+                ],
+                [
+                  "\u547c\u5438\u7cfb\u7edf",
+                  7
+                ],
+                [
+                  "\u53f3\u4e0b\u89d2\u662f\u80be\u810f\u3002",
+                  6
+                ]
+              ]
+            },
+            "answer_type=OPEN": {
+              "QA": 184,
+              "Answer_F1": 11.404920917388948,
+              "predictions_contain_Han": 85,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "Kidney",
+                  22
+                ],
+                [
+                  "Respiratory",
+                  15
+                ],
+                [
+                  "Brain",
+                  11
+                ],
+                [
+                  "The main organ in the image is the heart.",
+                  8
+                ],
+                [
+                  "\u547c\u5438\u7cfb\u7edf",
+                  7
+                ],
+                [
+                  "\u53f3\u4e0b\u89d2\u662f\u80be\u810f\u3002",
+                  6
+                ]
+              ]
+            },
+            "answer_type=CLOSED": {
+              "QA": 323,
+              "Answer_F1": 54.241486068111456,
+              "predictions_contain_Han": 169,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u662f",
+                  119
+                ],
+                [
+                  "No",
+                  77
+                ],
+                [
+                  "yes",
+                  52
+                ],
+                [
+                  "Yes",
+                  25
+                ],
+                [
+                  "\u4e0d\u662f",
+                  18
+                ],
+                [
+                  "\u6ca1\u6709",
+                  13
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=OPEN": {
+              "QA": 99,
+              "Answer_F1": 7.631975867269985,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "Kidney",
+                  22
+                ],
+                [
+                  "Respiratory",
+                  15
+                ],
+                [
+                  "Brain",
+                  11
+                ],
+                [
+                  "The main organ in the image is the heart.",
+                  8
+                ],
+                [
+                  "The main organ in the image is the brain.",
+                  5
+                ],
+                [
+                  "Heart",
+                  4
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=CLOSED": {
+              "QA": 154,
+              "Answer_F1": 81.16883116883118,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "No",
+                  77
+                ],
+                [
+                  "yes",
+                  52
+                ],
+                [
+                  "Yes",
+                  25
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=OPEN": {
+              "QA": 85,
+              "Answer_F1": 15.799292211056915,
+              "predictions_contain_Han": 85,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u547c\u5438\u7cfb\u7edf",
+                  7
+                ],
+                [
+                  "\u53f3\u4e0b\u89d2\u662f\u80be\u810f\u3002",
+                  6
+                ],
+                [
+                  "\u56fe\u4e2d\u5de6\u4fa7\u7070\u8272\u90e8\u5206\u662f\u809d\u810f\u3002",
+                  4
+                ],
+                [
+                  "\u56fe\u50cf\u4e2d\u7684\u4e3b\u8981\u5668\u5b98\u7cfb\u7edf\u662f\u80ba\u3002",
+                  4
+                ],
+                [
+                  "\u56fe\u4e2d\u4e3b\u8981\u5668\u5b98\u662f\u80ba\u3002",
+                  4
+                ],
+                [
+                  "\u56fe\u7247\u4e3b\u8981\u5668\u5b98\u662f\u5927\u8111\u3002",
+                  4
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=CLOSED": {
+              "QA": 169,
+              "Answer_F1": 29.70414201183432,
+              "predictions_contain_Han": 169,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u662f",
+                  119
+                ],
+                [
+                  "\u4e0d\u662f",
+                  18
+                ],
+                [
+                  "\u6ca1\u6709",
+                  13
+                ],
+                [
+                  "\u4e0d\u5305\u542b",
+                  8
+                ],
+                [
+                  "\u5305\u542b",
+                  4
+                ],
+                [
+                  "\u662f\u7684\uff0c\u56fe\u4e2d\u53ef\u4ee5\u770b\u5230\u98df\u9053\u3002",
+                  1
+                ]
+              ]
+            }
+          },
+          "prediction_sha256": "59dfef299b5cec89b4628e5835c548fc0eb618aba3231f191dc62f208d7f5090",
+          "semantic_fields_sha256": "b1dd3a1c0cd56722ac90379d7f82e3329b4828cd087e35a68bef7d65bf6a44fc"
+        },
+        {
+          "stage": 4,
+          "phase": "verified_complete_cell",
+          "scores": {
+            "all": {
+              "QA": 507,
+              "Answer_F1": 45.20953914271004,
+              "predictions_contain_Han": 254,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u662f",
+                  110
+                ],
+                [
+                  "No",
+                  78
+                ],
+                [
+                  "yes",
+                  63
+                ],
+                [
+                  "Kidney",
+                  28
+                ],
+                [
+                  "Respiratory",
+                  18
+                ],
+                [
+                  "\u4e0d\u662f",
+                  18
+                ]
+              ]
+            },
+            "q_lang=en": {
+              "QA": 253,
+              "Answer_F1": 55.31152564400646,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "No",
+                  78
+                ],
+                [
+                  "yes",
+                  63
+                ],
+                [
+                  "Kidney",
+                  28
+                ],
+                [
+                  "Respiratory",
+                  18
+                ],
+                [
+                  "Brain",
+                  16
+                ],
+                [
+                  "Yes",
+                  13
+                ]
+              ]
+            },
+            "q_lang=zh": {
+              "QA": 254,
+              "Answer_F1": 35.14732424181243,
+              "predictions_contain_Han": 254,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u662f",
+                  110
+                ],
+                [
+                  "\u4e0d\u662f",
+                  18
+                ],
+                [
+                  "\u4e0d\u5305\u542b",
+                  15
+                ],
+                [
+                  "\u80ba",
+                  15
+                ],
+                [
+                  "\u6ca1\u6709",
+                  14
+                ],
+                [
+                  "\u5305\u542b",
+                  11
+                ]
+              ]
+            },
+            "answer_type=OPEN": {
+              "QA": 184,
+              "Answer_F1": 20.984980137793436,
+              "predictions_contain_Han": 85,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "Kidney",
+                  28
+                ],
+                [
+                  "Respiratory",
+                  18
+                ],
+                [
+                  "Brain",
+                  16
+                ],
+                [
+                  "\u80ba",
+                  15
+                ],
+                [
+                  "Heart",
+                  9
+                ],
+                [
+                  "\u547c\u5438\u7cfb\u7edf",
+                  9
+                ]
+              ]
+            },
+            "answer_type=CLOSED": {
+              "QA": 323,
+              "Answer_F1": 59.0092879256966,
+              "predictions_contain_Han": 169,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u662f",
+                  110
+                ],
+                [
+                  "No",
+                  78
+                ],
+                [
+                  "yes",
+                  63
+                ],
+                [
+                  "\u4e0d\u662f",
+                  18
+                ],
+                [
+                  "\u4e0d\u5305\u542b",
+                  15
+                ],
+                [
+                  "\u6ca1\u6709",
+                  14
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=OPEN": {
+              "QA": 99,
+              "Answer_F1": 14.078949373067019,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "Kidney",
+                  28
+                ],
+                [
+                  "Respiratory",
+                  18
+                ],
+                [
+                  "Brain",
+                  16
+                ],
+                [
+                  "Heart",
+                  9
+                ],
+                [
+                  "Neck",
+                  4
+                ],
+                [
+                  "Cardiovascular",
+                  3
+                ]
+              ]
+            },
+            "q_lang=en/answer_type=CLOSED": {
+              "QA": 154,
+              "Answer_F1": 81.81818181818181,
+              "predictions_contain_Han": 0,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "No",
+                  78
+                ],
+                [
+                  "yes",
+                  63
+                ],
+                [
+                  "Yes",
+                  13
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=OPEN": {
+              "QA": 85,
+              "Answer_F1": 29.028474793180678,
+              "predictions_contain_Han": 85,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u80ba",
+                  15
+                ],
+                [
+                  "\u547c\u5438\u7cfb\u7edf",
+                  9
+                ],
+                [
+                  "\u56fe\u4e2d\u5de6\u4fa7\u7070\u8272\u90e8\u5206\u662f\u809d\u810f\u3002",
+                  4
+                ],
+                [
+                  "\u56fe\u7247\u4e3b\u8981\u5668\u5b98\u662f\u5927\u8111\u3002",
+                  4
+                ],
+                [
+                  "\u795e\u7ecf\u7cfb\u7edf",
+                  4
+                ],
+                [
+                  "\u56fe\u4e2d\u5de6\u4fa7\u662f\u809d\u810f\u3002",
+                  3
+                ]
+              ]
+            },
+            "q_lang=zh/answer_type=CLOSED": {
+              "QA": 169,
+              "Answer_F1": 38.22485207100592,
+              "predictions_contain_Han": 169,
+              "empty_predictions": 0,
+              "literal_prefix_hits": 0,
+              "raw_top6_predictions": [
+                [
+                  "\u662f",
+                  110
+                ],
+                [
+                  "\u4e0d\u662f",
+                  18
+                ],
+                [
+                  "\u4e0d\u5305\u542b",
+                  15
+                ],
+                [
+                  "\u6ca1\u6709",
+                  14
+                ],
+                [
+                  "\u5305\u542b",
+                  11
+                ],
+                [
+                  "\u662f\u7684\uff0c\u56fe\u50cf\u4e2d\u53ef\u89c1\u76f4\u80a0\u3002",
+                  1
+                ]
+              ]
+            }
+          },
+          "prediction_sha256": "7c0f9fa7bec690d7671c3721d2253c94c44c75c05176b52ecbcbf36c34b229fa",
+          "semantic_fields_sha256": "0e4bb78bed4e16511a28ca4bbadd4d88d6f21b4c23119ed7c8deb00e45ea4990"
+        },
+        {
+          "stage": 19,
+          "phase": "pending",
+          "scores": null
+        }
+      ],
+      "transitions": [
+        {
+          "before": 0,
+          "after": 3,
+          "label": "prior_tasks",
+          "groups": {
+            "all": {
+              "delta_F1": {
+                "mean": -1.938060474763775,
+                "image_cluster_95CI": [
+                  -4.621689562793038,
+                  0.9283504907964437
+                ],
+                "QA": 507,
+                "image_clusters": 158
+              },
+              "increased": 66,
+              "decreased": 130,
+              "unchanged": 311
+            },
+            "q_lang=en": {
+              "delta_F1": {
+                "mean": 1.018391658278713,
+                "image_cluster_95CI": [
+                  -0.9840987780973488,
+                  3.097264899506085
+                ],
+                "QA": 253,
+                "image_clusters": 84
+              },
+              "increased": 10,
+              "decreased": 25,
+              "unchanged": 218
+            },
+            "q_lang=zh": {
+              "delta_F1": {
+                "mean": -4.882873032479316,
+                "image_cluster_95CI": [
+                  -9.649061178472945,
+                  0.16615729949063154
+                ],
+                "QA": 254,
+                "image_clusters": 84
+              },
+              "increased": 56,
+              "decreased": 105,
+              "unchanged": 93
+            },
+            "answer_type=OPEN": {
+              "delta_F1": {
+                "mean": 3.0178859086001744,
+                "image_cluster_95CI": [
+                  0.4158036316889704,
+                  5.920018856931032
+                ],
+                "QA": 184,
+                "image_clusters": 114
+              },
+              "increased": 28,
+              "decreased": 24,
+              "unchanged": 132
+            },
+            "answer_type=CLOSED": {
+              "delta_F1": {
+                "mean": -4.761262129683174,
+                "image_cluster_95CI": [
+                  -8.841309293116524,
+                  -0.41399011696041405
+                ],
+                "QA": 323,
+                "image_clusters": 125
+              },
+              "increased": 38,
+              "decreased": 106,
+              "unchanged": 179
+            }
+          }
+        },
+        {
+          "before": 3,
+          "after": 4,
+          "label": "current_Organ_acquisition",
+          "groups": {
+            "all": {
+              "delta_F1": {
+                "mean": 6.514262123381512,
+                "image_cluster_95CI": [
+                  4.219933050636063,
+                  8.84301212262534
+                ],
+                "QA": 507,
+                "image_clusters": 158
+              },
+              "increased": 45,
+              "decreased": 8,
+              "unchanged": 454
+            },
+            "q_lang=en": {
+              "delta_F1": {
+                "mean": 2.917985680134018,
+                "image_cluster_95CI": [
+                  0.1282618310482088,
+                  5.966865378630084
+                ],
+                "QA": 253,
+                "image_clusters": 84
+              },
+              "increased": 12,
+              "decreased": 6,
+              "unchanged": 235
+            },
+            "q_lang=zh": {
+              "delta_F1": {
+                "mean": 10.0963799979548,
+                "image_cluster_95CI": [
+                  7.0202020202020226,
+                  13.319291570412645
+                ],
+                "QA": 254,
+                "image_clusters": 84
+              },
+              "increased": 33,
+              "decreased": 2,
+              "unchanged": 219
+            },
+            "answer_type=OPEN": {
+              "delta_F1": {
+                "mean": 9.580059220404491,
+                "image_cluster_95CI": [
+                  5.269517798929564,
+                  14.495956084191382
+                ],
+                "QA": 184,
+                "image_clusters": 114
+              },
+              "increased": 28,
+              "decreased": 6,
+              "unchanged": 150
+            },
+            "answer_type=CLOSED": {
+              "delta_F1": {
+                "mean": 4.767801857585139,
+                "image_cluster_95CI": [
+                  2.414860681114551,
+                  7.255520504731861
+                ],
+                "QA": 323,
+                "image_clusters": 125
+              },
+              "increased": 17,
+              "decreased": 2,
+              "unchanged": 304
+            }
+          }
+        }
+      ]
+    },
+    {
+      "run": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/ER_LoRA/training_20261018_120944",
+      "method": "ER_LoRA",
+      "backbone": "qwen",
+      "model_dtype": "torch.float16",
+      "image_area_cap": 401408,
+      "runtime_snapshot": {
+        "status": "initial_evaluation",
+        "completed_stage": 0
+      },
+      "config_primary_score_legacy_field": "rougeL",
+      "reported_metric": "locked raw Answer F1",
+      "stage4_training_events": [],
+      "cells": [
+        {
+          "stage": 0,
+          "phase": "pending",
+          "scores": null
+        },
+        {
+          "stage": 3,
+          "phase": "pending",
+          "scores": null
+        },
+        {
+          "stage": 4,
+          "phase": "pending",
+          "scores": null
+        },
+        {
+          "stage": 19,
+          "phase": "pending",
+          "scores": null
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "initial_exact_checks": {
+    "onevision": {
+      "verified_current_runs": 4,
+      "expected_runs": 4,
+      "exact_initial_outputs_among_available": true,
+      "missing_not_assumed_equal": 0
+    },
+    "qwen": {
+      "verified_current_runs": 1,
+      "expected_runs": 2,
+      "exact_initial_outputs_among_available": true,
+      "missing_not_assumed_equal": 1
+    }
+  },
+  "current_acquisition": [
+    {
+      "backbone": "onevision",
+      "method": "SeqFT_LoRA",
+      "transition": {
+        "before": 3,
+        "after": 4,
+        "label": "current_Organ_acquisition",
+        "groups": {
+          "all": {
+            "delta_F1": {
+              "mean": 9.39361755929803,
+              "image_cluster_95CI": [
+                6.6073810582481105,
+                12.412280701754383
+              ],
+              "QA": 507,
+              "image_clusters": 158
+            },
+            "increased": 65,
+            "decreased": 9,
+            "unchanged": 433
+          },
+          "q_lang=en": {
+            "delta_F1": {
+              "mean": 1.1959055437316306,
+              "image_cluster_95CI": [
+                -1.9375361480624633,
+                3.8461538461538463
+              ],
+              "QA": 253,
+              "image_clusters": 84
+            },
+            "increased": 9,
+            "decreased": 5,
+            "unchanged": 239
+          },
+          "q_lang=zh": {
+            "delta_F1": {
+              "mean": 17.559055118110237,
+              "image_cluster_95CI": [
+                12.493540051679586,
+                23.391304347826086
+              ],
+              "QA": 254,
+              "image_clusters": 84
+            },
+            "increased": 56,
+            "decreased": 4,
+            "unchanged": 194
+          },
+          "answer_type=OPEN": {
+            "delta_F1": {
+              "mean": 9.814659977703457,
+              "image_cluster_95CI": [
+                4.739541160593793,
+                15.044655718813022
+              ],
+              "QA": 184,
+              "image_clusters": 114
+            },
+            "increased": 24,
+            "decreased": 6,
+            "unchanged": 154
+          },
+          "answer_type=CLOSED": {
+            "delta_F1": {
+              "mean": 9.15376676986584,
+              "image_cluster_95CI": [
+                5.726027397260274,
+                12.98189563365282
+              ],
+              "QA": 323,
+              "image_clusters": 125
+            },
+            "increased": 41,
+            "decreased": 3,
+            "unchanged": 279
+          }
+        }
+      }
+    },
+    {
+      "backbone": "onevision",
+      "method": "ER_LoRA",
+      "transition": {
+        "before": 3,
+        "after": 4,
+        "label": "current_Organ_acquisition",
+        "groups": {
+          "all": {
+            "delta_F1": {
+              "mean": 9.264653820866837,
+              "image_cluster_95CI": [
+                6.42864241701451,
+                12.42315493836792
+              ],
+              "QA": 507,
+              "image_clusters": 158
+            },
+            "increased": 65,
+            "decreased": 10,
+            "unchanged": 432
+          },
+          "q_lang=en": {
+            "delta_F1": {
+              "mean": 1.1350967872707003,
+              "image_cluster_95CI": [
+                -2.1050274325383493,
+                3.9039907460960097
+              ],
+              "QA": 253,
+              "image_clusters": 84
+            },
+            "increased": 10,
+            "decreased": 6,
+            "unchanged": 237
+          },
+          "q_lang=zh": {
+            "delta_F1": {
+              "mean": 17.362204724409448,
+              "image_cluster_95CI": [
+                12.253521126760564,
+                23.19838056680162
+              ],
+              "QA": 254,
+              "image_clusters": 84
+            },
+            "increased": 55,
+            "decreased": 4,
+            "unchanged": 195
+          },
+          "answer_type=OPEN": {
+            "delta_F1": {
+              "mean": 10.274526198439242,
+              "image_cluster_95CI": [
+                5.32469342251951,
+                15.468706920319825
+              ],
+              "QA": 184,
+              "image_clusters": 114
+            },
+            "increased": 25,
+            "decreased": 6,
+            "unchanged": 153
+          },
+          "answer_type=CLOSED": {
+            "delta_F1": {
+              "mean": 8.689370485036118,
+              "image_cluster_95CI": [
+                5.2053486150907355,
+                12.51054852320675
+              ],
+              "QA": 323,
+              "image_clusters": 125
+            },
+            "increased": 40,
+            "decreased": 4,
+            "unchanged": 279
+          }
+        }
+      }
+    },
+    {
+      "backbone": "onevision",
+      "method": "CL_MoE",
+      "transition": {
+        "before": 3,
+        "after": 4,
+        "label": "current_Organ_acquisition",
+        "groups": {
+          "all": {
+            "delta_F1": {
+              "mean": 2.3471400394477313,
+              "image_cluster_95CI": [
+                -0.7047216349541934,
+                5.499021526418786
+              ],
+              "QA": 507,
+              "image_clusters": 158
+            },
+            "increased": 48,
+            "decreased": 34,
+            "unchanged": 425
+          },
+          "q_lang=en": {
+            "delta_F1": {
+              "mean": -0.3293807641633726,
+              "image_cluster_95CI": [
+                -6.530612244897959,
+                5.208333333333334
+              ],
+              "QA": 253,
+              "image_clusters": 84
+            },
+            "increased": 28,
+            "decreased": 30,
+            "unchanged": 195
+          },
+          "q_lang=zh": {
+            "delta_F1": {
+              "mean": 5.013123359580052,
+              "image_cluster_95CI": [
+                2.150537634408603,
+                8.357843137254902
+              ],
+              "QA": 254,
+              "image_clusters": 84
+            },
+            "increased": 20,
+            "decreased": 4,
+            "unchanged": 230
+          },
+          "answer_type=OPEN": {
+            "delta_F1": {
+              "mean": -5.706521739130436,
+              "image_cluster_95CI": [
+                -9.249084249084248,
+                -2.2768670309653913
+              ],
+              "QA": 184,
+              "image_clusters": 114
+            },
+            "increased": 4,
+            "decreased": 15,
+            "unchanged": 165
+          },
+          "answer_type=CLOSED": {
+            "delta_F1": {
+              "mean": 6.934984520123839,
+              "image_cluster_95CI": [
+                2.9166666666666665,
+                11.363636363636365
+              ],
+              "QA": 323,
+              "image_clusters": 125
+            },
+            "increased": 44,
+            "decreased": 19,
+            "unchanged": 260
+          }
+        }
+      }
+    },
+    {
+      "backbone": "onevision",
+      "method": "PASs_MoE",
+      "transition": {
+        "before": 3,
+        "after": 4,
+        "label": "current_Organ_acquisition",
+        "groups": {
+          "all": {
+            "delta_F1": {
+              "mean": 21.652108575185498,
+              "image_cluster_95CI": [
+                15.138592750533048,
+                28.017993456924756
+              ],
+              "QA": 507,
+              "image_clusters": 158
+            },
+            "increased": 172,
+            "decreased": 40,
+            "unchanged": 295
+          },
+          "q_lang=en": {
+            "delta_F1": {
+              "mean": -5.862977602108036,
+              "image_cluster_95CI": [
+                -9.712230215827338,
+                -2.272727272727273
+              ],
+              "QA": 253,
+              "image_clusters": 84
+            },
+            "increased": 7,
+            "decreased": 21,
+            "unchanged": 225
+          },
+          "q_lang=zh": {
+            "delta_F1": {
+              "mean": 49.05886764154481,
+              "image_cluster_95CI": [
+                41.770062606715996,
+                55.51651305683565
+              ],
+              "QA": 254,
+              "image_clusters": 84
+            },
+            "increased": 165,
+            "decreased": 19,
+            "unchanged": 70
+          },
+          "answer_type=OPEN": {
+            "delta_F1": {
+              "mean": 5.887681159420291,
+              "image_cluster_95CI": [
+                1.7765567765567767,
+                10.568181818181817
+              ],
+              "QA": 184,
+              "image_clusters": 114
+            },
+            "increased": 19,
+            "decreased": 8,
+            "unchanged": 157
+          },
+          "answer_type=CLOSED": {
+            "delta_F1": {
+              "mean": 30.632463511720488,
+              "image_cluster_95CI": [
+                21.08262108262108,
+                39.416666666666664
+              ],
+              "QA": 323,
+              "image_clusters": 125
+            },
+            "increased": 153,
+            "decreased": 32,
+            "unchanged": 138
+          }
+        }
+      }
+    },
+    {
+      "backbone": "qwen",
+      "method": "SeqFT_LoRA",
+      "transition": {
+        "before": 3,
+        "after": 4,
+        "label": "current_Organ_acquisition",
+        "groups": {
+          "all": {
+            "delta_F1": {
+              "mean": 6.514262123381512,
+              "image_cluster_95CI": [
+                4.219933050636063,
+                8.84301212262534
+              ],
+              "QA": 507,
+              "image_clusters": 158
+            },
+            "increased": 45,
+            "decreased": 8,
+            "unchanged": 454
+          },
+          "q_lang=en": {
+            "delta_F1": {
+              "mean": 2.917985680134018,
+              "image_cluster_95CI": [
+                0.1282618310482088,
+                5.966865378630084
+              ],
+              "QA": 253,
+              "image_clusters": 84
+            },
+            "increased": 12,
+            "decreased": 6,
+            "unchanged": 235
+          },
+          "q_lang=zh": {
+            "delta_F1": {
+              "mean": 10.0963799979548,
+              "image_cluster_95CI": [
+                7.0202020202020226,
+                13.319291570412645
+              ],
+              "QA": 254,
+              "image_clusters": 84
+            },
+            "increased": 33,
+            "decreased": 2,
+            "unchanged": 219
+          },
+          "answer_type=OPEN": {
+            "delta_F1": {
+              "mean": 9.580059220404491,
+              "image_cluster_95CI": [
+                5.269517798929564,
+                14.495956084191382
+              ],
+              "QA": 184,
+              "image_clusters": 114
+            },
+            "increased": 28,
+            "decreased": 6,
+            "unchanged": 150
+          },
+          "answer_type=CLOSED": {
+            "delta_F1": {
+              "mean": 4.767801857585139,
+              "image_cluster_95CI": [
+                2.414860681114551,
+                7.255520504731861
+              ],
+              "QA": 323,
+              "image_clusters": 125
+            },
+            "increased": 17,
+            "decreased": 2,
+            "unchanged": 304
+          }
+        }
+      }
+    }
+  ],
+  "retention": [
+    {
+      "backbone": "onevision",
+      "method": "SeqFT_LoRA",
+      "transition": {
+        "before": 4,
+        "after": 19,
+        "label": "post_acquisition_retention",
+        "groups": {
+          "all": {
+            "delta_F1": {
+              "mean": 0.13059004009230227,
+              "image_cluster_95CI": [
+                -3.1460437710437716,
+                3.3904761904761918
+              ],
+              "QA": 507,
+              "image_clusters": 158
+            },
+            "increased": 55,
+            "decreased": 50,
+            "unchanged": 402
+          },
+          "q_lang=en": {
+            "delta_F1": {
+              "mean": 0.8501898783228706,
+              "image_cluster_95CI": [
+                -5.676219205630971,
+                7.2603921568627445
+              ],
+              "QA": 253,
+              "image_clusters": 84
+            },
+            "increased": 35,
+            "decreased": 32,
+            "unchanged": 186
+          },
+          "q_lang=zh": {
+            "delta_F1": {
+              "mean": -0.5861767279090115,
+              "image_cluster_95CI": [
+                -4.117341640706128,
+                2.453392990305741
+              ],
+              "QA": 254,
+              "image_clusters": 84
+            },
+            "increased": 20,
+            "decreased": 18,
+            "unchanged": 216
+          },
+          "answer_type=OPEN": {
+            "delta_F1": {
+              "mean": -3.287510656436488,
+              "image_cluster_95CI": [
+                -7.817258883248731,
+                0.805356288857006
+              ],
+              "QA": 184,
+              "image_clusters": 114
+            },
+            "increased": 10,
+            "decreased": 16,
+            "unchanged": 158
+          },
+          "answer_type=CLOSED": {
+            "delta_F1": {
+              "mean": 2.0777433780529746,
+              "image_cluster_95CI": [
+                -2.854030501089325,
+                6.9498910675381245
+              ],
+              "QA": 323,
+              "image_clusters": 125
+            },
+            "increased": 45,
+            "decreased": 34,
+            "unchanged": 244
+          }
+        }
+      }
+    },
+    {
+      "backbone": "onevision",
+      "method": "ER_LoRA",
+      "transition": {
+        "before": 4,
+        "after": 19,
+        "label": "post_acquisition_retention",
+        "groups": {
+          "all": {
+            "delta_F1": {
+              "mean": -1.1604207758053902,
+              "image_cluster_95CI": [
+                -5.281888653981679,
+                2.8047989623865113
+              ],
+              "QA": 507,
+              "image_clusters": 158
+            },
+            "increased": 62,
+            "decreased": 64,
+            "unchanged": 381
+          },
+          "q_lang=en": {
+            "delta_F1": {
+              "mean": -5.566534914361001,
+              "image_cluster_95CI": [
+                -13.443072702331962,
+                1.6809728183118744
+              ],
+              "QA": 253,
+              "image_clusters": 84
+            },
+            "increased": 37,
+            "decreased": 53,
+            "unchanged": 163
+          },
+          "q_lang=zh": {
+            "delta_F1": {
+              "mean": 3.2283464566929134,
+              "image_cluster_95CI": [
+                -0.17156862745098037,
+                6.748299319727891
+              ],
+              "QA": 254,
+              "image_clusters": 84
+            },
+            "increased": 25,
+            "decreased": 11,
+            "unchanged": 218
+          },
+          "answer_type=OPEN": {
+            "delta_F1": {
+              "mean": -12.128623188405793,
+              "image_cluster_95CI": [
+                -18.26510721247563,
+                -6.835205992509362
+              ],
+              "QA": 184,
+              "image_clusters": 114
+            },
+            "increased": 9,
+            "decreased": 32,
+            "unchanged": 143
+          },
+          "answer_type=CLOSED": {
+            "delta_F1": {
+              "mean": 5.087719298245614,
+              "image_cluster_95CI": [
+                -0.19960079840319417,
+                10.455026455026456
+              ],
+              "QA": 323,
+              "image_clusters": 125
+            },
+            "increased": 53,
+            "decreased": 32,
+            "unchanged": 238
+          }
+        }
+      }
+    }
+  ],
+  "host_snapshot_sha256": {
+    "summary/onevision_diagnostics_20261016/baseline_language_followup_20261018/old2080_snapshot.json": "44b716d5375a9bba7b884102d8886644c24af9478ddc277aa7c642e18453be5e",
+    "summary/onevision_diagnostics_20261016/baseline_language_followup_20261018/new3090_snapshot.json": "4efec5f8d87a195f54d866d680289ffbdd584725558394fa0218c899239a11a3"
+  },
+  "shared_source_and_protocol_paths_exact": [
+    "analysis/answer_f1.py",
+    "analysis/onevision_v2_language_followup.py",
+    "analysis/onevision_v2_language_snapshot.py",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T04_test.jsonl",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T04_train.jsonl",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/manifest.json",
+    "exp/two_backbone_native_cl_20261017_v2/aler_adapter.py",
+    "exp/two_backbone_native_cl_20261017_v2/checkpoint_probe.py",
+    "exp/two_backbone_native_cl_20261017_v2/checkpoints.py",
+    "exp/two_backbone_native_cl_20261017_v2/clmoe_adapter.py",
+    "exp/two_backbone_native_cl_20261017_v2/freeze_splits.py",
+    "exp/two_backbone_native_cl_20261017_v2/frozen_vision.py",
+    "exp/two_backbone_native_cl_20261017_v2/fv_adapter.py",
+    "exp/two_backbone_native_cl_20261017_v2/host_adam.py",
+    "exp/two_backbone_native_cl_20261017_v2/hyper_adapter.py",
+    "exp/two_backbone_native_cl_20261017_v2/methods.py",
+    "exp/two_backbone_native_cl_20261017_v2/native_auxiliary.py",
+    "exp/two_backbone_native_cl_20261017_v2/onevision_bridge.py",
+    "exp/two_backbone_native_cl_20261017_v2/osft_adapter.py",
+    "exp/two_backbone_native_cl_20261017_v2/parsp_adapter.py",
+    "exp/two_backbone_native_cl_20261017_v2/pass_adapter.py",
+    "exp/two_backbone_native_cl_20261017_v2/pipeline.py",
+    "exp/two_backbone_native_cl_20261017_v2/prepare_native.py",
+    "exp/two_backbone_native_cl_20261017_v2/replay_adapter.py",
+    "exp/two_backbone_native_cl_20261017_v2/resource_monitor.py",
+    "exp/two_backbone_native_cl_20261017_v2/retrieval.py",
+    "exp/two_backbone_native_cl_20261017_v2/run.py",
+    "exp/two_backbone_native_cl_20261017_v2/runtime_utils.py",
+    "exp/two_backbone_native_cl_20261017_v2/sparse_results.py",
+    "exp/two_backbone_native_cl_20261017_v2/sparta_adapter.py",
+    "exp/two_backbone_native_cl_20261017_v2/training_validity.py",
+    "summary/primary_metric_20261017/metric_lock.json"
+  ],
+  "source_sha256": {
+    "analysis/onevision_v2_language_followup.py": "3c99243e815c2e6efafe2ef42dc3adc33b8bcd38c0b2809b9aab3fc69c895180"
+  },
+  "limits": [
+    "S3->S4 is an observed stage transition, not a randomized no-update intervention.",
+    "S4->S19 combines later medical and cross-domain tasks, not pure domain-count causality.",
+    "Language groups are author annotations, not verified translation pairs.",
+    "Single seed; image intervals condition on fits, not seed/order uncertainty.",
+    "Qwen vs OneVision changes architecture/pretraining as well as size; not knowledge/size isolation.",
+    "New Qwen ER pending; never splice the interrupted run or assume its scores.",
+    "Formal common401408 FP16 only; never fill nativeAnyRes research anchors with these cells.",
+    "ER loss contains replay; raw loss levels across methods not target-only fit comparisons.",
+    "Organ507 cell alone not full21454 or all-method ranking; full completion verified separately."
+  ]
+}

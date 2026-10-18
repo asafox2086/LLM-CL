@@ -20,10 +20,12 @@
 
 新增[别人发现了哪些多领域问题](summary/onevision_diagnostics_20261016/LITERATURE_PROBLEMS.md)：12篇正式会议论文加COAST版本，逐篇列问题、对照证据、解决思路与适用边界；他人成果与本实验结论分开。
 
-**统一阅读入口：[问题发现总报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md)。** 13项均按「探究的问题／做的实验／结果／证明了什么／改进的方法／改进的效果」记录，首页区分已证实、被反例否定和未解决；细节按需进入[证据目录](summary/onevision_diagnostics_20261016/README.md)。
+**统一阅读入口：[问题发现总报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md)。** 14项均按「探究的问题／做的实验／结果／证明了什么／改进的方法／改进的效果」记录，首页区分已证实、被反例否定和未解决；细节按需进入[证据目录](summary/onevision_diagnostics_20261016/README.md)。
 
 | 重点发现 | 实际结果 | 结论边界 |
 | --- | --- | --- |
+| 回放均值稳定可以掩盖开放题退化 | 正式ER Organ全均值差区间含0，OPEN184题却35.661→23.533，−12.129pp区间为负；19个池无容量淘汰 | 排除本例旧TRAIN被容量挤掉，未证抽样覆盖是掉分原因，[全部证据](summary/onevision_diagnostics_20261016/baseline_language_followup_20261018/RESEARCH_FINDINGS.md) |
+| 总分与开放题能力、实际成本需分开 | Qwen S4 Organ总分45.209高于OneVision37.314，OPEN却20.985低于35.118；PAS中文强增主要闭式、参数约Seq260倍 | 单任务时点、架构/容量等混杂，不推出纯规模/知识因果或轻量优势 |
 | 共同历史后四域换五域，F1与loss可不同步 | Organ507题18.626→17.196，F1差−1.430区间含0，NLL+0.157908区间为正 | 前3阶段权重/首批梯度精确相同，后续内容/顺序仍不同；未证领域数因果，[完整对照](summary/onevision_diagnostics_20261016/matched_task_domain/common_prefix/VERIFIED_RESULTS.md) |
 | 跨域差距不全是遗忘 | Organ507共同习得点20.361，同域末34.168、跨域末18.626；跨域净变−1.735区间含0 | 同域存在+13.808pp后续收益；单锚/序列，不能把同域−跨域差全算遗忘 |
 | 固定权重改指令能改变语言输出质量 | 跨域双指令中文1.234→13.225，英文36.087→30.632；同域中文22.336→13.819 | 有恢复也有损害；不能按TEST选指令，未证明知识充分 |
