@@ -6,7 +6,6 @@
   "validation_enabled": false,
   "methods": [
     "SeqFT_LoRA",
-    "ER_LoRA",
     "CL_MoE",
     "SMoLoRA",
     "PASs_MoE",
@@ -97,7 +96,6 @@
   "ownership": {
     "old2080": [
       "pct01:SeqFT_LoRA",
-      "pct01:ER_LoRA",
       "pct01:CL_MoE",
       "pct01:SMoLoRA",
       "pct01:PASs_MoE",
@@ -107,7 +105,6 @@
     ],
     "new3090": [
       "pct01:SeqFT_LoRA",
-      "pct01:ER_LoRA",
       "pct01:CL_MoE",
       "pct01:SMoLoRA",
       "pct01:PASs_MoE",
@@ -143,6 +140,8 @@
       "FOREVER"
     ],
     "reason": "User removes two untrained regularizers; requests a published replay comparator",
-    "details": "summary/two_backbone_pct01_20261017/BASELINES.md"
+    "details": "summary/two_backbone_pct01_20261017/BASELINES.md",
+    "removed_published_comparison_control_by_user": "ER_LoRA",
+    "ER_history_preserved": true
   }
 }

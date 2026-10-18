@@ -1,11 +1,10 @@
 # 当前基线及发表信息
 
-2026-10-18用户调整：移出未进入正式训练的FV-guided Training（ICLR 2025）与ALER（ICML 2026），保留CVPR方法CL-MoE。保留原文献、源码与失败预检记录。当前已准入8种方法；新增FOREVER作为第9种比较，适配与GPU准入待完成，不计作正在运行或已经完成。
+2026-10-18用户最新调整：标准ER-LoRA不再参与本轮比较，正在运行的Qwen ER按授权取消；旧OneVision ER完整结果及所有未完成记录保留历史。移出未进入正式训练的FV-guided Training（ICLR 2025）与ALER（ICML 2026），保留CVPR方法CL-MoE。保留原文献、源码与失败预检记录。当前已准入7种方法；新增FOREVER作为第8种比较，适配与GPU准入待完成，不计作正在运行或已经完成。
 
 | 主要类别 | 方法 | 正式会议及年份 | 本轮状态 |
 |---|---|---|---|
 | 朴素 | SeqFT-LoRA | 标准顺序微调对照；无独立新方法发表年份 | 保留 |
-| 回放 | ER-LoRA | 标准经验回放对照；不冒充顶会新方法 | 保留已有结果与排队作业 |
 | 回放 | [FOREVER](https://aclanthology.org/2026.acl-long.1144/) | ACL 2026主会 | 新增比较，待多模态适配及GPU准入 |
 | 正则化 | [PaRSP](https://aclanthology.org/2026.acl-long.1244/) | ACL 2026主会 | 保留 |
 | 正则化 | [OSFT](https://proceedings.iclr.cc/paper_files/paper/2026/hash/22620cccae29bbb3f18d226ea0320ff5-Abstract-Conference.html) | ICLR 2026主会 | 保留 |
@@ -14,7 +13,7 @@
 | 架构 | [SMoLoRA](https://openaccess.thecvf.com/content/ICCV2025/html/Wang_SMoLoRA_Exploring_and_Defying_Dual_Catastrophic_Forgetting_in_Continual_Visual_ICCV_2025_paper.html) | ICCV 2025主会 | 保留 |
 | 架构 | [PASs-MoE](https://aclanthology.org/2026.acl-long.1474/) | ACL 2026主会 | 保留；兼有正则机制 |
 
-计划为2回放＋3正则化＋3架构＋1朴素，共9种。当前正式运行范围为8种×2骨干；FOREVER完成准入后才扩展正式范围，不用空分数冒充结果。
+计划为1回放＋3正则化＋3架构＋1朴素，共8种。当前正式运行范围为7种×2骨干；FOREVER完成准入后才扩展正式范围，不用空分数冒充结果。
 
 ## FOREVER的比较定位与准入条件
 

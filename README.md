@@ -2,11 +2,44 @@
 
 **研究背景：轻量模型、1%数据、低内存增长。** 允许多个LoRA，但以实际领域总Answer F1、AP/FWT/BWT和资源成本评价，不要求每个语言、题型或样本都提升。LoRA是训练参数化，正则化是保护机制，两者可结合；不预设必须扩容或路由。[核心规则](rules/021_lightweight_data_limited_core_20261017.md) · [LoRA与正则化](summary/onevision_diagnostics_20261016/expert_cold_start_20261018/LORA_VS_REGULARIZATION.md)。
 
+<!-- FORMAL_MAIN_TABLE_BEGIN -->
+## 主实验：双骨干1%多领域持续学习
+
+Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条），测试集为完整21454条；五个数据集按19个原生任务顺序训练，seed=42。空白表示尚无完整核验结果，不能视作0分。
+
+| 方法／Backbone | TextVQA<br>自然／通用 | SLAKE<br>医学 | RSVQA-LR<br>遥感 | FinMME<br>金融 | CODA-LM<br>交通 | AP ↑ | FWT ↑ | BWT ↑ |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| **Qwen2-VL-2B-Instruct** | | | | | | | | |
+| SeqFT-LoRA |  |  |  |  |  |  |  |  |
+| FOREVER |  |  |  |  |  |  |  |  |
+| CL-MoE |  |  |  |  |  |  |  |  |
+| SMoLoRA |  |  |  |  |  |  |  |  |
+| PASs-MoE |  |  |  |  |  |  |  |  |
+| PaRSP |  |  |  |  |  |  |  |  |
+| OSFT |  |  |  |  |  |  |  |  |
+| SpaRTA |  |  |  |  |  |  |  |  |
+| Ours |  |  |  |  |  |  |  |  |
+| **LLaVA-OneVision-Qwen2-0.5B-OV** | | | | | | | | |
+| SeqFT-LoRA | 75.632 | 40.758 | 46.711 | 15.891 | 31.938 | 40.286 | 14.783 | 1.775 |
+| FOREVER |  |  |  |  |  |  |  |  |
+| CL-MoE |  |  |  |  |  |  |  |  |
+| SMoLoRA |  |  |  |  |  |  |  |  |
+| PASs-MoE |  |  |  |  |  |  |  |  |
+| PaRSP |  |  |  |  |  |  |  |  |
+| OSFT |  |  |  |  |  |  |  |  |
+| SpaRTA |  |  |  |  |  |  |  |  |
+| Ours |  |  |  |  |  |  |  |  |
+
+五个数据集列为训练结束后的完整域内QA平均F1；AP为19个原生任务等权平均，FWT/BWT按已测的必要阶段计算。两种权重口径不同。FOREVER（ACL 2026）待图文适配与准入；Ours尚无可填入此正式表的完整结果。ER-LoRA已按用户要求移出比较，已有结果保留在历史证据中。
+
+[方法分类、发表信息及状态](summary/two_backbone_pct01_20261017/BASELINES.md) · [完整主表与协议](summary/two_backbone_pct01_20261017/MAIN_TABLE.md) · [逐题核验索引](summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/VERIFIED_INDEX.json)
+<!-- FORMAL_MAIN_TABLE_END -->
+
 ## 当前实验与阅读入口
 
 | 入口 | 内容与边界 |
 | --- | --- |
-| [正式双骨干主表](summary/two_backbone_pct01_20261017/MAIN_TABLE.md) | Qwen2-VL-2B与OneVision 0.5B分块，五领域最终分数、AP/FWT/BWT。只填完整核验结果；[只读发布器](summary/two_backbone_pct01_20261017/completion_observer_eight_20261018/README.md)覆盖16个已准入组合，FOREVER另列待准入，未完成格留空。 |
+| [正式双骨干主表](summary/two_backbone_pct01_20261017/MAIN_TABLE.md) | Qwen2-VL-2B与OneVision 0.5B分块，五领域最终分数、AP/FWT/BWT。只填完整核验结果；[只读发布器](summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/README.md)覆盖14个已准入组合，FOREVER另列待准入，未完成格留空。 |
 | [正式V2框架与公平性](summary/two_backbone_native_cl_20261017_v2/README.md) | 两机共享TRAIN/TEST ID、原生任务顺序、方法代码、预算、公共图像输入与评分；原生processor/tokenizer因骨干而异。旧零LR/V1结果隔离。 |
 | [问题发现总报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md) | 按问题、实验、结果、证明、改进、效果记录；区分已证实、已反驳、未解决。[关键发现](summary/onevision_diagnostics_20261016/KEY_FINDINGS.md)提供证据索引。 |
 | [研究诊断表](summary/onevision_diagnostics_20261016/functional_router/MAIN_TABLE_DIAGNOSTIC.md) | 原生AnyRes/BF16、同155题的六方法对照；不能混入正式V2或当完整21454题结果。 |
@@ -59,11 +92,10 @@
 <tr><td></td><td></td><td></td><td><a href="https://openaccess.thecvf.com/content/ICCV2025/html/Guo_Federated_Continual_Instruction_Tuning_ICCV_2025_paper.html" title="Federated Continual Instruction Tuning"><strong>FCIT</strong></a><br>ICCV 2025<br><a href="paper/pre_finetuning/method_architecture/2025_ICCV_FCIT.pdf">PDF</a></td><td></td></tr>
 <tr><td></td><td></td><td></td><td><a href="https://openaccess.thecvf.com/content/ICCV2025/html/Jin_Instruction-Grounded_Visual_Projectors_for_Continual_Learning_of_Generative_Vision-Language_Models_ICCV_2025_paper.html" title="Instruction-Grounded Visual Projectors for Continual Learning of Generative Vision-Language Models"><strong>MVP / Instruction-Grounded Visual Projectors</strong></a><br>ICCV 2025<br><a href="paper/pre_finetuning/method_architecture/2025_ICCV_MVP_Instruction_Grounded_Visual_Projectors.pdf">PDF</a></td><td></td></tr>
 <tr><td></td><td></td><td></td><td><a href="https://openaccess.thecvf.com/content/ICCV2025/html/Wang_SMoLoRA_Exploring_and_Defying_Dual_Catastrophic_Forgetting_in_Continual_Visual_ICCV_2025_paper.html" title="SMoLoRA: Exploring and Defying Dual Catastrophic Forgetting in Continual Visual Instruction Tuning"><strong>SMoLoRA</strong></a><br>ICCV 2025<br><a href="paper/pre_finetuning/method_architecture/2025_ICCV_SMoLoRA.pdf">PDF</a></td><td></td></tr>
-<tr><td></td><td><a href="https://arxiv.org/html/2503.00413#S5"><strong>ER-LoRA（本轮新增）</strong></a><br>标准经验回放对照；CL-MoE CVPR 2025评测，非该年新方法</td><td></td><td></td><td></td></tr>
 </tbody>
 </table>
 
-归类按主要机制，混合机制、原论文模型及生成任务见 [论文完整索引](paper/README.md)。预训练条目包含语言／知识／上下文扩展型 CPT，不全部具有序贯抗遗忘实验；HPA 归入持续安全对齐保持。**ER-LoRA保留基础回放对照；新增FOREVER（ACL2026）为待适配的正式发表回放比较；DGG仅保留文献。**
+归类按主要机制，混合机制、原论文模型及生成任务见 [论文完整索引](paper/README.md)。预训练条目包含语言／知识／上下文扩展型 CPT，不全部具有序贯抗遗忘实验；HPA 归入持续安全对齐保持。**本轮仅保留FOREVER（ACL2026）作为待适配的回放比较；标准ER-LoRA已移出，DGG仅保留文献。**
 
 ## 当前五数据集／19原生任务协议
 
@@ -71,7 +103,7 @@
 
 两骨干为Qwen2-VL-2B-Instruct与LLaVA-OneVision-Qwen2-0.5B-OV。相同1313条TRAIN、21454条TEST、19阶段、seed42、一轮、有效batch16/microbatch1，无验证集；公共图像预算401408像素及128MiB CPU缓存。各方法保留已披露的作者差异，同方法跨骨干共享实现。新GPU2/3当前优先Qwen1%，旧GPU0—3运行OneVision1%；SMoLoRA需BF16，等待新机支持硬件的专用lane。新GPU0保留、GPU1只做研究，不抢占他人作业。全量版本已就绪，不把数据就绪写成全量实验已经完成。
 
-当前8项已准入方法：SeqFT-LoRA、ER-LoRA、CL-MoE、SMoLoRA、PASs-MoE、PaRSP、OSFT、SpaRTA。用户移出尚未正式训练的FV-guided Training与ALER，历史预检和文献仍保留。新增顶会回放比较FOREVER（ACL2026），作者源码已固定，待图文适配及GPU准入；计划共9项，不冒充已经开跑。[方法发表信息与状态](summary/two_backbone_pct01_20261017/BASELINES.md)。SeqFT-LoRA是标准顺序微调对照的描述名；ER为标准回放对照，CL-MoE为CVPR2025多模态方法。Hyper-LLaVA移出本轮，DGG仅保留文献。主要机制归类与LoRA参数化不互斥，例如PASs既有专家架构，也有LoRA参数正则。[V2适配与准入](summary/two_backbone_native_cl_20261017_v2/README.md)。
+当前7项已准入方法：SeqFT-LoRA、CL-MoE、SMoLoRA、PASs-MoE、PaRSP、OSFT、SpaRTA。用户移出尚未正式训练的FV-guided Training与ALER，历史预检和文献仍保留。新增顶会回放比较FOREVER（ACL2026），作者源码已固定，待图文适配及GPU准入；计划共8项，不冒充已经开跑。[方法发表信息与状态](summary/two_backbone_pct01_20261017/BASELINES.md)。SeqFT-LoRA是标准顺序微调对照的描述名；标准ER-LoRA已移出当前比较，CL-MoE为CVPR2025多模态方法。Hyper-LLaVA移出本轮，DGG仅保留文献。主要机制归类与LoRA参数化不互斥，例如PASs既有专家架构，也有LoRA参数正则。[V2适配与准入](summary/two_backbone_native_cl_20261017_v2/README.md)。
 
 顺序为TextVQA → SLAKE的Modality/Position/Organ/Size/Abnormality/Quantity/Plane/Shape/Color/KG → RSVQA-LR的rural_urban/presence/count/comp → FinMME → CODA-LM的general/regional/suggestion。原生标签保持，顺序是研究预先冻结课程，不称官方课程。1%划分两机、所有方法完全共享，不重新抽样。
 

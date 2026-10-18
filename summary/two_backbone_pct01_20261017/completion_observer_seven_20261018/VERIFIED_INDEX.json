@@ -1,0 +1,60 @@
+{
+  "CPU_only": true,
+  "collector_sha256": "d7aac920f738c6ee8fde9a636560f2d2d6ee7ea1ba9de9e030e6548b4b4cad0a",
+  "verified_method_backbone_pairs": 1,
+  "required_pairs": 14,
+  "TEST_best_run_selection": false,
+  "primary_AP19_unchanged": true,
+  "methods": [
+    {
+      "backbone": "onevision",
+      "method": "SeqFT_LoRA",
+      "proof_file": "summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/completed/b463d0e9fdfecc9eb456.json",
+      "aggregate": {
+        "AP": 40.28615194242285,
+        "FWT": 14.783131998469552,
+        "BWT": 1.7748605479377741
+      },
+      "domains": {
+        "natural": {
+          "F1": 75.6318044684319,
+          "QA": 5000
+        },
+        "medical": {
+          "F1": 40.75767924168686,
+          "QA": 2094
+        },
+        "geography": {
+          "F1": 46.71131547381047,
+          "QA": 10004
+        },
+        "finance": {
+          "F1": 15.890773082166865,
+          "QA": 2233
+        },
+        "traffic": {
+          "F1": 31.937969468850667,
+          "QA": 2123
+        }
+      }
+    }
+  ],
+  "scope_wrapper_sha256": "067b7e41b545483c3746c496b7aa69ce118e5f6526140e3033c0614ee47fb48f",
+  "removed_from_current_comparison": [
+    "ALER",
+    "ER_LoRA",
+    "FV_guided_Training"
+  ],
+  "pending_not_admitted": [
+    "FOREVER"
+  ],
+  "methods_in_scope": [
+    "SeqFT_LoRA",
+    "CL_MoE",
+    "SMoLoRA",
+    "PASs_MoE",
+    "PaRSP",
+    "OSFT",
+    "SpaRTA"
+  ]
+}

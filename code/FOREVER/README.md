@@ -1,4 +1,6 @@
-2026-10-18当前方法范围：移出未进入正式训练的FV-guided Training与ALER，保留8项已准入方法；新增FOREVER（ACL2026）待图文适配及GPU准入，计划9项。原作者FOREVER为文本任务，不能称原生多模态或直接以作者多轮脚本冒充同预算。见[方法清单及准入要求](../../summary/two_backbone_pct01_20261017/BASELINES.md)。
+2026-10-18后续修订：标准ER-LoRA已按用户要求移出当前比较，历史结果保留；唯一回放比较为待准入FOREVER。
+
+2026-10-18当前方法范围：移出未进入正式训练的FV-guided Training与ALER，保留7项已准入方法；新增FOREVER（ACL2026）待图文适配及GPU准入，计划8项。原作者FOREVER为文本任务，不能称原生多模态或直接以作者多轮脚本冒充同预算。见[方法清单及准入要求](../../summary/two_backbone_pct01_20261017/BASELINES.md)。
 
 # FOREVER
 
