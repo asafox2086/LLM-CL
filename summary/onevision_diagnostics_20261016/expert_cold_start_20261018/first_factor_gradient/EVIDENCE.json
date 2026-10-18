@@ -1,0 +1,87 @@
+{
+  "CPU_only": true,
+  "actual_saved_model_gradients": true,
+  "TEST_predictions_read": 0,
+  "model_forward": 0,
+  "optimizer_updates_executed_by_audit": 0,
+  "QA_modified": false,
+  "cold_run": "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443",
+  "warm_run": "exp/onevision_learned_reuse_20261018/warm_inherit_K3_v1/train/20261018_165303",
+  "target_task": 2,
+  "same_TRAIN_QA": 11,
+  "same_main_updates": 1,
+  "common_first_task_native_AB_exact": true,
+  "warm_initial_AB_matches_actual_prior_expert": true,
+  "layers": 48,
+  "gradients": {
+    "cold": {
+      "gradient_norm": {
+        "A": 0.0,
+        "B": 80.69290045723363
+      },
+      "nonzero_gradient_elements": {
+        "A": 0,
+        "B": 196608
+      },
+      "nonzero_gradient_layers": {
+        "A": 0,
+        "B": 48
+      }
+    },
+    "warm": {
+      "gradient_norm": {
+        "A": 3.3924870730313357,
+        "B": 39.73177558791422
+      },
+      "nonzero_gradient_elements": {
+        "A": 344064,
+        "B": 196608
+      },
+      "nonzero_gradient_layers": {
+        "A": 48,
+        "B": 48
+      }
+    }
+  },
+  "actual_parameter_changes": {
+    "cold": {
+      "A": {
+        "changed_layers": 0,
+        "delta_norm": 0.0
+      },
+      "B": {
+        "changed_layers": 48,
+        "delta_norm": 0.04429828421220332
+      }
+    },
+    "warm": {
+      "A": {
+        "changed_layers": 48,
+        "delta_norm": 0.058455918545421995
+      },
+      "B": {
+        "changed_layers": 48,
+        "delta_norm": 0.04429754386898641
+      }
+    }
+  },
+  "source_sha256": {
+    "exp/onevision_deterministic_native_20261016/20261016_212934/initial_adapter.pt": "61d1b77016b428a4ed2573a99df5ba85ff970fd393d272ae49b03b6b5315c454",
+    "exp/onevision_learned_reuse_20261018/warm_inherit_K3_v1/train/20261018_165303/states/reuse_T01.pt": "79a3448fb858893647d38e09555cfd5df374afd7bbe97418f2476c705a548ea0",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/candidates/reuse_T02.pt": "1b4ef1b3a4ddd564631e00f29ed799b71de13602cfe125272b55d3675ff53452",
+    "exp/onevision_learned_reuse_20261018/warm_inherit_K3_v1/train/20261018_165303/candidates/reuse_T02.pt": "e6e5adf0f14a51950810e4d6cc3aa111c55e9d5be3cb3903b1e00006bd72a41f",
+    "exp/onevision_learned_reuse_20261018/learned_cosine_K3/train/20261018_022443/raw_update_gradients/reuse_T02/step1.pt": "62d5a9a62b97bffeb795f4e3e76feaa0f63484a6c531feeefd943bfde8e6259b",
+    "exp/onevision_learned_reuse_20261018/warm_inherit_K3_v1/train/20261018_165303/raw_update_gradients/reuse_T02/step1.pt": "15b1cc4d86fa567b75778ef39330fc184f573a0d150ea26b532a7c00d272110c"
+  },
+  "first_step_formula": "dL/dA = B^T(dL/d(deltaW)); B=0 implies dL/dA=0 under this LoRA branch",
+  "limitations": [
+    "Known LoRA initialization/chain-rule property, not new algebra.",
+    "Fresh per-stage AdamW and zero weight decay here; do not generalize to nonzeroB/optimizer histories/other parameterizations.",
+    "Only a fresh new expert with one update fails to train A; reused experts can have nonzeroB.",
+    "Warm changes starting function and available A gradient together; this does not separate their F1 contribution.",
+    "No new Answer F1 or full19/full21454 effect follows from these gradients."
+  ],
+  "audit_source_sha256": "e2e7bf28e3bced523ee8a0e200405bd63fe5a286c76f0bfffc9103b96292ac18",
+  "v1_order_check_correction": "First CPU audit compared pre-shuffle manifest order to optimizer order. V2 requires exact cold/warm equality to the original seed42 training-hash order; no IDs changed.",
+  "elapsed_seconds": 0.24675009000930004
+}
