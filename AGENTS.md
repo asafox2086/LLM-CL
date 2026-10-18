@@ -1,3 +1,11 @@
+# Same20 feedback-coverage control ACTUALLY ADMITTED/RUNNING — 2026-10-18
+
+- 唯一同nohup llmcl-onevision-causal-priority.service现CPU61499/frozen onevision_feedback_coverage_queue.py；权威feedback_coverage_20261018/v1/queue/queue_state.json+ACTIVATION，旧CPU34096计划退役不恢复。8实际实现/设备导入0与1不初始化CUDA＋9新策略/3新旧命令与所有祖先检查通过；所有受保护GPU/基线/CPU报告PID/startticks保全。旧case03正常完成，不重启58188；实际新GPU61528在空闲GPU0完成原反馈500/155精确门槛中，新60TRAIN与新头结果尚待，勿把control_original_feedback日志当新收益。只用真正空闲0/1、单研究流、我们至多3新机卡，尊重他人。
+- 独立coverage trial复用原FeedbackExperiment/core对象，只改固定反馈20ID分配；同源池12/18/19与原型、原1313/19/93历史训练不变，同60生成/1792/40/温度/评分。20覆盖19任务，native task仅TRAIN抽样，不进推理路由。必须fresh原反馈完整500/155/routes精确，再实际新20特征/60teacher/40梯度及两新诊断；重叠锚特征须精确旧值，保存所有参数/原始梯度/CPU-GPU前后/峰值/时间和checkpoint。题次预算相同不代表token/FLOPs/耗时相同；记忆分配同时改变样本内容，不能推纯覆盖数因果。
+- SOURCE/worker/entry/report/queue/activation均已FROZEN，修复独立版本。预定两新coverage fixed/metric都完整21454，原两F1/原全部负结果/18控制/其余完整均保留；coverage build后接原18余项，再两coverage full，再所有原工作。native155不填正式Ours，缺合法prefix/fullcell的FWT/BWT仍null。下一步真实GPU控制/反馈/结果核验，不重复同CPU检查或再添复杂模块。
+- 原18数据因子已有4/18完成（T02独特1/4 ×冷/温），同起点完整初始功能跨支持集精确；4条支持/4更新warm58.020 vs cold21.537，而1条4更新warm33.846 vs cold35.633。仅单嵌套支持/单任务/seed，不能由此说样本越少继承优势越大；全11支持及T11/T12待，保留全部方向。见cold_data_factorial_20261018/VERIFIED_RESULTS，不当作五域方法收益。
+- 最新人类问因果时要先解释逻辑：单独调用专家，刚习得就弱；后续其参数未变，排除该专家后来覆盖；同当前预算完整继承已有适配更好，支持局部初次习得/继承问题。尚未分离纯知识/视觉/作答机制，也未完全分离内容覆盖与更新机会，不以首步A梯度为0解释全部现象，不夸张所有LoRA无效。
+
 # 新匹配两格COMPLETE：真实学习但调用零改变；下一控制是同预算反馈覆盖 — 2026-10-18
 
 - 原answer_compatibility build完整SHA证明通过、原500/155几何精确重现、60TRAIN和40头更新已核验。新固定F1／学习距离AP19都42.859583，原Seq43.362536、几何45.699911；新两格500路由/NLL及155生成语义字段完全相同。相对Seq域宏−.24438图像CI[-1.11198,.50072]，不称显著损害；相对几何−2.68736 CI[-6.41685,1.14104]。全10对照保留，未获大幅完整收益，native155不填正式Ours。见answer_compatibility_20261018/v1/all_five_outcome。
