@@ -12,15 +12,20 @@
 
 ## 研究成果：按问题阅读
 
-新增[可学习向量空间与LoRA优先复用试验](summary/onevision_diagnostics_20261016/learned_reuse/PROTOCOL.md)：固定/可学习两组同Kmax3、同1313训练QA/19阶段，模型按图像和问题的相似度决定复用或从基座新增。代码/CPU预检及[后台接续](summary/onevision_diagnostics_20261016/learned_reuse_queue/README.md)已完成；GPU1当前被其他用户占用，尚无模型训练或收益结果。[自动结果](summary/onevision_diagnostics_20261016/learned_reuse/VERIFIED_RESULTS.md)。
+新增[从多领域论文改造的两个轻量模块](summary/onevision_diagnostics_20261016/functional_router/PROTOCOL.md)：借鉴D-MoLE的识别与MVP的相关性聚合，固定已有专家池，用43条原TRAIN的172次NLL前向校准16参数质量头，再比较硬调用／连续LoRA残差。15项CPU机制、10项调度、3项接续安全检查通过，已接入[后台队列](summary/onevision_diagnostics_20261016/functional_router_queue/README.md)；GPU当前归因作业自然结束后执行，不宣称已获收益。两个预定候选均完整21454题确认，不按诊断挑赢家；专家池和额外计算成本仍计入。
+
+[相似度复用方案训练结果](summary/onevision_diagnostics_20261016/learned_reuse/INTERIM_RESULT_20261018.md)已出：同155题/19任务AP固定22.391、可学习31.025、顺序LoRA43.363。可学习版比固定版高8.634pp，仍比顺序LoRA低12.338pp；两组均前3阶段用满3个专家，尚未达到性能和自主少量模块目标。原两组完整测试0/2待测，继续保留。
+
+正式OneVision1%已有SeqFT／ER两方法完成，AP40.286／39.275；另4个在跑、4个待跑。[主表](summary/two_backbone_pct01_20261017/MAIN_TABLE.md)与上述研究AnyRes结果分开。新机曾发生磁盘写满，已保全故障证据、核验写盘及真实S9参数后续跑Qwen SeqFT，ER另建run重跑；[恢复记录](summary/storage_recovery_20261018/README.md)。
 
 新增[别人发现了哪些多领域问题](summary/onevision_diagnostics_20261016/LITERATURE_PROBLEMS.md)：12篇正式会议论文加COAST版本，逐篇列问题、对照证据、解决思路与适用边界；他人成果与本实验结论分开。
 
-**统一阅读入口：[问题发现总报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md)。** 12项均按「探究的问题／做的实验／结果／证明了什么／改进的方法／改进的效果」记录，首页区分已证实、被反例否定和未解决；细节按需进入[证据目录](summary/onevision_diagnostics_20261016/README.md)。
+**统一阅读入口：[问题发现总报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md)。** 13项均按「探究的问题／做的实验／结果／证明了什么／改进的方法／改进的效果」记录，首页区分已证实、被反例否定和未解决；细节按需进入[证据目录](summary/onevision_diagnostics_20261016/README.md)。
 
 | 重点发现 | 实际结果 | 结论边界 |
 | --- | --- | --- |
-| 固定名义预算的跨域替换影响旧锚 | 完整Organ507题跨四域18.626 vs同域34.168，差−15.542pp | 单锚/序列；全锚共同S1未测，不能将差距全算遗忘 |
+| 跨域差距不全是遗忘 | Organ507共同习得点20.361，同域末34.168、跨域末18.626；跨域净变−1.735区间含0 | 同域存在+13.808pp后续收益；单锚/序列，不能把同域−跨域差全算遗忘 |
+| 固定权重改指令能改变语言输出质量 | 跨域双指令中文1.234→13.225，英文36.087→30.632；同域中文22.336→13.819 | 有恢复也有损害；不能按TEST选指令，未证明知识充分 |
 | 领域替换混入语言分布变化 | 中文F1同域22.336/跨域1.234；中文预测含汉字251/25，TRAIN后续中文曝光17/0 | 分层差异不是语言因果；不能断言知识完整或差距全为知识遗忘 |
 | 正式基线中文可少量习得 | 原Organ26QA/2更新，SeqFT/ER中文F1增量+17.559/+17.362pp | 完整507题学习前→刚学完；最终未完成，不与AnyRes混算 |
 | 当前任务尚未学好，不全是后来忘了 | Modality初始/1/4步F1为29.600/29.263/51.956；KG为5.511/7.240/17.918 | 多训练局部有效，遥感却76→44；额外计算另计 |

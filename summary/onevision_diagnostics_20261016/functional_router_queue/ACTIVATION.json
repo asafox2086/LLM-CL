@@ -1,0 +1,92 @@
+{
+  "UTC": "2026-10-18T04:29:18Z",
+  "entrypoint_sha256": "32acb8cd0e9d9655b9e7737214a49bd87eb5a603508913bb7a50ddaf48df6e52",
+  "old_CPU_pid": 336769,
+  "old_startticks": 14125930,
+  "new_CPU_pid": 340143,
+  "new_startticks": 14237139,
+  "observer_pid": 340149,
+  "observer_startticks": 14237159,
+  "observer_source_sha256": "b9f2f5fc831cf08dc14116b15b230dcd9d9376e65c26c54e5ba38726eb111cb0",
+  "protected_before": {
+    "2424": 9940,
+    "184250": 7171664,
+    "217515": 8309522,
+    "249343": 9009069,
+    "265271": 9394475,
+    "336392": 14120015,
+    "336398": 14120026,
+    "336411": 14120031,
+    "336774": 14125933,
+    "336779": 14125937,
+    "337648": 14181267,
+    "338009": 14183684,
+    "338128": 14185457
+  },
+  "protected_after": {
+    "2424": 9940,
+    "184250": 7171664,
+    "217515": 8309522,
+    "249343": 9009069,
+    "265271": 9394475,
+    "336392": 14120015,
+    "336398": 14120026,
+    "336411": 14120031,
+    "336774": 14125933,
+    "336779": 14125937,
+    "337648": 14181267,
+    "338009": 14183684,
+    "338128": 14185457
+  },
+  "phase": {
+    "pid": 340143,
+    "phase": "wait",
+    "target": null,
+    "state": {
+      "inherited_worker": {
+        "kind": "matched",
+        "target": 18,
+        "worker_pid": 338128,
+        "worker_startticks": 14185457,
+        "unchanged_GPU_source": true,
+        "retired_CPU_pid": 336769
+      },
+      "waiting_for_natural_completion": true
+    },
+    "GPU1_only": true
+  },
+  "order": [
+    "ready_sharedS1",
+    "original_cosine_train2",
+    "fixed_pool_functional_pilot4views",
+    "languagecue4",
+    "matched48_SeqFT_first",
+    "original_cosine_full2",
+    "functional_full2",
+    "all_original_remaining_jobs"
+  ],
+  "no_GPU_source_edits": true,
+  "no_GPU_process_stopped": true,
+  "dropin": "[Service]\nExecStart=\nExecStart=/usr/bin/nohup /data1/liyapeng/program/LLMCL/.assets-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/onevision_functional_router_queue.py\nStandardOutput=append:/data1/liyapeng/program/LLMCL/summary/onevision_diagnostics_20261016/functional_router_queue/coordinator_nohup.log\nKillMode=process\nRestart=no\n",
+  "observer_unit": "[Unit]\nDescription=Read-only CPU evidence for fixed-pool functional routing\n[Service]\nType=simple\nWorkingDirectory=/data1/liyapeng/program/LLMCL\nEnvironment=CUDA_VISIBLE_DEVICES=\nEnvironment=PYTHONUNBUFFERED=1\nExecStart=/usr/bin/nohup /data1/liyapeng/program/LLMCL/.assets-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/onevision_functional_router_report.py --watch\nStandardInput=null\nStandardOutput=append:/data1/liyapeng/program/LLMCL/summary/onevision_diagnostics_20261016/functional_router/observer_nohup.log\nStandardError=inherit\nKillMode=process\nRestart=no\n[Install]\nWantedBy=default.target\n",
+  "activation_script_sha256": "d31cd051ca434665e1aff2f48e3fae5d238633912245cab8d79a9306ea7b2766",
+  "user_authorization": {
+    "user_authorized_literature_lightweight_adaptation": true,
+    "basis": "Latest human asks to examine published multi-domain methods and adapt them for lightweight data-limited gains; GPU1 plan already delegated.",
+    "entrypoint_sha256": "32acb8cd0e9d9655b9e7737214a49bd87eb5a603508913bb7a50ddaf48df6e52",
+    "plan_sha256": "430868e5168d49b56a201991aa60e3f509cf5ed2a72a1805af54ca4dc24e4f36",
+    "order": [
+      "ready_sharedS1",
+      "original_cosine_train2",
+      "fixed_pool_functional_pilot4views",
+      "languagecue4",
+      "matched48_SeqFT_first",
+      "original_cosine_full2",
+      "functional_full2",
+      "all_original_remaining_jobs"
+    ],
+    "no_TEST_choice": true,
+    "all_original_jobs_retained": true,
+    "CPU_check_count": 13
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "CPU_only": true,
+  "same_155_original_ids_and_gold": true,
+  "sole_raw_Answer_F1": true,
+  "no_TEST_selection": true,
+  "results": [
+    {
+      "variant": "fixed_cosine_K3",
+      "generated_QA": 155,
+      "native19_AP": 22.390917476551532,
+      "proof_sha256": "4455756a3e64938bfe8c5bb195ff33cb4cb197976db0b604eaed29a2a6240ff2",
+      "diagnostic_files_sha256": {
+        "evaluations/final_diagnostic/natural_image.jsonl": "d301977acf52324054017cb3ecf189b0093b1f8daed729050235e62639b3842b",
+        "evaluations/final_diagnostic/medical_image.jsonl": "f25dec19671faf4df969078f70378621dcdbac1294d9adac33e8b3596f8eb980",
+        "evaluations/final_diagnostic/geography_image.jsonl": "acce97a3b327dadf20ee2491824868c1620943539b3702d3b5dd68e727b70161",
+        "evaluations/final_diagnostic/finance_image.jsonl": "5626bbb07dacce48425cd938ee2650d5a0cc0744994ddd2511fdcdacd4170bbf",
+        "evaluations/final_diagnostic/traffic_image.jsonl": "b72f87b7006cf6eb160cf2e3d1ab12a5f75ea306719dfa3c5191924c1ab27d67"
+      }
+    },
+    {
+      "variant": "learned_cosine_K3",
+      "generated_QA": 155,
+      "native19_AP": 31.02500019956796,
+      "proof_sha256": "bec50f3729f495d1330004d981771301eac550b22e243a237912fb8e092d221c",
+      "diagnostic_files_sha256": {
+        "evaluations/final_diagnostic/natural_image.jsonl": "813a61b43f9f87bdab86f5c73fde0b04019b3ebe06c954a23c7b5b89d3a75adb",
+        "evaluations/final_diagnostic/medical_image.jsonl": "eee82cbbacbe080c76b7f0828bf733eed1c63e5330dd2185c6c4fd5f63a4bc4d",
+        "evaluations/final_diagnostic/geography_image.jsonl": "0ba383cc4acda20c997021a5ecef825f5534a71df1e093776a1d3094cd5e4994",
+        "evaluations/final_diagnostic/finance_image.jsonl": "6eed8d975035bfa21c3b03b1cc4a43565413c37202ffbe1b326b9d34a7d10f83",
+        "evaluations/final_diagnostic/traffic_image.jsonl": "d9518e3e741333f35387d991d2f6c871dd92f822f563298a48315cb4851c6b75"
+      }
+    },
+    {
+      "variant": "sequential_LoRA_cap1",
+      "generated_QA": 155,
+      "native19_AP": 43.362536135144616,
+      "proof_sha256": "54ed36cb87f1416f5611af5bc158712c8fa7add4ba7107d2814ce4dac7501864",
+      "diagnostic_files_sha256": {
+        "evaluations/final_input_router/natural_image.jsonl": "b18ef2c3aced7cd669b8bccaa3808e24e1ba74ef913b795ca6cfe8c077fbb285",
+        "evaluations/final_input_router/medical_image.jsonl": "335c916bcc1fadd15e922287e86dbf3c1bb84f1053ba4c094e85b156d35647ba",
+        "evaluations/final_input_router/geography_image.jsonl": "be6c1063bf485cc1b4b9b8a2adc42b084a50312602cd9f09106b1abf9295a913",
+        "evaluations/final_input_router/finance_image.jsonl": "3928536dd4b6274151b2968f722327d968c9570cb66442f2bc5123feab925b19",
+        "evaluations/final_input_router/traffic_image.jsonl": "895d9dd750f3f5fc75acf6948c1da488fb210123dbc40fd1dd67db02b0dab10f"
+      }
+    }
+  ],
+  "limitation": "Diagnostic155 only, not formalV2 or complete21454; full confirmations retained regardless scores.",
+  "source_sha256": {
+    "analysis/onevision_cosine_reference_report.py": "05c06c89f0162d8df20a41bb8e4968a2260d7e9eede5bf35df4ec7ddff7a7ebf",
+    "analysis/answer_f1.py": "16c59998413d12b820d6f57269f9e1f45ac78e08595d20bf1f4fbc967fd94c4b"
+  }
+}
