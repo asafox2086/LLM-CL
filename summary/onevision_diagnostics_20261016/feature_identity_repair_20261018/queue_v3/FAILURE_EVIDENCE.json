@@ -1,0 +1,31 @@
+{
+  "old_queue_PID": 405559,
+  "old_worker_PID": 427417,
+  "both_proc_missing": true,
+  "old_queue_state": {
+    "pid": 405559,
+    "phase": "running",
+    "kind": "data_factorial",
+    "target": 0,
+    "worker_pid": 427417,
+    "GPU1_only": true
+  },
+  "worker_failure": {
+    "pid": 427417,
+    "traceback": "Traceback (most recent call last):\n  File \"/data1/liyapeng/program/LLMCL/analysis/onevision_identity_repair_worker.py\", line 69, in <module>\n    main()\n  File \"/data1/liyapeng/program/LLMCL/analysis/onevision_identity_repair_worker.py\", line 54, in main\n    assert repair.RUNS, 'Worker did not run a repaired experiment'\nAssertionError: Worker did not run a repaired experiment\n",
+    "no_blind_retry": true
+  },
+  "queue_failure": {
+    "traceback": "Traceback (most recent call last):\n  File \"/data1/liyapeng/program/LLMCL/analysis/onevision_identity_repair_queue_v2.py\", line 135, in <module>\n    main(args.check)\n  File \"/data1/liyapeng/program/LLMCL/analysis/onevision_identity_repair_queue_v2.py\", line 127, in main\n    original.main(False)\n  File \"/data1/liyapeng/program/LLMCL/analysis/onevision_cold_quality_queue.py\", line 188, in main\n    prior.cold.previous.main(False)\n  File \"/data1/liyapeng/program/LLMCL/analysis/onevision_warm_start_queue.py\", line 190, in main\n    assert code == 0, \"Keep failed artifacts; no blind retry\"\nAssertionError: Keep failed artifacts; no blind retry\n",
+    "no_blind_retry": true
+  },
+  "preserved_without_change": {
+    "analysis/onevision_identity_repair_queue_v2.py": "8d38cecb97c3c2d0e9d213afba63b6d92dc0b424bd44a991f0e1b88d69832422",
+    "analysis/onevision_identity_repair_worker.py": "68b2bfc16a081b6a1672dcf8ed91f77c2a71bebca2437d578c22d0b999d9c9cd",
+    "analysis/onevision_cold_data_factorial.py": "ac2bf1f976b958601f67adaa58208b413f48c3e4ff44540616664cef91e8f117",
+    "summary/onevision_diagnostics_20261016/feature_identity_repair_20261018/worker_427417_needs_attention.json": "ecebccf61a2492047a6d59f0a85abbc1818dd4e8abcaa7ce1dadfef8953d5115",
+    "summary/onevision_diagnostics_20261016/cold_data_factorial_20261018/case_00_complete.json": "4184cd94c661f60ff8a0ddaa8b2ce66be6f9a41ffa57e2e0ba44ef2638e40b98",
+    "summary/onevision_diagnostics_20261016/cold_data_factorial_20261018/CPU_PLAN_CHECK.json": "4563cf1eea1cf1102242306be4fd324b81588bc6c42000ecfd85309ffa822467"
+  },
+  "observed_unix": 1792318359.3470383
+}

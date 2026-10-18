@@ -1,12 +1,230 @@
 {
   "CPU_only": true,
-  "completed_trajectories": 0,
+  "completed_trajectories": 1,
   "required_trajectories": 18,
-  "results": [],
+  "results": [
+    {
+      "case_index": 0,
+      "task": 2,
+      "start": "cold_base",
+      "unique_TRAIN": 1,
+      "effective_batch": 44,
+      "TEST_QA": 228,
+      "before_after": {
+        "initial": {
+          "Answer_F1": 19.31647300068352,
+          "NLL": 9.328161519870424
+        },
+        "endpoint_1": {
+          "Answer_F1": 19.429254955570737,
+          "NLL": 8.58731926951492
+        },
+        "endpoint_4": {
+          "Answer_F1": 35.63294200413318,
+          "NLL": 5.694475131076679
+        }
+      },
+      "actual_training": {
+        "updates": 4,
+        "QA_exposures": 176,
+        "constant_positive_LR_finite_gradients": true,
+        "records": [
+          {
+            "update": 1,
+            "unique_TRAIN": 1,
+            "cumulative_exposures": 44,
+            "per_unique_exposures": 44,
+            "target_tokens": 88,
+            "loss": 10.309826850891113,
+            "gradient_L2_preclip": 157.49050903320312,
+            "LR": 0.0001,
+            "A_delta_L2": 0.0,
+            "B_delta_L2": 0.04429472645366424
+          },
+          {
+            "update": 2,
+            "unique_TRAIN": 1,
+            "cumulative_exposures": 88,
+            "per_unique_exposures": 88,
+            "target_tokens": 88,
+            "loss": 8.596606254577637,
+            "gradient_L2_preclip": 167.96900939941406,
+            "LR": 0.0001,
+            "A_delta_L2": 0.04335667704104899,
+            "B_delta_L2": 0.08586177921590354
+          },
+          {
+            "update": 3,
+            "unique_TRAIN": 1,
+            "cumulative_exposures": 132,
+            "per_unique_exposures": 132,
+            "target_tokens": 88,
+            "loss": 5.719088792800903,
+            "gradient_L2_preclip": 178.9030303955078,
+            "LR": 0.0001,
+            "A_delta_L2": 0.09069060219980694,
+            "B_delta_L2": 0.12552997359545323
+          },
+          {
+            "update": 4,
+            "unique_TRAIN": 1,
+            "cumulative_exposures": 176,
+            "per_unique_exposures": 176,
+            "target_tokens": 88,
+            "loss": 3.5122028914364902,
+            "gradient_L2_preclip": 105.98249053955078,
+            "LR": 0.0001,
+            "A_delta_L2": 0.13809230855385216,
+            "B_delta_L2": 0.16028998081703635
+          }
+        ]
+      }
+    }
+  ],
   "warm_minus_cold": [],
   "support_interactions": [],
-  "resources": {},
-  "completion_sha256": {},
+  "resources": {
+    "0": {
+      "TRAIN_window": {
+        "pid": 427417,
+        "before": {
+          "phase": "factorial_pure_TRAIN_before",
+          "stage": 0,
+          "unix": 1792317875.0875645,
+          "pid": 427417,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4137009152,
+          "VmRSS_bytes": 2563207168,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2324842496,
+          "Private_Clean_bytes": 69582848,
+          "Private_Dirty_bytes": 2151956480,
+          "cpu_uss_bytes": 2221539328,
+          "gpu_allocated_bytes": 1842765824,
+          "gpu_reserved_bytes": 3330277376,
+          "gpu_peak_allocated_bytes": 1842765824,
+          "gpu_peak_reserved_bytes": 3330277376,
+          "gpu_process_nvml_bytes": 3686793216,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "after": {
+          "phase": "factorial_pure_TRAIN_after",
+          "stage": 0,
+          "unix": 1792317938.4759502,
+          "pid": 427417,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4137009152,
+          "VmRSS_bytes": 2590281728,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2340787200,
+          "Private_Clean_bytes": 71745536,
+          "Private_Dirty_bytes": 2155589632,
+          "cpu_uss_bytes": 2227335168,
+          "gpu_allocated_bytes": 1876324864,
+          "gpu_reserved_bytes": 1954545664,
+          "gpu_peak_allocated_bytes": 2088542720,
+          "gpu_peak_reserved_bytes": 3330277376,
+          "gpu_process_nvml_bytes": 2344615936,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "cuda_peak_allocated_bytes": 2088542720,
+        "cuda_peak_reserved_bytes": 3330277376,
+        "scope": "four optimizer steps + raw-gradient/optimizer/parameter persistence; excludes initial/final TEST and TRAIN NLL probes"
+      },
+      "pure_TRAIN_periodic_sample_peaks": {
+        "VmRSS_bytes": 2590281728,
+        "Pss_bytes": 2340787200,
+        "cpu_uss_bytes": 2227335168,
+        "gpu_allocated_bytes": 1988215808,
+        "gpu_reserved_bytes": 3330277376,
+        "gpu_process_nvml_bytes": 3720347648
+      },
+      "sampled_CPU_peak_is_not_exact_instantaneous_peak": true,
+      "memory_summary": {
+        "unit": "bytes",
+        "pid": 427417,
+        "boot_id": "e6182f56-39be-4e37-908d-3cfadaa7448f",
+        "process_started_unix": 1792317672.1175427,
+        "before": {
+          "phase": "factorial_pure_TRAIN_before",
+          "stage": 0,
+          "unix": 1792317875.0875645,
+          "pid": 427417,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4137009152,
+          "VmRSS_bytes": 2563207168,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2324842496,
+          "Private_Clean_bytes": 69582848,
+          "Private_Dirty_bytes": 2151956480,
+          "cpu_uss_bytes": 2221539328,
+          "gpu_allocated_bytes": 1842765824,
+          "gpu_reserved_bytes": 3330277376,
+          "gpu_peak_allocated_bytes": 1842765824,
+          "gpu_peak_reserved_bytes": 3330277376,
+          "gpu_process_nvml_bytes": 3686793216,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "after": {
+          "phase": "factorial_pure_TRAIN_after",
+          "stage": 0,
+          "unix": 1792317938.4759502,
+          "pid": 427417,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4137009152,
+          "VmRSS_bytes": 2590281728,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2340787200,
+          "Private_Clean_bytes": 71745536,
+          "Private_Dirty_bytes": 2155589632,
+          "cpu_uss_bytes": 2227335168,
+          "gpu_allocated_bytes": 1876324864,
+          "gpu_reserved_bytes": 1954545664,
+          "gpu_peak_allocated_bytes": 2088542720,
+          "gpu_peak_reserved_bytes": 3330277376,
+          "gpu_process_nvml_bytes": 2344615936,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "scope": "same-PID TRAIN before/after; global sampled peaks also include initial TEST; see reset-CUDA TRAIN_window",
+        "growth_bytes": {
+          "VmRSS_bytes": 27074560,
+          "Pss_bytes": 15944704,
+          "cpu_uss_bytes": 5795840,
+          "gpu_allocated_bytes": 33559040,
+          "gpu_reserved_bytes": -1375731712,
+          "gpu_process_nvml_bytes": -1342177280
+        },
+        "observed_peak_bytes": {
+          "VmRSS_bytes": 2743767040,
+          "Pss_bytes": 2505402368,
+          "cpu_uss_bytes": 2402099200,
+          "gpu_allocated_bytes": 2280484352,
+          "gpu_reserved_bytes": 3330277376,
+          "gpu_process_nvml_bytes": 3720347648
+        },
+        "note": "Same-PID before/after; fresh process per cap. On recovery these describe resumed process only. Stage diagnostics are included in observed peaks; allocator cache is separate from parameter growth.",
+        "all_process_observed_peak_bytes": {
+          "VmRSS_bytes": 2743767040,
+          "Pss_bytes": 2505402368,
+          "cpu_uss_bytes": 2402099200,
+          "gpu_allocated_bytes": 2280484352,
+          "gpu_reserved_bytes": 3330277376,
+          "gpu_process_nvml_bytes": 3720347648
+        }
+      }
+    }
+  },
+  "completion_sha256": {
+    "case_00_complete.json": "4184cd94c661f60ff8a0ddaa8b2ce66be6f9a41ffa57e2e0ba44ef2638e40b98"
+  },
   "initial_function_comparisons_checked": 0,
   "all18_initial_functions_exact_across_support": null,
   "source_sha256": {

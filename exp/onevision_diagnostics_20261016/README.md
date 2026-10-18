@@ -1,3 +1,5 @@
+最新2026-10-18：温池四视图pilot已封存；完整21454四格仍待。医学专家精确桥接至顺序LoRA前缀，详见[六栏发现](../../summary/onevision_diagnostics_20261016/warm_quality_20261018/calibration_audit/RESEARCH_FINDINGS.md)。数据因子case00有效封存后包装器断言失败，已保留并修复调度；当前唯一[queue_v4](../../summary/onevision_diagnostics_20261016/feature_identity_repair_20261018/queue_v4/README.md)，新CPU430421/GPU430521继续case01，不重训case00、不碰基线。下方队列均为历史。
+
 2026-10-18实际接续：原完整质量硬调用在FinMME:5082因辅助特征行缺id的修复日志KeyError停止，未完成；旧GPU358091/CPU389122已终止。新元数据修复通过实际GPU正负控制，温启动19阶段已实际启动GPU405584并出现正LR/有限梯度更新；唯一CPU405559/identity_repair_queue_v2，37策略＋66祖先＋36集成检查通过。旧失败预测不拼接，完整确认重测仍保留；温启动/四视图/18控制优先反馈，完整收益未证。[故障、实际门禁与队列](../../summary/onevision_diagnostics_20261016/feature_identity_repair_20261018/README.md)。旧队列说明均为历史，不能恢复。
 
 > 当前唯一研究调度已接续[cold_quality_queue](../../summary/onevision_diagnostics_20261016/cold_quality_queue/README.md)，CPU389122；两模块四格自动链已准入、GPU组合待。旧376997及更早所有者只读历史，不恢复；当前GPU358091和基线保全。

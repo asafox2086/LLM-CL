@@ -1,0 +1,3628 @@
+{
+  "CPU_only": true,
+  "new_GPU_forwards_or_optimizer_updates": 0,
+  "TEST_opened": false,
+  "parent_TRAIN_QA": 1313,
+  "screen_TRAIN_anchors": 20,
+  "scope": "Pre-existing four-per-domain TRAIN probes only; NOT full memory policy or F1",
+  "penalty_nats_per_QA_per_extra_state": 0.02,
+  "Kmax": [
+    1,
+    3
+  ],
+  "count_is_not_TEST_optimal_LoRA_number": true,
+  "decision_rule": "current mandatory; previous retained + current candidates; exact subset objective with complexity cost",
+  "arrival_stage": {
+    "CODA-LM:Train:Train_general_1892": 17,
+    "CODA-LM:Train:Train_general_4284": 17,
+    "CODA-LM:Train:Train_regional_10674": 18,
+    "CODA-LM:Train:Train_regional_8866": 18,
+    "FinMME:10127": 16,
+    "FinMME:750": 16,
+    "FinMME:8136": 16,
+    "FinMME:9474": 16,
+    "RSVQA-LR:4298": 15,
+    "RSVQA-LR:65747": 13,
+    "RSVQA-LR:69847": 13,
+    "RSVQA-LR:70692": 14,
+    "SLAKE:1165": 8,
+    "SLAKE:24": 4,
+    "SLAKE:7014": 3,
+    "SLAKE:7618": 6,
+    "TextVQA:14509": 1,
+    "TextVQA:25544": 1,
+    "TextVQA:28930": 1,
+    "TextVQA:34459": 1
+  },
+  "actual_saved_TRAIN_NLL": {
+    "1": {
+      "TextVQA:34459": 0.21681751310825348,
+      "TextVQA:28930": 0.40780559182167053,
+      "TextVQA:25544": 0.13014563918113708,
+      "TextVQA:14509": 0.6022478342056274,
+      "SLAKE:24": 2.52241587638855,
+      "SLAKE:7014": 4.660987377166748,
+      "SLAKE:7618": 4.699171543121338,
+      "SLAKE:1165": 4.4765167236328125,
+      "RSVQA-LR:65747": 0.19751493632793427,
+      "RSVQA-LR:4298": 0.24003450572490692,
+      "RSVQA-LR:70692": 1.8234751224517822,
+      "RSVQA-LR:69847": 0.2396571934223175,
+      "FinMME:750": 5.120417594909668,
+      "FinMME:8136": 7.311237812042236,
+      "FinMME:9474": 1.0492874383926392,
+      "FinMME:10127": 3.6578145027160645,
+      "CODA-LM:Train:Train_regional_10674": 1.9646391868591309,
+      "CODA-LM:Train:Train_general_1892": 1.8115622997283936,
+      "CODA-LM:Train:Train_general_4284": 2.294604778289795,
+      "CODA-LM:Train:Train_regional_8866": 2.4509875774383545
+    },
+    "2": {
+      "TextVQA:34459": 0.23123949766159058,
+      "TextVQA:28930": 0.40495872497558594,
+      "TextVQA:25544": 0.1263337880373001,
+      "TextVQA:14509": 0.6032005548477173,
+      "SLAKE:24": 2.1700758934020996,
+      "SLAKE:7014": 4.1108927726745605,
+      "SLAKE:7618": 4.264876365661621,
+      "SLAKE:1165": 4.325540542602539,
+      "RSVQA-LR:65747": 0.1635081022977829,
+      "RSVQA-LR:4298": 0.3202705681324005,
+      "RSVQA-LR:70692": 1.7042737007141113,
+      "RSVQA-LR:69847": 0.19687850773334503,
+      "FinMME:750": 5.138453006744385,
+      "FinMME:8136": 7.18159294128418,
+      "FinMME:9474": 1.002403736114502,
+      "FinMME:10127": 3.6332876682281494,
+      "CODA-LM:Train:Train_regional_10674": 1.960294485092163,
+      "CODA-LM:Train:Train_general_1892": 1.810211420059204,
+      "CODA-LM:Train:Train_general_4284": 2.2927451133728027,
+      "CODA-LM:Train:Train_regional_8866": 2.446568489074707
+    },
+    "3": {
+      "TextVQA:34459": 0.2647385895252228,
+      "TextVQA:28930": 0.4074946343898773,
+      "TextVQA:25544": 0.12489578872919083,
+      "TextVQA:14509": 0.5795475840568542,
+      "SLAKE:24": 1.7954548597335815,
+      "SLAKE:7014": 3.706892728805542,
+      "SLAKE:7618": 3.7924864292144775,
+      "SLAKE:1165": 4.133403301239014,
+      "RSVQA-LR:65747": 0.1386808156967163,
+      "RSVQA-LR:4298": 0.455459326505661,
+      "RSVQA-LR:70692": 1.67104172706604,
+      "RSVQA-LR:69847": 0.14478866755962372,
+      "FinMME:750": 5.126841068267822,
+      "FinMME:8136": 7.2116007804870605,
+      "FinMME:9474": 1.0845907926559448,
+      "FinMME:10127": 3.667468547821045,
+      "CODA-LM:Train:Train_regional_10674": 1.9541047811508179,
+      "CODA-LM:Train:Train_general_1892": 1.8105953931808472,
+      "CODA-LM:Train:Train_general_4284": 2.293666124343872,
+      "CODA-LM:Train:Train_regional_8866": 2.4494874477386475
+    },
+    "4": {
+      "TextVQA:34459": 0.3004835546016693,
+      "TextVQA:28930": 0.4160246253013611,
+      "TextVQA:25544": 0.12954863905906677,
+      "TextVQA:14509": 0.5824891328811646,
+      "SLAKE:24": 1.461704134941101,
+      "SLAKE:7014": 3.735691785812378,
+      "SLAKE:7618": 3.477073907852173,
+      "SLAKE:1165": 4.015235424041748,
+      "RSVQA-LR:65747": 0.2013704776763916,
+      "RSVQA-LR:4298": 0.46809622645378113,
+      "RSVQA-LR:70692": 1.5758624076843262,
+      "RSVQA-LR:69847": 0.1501791924238205,
+      "FinMME:750": 5.179383754730225,
+      "FinMME:8136": 7.31760835647583,
+      "FinMME:9474": 1.237657070159912,
+      "FinMME:10127": 3.7009458541870117,
+      "CODA-LM:Train:Train_regional_10674": 1.9637688398361206,
+      "CODA-LM:Train:Train_general_1892": 1.814531683921814,
+      "CODA-LM:Train:Train_general_4284": 2.2910819053649902,
+      "CODA-LM:Train:Train_regional_8866": 2.4450314044952393
+    },
+    "5": {
+      "TextVQA:34459": 0.3629651367664337,
+      "TextVQA:28930": 0.41806870698928833,
+      "TextVQA:25544": 0.12941059470176697,
+      "TextVQA:14509": 0.5440534353256226,
+      "SLAKE:24": 1.2684348821640015,
+      "SLAKE:7014": 3.7828712463378906,
+      "SLAKE:7618": 3.4408280849456787,
+      "SLAKE:1165": 3.945228099822998,
+      "RSVQA-LR:65747": 0.32187655568122864,
+      "RSVQA-LR:4298": 0.527461051940918,
+      "RSVQA-LR:70692": 1.5656019449234009,
+      "RSVQA-LR:69847": 0.13256698846817017,
+      "FinMME:750": 5.14286470413208,
+      "FinMME:8136": 7.4707794189453125,
+      "FinMME:9474": 1.2838804721832275,
+      "FinMME:10127": 3.7956764698028564,
+      "CODA-LM:Train:Train_regional_10674": 1.9657237529754639,
+      "CODA-LM:Train:Train_general_1892": 1.809594988822937,
+      "CODA-LM:Train:Train_general_4284": 2.2931883335113525,
+      "CODA-LM:Train:Train_regional_8866": 2.450810432434082
+    },
+    "6": {
+      "TextVQA:34459": 0.3031698167324066,
+      "TextVQA:28930": 0.4673588275909424,
+      "TextVQA:25544": 0.12135378271341324,
+      "TextVQA:14509": 0.6054555177688599,
+      "SLAKE:24": 1.244777798652649,
+      "SLAKE:7014": 3.9364845752716064,
+      "SLAKE:7618": 3.4786698818206787,
+      "SLAKE:1165": 3.8801987171173096,
+      "RSVQA-LR:65747": 0.25548574328422546,
+      "RSVQA-LR:4298": 0.4768999218940735,
+      "RSVQA-LR:70692": 1.4840707778930664,
+      "RSVQA-LR:69847": 0.22025491297245026,
+      "FinMME:750": 4.968741416931152,
+      "FinMME:8136": 6.648092269897461,
+      "FinMME:9474": 1.162325143814087,
+      "FinMME:10127": 3.997227668762207,
+      "CODA-LM:Train:Train_regional_10674": 1.9612252712249756,
+      "CODA-LM:Train:Train_general_1892": 1.8117187023162842,
+      "CODA-LM:Train:Train_general_4284": 2.302184820175171,
+      "CODA-LM:Train:Train_regional_8866": 2.4690589904785156
+    },
+    "7": {
+      "TextVQA:34459": 0.3667052686214447,
+      "TextVQA:28930": 0.39612871408462524,
+      "TextVQA:25544": 0.130763441324234,
+      "TextVQA:14509": 0.57161945104599,
+      "SLAKE:24": 1.1675704717636108,
+      "SLAKE:7014": 3.543085813522339,
+      "SLAKE:7618": 3.1968328952789307,
+      "SLAKE:1165": 3.9606189727783203,
+      "RSVQA-LR:65747": 0.4501574635505676,
+      "RSVQA-LR:4298": 0.5121550559997559,
+      "RSVQA-LR:70692": 1.5709731578826904,
+      "RSVQA-LR:69847": 0.1816297173500061,
+      "FinMME:750": 5.096121311187744,
+      "FinMME:8136": 7.6151204109191895,
+      "FinMME:9474": 1.3401142358779907,
+      "FinMME:10127": 3.9876012802124023,
+      "CODA-LM:Train:Train_regional_10674": 1.967234492301941,
+      "CODA-LM:Train:Train_general_1892": 1.806662917137146,
+      "CODA-LM:Train:Train_general_4284": 2.291231870651245,
+      "CODA-LM:Train:Train_regional_8866": 2.4414517879486084
+    },
+    "8": {
+      "TextVQA:34459": 0.35685575008392334,
+      "TextVQA:28930": 0.39945274591445923,
+      "TextVQA:25544": 0.12808315455913544,
+      "TextVQA:14509": 0.5416065454483032,
+      "SLAKE:24": 1.1354612112045288,
+      "SLAKE:7014": 3.5443763732910156,
+      "SLAKE:7618": 3.2304747104644775,
+      "SLAKE:1165": 3.6541991233825684,
+      "RSVQA-LR:65747": 0.6603152751922607,
+      "RSVQA-LR:4298": 0.6283236742019653,
+      "RSVQA-LR:70692": 1.534580945968628,
+      "RSVQA-LR:69847": 0.31094110012054443,
+      "FinMME:750": 5.156014442443848,
+      "FinMME:8136": 7.6440205574035645,
+      "FinMME:9474": 1.3631211519241333,
+      "FinMME:10127": 3.9254488945007324,
+      "CODA-LM:Train:Train_regional_10674": 1.96532142162323,
+      "CODA-LM:Train:Train_general_1892": 1.812454342842102,
+      "CODA-LM:Train:Train_general_4284": 2.2931439876556396,
+      "CODA-LM:Train:Train_regional_8866": 2.4504427909851074
+    },
+    "9": {
+      "TextVQA:34459": 0.3831503689289093,
+      "TextVQA:28930": 0.40051984786987305,
+      "TextVQA:25544": 0.13027845323085785,
+      "TextVQA:14509": 0.5706943273544312,
+      "SLAKE:24": 1.0801992416381836,
+      "SLAKE:7014": 3.612184762954712,
+      "SLAKE:7618": 3.2492356300354004,
+      "SLAKE:1165": 3.6355602741241455,
+      "RSVQA-LR:65747": 1.0944689512252808,
+      "RSVQA-LR:4298": 0.7218858599662781,
+      "RSVQA-LR:70692": 1.5751351118087769,
+      "RSVQA-LR:69847": 0.614132285118103,
+      "FinMME:750": 5.158799648284912,
+      "FinMME:8136": 7.688193321228027,
+      "FinMME:9474": 1.4487743377685547,
+      "FinMME:10127": 3.914769172668457,
+      "CODA-LM:Train:Train_regional_10674": 1.966169834136963,
+      "CODA-LM:Train:Train_general_1892": 1.813931941986084,
+      "CODA-LM:Train:Train_general_4284": 2.2943615913391113,
+      "CODA-LM:Train:Train_regional_8866": 2.4457852840423584
+    },
+    "10": {
+      "TextVQA:34459": 0.41670796275138855,
+      "TextVQA:28930": 0.4020053744316101,
+      "TextVQA:25544": 0.1306706964969635,
+      "TextVQA:14509": 0.5679678320884705,
+      "SLAKE:24": 1.1037161350250244,
+      "SLAKE:7014": 3.527430295944214,
+      "SLAKE:7618": 3.263796091079712,
+      "SLAKE:1165": 3.6151680946350098,
+      "RSVQA-LR:65747": 1.4453450441360474,
+      "RSVQA-LR:4298": 0.925796389579773,
+      "RSVQA-LR:70692": 1.6155099868774414,
+      "RSVQA-LR:69847": 0.8728886246681213,
+      "FinMME:750": 5.103282928466797,
+      "FinMME:8136": 7.745741844177246,
+      "FinMME:9474": 1.337268352508545,
+      "FinMME:10127": 3.9427669048309326,
+      "CODA-LM:Train:Train_regional_10674": 1.9637932777404785,
+      "CODA-LM:Train:Train_general_1892": 1.8129515647888184,
+      "CODA-LM:Train:Train_general_4284": 2.288708209991455,
+      "CODA-LM:Train:Train_regional_8866": 2.440255880355835
+    },
+    "11": {
+      "TextVQA:34459": 0.4688997268676758,
+      "TextVQA:28930": 0.39278799295425415,
+      "TextVQA:25544": 0.13434982299804688,
+      "TextVQA:14509": 0.5785809755325317,
+      "SLAKE:24": 1.0418342351913452,
+      "SLAKE:7014": 3.4649922847747803,
+      "SLAKE:7618": 3.261659860610962,
+      "SLAKE:1165": 3.630078077316284,
+      "RSVQA-LR:65747": 1.5613563060760498,
+      "RSVQA-LR:4298": 1.0342859029769897,
+      "RSVQA-LR:70692": 1.5302629470825195,
+      "RSVQA-LR:69847": 1.0424188375473022,
+      "FinMME:750": 5.081488609313965,
+      "FinMME:8136": 7.717168807983398,
+      "FinMME:9474": 1.3957879543304443,
+      "FinMME:10127": 4.001750469207764,
+      "CODA-LM:Train:Train_regional_10674": 1.9723825454711914,
+      "CODA-LM:Train:Train_general_1892": 1.8150838613510132,
+      "CODA-LM:Train:Train_general_4284": 2.2929611206054688,
+      "CODA-LM:Train:Train_regional_8866": 2.4327757358551025
+    },
+    "12": {
+      "TextVQA:34459": 0.3570723831653595,
+      "TextVQA:28930": 0.4085429310798645,
+      "TextVQA:25544": 0.13067616522312164,
+      "TextVQA:14509": 0.5746297836303711,
+      "SLAKE:24": 1.0234743356704712,
+      "SLAKE:7014": 3.4016640186309814,
+      "SLAKE:7618": 3.223827838897705,
+      "SLAKE:1165": 3.6954562664031982,
+      "RSVQA-LR:65747": 0.9404125213623047,
+      "RSVQA-LR:4298": 0.6079879403114319,
+      "RSVQA-LR:70692": 1.59092116355896,
+      "RSVQA-LR:69847": 0.46483948826789856,
+      "FinMME:750": 5.0697245597839355,
+      "FinMME:8136": 7.718438148498535,
+      "FinMME:9474": 1.3362315893173218,
+      "FinMME:10127": 3.9803900718688965,
+      "CODA-LM:Train:Train_regional_10674": 1.9661415815353394,
+      "CODA-LM:Train:Train_general_1892": 1.820047378540039,
+      "CODA-LM:Train:Train_general_4284": 2.2898330688476562,
+      "CODA-LM:Train:Train_regional_8866": 2.4405298233032227
+    },
+    "13": {
+      "TextVQA:34459": 0.23384588956832886,
+      "TextVQA:28930": 0.4046483635902405,
+      "TextVQA:25544": 0.12489380687475204,
+      "TextVQA:14509": 0.6296942234039307,
+      "SLAKE:24": 1.3365988731384277,
+      "SLAKE:7014": 3.2437756061553955,
+      "SLAKE:7618": 3.1857059001922607,
+      "SLAKE:1165": 4.060064792633057,
+      "RSVQA-LR:65747": 0.08342431485652924,
+      "RSVQA-LR:4298": 0.4896179437637329,
+      "RSVQA-LR:70692": 1.6615636348724365,
+      "RSVQA-LR:69847": 0.10274332761764526,
+      "FinMME:750": 5.0219807624816895,
+      "FinMME:8136": 7.23009729385376,
+      "FinMME:9474": 1.071108102798462,
+      "FinMME:10127": 3.760425567626953,
+      "CODA-LM:Train:Train_regional_10674": 1.9726638793945312,
+      "CODA-LM:Train:Train_general_1892": 1.8154019117355347,
+      "CODA-LM:Train:Train_general_4284": 2.2901384830474854,
+      "CODA-LM:Train:Train_regional_8866": 2.4480483531951904
+    },
+    "14": {
+      "TextVQA:34459": 0.4016997814178467,
+      "TextVQA:28930": 0.40058907866477966,
+      "TextVQA:25544": 0.12551628053188324,
+      "TextVQA:14509": 0.6157017946243286,
+      "SLAKE:24": 1.1212458610534668,
+      "SLAKE:7014": 3.2072763442993164,
+      "SLAKE:7618": 3.301196575164795,
+      "SLAKE:1165": 3.924708127975464,
+      "RSVQA-LR:65747": 0.11176368594169617,
+      "RSVQA-LR:4298": 0.537232518196106,
+      "RSVQA-LR:70692": 1.8390343189239502,
+      "RSVQA-LR:69847": 0.1314089596271515,
+      "FinMME:750": 4.808648109436035,
+      "FinMME:8136": 7.045991897583008,
+      "FinMME:9474": 1.217684268951416,
+      "FinMME:10127": 4.08142614364624,
+      "CODA-LM:Train:Train_regional_10674": 1.9861648082733154,
+      "CODA-LM:Train:Train_general_1892": 1.8212380409240723,
+      "CODA-LM:Train:Train_general_4284": 2.291604995727539,
+      "CODA-LM:Train:Train_regional_8866": 2.4542133808135986
+    },
+    "15": {
+      "TextVQA:34459": 0.3640138506889343,
+      "TextVQA:28930": 0.38507044315338135,
+      "TextVQA:25544": 0.11266344785690308,
+      "TextVQA:14509": 0.6262835264205933,
+      "SLAKE:24": 1.308382272720337,
+      "SLAKE:7014": 3.1817378997802734,
+      "SLAKE:7618": 2.9252493381500244,
+      "SLAKE:1165": 4.1271772384643555,
+      "RSVQA-LR:65747": 0.21824359893798828,
+      "RSVQA-LR:4298": 0.10312473028898239,
+      "RSVQA-LR:70692": 1.6496899127960205,
+      "RSVQA-LR:69847": 0.2643619179725647,
+      "FinMME:750": 4.880069732666016,
+      "FinMME:8136": 7.198519229888916,
+      "FinMME:9474": 1.0940648317337036,
+      "FinMME:10127": 3.9136359691619873,
+      "CODA-LM:Train:Train_regional_10674": 1.9849109649658203,
+      "CODA-LM:Train:Train_general_1892": 1.814865231513977,
+      "CODA-LM:Train:Train_general_4284": 2.294534921646118,
+      "CODA-LM:Train:Train_regional_8866": 2.4678680896759033
+    },
+    "16": {
+      "TextVQA:34459": 0.3408079743385315,
+      "TextVQA:28930": 0.3894931674003601,
+      "TextVQA:25544": 0.12494190782308578,
+      "TextVQA:14509": 0.6707748174667358,
+      "SLAKE:24": 1.5945898294448853,
+      "SLAKE:7014": 3.0252158641815186,
+      "SLAKE:7618": 2.944697380065918,
+      "SLAKE:1165": 4.194392681121826,
+      "RSVQA-LR:65747": 0.2409718781709671,
+      "RSVQA-LR:4298": 0.09217844903469086,
+      "RSVQA-LR:70692": 1.5986781120300293,
+      "RSVQA-LR:69847": 0.3491135239601135,
+      "FinMME:750": 4.785604000091553,
+      "FinMME:8136": 3.0305142402648926,
+      "FinMME:9474": 0.5847598910331726,
+      "FinMME:10127": 1.81522798538208,
+      "CODA-LM:Train:Train_regional_10674": 1.9909708499908447,
+      "CODA-LM:Train:Train_general_1892": 1.8212515115737915,
+      "CODA-LM:Train:Train_general_4284": 2.2935659885406494,
+      "CODA-LM:Train:Train_regional_8866": 2.4578099250793457
+    },
+    "17": {
+      "TextVQA:34459": 0.3383663296699524,
+      "TextVQA:28930": 0.41371411085128784,
+      "TextVQA:25544": 0.12134770303964615,
+      "TextVQA:14509": 0.6502656936645508,
+      "SLAKE:24": 1.5736652612686157,
+      "SLAKE:7014": 3.0215256214141846,
+      "SLAKE:7618": 2.98295259475708,
+      "SLAKE:1165": 4.159255027770996,
+      "RSVQA-LR:65747": 0.26644062995910645,
+      "RSVQA-LR:4298": 0.1034647524356842,
+      "RSVQA-LR:70692": 1.6117528676986694,
+      "RSVQA-LR:69847": 0.29059380292892456,
+      "FinMME:750": 4.625807762145996,
+      "FinMME:8136": 3.1409761905670166,
+      "FinMME:9474": 0.5879440307617188,
+      "FinMME:10127": 1.8434460163116455,
+      "CODA-LM:Train:Train_regional_10674": 1.972873330116272,
+      "CODA-LM:Train:Train_general_1892": 1.762750506401062,
+      "CODA-LM:Train:Train_general_4284": 2.2726688385009766,
+      "CODA-LM:Train:Train_regional_8866": 2.4385945796966553
+    },
+    "18": {
+      "TextVQA:34459": 0.38328805565834045,
+      "TextVQA:28930": 0.41202980279922485,
+      "TextVQA:25544": 0.11899671703577042,
+      "TextVQA:14509": 0.6221767067909241,
+      "SLAKE:24": 1.4585790634155273,
+      "SLAKE:7014": 3.1661698818206787,
+      "SLAKE:7618": 3.013979196548462,
+      "SLAKE:1165": 4.0236735343933105,
+      "RSVQA-LR:65747": 0.21973785758018494,
+      "RSVQA-LR:4298": 0.11638952046632767,
+      "RSVQA-LR:70692": 1.565166711807251,
+      "RSVQA-LR:69847": 0.26452985405921936,
+      "FinMME:750": 4.643649578094482,
+      "FinMME:8136": 3.0499801635742188,
+      "FinMME:9474": 0.5884681344032288,
+      "FinMME:10127": 1.7365787029266357,
+      "CODA-LM:Train:Train_regional_10674": 1.9153904914855957,
+      "CODA-LM:Train:Train_general_1892": 1.7548977136611938,
+      "CODA-LM:Train:Train_general_4284": 2.2706716060638428,
+      "CODA-LM:Train:Train_regional_8866": 2.3358354568481445
+    },
+    "19": {
+      "TextVQA:34459": 0.36492690443992615,
+      "TextVQA:28930": 0.40723639726638794,
+      "TextVQA:25544": 0.11957687139511108,
+      "TextVQA:14509": 0.6375614404678345,
+      "SLAKE:24": 1.3838533163070679,
+      "SLAKE:7014": 3.149732828140259,
+      "SLAKE:7618": 2.98783802986145,
+      "SLAKE:1165": 4.043422222137451,
+      "RSVQA-LR:65747": 0.22001798450946808,
+      "RSVQA-LR:4298": 0.11697234213352203,
+      "RSVQA-LR:70692": 1.5383366346359253,
+      "RSVQA-LR:69847": 0.26481831073760986,
+      "FinMME:750": 4.566285133361816,
+      "FinMME:8136": 3.513103485107422,
+      "FinMME:9474": 0.5911505222320557,
+      "FinMME:10127": 1.8343188762664795,
+      "CODA-LM:Train:Train_regional_10674": 1.9168459177017212,
+      "CODA-LM:Train:Train_general_1892": 1.752138614654541,
+      "CODA-LM:Train:Train_general_4284": 2.2674055099487305,
+      "CODA-LM:Train:Train_regional_8866": 2.3281772136688232
+    }
+  },
+  "traces": {
+    "1": [
+      {
+        "stage": 1,
+        "arrived_TRAIN_ids": [
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          1
+        ],
+        "selected_states": [
+          1
+        ],
+        "retained_count": 1,
+        "best_available_state_per_TRAIN_mean_NLL": 0.33925414457917213,
+        "regularized_objective": 0.33925414457917213,
+        "current_state_only_TRAIN_NLL": 0.33925414457917213,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 2,
+        "arrived_TRAIN_ids": [
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          1,
+          2
+        ],
+        "selected_states": [
+          2
+        ],
+        "retained_count": 1,
+        "best_available_state_per_TRAIN_mean_NLL": 0.3414331413805485,
+        "regularized_objective": 0.3414331413805485,
+        "current_state_only_TRAIN_NLL": 0.3414331413805485,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 3,
+        "arrived_TRAIN_ids": [
+          "SLAKE:7014",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          2,
+          3
+        ],
+        "selected_states": [
+          3
+        ],
+        "retained_count": 1,
+        "best_available_state_per_TRAIN_mean_NLL": 1.0167138651013374,
+        "regularized_objective": 1.0167138651013374,
+        "current_state_only_TRAIN_NLL": 1.0167138651013374,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 4,
+        "arrived_TRAIN_ids": [
+          "SLAKE:24",
+          "SLAKE:7014",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          3,
+          4
+        ],
+        "selected_states": [
+          4
+        ],
+        "retained_count": 1,
+        "best_available_state_per_TRAIN_mean_NLL": 1.10432364543279,
+        "regularized_objective": 1.10432364543279,
+        "current_state_only_TRAIN_NLL": 1.10432364543279,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 5,
+        "arrived_TRAIN_ids": [
+          "SLAKE:24",
+          "SLAKE:7014",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          4,
+          5
+        ],
+        "selected_states": [
+          5
+        ],
+        "retained_count": 1,
+        "best_available_state_per_TRAIN_mean_NLL": 1.0843006670475006,
+        "regularized_objective": 1.0843006670475006,
+        "current_state_only_TRAIN_NLL": 1.0843006670475006,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 6,
+        "arrived_TRAIN_ids": [
+          "SLAKE:24",
+          "SLAKE:7014",
+          "SLAKE:7618",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          5,
+          6
+        ],
+        "selected_states": [
+          6
+        ],
+        "retained_count": 1,
+        "best_available_state_per_TRAIN_mean_NLL": 1.4510386000786508,
+        "regularized_objective": 1.4510386000786508,
+        "current_state_only_TRAIN_NLL": 1.4510386000786508,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 7,
+        "arrived_TRAIN_ids": [
+          "SLAKE:24",
+          "SLAKE:7014",
+          "SLAKE:7618",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          6,
+          7
+        ],
+        "selected_states": [
+          7
+        ],
+        "retained_count": 1,
+        "best_available_state_per_TRAIN_mean_NLL": 1.338958007948739,
+        "regularized_objective": 1.338958007948739,
+        "current_state_only_TRAIN_NLL": 1.338958007948739,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 8,
+        "arrived_TRAIN_ids": [
+          "SLAKE:1165",
+          "SLAKE:24",
+          "SLAKE:7014",
+          "SLAKE:7618",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          7,
+          8
+        ],
+        "selected_states": [
+          8
+        ],
+        "retained_count": 1,
+        "best_available_state_per_TRAIN_mean_NLL": 1.6238137017935514,
+        "regularized_objective": 1.6238137017935514,
+        "current_state_only_TRAIN_NLL": 1.6238137017935514,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 9,
+        "arrived_TRAIN_ids": [
+          "SLAKE:1165",
+          "SLAKE:24",
+          "SLAKE:7014",
+          "SLAKE:7618",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          8,
+          9
+        ],
+        "selected_states": [
+          9
+        ],
+        "retained_count": 1,
+        "best_available_state_per_TRAIN_mean_NLL": 1.632727863267064,
+        "regularized_objective": 1.632727863267064,
+        "current_state_only_TRAIN_NLL": 1.632727863267064,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 10,
+        "arrived_TRAIN_ids": [
+          "SLAKE:1165",
+          "SLAKE:24",
+          "SLAKE:7014",
+          "SLAKE:7618",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          9,
+          10
+        ],
+        "selected_states": [
+          10
+        ],
+        "retained_count": 1,
+        "best_available_state_per_TRAIN_mean_NLL": 1.628432810306549,
+        "regularized_objective": 1.628432810306549,
+        "current_state_only_TRAIN_NLL": 1.628432810306549,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 11,
+        "arrived_TRAIN_ids": [
+          "SLAKE:1165",
+          "SLAKE:24",
+          "SLAKE:7014",
+          "SLAKE:7618",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          10,
+          11
+        ],
+        "selected_states": [
+          11
+        ],
+        "retained_count": 1,
+        "best_available_state_per_TRAIN_mean_NLL": 1.621647872030735,
+        "regularized_objective": 1.621647872030735,
+        "current_state_only_TRAIN_NLL": 1.621647872030735,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 12,
+        "arrived_TRAIN_ids": [
+          "SLAKE:1165",
+          "SLAKE:24",
+          "SLAKE:7014",
+          "SLAKE:7618",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          11,
+          12
+        ],
+        "selected_states": [
+          12
+        ],
+        "retained_count": 1,
+        "best_available_state_per_TRAIN_mean_NLL": 1.601917965337634,
+        "regularized_objective": 1.601917965337634,
+        "current_state_only_TRAIN_NLL": 1.601917965337634,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 13,
+        "arrived_TRAIN_ids": [
+          "RSVQA-LR:65747",
+          "RSVQA-LR:69847",
+          "SLAKE:1165",
+          "SLAKE:24",
+          "SLAKE:7014",
+          "SLAKE:7618",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          12,
+          13
+        ],
+        "selected_states": [
+          13
+        ],
+        "retained_count": 1,
+        "best_available_state_per_TRAIN_mean_NLL": 1.3405395098030568,
+        "regularized_objective": 1.3405395098030568,
+        "current_state_only_TRAIN_NLL": 1.3405395098030568,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 14,
+        "arrived_TRAIN_ids": [
+          "RSVQA-LR:65747",
+          "RSVQA-LR:69847",
+          "RSVQA-LR:70692",
+          "SLAKE:1165",
+          "SLAKE:24",
+          "SLAKE:7014",
+          "SLAKE:7618",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          13,
+          14
+        ],
+        "selected_states": [
+          14
+        ],
+        "retained_count": 1,
+        "best_available_state_per_TRAIN_mean_NLL": 1.380012800747698,
+        "regularized_objective": 1.380012800747698,
+        "current_state_only_TRAIN_NLL": 1.380012800747698,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 15,
+        "arrived_TRAIN_ids": [
+          "RSVQA-LR:4298",
+          "RSVQA-LR:65747",
+          "RSVQA-LR:69847",
+          "RSVQA-LR:70692",
+          "SLAKE:1165",
+          "SLAKE:24",
+          "SLAKE:7014",
+          "SLAKE:7618",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          14,
+          15
+        ],
+        "selected_states": [
+          15
+        ],
+        "retained_count": 1,
+        "best_available_state_per_TRAIN_mean_NLL": 1.2721665147691965,
+        "regularized_objective": 1.2721665147691965,
+        "current_state_only_TRAIN_NLL": 1.2721665147691965,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 16,
+        "arrived_TRAIN_ids": [
+          "FinMME:10127",
+          "FinMME:750",
+          "FinMME:8136",
+          "FinMME:9474",
+          "RSVQA-LR:4298",
+          "RSVQA-LR:65747",
+          "RSVQA-LR:69847",
+          "RSVQA-LR:70692",
+          "SLAKE:1165",
+          "SLAKE:24",
+          "SLAKE:7014",
+          "SLAKE:7618",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          15,
+          16
+        ],
+        "selected_states": [
+          16
+        ],
+        "retained_count": 1,
+        "best_available_state_per_TRAIN_mean_NLL": 1.6113726063631475,
+        "regularized_objective": 1.6113726063631475,
+        "current_state_only_TRAIN_NLL": 1.6113726063631475,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 17,
+        "arrived_TRAIN_ids": [
+          "CODA-LM:Train:Train_general_1892",
+          "CODA-LM:Train:Train_general_4284",
+          "FinMME:10127",
+          "FinMME:750",
+          "FinMME:8136",
+          "FinMME:9474",
+          "RSVQA-LR:4298",
+          "RSVQA-LR:65747",
+          "RSVQA-LR:69847",
+          "RSVQA-LR:70692",
+          "SLAKE:1165",
+          "SLAKE:24",
+          "SLAKE:7014",
+          "SLAKE:7618",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          16,
+          17
+        ],
+        "selected_states": [
+          17
+        ],
+        "retained_count": 1,
+        "best_available_state_per_TRAIN_mean_NLL": 1.6537187633415062,
+        "regularized_objective": 1.6537187633415062,
+        "current_state_only_TRAIN_NLL": 1.6537187633415062,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 18,
+        "arrived_TRAIN_ids": [
+          "CODA-LM:Train:Train_general_1892",
+          "CODA-LM:Train:Train_general_4284",
+          "CODA-LM:Train:Train_regional_10674",
+          "CODA-LM:Train:Train_regional_8866",
+          "FinMME:10127",
+          "FinMME:750",
+          "FinMME:8136",
+          "FinMME:9474",
+          "RSVQA-LR:4298",
+          "RSVQA-LR:65747",
+          "RSVQA-LR:69847",
+          "RSVQA-LR:70692",
+          "SLAKE:1165",
+          "SLAKE:24",
+          "SLAKE:7014",
+          "SLAKE:7618",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          17,
+          18
+        ],
+        "selected_states": [
+          18
+        ],
+        "retained_count": 1,
+        "best_available_state_per_TRAIN_mean_NLL": 1.6830094374716282,
+        "regularized_objective": 1.6830094374716282,
+        "current_state_only_TRAIN_NLL": 1.6830094374716282,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 19,
+        "arrived_TRAIN_ids": [
+          "CODA-LM:Train:Train_general_1892",
+          "CODA-LM:Train:Train_general_4284",
+          "CODA-LM:Train:Train_regional_10674",
+          "CODA-LM:Train:Train_regional_8866",
+          "FinMME:10127",
+          "FinMME:750",
+          "FinMME:8136",
+          "FinMME:9474",
+          "RSVQA-LR:4298",
+          "RSVQA-LR:65747",
+          "RSVQA-LR:69847",
+          "RSVQA-LR:70692",
+          "SLAKE:1165",
+          "SLAKE:24",
+          "SLAKE:7014",
+          "SLAKE:7618",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          18,
+          19
+        ],
+        "selected_states": [
+          19
+        ],
+        "retained_count": 1,
+        "best_available_state_per_TRAIN_mean_NLL": 1.7001859277486802,
+        "regularized_objective": 1.7001859277486802,
+        "current_state_only_TRAIN_NLL": 1.7001859277486802,
+        "decision_uses_future_QA_or_states": false
+      }
+    ],
+    "3": [
+      {
+        "stage": 1,
+        "arrived_TRAIN_ids": [
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          1
+        ],
+        "selected_states": [
+          1
+        ],
+        "retained_count": 1,
+        "best_available_state_per_TRAIN_mean_NLL": 0.33925414457917213,
+        "regularized_objective": 0.33925414457917213,
+        "current_state_only_TRAIN_NLL": 0.33925414457917213,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 2,
+        "arrived_TRAIN_ids": [
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          1,
+          2
+        ],
+        "selected_states": [
+          2
+        ],
+        "retained_count": 1,
+        "best_available_state_per_TRAIN_mean_NLL": 0.3414331413805485,
+        "regularized_objective": 0.3414331413805485,
+        "current_state_only_TRAIN_NLL": 0.3414331413805485,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 3,
+        "arrived_TRAIN_ids": [
+          "SLAKE:7014",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          2,
+          3
+        ],
+        "selected_states": [
+          3
+        ],
+        "retained_count": 1,
+        "best_available_state_per_TRAIN_mean_NLL": 1.0167138651013374,
+        "regularized_objective": 1.0167138651013374,
+        "current_state_only_TRAIN_NLL": 1.0167138651013374,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 4,
+        "arrived_TRAIN_ids": [
+          "SLAKE:24",
+          "SLAKE:7014",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          3,
+          4
+        ],
+        "selected_states": [
+          4
+        ],
+        "retained_count": 1,
+        "best_available_state_per_TRAIN_mean_NLL": 1.10432364543279,
+        "regularized_objective": 1.10432364543279,
+        "current_state_only_TRAIN_NLL": 1.10432364543279,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 5,
+        "arrived_TRAIN_ids": [
+          "SLAKE:24",
+          "SLAKE:7014",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          4,
+          5
+        ],
+        "selected_states": [
+          5
+        ],
+        "retained_count": 1,
+        "best_available_state_per_TRAIN_mean_NLL": 1.0843006670475006,
+        "regularized_objective": 1.0843006670475006,
+        "current_state_only_TRAIN_NLL": 1.0843006670475006,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 6,
+        "arrived_TRAIN_ids": [
+          "SLAKE:24",
+          "SLAKE:7014",
+          "SLAKE:7618",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          5,
+          6
+        ],
+        "selected_states": [
+          5,
+          6
+        ],
+        "retained_count": 2,
+        "best_available_state_per_TRAIN_mean_NLL": 1.407874695956707,
+        "regularized_objective": 1.427874695956707,
+        "current_state_only_TRAIN_NLL": 1.4510386000786508,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 7,
+        "arrived_TRAIN_ids": [
+          "SLAKE:24",
+          "SLAKE:7014",
+          "SLAKE:7618",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          5,
+          6,
+          7
+        ],
+        "selected_states": [
+          7
+        ],
+        "retained_count": 1,
+        "best_available_state_per_TRAIN_mean_NLL": 1.338958007948739,
+        "regularized_objective": 1.338958007948739,
+        "current_state_only_TRAIN_NLL": 1.338958007948739,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 8,
+        "arrived_TRAIN_ids": [
+          "SLAKE:1165",
+          "SLAKE:24",
+          "SLAKE:7014",
+          "SLAKE:7618",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          7,
+          8
+        ],
+        "selected_states": [
+          8
+        ],
+        "retained_count": 1,
+        "best_available_state_per_TRAIN_mean_NLL": 1.6238137017935514,
+        "regularized_objective": 1.6238137017935514,
+        "current_state_only_TRAIN_NLL": 1.6238137017935514,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 9,
+        "arrived_TRAIN_ids": [
+          "SLAKE:1165",
+          "SLAKE:24",
+          "SLAKE:7014",
+          "SLAKE:7618",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          8,
+          9
+        ],
+        "selected_states": [
+          9
+        ],
+        "retained_count": 1,
+        "best_available_state_per_TRAIN_mean_NLL": 1.632727863267064,
+        "regularized_objective": 1.632727863267064,
+        "current_state_only_TRAIN_NLL": 1.632727863267064,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 10,
+        "arrived_TRAIN_ids": [
+          "SLAKE:1165",
+          "SLAKE:24",
+          "SLAKE:7014",
+          "SLAKE:7618",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          9,
+          10
+        ],
+        "selected_states": [
+          10
+        ],
+        "retained_count": 1,
+        "best_available_state_per_TRAIN_mean_NLL": 1.628432810306549,
+        "regularized_objective": 1.628432810306549,
+        "current_state_only_TRAIN_NLL": 1.628432810306549,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 11,
+        "arrived_TRAIN_ids": [
+          "SLAKE:1165",
+          "SLAKE:24",
+          "SLAKE:7014",
+          "SLAKE:7618",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          10,
+          11
+        ],
+        "selected_states": [
+          11
+        ],
+        "retained_count": 1,
+        "best_available_state_per_TRAIN_mean_NLL": 1.621647872030735,
+        "regularized_objective": 1.621647872030735,
+        "current_state_only_TRAIN_NLL": 1.621647872030735,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 12,
+        "arrived_TRAIN_ids": [
+          "SLAKE:1165",
+          "SLAKE:24",
+          "SLAKE:7014",
+          "SLAKE:7618",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          11,
+          12
+        ],
+        "selected_states": [
+          12
+        ],
+        "retained_count": 1,
+        "best_available_state_per_TRAIN_mean_NLL": 1.601917965337634,
+        "regularized_objective": 1.601917965337634,
+        "current_state_only_TRAIN_NLL": 1.601917965337634,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 13,
+        "arrived_TRAIN_ids": [
+          "RSVQA-LR:65747",
+          "RSVQA-LR:69847",
+          "SLAKE:1165",
+          "SLAKE:24",
+          "SLAKE:7014",
+          "SLAKE:7618",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          12,
+          13
+        ],
+        "selected_states": [
+          12,
+          13
+        ],
+        "retained_count": 2,
+        "best_available_state_per_TRAIN_mean_NLL": 1.2672597594559192,
+        "regularized_objective": 1.2872597594559192,
+        "current_state_only_TRAIN_NLL": 1.3405395098030568,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 14,
+        "arrived_TRAIN_ids": [
+          "RSVQA-LR:65747",
+          "RSVQA-LR:69847",
+          "RSVQA-LR:70692",
+          "SLAKE:1165",
+          "SLAKE:24",
+          "SLAKE:7014",
+          "SLAKE:7618",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          12,
+          13,
+          14
+        ],
+        "selected_states": [
+          12,
+          14
+        ],
+        "retained_count": 2,
+        "best_available_state_per_TRAIN_mean_NLL": 1.3129032836718992,
+        "regularized_objective": 1.3329032836718993,
+        "current_state_only_TRAIN_NLL": 1.380012800747698,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 15,
+        "arrived_TRAIN_ids": [
+          "RSVQA-LR:4298",
+          "RSVQA-LR:65747",
+          "RSVQA-LR:69847",
+          "RSVQA-LR:70692",
+          "SLAKE:1165",
+          "SLAKE:24",
+          "SLAKE:7014",
+          "SLAKE:7618",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          12,
+          14,
+          15
+        ],
+        "selected_states": [
+          12,
+          15
+        ],
+        "retained_count": 2,
+        "best_available_state_per_TRAIN_mean_NLL": 1.202667109047373,
+        "regularized_objective": 1.222667109047373,
+        "current_state_only_TRAIN_NLL": 1.2721665147691965,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 16,
+        "arrived_TRAIN_ids": [
+          "FinMME:10127",
+          "FinMME:750",
+          "FinMME:8136",
+          "FinMME:9474",
+          "RSVQA-LR:4298",
+          "RSVQA-LR:65747",
+          "RSVQA-LR:69847",
+          "RSVQA-LR:70692",
+          "SLAKE:1165",
+          "SLAKE:24",
+          "SLAKE:7014",
+          "SLAKE:7618",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          12,
+          15,
+          16
+        ],
+        "selected_states": [
+          12,
+          16
+        ],
+        "retained_count": 2,
+        "best_available_state_per_TRAIN_mean_NLL": 1.5380004881881177,
+        "regularized_objective": 1.5580004881881178,
+        "current_state_only_TRAIN_NLL": 1.6113726063631475,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 17,
+        "arrived_TRAIN_ids": [
+          "CODA-LM:Train:Train_general_1892",
+          "CODA-LM:Train:Train_general_4284",
+          "FinMME:10127",
+          "FinMME:750",
+          "FinMME:8136",
+          "FinMME:9474",
+          "RSVQA-LR:4298",
+          "RSVQA-LR:65747",
+          "RSVQA-LR:69847",
+          "RSVQA-LR:70692",
+          "SLAKE:1165",
+          "SLAKE:24",
+          "SLAKE:7014",
+          "SLAKE:7618",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          12,
+          16,
+          17
+        ],
+        "selected_states": [
+          12,
+          17
+        ],
+        "retained_count": 2,
+        "best_available_state_per_TRAIN_mean_NLL": 1.5917394032908811,
+        "regularized_objective": 1.6117394032908812,
+        "current_state_only_TRAIN_NLL": 1.6537187633415062,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 18,
+        "arrived_TRAIN_ids": [
+          "CODA-LM:Train:Train_general_1892",
+          "CODA-LM:Train:Train_general_4284",
+          "CODA-LM:Train:Train_regional_10674",
+          "CODA-LM:Train:Train_regional_8866",
+          "FinMME:10127",
+          "FinMME:750",
+          "FinMME:8136",
+          "FinMME:9474",
+          "RSVQA-LR:4298",
+          "RSVQA-LR:65747",
+          "RSVQA-LR:69847",
+          "RSVQA-LR:70692",
+          "SLAKE:1165",
+          "SLAKE:24",
+          "SLAKE:7014",
+          "SLAKE:7618",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          12,
+          17,
+          18
+        ],
+        "selected_states": [
+          12,
+          18
+        ],
+        "retained_count": 2,
+        "best_available_state_per_TRAIN_mean_NLL": 1.6409808643162251,
+        "regularized_objective": 1.6609808643162252,
+        "current_state_only_TRAIN_NLL": 1.6830094374716282,
+        "decision_uses_future_QA_or_states": false
+      },
+      {
+        "stage": 19,
+        "arrived_TRAIN_ids": [
+          "CODA-LM:Train:Train_general_1892",
+          "CODA-LM:Train:Train_general_4284",
+          "CODA-LM:Train:Train_regional_10674",
+          "CODA-LM:Train:Train_regional_8866",
+          "FinMME:10127",
+          "FinMME:750",
+          "FinMME:8136",
+          "FinMME:9474",
+          "RSVQA-LR:4298",
+          "RSVQA-LR:65747",
+          "RSVQA-LR:69847",
+          "RSVQA-LR:70692",
+          "SLAKE:1165",
+          "SLAKE:24",
+          "SLAKE:7014",
+          "SLAKE:7618",
+          "TextVQA:14509",
+          "TextVQA:25544",
+          "TextVQA:28930",
+          "TextVQA:34459"
+        ],
+        "candidate_states": [
+          12,
+          18,
+          19
+        ],
+        "selected_states": [
+          12,
+          18,
+          19
+        ],
+        "retained_count": 3,
+        "best_available_state_per_TRAIN_mean_NLL": 1.6328927285969257,
+        "regularized_objective": 1.6728927285969257,
+        "current_state_only_TRAIN_NLL": 1.7001859277486802,
+        "decision_uses_future_QA_or_states": false
+      }
+    ]
+  },
+  "virtual_model_pair_cost": {
+    "1": {
+      "distinct_state_TRAIN_pairs_needed_if_run_online": 186,
+      "QA_arrivals_and_past_states_respected": true,
+      "first_queries": [
+        {
+          "state": 1,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 1
+        },
+        {
+          "state": 1,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 1
+        },
+        {
+          "state": 1,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 1
+        },
+        {
+          "state": 1,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 1
+        },
+        {
+          "state": 2,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 2
+        },
+        {
+          "state": 2,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 2
+        },
+        {
+          "state": 2,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 2
+        },
+        {
+          "state": 2,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 2
+        },
+        {
+          "state": 3,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 3
+        },
+        {
+          "state": 3,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 3
+        },
+        {
+          "state": 3,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 3
+        },
+        {
+          "state": 3,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 3
+        },
+        {
+          "state": 3,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 3
+        },
+        {
+          "state": 4,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 4
+        },
+        {
+          "state": 4,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 4
+        },
+        {
+          "state": 4,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 4
+        },
+        {
+          "state": 4,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 4
+        },
+        {
+          "state": 4,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 4
+        },
+        {
+          "state": 4,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 4
+        },
+        {
+          "state": 5,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 5
+        },
+        {
+          "state": 5,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 5
+        },
+        {
+          "state": 5,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 5
+        },
+        {
+          "state": 5,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 5
+        },
+        {
+          "state": 5,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 5
+        },
+        {
+          "state": 5,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 5
+        },
+        {
+          "state": 6,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 6
+        },
+        {
+          "state": 6,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 6
+        },
+        {
+          "state": 6,
+          "TRAIN_id": "SLAKE:7618",
+          "decision_stage": 6
+        },
+        {
+          "state": 6,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 6
+        },
+        {
+          "state": 6,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 6
+        },
+        {
+          "state": 6,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 6
+        },
+        {
+          "state": 6,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 6
+        },
+        {
+          "state": 7,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 7
+        },
+        {
+          "state": 7,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 7
+        },
+        {
+          "state": 7,
+          "TRAIN_id": "SLAKE:7618",
+          "decision_stage": 7
+        },
+        {
+          "state": 7,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 7
+        },
+        {
+          "state": 7,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 7
+        },
+        {
+          "state": 7,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 7
+        },
+        {
+          "state": 7,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 7
+        },
+        {
+          "state": 8,
+          "TRAIN_id": "SLAKE:1165",
+          "decision_stage": 8
+        },
+        {
+          "state": 8,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 8
+        },
+        {
+          "state": 8,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 8
+        },
+        {
+          "state": 8,
+          "TRAIN_id": "SLAKE:7618",
+          "decision_stage": 8
+        },
+        {
+          "state": 8,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 8
+        },
+        {
+          "state": 8,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 8
+        },
+        {
+          "state": 8,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 8
+        },
+        {
+          "state": 8,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 8
+        },
+        {
+          "state": 9,
+          "TRAIN_id": "SLAKE:1165",
+          "decision_stage": 9
+        },
+        {
+          "state": 9,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 9
+        },
+        {
+          "state": 9,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 9
+        },
+        {
+          "state": 9,
+          "TRAIN_id": "SLAKE:7618",
+          "decision_stage": 9
+        },
+        {
+          "state": 9,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 9
+        },
+        {
+          "state": 9,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 9
+        },
+        {
+          "state": 9,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 9
+        },
+        {
+          "state": 9,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 9
+        },
+        {
+          "state": 10,
+          "TRAIN_id": "SLAKE:1165",
+          "decision_stage": 10
+        },
+        {
+          "state": 10,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 10
+        },
+        {
+          "state": 10,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 10
+        },
+        {
+          "state": 10,
+          "TRAIN_id": "SLAKE:7618",
+          "decision_stage": 10
+        },
+        {
+          "state": 10,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 10
+        },
+        {
+          "state": 10,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 10
+        },
+        {
+          "state": 10,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 10
+        },
+        {
+          "state": 10,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 10
+        },
+        {
+          "state": 11,
+          "TRAIN_id": "SLAKE:1165",
+          "decision_stage": 11
+        },
+        {
+          "state": 11,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 11
+        },
+        {
+          "state": 11,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 11
+        },
+        {
+          "state": 11,
+          "TRAIN_id": "SLAKE:7618",
+          "decision_stage": 11
+        },
+        {
+          "state": 11,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 11
+        },
+        {
+          "state": 11,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 11
+        },
+        {
+          "state": 11,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 11
+        },
+        {
+          "state": 11,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 11
+        },
+        {
+          "state": 12,
+          "TRAIN_id": "SLAKE:1165",
+          "decision_stage": 12
+        },
+        {
+          "state": 12,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 12
+        },
+        {
+          "state": 12,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 12
+        },
+        {
+          "state": 12,
+          "TRAIN_id": "SLAKE:7618",
+          "decision_stage": 12
+        },
+        {
+          "state": 12,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 12
+        },
+        {
+          "state": 12,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 12
+        },
+        {
+          "state": 12,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 12
+        },
+        {
+          "state": 12,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 12
+        },
+        {
+          "state": 13,
+          "TRAIN_id": "RSVQA-LR:65747",
+          "decision_stage": 13
+        },
+        {
+          "state": 13,
+          "TRAIN_id": "RSVQA-LR:69847",
+          "decision_stage": 13
+        },
+        {
+          "state": 13,
+          "TRAIN_id": "SLAKE:1165",
+          "decision_stage": 13
+        },
+        {
+          "state": 13,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 13
+        },
+        {
+          "state": 13,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 13
+        },
+        {
+          "state": 13,
+          "TRAIN_id": "SLAKE:7618",
+          "decision_stage": 13
+        },
+        {
+          "state": 13,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 13
+        },
+        {
+          "state": 13,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 13
+        },
+        {
+          "state": 13,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 13
+        },
+        {
+          "state": 13,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 13
+        },
+        {
+          "state": 14,
+          "TRAIN_id": "RSVQA-LR:65747",
+          "decision_stage": 14
+        },
+        {
+          "state": 14,
+          "TRAIN_id": "RSVQA-LR:69847",
+          "decision_stage": 14
+        },
+        {
+          "state": 14,
+          "TRAIN_id": "RSVQA-LR:70692",
+          "decision_stage": 14
+        },
+        {
+          "state": 14,
+          "TRAIN_id": "SLAKE:1165",
+          "decision_stage": 14
+        },
+        {
+          "state": 14,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 14
+        },
+        {
+          "state": 14,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 14
+        },
+        {
+          "state": 14,
+          "TRAIN_id": "SLAKE:7618",
+          "decision_stage": 14
+        },
+        {
+          "state": 14,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 14
+        },
+        {
+          "state": 14,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 14
+        },
+        {
+          "state": 14,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 14
+        },
+        {
+          "state": 14,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 14
+        },
+        {
+          "state": 15,
+          "TRAIN_id": "RSVQA-LR:4298",
+          "decision_stage": 15
+        },
+        {
+          "state": 15,
+          "TRAIN_id": "RSVQA-LR:65747",
+          "decision_stage": 15
+        },
+        {
+          "state": 15,
+          "TRAIN_id": "RSVQA-LR:69847",
+          "decision_stage": 15
+        },
+        {
+          "state": 15,
+          "TRAIN_id": "RSVQA-LR:70692",
+          "decision_stage": 15
+        },
+        {
+          "state": 15,
+          "TRAIN_id": "SLAKE:1165",
+          "decision_stage": 15
+        },
+        {
+          "state": 15,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 15
+        },
+        {
+          "state": 15,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 15
+        },
+        {
+          "state": 15,
+          "TRAIN_id": "SLAKE:7618",
+          "decision_stage": 15
+        },
+        {
+          "state": 15,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 15
+        },
+        {
+          "state": 15,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 15
+        },
+        {
+          "state": 15,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 15
+        },
+        {
+          "state": 15,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 15
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "FinMME:10127",
+          "decision_stage": 16
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "FinMME:750",
+          "decision_stage": 16
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "FinMME:8136",
+          "decision_stage": 16
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "FinMME:9474",
+          "decision_stage": 16
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "RSVQA-LR:4298",
+          "decision_stage": 16
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "RSVQA-LR:65747",
+          "decision_stage": 16
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "RSVQA-LR:69847",
+          "decision_stage": 16
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "RSVQA-LR:70692",
+          "decision_stage": 16
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "SLAKE:1165",
+          "decision_stage": 16
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 16
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 16
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "SLAKE:7618",
+          "decision_stage": 16
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 16
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 16
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 16
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 16
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "CODA-LM:Train:Train_general_1892",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "CODA-LM:Train:Train_general_4284",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "FinMME:10127",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "FinMME:750",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "FinMME:8136",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "FinMME:9474",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "RSVQA-LR:4298",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "RSVQA-LR:65747",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "RSVQA-LR:69847",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "RSVQA-LR:70692",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "SLAKE:1165",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "SLAKE:7618",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 17
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "CODA-LM:Train:Train_general_1892",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "CODA-LM:Train:Train_general_4284",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "CODA-LM:Train:Train_regional_10674",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "CODA-LM:Train:Train_regional_8866",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "FinMME:10127",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "FinMME:750",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "FinMME:8136",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "FinMME:9474",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "RSVQA-LR:4298",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "RSVQA-LR:65747",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "RSVQA-LR:69847",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "RSVQA-LR:70692",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "SLAKE:1165",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "SLAKE:7618",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 18
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "CODA-LM:Train:Train_general_1892",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "CODA-LM:Train:Train_general_4284",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "CODA-LM:Train:Train_regional_10674",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "CODA-LM:Train:Train_regional_8866",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "FinMME:10127",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "FinMME:750",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "FinMME:8136",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "FinMME:9474",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "RSVQA-LR:4298",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "RSVQA-LR:65747",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "RSVQA-LR:69847",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "RSVQA-LR:70692",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "SLAKE:1165",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "SLAKE:7618",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 19
+        }
+      ],
+      "note": "Pair cost is charged when QA/state first coexist; no TEST oracle is used."
+    },
+    "3": {
+      "distinct_state_TRAIN_pairs_needed_if_run_online": 212,
+      "QA_arrivals_and_past_states_respected": true,
+      "first_queries": [
+        {
+          "state": 1,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 1
+        },
+        {
+          "state": 1,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 1
+        },
+        {
+          "state": 1,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 1
+        },
+        {
+          "state": 1,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 1
+        },
+        {
+          "state": 2,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 3
+        },
+        {
+          "state": 2,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 2
+        },
+        {
+          "state": 2,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 2
+        },
+        {
+          "state": 2,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 2
+        },
+        {
+          "state": 2,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 2
+        },
+        {
+          "state": 3,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 4
+        },
+        {
+          "state": 3,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 3
+        },
+        {
+          "state": 3,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 3
+        },
+        {
+          "state": 3,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 3
+        },
+        {
+          "state": 3,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 3
+        },
+        {
+          "state": 3,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 3
+        },
+        {
+          "state": 4,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 4
+        },
+        {
+          "state": 4,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 4
+        },
+        {
+          "state": 4,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 4
+        },
+        {
+          "state": 4,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 4
+        },
+        {
+          "state": 4,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 4
+        },
+        {
+          "state": 4,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 4
+        },
+        {
+          "state": 5,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 5
+        },
+        {
+          "state": 5,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 5
+        },
+        {
+          "state": 5,
+          "TRAIN_id": "SLAKE:7618",
+          "decision_stage": 6
+        },
+        {
+          "state": 5,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 5
+        },
+        {
+          "state": 5,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 5
+        },
+        {
+          "state": 5,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 5
+        },
+        {
+          "state": 5,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 5
+        },
+        {
+          "state": 6,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 6
+        },
+        {
+          "state": 6,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 6
+        },
+        {
+          "state": 6,
+          "TRAIN_id": "SLAKE:7618",
+          "decision_stage": 6
+        },
+        {
+          "state": 6,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 6
+        },
+        {
+          "state": 6,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 6
+        },
+        {
+          "state": 6,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 6
+        },
+        {
+          "state": 6,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 6
+        },
+        {
+          "state": 7,
+          "TRAIN_id": "SLAKE:1165",
+          "decision_stage": 8
+        },
+        {
+          "state": 7,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 7
+        },
+        {
+          "state": 7,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 7
+        },
+        {
+          "state": 7,
+          "TRAIN_id": "SLAKE:7618",
+          "decision_stage": 7
+        },
+        {
+          "state": 7,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 7
+        },
+        {
+          "state": 7,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 7
+        },
+        {
+          "state": 7,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 7
+        },
+        {
+          "state": 7,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 7
+        },
+        {
+          "state": 8,
+          "TRAIN_id": "SLAKE:1165",
+          "decision_stage": 8
+        },
+        {
+          "state": 8,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 8
+        },
+        {
+          "state": 8,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 8
+        },
+        {
+          "state": 8,
+          "TRAIN_id": "SLAKE:7618",
+          "decision_stage": 8
+        },
+        {
+          "state": 8,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 8
+        },
+        {
+          "state": 8,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 8
+        },
+        {
+          "state": 8,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 8
+        },
+        {
+          "state": 8,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 8
+        },
+        {
+          "state": 9,
+          "TRAIN_id": "SLAKE:1165",
+          "decision_stage": 9
+        },
+        {
+          "state": 9,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 9
+        },
+        {
+          "state": 9,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 9
+        },
+        {
+          "state": 9,
+          "TRAIN_id": "SLAKE:7618",
+          "decision_stage": 9
+        },
+        {
+          "state": 9,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 9
+        },
+        {
+          "state": 9,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 9
+        },
+        {
+          "state": 9,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 9
+        },
+        {
+          "state": 9,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 9
+        },
+        {
+          "state": 10,
+          "TRAIN_id": "SLAKE:1165",
+          "decision_stage": 10
+        },
+        {
+          "state": 10,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 10
+        },
+        {
+          "state": 10,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 10
+        },
+        {
+          "state": 10,
+          "TRAIN_id": "SLAKE:7618",
+          "decision_stage": 10
+        },
+        {
+          "state": 10,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 10
+        },
+        {
+          "state": 10,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 10
+        },
+        {
+          "state": 10,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 10
+        },
+        {
+          "state": 10,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 10
+        },
+        {
+          "state": 11,
+          "TRAIN_id": "SLAKE:1165",
+          "decision_stage": 11
+        },
+        {
+          "state": 11,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 11
+        },
+        {
+          "state": 11,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 11
+        },
+        {
+          "state": 11,
+          "TRAIN_id": "SLAKE:7618",
+          "decision_stage": 11
+        },
+        {
+          "state": 11,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 11
+        },
+        {
+          "state": 11,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 11
+        },
+        {
+          "state": 11,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 11
+        },
+        {
+          "state": 11,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 11
+        },
+        {
+          "state": 12,
+          "TRAIN_id": "CODA-LM:Train:Train_general_1892",
+          "decision_stage": 17
+        },
+        {
+          "state": 12,
+          "TRAIN_id": "CODA-LM:Train:Train_general_4284",
+          "decision_stage": 17
+        },
+        {
+          "state": 12,
+          "TRAIN_id": "CODA-LM:Train:Train_regional_10674",
+          "decision_stage": 18
+        },
+        {
+          "state": 12,
+          "TRAIN_id": "CODA-LM:Train:Train_regional_8866",
+          "decision_stage": 18
+        },
+        {
+          "state": 12,
+          "TRAIN_id": "FinMME:10127",
+          "decision_stage": 16
+        },
+        {
+          "state": 12,
+          "TRAIN_id": "FinMME:750",
+          "decision_stage": 16
+        },
+        {
+          "state": 12,
+          "TRAIN_id": "FinMME:8136",
+          "decision_stage": 16
+        },
+        {
+          "state": 12,
+          "TRAIN_id": "FinMME:9474",
+          "decision_stage": 16
+        },
+        {
+          "state": 12,
+          "TRAIN_id": "RSVQA-LR:4298",
+          "decision_stage": 15
+        },
+        {
+          "state": 12,
+          "TRAIN_id": "RSVQA-LR:65747",
+          "decision_stage": 13
+        },
+        {
+          "state": 12,
+          "TRAIN_id": "RSVQA-LR:69847",
+          "decision_stage": 13
+        },
+        {
+          "state": 12,
+          "TRAIN_id": "RSVQA-LR:70692",
+          "decision_stage": 14
+        },
+        {
+          "state": 12,
+          "TRAIN_id": "SLAKE:1165",
+          "decision_stage": 12
+        },
+        {
+          "state": 12,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 12
+        },
+        {
+          "state": 12,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 12
+        },
+        {
+          "state": 12,
+          "TRAIN_id": "SLAKE:7618",
+          "decision_stage": 12
+        },
+        {
+          "state": 12,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 12
+        },
+        {
+          "state": 12,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 12
+        },
+        {
+          "state": 12,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 12
+        },
+        {
+          "state": 12,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 12
+        },
+        {
+          "state": 13,
+          "TRAIN_id": "RSVQA-LR:65747",
+          "decision_stage": 13
+        },
+        {
+          "state": 13,
+          "TRAIN_id": "RSVQA-LR:69847",
+          "decision_stage": 13
+        },
+        {
+          "state": 13,
+          "TRAIN_id": "RSVQA-LR:70692",
+          "decision_stage": 14
+        },
+        {
+          "state": 13,
+          "TRAIN_id": "SLAKE:1165",
+          "decision_stage": 13
+        },
+        {
+          "state": 13,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 13
+        },
+        {
+          "state": 13,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 13
+        },
+        {
+          "state": 13,
+          "TRAIN_id": "SLAKE:7618",
+          "decision_stage": 13
+        },
+        {
+          "state": 13,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 13
+        },
+        {
+          "state": 13,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 13
+        },
+        {
+          "state": 13,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 13
+        },
+        {
+          "state": 13,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 13
+        },
+        {
+          "state": 14,
+          "TRAIN_id": "RSVQA-LR:4298",
+          "decision_stage": 15
+        },
+        {
+          "state": 14,
+          "TRAIN_id": "RSVQA-LR:65747",
+          "decision_stage": 14
+        },
+        {
+          "state": 14,
+          "TRAIN_id": "RSVQA-LR:69847",
+          "decision_stage": 14
+        },
+        {
+          "state": 14,
+          "TRAIN_id": "RSVQA-LR:70692",
+          "decision_stage": 14
+        },
+        {
+          "state": 14,
+          "TRAIN_id": "SLAKE:1165",
+          "decision_stage": 14
+        },
+        {
+          "state": 14,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 14
+        },
+        {
+          "state": 14,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 14
+        },
+        {
+          "state": 14,
+          "TRAIN_id": "SLAKE:7618",
+          "decision_stage": 14
+        },
+        {
+          "state": 14,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 14
+        },
+        {
+          "state": 14,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 14
+        },
+        {
+          "state": 14,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 14
+        },
+        {
+          "state": 14,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 14
+        },
+        {
+          "state": 15,
+          "TRAIN_id": "FinMME:10127",
+          "decision_stage": 16
+        },
+        {
+          "state": 15,
+          "TRAIN_id": "FinMME:750",
+          "decision_stage": 16
+        },
+        {
+          "state": 15,
+          "TRAIN_id": "FinMME:8136",
+          "decision_stage": 16
+        },
+        {
+          "state": 15,
+          "TRAIN_id": "FinMME:9474",
+          "decision_stage": 16
+        },
+        {
+          "state": 15,
+          "TRAIN_id": "RSVQA-LR:4298",
+          "decision_stage": 15
+        },
+        {
+          "state": 15,
+          "TRAIN_id": "RSVQA-LR:65747",
+          "decision_stage": 15
+        },
+        {
+          "state": 15,
+          "TRAIN_id": "RSVQA-LR:69847",
+          "decision_stage": 15
+        },
+        {
+          "state": 15,
+          "TRAIN_id": "RSVQA-LR:70692",
+          "decision_stage": 15
+        },
+        {
+          "state": 15,
+          "TRAIN_id": "SLAKE:1165",
+          "decision_stage": 15
+        },
+        {
+          "state": 15,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 15
+        },
+        {
+          "state": 15,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 15
+        },
+        {
+          "state": 15,
+          "TRAIN_id": "SLAKE:7618",
+          "decision_stage": 15
+        },
+        {
+          "state": 15,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 15
+        },
+        {
+          "state": 15,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 15
+        },
+        {
+          "state": 15,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 15
+        },
+        {
+          "state": 15,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 15
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "CODA-LM:Train:Train_general_1892",
+          "decision_stage": 17
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "CODA-LM:Train:Train_general_4284",
+          "decision_stage": 17
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "FinMME:10127",
+          "decision_stage": 16
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "FinMME:750",
+          "decision_stage": 16
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "FinMME:8136",
+          "decision_stage": 16
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "FinMME:9474",
+          "decision_stage": 16
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "RSVQA-LR:4298",
+          "decision_stage": 16
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "RSVQA-LR:65747",
+          "decision_stage": 16
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "RSVQA-LR:69847",
+          "decision_stage": 16
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "RSVQA-LR:70692",
+          "decision_stage": 16
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "SLAKE:1165",
+          "decision_stage": 16
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 16
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 16
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "SLAKE:7618",
+          "decision_stage": 16
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 16
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 16
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 16
+        },
+        {
+          "state": 16,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 16
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "CODA-LM:Train:Train_general_1892",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "CODA-LM:Train:Train_general_4284",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "CODA-LM:Train:Train_regional_10674",
+          "decision_stage": 18
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "CODA-LM:Train:Train_regional_8866",
+          "decision_stage": 18
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "FinMME:10127",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "FinMME:750",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "FinMME:8136",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "FinMME:9474",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "RSVQA-LR:4298",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "RSVQA-LR:65747",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "RSVQA-LR:69847",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "RSVQA-LR:70692",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "SLAKE:1165",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "SLAKE:7618",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 17
+        },
+        {
+          "state": 17,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 17
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "CODA-LM:Train:Train_general_1892",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "CODA-LM:Train:Train_general_4284",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "CODA-LM:Train:Train_regional_10674",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "CODA-LM:Train:Train_regional_8866",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "FinMME:10127",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "FinMME:750",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "FinMME:8136",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "FinMME:9474",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "RSVQA-LR:4298",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "RSVQA-LR:65747",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "RSVQA-LR:69847",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "RSVQA-LR:70692",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "SLAKE:1165",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "SLAKE:7618",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 18
+        },
+        {
+          "state": 18,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 18
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "CODA-LM:Train:Train_general_1892",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "CODA-LM:Train:Train_general_4284",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "CODA-LM:Train:Train_regional_10674",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "CODA-LM:Train:Train_regional_8866",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "FinMME:10127",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "FinMME:750",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "FinMME:8136",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "FinMME:9474",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "RSVQA-LR:4298",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "RSVQA-LR:65747",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "RSVQA-LR:69847",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "RSVQA-LR:70692",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "SLAKE:1165",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "SLAKE:24",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "SLAKE:7014",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "SLAKE:7618",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "TextVQA:14509",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "TextVQA:25544",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "TextVQA:28930",
+          "decision_stage": 19
+        },
+        {
+          "state": 19,
+          "TRAIN_id": "TextVQA:34459",
+          "decision_stage": 19
+        }
+      ],
+      "note": "Pair cost is charged when QA/state first coexist; no TEST oracle is used."
+    }
+  },
+  "input_sha256": {
+    "summary/onevision_diagnostics_20261016/functional_state_cache_20261018/PROTOCOL.md": "88bfaa85da2ff4bb80ed0756bcaf3bed72804ed9b2a0131a2eaf270543a644bc",
+    "summary/onevision_diagnostics_20261016/deterministic_native/complete.json": "9593ebddf9d17e81f8358d61a2ede10bccaa94b3a5d0f919f3eb3713919f812a",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/manifest.json": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T01_train.jsonl": "5732cd30e78ea2d808526c62312ed2d25e9541a07b3ba5ad2b19d4f0123217c8",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T02_train.jsonl": "7f59b10ae613e76dc166c6bba157ba9b16d8839e1f8331c3d6feca9f42f790b4",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T03_train.jsonl": "e9d909b32d60f8c4b59d751cc4eb3af5b1420650e38cdbee1aec449d9ecef769",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T04_train.jsonl": "fabc8d4b4bd730306db0b1447a530a54bf470faded22937ba4a32fb6ebcd2cc9",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T05_train.jsonl": "3a4210e379d0d487a97dabc092a1178e9cc13bb92a16ed76191eaa0385b920b3",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T06_train.jsonl": "6a299bce404105f75b691de06e176be0cbe908c593ff1bdcb2c8e3b20001633b",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T07_train.jsonl": "fbbbb06aefe521ae3e0387bd2da145f643ce04eca6e64fcb7434d31c42cb2102",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T08_train.jsonl": "dd327dec1b3433a2dd27a88c3b4724c4978b246e599b5e88787c6214b0a1efed",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T09_train.jsonl": "f48f1b60247ea91fe5ed6900e3643f4e43ed3202d4c50b2aa0b1ebc9906eda7d",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T10_train.jsonl": "3eeae855c9594ec529711123366ef681b10e446daba6e6505f95a762a93065e3",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T11_train.jsonl": "c78aa32c98f7cd60b4950561281d2cb023ac5c84c438149044ce7429c0681e54",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T12_train.jsonl": "fe5ff5fea1b9af9a99d7139fcc6e314d353649db930a8c1e99cd5ff4ccf4995f",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T13_train.jsonl": "57ec71ab8c67d006cfa4812d63fabd903dd9d36a0ba417a2ca71e5a79560309a",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T14_train.jsonl": "3cae6b3004124eabccbcae69b073254d1c932a912d813edec7114c61821d1c83",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T15_train.jsonl": "eca0f26e0cb7612eee9ab28c5cc4f8f27898b4ba9cb1b257cfefb9037c7a10c2",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T16_train.jsonl": "5d7617d9873fbcfef60b33ec027a7eb2507b128cde0ff243df85f3b67843ab65",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T17_train.jsonl": "03848e8d10485506685fe46d3d2530120001ed159dfd5f4239655bbbc590cb34",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T18_train.jsonl": "1941cabc03d007d984282858ca3d6f0862ca4720d5fb0798fc866423200d3952",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T19_train.jsonl": "2a64cfde7c42d360ff0bd570f3487be0e8940526d08d4ed4bef389a04f5861b2",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T01/natural.pt": "1c9739c9d42c2036f65813f5fe43ee660923a4c702cf56632946bc82ec1208c0",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T01/medical.pt": "e0d7d61950be71c9492dc6fcc760e28df12cb359f3224eb0ac2d8dc8f60bc448",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T01/geography.pt": "9248201676de2f3d06e57d57c4edacfd61f506e64d58f6bffcdbf4ab2f93152c",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T01/finance.pt": "b1e0ea292998134283b5cbb209502913c9cd9045612ad0e6e9e46e1d7fa88764",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T01/traffic.pt": "ed0aad570df83ab435ffe1d6444ba4e0b4f805db8de50cf412441137aa85683b",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T02/natural.pt": "5835a97a4bcfc6a0529d5a69b4f465a74bff25a781207665559606e637cee5d0",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T02/medical.pt": "ad358443d8cfcf5d56cb776c3efb44b982b40e7ffab3742469efb0492d0cd19d",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T02/geography.pt": "0b147275dee3f35373f3c6440efbe9a28f1bb3ae77d42ca13d3d57bbdfafdf73",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T02/finance.pt": "3b3b6c5024c43c141b1c0f7fc29806221a0890d898d7d75620b6bd861f8def6f",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T02/traffic.pt": "5e5ac4e11c65ce2b9c2e456ae185b2b6557d444d0f0e43776134b7b49701925d",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T03/natural.pt": "0f602775ee247f5354e93a209cca2359a2538f3dd86f2b62d626d5379c3fbcae",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T03/medical.pt": "3ada30f6948b458844dd635e0f3d24f0aec1e9bb05cf3542c4a9617995bc10d9",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T03/geography.pt": "d8b6f734e46701bf22592f80f166714a8d63f90527605c8df53843322bdf234f",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T03/finance.pt": "d7f284836934c4cec9d9af47bd6946a66e3067e395896668badf2893faf89740",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T03/traffic.pt": "ea26a0919752a400f312fb48c827757aa20ba6fe8263feb5fd63160201887e8e",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T04/natural.pt": "2c86257ab19cc10c679c5c192d268f12e5ddc80ec933ceef8d9df76f0f3c1765",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T04/medical.pt": "636740115fa24994939cf59761715326b4936acc762015768f8cd8c89ef2050b",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T04/geography.pt": "d10c8b28e0c6ab8e329765f4cd46edc250a6b1a2d66dbc702bb3e8cc3ef8bc44",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T04/finance.pt": "f493e0dd817981ac96b35a5154d06e0cb7d567bb75f2c000e46a7c94361df0a1",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T04/traffic.pt": "2d1009ca5156191236ba2b52c687a783e1dba0870463337bb34dd4fc0d03158d",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T05/natural.pt": "49ff29fce47b61eb7d0fd77386c147899075a5c06e597dc9d76e1e8d8825ddf6",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T05/medical.pt": "0774ff54ecd56176afddb901476ea75ad0d20fd4358048cae6918146a1a0f04d",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T05/geography.pt": "adeeafa115085a1ce952cbf4f9d87e48602a757c916c084c2725a39f6c219b97",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T05/finance.pt": "f9ac24463c7752a136986035a590966a62014dd1216d0f7e59ab961ee54d9b09",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T05/traffic.pt": "4800fb6037ba06828fd8d0ee3d59922a4f6bc10e6f2d9ed760fe773949cd0058",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T06/natural.pt": "a51b481bd238b4dbb53ac8fc0b8b5b0674f5628465dc0e75317e32a3badf8e2c",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T06/medical.pt": "95f42a202c82b0f48aec21950b5209fc12ce66000f2a984e9116d8354ca63166",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T06/geography.pt": "79e6f540443e7c74f6aca2d15783192df4ae52e09c5d6a360587b01b4fe91b00",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T06/finance.pt": "713ff42e0c3c2030ca9c673d16c6e31824cc85c969b8d334a91c4f07254b5a4f",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T06/traffic.pt": "0dc97cbc3cb2fa944847c67644a6fccba637cbf6a0cd7bb92770d5df62a75c4e",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T07/natural.pt": "b72faa1ffdad85ed156715e9a4aa952f8acec62ddc9fce247ba07ca8cd850b18",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T07/medical.pt": "97800a31da3dd2f3a7ad8952528ba20b37b5bd1d1ca8da686d24c235237ee8d8",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T07/geography.pt": "b8bb460c335433bc34391055e2134898d17bd48233f287632b82765f28ca1dde",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T07/finance.pt": "6e2d498203f9ca8c9c9e78054c7c11dd1b4d3a8513461331ec83bf59aa12b0e2",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T07/traffic.pt": "cb11028df136525a83bfb4c9f3924ba28735c63faa0f355616211044db5c046a",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T08/natural.pt": "d96a00dd098666587255edbc43b568864372be4f01eeaff436edc56c4de77c00",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T08/medical.pt": "c6b8bc8d02044da5c8bd66d6dba61a4d534157b200dbc5f079860259e0a63cc3",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T08/geography.pt": "0cd32bae9f4a51758601c77b61a19b9dc4f8e5197efcbf03e7f1d6113cd990c4",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T08/finance.pt": "d4e08ce7a8aa36bd7a356a23b18243d2bba63f3f7e1ad7ba8eeb584f35989dd7",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T08/traffic.pt": "6e99de85872d20876689c3ab5ace594a62e90d68baef7b5616fdf6a1422517e0",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T09/natural.pt": "110f7daacb50990f964cac9300560902bfb61ca9bd888acd438e803e3257d91e",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T09/medical.pt": "5ffbdc3bd0c0454d33139dbdf59e7671bbdd4cfe9cdb3cd6ff978ae9b49444a8",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T09/geography.pt": "eb91a8e66d1716d1d8dba0d16d664388bc80172bcb2c333a47c7a197f080525b",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T09/finance.pt": "0601d457a1a8166210635cefc5a99ed4305c50ea864f901c8fa846d9fa671aef",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T09/traffic.pt": "6eb2f3e15844581622f9c1d8221be1a2aa906838eaa52938c3a7bb4b0361d6a5",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T10/natural.pt": "6882fe97a320e9d935a5ab3285af7ec31b2cc9534af9ad7b6ce41766c8d1cb4b",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T10/medical.pt": "5c25cf8882fce1e3fc2c9aab56a4667ff9ab4786ffe2077e1db195538d15af00",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T10/geography.pt": "3072b3e694080c7cb41bbe70541c0e57c487ff42fd1bccdb8ccdb01bb875a07e",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T10/finance.pt": "d6944eaf1b704b5343d8ccee031b11d69b839712c264f912894e0d9cbd4ac40b",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T10/traffic.pt": "c6d1fcbae007c4e2d4803644216a30d97bfe2358ebcba21d903ccbeecb8cd6c3",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T11/natural.pt": "3d5fc9264697f9c31a8418976798e426664133df82c69225f921a328cfad848b",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T11/medical.pt": "3d8c581dc4f906e65e684b89a516da56ca8d43115921759b4dc62af22eaf0e65",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T11/geography.pt": "554b2852762ff67e03ccc0f98a3f89305a8ad4e280db5cacaec4c70beed4ea32",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T11/finance.pt": "f273dc5e2fe572824ab04998fed7a10cf95a1bca4cde8543999a421c3364b05e",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T11/traffic.pt": "5e9bda5217a9c491197036a9267ac0d440cf45bcf2cf1dfd9bcf2028596974f4",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T12/natural.pt": "41b8ffb9588de707369a7e4b903f36346ffdacce994abd8e23d0ff8352a01bec",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T12/medical.pt": "9971bcf560a323fbfc6d44115a50e7e861e1c6618c7f303b0d94042b82e0b018",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T12/geography.pt": "6087d6009f72d9f59de6fc91e1887ca6a416ec1005efc950cc7e906ce356c0ab",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T12/finance.pt": "7a739d5b77caee7c3f6003f951118b6666cf5960d0207b6a435e2ce268ebc288",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T12/traffic.pt": "5b4fe7b73495b735828089c00609aa30ee10904536d4f9a41b6657cace3dfb66",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T13/natural.pt": "d744ce7dab8b942bae11fda199cfa49520250ad69c45f4cc3ce8d9aa876c801c",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T13/medical.pt": "2c5b1246e384aa739afb2a3b110aa23c343b787c17413eea2eaef9df97c06729",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T13/geography.pt": "308b4659238f66ecbda865b4524a3732958eb48c99547411e389ce18f8d2341b",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T13/finance.pt": "05170bf4027137683b6acf8dd8e050f3b49f43d21bab781a0ecf0967757ab652",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T13/traffic.pt": "590efbacf2d002e464599a70ec44696b2407ca5ad4bb3640d57f8995e1f1da72",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T14/natural.pt": "bd9c77d117a461780cac83d3ae52335013b88d6f91a010752d8612d1b85272bb",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T14/medical.pt": "1d18d93385c1aaaa6bac0b24d98f4ea70037e584d131be606fe207e1c4764aaa",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T14/geography.pt": "43702553a4ed611a1bec1daa8bd58082673b01e7b2808cd8beedd8aa6b894106",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T14/finance.pt": "74bd71fca8ec96f5244d88ec4bc4dbb3cbc9bbc8e60c43e7941c17df6755eb3c",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T14/traffic.pt": "3b3223b9d826bebed1f0b6cc6124b2e0cfa410a3146480829c91c8730647d233",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T15/natural.pt": "8e9697a591c7b6fd2328769b08327e3044096f397d7972a4a6544acce33e836d",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T15/medical.pt": "ccda95a0aa18875d2592f28250845f7628d686a2de55a9dba4d9244022cb08fd",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T15/geography.pt": "39257cdd79f7c30e69018da08ee519823b065b0ca71a6e2fd932b3d90ef73392",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T15/finance.pt": "56c599285c309453fa12256561f1c156d09214195e94b374b35af2562f7383d3",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T15/traffic.pt": "224f0148337c8bca0f211e758edeb97b15628e3335463bfb9975d70f6f343dfd",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T16/natural.pt": "69257d2197ece44e47b5b1bd146c8b05cd43b7882e50bae40b0bf3ffa70866a5",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T16/medical.pt": "0ab742d5337ff448bc249a2dc4530f3af3442a367538cbe1aa39faf12f7bf368",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T16/geography.pt": "6846b4ef36f94b9ca6bdfe4b71ba584a038b994f0bd755122b2d167c81436611",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T16/finance.pt": "20726dbde8a4d389e3ccb684567f1b9bfba518ffafdfa807be42f806d41f4bf4",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T16/traffic.pt": "11bcd1495f2007eb091493b169ff1052a07906c6cfe6e624c625308d70e346f0",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T17/natural.pt": "da5a483ac1bb0b593a8b8561284524a96f718bd46e1f3617df11da3fd67a5e15",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T17/medical.pt": "6beb7b3a2306ef9a415091a9e1cce694a8ee366d83b415e100cd296e7d571489",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T17/geography.pt": "6f88f0ff58c411b3fc91f1e410f5e6f01766a370222403c375c7f621090d2533",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T17/finance.pt": "3884a17f5c020e7f958fafa27cea8e695fa2da3e1400eee8c70ec3c7d018aa31",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T17/traffic.pt": "4bb2eaaefd13c367c5b058ae7a4bca0146fe2a4ee8aa88e35661713efc8e9c46",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T18/natural.pt": "bb06982a8f53af311948c75c2afb2b3de1d13af2648246dca1388c1e1a4c7300",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T18/medical.pt": "4bd4220b8f28cf6081cfa724f34eab9e34fc52d6e0cb6f8193e05fe38850f344",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T18/geography.pt": "4dbd3ca237c1b009744b1cdc4e0e8e6ff682c42a7863f84ce007e77cc3b69c1a",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T18/finance.pt": "ec83a4b35a446c774ffb3cbd661af48a58f9506cd4b7d5f388ce0a2c6d7bf216",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T18/traffic.pt": "8193591eba707a13882a0b178e823577a5adcda18fff72aebe372c42a0b8fd26",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T19/natural.pt": "a90d49400f0193fbf56bdb8ecaf73ef53bf7a3aae68524f59ce0af6231e56498",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T19/medical.pt": "2cc663133420cfd9165db3966665286cb6068448f187e36ea69cf03ee03b3fc9",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T19/geography.pt": "a6baf27268b1ebf52ef310650ce9d2328d295ece3280a215809ebd2abfbb1e50",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T19/finance.pt": "54d8dfeab8675cece9d920830f73938c00974e802a58a2f28d97bd991efeae4f",
+    "exp/onevision_deterministic_native_20261016/20261016_212934/raw_probe_gradients/sequential_T19/traffic.pt": "5d8cce0a474ce43ba5dbe5116932c5d6d94a3680f62ae70936801441ef63e024"
+  },
+  "source_sha256": "9c6df725328585eb7b9b1674858d47536c48fb39e561b440fad4b372e83e382a",
+  "limits": [
+    "Original probes are domain-stratified diagnostics, not a representative/full TRAIN memory.",
+    "Old saved future-anchor losses are never exposed to a decision before that anchor arrives.",
+    "Lowest NLL across states is a TRAIN coverage objective, not an actual learned TEST router.",
+    "No TEST F1 or automatic globally optimal capacity is inferred; GPU prototype remains unimplemented.",
+    "Snapshot storage, temporary candidates, optimizer, feature extraction and routing costs still require measurement."
+  ]
+}

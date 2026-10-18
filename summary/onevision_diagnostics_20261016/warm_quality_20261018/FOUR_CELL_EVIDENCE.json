@@ -49,11 +49,31 @@
         "domain_macro": 36.44129876702998,
         "FWT": null,
         "BWT": null
+      },
+      {
+        "cell": "11",
+        "generated": 155,
+        "domains": {
+          "natural": 60.71428571428571,
+          "medical": 46.38399652098282,
+          "geography": 46.875,
+          "finance": 30.0,
+          "traffic": 31.421294853830116
+        },
+        "AP": 44.16510002286875,
+        "domain_macro": 43.07891541781973,
+        "FWT": null,
+        "BWT": null
       }
     ],
     "full21454": []
   },
-  "interaction": {},
+  "interaction": {
+    "diagnostic155": {
+      "AP": 3.461249780669018,
+      "domain_macro": 1.3207723363604273
+    }
+  },
   "parent_warm19_complete": true,
   "warm_plan_ready": true,
   "complete_full_cells": 0,
@@ -213,9 +233,99 @@
         }
       }
     },
-    "quality_inference": {}
+    "quality_inference": {
+      "pilot_complete.json": {
+        "unit": "bytes",
+        "pid": 415408,
+        "boot_id": "e6182f56-39be-4e37-908d-3cfadaa7448f",
+        "process_started_unix": 1792315407.9104688,
+        "before": {
+          "phase": "functional_inference_before",
+          "stage": 0,
+          "unix": 1792315422.2496254,
+          "pid": 415408,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4155641856,
+          "VmRSS_bytes": 2410979328,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2205589504,
+          "Private_Clean_bytes": 68059136,
+          "Private_Dirty_bytes": 2055032832,
+          "cpu_uss_bytes": 2123091968,
+          "gpu_allocated_bytes": 1842765824,
+          "gpu_reserved_bytes": 3275751424,
+          "gpu_peak_allocated_bytes": 2551966720,
+          "gpu_peak_reserved_bytes": 3275751424,
+          "gpu_process_nvml_bytes": 3630170112,
+          "trainable_parameters": 0,
+          "trainable_parameter_bytes": 0,
+          "model_parameter_bytes": 1789513792
+        },
+        "after": {
+          "phase": "functional_inference_after",
+          "stage": 0,
+          "unix": 1792317619.3700917,
+          "pid": 415408,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4155641856,
+          "VmRSS_bytes": 2990637056,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2749553664,
+          "Private_Clean_bytes": 71249920,
+          "Private_Dirty_bytes": 2573848576,
+          "cpu_uss_bytes": 2645098496,
+          "gpu_allocated_bytes": 1842766336,
+          "gpu_reserved_bytes": 4821352448,
+          "gpu_peak_allocated_bytes": 3419423232,
+          "gpu_peak_reserved_bytes": 4821352448,
+          "gpu_process_nvml_bytes": 5177868288,
+          "trainable_parameters": 0,
+          "trainable_parameter_bytes": 0,
+          "model_parameter_bytes": 1789513792
+        },
+        "scope": "inference + TRAIN NLL calibration and16parameter CPU fit; no LoRA optimizer",
+        "growth_bytes": {
+          "VmRSS_bytes": 579657728,
+          "Pss_bytes": 543964160,
+          "cpu_uss_bytes": 522006528,
+          "gpu_allocated_bytes": 512,
+          "gpu_reserved_bytes": 1545601024,
+          "gpu_process_nvml_bytes": 1547698176
+        },
+        "observed_peak_bytes": {
+          "VmRSS_bytes": 3009150976,
+          "Pss_bytes": 2768069632,
+          "cpu_uss_bytes": 2663612416,
+          "gpu_allocated_bytes": 2347385344,
+          "gpu_reserved_bytes": 4821352448,
+          "gpu_process_nvml_bytes": 5177868288
+        },
+        "note": "Same-PID before/after; fresh process per cap. On recovery these describe resumed process only. Stage diagnostics are included in observed peaks; allocator cache is separate from parameter growth.",
+        "all_process_observed_peak_bytes": {
+          "VmRSS_bytes": 3009150976,
+          "Pss_bytes": 2768069632,
+          "cpu_uss_bytes": 2663612416,
+          "gpu_allocated_bytes": 2347385344,
+          "gpu_reserved_bytes": 4821352448,
+          "gpu_process_nvml_bytes": 5177868288
+        }
+      }
+    }
   },
-  "calibration": [],
+  "calibration": [
+    {
+      "parameters": 16,
+      "actual_changed": true,
+      "TRAIN_QA": 43,
+      "NLL_forwards": 172,
+      "seconds": 45.70722585299518,
+      "CPU_head_steps": 400,
+      "loss_first": 8.825104713439941,
+      "loss_last": 1.0960443019866943,
+      "calibration_sha256": "404445db3ab934e4dacc926ccfee5c82b997ea2e563fb9a0af091b0d0f53343c",
+      "sealed_before_intervention_TEST": true
+    }
+  ],
   "completion_sha256": {
     "initialization": {
       "summary/onevision_diagnostics_20261016/learned_reuse/learned_cosine_K3_train_complete.json": "bec50f3729f495d1330004d981771301eac550b22e243a237912fb8e092d221c",
@@ -224,7 +334,9 @@
     "cold_quality": {
       "pilot_complete.json": "019dafbd03c9f76367ef1cf86a0e4d15e9dd54c329332e1faa659f9d738180eb"
     },
-    "warm_quality": {}
+    "warm_quality": {
+      "pilot_complete.json": "0f392f104094b820f655c3ad255a04d7d4e1c8790ca8c2252c159a6a91ecd8a1"
+    }
   },
   "source_sha256": {
     "analysis/onevision_warm_quality_probe.py": "bd4fcd8da29e97d8e95d239a8bb0d2b80ffc974451c0ad890481332217e2f386",
@@ -249,6 +361,10 @@
     "proofs_checked": [
       {
         "proof": "summary/onevision_diagnostics_20261016/warm_start_20261018/warm_inherit_K3_v1_train_complete.json",
+        "execution_receipt_sha256": "97f9a8f17873c7cb9025824404872f6bfacd01d78a3724c9eb04526b5fc47735"
+      },
+      {
+        "proof": "summary/onevision_diagnostics_20261016/warm_quality_20261018/pilot_complete.json",
         "execution_receipt_sha256": "97f9a8f17873c7cb9025824404872f6bfacd01d78a3724c9eb04526b5fc47735"
       }
     ],
