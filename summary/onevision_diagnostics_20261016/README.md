@@ -1,5 +1,7 @@
 # 2026-10-18最新入口
 
+新增[固定池TRAIN调用与仅头逐图排除](functional_router/calibration_audit/RESEARCH_FINDINGS.md)：43条记忆、16参数实际拟合、44次CPU分析；与完整测试收益严格分开。
+
 [总报告第13项：从文献机制到小数据轻量改造](RESEARCH_REPORT.md#13-借鉴多领域方法能否修复相似却未必会答的调用)。原学习相似度两组训练已完成但未胜顺序参考；[真实结果](learned_reuse/INTERIM_RESULT_20261018.md)。新固定池质量校准＋连续残差已接入[当前队列](functional_router_queue/README.md)，GPU效果待测；[完整协议](functional_router/PROTOCOL.md)。共同T04起点和固定指令全格已有新结果，见K22，不沿用历史“未测”状态。新机磁盘事故及基线续跑见[恢复报告](../storage_recovery_20261018/README.md)。下文为保留的原证据索引。
 
 > 当前唯一主指标与结论先看[Answer F1诊断重审](PRIMARY_F1_REASSESSMENT.md)。[冻结规则](../../rules/020_answer_f1_primary_20261017.md)明确无选项映射。旧原始EM/ROUGE记录仅追溯。
