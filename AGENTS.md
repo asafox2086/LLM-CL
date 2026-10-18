@@ -1,3 +1,8 @@
+# SMoLoRA hard-selection gradient path audited; no F1 causality — 2026-10-18
+
+- New CPU-only onevision_smolora_gate_audit.py calls unchanged SHA-checked authorforward on synthetic4D/3token CE, all8 B deliberately nonzero. Both selection gates requires_grad=True but grad=None; continuousfusiongradnorm7.9766e-5/4.8826e-5, selectedexpert1/7 Bgrad.052658/.041746. Sameparameters/x->-x visualroute1->0, instruction7 unchanged. Known argmax/onehot derivative boundary in current forward, not novelmath, actualOneVision gradient/F1 or wholeauthortraining proof. Allparameters exact/no optimizer/noQA/GPU.
+- Do not equate trainableflags with learnedchoice, or fixedgateweights with fixedinputroute. Fusion/experts stilllearn; no claim allMoE/learnedcosine affected, originalpaper ineffective, or softgate improves performance. Formal SMo finalpending. Fullauthortrainer/auxobjectives/externalpretraining not executed. See smolora_gate_20261018/RESEARCH_FINDINGS.md and K34. Don't repeat this completed CPU audit as new progress; actual GPU causal/complete evidence still needed. Baselines and current366824/358091 queue unchanged.
+
 # PASs regularizer budget boundary audited; no F1 causality — 2026-10-18
 
 - New CPU-only onevision_regularizer_budget_audit.py uses SHA-checked unchanged author PASs learner on tiny4D module with deliberately nonzero A/B-reference distances and nonempty importance. Original .3 progress warmup: gradientnorm0 atprogress0, 1.08793e-5 at.15, 2.17586e-5 at.3; disable warmup at0 restores full norm, allparameters unchanged. No backbone/TEST/optimizer/GPU. Current two-host run/adapter/authorlearner SHA identical.

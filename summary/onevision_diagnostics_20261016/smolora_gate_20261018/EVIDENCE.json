@@ -1,0 +1,104 @@
+{
+  "kind": "synthetic CPU authored-operator gradient-path evidence, NOT GPU performance",
+  "seed": 42,
+  "torch_version": "2.6.0+cu118",
+  "author_revision": "ba50e074f7468e18f0e6d512360acebe8e213424",
+  "upstream_sha256": "46183bcc5d493a6fbe268436ca8b51cca27f5b133823608fb5907ea13ee3a3b3",
+  "adapter_sha256": "e5bd8f51690b006274ed5adcfa4ef3b1a2c3b0f1d79476d948b71d1cfec41c5b",
+  "audit_source_sha256": "a6dfda2563c86c14b88e79002c9b6a469522cc174b02156e65e4d14b7cbad005",
+  "input_shape": [
+    1,
+    3,
+    4
+  ],
+  "target": [
+    0,
+    1,
+    2
+  ],
+  "loss": 2.251692056655884,
+  "experts": 8,
+  "B_precondition": "all eight B nonzero before forward; std .1",
+  "gates": {
+    "lora_vu_gate.default.weight": {
+      "requires_grad": true,
+      "gradient_is_None": true,
+      "gradient_norm": null
+    },
+    "lora_ins_gate.default.weight": {
+      "requires_grad": true,
+      "gradient_is_None": true,
+      "gradient_norm": null
+    },
+    "lora_fc_A.default.weight": {
+      "requires_grad": true,
+      "gradient_is_None": false,
+      "gradient_norm": 7.97662723925896e-05
+    },
+    "lora_fc_B.default.weight": {
+      "requires_grad": true,
+      "gradient_is_None": false,
+      "gradient_norm": 4.882568828179501e-05
+    }
+  },
+  "selected_experts": [
+    1,
+    7
+  ],
+  "expert_B_gradient_norms": [
+    0.0,
+    0.052657824009656906,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.04174605384469032
+  ],
+  "route_x": [
+    [
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ]
+  ],
+  "route_negative_x": [
+    [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ]
+  ],
+  "parameters_unchanged": true,
+  "GPU_backbone_loads": 0,
+  "QA_read": 0,
+  "optimizer_updates": 0,
+  "author_forward_lines": [
+    405,
+    481
+  ],
+  "author_forward": "def forward(self, x: torch.Tensor, **kwargs):\n        previous_dtype = x.dtype\n\n        if self.active_adapter not in self.lora_A.keys():   # No adapter, directly use linear\n            return F.linear(x, transpose(self.weight, self.fan_in_fan_out), bias=self.bias)\n        if self.disable_adapters:   # No adapter\n            if self.r[self.active_adapter] > 0 and self.merged: # merge the adapter to linear\n                self.unmerge()\n            result = F.linear(x, transpose(self.weight, self.fan_in_fan_out), bias=self.bias)\n        elif self.r[self.active_adapter] > 0 :   # general lora process\n            result = F.linear(x, transpose(self.weight, self.fan_in_fan_out), bias=self.bias)\n            x = x.to(self.lora_A[self.active_adapter].loraA[0].weight.dtype)\n\n            #<---------------------------Seperable Mixture of LoRA------------------------------->\n            self.lora_vu_gate = self.lora_vu_gate.to(x.device)\n            self.lora_ins_gate = self.lora_ins_gate.to(x.device)\n            current_ins_emb = torch.tensor(self.ins_emb).to(x.device)\n            current_ins_emb = current_ins_emb.to(x.dtype)\n\n            # calculate vu_router\n            x_emb = torch.mean(x, dim=1, keepdim=True)\n            vu_router = self.lora_vu_gate[self.active_adapter](x_emb)\n            top1_vu_router = torch.zeros_like(vu_router)\n            max_values, max_indices = torch.max(vu_router, dim=-1, keepdim=True)\n            top1_vu_router.scatter_(-1, max_indices, 1.0)\n\n            # calculate if_router\n            if_router = self.lora_ins_gate[self.active_adapter](current_ins_emb[self.ins_type])\n            top1_if_router = torch.zeros_like(if_router)\n            max_values, max_indices = torch.max(if_router, dim=-1, keepdim=True)\n            top1_if_router.scatter_(-1, max_indices, 1.0)\n            top1_if_router = top1_if_router.expand(top1_vu_router.size(0), -1)\n\n\n            final_router = torch.cat((top1_vu_router, top1_if_router.unsqueeze(1)), dim=-1)\n            self.final_router = final_router\n            vu_result = 0.0\n            if_result = 0.0\n            for i in range(self.expert_num//2):\n                vu_result += ( # lora process\n                    self.lora_B[self.active_adapter].loraB[i](\n                        self.lora_A[self.active_adapter].loraA[i](self.lora_dropout[self.active_adapter](x)),\n                    )\n                    * self.scaling[self.active_adapter]\n                    * final_router[:,:,i].unsqueeze(-1)\n                )\n            \n            for i in range(self.expert_num//2, self.expert_num):\n                if_result += ( # lora process\n                    self.lora_B[self.active_adapter].loraB[i](\n                        self.lora_A[self.active_adapter].loraA[i](self.lora_dropout[self.active_adapter](x)),\n                    )\n                    * self.scaling[self.active_adapter]\n                    * final_router[:,:,i].unsqueeze(-1)\n                )\n            \n\n            score_A = self.lora_fc_A[self.active_adapter](vu_result)  # [B, n, 1]\n            score_B = self.lora_fc_B[self.active_adapter](if_result)  # [B, n, 1]\n\n            scores = torch.cat([score_A, score_B], dim=-1)  # [B, n, 2]\n            attention_weights = F.softmax(scores, dim=-1)  # [B, n, 2]\n            self.attention_weights = attention_weights\n\n            alpha_A = attention_weights[:, :, 0].unsqueeze(-1)  # [B, n, 1]\n            alpha_B = attention_weights[:, :, 1].unsqueeze(-1)  # [B, n, 1]\n\n            A_weighted = alpha_A * vu_result  # [B, n, k]\n            B_weighted = alpha_B * if_result  # [B, n, k]\n            result += (A_weighted + B_weighted) # [B, n, k]\n\n        else:\n            result = F.linear(x, transpose(self.weight, self.fan_in_fan_out), bias=self.bias)\n\n        result = result.to(previous_dtype)\n\n        return result",
+  "limits": [
+    "No full author trainer or other training objective was executed.",
+    "Not an actual OneVision task gradient or final SMoLoRA result.",
+    "Fixed gate parameters do not imply fixed input-dependent routing.",
+    "Fusion and selected experts still receive loss gradients.",
+    "No causal evidence of final F1 harm or benefit from changing the gates.",
+    "Does not apply to softmax routers or the separately learned TRAIN metric.",
+    "No active/queued trainer, parameters, source, or schedule changed."
+  ]
+}
