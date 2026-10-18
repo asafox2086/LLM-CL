@@ -1,3 +1,5 @@
+新[保护机制启用审计](summary/onevision_diagnostics_20261016/regularizer_budget_20261018/RESEARCH_FINDINGS.md)：PASs-MoE在当前9个单步阶段，任务进度预热使附加正则系数始终为0；原作者CPU算子正负对照已验证。不是零学习率，也未证明最终性能损害；两机基线与GPU1完整评测继续。
+
 > **核心背景：轻量、小数据、低内存增长。允许多个LoRA，单LoRA不是硬限制。** 先检验少量数据为何导致既有方法退化，再针对性提升；目标内存增长低于具体对比LoRA方法，须同设置实测，并报告额外计算成本。两台服务器基线持续后台运行。[核心规则](rules/021_lightweight_data_limited_core_20261017.md)。
 
 最新研究补齐[数据量×初始化对照](summary/onevision_diagnostics_20261016/cold_data_factorial_20261018/PROTOCOL.md)：原三个任务、相同更新/曝光、18轨迹全部预定，142项CPU检查通过，GPU结果待；当前完整评测/基线继续。[唯一研究队列](summary/onevision_diagnostics_20261016/cold_data_queue/README.md)。
