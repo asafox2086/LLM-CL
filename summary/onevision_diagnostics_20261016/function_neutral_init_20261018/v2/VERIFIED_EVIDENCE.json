@@ -1,0 +1,106 @@
+{
+  "CPU_only": true,
+  "proof_sha256": {
+    "cold_compensated_complete.json": "c1d7cc94e2207c4fb118fcb10ca698d6ff78c11ed2f7d937ef78c748274e3b75"
+  },
+  "source_sha256": "76d17b861fb8978df7a164b2eaf9519a846e8185b39ff034af51776ee9e4c4ff",
+  "rows": {
+    "cold": {
+      "F1": 14.680661219122749,
+      "NLL": 7.125644357011633,
+      "proof_sha256": "1188192c254ad543050a5d3dcc5831cf341a84d2397e07adfcb0943d5e8cc62e",
+      "run": "exp/onevision_initialization_source_20261018/v1/cold/20261018_194224"
+    },
+    "within_full": {
+      "F1": 18.112613881844656,
+      "NLL": 5.477558685654014,
+      "proof_sha256": "3e919605f1a415ac412acfe33a52c9c4cd349d0298f8b2191c5e779c72a9cb49",
+      "run": "exp/onevision_initialization_source_20261018/v1/within_full/20261018_194825"
+    },
+    "cross_full": {
+      "F1": 18.467643467643473,
+      "NLL": 5.685544412987237,
+      "proof_sha256": "33d1987f017f89e962b28e962bdf4f40742348331225b1a6793ff12ba089a089",
+      "run": "exp/onevision_initialization_source_20261018/v1/cross_full/20261018_195410"
+    },
+    "cold_compensated": {
+      "F1": 14.680661219122749,
+      "NLL": 7.125644357011633,
+      "proof_sha256": "c1d7cc94e2207c4fb118fcb10ca698d6ff78c11ed2f7d937ef78c748274e3b75",
+      "run": "exp/onevision_function_neutral_init_20261018/v2/cold_compensated/20261018_202902"
+    }
+  },
+  "all_available_pairwise_contrasts": [
+    {
+      "target": "within_full",
+      "reference": "cold",
+      "delta_F1": 3.431952662721894,
+      "image_95CI": [
+        0.8739076154806491,
+        6.1410256410256405
+      ],
+      "uncorrected": true
+    },
+    {
+      "target": "cross_full",
+      "reference": "cold",
+      "delta_F1": 3.7869822485207103,
+      "image_95CI": [
+        1.3197278911564625,
+        6.479944674965421
+      ],
+      "uncorrected": true
+    },
+    {
+      "target": "cross_full",
+      "reference": "within_full",
+      "delta_F1": 0.3550295857988166,
+      "image_95CI": [
+        -0.6984126984126984,
+        1.393596986817326
+      ],
+      "uncorrected": true
+    },
+    {
+      "target": "cold_compensated",
+      "reference": "cold",
+      "delta_F1": 0.0,
+      "image_95CI": [
+        0.0,
+        0.0
+      ],
+      "uncorrected": true
+    },
+    {
+      "target": "cold_compensated",
+      "reference": "within_full",
+      "delta_F1": -3.431952662721894,
+      "image_95CI": [
+        -6.152304609218437,
+        -0.8797127468581687
+      ],
+      "uncorrected": true
+    },
+    {
+      "target": "cold_compensated",
+      "reference": "cross_full",
+      "delta_F1": -3.7869822485207103,
+      "image_95CI": [
+        -6.481126039667307,
+        -1.3205351948807444
+      ],
+      "uncorrected": true
+    }
+  ],
+  "pending": [
+    "within_compensated",
+    "cross_compensated"
+  ],
+  "TEST_selection": false,
+  "limits": [
+    "One target/two fixed sources/one seed, extra source12exposures/2updates charged.",
+    "Nonzero compensation removes initial output, not prior parameter information; effective rank may be16.",
+    "Paired image CIs are uncorrected fixed-model estimates, not multiseed or universal domain effects.",
+    "Not a full five-domain CL method, no full AP/FWT/BWT or memory superiority inferred."
+  ]
+}

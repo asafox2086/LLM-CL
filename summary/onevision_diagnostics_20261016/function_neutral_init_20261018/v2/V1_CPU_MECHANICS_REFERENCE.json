@@ -1,0 +1,1488 @@
+{
+  "CPU_only": true,
+  "synthetic": {
+    "CPU_only": true,
+    "checks": 8,
+    "cases": [
+      "eval exact initial function",
+      "TRAIN shared-dropout exact initial function",
+      "nonzero live A/B gradients and frozen reference",
+      "correct input-gradient cancellation at fixed FP32 tolerance1e-6",
+      "detached-reference negative control",
+      "independent-mask negative control",
+      "two cold Adam updates exactly equal ordinary LoRA",
+      "reference parameter storage counted"
+    ],
+    "model_performance_evidence": false,
+    "GPU_started": false
+  },
+  "actual_sealed_sources": {
+    "within": {
+      "checkpoint_sha256": "d126105c4d441fe105c3266d5e66480f178a8c200e078fec3781cb9113e8230d",
+      "layers": [
+        {
+          "layer": "language_model.model.layers.0.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 1.1873488426208496,
+          "B_gradient_l2": 117.0741195678711,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.0.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.3242003619670868,
+          "B_gradient_l2": 36.682029724121094,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.1.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 1.165651798248291,
+          "B_gradient_l2": 113.06620788574219,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.1.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.3354640007019043,
+          "B_gradient_l2": 32.77141189575195,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.2.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 1.0858038663864136,
+          "B_gradient_l2": 112.34070587158203,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.2.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.49901115894317627,
+          "B_gradient_l2": 36.25220489501953,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.3.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 1.183660864830017,
+          "B_gradient_l2": 94.34761047363281,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.3.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.3834874629974365,
+          "B_gradient_l2": 35.35926055908203,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.4.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 0.9568989276885986,
+          "B_gradient_l2": 141.7755889892578,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.4.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.4167279303073883,
+          "B_gradient_l2": 42.503387451171875,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.5.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 1.257818579673767,
+          "B_gradient_l2": 108.7302017211914,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.5.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.3296375572681427,
+          "B_gradient_l2": 37.986873626708984,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.6.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 0.9422434568405151,
+          "B_gradient_l2": 90.65367889404297,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.6.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.4687248468399048,
+          "B_gradient_l2": 34.29599380493164,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.7.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 1.378067135810852,
+          "B_gradient_l2": 105.53071594238281,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.7.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.33120524883270264,
+          "B_gradient_l2": 31.819536209106445,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.8.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 1.0897859334945679,
+          "B_gradient_l2": 121.37800598144531,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.8.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.4991588592529297,
+          "B_gradient_l2": 42.11558151245117,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.9.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 0.9130847454071045,
+          "B_gradient_l2": 99.94641876220703,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.9.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.32578134536743164,
+          "B_gradient_l2": 47.743194580078125,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.10.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 1.3690123558044434,
+          "B_gradient_l2": 99.15618133544922,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.10.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.4263128340244293,
+          "B_gradient_l2": 50.9634895324707,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.11.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 1.413979172706604,
+          "B_gradient_l2": 81.75403594970703,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.11.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.3717489242553711,
+          "B_gradient_l2": 37.16869354248047,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.12.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 0.9196985960006714,
+          "B_gradient_l2": 111.95165252685547,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.12.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.2941599488258362,
+          "B_gradient_l2": 36.39632797241211,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.13.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 0.9490167498588562,
+          "B_gradient_l2": 106.03662109375,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.13.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.44845807552337646,
+          "B_gradient_l2": 37.02556610107422,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.14.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 1.3542375564575195,
+          "B_gradient_l2": 111.07610321044922,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.14.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.29710841178894043,
+          "B_gradient_l2": 38.93436813354492,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.15.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 1.108492374420166,
+          "B_gradient_l2": 98.49557495117188,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.15.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.43788883090019226,
+          "B_gradient_l2": 33.0864372253418,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.16.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 1.4804073572158813,
+          "B_gradient_l2": 114.19896697998047,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.16.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.5190020799636841,
+          "B_gradient_l2": 42.85964584350586,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.17.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 1.0629310607910156,
+          "B_gradient_l2": 127.99896240234375,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.17.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.46254029870033264,
+          "B_gradient_l2": 41.10545349121094,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.18.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 0.7682892084121704,
+          "B_gradient_l2": 104.58320617675781,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.18.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.38480523228645325,
+          "B_gradient_l2": 40.488990783691406,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.19.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 0.7408785223960876,
+          "B_gradient_l2": 133.872314453125,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.19.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.47860002517700195,
+          "B_gradient_l2": 51.8055419921875,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.20.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 0.7538971900939941,
+          "B_gradient_l2": 108.30680084228516,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.20.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.45654118061065674,
+          "B_gradient_l2": 34.95378494262695,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.21.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 0.9657411575317383,
+          "B_gradient_l2": 118.37799835205078,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.21.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.3873046934604645,
+          "B_gradient_l2": 34.9701042175293,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.22.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 1.061011552810669,
+          "B_gradient_l2": 100.29995727539062,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.22.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.46638423204421997,
+          "B_gradient_l2": 42.702232360839844,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.23.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 1.1231077909469604,
+          "B_gradient_l2": 106.82328033447266,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.23.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.2850618362426758,
+          "B_gradient_l2": 37.689491271972656,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        }
+      ],
+      "frozen_reference_parameters": 540672,
+      "frozen_reference_FP32_bytes": 2162688
+    },
+    "cross": {
+      "checkpoint_sha256": "306dd519c2a2986e75f8e46e3fb5f678a0af94eb0748f2351fcb774d914c99a3",
+      "layers": [
+        {
+          "layer": "language_model.model.layers.0.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 0.945708692073822,
+          "B_gradient_l2": 103.32476806640625,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.0.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.38234567642211914,
+          "B_gradient_l2": 37.409549713134766,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.1.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 0.959453284740448,
+          "B_gradient_l2": 126.84541320800781,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.1.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.368395060300827,
+          "B_gradient_l2": 37.27690124511719,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.2.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 0.8357334136962891,
+          "B_gradient_l2": 95.56504821777344,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.2.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.32812249660491943,
+          "B_gradient_l2": 39.82640838623047,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.3.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 0.8920193910598755,
+          "B_gradient_l2": 124.14232635498047,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.3.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.5578141808509827,
+          "B_gradient_l2": 32.91384506225586,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.4.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 1.1176238059997559,
+          "B_gradient_l2": 132.07757568359375,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.4.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.46421465277671814,
+          "B_gradient_l2": 34.09347915649414,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.5.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 0.9726948738098145,
+          "B_gradient_l2": 126.17359161376953,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.5.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.47533509135246277,
+          "B_gradient_l2": 47.30878448486328,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.6.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 1.126455545425415,
+          "B_gradient_l2": 109.62564849853516,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.6.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.5192009806632996,
+          "B_gradient_l2": 36.8878173828125,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.7.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 0.7611152529716492,
+          "B_gradient_l2": 120.62446594238281,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.7.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.3110092282295227,
+          "B_gradient_l2": 31.69236183166504,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.8.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 0.9422935247421265,
+          "B_gradient_l2": 110.34770965576172,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.8.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.3237575888633728,
+          "B_gradient_l2": 39.327938079833984,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.9.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 1.1569701433181763,
+          "B_gradient_l2": 113.53137969970703,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.9.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.3281444311141968,
+          "B_gradient_l2": 35.098323822021484,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.10.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 0.7503995895385742,
+          "B_gradient_l2": 115.60517120361328,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.10.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.41952258348464966,
+          "B_gradient_l2": 56.634361267089844,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.11.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 0.9881988167762756,
+          "B_gradient_l2": 109.96739959716797,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.11.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.4066968858242035,
+          "B_gradient_l2": 37.68100357055664,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.12.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 0.9519553780555725,
+          "B_gradient_l2": 119.7254867553711,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.12.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.4927355647087097,
+          "B_gradient_l2": 46.75756072998047,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.13.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 1.114564299583435,
+          "B_gradient_l2": 101.22427368164062,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.13.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.5955569744110107,
+          "B_gradient_l2": 37.523597717285156,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.14.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 0.8278203010559082,
+          "B_gradient_l2": 105.7944564819336,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.14.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.2622610628604889,
+          "B_gradient_l2": 43.73823547363281,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.15.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 0.824288010597229,
+          "B_gradient_l2": 121.41719055175781,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.15.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.3360794186592102,
+          "B_gradient_l2": 41.503204345703125,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.16.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 1.4063935279846191,
+          "B_gradient_l2": 97.50521850585938,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.16.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.41367360949516296,
+          "B_gradient_l2": 41.411521911621094,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.17.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 1.1105334758758545,
+          "B_gradient_l2": 120.02774047851562,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.17.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.41422492265701294,
+          "B_gradient_l2": 41.448570251464844,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.18.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 1.0904031991958618,
+          "B_gradient_l2": 91.15923309326172,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.18.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.369295597076416,
+          "B_gradient_l2": 41.54906463623047,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.19.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 0.7491559982299805,
+          "B_gradient_l2": 126.4621353149414,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.19.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.3944742977619171,
+          "B_gradient_l2": 29.826082229614258,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.20.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 1.2525794506072998,
+          "B_gradient_l2": 110.80813598632812,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.20.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.3380952477455139,
+          "B_gradient_l2": 37.62611389160156,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.21.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 1.2240489721298218,
+          "B_gradient_l2": 97.62847900390625,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.21.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.24173690378665924,
+          "B_gradient_l2": 45.25383758544922,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.22.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 1.204672932624817,
+          "B_gradient_l2": 112.34027862548828,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.22.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.414027601480484,
+          "B_gradient_l2": 39.15375900268555,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.23.self_attn.q_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            896,
+            8
+          ],
+          "A_gradient_l2": 1.0169774293899536,
+          "B_gradient_l2": 117.32423400878906,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        },
+        {
+          "layer": "language_model.model.layers.23.self_attn.v_proj",
+          "A_shape": [
+            8,
+            896
+          ],
+          "B_shape": [
+            128,
+            8
+          ],
+          "A_gradient_l2": 0.2899092733860016,
+          "B_gradient_l2": 30.497312545776367,
+          "input_gradient_abs_max": 0.0,
+          "initial_increment_exact_zero": true
+        }
+      ],
+      "frozen_reference_parameters": 540672,
+      "frozen_reference_FP32_bytes": 2162688
+    }
+  },
+  "sources_complete_sha256": "76ee9a776ceaf637b72c6c65c3fd24cd837b523e1cd5d65af4e3d6d0bc643d8a",
+  "source_sha256": {
+    "analysis/onevision_function_neutral_init_check.py": "049b90a1e98417bf11f324cf07cd8943edad9830ff5b9701271d40a6db5ea58c",
+    "analysis/onevision_function_neutral_init_core.py": "a9df59e0c8393b36637422fd9cc2db6ff62c6c0e3ac5c024ccee46a16e14b45f"
+  },
+  "QA_predictions_or_answers_parsed": false,
+  "model_loaded": false,
+  "GPU_started": false,
+  "limits": [
+    "Random CPU inputs and upstream derivatives are not actual model loss gradients.",
+    "Actual BF16 initial32 equality and two-update cold/full507 equality remain mandatory.",
+    "This CPU preflight alone is not GPU queue admission or actual model performance."
+  ]
+}

@@ -389,3 +389,9 @@ Modality/KG原始梯度L2为36.902/70.805，比例1.9187；实际参数位移L2�
 - **改进的效果：** CPU机制／实际源因子检查及独立队列准入完成，GPU结果尚待；不算大幅五域算法收益。原作业自然结束，正式基线继续。
 
 [五格六栏／全部配对](initialization_source_controls_20261018/v1/CONTROL_OUTCOME.md) · [真实参数与原始梯度](initialization_source_controls_20261018/v1/TRAIN_PARAMETER_GEOMETRY.json) · [内存](initialization_source_controls_20261018/v1/RESOURCE_SNAPSHOTS.md) · [后续预定控制](function_neutral_init_20261018/v1/PROTOCOL.md)。
+
+## K43：已测TRAIN候选质量不保证核插值选中最低者
+
+原20TRAIN最终池12/18/19，原质量函数逐项精确复算：调用0/14/6，实际最低NLL4/8/8；8/20不匹配、均NLL差0.038124。同图像邻域排除后12/20、均差0.072451。仅说明此固定核的训练锚拟合偏差，不证明TEST F1损害、任何学习表示不可行或该因素唯一造成旧质量模块退化；含极小差距，来源模型和池保留已见TRAIN，非独立验证。无TEST答案／预测解析，无GPU或权重更新。
+
+后续实际TRAIN-AnswerF1反馈的轻量匹配已独立准入：原20×3状态60条生成＋1792CPU权重／40更新；当前通过合成机制、真实20图像遮罩、实际分支／无gold路由与CPU调度检查，先保留全部函数补偿结束；新反馈尚未GPU运行。不能将合成loss下降或准入当成五域收益。[六栏／所有逐题](train_calling_fit_20261018/RESEARCH_FINDINGS.md) · [协议](answer_compatibility_20261018/v1/PROTOCOL.md)。

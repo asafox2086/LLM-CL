@@ -1,0 +1,20 @@
+{
+  "files": {
+    "summary/onevision_diagnostics_20261016/function_neutral_init_20261018/v1/needs_attention.json": {
+      "sha256": "fc8febb95d686c28a749db2c971ef43e7891d7ab177f8dea21cb800454474be0",
+      "text": "{\"traceback\": \"Traceback (most recent call last):\\n  File \\\"/data1/liyapeng/program/LLMCL/analysis/onevision_function_neutral_init_entry.py\\\", line 16, in <module>\\n    worker.main(False,a.case_index)\\n  File \\\"/data1/liyapeng/program/LLMCL/analysis/onevision_function_neutral_init_trial.py\\\", line 177, in main\\n    run_trial(index)\\n  File \\\"/data1/liyapeng/program/LLMCL/analysis/onevision_function_neutral_init_trial.py\\\", line 80, in run_trial\\n    assert os.environ.get('CUDA_VISIBLE_DEVICES') in ['0', '1']\\nAssertionError\\n\", \"no_blind_retry\": true}\n"
+    },
+    "summary/onevision_diagnostics_20261016/function_neutral_init_20261018/v1/queue/needs_attention.json": {
+      "sha256": "0abbe7cf0915f3ae171e9ae915074ab6c9a861acb7c16ec72726f979405e4647",
+      "text": "{\"traceback\": \"Traceback (most recent call last):\\n  File \\\"/data1/liyapeng/program/LLMCL/analysis/onevision_function_neutral_init_queue.py\\\", line 91, in <module>\\n    try:main(a.check)\\n  File \\\"/data1/liyapeng/program/LLMCL/analysis/onevision_function_neutral_init_queue.py\\\", line 74, in main\\n    previous.main(check)\\n  File \\\"/data1/liyapeng/program/LLMCL/analysis/onevision_initialization_source_queue.py\\\", line 86, in main\\n    previous.main(check)\\n  File \\\"/data1/liyapeng/program/LLMCL/analysis/onevision_simple_research_focus_queue.py\\\", line 25, in main\\n    previous.main(check)\\n  File \\\"/data1/liyapeng/program/LLMCL/analysis/onevision_formal_cache_queue.py\\\", line 119, in main\\n    previous.main(check)\\n  File \\\"/data1/liyapeng/program/LLMCL/analysis/onevision_state_cache_flexible_queue.py\\\", line 143, in main\\n    previous.main(check)\\n  File \\\"/data1/liyapeng/program/LLMCL/analysis/onevision_state_cache_queue.py\\\", line 161, in main\\n    body['main'](False)\\n  File \\\"/data1/liyapeng/program/LLMCL/analysis/onevision_identity_repair_queue_v4.py\\\", line 127, in main\\n  File \\\"/data1/liyapeng/program/LLMCL/analysis/onevision_state_cache_queue.py\\\", line 158, in intercepted_main\\n    return old_main(flag)\\n  File \\\"/data1/liyapeng/program/LLMCL/analysis/onevision_cold_quality_queue.py\\\", line 188, in main\\n    prior.cold.previous.main(False)\\n  File \\\"/data1/liyapeng/program/LLMCL/analysis/onevision_warm_start_queue.py\\\", line 190, in main\\n    assert code == 0, \\\"Keep failed artifacts; no blind retry\\\"\\nAssertionError: Keep failed artifacts; no blind retry\\n\", \"no_blind_retry\": true}\n"
+    },
+    "summary/onevision_diagnostics_20261016/function_neutral_init_20261018/v1/cold_compensated_nohup.log": {
+      "sha256": "2faa0fd560e3356ad0537d0e0123c990d1c2f9c34ec6cea634fe18071b74da7e",
+      "text": "Traceback (most recent call last):\n  File \"/data1/liyapeng/program/LLMCL/analysis/onevision_function_neutral_init_entry.py\", line 16, in <module>\n    worker.main(False,a.case_index)\n  File \"/data1/liyapeng/program/LLMCL/analysis/onevision_function_neutral_init_trial.py\", line 177, in main\n    run_trial(index)\n  File \"/data1/liyapeng/program/LLMCL/analysis/onevision_function_neutral_init_trial.py\", line 80, in run_trial\n    assert os.environ.get('CUDA_VISIBLE_DEVICES') in ['0', '1']\nAssertionError\n"
+    }
+  },
+  "zero_model_attempt_markers": true,
+  "identified_cause": "CPU geometry audit import clears CUDA mask",
+  "no_model_or_TRAIN_started": true,
+  "no_failed_predictions_spliced": true
+}

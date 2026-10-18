@@ -1,5 +1,7 @@
 # 当前唯一队列：函数补偿初始化诊断
 
+> v1启动前置导入失败，原CPU／worker已退出；已保留故障并由独立[v2队列](../../v2/queue/README.md)修复接续。下文是原准入记录，不要恢复旧所有者。科学设置与门槛不变，v1没有模型或训练结果可拼接。
+
 2026-10-18，同一nohup systemd服务的CPU所有者26045。原CPU12470已计划退役，KillMode=process；当前GPU25656、两条新机基线3256／7965及所有受保护进程PID/startticks保持不变。实时以[queue_state.json](queue_state.json)、[ACTIVATION.json](ACTIVATION.json)和实际PID／日志为准，不能恢复历史CPU所有者。
 
 当前先等继承的原数据因子case2自然结束。原五格来源控制已全部完成，随后固定顺序：cold_compensated真实精确等价门槛及完整507→within_compensated完整507→cross_compensated完整507→全部原诊断／后续作业。两个公共完整确认仍后移保留。不根据TEST赢家决定运行哪些条件。
