@@ -10,3 +10,5 @@
 - **判据：** 同骨干／冻结1313TRAIN与原始AnswerF1下的五领域总分、AP及实际资源；允许个别子项下降，不能以155诊断冒充21454。目标明显提升尚未达到，轻量优势／新颖性尚未证明。
 
 [OSFT为何高分的实证边界](osft_acquisition_20261018/RESEARCH_FINDINGS.md) · [新对照协议](osft_budget_20261018/v2/PROTOCOL.md) · [覆盖修正实际六条件结果](feedback_coverage_20261018/v1/all_six_outcome/RESEARCH_FINDINGS.md)
+
+新[更新空间量化](update_space_20261018/RESEARCH_FINDINGS.md)提醒：相同训练坐标并不匹配局部可更新维数；保护是否损害性能仍待实际GPU对照。不能把几何风险写成已确定的第二个性能原因。

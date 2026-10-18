@@ -1,3 +1,9 @@
+# 小参数SVD的更新空间限制已量化，性能原因仍待GPU验证 — 2026-10-18
+
+- 新独立CPU onevision_update_space_audit.py只读原native自然域后同一起点与T02/T11/T12封存单步TRAIN权重/原梯度证明，不读TEST预测/答案/分数、不做前向/优化器/GPU，不改冻结调度。三形状实际Jacobian秩正控制及真实48个q/v证实：540672训练坐标下，free局部权重维数537600，protected150528，约缩小72%；矩形v含额外零空间，不能全按r²误算。局部维数不是语义容量或内存，已知矩阵事实非新理论。
+- 三实际有限BA更新在protected块的能量比例.7706%/.7952%/.7621%，各向同性方向均值.6847%/.6869%/.6827%；free2.5014%/2.5296%/2.4776%，均值2.4425%/2.4446%/2.4405%。低比例大部分需结合低维参考理解，不证明特殊不匹配、坏方向或F1损害。此为原native LoRA一点的表示性诊断，不是queued SVD轨迹/实际梯度或优化器输出，不能移植因果；尚未确立第二个性能原因。见update_space_20261018/RESEARCH_FINDINGS.md六栏和逐层证据。
+- 唯一CPU75694/startticks1429069实际存活，GPU0/1仍分别有他人UID1024/1020实际进程，SVD无attempt且健康wait。新3256/7965、旧341019/342152/826894及CPU发布器51266实查存活。原两组训练/完整确认和所有旧工作保留，参数/秩/保护不因本诊断改变。不重复此CPU审计，下一有意义更新需真实GPU门槛/训练或新封存基线。
+
 # 当前v2 SVD对照已准入；覆盖改进仅小幅诊断收益 — 2026-10-18
 
 - 唯一nohup llmcl-onevision-causal-priority.service现CPU75694/frozen onevision_osft_budget_queue_v2.py；权威osft_budget_20261018/v2/queue/queue_state.json与ACTIVATION。旧73625因模型前CPU autocast故障停用、旧61499计划退役，不恢复。原coverage worker61528正常完整结束，所有实际GPU/两机基线/CPU发布器身份保全。新GPU0/1现分别被UID1024/1020作业实际占用，健康wait，未启动新SVD GPU，不能说新算法有效。

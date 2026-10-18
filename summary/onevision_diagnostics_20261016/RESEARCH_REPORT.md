@@ -1,3 +1,5 @@
+**新机制风险（尚非性能因果）：** [训练参数数量与实际更新空间](update_space_20261018/RESEARCH_FINDINGS.md)：同540672坐标，保护使局部可更新维数537600→150528；三真实TRAIN更新的覆盖率接近低维参考，不能据此说保护有害。原free／protected GPU对照不变，等待实际F1。
+
 **最新执行：** [新SVD参数预算对照v2](osft_budget_20261018/v2/queue/README.md)已接入唯一CPU75694，实际0/1均有他人进程而等待，尚无新GPU成绩；v1模型前混合精度故障已独立修复留证。原覆盖两诊断已完整：[六条件/全部15配对](feedback_coverage_20261018/v1/all_six_outcome/RESEARCH_FINDINGS.md)，新两组AP43.565/43.595对Seq43.363仅小幅点提升，未获大幅完整收益。全部基线、原18与完整确认保留。[当前方向与边界](DIRECTION_20261018.md)。
 
 **最新原因核验：** [OSFT成绩分解与容量](osft_acquisition_20261018/RESEARCH_FINDINGS.md)：其正式AP优势+6.071伴随习得均分+9.283，但BWT相对Seq低3.391；实际训练参数约210倍，不能将优势归因更少遗忘或直接称轻量。新[覆盖TRAIN完整窗口](feedback_coverage_20261018/v1/TRAIN_FIT_FINDINGS.md)已真实完成并逐梯度精确重放；扩大到19任务仍只有6/20反馈区分候选，TEST两诊断/全量待。唯一研究队列与两机基线不变，下面历史待测说明以此为准。
