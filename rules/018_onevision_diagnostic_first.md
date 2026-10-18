@@ -1,3 +1,5 @@
+2026-10-18最新用户硬件授权：[规则022](022_research_gpu_flex_20261018.md)允许研究在空闲GPU0/1择一、我们最多占3卡；覆盖下方旧GPU0保留/GPU1唯一措辞，算法/科学控制不变。
+
 2026-10-18实际接续：原完整质量硬调用在FinMME:5082因辅助特征行缺id的修复日志KeyError停止，未完成；旧GPU358091/CPU389122已终止。新元数据修复通过实际GPU正负控制，温启动19阶段已实际启动GPU405584并出现正LR/有限梯度更新；唯一CPU405559/identity_repair_queue_v2，37策略＋66祖先＋36集成检查通过。旧失败预测不拼接，完整确认重测仍保留；温启动/四视图/18控制优先反馈，完整收益未证。[故障、实际门禁与队列](../summary/onevision_diagnostics_20261016/feature_identity_repair_20261018/README.md)。旧队列说明均为历史，不能恢复。
 
 > 最新接续2026-10-18：完整旧锚差距含语言分布混杂，见[K18](../summary/onevision_diagnostics_20261016/KEY_FINDINGS.md)。同nohup服务新CPU277043先补可用共同S1，再固定权重四指令全格推理，再接回全部原48/后续方法；旧265251已计划退役，历史队列不重启。实时[language_causal_queue](../summary/onevision_diagnostics_20261016/language_causal_queue/queue_state.json)，CPU23项通过，GPU效果未测。原问答/权重/Answer F1不变，禁止按TEST挑指令。

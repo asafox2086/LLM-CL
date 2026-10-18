@@ -1,0 +1,129 @@
+{
+  "CPU_only": true,
+  "new_model_or_optimizer_operations": 0,
+  "predeclared_cases": [
+    0,
+    1
+  ],
+  "TRAIN_QA": 1,
+  "TRAIN_id": "SLAKE:9588",
+  "TRAIN_answer_for_description_only": "MRI",
+  "TEST_QA": 228,
+  "image_clusters": 161,
+  "statistics": {
+    "cold_base": {
+      "initial": {
+        "Answer_F1": 19.31647300068352,
+        "distinct_raw_predictions": 35,
+        "largest_identical_prediction_count": 60,
+        "largest_identical_prediction_fraction": 0.2631578947368421
+      },
+      "endpoint_1": {
+        "Answer_F1": 19.429254955570737,
+        "distinct_raw_predictions": 36,
+        "largest_identical_prediction_count": 60,
+        "largest_identical_prediction_fraction": 0.2631578947368421
+      },
+      "endpoint_4": {
+        "Answer_F1": 35.63294200413318,
+        "distinct_raw_predictions": 53,
+        "largest_identical_prediction_count": 41,
+        "largest_identical_prediction_fraction": 0.17982456140350878
+      }
+    },
+    "warm_native_T01": {
+      "initial": {
+        "Answer_F1": 27.433514341409076,
+        "distinct_raw_predictions": 47,
+        "largest_identical_prediction_count": 36,
+        "largest_identical_prediction_fraction": 0.15789473684210525
+      },
+      "endpoint_1": {
+        "Answer_F1": 30.91133768765347,
+        "distinct_raw_predictions": 46,
+        "largest_identical_prediction_count": 36,
+        "largest_identical_prediction_fraction": 0.15789473684210525
+      },
+      "endpoint_4": {
+        "Answer_F1": 33.84607351712616,
+        "distinct_raw_predictions": 31,
+        "largest_identical_prediction_count": 36,
+        "largest_identical_prediction_fraction": 0.15789473684210525
+      }
+    }
+  },
+  "contrasts": {
+    "warm_minus_cold_initial": {
+      "mean_pp": 8.117041340725546,
+      "image_cluster_CI95": [
+        3.8393530780222394,
+        12.676925997340842
+      ]
+    },
+    "warm_minus_cold_endpoint_1": {
+      "mean_pp": 11.48208273208274,
+      "image_cluster_CI95": [
+        7.2867401198899024,
+        15.819626514058326
+      ]
+    },
+    "warm_minus_cold_endpoint_4": {
+      "mean_pp": -1.7868684870069866,
+      "image_cluster_CI95": [
+        -8.24245086251665,
+        4.666185452676313
+      ]
+    },
+    "change_in_warm_advantage_4_minus_1": {
+      "mean_pp": -13.268951219089715,
+      "image_cluster_CI95": [
+        -18.729479058362433,
+        -7.9914204572510235
+      ]
+    },
+    "cold_base_4_minus_1": {
+      "mean_pp": 16.20368704856238,
+      "image_cluster_CI95": [
+        12.741233346161208,
+        19.919848957176047
+      ]
+    },
+    "warm_native_T01_4_minus_1": {
+      "mean_pp": 2.9347358294726713,
+      "image_cluster_CI95": [
+        -0.5135753010176972,
+        6.450551406218173
+      ]
+    }
+  },
+  "extra_exposures_4_vs_1": 132,
+  "main1313_protocol_changed": false,
+  "all18_required": true,
+  "TEST_chosen_hyperparameters_or_methods": false,
+  "input_sha256": {
+    "summary/onevision_diagnostics_20261016/cold_data_factorial_20261018/CPU_PLAN_CHECK.json": "4563cf1eea1cf1102242306be4fd324b81588bc6c42000ecfd85309ffa822467",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/manifest.json": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T02_test.jsonl": "c319026d6857ee31722732ce54fd0348e189f0f8aaa574522fdb6623ca3bc572",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T02_train.jsonl": "7f59b10ae613e76dc166c6bba157ba9b16d8839e1f8331c3d6feca9f42f790b4",
+    "summary/onevision_diagnostics_20261016/cold_data_factorial_20261018/case_00_complete.json": "4184cd94c661f60ff8a0ddaa8b2ce66be6f9a41ffa57e2e0ba44ef2638e40b98",
+    "exp/onevision_cold_data_factorial_20261018/case_00/20261018_180112/initial_state_gate.json": "7e36fc620975599b8c4541d6589598c0da36ac6530e5bd15436603a206429a59",
+    "exp/onevision_cold_data_factorial_20261018/case_00/20261018_180112/training.json": "fe6ba716239b12b82a9ed73350f6a4020d1ccfbedf509df47cc051431fd944de",
+    "exp/onevision_cold_data_factorial_20261018/case_00/20261018_180112/evaluations/initial/native_image.jsonl": "b57b8ae2a9145b94bdfa62662779bc3344030357e3bf8c8940b748d87370148f",
+    "exp/onevision_cold_data_factorial_20261018/case_00/20261018_180112/evaluations/endpoint_1/native_image.jsonl": "03925b48261854c5c30c54febad6e46bbcedd2e0d84e7c4f7e1e01fdb3f9dccd",
+    "exp/onevision_cold_data_factorial_20261018/case_00/20261018_180112/evaluations/endpoint_4/native_image.jsonl": "7491719313a4c163d6ebf254bf2a539acd83252d15f81636bdfa5f70dee3a342",
+    "summary/onevision_diagnostics_20261016/cold_data_factorial_20261018/case_01_complete.json": "cd4966b799571152cbbe016246aeabc9bdb5c0044103f053bc35442662cdc3da",
+    "exp/onevision_cold_data_factorial_20261018/case_01/20261018_181354/initial_state_gate.json": "d03bd73a3265283d3a2105a406fb1e4f7df3865dbed30ba72f24e7054c3e1175",
+    "exp/onevision_cold_data_factorial_20261018/case_01/20261018_181354/training.json": "6e58df3d7d7c303115fe7be7538c2ffcf8a856b82304c7e81a2728b5ba1ed03c",
+    "exp/onevision_cold_data_factorial_20261018/case_01/20261018_181354/evaluations/initial/native_image.jsonl": "315c278ff29122a344fd4615718409e4b17551e82a510cb39f8c8cc29129648f",
+    "exp/onevision_cold_data_factorial_20261018/case_01/20261018_181354/evaluations/endpoint_1/native_image.jsonl": "68bee26b454253f7bebf5abc47662db183c6b0b32e1c596a59d9f6aba47ce9ce",
+    "exp/onevision_cold_data_factorial_20261018/case_01/20261018_181354/evaluations/endpoint_4/native_image.jsonl": "859c938cb6851d711a287213fc81dbad5241b7aeb3f5aa8e0eef1f7236001a8f"
+  },
+  "source_sha256": "b0ee662dbd84333a1acc0afc0712c917204b592ba4a87c9f7f482caf838b797e",
+  "limits": [
+    "One nested TRAIN QA/one task/one seed, all remaining supports and tasks pending.",
+    "Update count, repeated exposure and Adam state change together; not isolated update-only causality.",
+    "Warm inherits347 natural TRAIN history; initial functions and optimization coordinates differ.",
+    "Image bootstrap is fixed-weight uncorrected uncertainty, not training-seed variability.",
+    "Raw-output repetition counts do not prove knowledge gain or diagnose a unique mechanism."
+  ]
+}

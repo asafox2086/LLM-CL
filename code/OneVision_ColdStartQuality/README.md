@@ -21,3 +21,5 @@
 多个LoRA允许但有界；3个池、投影、历史43QA/向量、CPU/GPU常驻、优化器、临时复制、额外前向均计费。16参数不是“总内存64字节”。未证完整五域宏平均超过SeqFT5pp或内存优于指定基线，不能填正式主表Ours成绩。模型、数据、梯度和checkpoint原文件只保留服务器，不入Git。
 
 新增[功能前缀精确桥接与TRAIN调用六栏](../../summary/onevision_diagnostics_20261016/warm_quality_20261018/calibration_audit/RESEARCH_FINDINGS.md)。有界功能状态仅TRAIN筛查，新GPU候选尚未实现/准入；数据因子使用原RepairedExperiment入口，元数据修复包装器只用于实际需要特征的任务。
+
+后续新候选独立放在[OneVision_StateCache](../OneVision_StateCache/README.md)，当前唯一调度已接该候选并保留本目录全部完整确认；此前v4仅历史入口，不恢复。

@@ -1,3 +1,7 @@
+最新用户设备授权：当前[flex_queue](v1/flex_queue/README.md)在GPU0/1择空、我们最多占3张卡；当前两张均他人占用。原queue记录均历史，不恢复。
+
+最新：GPU候选v1已实现并准入，[协议](v1/PROTOCOL.md)、[代码索引](../../../code/OneVision_StateCache/README.md)、[实际队列](v1/queue/README.md)和[四格表](v1/VERIFIED_RESULTS.md)。当前实际他人GPU1进程存活，方法GPU未开始，F1/内存优势未证。下文20TRAIN筛查为先前依据，不冒充v1效果。
+
 # 有界功能状态候选：当前只有TRAIN筛查
 
 当前GPU方法尚未实现或准入。现有两模块完整21454仍未完成；不以此替换现有结果。

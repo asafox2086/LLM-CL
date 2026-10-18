@@ -1,3 +1,9 @@
+最新硬件接续：CPU436033/[flex_queue](functional_state_cache_20261018/v1/flex_queue/README.md)已启用0/1择空与我们最多占3卡；当前两卡他人占用，新方法GPU未启动。旧CPU434457退役，科学协议/原全部作业不变。
+
+2026-10-18最新接续：新[连续LoRA＋有界功能缓存候选](functional_state_cache_20261018/v1/PROTOCOL.md)已实现并准入同nohup，47CPU机制/集成＋21调度＋8命令检查通过；CPU434457当前因实际他人GPU1进程432429存活健康等待，尚无新GPU/F1。原18数据因子现2/18、[第一对单QA](cold_data_factorial_20261018/first_support_pair/RESEARCH_FINDINGS.md)显示1步温−冷+11.482pp、4步−1.787pp区间含0，优势缩小−13.269pp区间[-18.729,-7.991]；更新与曝光共同变化，不能宣称冷启动永久低上限或4步稳定反超。全部旧作业保留、基线继续。
+
+当前唯一入口见[新队列](functional_state_cache_20261018/v1/queue/README.md)，旧v4 CPU430421为计划退役；当前健康等待不等于GPU方法已开始。新19阶段精确训练、四格500/155、两个完整21454及实际资源均待，目标未完成。
+
 2026-10-18最新：温池四辅助视图pilot已全部封存（不是只完成硬调用），四格完整21454仍0/4。新[功能桥接与TRAIN调用六栏](warm_quality_20261018/calibration_audit/RESEARCH_FINDINGS.md)：医学e2精确等于SeqFT T11，100题NLL一致；相同输入几何对应不同专家质量；20TRAIN有界状态筛查不是F1结果。两模块诊断AP44.165对Seq43.363优势仍小且不确定，大幅提升目标未完成。
 
 

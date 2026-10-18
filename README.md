@@ -184,3 +184,7 @@ FinMME的ID3698、9806金答案为空，原记录单独保留审计，不伪造�
 [执行策略](exp/two_backbone_native_cl_20261017_v2/execution_policy.json) · [正式结果](summary/two_backbone_pct01_20261017/MAIN_TABLE.md) · [研究结果与边界](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md)。
 
 最新机制证据：[恢复的医学专家就是顺序LoRA的已有功能](summary/onevision_diagnostics_20261016/warm_quality_20261018/calibration_audit/RESEARCH_FINDINGS.md)。T02—T11全部A/B精确桥接；TRAIN几何不变而功能质量改变。有界功能状态目前仅TRAIN筛查，无新F1。GPU1继续18条数据量/初始化控制；case00完整后包装器异常已保留，修复后的唯一调度为[queue_v4](summary/onevision_diagnostics_20261016/feature_identity_repair_20261018/queue_v4/README.md)，没有重训该结果。
+
+新候选：[连续习得＋有界功能缓存](code/OneVision_StateCache/README.md)，两个模块已实现、CPU门禁通过并准入唯一队列；当前GPU0/1均有他人进程，按新规则自动择空等待，尚无新方法F1。原[1条QA初始化配对](summary/onevision_diagnostics_20261016/cold_data_factorial_20261018/first_support_pair/RESEARCH_FINDINGS.md)已完成：1步温启动优势11.482pp，4步差−1.787pp区间含0，不能将一步冷启动弱习得写成永久低上限。更新/曝光预算、代价及全部原控制继续保留。
+
+研究硬件按最新授权采用[GPU0/1择空、我们最多占3卡](rules/022_research_gpu_flex_20261018.md)，实际唯一[flex_queue](summary/onevision_diagnostics_20261016/functional_state_cache_20261018/v1/flex_queue/README.md)保留所有科学条件/基线。当前两张研究候选卡均被他人占用，不能写成新方法GPU已启动。

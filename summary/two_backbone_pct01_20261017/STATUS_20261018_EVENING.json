@@ -1,0 +1,685 @@
+{
+  "snapshot": {
+    "new3090": {
+      "host": "new3090",
+      "observed_unix": 1792319640.611422,
+      "runs": [
+        {
+          "method": "SeqFT_LoRA",
+          "queue_status": "training",
+          "run": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209",
+          "preflight_only": false,
+          "actual_run_status": {
+            "status": "evaluation",
+            "completed_stage": 17,
+            "active_stage": 18
+          },
+          "process_live": true,
+          "PID": 336398,
+          "startticks": 14120026,
+          "training_passed_stages": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "complete_eval_cells": 54,
+          "current_eval": {
+            "stage": "stage_18",
+            "completed_tasks": [
+              {
+                "task": "T18",
+                "QA": 1123
+              }
+            ],
+            "in_progress": [
+              {
+                "task": "T19",
+                "QA_complete_lines": 250,
+                "last_write_seconds_ago": 8.7
+              }
+            ]
+          },
+          "logged_update_seconds": 636.16,
+          "logged_update_count": 89,
+          "last_train_update_stage": 18,
+          "log_tail": [
+            "  warnings.warn(",
+            "/data1/liyapeng/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:612: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `1` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.",
+            "  warnings.warn("
+          ]
+        },
+        {
+          "method": "CL_MoE",
+          "queue_status": "training",
+          "run": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261018_164257",
+          "preflight_only": false,
+          "actual_run_status": {
+            "status": "initial_evaluation",
+            "completed_stage": 0
+          },
+          "process_live": true,
+          "PID": 402507,
+          "startticks": 15759367,
+          "training_passed_stages": [],
+          "complete_eval_cells": 0,
+          "current_eval": {
+            "stage": "stage_00",
+            "completed_tasks": [],
+            "in_progress": [
+              {
+                "task": "T01",
+                "QA_complete_lines": 4077,
+                "last_write_seconds_ago": 0.5
+              }
+            ]
+          },
+          "log_tail": [
+            "  warnings.warn(",
+            "/data1/liyapeng/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:612: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `1` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.",
+            "  warnings.warn("
+          ]
+        },
+        {
+          "method": "SMoLoRA",
+          "queue_status": "waiting",
+          "run": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SMoLoRA/preflight_20261018_040954",
+          "preflight_only": true,
+          "actual_run_status": {
+            "status": "initial_evaluation",
+            "completed_stage": 0
+          },
+          "training_passed_stages": [],
+          "complete_eval_cells": 0,
+          "log_tail": [
+            "  File \"/data1/liyapeng/program/LLMCL/.conda-env/lib/python3.10/site-packages/torch/serialization.py\", line 944, in save",
+            "    _save(",
+            "  File \"/data1/liyapeng/program/LLMCL/.conda-env/lib/python3.10/site-packages/torch/serialization.py\", "
+          ]
+        },
+        {
+          "method": "PASs_MoE",
+          "queue_status": "waiting",
+          "run": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/PASs_MoE/preflight_20261018_044024",
+          "preflight_only": true,
+          "training_passed_stages": [],
+          "complete_eval_cells": 0,
+          "log_tail": []
+        },
+        {
+          "method": "PaRSP",
+          "queue_status": "waiting",
+          "run": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/PaRSP/preflight_20261018_044024",
+          "preflight_only": true,
+          "training_passed_stages": [],
+          "complete_eval_cells": 0,
+          "log_tail": []
+        },
+        {
+          "method": "OSFT",
+          "queue_status": "waiting",
+          "run": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/OSFT/preflight_20261018_044943",
+          "preflight_only": true,
+          "training_passed_stages": [],
+          "complete_eval_cells": 0,
+          "log_tail": [
+            "{\"event\": \"osft_svd_init\", \"layer\": \"model.layers.27.self_attn.q_proj\", \"done\": 190, \"total\": 196, \"unfreeze_rank_ratio\": 0.25}",
+            "{\"event\": \"osft_svd_init\", \"layer\": \"model.layers.27.self_attn.k_proj\", \"done\": 191, \"total\": 196, \"unfreeze_rank_ratio\": 0.25}",
+            "{\"event\": \"osft_svd_init\", \"layer\": \"model.layers.27.self_attn.v_proj\", \"done\": 192, \"total\": 196, \"unfreeze"
+          ]
+        },
+        {
+          "method": "SpaRTA",
+          "queue_status": "waiting",
+          "run": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SpaRTA/preflight_20261018_044943",
+          "preflight_only": true,
+          "actual_run_status": {
+            "status": "initial_evaluation",
+            "completed_stage": 0
+          },
+          "training_passed_stages": [],
+          "complete_eval_cells": 0,
+          "log_tail": [
+            "  File \"/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py\", line 342, in <module>",
+            "    main()",
+            "  Fi"
+          ]
+        }
+      ],
+      "GPU": "0, NVIDIA GeForce RTX 3090, 92 %, 9376 MiB\n1, NVIDIA GeForce RTX 3090, 0 %, 4692 MiB\n2, NVIDIA GeForce RTX 3090, 94 %, 11212 MiB\n3, NVIDIA GeForce RTX 3090, 97 %, 10340 MiB\n"
+    },
+    "old2080": {
+      "host": "old2080",
+      "observed_unix": 1792319641.0934963,
+      "runs": [
+        {
+          "method": "SeqFT_LoRA",
+          "queue_status": "completed",
+          "run": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154",
+          "preflight_only": false,
+          "actual_run_status": {
+            "status": "completed",
+            "completed_stage": 19,
+            "final_checkpoint": "checkpoints/stage_19.pt",
+            "final_parameter_file_bytes": 1926007972
+          },
+          "training_passed_stages": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "complete_eval_cells": 74,
+          "current_eval": {
+            "stage": "stage_19",
+            "completed_tasks": [
+              {
+                "task": "T01",
+                "QA": 5000
+              },
+              {
+                "task": "T02",
+                "QA": 228
+              },
+              {
+                "task": "T03",
+                "QA": 375
+              },
+              {
+                "task": "T04",
+                "QA": 507
+              },
+              {
+                "task": "T05",
+                "QA": 124
+              },
+              {
+                "task": "T06",
+                "QA": 311
+              },
+              {
+                "task": "T07",
+                "QA": 89
+              },
+              {
+                "task": "T08",
+                "QA": 116
+              },
+              {
+                "task": "T09",
+                "QA": 12
+              },
+              {
+                "task": "T10",
+                "QA": 65
+              },
+              {
+                "task": "T11",
+                "QA": 267
+              },
+              {
+                "task": "T12",
+                "QA": 100
+              },
+              {
+                "task": "T13",
+                "QA": 2955
+              },
+              {
+                "task": "T14",
+                "QA": 2947
+              },
+              {
+                "task": "T15",
+                "QA": 4002
+              },
+              {
+                "task": "T16",
+                "QA": 2233
+              },
+              {
+                "task": "T17",
+                "QA": 500
+              },
+              {
+                "task": "T18",
+                "QA": 1123
+              },
+              {
+                "task": "T19",
+                "QA": 500
+              }
+            ],
+            "in_progress": []
+          },
+          "logged_update_seconds": 721.24,
+          "logged_update_count": 93,
+          "last_train_update_stage": 19,
+          "log_tail": [
+            "{\"event\": \"evaluation\", \"stage\": 19, \"task\": 19, \"split\": \"test\", \"done\": 460, \"total\": 500}",
+            "{\"event\": \"evaluation\", \"stage\": 19, \"task\": 19, \"split\": \"test\", \"done\": 480, \"total\": 500}",
+            "{\"event\": \"evaluation\", \"stage\": 19, \"task\": 19, \"split\": \"test\", \"done\": 500, \"total\": 500}"
+          ]
+        },
+        {
+          "method": "CL_MoE",
+          "queue_status": "training",
+          "run": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/CL_MoE/training_20261017_161424",
+          "preflight_only": false,
+          "actual_run_status": {
+            "status": "evaluation",
+            "completed_stage": 15,
+            "active_stage": 16
+          },
+          "process_live": true,
+          "PID": 341019,
+          "startticks": 692328509,
+          "training_passed_stages": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "complete_eval_cells": 49,
+          "current_eval": {
+            "stage": "stage_16",
+            "completed_tasks": [],
+            "in_progress": [
+              {
+                "task": "T16",
+                "QA_complete_lines": 2017,
+                "last_write_seconds_ago": 1.2
+              }
+            ]
+          },
+          "logged_update_seconds": 3474.76,
+          "logged_update_count": 78,
+          "last_train_update_stage": 16,
+          "log_tail": [
+            "{\"event\": \"evaluation\", \"stage\": 16, \"task\": 16, \"split\": \"test\", \"done\": 1960, \"total\": 2233}",
+            "{\"event\": \"evaluation\", \"stage\": 16, \"task\": 16, \"split\": \"test\", \"done\": 1980, \"total\": 2233}",
+            "{\"event\": \"evaluation\", \"stage\": 16, \"task\": 16, \"split\": \"test\", \"done\": 2000, \"total\": 2233}"
+          ]
+        },
+        {
+          "method": "SMoLoRA",
+          "queue_status": "waiting_native_BF16_on_newGPU3"
+        },
+        {
+          "method": "PASs_MoE",
+          "queue_status": "training",
+          "run": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PASs_MoE/training_20261017_161725",
+          "preflight_only": false,
+          "actual_run_status": {
+            "status": "evaluation",
+            "completed_stage": 16,
+            "active_stage": 17
+          },
+          "process_live": true,
+          "PID": 342152,
+          "startticks": 692346567,
+          "training_passed_stages": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17
+          ],
+          "complete_eval_cells": 51,
+          "current_eval": {
+            "stage": "stage_17",
+            "completed_tasks": [],
+            "in_progress": [
+              {
+                "task": "T17",
+                "QA_complete_lines": 123,
+                "last_write_seconds_ago": 1412.2
+              }
+            ]
+          },
+          "logged_update_seconds": 8773.72,
+          "logged_update_count": 82,
+          "last_train_update_stage": 17,
+          "log_tail": [
+            "{\"event\": \"evaluation\", \"stage\": 17, \"task\": 17, \"split\": \"test\", \"done\": 80, \"total\": 500}",
+            "{\"event\": \"evaluation\", \"stage\": 17, \"task\": 17, \"split\": \"test\", \"done\": 100, \"total\": 500}",
+            "{\"event\": \"evaluation\", \"stage\": 17, \"task\": 17, \"split\": \"test\", \"done\": 120, \"total\": 500}"
+          ]
+        },
+        {
+          "method": "PaRSP",
+          "queue_status": "completed",
+          "run": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PaRSP/training_20261018_040230",
+          "preflight_only": false,
+          "actual_run_status": {
+            "status": "completed",
+            "completed_stage": 19,
+            "final_checkpoint": "checkpoints/stage_19.pt",
+            "final_parameter_file_bytes": 5985469342
+          },
+          "training_passed_stages": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "complete_eval_cells": 74,
+          "current_eval": {
+            "stage": "stage_19",
+            "completed_tasks": [
+              {
+                "task": "T01",
+                "QA": 5000
+              },
+              {
+                "task": "T02",
+                "QA": 228
+              },
+              {
+                "task": "T03",
+                "QA": 375
+              },
+              {
+                "task": "T04",
+                "QA": 507
+              },
+              {
+                "task": "T05",
+                "QA": 124
+              },
+              {
+                "task": "T06",
+                "QA": 311
+              },
+              {
+                "task": "T07",
+                "QA": 89
+              },
+              {
+                "task": "T08",
+                "QA": 116
+              },
+              {
+                "task": "T09",
+                "QA": 12
+              },
+              {
+                "task": "T10",
+                "QA": 65
+              },
+              {
+                "task": "T11",
+                "QA": 267
+              },
+              {
+                "task": "T12",
+                "QA": 100
+              },
+              {
+                "task": "T13",
+                "QA": 2955
+              },
+              {
+                "task": "T14",
+                "QA": 2947
+              },
+              {
+                "task": "T15",
+                "QA": 4002
+              },
+              {
+                "task": "T16",
+                "QA": 2233
+              },
+              {
+                "task": "T17",
+                "QA": 500
+              },
+              {
+                "task": "T18",
+                "QA": 1123
+              },
+              {
+                "task": "T19",
+                "QA": 500
+              }
+            ],
+            "in_progress": []
+          },
+          "logged_update_seconds": 1094.38,
+          "logged_update_count": 93,
+          "last_train_update_stage": 19,
+          "log_tail": [
+            "{\"event\": \"evaluation\", \"stage\": 19, \"task\": 19, \"split\": \"test\", \"done\": 460, \"total\": 500}",
+            "{\"event\": \"evaluation\", \"stage\": 19, \"task\": 19, \"split\": \"test\", \"done\": 480, \"total\": 500}",
+            "{\"event\": \"evaluation\", \"stage\": 19, \"task\": 19, \"split\": \"test\", \"done\": 500, \"total\": 500}"
+          ]
+        },
+        {
+          "method": "OSFT",
+          "queue_status": "training",
+          "run": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/OSFT/training_20261018_044103",
+          "preflight_only": false,
+          "actual_run_status": {
+            "status": "evaluation",
+            "completed_stage": 18,
+            "active_stage": 19
+          },
+          "process_live": true,
+          "PID": 572431,
+          "startticks": 696808421,
+          "training_passed_stages": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "complete_eval_cells": 71,
+          "current_eval": {
+            "stage": "stage_19",
+            "completed_tasks": [
+              {
+                "task": "T01",
+                "QA": 5000
+              },
+              {
+                "task": "T02",
+                "QA": 228
+              },
+              {
+                "task": "T03",
+                "QA": 375
+              },
+              {
+                "task": "T04",
+                "QA": 507
+              },
+              {
+                "task": "T05",
+                "QA": 124
+              },
+              {
+                "task": "T06",
+                "QA": 311
+              },
+              {
+                "task": "T07",
+                "QA": 89
+              },
+              {
+                "task": "T08",
+                "QA": 116
+              },
+              {
+                "task": "T09",
+                "QA": 12
+              },
+              {
+                "task": "T10",
+                "QA": 65
+              },
+              {
+                "task": "T11",
+                "QA": 267
+              },
+              {
+                "task": "T12",
+                "QA": 100
+              },
+              {
+                "task": "T13",
+                "QA": 2955
+              },
+              {
+                "task": "T14",
+                "QA": 2947
+              },
+              {
+                "task": "T15",
+                "QA": 4002
+              },
+              {
+                "task": "T16",
+                "QA": 2233
+              }
+            ],
+            "in_progress": [
+              {
+                "task": "T17",
+                "QA_complete_lines": 329,
+                "last_write_seconds_ago": 25.7
+              }
+            ]
+          },
+          "logged_update_seconds": 1254.83,
+          "logged_update_count": 93,
+          "last_train_update_stage": 19,
+          "log_tail": [
+            "{\"event\": \"evaluation\", \"stage\": 19, \"task\": 17, \"split\": \"test\", \"done\": 280, \"total\": 500}",
+            "{\"event\": \"evaluation\", \"stage\": 19, \"task\": 17, \"split\": \"test\", \"done\": 300, \"total\": 500}",
+            "{\"event\": \"evaluation\", \"stage\": 19, \"task\": 17, \"split\": \"test\", \"done\": 320, \"total\": 500}"
+          ]
+        },
+        {
+          "method": "SpaRTA",
+          "queue_status": "training",
+          "run": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SpaRTA/training_20261018_173800",
+          "preflight_only": false,
+          "actual_run_status": {
+            "status": "initial_evaluation",
+            "completed_stage": 0
+          },
+          "process_live": true,
+          "PID": 826894,
+          "startticks": 701470044,
+          "training_passed_stages": [],
+          "complete_eval_cells": 0,
+          "current_eval": {
+            "stage": "stage_00",
+            "completed_tasks": [],
+            "in_progress": [
+              {
+                "task": "T01",
+                "QA_complete_lines": 2352,
+                "last_write_seconds_ago": 71.9
+              }
+            ]
+          },
+          "log_tail": [
+            "{\"event\": \"evaluation\", \"stage\": 0, \"task\": 1, \"split\": \"test\", \"done\": 2300, \"total\": 5000}",
+            "{\"event\": \"evaluation\", \"stage\": 0, \"task\": 1, \"split\": \"test\", \"done\": 2320, \"total\": 5000}",
+            "{\"event\": \"evaluation\", \"stage\": 0, \"task\": 1, \"split\": \"test\", \"done\": 2340, \"total\": 5000}"
+          ]
+        }
+      ],
+      "GPU": "0, NVIDIA GeForce RTX 2080 Ti, 75 %, 5514 MiB\n1, NVIDIA GeForce RTX 2080 Ti, 0 %, 2910 MiB\n2, NVIDIA GeForce RTX 2080 Ti, 44 %, 4216 MiB\n3, NVIDIA GeForce RTX 2080 Ti, 0 %, 8944 MiB\n\n"
+    }
+  },
+  "verified_completed_index_sha256": "1742d238e35797a39cf3948eb49ab8cc6fd9f162feaa20510c797cd3f165e848",
+  "verified_completed_pairs": 2,
+  "only_pct01_pairs_admitted": 14,
+  "FOREVER_pending_not_counted_running": true
+}
