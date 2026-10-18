@@ -1,3 +1,5 @@
+**研究原因新增：** OSFT的正式优势伴随更强的[刚习得成绩与更大训练容量](summary/onevision_diagnostics_20261016/osft_acquisition_20261018/RESEARCH_FINDINGS.md)，并非相对SeqFT具有更高BWT；不能只按AP归因为防遗忘。新同预算覆盖对照的[TRAIN真实学习核验](summary/onevision_diagnostics_20261016/feedback_coverage_20261018/v1/TRAIN_FIT_FINDINGS.md)已完成，TEST两诊断尚待，正式Ours保持空缺。
+
 # LLMCL：小模型的五领域多模态持续学习
 
 **正式基线新增：** OneVision OSFT已核验完整19阶段／74必要评测格／21454最终QA，AP=46.357、FWT=18.932、BWT=−1.616；SeqFT AP=40.286，差+6.071pp。五域结果已填下方主表。该正式V2结果不能与研究155诊断直接排名；也不能把冷启动局部问题推广成所有既有方法都会变差。[完整核验索引](summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/VERIFIED_INDEX.json)。

@@ -1,0 +1,221 @@
+{
+  "CPU_only": true,
+  "auditor_sha256": "2e69da4f7d254bd426a4a0e5bbca76d417c48a146c898e8b9e54c53c8e2e9265",
+  "TRAIN_artifact_sha256": {
+    "coverage_state.pt": "27a9d2e0658dc7c90af6e5f6309830065239f093adf7fdad679a3ac8a433bf6e",
+    "feedback_state.pt": "8a4ceac912f0d5d7ad0b3bcda96db3293cd13f0c5e17afc9c93301633d41d40f",
+    "router_raw_gradients.pt": "3b75af7abfbc8d83104f72e82ac2e224f21913d9613091b5b1e390c2f1ad1096",
+    "router_TRAIN.json": "89ed7b1b56136724f47a48714099be1e35d88171439dc235d93d44b8a2ca6b55",
+    "TRAIN_feedback_window.json": "5c3eac919a75ad504585fcb438b7530e83daa07e4a8049f8370ecb56517bbe7c",
+    "original_feedback_exact.json": "f2b5cc4386ffd4502e2a7bf8f5aafba840c5cf87aca2e4c39717b86ee8d4c485",
+    "feature_identity.json": "06a8bee45e53ac84bfbfb8b94b75023b17c79f4ff9f126c2d4a84b6cadd7b528"
+  },
+  "TRAIN_teacher_sha256": {
+    "12": "19569275093ee51f14976065c393a1487cc1aa683e5e9341378e536efc4dfa64",
+    "18": "c687ecf2e45d95a24566d133b045d2f8f2b8d85177bab9f7f21b311782bd7928",
+    "19": "b54c4347193ab493eb849d9af19138a0329948ea399f6b8d86a78243e01b1dd3"
+  },
+  "source_pool_sha256": "0cb865380231f4bca94fc93bed83c1c5ea93566f3fefff72562a8fd9b95a248a",
+  "TRAIN_QA": 20,
+  "covered_native_tasks": 19,
+  "teacher_predictions": 60,
+  "informative_TRAIN_QA": 6,
+  "actual_metric_parameters": 1792,
+  "actual_nonzero_gradient_steps": 40,
+  "actual_changed_dimensions": 1792,
+  "all40_raw_gradients_parameters_and_logs_exactly_replayed": true,
+  "first_event": {
+    "step": 1,
+    "loss": 0.03905623033642769,
+    "mean_TRAIN_LOO_soft_regret": 0.03905623033642769,
+    "raw_gradient_l2": 0.0010127685964107513,
+    "actual_parameter_delta_l2": 1.2622628211975098,
+    "LR": 0.03
+  },
+  "last_event": {
+    "step": 40,
+    "loss": 0.02293967455625534,
+    "mean_TRAIN_LOO_soft_regret": 0.018538562580943108,
+    "raw_gradient_l2": 0.0006422814331017435,
+    "actual_parameter_delta_l2": 0.6963844299316406,
+    "LR": 0.03
+  },
+  "global_TRAIN_means": {
+    "12": 39.6497326246927,
+    "18": 53.866758475635024,
+    "19": 54.6322665117998
+  },
+  "oracle_TRAIN_F1": 54.99524395789176,
+  "oracle_minus_best_fixed_pp": 0.3629774460919606,
+  "resubstitution_TRAIN_routes": {
+    "fixed": {
+      "states": [
+        19,
+        18,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19
+      ],
+      "counts": {
+        "19": 19,
+        "18": 1
+      }
+    },
+    "learned": {
+      "states": [
+        19,
+        18,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19
+      ],
+      "counts": {
+        "19": 19,
+        "18": 1
+      }
+    }
+  },
+  "resubstitution_TRAIN_route_changes": 0,
+  "image_excluded_TRAIN_objective": {
+    "fixed": {
+      "soft_TRAIN_F1": 51.089622497558594,
+      "maximum_tie_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "learned": {
+      "soft_TRAIN_F1": 53.18115997314453,
+      "maximum_tie_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  "TRAIN_feedback_resources": {
+    "before": {
+      "phase": "TRAIN_feedback_before",
+      "stage": 0,
+      "unix": 1792331633.0904403,
+      "pid": 61528,
+      "visible_gpu": "0",
+      "VmHWM_bytes": 4145594368,
+      "VmRSS_bytes": 2924158976,
+      "VmSwap_bytes": 0,
+      "Pss_bytes": 2673446912,
+      "Private_Clean_bytes": 73654272,
+      "Private_Dirty_bytes": 2507505664,
+      "cpu_uss_bytes": 2581159936,
+      "gpu_allocated_bytes": 1842765824,
+      "gpu_reserved_bytes": 4819255296,
+      "gpu_peak_allocated_bytes": 1842765824,
+      "gpu_peak_reserved_bytes": 4819255296,
+      "gpu_process_nvml_bytes": 5175771136,
+      "trainable_parameters": 0,
+      "trainable_parameter_bytes": 0,
+      "model_parameter_bytes": 1789513792
+    },
+    "after": {
+      "phase": "TRAIN_feedback_after",
+      "stage": 0,
+      "unix": 1792331820.7329762,
+      "pid": 61528,
+      "visible_gpu": "0",
+      "VmHWM_bytes": 4145594368,
+      "VmRSS_bytes": 2879254528,
+      "VmSwap_bytes": 0,
+      "Pss_bytes": 2628119552,
+      "Private_Clean_bytes": 75358208,
+      "Private_Dirty_bytes": 2460172288,
+      "cpu_uss_bytes": 2535530496,
+      "gpu_allocated_bytes": 1842765824,
+      "gpu_reserved_bytes": 4819255296,
+      "gpu_peak_allocated_bytes": 2663393792,
+      "gpu_peak_reserved_bytes": 4819255296,
+      "gpu_process_nvml_bytes": 5175771136,
+      "trainable_parameters": 0,
+      "trainable_parameter_bytes": 0,
+      "model_parameter_bytes": 1789513792
+    },
+    "scope": "20 feature queries+60 TRAIN teacher generations+40 CPU metric updates; zero model optimizer updates",
+    "cuda_peak_allocated_bytes": 2663393792,
+    "cuda_peak_reserved_bytes": 4819255296
+  },
+  "TEST_questions_answers_predictions_parsed": false,
+  "new_GPU_or_model_training": false,
+  "limits": [
+    "Completed TRAIN window is not completed GPU build or full-test performance.",
+    "All20 score labels train theta; image exclusion is not independent validation.",
+    "Resubstitution routes can include their own anchor, unlike the masked training objective.",
+    "The finite oracle is only for these20 TRAIN anchors and3 states, not a TEST upper bound.",
+    "Allocation also changes content; neither coverage count nor 1% sufficiency is isolated.",
+    "Parameter updates are not evidence of realized TEST route or Answer F1 gain.",
+    "The CPU exact replay is audit cost, not a new method or extra GPU run."
+  ]
+}

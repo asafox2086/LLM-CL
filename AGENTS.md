@@ -1,3 +1,9 @@
+# OSFT优势首先体现在习得；新覆盖TRAIN已精确重放 — 2026-10-18
+
+- 新CPU正式证据K46：两条已封存完整V2各37个习得/最终格独立复算原AnswerF1，与原74格完整证明逐文件SHA绑定。OSFT/SeqFT刚习得均分47.887821/38.604705，BWT−1.616191/+1.774861，AP46.356693/40.286152。AP差精确分解为习得差+9.283116及后续变化差−3.212575；记账非因果，不能说本次OSFT相对Seq更防遗忘。实际113766144/540672训练参数=210.416倍、首LR1e-5/1e-4，均93正LR/有限更新。固定25%作者实现不是论文按层自适应分配；保护/容量/位置/初始化/LR尚未隔离。见osft_acquisition_20261018/RESEARCH_FINDINGS.md。低参数方向控制值得研究，但还未实现/准入新OSFT轻量GPU版本。
+- 新K47：coverage原500NLL/155/routes精确门槛已PASS，实际新20锚覆盖19任务、60TRAIN生成和40原始梯度/参数/日志已独立精确重放。仅6/20能区分候选，TRAIN逐题oracle相对最佳固定仅+.362977pp；1792维均变，soft训练F1 51.090->53.181，自查询硬选择仍19题19/1题18、改变0。不读移动TEST、不作TEST上限或1%不足推论；新两诊断/全量仍待，原池/原所有负条件保留。见feedback_coverage_20261018/v1/TRAIN_FIT_FINDINGS.md。
+- 唯一冻结CPU61499/onevision_feedback_coverage_queue.py及GPU61528继续、未改源或调度；PID后续先实查/读完整证明。两机基线nohup和CPU发布器保留。用户允许不新建LoRA、直接更新当前模型参数；这是一条可比较方向，少数据不自动保证小扰动，不改写成已证明的新方法。原1313/19/21454、唯一原始AnswerF1、TRAIN-only选择、空闲0/1单研究流/我们至多3卡及实际成本核算不变。
+
 # Same20 feedback-coverage control ACTUALLY ADMITTED/RUNNING — 2026-10-18
 
 - 唯一同nohup llmcl-onevision-causal-priority.service现CPU61499/frozen onevision_feedback_coverage_queue.py；权威feedback_coverage_20261018/v1/queue/queue_state.json+ACTIVATION，旧CPU34096计划退役不恢复。8实际实现/设备导入0与1不初始化CUDA＋9新策略/3新旧命令与所有祖先检查通过；所有受保护GPU/基线/CPU报告PID/startticks保全。旧case03正常完成，不重启58188；实际新GPU61528在空闲GPU0完成原反馈500/155精确门槛中，新60TRAIN与新头结果尚待，勿把control_original_feedback日志当新收益。只用真正空闲0/1、单研究流、我们至多3新机卡，尊重他人。
