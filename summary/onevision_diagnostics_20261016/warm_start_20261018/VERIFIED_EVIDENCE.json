@@ -3,7 +3,7 @@
   "raw_Answer_F1": true,
   "formal_V2": false,
   "TEST_selection": false,
-  "warm_train_complete": false,
+  "warm_train_complete": true,
   "cold_full_complete": false,
   "warm_full_complete": false,
   "results": [
@@ -31,6 +31,31 @@
           "F1": null
         }
       }
+    },
+    {
+      "variant": "warm_inherit_K3_v1",
+      "phase": "train",
+      "generated": 155,
+      "domains": {
+        "natural": 58.57142857142857,
+        "medical": 25.338770409891175,
+        "geography": 46.875,
+        "finance": 20.0,
+        "traffic": 31.421294853830116
+      },
+      "AP": 35.025000199567955,
+      "FWT": null,
+      "BWT": null,
+      "QA_weighted_diagnostic_partitions": {
+        "in_diagnostic500": {
+          "QA": 155,
+          "F1": 32.761828201620936
+        },
+        "outside_diagnostic500": {
+          "QA": 0,
+          "F1": null
+        }
+      }
     }
   ],
   "training": {
@@ -41,6 +66,14 @@
       "experts": 3,
       "runtime_initialization_gates": null,
       "runtime_geometry_gates": null
+    },
+    "warm_inherit_K3_v1": {
+      "actual_updates": 93,
+      "positive_LR_finite_gradients": true,
+      "TRAIN_QA": 1313,
+      "experts": 3,
+      "runtime_initialization_gates": 19,
+      "runtime_geometry_gates": 19
     }
   },
   "resources": {
@@ -119,10 +152,87 @@
         "gpu_reserved_bytes": 19360907264,
         "gpu_process_nvml_bytes": 19750977536
       }
+    },
+    "warm_inherit_K3_v1/train": {
+      "unit": "bytes",
+      "pid": 405584,
+      "boot_id": "e6182f56-39be-4e37-908d-3cfadaa7448f",
+      "process_started_unix": 1792313583.5792532,
+      "before": {
+        "phase": "reuse_training_before",
+        "stage": 0,
+        "unix": 1792313596.7069898,
+        "pid": 405584,
+        "visible_gpu": "1",
+        "VmHWM_bytes": 4130185216,
+        "VmRSS_bytes": 2403344384,
+        "VmSwap_bytes": 0,
+        "Pss_bytes": 2199671808,
+        "Private_Clean_bytes": 69185536,
+        "Private_Dirty_bytes": 2046603264,
+        "cpu_uss_bytes": 2115788800,
+        "gpu_allocated_bytes": 1842765824,
+        "gpu_reserved_bytes": 3275751424,
+        "gpu_peak_allocated_bytes": 2551966720,
+        "gpu_peak_reserved_bytes": 3275751424,
+        "gpu_process_nvml_bytes": 3630170112,
+        "trainable_parameters": 540672,
+        "trainable_parameter_bytes": 2162688,
+        "model_parameter_bytes": 1789513792
+      },
+      "after": {
+        "phase": "reuse_training_after",
+        "stage": 0,
+        "unix": 1792314788.273071,
+        "pid": 405584,
+        "visible_gpu": "1",
+        "VmHWM_bytes": 4130185216,
+        "VmRSS_bytes": 2988457984,
+        "VmSwap_bytes": 0,
+        "Pss_bytes": 2743597056,
+        "Private_Clean_bytes": 75595776,
+        "Private_Dirty_bytes": 2559623168,
+        "cpu_uss_bytes": 2635218944,
+        "gpu_allocated_bytes": 1876320256,
+        "gpu_reserved_bytes": 10261364736,
+        "gpu_peak_allocated_bytes": 9752154112,
+        "gpu_peak_reserved_bytes": 11075059712,
+        "gpu_process_nvml_bytes": 10651435008,
+        "trainable_parameters": 540672,
+        "trainable_parameter_bytes": 2162688,
+        "model_parameter_bytes": 1789513792
+      },
+      "scope": "TRAIN feature extraction, model epochs, TRAIN probes and CPU router fit; final TEST excluded from before/after, global peak includes diagnostic",
+      "growth_bytes": {
+        "VmRSS_bytes": 585113600,
+        "Pss_bytes": 543925248,
+        "cpu_uss_bytes": 519430144,
+        "gpu_allocated_bytes": 33554432,
+        "gpu_reserved_bytes": 6985613312,
+        "gpu_process_nvml_bytes": 7021264896
+      },
+      "observed_peak_bytes": {
+        "VmRSS_bytes": 3218173952,
+        "Pss_bytes": 2966577152,
+        "cpu_uss_bytes": 2853277696,
+        "gpu_allocated_bytes": 11038077952,
+        "gpu_reserved_bytes": 18593349632,
+        "gpu_process_nvml_bytes": 18983419904
+      },
+      "note": "Same-PID before/after; fresh process per cap. On recovery these describe resumed process only. Stage diagnostics are included in observed peaks; allocator cache is separate from parameter growth.",
+      "all_process_observed_peak_bytes": {
+        "VmRSS_bytes": 3218173952,
+        "Pss_bytes": 2966577152,
+        "cpu_uss_bytes": 2853277696,
+        "gpu_allocated_bytes": 11038077952,
+        "gpu_reserved_bytes": 18593349632,
+        "gpu_process_nvml_bytes": 18983419904
+      }
     }
   },
   "completion_sha256": {
-    "summary/onevision_diagnostics_20261016/learned_reuse/learned_cosine_K3_train_complete.json": "bec50f3729f495d1330004d981771301eac550b22e243a237912fb8e092d221c"
+    "summary/onevision_diagnostics_20261016/learned_reuse/learned_cosine_K3_train_complete.json": "bec50f3729f495d1330004d981771301eac550b22e243a237912fb8e092d221c",
+    "summary/onevision_diagnostics_20261016/warm_start_20261018/warm_inherit_K3_v1_train_complete.json": "ffa27eb739d05bc3963d3af7d3f3374094fdc625da56e83d6ec41700e43d7033"
   },
   "source_sha256": {
     "analysis/onevision_warm_start_report.py": "20cf0a70e0e8fc433a0067dec9d9b110186d12642629ebd6eaf5724a321a4ae7"
