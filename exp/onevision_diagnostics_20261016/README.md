@@ -1,3 +1,5 @@
+> 当前唯一研究调度已接续[cold_quality_queue](../../summary/onevision_diagnostics_20261016/cold_quality_queue/README.md)，CPU389122；两模块四格自动链已准入、GPU组合待。旧376997及更早所有者只读历史，不恢复；当前GPU358091和基线保全。
+
 > 当前唯一[CPU调度](../../summary/onevision_diagnostics_20261016/causal_feedback_queue/README.md)：376997保留GPU358091自然完成，之后原warm19/18数据因子提前至第二个完整确认之前；82CPU策略/6实际继承检查通过，GPU收益待。全部旧任务保留，下方旧队列记为历史。
 
 > 新增[正则化预算审计](../../summary/onevision_diagnostics_20261016/regularizer_budget_20261018/RESEARCH_FINDINGS.md)：9个单步阶段PASs附加项系数为0，CPU正负对照通过；实际F1因果待，活动训练不改。

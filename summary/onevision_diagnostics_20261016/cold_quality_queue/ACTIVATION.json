@@ -1,0 +1,111 @@
+{
+  "UTC": "2026-10-18T07:49:47Z",
+  "old_CPU_pid": 376997,
+  "old_startticks": 15081765,
+  "new_CPU_pid": 389122,
+  "new_startticks": 15440343,
+  "protected_before": {
+    "184250": 7171664,
+    "217515": 8309522,
+    "249343": 9009069,
+    "265271": 9394475,
+    "336392": 14120015,
+    "336398": 14120026,
+    "336411": 14120031,
+    "336774": 14125933,
+    "336779": 14125937,
+    "340149": 14237159,
+    "358091": 14710479,
+    "363745": 14856440,
+    "367273": 14910750,
+    "381186": 15195745,
+    "382456": 15233185
+  },
+  "protected_after": {
+    "184250": 7171664,
+    "217515": 8309522,
+    "249343": 9009069,
+    "265271": 9394475,
+    "336392": 14120015,
+    "336398": 14120026,
+    "336411": 14120031,
+    "336774": 14125933,
+    "336779": 14125937,
+    "340149": 14237159,
+    "358091": 14710479,
+    "363745": 14856440,
+    "367273": 14910750,
+    "381186": 15195745,
+    "382456": 15233185
+  },
+  "actual_phase": {
+    "pid": 389122,
+    "phase": "wait",
+    "target": null,
+    "state": {
+      "inherited_worker": {
+        "kind": "functional_full",
+        "target": 0,
+        "worker_pid": 358091,
+        "worker_startticks": 14710479,
+        "unchanged_GPU_source": true,
+        "retired_CPU_pid": 376997
+      },
+      "waiting_for_natural_completion": true
+    },
+    "GPU1_only": true
+  },
+  "no_active_GPU_source_edits": true,
+  "no_GPU_process_stopped": true,
+  "dropin": "[Service]\nExecStart=\nExecStart=/usr/bin/nohup /data1/liyapeng/program/LLMCL/.assets-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/onevision_cold_quality_queue.py\nStandardOutput=append:/data1/liyapeng/program/LLMCL/summary/onevision_diagnostics_20261016/cold_quality_queue/coordinator_nohup.log\nKillMode=process\nRestart=no\n",
+  "authorization": {
+    "delegated_GPU1_plan": true,
+    "basis": "User updated objective: test inherited LoRA plus TRAIN functional-quality calling. Preserve current GPU natural completion and every old case; four final cells before old soft confirmation. No TEST scheduling.",
+    "wrapper_entrypoint_sha256": "0544a1c6c185af9aed26724d6c279d63708941585136cdb4ca3df63930821d03",
+    "cold_queue_sha256": "9850a24dfc056419fcf02b46045756d0bfefc70939c8141698f55fae2794e9db",
+    "entrypoint_sha256": "9246d8d59a11ee7553a24a98c973bf5bc800ad12176ea0b6dd68c99e54622f28",
+    "unchanged_previous_queue_sha256": "5e9fe9a8ae9fe53e0c70846eca549531b0a8c9fe70f6d955fc9a85cec62ebd12",
+    "warm_plan_sha256": "b211709b5f18d71b16a0ba9d22e0c8c32b86b5f2ed1e9b0ce433b3ead576a8ca",
+    "study_plan_sha256": "4563cf1eea1cf1102242306be4fd324b81588bc6c42000ecfd85309ffa822467",
+    "order": [
+      "ready_sharedS1",
+      "original_cosine_train2",
+      "fixed_pool_functional_pilot4views",
+      "existing_quality_hard_full21454_natural_completion",
+      "warm_initialization_only_train19",
+      "warm_quality_pilot4views",
+      "all18_uniqueTRAIN_initialization_trajectories_both1and4_endpoints",
+      "original_learned_cosine_full",
+      "warm_initialization_only_full21454",
+      "warm_quality_hard_full21454",
+      "predeclared_quality_soft_full21454",
+      "languagecue4",
+      "matched48_SeqFT_first",
+      "remaining_original_cosine_full",
+      "all_original_remaining_jobs"
+    ],
+    "all_previous_jobs_retained": true,
+    "no_TEST_choice": true,
+    "GPU_source_edits": false,
+    "new_CPU_policy_checks": 66,
+    "worker_CPU_checks": [
+      37,
+      142
+    ],
+    "ancestor_policy_checks": [
+      25,
+      28
+    ],
+    "new_entrypoint_sha256": "079ea767b07f51fef8a0410d8e51857e67a37969617aadac554948f9bc274c11",
+    "source_sha256": {
+      "analysis/onevision_warm_quality_probe.py": "bd4fcd8da29e97d8e95d239a8bb0d2b80ffc974451c0ad890481332217e2f386",
+      "analysis/onevision_cold_quality_queue.py": "079ea767b07f51fef8a0410d8e51857e67a37969617aadac554948f9bc274c11",
+      "analysis/onevision_cold_quality_report.py": "29ef81fafd8c73a584cb2ea2ebc96a11c95d97e7575cc12eb32dcdf58113d93c",
+      "analysis/onevision_functional_router_probe.py": "7a473e20b568deb958974c6a39da58ae8ec611c55f28e1e65db8923a694c6c3b",
+      "analysis/onevision_functional_router_core.py": "f6767747c76d691134a693fea37f82a37f22e8173cb01cc15c818100341231b5",
+      "analysis/onevision_warm_start_trial.py": "0d1b426d8439243b89f618296a8109f2aa9a87bee8340f91feb5ebf5686c5a31",
+      "analysis/onevision_causal_feedback_queue.py": "0544a1c6c185af9aed26724d6c279d63708941585136cdb4ca3df63930821d03"
+    }
+  },
+  "activation_source_sha256": "8e8a2e55759c7e62218fb4db347774286022732654fac9d2e50e61b3ade186c0"
+}

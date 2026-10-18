@@ -10,14 +10,14 @@
 | [正式V2框架与公平性](summary/two_backbone_native_cl_20261017_v2/README.md) | 两机共享TRAIN/TEST ID、原生任务顺序、方法代码、预算、公共图像输入与评分；原生processor/tokenizer因骨干而异。旧零LR/V1结果隔离。 |
 | [问题发现总报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md) | 按问题、实验、结果、证明、改进、效果记录；区分已证实、已反驳、未解决。[关键发现](summary/onevision_diagnostics_20261016/KEY_FINDINGS.md)提供证据索引。 |
 | [研究诊断表](summary/onevision_diagnostics_20261016/functional_router/MAIN_TABLE_DIAGNOSTIC.md) | 原生AnyRes/BF16、同155题的六方法对照；不能混入正式V2或当完整21454题结果。 |
-| [唯一研究队列](summary/onevision_diagnostics_20261016/causal_feedback_queue/README.md) | 实时状态以该目录queue_state及实际进程为准，旧队列路径保留为历史/redirect，不能恢复旧CPU所有者。 |
+| [唯一研究队列](summary/onevision_diagnostics_20261016/cold_quality_queue/README.md) | 实时状态以该目录queue_state及实际进程为准，旧队列路径保留为历史/redirect，不能恢复旧CPU所有者。 |
 | [文献问题与启发](summary/onevision_diagnostics_20261016/LITERATURE_PROBLEMS.md) | 他人发现、验证角度、解决方式及适用边界；不是本模型已证实原因。 |
 
 2026-10-18运行快照：研究仅新GPU1，当前在进行质量硬调用的完整21454题确认。当前第一个完整确认自然结束后，先接温启动19阶段与18个数据量×初始化轨迹，再完成第二个预定功能调用完整确认；原相似度完整确认/48机制控制/其他完整方法/稀疏转移均保留；不按TEST挑赢家。两机正式基线持续nohup，新GPU0保留。未完成的确认不报提升；旧调度与启动快照见[历史原README](summary/ago/readme_snapshot_20261018_0645/README.original.txt)。
 
 ## 研究成果：已知什么，尚缺什么
 
-**方法开发：** [两个问题、两个模块与四格消融](summary/onevision_diagnostics_20261016/warm_quality_20261018/PROBLEM_AND_METHOD.md)：A继承完整旧适配，B用TRAIN质量校准调用。固定池诊断支持调用贡献，但组合入口仅完成CPU准备，温启动父池及完整组合效果待；未改现有GPU队列。
+**方法开发：** [两个问题、两个模块与四格消融](summary/onevision_diagnostics_20261016/warm_quality_20261018/PROBLEM_AND_METHOD.md)：A继承完整旧适配，B用TRAIN质量校准调用。固定池诊断支持调用贡献，但组合入口已准入自动调度，实际温启动父池及GPU组合效果仍待；当前GPU与基线保全。
 
 **后续主线：新LoRA冷启动与弱习得。** 独立[证明过程与下一步判据](summary/onevision_diagnostics_20261016/expert_cold_start_20261018/COLD_START_PROOF.md)串联真实分配、权重不变与初始化干预；已支持一个少数据任务的局部继承收益，完整流程及数据量交互待测。
 

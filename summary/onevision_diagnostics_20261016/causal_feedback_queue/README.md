@@ -1,3 +1,5 @@
+> 本次调度已接续到[cold_quality_queue](../cold_quality_queue/README.md)，CPU389122。旧376997已计划退役，本页为历史；全部既定任务保留，不能恢复旧CPU。
+
 # 当前唯一研究调度：先获得因果反馈，全部确认保留
 
 2026-10-18，`llmcl-onevision-causal-priority.service`的新冻结CPU入口为`analysis/onevision_causal_feedback_queue.py`，实际PID376997/startticks15081765。当前仍等待原GPU358091/startticks14710479自然完成质量硬调用的完整21454题确认；没有中断、重启或拼接该运行。
