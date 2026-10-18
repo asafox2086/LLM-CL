@@ -79,7 +79,6 @@
           "gpu_process_nvml_bytes": 4102029312
         }
       },
-      "whole_control_sha256": "bc0ba28dc22cbfb56670cb0c66201b4d9d79ea3faa53bd65ade73bf97ab61f36",
       "pure_TRAIN": {
         "windows": [
           {
@@ -134,15 +133,153 @@
         ],
         "scope": "TRAIN plus raw-gradient/checkpoint persistence; no TEST or model admission"
       },
+      "whole_control_sha256": "bc0ba28dc22cbfb56670cb0c66201b4d9d79ea3faa53bd65ade73bf97ab61f36",
       "pure_TRAIN_sha256": "ac3680c097f6407920641356e04e22a23968878a335187b371c80625b7b9362d",
       "run": "exp/onevision_initialization_source_20261018/v1/cold/20261018_194224",
       "completion_sha256": "1188192c254ad543050a5d3dcc5831cf341a84d2397e07adfcb0943d5e8cc62e"
+    },
+    "within_full": {
+      "whole_control": {
+        "unit": "bytes",
+        "pid": 20576,
+        "boot_id": "67761366-2821-401b-b80d-c97ee7ad37c8",
+        "process_started_unix": 1792324106.057924,
+        "before": {
+          "phase": "control_before",
+          "stage": 0,
+          "unix": 1792324117.4678695,
+          "pid": 20576,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4473761792,
+          "VmRSS_bytes": 2666323968,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2456520704,
+          "Private_Clean_bytes": 73949184,
+          "Private_Dirty_bytes": 2309558272,
+          "cpu_uss_bytes": 2383507456,
+          "gpu_allocated_bytes": 1842765824,
+          "gpu_reserved_bytes": 3275751424,
+          "gpu_peak_allocated_bytes": 2551966720,
+          "gpu_peak_reserved_bytes": 3275751424,
+          "gpu_process_nvml_bytes": 3630170112,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "after": {
+          "phase": "control_after",
+          "stage": 0,
+          "unix": 1792324430.9222503,
+          "pid": 20576,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4473761792,
+          "VmRSS_bytes": 2754293760,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 2498935808,
+          "Private_Clean_bytes": 79974400,
+          "Private_Dirty_bytes": 2316898304,
+          "cpu_uss_bytes": 2396872704,
+          "gpu_allocated_bytes": 1876320256,
+          "gpu_reserved_bytes": 3221225472,
+          "gpu_peak_allocated_bytes": 2830991872,
+          "gpu_peak_reserved_bytes": 3711959040,
+          "gpu_process_nvml_bytes": 3611295744,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "scope": "same-PID diagnostic; source pretraining charged separately; includes evaluation, not pure TRAIN peak",
+        "growth_bytes": {
+          "VmRSS_bytes": 87969792,
+          "Pss_bytes": 42415104,
+          "cpu_uss_bytes": 13365248,
+          "gpu_allocated_bytes": 33554432,
+          "gpu_reserved_bytes": -54525952,
+          "gpu_process_nvml_bytes": -18874368
+        },
+        "observed_peak_bytes": {
+          "VmRSS_bytes": 2859962368,
+          "Pss_bytes": 2604623872,
+          "cpu_uss_bytes": 2542350336,
+          "gpu_allocated_bytes": 2247902720,
+          "gpu_reserved_bytes": 3711959040,
+          "gpu_process_nvml_bytes": 4102029312
+        },
+        "note": "Same-PID before/after; fresh process per cap. On recovery these describe resumed process only. Stage diagnostics are included in observed peaks; allocator cache is separate from parameter growth.",
+        "all_process_observed_peak_bytes": {
+          "VmRSS_bytes": 2859962368,
+          "Pss_bytes": 2604623872,
+          "cpu_uss_bytes": 2542350336,
+          "gpu_allocated_bytes": 2247902720,
+          "gpu_reserved_bytes": 3711959040,
+          "gpu_process_nvml_bytes": 4102029312
+        }
+      },
+      "pure_TRAIN": {
+        "windows": [
+          {
+            "label": "target_T04",
+            "before": {
+              "phase": "pure_TRAIN_target_T04_before",
+              "stage": 0,
+              "unix": 1792324140.952929,
+              "pid": 20576,
+              "visible_gpu": "1",
+              "VmHWM_bytes": 4473761792,
+              "VmRSS_bytes": 2727186432,
+              "VmSwap_bytes": 0,
+              "Pss_bytes": 2481856512,
+              "Private_Clean_bytes": 75812864,
+              "Private_Dirty_bytes": 2313089024,
+              "cpu_uss_bytes": 2388901888,
+              "gpu_allocated_bytes": 1842765824,
+              "gpu_reserved_bytes": 3330277376,
+              "gpu_peak_allocated_bytes": 1842765824,
+              "gpu_peak_reserved_bytes": 3330277376,
+              "gpu_process_nvml_bytes": 3686793216,
+              "trainable_parameters": 540672,
+              "trainable_parameter_bytes": 2162688,
+              "model_parameter_bytes": 1789513792
+            },
+            "after": {
+              "phase": "pure_TRAIN_target_T04_after",
+              "stage": 0,
+              "unix": 1792324154.8953133,
+              "pid": 20576,
+              "visible_gpu": "1",
+              "VmHWM_bytes": 4473761792,
+              "VmRSS_bytes": 2754138112,
+              "VmSwap_bytes": 0,
+              "Pss_bytes": 2498811904,
+              "Private_Clean_bytes": 80003072,
+              "Private_Dirty_bytes": 2316726272,
+              "cpu_uss_bytes": 2396729344,
+              "gpu_allocated_bytes": 1876320256,
+              "gpu_reserved_bytes": 1981808640,
+              "gpu_peak_allocated_bytes": 2830991872,
+              "gpu_peak_reserved_bytes": 3711959040,
+              "gpu_process_nvml_bytes": 2371878912,
+              "trainable_parameters": 540672,
+              "trainable_parameter_bytes": 2162688,
+              "model_parameter_bytes": 1789513792
+            },
+            "cuda_peak_allocated_bytes": 2830991872,
+            "cuda_peak_reserved_bytes": 3711959040
+          }
+        ],
+        "scope": "TRAIN plus raw-gradient/checkpoint persistence; no TEST or model admission"
+      },
+      "whole_control_sha256": "ba02cf54fe2e28ff313f37a071c0dabc4856427e3e7fb8d0e544dc9d2eaa6fa1",
+      "pure_TRAIN_sha256": "a8c215405bb68e634741e70c4620c4e6757b9db52ff47065436ae616bbb4a24d",
+      "run": "exp/onevision_initialization_source_20261018/v1/within_full/20261018_194825",
+      "completion_sha256": "3e919605f1a415ac412acfe33a52c9c4cd349d0298f8b2191c5e779c72a9cb49"
     }
   },
+  "analyzer_sha256": "2a03084670c40ae76e072d02e9c786e3b97cfc6211bec327f2f6684e6b759c0b",
   "limits": [
-    "Each before/after is within one actual PID; cross-PID initial occupancy is not algorithm growth.",
-    "Pure TRAIN includes gradient/checkpoint persistence and excludes TEST/model admission; initial32 already evaluated before TRAIN.",
-    "CUDA peak from reset peak counters; CPU endpoint values do not prove pure TRAIN peak.",
-    "Source pretraining is extra12QA exposures/2updates per warm condition; no memory advantage inferred."
+    "Before/after within same PID; independent PID occupancy differences are not method memory growth.",
+    "Pure TRAIN includes gradient/checkpoint persistence, excludes TEST/admission; initial32 already evaluated.",
+    "CUDA peak counters reset; CPU endpoints do not establish pure TRAIN CPU peak.",
+    "Warm source12 exposures/2updates charged separately; no comparative memory superiority inferred."
   ]
 }
