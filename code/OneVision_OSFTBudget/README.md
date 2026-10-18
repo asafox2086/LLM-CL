@@ -1,9 +1,5 @@
-# SVD-r8训练参数预算对照（OSFT启发）
+# 原SVD机制对照与数值修复
 
-当前独立v2：[冻结协议](../../summary/onevision_diagnostics_20261016/osft_budget_20261018/v2/PROTOCOL.md)。两组540672可训练坐标、q/v/rank8/S冻结、沿用当前权重／19阶段，区别为是否执行作者梯度及post-Adam参数投影；无专家、无路由增长。这是参数预算对照，不是原论文完整OSFT，也不是已经有收益的新方法。
+当前冻结入口：analysis/onevision_osft_budget_entry_v3.py，核心core_v3、trial_v3、report_v3和queue_v3位于analysis/，唯一nohup队列CPU86675。v1 autocast故障及v2 CUDA默认SVD误差失败独立留证；v3作者CPU FP32分解后传回原设备、严格FP32重建，原门槛未变。
 
-源码：analysis/onevision_osft_budget_core_v2.py、trial_v2.py、entry_v2.py、report_v2.py、queue_v2.py（均带onevision_osft_budget_前缀）。作者原始四核函数固定SHA，原baseline代码不改。
-
-CPU原矩阵／导入／算子与全部队列检查通过；v2 CPU75694已接入原nohup服务，目前GPU0/1他人作业实际存活，未启动GPU训练。以[实时权威](../../summary/onevision_diagnostics_20261016/osft_budget_20261018/v2/queue/queue_state.json)为准。两新完整21454与所有旧作业保留。
-
-v1外层autocast降精度在任何GPU／QA训练前被拦截；原源码／激活和故障保留，v2显式关闭重建内部autocast，其他科学设置相同。不得恢复v1旧CPU73625或旧coverage CPU61499。
+同540672训练坐标、原1313TRAIN／19阶段／两个完整21454条件保留；数值／CPU传输成本计费，没有性能或内存优势结论。两条件是机制对照，不是预定两个模块。[协议](../../summary/onevision_diagnostics_20261016/osft_budget_20261018/v3/PROTOCOL.md)。

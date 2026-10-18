@@ -1,3 +1,5 @@
+**最新用户修订：** [先探明少数据下更新机制](DATA_LIMITED_PRIORITY.md)，暂停预设模块数量。原保护对照因GPU默认SVD重建精度在训练前失败，证据保留；独立v3已在GPU1通过48权重和图文门槛并进入初始评测，尚无新训练收益。[当前唯一入口](osft_budget_20261018/v3/queue/README.md)。
+
 **新机制风险（尚非性能因果）：** [训练参数数量与实际更新空间](update_space_20261018/RESEARCH_FINDINGS.md)：同540672坐标，保护使局部可更新维数537600→150528；三真实TRAIN更新的覆盖率接近低维参考，不能据此说保护有害。原free／protected GPU对照不变，等待实际F1。
 
 **最新执行：** [新SVD参数预算对照v2](osft_budget_20261018/v2/queue/README.md)已接入唯一CPU75694，实际0/1均有他人进程而等待，尚无新GPU成绩；v1模型前混合精度故障已独立修复留证。原覆盖两诊断已完整：[六条件/全部15配对](feedback_coverage_20261018/v1/all_six_outcome/RESEARCH_FINDINGS.md)，新两组AP43.565/43.595对Seq43.363仅小幅点提升，未获大幅完整收益。全部基线、原18与完整确认保留。[当前方向与边界](DIRECTION_20261018.md)。

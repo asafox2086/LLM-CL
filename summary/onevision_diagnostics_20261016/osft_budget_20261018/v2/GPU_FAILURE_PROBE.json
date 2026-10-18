@@ -1,0 +1,208 @@
+{
+  "CPU_or_GPU_QA": 0,
+  "optimizer_updates": 0,
+  "physical_GPU": 1,
+  "inventory": {
+    "0": {
+      "uuid": "GPU-0fc921a0-8588-6976-7e2c-172705ab6980",
+      "memory_MiB": 5136,
+      "utilization": 79,
+      "owners": [
+        {
+          "pid": 63769,
+          "uid": 1024
+        },
+        {
+          "pid": 64165,
+          "uid": 1024
+        }
+      ]
+    },
+    "1": {
+      "uuid": "GPU-3f5b86c8-feeb-110c-c68c-e04716c0f84c",
+      "memory_MiB": 6,
+      "utilization": 0,
+      "owners": []
+    },
+    "2": {
+      "uuid": "GPU-01bbc8c7-11be-9e3c-b786-7c075e675e0a",
+      "memory_MiB": 9052,
+      "utilization": 90,
+      "owners": [
+        {
+          "pid": 3256,
+          "uid": 1004
+        },
+        {
+          "pid": 63847,
+          "uid": 1024
+        }
+      ]
+    },
+    "3": {
+      "uuid": "GPU-fb856f23-d2d1-87af-54d4-f805742da76f",
+      "memory_MiB": 10726,
+      "utilization": 99,
+      "owners": [
+        {
+          "pid": 7965,
+          "uid": 1004
+        },
+        {
+          "pid": 63985,
+          "uid": 1024
+        },
+        {
+          "pid": 64048,
+          "uid": 1024
+        }
+      ]
+    }
+  },
+  "source_sha256": "51f630731fc71056962734cdde1f0e6d22c9dab765a5ff454e4ec2f5b36fec40",
+  "core_sha256": "8db52de8a0d5feeb56264c50154babe05aecf939bd23fe10e64a96ebe0916f2c",
+  "kernel_sha256": "ff67271a66cc6016854f3e1d5736f2931efa5f8feafb5eefbfa70a52105910b3",
+  "initial_allow_tf32": false,
+  "cases": [
+    {
+      "name": "language_model.model.layers.0.self_attn.q_proj.weight",
+      "shape": [
+        896,
+        896
+      ],
+      "source_dtype": "torch.float16",
+      "tensor_sha256": "fbcb77897f60699e5052621cd16e67c877211c273f7f48209ca2f3dd5f926513",
+      "results": [
+        {
+          "SVD_device": "cuda",
+          "allow_tf32": false,
+          "FP32_relative_error": 0.00019555540347937495,
+          "passes_original_bound": false
+        },
+        {
+          "SVD_device": "cuda",
+          "allow_tf32": true,
+          "FP32_relative_error": 0.00034958781907334924,
+          "passes_original_bound": false
+        },
+        {
+          "SVD_device": "cpu",
+          "allow_tf32": false,
+          "FP32_relative_error": 1.203201463795267e-06,
+          "passes_original_bound": true
+        },
+        {
+          "SVD_device": "cpu",
+          "allow_tf32": true,
+          "FP32_relative_error": 0.0002905002038460225,
+          "passes_original_bound": false
+        }
+      ]
+    },
+    {
+      "name": "language_model.model.layers.0.self_attn.v_proj.weight",
+      "shape": [
+        128,
+        896
+      ],
+      "source_dtype": "torch.float16",
+      "tensor_sha256": "cdfa9c2c74786a78563e3708645457ab4a2e9c575513c36fd01091ab3bda4918",
+      "results": [
+        {
+          "SVD_device": "cuda",
+          "allow_tf32": false,
+          "FP32_relative_error": 2.386873893556185e-05,
+          "passes_original_bound": false
+        },
+        {
+          "SVD_device": "cuda",
+          "allow_tf32": true,
+          "FP32_relative_error": 0.00029559616814367473,
+          "passes_original_bound": false
+        },
+        {
+          "SVD_device": "cpu",
+          "allow_tf32": false,
+          "FP32_relative_error": 1.0113938060385408e-06,
+          "passes_original_bound": true
+        },
+        {
+          "SVD_device": "cpu",
+          "allow_tf32": true,
+          "FP32_relative_error": 0.0002958179684355855,
+          "passes_original_bound": false
+        }
+      ]
+    },
+    {
+      "name": "language_model.model.layers.23.self_attn.q_proj.weight",
+      "shape": [
+        896,
+        896
+      ],
+      "source_dtype": "torch.float16",
+      "tensor_sha256": "14e550211bb4c358eda699b0a14029685e03609795d8a72fcff22454f0ba49b6",
+      "results": [
+        {
+          "SVD_device": "cuda",
+          "allow_tf32": false,
+          "FP32_relative_error": 0.00023635601974092424,
+          "passes_original_bound": false
+        },
+        {
+          "SVD_device": "cuda",
+          "allow_tf32": true,
+          "FP32_relative_error": 0.00037313500070013106,
+          "passes_original_bound": false
+        },
+        {
+          "SVD_device": "cpu",
+          "allow_tf32": false,
+          "FP32_relative_error": 1.5326126003856189e-06,
+          "passes_original_bound": true
+        },
+        {
+          "SVD_device": "cpu",
+          "allow_tf32": true,
+          "FP32_relative_error": 0.00029375485610216856,
+          "passes_original_bound": false
+        }
+      ]
+    },
+    {
+      "name": "language_model.model.layers.23.self_attn.v_proj.weight",
+      "shape": [
+        128,
+        896
+      ],
+      "source_dtype": "torch.float16",
+      "tensor_sha256": "cf01f6301f54c2dfb8d61e6d7c0a4017fe228854b118298d426027ab1407ba1e",
+      "results": [
+        {
+          "SVD_device": "cuda",
+          "allow_tf32": false,
+          "FP32_relative_error": 2.244390816485975e-05,
+          "passes_original_bound": false
+        },
+        {
+          "SVD_device": "cuda",
+          "allow_tf32": true,
+          "FP32_relative_error": 0.00029347994131967425,
+          "passes_original_bound": false
+        },
+        {
+          "SVD_device": "cpu",
+          "allow_tf32": false,
+          "FP32_relative_error": 1.0465872719578329e-06,
+          "passes_original_bound": true
+        },
+        {
+          "SVD_device": "cpu",
+          "allow_tf32": true,
+          "FP32_relative_error": 0.00029192943475209177,
+          "passes_original_bound": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,674 @@
+{
+  "CPU_only": true,
+  "source_sha256": {
+    "analysis/onevision_osft_budget_cpu_v3.py": "eccd51e52b68877887c02842de0ae3272131f5a01f6b410af64b99051b589698",
+    "analysis/onevision_osft_budget_core_v3.py": "7344d757c84130c664351c89f21f62b32fcd5e4f2398414b632b9e1d8e425981",
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/config.json": "839a4fba0bd6949f0db22d4f840935cb0318f6ac28b29c9ce1a5b15735a4a740"
+  },
+  "author_kernel_sha256": "ff67271a66cc6016854f3e1d5736f2931efa5f8feafb5eefbfa70a52105910b3",
+  "synthetic_mechanics": {
+    "CPU_only": true,
+    "author_kernel_sha256": "ff67271a66cc6016854f3e1d5736f2931efa5f8feafb5eefbfa70a52105910b3",
+    "synthetic_cases": [
+      {
+        "shape": [
+          12,
+          12
+        ],
+        "raw_gradients_exact_before_intervention": true,
+        "actual_projection_changes_gradient": true,
+        "frozen_high_and_S_exact": true,
+        "protected_subspace_residuals_bounded": true,
+        "current_function_refactor_passed": true
+      },
+      {
+        "shape": [
+          8,
+          14
+        ],
+        "raw_gradients_exact_before_intervention": true,
+        "actual_projection_changes_gradient": true,
+        "frozen_high_and_S_exact": true,
+        "protected_subspace_residuals_bounded": true,
+        "current_function_refactor_passed": true
+      },
+      {
+        "shape": [
+          14,
+          8
+        ],
+        "raw_gradients_exact_before_intervention": true,
+        "actual_projection_changes_gradient": true,
+        "frozen_high_and_S_exact": true,
+        "protected_subspace_residuals_bounded": true,
+        "current_function_refactor_passed": true
+      }
+    ],
+    "GPU_started": false,
+    "model_or_QA_performance_evidence": false
+  },
+  "actual_pretrained_weight_examples": [
+    {
+      "name": "language_model.model.layers.0.self_attn.q_proj.weight",
+      "source_tensor_sha256": "fbcb77897f60699e5052621cd16e67c877211c273f7f48209ca2f3dd5f926513",
+      "shape": [
+        896,
+        896
+      ],
+      "relative_FP32_SVD_error": 1.2404149174471968e-06,
+      "actual_CPU_autocast_reconstruction_exact": true,
+      "exact_BF16_reconstructed_coordinates": 802546,
+      "total_coordinates": 802816,
+      "actual_tensor_bytes": {
+        "trainable": 57344,
+        "frozen_parameters": 32,
+        "frozen_buffers": 6368736
+      },
+      "trainable_parameters": 14336
+    },
+    {
+      "name": "language_model.model.layers.0.self_attn.v_proj.weight",
+      "source_tensor_sha256": "cdfa9c2c74786a78563e3708645457ab4a2e9c575513c36fd01091ab3bda4918",
+      "shape": [
+        128,
+        896
+      ],
+      "relative_FP32_SVD_error": 1.0486633073014673e-06,
+      "actual_CPU_autocast_reconstruction_exact": true,
+      "exact_BF16_reconstructed_coordinates": 114661,
+      "total_coordinates": 114688,
+      "actual_tensor_bytes": {
+        "trainable": 32768,
+        "frozen_parameters": 32,
+        "frozen_buffers": 492000
+      },
+      "trainable_parameters": 8192
+    },
+    {
+      "name": "language_model.model.layers.23.self_attn.q_proj.weight",
+      "source_tensor_sha256": "14e550211bb4c358eda699b0a14029685e03609795d8a72fcff22454f0ba49b6",
+      "shape": [
+        896,
+        896
+      ],
+      "relative_FP32_SVD_error": 1.5479660078199231e-06,
+      "actual_CPU_autocast_reconstruction_exact": true,
+      "exact_BF16_reconstructed_coordinates": 802498,
+      "total_coordinates": 802816,
+      "actual_tensor_bytes": {
+        "trainable": 57344,
+        "frozen_parameters": 32,
+        "frozen_buffers": 6368736
+      },
+      "trainable_parameters": 14336
+    },
+    {
+      "name": "language_model.model.layers.23.self_attn.v_proj.weight",
+      "source_tensor_sha256": "cf01f6301f54c2dfb8d61e6d7c0a4017fe228854b118298d426027ab1407ba1e",
+      "shape": [
+        128,
+        896
+      ],
+      "relative_FP32_SVD_error": 1.1305946827633306e-06,
+      "actual_CPU_autocast_reconstruction_exact": true,
+      "exact_BF16_reconstructed_coordinates": 114645,
+      "total_coordinates": 114688,
+      "actual_tensor_bytes": {
+        "trainable": 32768,
+        "frozen_parameters": 32,
+        "frozen_buffers": 492000
+      },
+      "trainable_parameters": 8192
+    }
+  ],
+  "all48_shapes": [
+    {
+      "name": "language_model.model.layers.0.self_attn.q_proj.weight",
+      "shape": [
+        896,
+        896
+      ],
+      "trainable_parameters": 14336,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 6426112,
+      "original_BF16_weight_bytes": 1605632
+    },
+    {
+      "name": "language_model.model.layers.0.self_attn.v_proj.weight",
+      "shape": [
+        128,
+        896
+      ],
+      "trainable_parameters": 8192,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 524800,
+      "original_BF16_weight_bytes": 229376
+    },
+    {
+      "name": "language_model.model.layers.1.self_attn.q_proj.weight",
+      "shape": [
+        896,
+        896
+      ],
+      "trainable_parameters": 14336,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 6426112,
+      "original_BF16_weight_bytes": 1605632
+    },
+    {
+      "name": "language_model.model.layers.1.self_attn.v_proj.weight",
+      "shape": [
+        128,
+        896
+      ],
+      "trainable_parameters": 8192,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 524800,
+      "original_BF16_weight_bytes": 229376
+    },
+    {
+      "name": "language_model.model.layers.10.self_attn.q_proj.weight",
+      "shape": [
+        896,
+        896
+      ],
+      "trainable_parameters": 14336,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 6426112,
+      "original_BF16_weight_bytes": 1605632
+    },
+    {
+      "name": "language_model.model.layers.10.self_attn.v_proj.weight",
+      "shape": [
+        128,
+        896
+      ],
+      "trainable_parameters": 8192,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 524800,
+      "original_BF16_weight_bytes": 229376
+    },
+    {
+      "name": "language_model.model.layers.11.self_attn.q_proj.weight",
+      "shape": [
+        896,
+        896
+      ],
+      "trainable_parameters": 14336,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 6426112,
+      "original_BF16_weight_bytes": 1605632
+    },
+    {
+      "name": "language_model.model.layers.11.self_attn.v_proj.weight",
+      "shape": [
+        128,
+        896
+      ],
+      "trainable_parameters": 8192,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 524800,
+      "original_BF16_weight_bytes": 229376
+    },
+    {
+      "name": "language_model.model.layers.12.self_attn.q_proj.weight",
+      "shape": [
+        896,
+        896
+      ],
+      "trainable_parameters": 14336,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 6426112,
+      "original_BF16_weight_bytes": 1605632
+    },
+    {
+      "name": "language_model.model.layers.12.self_attn.v_proj.weight",
+      "shape": [
+        128,
+        896
+      ],
+      "trainable_parameters": 8192,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 524800,
+      "original_BF16_weight_bytes": 229376
+    },
+    {
+      "name": "language_model.model.layers.13.self_attn.q_proj.weight",
+      "shape": [
+        896,
+        896
+      ],
+      "trainable_parameters": 14336,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 6426112,
+      "original_BF16_weight_bytes": 1605632
+    },
+    {
+      "name": "language_model.model.layers.13.self_attn.v_proj.weight",
+      "shape": [
+        128,
+        896
+      ],
+      "trainable_parameters": 8192,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 524800,
+      "original_BF16_weight_bytes": 229376
+    },
+    {
+      "name": "language_model.model.layers.14.self_attn.q_proj.weight",
+      "shape": [
+        896,
+        896
+      ],
+      "trainable_parameters": 14336,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 6426112,
+      "original_BF16_weight_bytes": 1605632
+    },
+    {
+      "name": "language_model.model.layers.14.self_attn.v_proj.weight",
+      "shape": [
+        128,
+        896
+      ],
+      "trainable_parameters": 8192,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 524800,
+      "original_BF16_weight_bytes": 229376
+    },
+    {
+      "name": "language_model.model.layers.15.self_attn.q_proj.weight",
+      "shape": [
+        896,
+        896
+      ],
+      "trainable_parameters": 14336,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 6426112,
+      "original_BF16_weight_bytes": 1605632
+    },
+    {
+      "name": "language_model.model.layers.15.self_attn.v_proj.weight",
+      "shape": [
+        128,
+        896
+      ],
+      "trainable_parameters": 8192,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 524800,
+      "original_BF16_weight_bytes": 229376
+    },
+    {
+      "name": "language_model.model.layers.16.self_attn.q_proj.weight",
+      "shape": [
+        896,
+        896
+      ],
+      "trainable_parameters": 14336,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 6426112,
+      "original_BF16_weight_bytes": 1605632
+    },
+    {
+      "name": "language_model.model.layers.16.self_attn.v_proj.weight",
+      "shape": [
+        128,
+        896
+      ],
+      "trainable_parameters": 8192,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 524800,
+      "original_BF16_weight_bytes": 229376
+    },
+    {
+      "name": "language_model.model.layers.17.self_attn.q_proj.weight",
+      "shape": [
+        896,
+        896
+      ],
+      "trainable_parameters": 14336,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 6426112,
+      "original_BF16_weight_bytes": 1605632
+    },
+    {
+      "name": "language_model.model.layers.17.self_attn.v_proj.weight",
+      "shape": [
+        128,
+        896
+      ],
+      "trainable_parameters": 8192,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 524800,
+      "original_BF16_weight_bytes": 229376
+    },
+    {
+      "name": "language_model.model.layers.18.self_attn.q_proj.weight",
+      "shape": [
+        896,
+        896
+      ],
+      "trainable_parameters": 14336,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 6426112,
+      "original_BF16_weight_bytes": 1605632
+    },
+    {
+      "name": "language_model.model.layers.18.self_attn.v_proj.weight",
+      "shape": [
+        128,
+        896
+      ],
+      "trainable_parameters": 8192,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 524800,
+      "original_BF16_weight_bytes": 229376
+    },
+    {
+      "name": "language_model.model.layers.19.self_attn.q_proj.weight",
+      "shape": [
+        896,
+        896
+      ],
+      "trainable_parameters": 14336,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 6426112,
+      "original_BF16_weight_bytes": 1605632
+    },
+    {
+      "name": "language_model.model.layers.19.self_attn.v_proj.weight",
+      "shape": [
+        128,
+        896
+      ],
+      "trainable_parameters": 8192,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 524800,
+      "original_BF16_weight_bytes": 229376
+    },
+    {
+      "name": "language_model.model.layers.2.self_attn.q_proj.weight",
+      "shape": [
+        896,
+        896
+      ],
+      "trainable_parameters": 14336,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 6426112,
+      "original_BF16_weight_bytes": 1605632
+    },
+    {
+      "name": "language_model.model.layers.2.self_attn.v_proj.weight",
+      "shape": [
+        128,
+        896
+      ],
+      "trainable_parameters": 8192,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 524800,
+      "original_BF16_weight_bytes": 229376
+    },
+    {
+      "name": "language_model.model.layers.20.self_attn.q_proj.weight",
+      "shape": [
+        896,
+        896
+      ],
+      "trainable_parameters": 14336,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 6426112,
+      "original_BF16_weight_bytes": 1605632
+    },
+    {
+      "name": "language_model.model.layers.20.self_attn.v_proj.weight",
+      "shape": [
+        128,
+        896
+      ],
+      "trainable_parameters": 8192,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 524800,
+      "original_BF16_weight_bytes": 229376
+    },
+    {
+      "name": "language_model.model.layers.21.self_attn.q_proj.weight",
+      "shape": [
+        896,
+        896
+      ],
+      "trainable_parameters": 14336,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 6426112,
+      "original_BF16_weight_bytes": 1605632
+    },
+    {
+      "name": "language_model.model.layers.21.self_attn.v_proj.weight",
+      "shape": [
+        128,
+        896
+      ],
+      "trainable_parameters": 8192,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 524800,
+      "original_BF16_weight_bytes": 229376
+    },
+    {
+      "name": "language_model.model.layers.22.self_attn.q_proj.weight",
+      "shape": [
+        896,
+        896
+      ],
+      "trainable_parameters": 14336,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 6426112,
+      "original_BF16_weight_bytes": 1605632
+    },
+    {
+      "name": "language_model.model.layers.22.self_attn.v_proj.weight",
+      "shape": [
+        128,
+        896
+      ],
+      "trainable_parameters": 8192,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 524800,
+      "original_BF16_weight_bytes": 229376
+    },
+    {
+      "name": "language_model.model.layers.23.self_attn.q_proj.weight",
+      "shape": [
+        896,
+        896
+      ],
+      "trainable_parameters": 14336,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 6426112,
+      "original_BF16_weight_bytes": 1605632
+    },
+    {
+      "name": "language_model.model.layers.23.self_attn.v_proj.weight",
+      "shape": [
+        128,
+        896
+      ],
+      "trainable_parameters": 8192,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 524800,
+      "original_BF16_weight_bytes": 229376
+    },
+    {
+      "name": "language_model.model.layers.3.self_attn.q_proj.weight",
+      "shape": [
+        896,
+        896
+      ],
+      "trainable_parameters": 14336,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 6426112,
+      "original_BF16_weight_bytes": 1605632
+    },
+    {
+      "name": "language_model.model.layers.3.self_attn.v_proj.weight",
+      "shape": [
+        128,
+        896
+      ],
+      "trainable_parameters": 8192,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 524800,
+      "original_BF16_weight_bytes": 229376
+    },
+    {
+      "name": "language_model.model.layers.4.self_attn.q_proj.weight",
+      "shape": [
+        896,
+        896
+      ],
+      "trainable_parameters": 14336,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 6426112,
+      "original_BF16_weight_bytes": 1605632
+    },
+    {
+      "name": "language_model.model.layers.4.self_attn.v_proj.weight",
+      "shape": [
+        128,
+        896
+      ],
+      "trainable_parameters": 8192,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 524800,
+      "original_BF16_weight_bytes": 229376
+    },
+    {
+      "name": "language_model.model.layers.5.self_attn.q_proj.weight",
+      "shape": [
+        896,
+        896
+      ],
+      "trainable_parameters": 14336,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 6426112,
+      "original_BF16_weight_bytes": 1605632
+    },
+    {
+      "name": "language_model.model.layers.5.self_attn.v_proj.weight",
+      "shape": [
+        128,
+        896
+      ],
+      "trainable_parameters": 8192,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 524800,
+      "original_BF16_weight_bytes": 229376
+    },
+    {
+      "name": "language_model.model.layers.6.self_attn.q_proj.weight",
+      "shape": [
+        896,
+        896
+      ],
+      "trainable_parameters": 14336,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 6426112,
+      "original_BF16_weight_bytes": 1605632
+    },
+    {
+      "name": "language_model.model.layers.6.self_attn.v_proj.weight",
+      "shape": [
+        128,
+        896
+      ],
+      "trainable_parameters": 8192,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 524800,
+      "original_BF16_weight_bytes": 229376
+    },
+    {
+      "name": "language_model.model.layers.7.self_attn.q_proj.weight",
+      "shape": [
+        896,
+        896
+      ],
+      "trainable_parameters": 14336,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 6426112,
+      "original_BF16_weight_bytes": 1605632
+    },
+    {
+      "name": "language_model.model.layers.7.self_attn.v_proj.weight",
+      "shape": [
+        128,
+        896
+      ],
+      "trainable_parameters": 8192,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 524800,
+      "original_BF16_weight_bytes": 229376
+    },
+    {
+      "name": "language_model.model.layers.8.self_attn.q_proj.weight",
+      "shape": [
+        896,
+        896
+      ],
+      "trainable_parameters": 14336,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 6426112,
+      "original_BF16_weight_bytes": 1605632
+    },
+    {
+      "name": "language_model.model.layers.8.self_attn.v_proj.weight",
+      "shape": [
+        128,
+        896
+      ],
+      "trainable_parameters": 8192,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 524800,
+      "original_BF16_weight_bytes": 229376
+    },
+    {
+      "name": "language_model.model.layers.9.self_attn.q_proj.weight",
+      "shape": [
+        896,
+        896
+      ],
+      "trainable_parameters": 14336,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 6426112,
+      "original_BF16_weight_bytes": 1605632
+    },
+    {
+      "name": "language_model.model.layers.9.self_attn.v_proj.weight",
+      "shape": [
+        128,
+        896
+      ],
+      "trainable_parameters": 8192,
+      "frozen_S_parameters": 8,
+      "full_SVD_tensor_bytes": 524800,
+      "original_BF16_weight_bytes": 229376
+    }
+  ],
+  "trainable_parameters": 540672,
+  "original_LoRA_trainable_parameters": 540672,
+  "S_low_frozen_to_match_count": true,
+  "full_qv_SVD_tensor_bytes": 166821888,
+  "original_qv_BF16_tensor_bytes": 44040192,
+  "current_function_refactor": true,
+  "import_device_0_and_1_preserved": true,
+  "QA_or_TEST_parsed": false,
+  "GPU_started": false,
+  "worker_or_queue_admitted": false,
+  "outer_autocast_no_longer_downcasts_reconstruction": true,
+  "limits": [
+    "Capacity-matched control, not a new method or result on actual QA.",
+    "Same trainable coordinate count does not mean same function family or independent degrees of freedom.",
+    "Frozen S, fixed rank8/qv, and dropout/precision differences must be explicit in later protocol.",
+    "SVD factors cost more frozen storage than the original dense q/v weights; no memory superiority.",
+    "FP32 SVD approximates weights; BF16 reconstruction is not assumed bitwise original. Own S0 required.",
+    "Protected/unprotected paired controls must start from EXACT same saved factors and function.",
+    "No new model optimizer, visual forward or generative metric has yet been tested."
+  ]
+}
