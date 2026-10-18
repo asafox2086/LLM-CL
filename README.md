@@ -4,7 +4,7 @@
 
 **最新执行（2026-10-18）：** 原生连续LoRA＋缓存19阶段/93次更新及四格诊断已完整核验：同155题AP为顺序43.363、缓存几何45.700、缓存质量42.860；域宏差区间均含0，未证大幅稳定提升。相同32道遥感题出现NLL下降而F1下降，质量调用不能直接等同生成质量。[完整四格与边界](summary/onevision_diagnostics_20261016/functional_state_cache_20261018/v1/first_four_view_outcome/RESEARCH_FINDINGS.md)。服务器18:45重启后正式SeqFT接续；CL-MoE保留中断证据后已启动新的独立运行，其他GPU进程保全。[实际执行记录](summary/onevision_diagnostics_20261016/functional_state_cache_20261018/v1/execution_context/README.md)。研究在空闲GPU0/1择一，新机我们的作业最多占三张卡。
 
-**当前主线先保持简单：** 按用户最新要求，先用研究设置检验“冷启动难学，不等于跨域LoRA应当复用”。[固定五格](summary/onevision_diagnostics_20261016/initialization_source_controls_20261018/v1/PROTOCOL.md)比较冷启动、同域/跨域完整继承、同域/跨域只继承A并将B置零；各用相同26条目标TRAIN/2更新，最终同507题。两个源历史已完成各12次QA曝光/2更新，冷启动目标对照已在GPU1开始；五格最终507题结果仍待，不继续加路由模块。[唯一当前队列](summary/onevision_diagnostics_20261016/initialization_source_controls_20261018/v1/queue/README.md)。
+**当前主线先保持简单：** 按用户最新要求，先用研究设置检验“冷启动难学，不等于跨域LoRA应当复用”。[固定五格](summary/onevision_diagnostics_20261016/initialization_source_controls_20261018/v1/PROTOCOL.md)比较冷启动、同域/跨域完整继承、同域/跨域只继承A并将B置零；各用相同26条目标TRAIN/2更新，最终同507题。两个源历史已完成；冷启动组完整507题Answer F1为14.681，同域完整继承组已接续。其余四组尚待，不能据冷组单行判断复用收益。[实际内存与TRAIN窗口](summary/onevision_diagnostics_20261016/initialization_source_controls_20261018/v1/RESOURCE_SNAPSHOTS.md)。不继续加路由模块。[唯一当前队列](summary/onevision_diagnostics_20261016/initialization_source_controls_20261018/v1/queue/README.md)。
 
 [公共V2缓存候选](code/OneVision_FormalStateCache/README.md)的源码、正式SeqFT19阶段小状态和CPU集成已备妥，输入/精度/顺序等与正式框架一致；按最新要求暂后移两个完整确认，不删除。原训练93更新成本仍计入，原生155分数继续只作诊断，正式Ours未完成仍留空。
 
