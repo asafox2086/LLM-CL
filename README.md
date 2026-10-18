@@ -1,5 +1,6 @@
 > **核心背景：轻量、小数据、低内存增长。允许多个LoRA，单LoRA不是硬限制。** 先检验少量数据为何导致既有方法退化，再针对性提升；目标内存增长低于具体对比LoRA方法，须同设置实测，并报告额外计算成本。两台服务器基线持续后台运行。[核心规则](rules/021_lightweight_data_limited_core_20261017.md)。
 
+2026-10-18实际运行更新：GPU1 worker348381/startticks14466517已自动启动，原500NLL/155预测/路由精确重载门槛通过；43条TRAIN、172次NLL前向、400次CPU校准更新完成，16参数确有改变。四个完整诊断视图仍未完成，不能宣称TEST收益。外来GPU1进程350639在本作业准入之后进入，保留双方；共同运行墙钟时间不能当独占性能，下一作业仍等待实际空闲。两机基线不变。
 # LLMCL：小模型的五领域多模态持续学习
 
 > 当前正式1%对照已改用[双骨干共享框架](exp/two_backbone_native_cl_20261017_v2/README.md)，旧Qwen单步零学习率轨迹已隔离，不能进入主表。旧机OneVision、新机Qwen；新GPU0保留、GPU1研究。
@@ -24,6 +25,8 @@
 
 | 重点发现 | 实际结果 | 结论边界 |
 | --- | --- | --- |
+| 当前任务内部就能损伤开放功能 | CL-MoE Organ当前学习OPEN−5.707，CLOSED+6.935；后续领域还未训练 | 不是全由后来跨域遗忘；当前适配实现，尚未隔离路由/保护/数据原因，[全对照](summary/onevision_diagnostics_20261016/native_acquisition_20261018_v3/RESEARCH_FINDINGS.md) |
+| 少更新关联会在领域内反转 | 7方法共同13任务总体一次更新增量较低，医学内CL-MoE/PaRSP/OSFT反向 | 不将相关性当步数因果，不泛化原同任务预算控制 |
 | 回放均值稳定可以掩盖开放题退化 | 正式ER Organ全均值差区间含0，OPEN184题却35.661→23.533，−12.129pp区间为负；19个池无容量淘汰 | 排除本例旧TRAIN被容量挤掉，未证抽样覆盖是掉分原因，[全部证据](summary/onevision_diagnostics_20261016/baseline_language_followup_20261018/RESEARCH_FINDINGS.md) |
 | 总分与开放题能力、实际成本需分开 | Qwen S4 Organ总分45.209高于OneVision37.314，OPEN却20.985低于35.118；PAS中文强增主要闭式、参数约Seq260倍 | 单任务时点、架构/容量等混杂，不推出纯规模/知识因果或轻量优势 |
 | 共同历史后四域换五域，F1与loss可不同步 | Organ507题18.626→17.196，F1差−1.430区间含0，NLL+0.157908区间为正 | 前3阶段权重/首批梯度精确相同，后续内容/顺序仍不同；未证领域数因果，[完整对照](summary/onevision_diagnostics_20261016/matched_task_domain/common_prefix/VERIFIED_RESULTS.md) |

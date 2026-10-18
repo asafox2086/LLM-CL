@@ -12,6 +12,7 @@
 
 | 想看什么 | 当前入口 | 内容与状态 |
 | --- | --- | --- |
+| 少更新关联是否就是原因、当前任务能否伤害开放功能 | [7方法共同13任务／六栏](native_acquisition_20261018_v3/RESEARCH_FINDINGS.md) | CL-MoE当前OPEN−5.707，后续领域未发生；总体7/7关联在医学3方法反转，不作纯步数因果；V3排除损坏资源，不放宽评分 |
 | 正式基线学会后丢了什么、回放存储是否不足 | [新8个封存格／六栏](baseline_language_followup_20261018/RESEARCH_FINDINGS.md) | ER OPEN−12.129区间为负但全均值区间含0，池0容量淘汰；PAS强增主要闭式且资源大，Qwen总分不代表OPEN |
 | 同学习历史下四域换五域会怎样 | [前三阶段精确匹配及全507对照](matched_task_domain/common_prefix/VERIFIED_RESULTS.md) | F1差−1.430区间含0，NLL+0.157908区间为正；中文245/254题两边F1均0，不能据此推领域数因果或两模型等价 |
 | 学习输入相似度、优先复用LoRA是否有效 | [同155题实际结果](learned_reuse/INTERIM_RESULT_20261018.md)、[核验结果](learned_reuse/VERIFIED_RESULTS.md) | 两组19阶段完成，学习AP31.025低于顺序43.363；均用满3模块，完整确认0/2 |
@@ -21,7 +22,7 @@
 | 跨域差距是否混入语言变化 | [完整507题语言/题型审计](matched_task_domain/language_profile/T04_VERIFIED_RESULTS.md) | 中文差−21.102/英文−9.960pp；TRAIN中文曝光17/0，不能纯归因知识遗忘 |
 | 固定权重能否靠输出指令恢复 | [四指令干预](language_cue/PROTOCOL.md)、[结果](language_cue/VERIFIED_RESULTS.md) | 所有完整8格已测，跨域中文部分恢复但英文/同域中文有损害；不按TEST选提示词 |
 | 原语言干预接续 | [原语言因果CPU队列](language_causal_queue/README.md) | 已由新学习复用入口继承，所有4个固定推理进程保留；不恢复旧CPU277043 |
-| 正式基线的低分是否已在习得时存在 | [V2学习前/刚学完语言审计](baseline_language_profile/VERIFIED_RESULTS.md) | SeqFT/ER中文S3→S4 +17.559/+17.362pp，原26QA/2正LR更新；最终格待测，不与AnyRes拼接 |
+| 正式基线的低分是否已在习得时存在 | [最新学习前/后与保持](baseline_language_followup_20261018/RESEARCH_FINDINGS.md)、[全原生任务扩展](native_acquisition_20261018_v3/RESEARCH_FINDINGS.md) | SeqFT/ER最终已核验，另新增PaRSP/OSFT/CL/PAS即时学习；旧K19留历史，不与AnyRes拼接 |
 | 平均旧loss改善是否保护全部旧功能 | [TRAIN子组梯度/有限变化](train_language_geometry/VERIFIED_RESULTS.md) | 4条固定TRAIN、11个已学转移中6次均值改善掩盖组退化；反方向/同域例也保留，不作F1或语言因果 |
 | 已做什么、证明／证伪了什么、改进有没有用 | [RESEARCH_REPORT](RESEARCH_REPORT.md) | 主报告，14项统一六栏 |
 | 首批跨域梯度是否已负冲突 | [精确共同起点TRAIN审计](matched_task_domain/first_transition_geometry/VERIFIED_RESULTS.md) | 三序列余弦均正，不能推断后续无冲突或有限F1因果 |

@@ -1,0 +1,753 @@
+{
+  "CPU_only": true,
+  "common_prefix": 13,
+  "new_GPU_operations": 0,
+  "budget_split": "Frozen effective batch16: one actual update vs more than one; no TEST chosen threshold",
+  "native_evidence_sha256": "30b69906b069602115a132a8712893da48ad7e279248529443c405b45b83a29b",
+  "rows": [
+    {
+      "backbone": "onevision",
+      "method": "SeqFT_LoRA",
+      "groups": {
+        "all": {
+          "one_update": {
+            "tasks": [
+              2,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "count": 9,
+            "before_F1": 32.70538981930151,
+            "after_F1": 36.30189524415884,
+            "acquisition_delta": 3.596505424857341
+          },
+          "multiple_updates": {
+            "tasks": [
+              1,
+              3,
+              4,
+              13
+            ],
+            "count": 4,
+            "before_F1": 36.72232476008858,
+            "after_F1": 54.29154477821761,
+            "acquisition_delta": 17.56922001812903
+          }
+        },
+        "natural": {
+          "one_update": {
+            "tasks": [],
+            "count": 0,
+            "before_F1": null,
+            "after_F1": null,
+            "acquisition_delta": null
+          },
+          "multiple_updates": {
+            "tasks": [
+              1
+            ],
+            "count": 1,
+            "before_F1": 38.711340489239866,
+            "after_F1": 75.19318738479868,
+            "acquisition_delta": 36.48184689555881
+          }
+        },
+        "medical": {
+          "one_update": {
+            "tasks": [
+              2,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "count": 8,
+            "before_F1": 29.418563546714196,
+            "after_F1": 32.8396321496787,
+            "acquisition_delta": 3.4210686029645085
+          },
+          "multiple_updates": {
+            "tasks": [
+              3,
+              4
+            ],
+            "count": 2,
+            "before_F1": 23.0229894278415,
+            "after_F1": 33.72761261530492,
+            "acquisition_delta": 10.704623187463422
+          }
+        },
+        "geography": {
+          "one_update": {
+            "tasks": [
+              12
+            ],
+            "count": 1,
+            "before_F1": 59.0,
+            "after_F1": 64.0,
+            "acquisition_delta": 5.0
+          },
+          "multiple_updates": {
+            "tasks": [
+              13
+            ],
+            "count": 1,
+            "before_F1": 62.131979695431475,
+            "after_F1": 74.51776649746193,
+            "acquisition_delta": 12.38578680203046
+          }
+        }
+      }
+    },
+    {
+      "backbone": "onevision",
+      "method": "ER_LoRA",
+      "groups": {
+        "all": {
+          "one_update": {
+            "tasks": [
+              2,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "count": 9,
+            "before_F1": 32.76503403693167,
+            "after_F1": 36.190088049394234,
+            "acquisition_delta": 3.4250540124625695
+          },
+          "multiple_updates": {
+            "tasks": [
+              1,
+              3,
+              4,
+              13
+            ],
+            "count": 4,
+            "before_F1": 36.902493604928075,
+            "after_F1": 53.805446488572855,
+            "acquisition_delta": 16.902952883644776
+          }
+        },
+        "natural": {
+          "one_update": {
+            "tasks": [],
+            "count": 0,
+            "before_F1": null,
+            "after_F1": null,
+            "acquisition_delta": null
+          },
+          "multiple_updates": {
+            "tasks": [
+              1
+            ],
+            "count": 1,
+            "before_F1": 38.711340489239866,
+            "after_F1": 75.27175881337011,
+            "acquisition_delta": 36.56041832413025
+          }
+        },
+        "medical": {
+          "one_update": {
+            "tasks": [
+              2,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "count": 8,
+            "before_F1": 29.735663291548125,
+            "after_F1": 32.71384905556852,
+            "acquisition_delta": 2.978185764020391
+          },
+          "multiple_updates": {
+            "tasks": [
+              3,
+              4
+            ],
+            "count": 2,
+            "before_F1": 23.011076694508645,
+            "after_F1": 32.95301695455541,
+            "acquisition_delta": 9.941940260046763
+          }
+        },
+        "geography": {
+          "one_update": {
+            "tasks": [
+              12
+            ],
+            "count": 1,
+            "before_F1": 57.0,
+            "after_F1": 64.0,
+            "acquisition_delta": 7.0
+          },
+          "multiple_updates": {
+            "tasks": [
+              13
+            ],
+            "count": 1,
+            "before_F1": 62.87648054145516,
+            "after_F1": 74.04399323181049,
+            "acquisition_delta": 11.16751269035533
+          }
+        }
+      }
+    },
+    {
+      "backbone": "onevision",
+      "method": "CL_MoE",
+      "groups": {
+        "all": {
+          "one_update": {
+            "tasks": [
+              2,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "count": 9,
+            "before_F1": 37.53057653336408,
+            "after_F1": 42.69965573922527,
+            "acquisition_delta": 5.169079205861188
+          },
+          "multiple_updates": {
+            "tasks": [
+              1,
+              3,
+              4,
+              13
+            ],
+            "count": 4,
+            "before_F1": 41.17061502737125,
+            "after_F1": 56.10758817463564,
+            "acquisition_delta": 14.936973147264384
+          }
+        },
+        "natural": {
+          "one_update": {
+            "tasks": [],
+            "count": 0,
+            "before_F1": null,
+            "after_F1": null,
+            "acquisition_delta": null
+          },
+          "multiple_updates": {
+            "tasks": [
+              1
+            ],
+            "count": 1,
+            "before_F1": 38.711340489239866,
+            "after_F1": 74.96470492187564,
+            "acquisition_delta": 36.25336443263577
+          }
+        },
+        "medical": {
+          "one_update": {
+            "tasks": [
+              2,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "count": 8,
+            "before_F1": 34.84689860003459,
+            "after_F1": 39.53711270662843,
+            "acquisition_delta": 4.690214106593836
+          },
+          "multiple_updates": {
+            "tasks": [
+              3,
+              4
+            ],
+            "count": 2,
+            "before_F1": 34.86373239895505,
+            "after_F1": 37.355497323189624,
+            "acquisition_delta": 2.4917649242345696
+          }
+        },
+        "geography": {
+          "one_update": {
+            "tasks": [
+              12
+            ],
+            "count": 1,
+            "before_F1": 59.0,
+            "after_F1": 68.0,
+            "acquisition_delta": 9.0
+          },
+          "multiple_updates": {
+            "tasks": [
+              13
+            ],
+            "count": 1,
+            "before_F1": 56.243654822335024,
+            "after_F1": 74.75465313028765,
+            "acquisition_delta": 18.510998307952626
+          }
+        }
+      }
+    },
+    {
+      "backbone": "onevision",
+      "method": "PASs_MoE",
+      "groups": {
+        "all": {
+          "one_update": {
+            "tasks": [
+              2,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "count": 9,
+            "before_F1": 38.2900478416034,
+            "after_F1": 48.37692803033755,
+            "acquisition_delta": 10.086880188734142
+          },
+          "multiple_updates": {
+            "tasks": [
+              1,
+              3,
+              4,
+              13
+            ],
+            "count": 4,
+            "before_F1": 29.929088054122232,
+            "after_F1": 61.44205445397073,
+            "acquisition_delta": 31.512966399848494
+          }
+        },
+        "natural": {
+          "one_update": {
+            "tasks": [],
+            "count": 0,
+            "before_F1": null,
+            "after_F1": null,
+            "acquisition_delta": null
+          },
+          "multiple_updates": {
+            "tasks": [
+              1
+            ],
+            "count": 1,
+            "before_F1": 38.711340489239866,
+            "after_F1": 73.41398954252934,
+            "acquisition_delta": 34.70264905328947
+          }
+        },
+        "medical": {
+          "one_update": {
+            "tasks": [
+              2,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "count": 8,
+            "before_F1": 35.951303821803826,
+            "after_F1": 48.92404403412974,
+            "acquisition_delta": 12.97274021232591
+          },
+          "multiple_updates": {
+            "tasks": [
+              3,
+              4
+            ],
+            "count": 2,
+            "before_F1": 26.28930789408139,
+            "after_F1": 48.66442378134684,
+            "acquisition_delta": 22.37511588726545
+          }
+        },
+        "geography": {
+          "one_update": {
+            "tasks": [
+              12
+            ],
+            "count": 1,
+            "before_F1": 57.0,
+            "after_F1": 44.0,
+            "acquisition_delta": -13.0
+          },
+          "multiple_updates": {
+            "tasks": [
+              13
+            ],
+            "count": 1,
+            "before_F1": 28.426395939086294,
+            "after_F1": 75.0253807106599,
+            "acquisition_delta": 46.59898477157361
+          }
+        }
+      }
+    },
+    {
+      "backbone": "onevision",
+      "method": "PaRSP",
+      "groups": {
+        "all": {
+          "one_update": {
+            "tasks": [
+              2,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "count": 9,
+            "before_F1": 36.15062021692442,
+            "after_F1": 37.771928189767685,
+            "acquisition_delta": 1.6213079728432582
+          },
+          "multiple_updates": {
+            "tasks": [
+              1,
+              3,
+              4,
+              13
+            ],
+            "count": 4,
+            "before_F1": 42.728551268707015,
+            "after_F1": 56.35991195689904,
+            "acquisition_delta": 13.631360688192023
+          }
+        },
+        "natural": {
+          "one_update": {
+            "tasks": [],
+            "count": 0,
+            "before_F1": null,
+            "after_F1": null,
+            "acquisition_delta": null
+          },
+          "multiple_updates": {
+            "tasks": [
+              1
+            ],
+            "count": 1,
+            "before_F1": 38.711340489239866,
+            "after_F1": 73.92589758160669,
+            "acquisition_delta": 35.214557092366825
+          }
+        },
+        "medical": {
+          "one_update": {
+            "tasks": [
+              2,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "count": 8,
+            "before_F1": 33.29444774403998,
+            "after_F1": 36.99341921348864,
+            "acquisition_delta": 3.6989714694486655
+          },
+          "multiple_updates": {
+            "tasks": [
+              3,
+              4
+            ],
+            "count": 2,
+            "before_F1": 36.169114187887146,
+            "after_F1": 38.22726429389151,
+            "acquisition_delta": 2.0581501060043585
+          }
+        },
+        "geography": {
+          "one_update": {
+            "tasks": [
+              12
+            ],
+            "count": 1,
+            "before_F1": 59.0,
+            "after_F1": 44.0,
+            "acquisition_delta": -15.0
+          },
+          "multiple_updates": {
+            "tasks": [
+              13
+            ],
+            "count": 1,
+            "before_F1": 59.864636209813874,
+            "after_F1": 75.05922165820643,
+            "acquisition_delta": 15.194585448392552
+          }
+        }
+      }
+    },
+    {
+      "backbone": "onevision",
+      "method": "OSFT",
+      "groups": {
+        "all": {
+          "one_update": {
+            "tasks": [
+              2,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "count": 9,
+            "before_F1": 39.17515987904821,
+            "after_F1": 49.9180912461369,
+            "acquisition_delta": 10.742931367088698
+          },
+          "multiple_updates": {
+            "tasks": [
+              1,
+              3,
+              4,
+              13
+            ],
+            "count": 4,
+            "before_F1": 38.38070760947732,
+            "after_F1": 60.23228088367496,
+            "acquisition_delta": 21.851573274197648
+          }
+        },
+        "natural": {
+          "one_update": {
+            "tasks": [],
+            "count": 0,
+            "before_F1": null,
+            "after_F1": null,
+            "acquisition_delta": null
+          },
+          "multiple_updates": {
+            "tasks": [
+              1
+            ],
+            "count": 1,
+            "before_F1": 38.6577280322524,
+            "after_F1": 75.30405497316899,
+            "acquisition_delta": 36.64632694091659
+          }
+        },
+        "medical": {
+          "one_update": {
+            "tasks": [
+              2,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "count": 8,
+            "before_F1": 36.69705486392923,
+            "after_F1": 50.657852651904015,
+            "acquisition_delta": 13.960797787974785
+          },
+          "multiple_updates": {
+            "tasks": [
+              3,
+              4
+            ],
+            "count": 2,
+            "before_F1": 37.31410788641557,
+            "after_F1": 45.164480135249356,
+            "acquisition_delta": 7.850372248833789
+          }
+        },
+        "geography": {
+          "one_update": {
+            "tasks": [
+              12
+            ],
+            "count": 1,
+            "before_F1": 59.0,
+            "after_F1": 44.0,
+            "acquisition_delta": -15.0
+          },
+          "multiple_updates": {
+            "tasks": [
+              13
+            ],
+            "count": 1,
+            "before_F1": 40.23688663282572,
+            "after_F1": 75.29610829103216,
+            "acquisition_delta": 35.05922165820643
+          }
+        }
+      }
+    },
+    {
+      "backbone": "qwen",
+      "method": "SeqFT_LoRA",
+      "groups": {
+        "all": {
+          "one_update": {
+            "tasks": [
+              2,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "count": 9,
+            "before_F1": 41.00965881392455,
+            "after_F1": 44.04544362310102,
+            "acquisition_delta": 3.0357848091764605
+          },
+          "multiple_updates": {
+            "tasks": [
+              1,
+              3,
+              4,
+              13
+            ],
+            "count": 4,
+            "before_F1": 45.95346041541754,
+            "after_F1": 57.26738083027024,
+            "acquisition_delta": 11.313920414852712
+          }
+        },
+        "natural": {
+          "one_update": {
+            "tasks": [],
+            "count": 0,
+            "before_F1": null,
+            "after_F1": null,
+            "acquisition_delta": null
+          },
+          "multiple_updates": {
+            "tasks": [
+              1
+            ],
+            "count": 1,
+            "before_F1": 77.9802366745228,
+            "after_F1": 86.0498981483982,
+            "acquisition_delta": 8.0696614738754
+          }
+        },
+        "medical": {
+          "one_update": {
+            "tasks": [
+              2,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "count": 8,
+            "before_F1": 38.51086616566512,
+            "after_F1": 41.926124075988646,
+            "acquisition_delta": 3.415257910323518
+          },
+          "multiple_updates": {
+            "tasks": [
+              3,
+              4
+            ],
+            "count": 2,
+            "before_F1": 31.055550378514454,
+            "after_F1": 38.294922569420926,
+            "acquisition_delta": 7.239372190906476
+          }
+        },
+        "geography": {
+          "one_update": {
+            "tasks": [
+              12
+            ],
+            "count": 1,
+            "before_F1": 61.0,
+            "after_F1": 61.0,
+            "acquisition_delta": 0.0
+          },
+          "multiple_updates": {
+            "tasks": [
+              13
+            ],
+            "count": 1,
+            "before_F1": 43.722504230118446,
+            "after_F1": 66.42978003384094,
+            "acquisition_delta": 22.707275803722496
+          }
+        }
+      }
+    }
+  ],
+  "global_one_update_lower": [
+    "onevision/SeqFT_LoRA",
+    "onevision/ER_LoRA",
+    "onevision/CL_MoE",
+    "onevision/PASs_MoE",
+    "onevision/PaRSP",
+    "onevision/OSFT",
+    "qwen/SeqFT_LoRA"
+  ],
+  "medical_order_reversed": [
+    "onevision/CL_MoE",
+    "onevision/PaRSP",
+    "onevision/OSFT"
+  ],
+  "source_sha256": {
+    "analysis/onevision_native_budget_stratification.py": "d6e61ebfc47a0627b5a1f469e67c11a576754c96bd04493c98cdcd224d572785"
+  },
+  "limits": [
+    "Descriptive task grouping; train count/steps/content/domain/order/prior headroom confounded.",
+    "Medical stratification holds domain label only, not content, difficulty or update budget.",
+    "No causal proof that more steps help, no significance or strict Simpson theorem claim.",
+    "Common prefix13 lacks finance/traffic, not completed five-domain method performance."
+  ]
+}
