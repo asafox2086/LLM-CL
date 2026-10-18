@@ -71,3 +71,8 @@
 主入口：[六栏总报告](RESEARCH_REPORT.md)、[关键机制登记](KEY_FINDINGS.md)、[知识字面相关性审计](KNOWLEDGE_LOCALITY_EVIDENCE.md)、[当前调度保全](causal_measurement_queue/ACTIVATION.json)。当前目标保持active，不以代码准备或仍在运行作为完成证据。
 
 原原因判定表已完整保存在[历史快照](../ago/causal_status_revision_20261017/CAUSAL_STATUS_before_requirement_audit.md)，包括资源窗口与事实长度边界，不丢弃原证据。事实金标最长17token，不能用512训练截断解释未记忆；不能由此排除错误生成的长度问题。知识rank1首8步的CUDA占用增长不等于新增参数，旧after仍保留优化器，具体字节见[资源窗口审计](MEMORY_WINDOW_AUDIT.md)。
+
+
+## 完整正式结果的汇总边界（K35）
+
+ER−SeqFT的AP19为−1.010919，而原领域宏平均为+0.772147；不是新训练收益，也不能从单一AP差推断所有多领域目标更差。领域间任务数和域内QA数两层权重共同影响，本次用42908条完整最终原预测精确重算并分解，不改原主指标/方法/队列。[完整记录](v2_aggregation_20261018/RESEARCH_FINDINGS.md)。

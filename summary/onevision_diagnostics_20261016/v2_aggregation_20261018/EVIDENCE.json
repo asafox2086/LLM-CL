@@ -1,0 +1,526 @@
+{
+  "CPU_only": true,
+  "GPU_started": false,
+  "TRAIN_QA_read": 0,
+  "new_optimizer_updates": 0,
+  "new_predictions_generated": 0,
+  "rescored_final_QA_each": 21454,
+  "same_original_F1": true,
+  "primary_AP19_unchanged": true,
+  "conditions_or_metrics_selected_by_TEST": false,
+  "source_sha256": {
+    "/tmp/llmcl_completed_for_aggregation_20261018.json": "5eec38433f58eceffa01e7c687f9aaef1ddab35ba73dc291a7d0d0913f2c1369",
+    "analysis/onevision_v2_aggregation_audit.py": "8e75db08995b96dab4f4e649e2c79f1fb37d1d13cd60a79d2c003ff32d5bd0c9",
+    "analysis/onevision_v2_completion_report.py": "4b21c16d61daf7cb5a5916e7b32d9dfb4d26db2225faa71110d7ff288ae08da1",
+    "analysis/answer_f1.py": "16c59998413d12b820d6f57269f9e1f45ac78e08595d20bf1f4fbc967fd94c4b",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/manifest.json": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+    "summary/primary_metric_20261017/metric_lock.json": "a146f037f835afb66251ce35498a4a5df8e7ea97468725b49ea34043f7d1c948",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T01_test.jsonl": "14705cad19879bbe9397add2d6871d6892146aee4be3885030700382307cd3bb",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T02_test.jsonl": "c319026d6857ee31722732ce54fd0348e189f0f8aaa574522fdb6623ca3bc572",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T03_test.jsonl": "809a68a36926ba0dab02597b9e4492bcebc2ec394f17103413e13a0e3e072d0b",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T04_test.jsonl": "e5046123567a5d9efe80aae17ed0b141e6261bf80c775f523791ef9022492ba2",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T05_test.jsonl": "7e13f0e2db2a9fb4f66249f152c23c336a566c1e5ccf30c929c2c04710be6264",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T06_test.jsonl": "18f04db0a28b6b0abd9b0f3f5ad7d030151085c47b88213d043752eacad98877",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T07_test.jsonl": "e424c1d3905db42165ad9f525f033045af1e8605e6b1e5848bba82573e54e221",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T08_test.jsonl": "2c3d5bc145141ac44d4a18722169bb421f47d41f1558d04d6da9a3dd365f8a86",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T09_test.jsonl": "3f554ff6047a98566520a39bc9d89ecf0bcf00a29e2e2d1f76bfb2b63097be95",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T10_test.jsonl": "f6c9fcfd7c3b385eb82829ebb478a7db522eecc4a53c33ded2ab8f82ff57e328",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T11_test.jsonl": "48e7b5e4177a001612d6640f6df92cc3621362792dffb0ad762476e562b6b21b",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T12_test.jsonl": "7948cf70e4996ec38532ff680638b8c81710d6e02cceb9589c58cb6403284013",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T13_test.jsonl": "4ca421c2594f1d2a36b749d42526706cc6caca9af05f9908b85d08cf7c9218b4",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T14_test.jsonl": "ff46c370c5b0a545c770e702e7fef159e79f4188c4a657356ca988da4b57866d",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T15_test.jsonl": "6ae35bde45e33788bcd31c99dc9f80a1d9236bd6062a807fd989e2c1fbe426cc",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T16_test.jsonl": "162ba8ad340a9fb898a3a942b3e720e581f23dddfacb70c289f3bd935d869206",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T17_test.jsonl": "f5a8de804f54aba60315eff839f05a0401ff96427920c0cd3112affcc19362e8",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T18_test.jsonl": "48e1bf7b181cf1a5d4c7b9be03e1fa11fe2e26b37ca2f4c8a4f4498ef20c403d",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T19_test.jsonl": "4af47721d341958f26e54744330927a14b5e5f5b8d84489607623b741eddbe2b",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/run_status.json": "6d6133bff66df5cab1cdc5f21c9b8309f64a8339a115a1eab0edfcc7d9ade0cc",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/stages/stage_19.json": "c122fd6db29172127f82076b36b7dc04da07c61095ba18dd298617633bd598a7",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/config.json": "20db5ebdd6400ba5750a3862071ea3a3d6829259ee5f6b6f8a62e51d141124f2",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T01_test_predictions.jsonl": "b9c9d97a9524ccc3969db35b2f5a00187e0d1b7a60e31373650d86ae9b1dfb8d",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T02_test_predictions.jsonl": "487fe558834d2041e7236bbf0eae86e9fdbc1b0fc532130cfbb245ec3cb62909",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T03_test_predictions.jsonl": "0c9f5c7431f04fa1c75aa0c7700bd61f9c179a8a5647aa0f09b6edae70eb5150",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T04_test_predictions.jsonl": "779367f54a299638ed41cc725c2043f468df11d6b2ee9effc388fee047c6e178",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T05_test_predictions.jsonl": "31f36c2e7ba3a37646fee09b35149926f5b99b8da06d2d9953bd9df2635a6c08",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T06_test_predictions.jsonl": "e4a9ee841b641628726bbe6aa296cc73cb185b129fe84d0f6a0d26c6506d252e",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T07_test_predictions.jsonl": "ec331c8a905e1a73612a34c6f9cae46bb4c84b9234f4feb49b5f2cde80fe085c",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T08_test_predictions.jsonl": "d26dd83fbb84229e355ef36e201e1af339a98ca6961b408c4bc308378bf82059",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T09_test_predictions.jsonl": "b6e469387a8ec4729700a5c2048e6d48d6ff0928112eaeabb49dfa24985442db",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T10_test_predictions.jsonl": "273559db7932e23e7acb3c62017202996c5d83facb6da810534a97129faca57a",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T11_test_predictions.jsonl": "a1e301409c1c1ea08cabb623d872dc4b3093bc305d8572891c2cb78a146d3c4d",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T12_test_predictions.jsonl": "8bcf50f42dfc8f92c950ad1f2e83e61bbacb4f9605771ee2f90c65e6b5c6a1df",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T13_test_predictions.jsonl": "b856d0629a5513129e9417ca4f20adeac410751b96cb9a88344774a343a187ab",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T14_test_predictions.jsonl": "8bcbf9a27b42f7fb9dc261d691deee96690b683db5dd17cf8a4325bb3a5bcae1",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T15_test_predictions.jsonl": "4626278d508b5fd8cf0e3971fb296205b0c511d73736154d4ebe474de3f700ec",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T16_test_predictions.jsonl": "972d29e351553cf0d89eed18454d0ca873349bb285a4a8cfe8ef3b812548a49e",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T17_test_predictions.jsonl": "9e7abccef88e9a583dbcdd05123ed0be9b3d68895e76e5c67b59218a8b388c65",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T18_test_predictions.jsonl": "e926180e49da0ce4715ddbcb2fae1fb2de6b075bcb82d2bc9dff666b5af245f1",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T19_test_predictions.jsonl": "0d48144620f86afce6b161f8fbebc0fd5f7f5c2d9a155e14870dd0f0caf5fe49",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/metrics_by_score.json": "98e1eeb89365c109dff36b42496ed504300c6d528ff7d0834a3cd148fb6b472e",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/ER_LoRA/training_20261017_161154/run_status.json": "22af5c48299cde2b9d9c233e947c9403e2e4e4d113b7d3f70551640d4e0c0a02",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/ER_LoRA/training_20261017_161154/stages/stage_19.json": "ad6dd4b51e7b78151f208ac03e0b574e3d56b7d652d1428bf705783530c3339f",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/ER_LoRA/training_20261017_161154/config.json": "389559b813e3e2604c6a88eb86fcceceaf5c9031b091f604413f84a96d135fae",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/ER_LoRA/training_20261017_161154/evaluations/stage_19/T01_test_predictions.jsonl": "09e1e69dfcd1881b4866f15e6ca3ed508d27212c2397ea7de56a6539330276fd",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/ER_LoRA/training_20261017_161154/evaluations/stage_19/T02_test_predictions.jsonl": "d35f8659c2da1a61efb3986971924bd00affab3e96d4441f0768513d753b09c1",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/ER_LoRA/training_20261017_161154/evaluations/stage_19/T03_test_predictions.jsonl": "ddbce5e549a3a2d1cf7f2b1bd91ec4fc16b41bd73de04a2a71048e1ae29e015b",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/ER_LoRA/training_20261017_161154/evaluations/stage_19/T04_test_predictions.jsonl": "d661b96d89a87b4eb47ad6dc8ad0bb68154efae2baeca44e8e876de19a7e483b",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/ER_LoRA/training_20261017_161154/evaluations/stage_19/T05_test_predictions.jsonl": "da31c7a765600426aab159bfc16d3bf6554f938fe95d52cfbf8d615814885db4",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/ER_LoRA/training_20261017_161154/evaluations/stage_19/T06_test_predictions.jsonl": "728a418ddbd4c4da08966af33cf75ea48e595556c395870630454443cbb78419",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/ER_LoRA/training_20261017_161154/evaluations/stage_19/T07_test_predictions.jsonl": "224e9d6ecf14fa8f19761b6b6edf2b1eebd1ca35841f65dd186c984c53b0d3b9",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/ER_LoRA/training_20261017_161154/evaluations/stage_19/T08_test_predictions.jsonl": "c222f5b2d9222debd084085d8c4a377df11331c8a7aef5daf49c474c4ba59ad0",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/ER_LoRA/training_20261017_161154/evaluations/stage_19/T09_test_predictions.jsonl": "1feb633428161e4b4657b1041e9f354a162f36063269efa30c48be9ae24a9725",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/ER_LoRA/training_20261017_161154/evaluations/stage_19/T10_test_predictions.jsonl": "38156ab75714fecae966bcb51078d5e289f5a4558ee5700d6a4e69b5af9e681b",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/ER_LoRA/training_20261017_161154/evaluations/stage_19/T11_test_predictions.jsonl": "1870480fb2353f89038f53aa390e6d40e5f146fae8120fa33c712554911951ea",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/ER_LoRA/training_20261017_161154/evaluations/stage_19/T12_test_predictions.jsonl": "7defb09460d8ec5e8561ef86d9eb3334f2b565fd7f5d4c0a6aee014dfc5b8685",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/ER_LoRA/training_20261017_161154/evaluations/stage_19/T13_test_predictions.jsonl": "c096168a2491514f5aa6ca9a20cace501ab39082df87dab8f99f97c7a9ca3e94",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/ER_LoRA/training_20261017_161154/evaluations/stage_19/T14_test_predictions.jsonl": "962159f34e01b8bffb716d9f6a61cad0937a93445315ea4b419d30dbe00729e9",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/ER_LoRA/training_20261017_161154/evaluations/stage_19/T15_test_predictions.jsonl": "65fb717b692f872355a08f0ad58b6f7970ac9cabb1588a3134bbe76709068a59",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/ER_LoRA/training_20261017_161154/evaluations/stage_19/T16_test_predictions.jsonl": "448096690d808530d0cd63498395b56a602ea34088c3543d0383a3abcfaf94ef",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/ER_LoRA/training_20261017_161154/evaluations/stage_19/T17_test_predictions.jsonl": "ba02cc5925c1a462ed4a3cb6f39e39e4a411c2671ad97f5b4a500fb8b1788873",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/ER_LoRA/training_20261017_161154/evaluations/stage_19/T18_test_predictions.jsonl": "c55d567c7d150125f1a55849cafa9f6a624974cbadfc3878fad1233ab89132c8",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/ER_LoRA/training_20261017_161154/evaluations/stage_19/T19_test_predictions.jsonl": "b96370c4b52054a89399ffdb4e8ed41bcdab41d8e6b0a511c432fcc22575bb78",
+    "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/ER_LoRA/training_20261017_161154/metrics_by_score.json": "f4136b30b2dc078f431ddf83d49d35883a69bfde236ca7a9ff9cfd4d1544531e"
+  },
+  "results": [
+    {
+      "method": "SeqFT_LoRA",
+      "run": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154",
+      "tasks": [
+        {
+          "task": "T01",
+          "domain": "natural",
+          "native_label": null,
+          "QA": 5000,
+          "Answer_F1": 75.63180446843178
+        },
+        {
+          "task": "T02",
+          "domain": "medical",
+          "native_label": "Modality",
+          "QA": 228,
+          "Answer_F1": 60.746658312447785
+        },
+        {
+          "task": "T03",
+          "domain": "medical",
+          "native_label": "Position",
+          "QA": 375,
+          "Answer_F1": 43.36613756613757
+        },
+        {
+          "task": "T04",
+          "domain": "medical",
+          "native_label": "Organ",
+          "QA": 507,
+          "Answer_F1": 37.444856969743846
+        },
+        {
+          "task": "T05",
+          "domain": "medical",
+          "native_label": "Size",
+          "QA": 124,
+          "Answer_F1": 52.33870967741935
+        },
+        {
+          "task": "T06",
+          "domain": "medical",
+          "native_label": "Abnormality",
+          "QA": 311,
+          "Answer_F1": 49.77045426884655
+        },
+        {
+          "task": "T07",
+          "domain": "medical",
+          "native_label": "Quantity",
+          "QA": 89,
+          "Answer_F1": 43.82022471910113
+        },
+        {
+          "task": "T08",
+          "domain": "medical",
+          "native_label": "Plane",
+          "QA": 116,
+          "Answer_F1": 27.147988505747126
+        },
+        {
+          "task": "T09",
+          "domain": "medical",
+          "native_label": "Shape",
+          "QA": 12,
+          "Answer_F1": 5.6818181818181825
+        },
+        {
+          "task": "T10",
+          "domain": "medical",
+          "native_label": "Color",
+          "QA": 65,
+          "Answer_F1": 42.61538461538461
+        },
+        {
+          "task": "T11",
+          "domain": "medical",
+          "native_label": "KG",
+          "QA": 267,
+          "Answer_F1": 16.455200012856658
+        },
+        {
+          "task": "T12",
+          "domain": "geography",
+          "native_label": "rural_urban",
+          "QA": 100,
+          "Answer_F1": 65.0
+        },
+        {
+          "task": "T13",
+          "domain": "geography",
+          "native_label": "presence",
+          "QA": 2955,
+          "Answer_F1": 48.121827411167516
+        },
+        {
+          "task": "T14",
+          "domain": "geography",
+          "native_label": "count",
+          "QA": 2947,
+          "Answer_F1": 17.509331523583306
+        },
+        {
+          "task": "T15",
+          "domain": "geography",
+          "native_label": "comp",
+          "QA": 4002,
+          "Answer_F1": 66.71664167916042
+        },
+        {
+          "task": "T16",
+          "domain": "finance",
+          "native_label": null,
+          "QA": 2233,
+          "Answer_F1": 15.890773082166866
+        },
+        {
+          "task": "T17",
+          "domain": "traffic",
+          "native_label": "general",
+          "QA": 500,
+          "Answer_F1": 33.587117155723
+        },
+        {
+          "task": "T18",
+          "domain": "traffic",
+          "native_label": "regional",
+          "QA": 1123,
+          "Answer_F1": 30.842329416307017
+        },
+        {
+          "task": "T19",
+          "domain": "traffic",
+          "native_label": "suggestion",
+          "QA": 500,
+          "Answer_F1": 32.7496293399915
+        }
+      ],
+      "domains": {
+        "natural": {
+          "tasks": 1,
+          "QA": 5000,
+          "QA_mean_F1": 75.63180446843178,
+          "task_mean_F1": 75.63180446843178,
+          "AP19_domain_weight": 0.05263157894736842,
+          "domain_macro_weight": 0.2,
+          "QA_micro_domain_weight": 0.23305677262981261
+        },
+        "medical": {
+          "tasks": 10,
+          "QA": 2094,
+          "QA_mean_F1": 40.757679241686866,
+          "task_mean_F1": 37.938743282950284,
+          "AP19_domain_weight": 0.5263157894736842,
+          "domain_macro_weight": 0.2,
+          "QA_micro_domain_weight": 0.09760417637736553
+        },
+        "geography": {
+          "tasks": 4,
+          "QA": 10004,
+          "QA_mean_F1": 46.71131547381047,
+          "task_mean_F1": 49.33695015347781,
+          "AP19_domain_weight": 0.21052631578947367,
+          "domain_macro_weight": 0.2,
+          "QA_micro_domain_weight": 0.4662999906777291
+        },
+        "finance": {
+          "tasks": 1,
+          "QA": 2233,
+          "QA_mean_F1": 15.890773082166866,
+          "task_mean_F1": 15.890773082166866,
+          "AP19_domain_weight": 0.05263157894736842,
+          "domain_macro_weight": 0.2,
+          "QA_micro_domain_weight": 0.10408315465647432
+        },
+        "traffic": {
+          "tasks": 3,
+          "QA": 2123,
+          "QA_mean_F1": 31.937969468850692,
+          "task_mean_F1": 32.393025304007175,
+          "AP19_domain_weight": 0.15789473684210525,
+          "domain_macro_weight": 0.2,
+          "QA_micro_domain_weight": 0.09895590565861843
+        }
+      },
+      "aggregates": {
+        "AP19_primary": 40.286151942422855,
+        "domain_task_macro5_bridge": 42.23825925820678,
+        "domain_QA_macro5_preexisting": 42.185908346989336,
+        "QA_micro_descriptive": 48.20052242701127
+      }
+    },
+    {
+      "method": "ER_LoRA",
+      "run": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/ER_LoRA/training_20261017_161154",
+      "tasks": [
+        {
+          "task": "T01",
+          "domain": "natural",
+          "native_label": null,
+          "QA": 5000,
+          "Answer_F1": 75.14925135648664
+        },
+        {
+          "task": "T02",
+          "domain": "medical",
+          "native_label": "Modality",
+          "QA": 228,
+          "Answer_F1": 61.89884433305485
+        },
+        {
+          "task": "T03",
+          "domain": "medical",
+          "native_label": "Position",
+          "QA": 375,
+          "Answer_F1": 35.61925925925926
+        },
+        {
+          "task": "T04",
+          "domain": "medical",
+          "native_label": "Organ",
+          "QA": 507,
+          "Answer_F1": 35.857988165680474
+        },
+        {
+          "task": "T05",
+          "domain": "medical",
+          "native_label": "Size",
+          "QA": 124,
+          "Answer_F1": 43.682795698924735
+        },
+        {
+          "task": "T06",
+          "domain": "medical",
+          "native_label": "Abnormality",
+          "QA": 311,
+          "Answer_F1": 51.24258199820901
+        },
+        {
+          "task": "T07",
+          "domain": "medical",
+          "native_label": "Quantity",
+          "QA": 89,
+          "Answer_F1": 39.325842696629216
+        },
+        {
+          "task": "T08",
+          "domain": "medical",
+          "native_label": "Plane",
+          "QA": 116,
+          "Answer_F1": 27.550287356321835
+        },
+        {
+          "task": "T09",
+          "domain": "medical",
+          "native_label": "Shape",
+          "QA": 12,
+          "Answer_F1": 5.6818181818181825
+        },
+        {
+          "task": "T10",
+          "domain": "medical",
+          "native_label": "Color",
+          "QA": 65,
+          "Answer_F1": 42.15384615384615
+        },
+        {
+          "task": "T11",
+          "domain": "medical",
+          "native_label": "KG",
+          "QA": 267,
+          "Answer_F1": 16.35564978424625
+        },
+        {
+          "task": "T12",
+          "domain": "geography",
+          "native_label": "rural_urban",
+          "QA": 100,
+          "Answer_F1": 45.0
+        },
+        {
+          "task": "T13",
+          "domain": "geography",
+          "native_label": "presence",
+          "QA": 2955,
+          "Answer_F1": 70.86294416243655
+        },
+        {
+          "task": "T14",
+          "domain": "geography",
+          "native_label": "count",
+          "QA": 2947,
+          "Answer_F1": 18.561248727519512
+        },
+        {
+          "task": "T15",
+          "domain": "geography",
+          "native_label": "comp",
+          "QA": 4002,
+          "Answer_F1": 65.86706646676662
+        },
+        {
+          "task": "T16",
+          "domain": "finance",
+          "native_label": null,
+          "QA": 2233,
+          "Answer_F1": 16.697919036488283
+        },
+        {
+          "task": "T17",
+          "domain": "traffic",
+          "native_label": "general",
+          "QA": 500,
+          "Answer_F1": 32.70215743143837
+        },
+        {
+          "task": "T18",
+          "domain": "traffic",
+          "native_label": "regional",
+          "QA": 1123,
+          "Answer_F1": 30.035326036428838
+        },
+        {
+          "task": "T19",
+          "domain": "traffic",
+          "native_label": "suggestion",
+          "QA": 500,
+          "Answer_F1": 31.98459917429608
+        }
+      ],
+      "domains": {
+        "natural": {
+          "tasks": 1,
+          "QA": 5000,
+          "QA_mean_F1": 75.14925135648664,
+          "task_mean_F1": 75.14925135648664,
+          "AP19_domain_weight": 0.05263157894736842,
+          "domain_macro_weight": 0.2,
+          "QA_micro_domain_weight": 0.23305677262981261
+        },
+        "medical": {
+          "tasks": 10,
+          "QA": 2094,
+          "QA_mean_F1": 38.62189209273033,
+          "task_mean_F1": 35.936891362798995,
+          "AP19_domain_weight": 0.5263157894736842,
+          "domain_macro_weight": 0.2,
+          "QA_micro_domain_weight": 0.09760417637736553
+        },
+        "geography": {
+          "tasks": 4,
+          "QA": 10004,
+          "QA_mean_F1": 53.19872051179528,
+          "task_mean_F1": 50.072814839180666,
+          "AP19_domain_weight": 0.21052631578947367,
+          "domain_macro_weight": 0.2,
+          "QA_micro_domain_weight": 0.4662999906777291
+        },
+        "finance": {
+          "tasks": 1,
+          "QA": 2233,
+          "QA_mean_F1": 16.697919036488283,
+          "task_mean_F1": 16.697919036488283,
+          "AP19_domain_weight": 0.05263157894736842,
+          "domain_macro_weight": 0.2,
+          "QA_micro_domain_weight": 0.10408315465647432
+        },
+        "traffic": {
+          "tasks": 3,
+          "QA": 2123,
+          "QA_mean_F1": 31.12249149400698,
+          "task_mean_F1": 31.57402754738776,
+          "AP19_domain_weight": 0.15789473684210525,
+          "domain_macro_weight": 0.2,
+          "QA_micro_domain_weight": 0.09895590565861843
+        }
+      },
+      "aggregates": {
+        "AP19_primary": 39.275232948413205,
+        "domain_task_macro5_bridge": 41.88618082846847,
+        "domain_QA_macro5_preexisting": 42.958054898301505,
+        "QA_micro_descriptive": 50.907989254911236
+      }
+    }
+  ],
+  "ER_minus_SeqFT": {
+    "AP19_primary": -1.01091899400965,
+    "domain_task_macro5_bridge": -0.35207842973831305,
+    "domain_QA_macro5_preexisting": 0.7721465513121686,
+    "QA_micro_descriptive": 2.707466827899964
+  },
+  "decomposition": {
+    "domain_contributions": [
+      {
+        "domain": "natural",
+        "delta_domain_task_mean": -0.48255311194513695,
+        "delta_domain_QA_mean": -0.48255311194513695,
+        "between_domain_weights_contribution": 0.07111309018138862,
+        "within_domain_weights_contribution": 0.0
+      },
+      {
+        "domain": "medical",
+        "delta_domain_task_mean": -2.0018519201512888,
+        "delta_domain_QA_mean": -2.1357871489565383,
+        "between_domain_weights_contribution": -0.6532358897335784,
+        "within_domain_weights_contribution": 0.026787045761049913
+      },
+      {
+        "domain": "geography",
+        "delta_domain_task_mean": 0.7358646857028575,
+        "delta_domain_QA_mean": 6.487405037984807,
+        "between_domain_weights_contribution": 0.007745944060030062,
+        "within_domain_weights_contribution": -1.15030807045639
+      },
+      {
+        "domain": "finance",
+        "delta_domain_task_mean": 0.8071459543214168,
+        "delta_domain_QA_mean": 0.8071459543214168,
+        "between_domain_weights_contribution": -0.1189478248473667,
+        "within_domain_weights_contribution": 0.0
+      },
+      {
+        "domain": "traffic",
+        "delta_domain_task_mean": -0.8189977566194138,
+        "delta_domain_QA_mean": -0.8154779748437129,
+        "between_domain_weights_contribution": 0.03448411606818586,
+        "within_domain_weights_contribution": -0.0007039563551401785
+      }
+    ],
+    "between_domain_weight_effect": -0.6588405642713405,
+    "within_domain_weight_effect": -1.1242249810504803,
+    "AP19_minus_domain_QA_macro_delta": -1.7830655453218207
+  },
+  "limits": [
+    "Fixed two fitted seed42 baselines; no new training or method improvement.",
+    "Known weighted-average dependence, not knowledge/gradient/routing causality.",
+    "Four aggregation definitions reported together; primary AP19 remains locked.",
+    "Domain-QA macro already present in original metrics_by_score; bridge is diagnostic only.",
+    "Point estimates only, no new uncertainty/significance or population claim.",
+    "Formal V2 common-image protocol; not nativeAnyRes research results."
+  ]
+}

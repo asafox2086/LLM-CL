@@ -19,6 +19,7 @@
 
 | 探究的问题 | 已有证据 | 仍不能证明什么 |
 | --- | --- | --- |
+| 比简单基线差是否也受汇总影响？ | 完整V2结果：ER−SeqFT的AP19为−1.011，原领域宏平均却+0.772；同42908条最终预测逐题重算。[权重分解](summary/onevision_diagnostics_20261016/v2_aggregation_20261018/RESEARCH_FINDINGS.md) | 主AP不改；领域间任务数与领域内QA数两层权重不同，不是知识/遗忘成因或新方法提升。 |
 | 分数低是否全是后来忘掉？ | 医学Modality初始/1/4步F1为29.600/29.263/51.956；遥感额外训练却76→44。习得预算本身会影响结果。[总报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md) | 不能统一给所有领域加步数，也未隔离所有知识/视觉因素。 |
 | 新LoRA是否丢失了有利旧适配？ | 实际e1仅11QA/一步，此后权重不变；同目标预算完整228题fresh19.876、继承旧适配29.263，差+9.388pp。[冷启动桥接](summary/onevision_diagnostics_20261016/expert_cold_start_20261018/RESEARCH_FINDINGS.md) | 局部温启动不是nativeSeq权重；未证明所有论文方法或整个AP差距由冷启动造成。 |
 | 多领域差距是否全是遗忘？ | Organ共同习得点20.361，同域后续34.168、跨域18.626；跨域净变区间含0，同域还有正迁移。[总报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md) | 语言/内容/顺序仍混杂，不能把同域−跨域差全归知识遗忘或领域数量。 |
