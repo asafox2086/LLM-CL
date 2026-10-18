@@ -7,3 +7,5 @@
 [冻结协议](../../summary/onevision_diagnostics_20261016/initialization_source_controls_20261018/v1/PROTOCOL.md) · [驱动](../../analysis/onevision_initialization_source_controls.py) · [唯一当前队列](../../summary/onevision_diagnostics_20261016/initialization_source_controls_20261018/v1/queue/README.md) · [原始Answer F1表](../../summary/onevision_diagnostics_20261016/initialization_source_controls_20261018/v1/VERIFIED_RESULTS.md)。
 
 完整继承同时改变初始函数及首步A梯度可达性；同域/跨域仍含不同内容与题型，不推导普遍领域结论。初始32与最终507不同群体，不相减当习得。源/目标A/B、原始梯度、loss/LR、逐题结果、CPU/GPU前后/纯TRAIN峰值和checkpoint均保存；结果缺失留空，不捏造提升。
+
+[只读TRAIN参数审计](../../summary/onevision_diagnostics_20261016/initialization_source_controls_20261018/v1/TRAIN_PARAMETER_AUDIT_PLAN.md)由[独立CPU工具](../../analysis/onevision_initialization_source_geometry.py)完成，报告源A变化幅度、行空间主角、实际deltaW和两步A/B梯度；拒绝未封存状态，不修改训练或选择方法。合成实现检查不代表本模型收益。
