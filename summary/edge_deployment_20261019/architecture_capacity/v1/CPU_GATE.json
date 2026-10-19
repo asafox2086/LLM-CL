@@ -1,0 +1,269 @@
+{
+  "original_equivalence": {
+    "CL_original": {
+      "original_state_exact": true,
+      "nonzero_expert_forward_exact": true,
+      "all_available_raw_gradients_exact": true
+    },
+    "SMo_original": {
+      "original_state_exact": true,
+      "nonzero_expert_forward_exact": true,
+      "all_available_raw_gradients_exact": true
+    }
+  },
+  "six_capacity_controls": {
+    "CL_original": {
+      "groups": {
+        "base": {
+          "parameters": 26848,
+          "bytes": 107392,
+          "trainable": 0
+        },
+        "expert_A_B": {
+          "parameters": 65536,
+          "bytes": 262144,
+          "trainable": 65536
+        },
+        "routers": {
+          "parameters": 4096,
+          "bytes": 16384,
+          "trainable": 4096
+        }
+      },
+      "capacity": {
+        "family": "CL_MoE",
+        "experts": 8,
+        "total_rank": 64,
+        "per_expert_rank": 8,
+        "scale": 2.0,
+        "positions": [
+          "q_proj",
+          "k_proj",
+          "v_proj",
+          "o_proj",
+          "gate_proj",
+          "up_proj",
+          "down_proj"
+        ],
+        "is_authored_hyperparameter_control": true,
+        "not_new_algorithm": true
+      },
+      "no_parameter_growth_on_begin_stage": true,
+      "finite_tiny_HF_forward_backward": true
+    },
+    "CL_shared_equal_rank": {
+      "groups": {
+        "base": {
+          "parameters": 26848,
+          "bytes": 107392,
+          "trainable": 0
+        },
+        "expert_A_B": {
+          "parameters": 65536,
+          "bytes": 262144,
+          "trainable": 65536
+        },
+        "routers": {
+          "parameters": 512,
+          "bytes": 2048,
+          "trainable": 512
+        }
+      },
+      "capacity": {
+        "family": "CL_MoE",
+        "experts": 1,
+        "total_rank": 64,
+        "per_expert_rank": 64,
+        "scale": 2.0,
+        "positions": [
+          "q_proj",
+          "k_proj",
+          "v_proj",
+          "o_proj",
+          "gate_proj",
+          "up_proj",
+          "down_proj"
+        ],
+        "is_authored_hyperparameter_control": true,
+        "not_new_algorithm": true
+      },
+      "no_parameter_growth_on_begin_stage": true,
+      "finite_tiny_HF_forward_backward": true
+    },
+    "CL_shared_small_rank": {
+      "groups": {
+        "base": {
+          "parameters": 26848,
+          "bytes": 107392,
+          "trainable": 0
+        },
+        "expert_A_B": {
+          "parameters": 8192,
+          "bytes": 32768,
+          "trainable": 8192
+        },
+        "routers": {
+          "parameters": 512,
+          "bytes": 2048,
+          "trainable": 512
+        }
+      },
+      "capacity": {
+        "family": "CL_MoE",
+        "experts": 1,
+        "total_rank": 8,
+        "per_expert_rank": 8,
+        "scale": 2.0,
+        "positions": [
+          "q_proj",
+          "k_proj",
+          "v_proj",
+          "o_proj",
+          "gate_proj",
+          "up_proj",
+          "down_proj"
+        ],
+        "is_authored_hyperparameter_control": true,
+        "not_new_algorithm": true
+      },
+      "no_parameter_growth_on_begin_stage": true,
+      "finite_tiny_HF_forward_backward": true
+    },
+    "SMo_original": {
+      "groups": {
+        "base": {
+          "parameters": 26848,
+          "bytes": 107392,
+          "trainable": 0
+        },
+        "expert_A_B": {
+          "parameters": 131072,
+          "bytes": 524288,
+          "trainable": 131072
+        },
+        "routers": {
+          "parameters": 23552,
+          "bytes": 94208,
+          "trainable": 23552
+        },
+        "branch_fusion": {
+          "parameters": 1024,
+          "bytes": 4096,
+          "trainable": 1024
+        }
+      },
+      "capacity": {
+        "family": "SMoLoRA",
+        "experts": 8,
+        "total_rank": 128,
+        "per_expert_rank": 16,
+        "scale": 2.0,
+        "positions": [
+          "q_proj",
+          "k_proj",
+          "v_proj",
+          "o_proj",
+          "gate_proj",
+          "up_proj",
+          "down_proj"
+        ],
+        "is_authored_hyperparameter_control": true,
+        "not_new_algorithm": true
+      },
+      "no_parameter_growth_on_begin_stage": true,
+      "finite_tiny_HF_forward_backward": true
+    },
+    "SMo_two_equal_rank": {
+      "groups": {
+        "base": {
+          "parameters": 26848,
+          "bytes": 107392,
+          "trainable": 0
+        },
+        "expert_A_B": {
+          "parameters": 131072,
+          "bytes": 524288,
+          "trainable": 131072
+        },
+        "routers": {
+          "parameters": 5888,
+          "bytes": 23552,
+          "trainable": 5888
+        },
+        "branch_fusion": {
+          "parameters": 1024,
+          "bytes": 4096,
+          "trainable": 1024
+        }
+      },
+      "capacity": {
+        "family": "SMoLoRA",
+        "experts": 2,
+        "total_rank": 128,
+        "per_expert_rank": 64,
+        "scale": 2.0,
+        "positions": [
+          "q_proj",
+          "k_proj",
+          "v_proj",
+          "o_proj",
+          "gate_proj",
+          "up_proj",
+          "down_proj"
+        ],
+        "is_authored_hyperparameter_control": true,
+        "not_new_algorithm": true
+      },
+      "no_parameter_growth_on_begin_stage": true,
+      "finite_tiny_HF_forward_backward": true
+    },
+    "SMo_two_small_rank": {
+      "groups": {
+        "base": {
+          "parameters": 26848,
+          "bytes": 107392,
+          "trainable": 0
+        },
+        "expert_A_B": {
+          "parameters": 16384,
+          "bytes": 65536,
+          "trainable": 16384
+        },
+        "routers": {
+          "parameters": 5888,
+          "bytes": 23552,
+          "trainable": 5888
+        },
+        "branch_fusion": {
+          "parameters": 1024,
+          "bytes": 4096,
+          "trainable": 1024
+        }
+      },
+      "capacity": {
+        "family": "SMoLoRA",
+        "experts": 2,
+        "total_rank": 16,
+        "per_expert_rank": 8,
+        "scale": 2.0,
+        "positions": [
+          "q_proj",
+          "k_proj",
+          "v_proj",
+          "o_proj",
+          "gate_proj",
+          "up_proj",
+          "down_proj"
+        ],
+        "is_authored_hyperparameter_control": true,
+        "not_new_algorithm": true
+      },
+      "no_parameter_growth_on_begin_stage": true,
+      "finite_tiny_HF_forward_backward": true
+    }
+  },
+  "CPU_only": true,
+  "TEST_QA": 0,
+  "no_full_model_quality_or_memory_claim": true,
+  "source_sha256": "5924d8cedad7152e7a0ad52740cc4585eaea731ffac3f51ca736995f40137cad"
+}

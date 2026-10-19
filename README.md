@@ -1,3 +1,5 @@
+**架构扩展必要性：** 已接入CL-MoE／SMoLoRA六组容量消融，分别检验专家分工和总rank是否必要；GPU1仍被他人占用，尚无训练／质量结论。[问题、对照、状态与成本边界](summary/edge_deployment_20261019/architecture_capacity/v1/README.md)。六组是消融，不新增正式基线，主表Ours与未测部署值留空。
+
 **研究问题更正：** 撤回由局部工程试验推导整个领域缺陷的表述；目前尚无兼顾完整质量与端侧优势的新方法。[已证事实、撤回内容及执行修正](summary/edge_deployment_20261019/RESEARCH_RESET_20261019.md)。
 
 **端侧新负例：** 全INT8在五个固定TRAIN请求中丢失了部分原有正确答案，尚不能直接采用；仅压语言也受较大的视觉固定负担限制。[当前方向、论文依据与边界](summary/edge_deployment_20261019/QUANTIZATION_DIRECTION.md)。
