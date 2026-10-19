@@ -1,3 +1,10 @@
+# 2026-10-19最新用户目标：手机／普通CPU部署、一般性问题、研究仅GPU1
+
+- 最新人类明确要求五域最终Answer F1明显提高，并体现端侧部署优势；设备为手机或普通CPU。规则026优先于旧022弹性设备条款，研究仅新GPU1。可以从已验证最优方法借鉴改造，但问题应跨方法／骨干具有一般性；不能只做单篇论文的优化报告。
+- 主表已加最终／新增部署MiB、CPU峰值RAM、TTFT、tok/s、常驻适配器六列，均未实测留空。最终包含完整基座／视觉／投影／必要适配、专家和路由等，不只新增参数；同格式同精度计增量。模型参数更新不等于增大。常规无损导出优化应公平用于所有基线，不能当作算法创新。
+- 新唯一nohup CPU739098，冻结入口analysis/onevision_edge_gpu1_queue_20261019.py，权威summary/edge_deployment_20261019/queue/queue_state.json与ACTIVATION；旧502584仅CPU退役，不恢复。只限制device.select到1，其余1313／19／93／21454及pilot→RITE→原全部工作的科学内容和顺序不变，6选择器CPU控制过，所有实际GPU及发布器身份保全。当前GPU1他人进程存活，健康wait，无新研究GPU。
+- 原principal完整21454已完成，GPU203850自然退出，不重启；完整结果低，负结果与random完整保留。当前已发布K53的Qwen全量前三阶段参数分析不等于新方法收益。主表、部署规则见summary/edge_deployment_20261019/PROTOCOL.md；量化／剪枝／删专家若改输出，需独立验证完整质量，不能沿用原F1。
+
 # 2026-10-19：Qwen全量已有前缀的参数分析完成
 
 - 用户要求比较100%多更新了什么。已实际CPU加载两条Qwen SeqFT的S1/S2/S3并逐文件SHA核验，六个状态所有冻结参数完全同，均28层／56个qv LoRA／rank8／1,089,536训练坐标，不能误用OneVision的540672。新K53报告：summary/two_backbone_pct01_20261017/partial_full_vs_pct01_20261019/parameter_geometry/v2/REPORT.md。
