@@ -1,3 +1,10 @@
+# 2026-10-19继续：完整TRAIN重复统计已封存，CPU精度对照持续
+
+- 新全1313TRAIN／19任务统计与新机独立核验完成：自然0/347、医学19/99、遥感573/573、金融0/89、交通0/205条含精确重复视图；总5487→4895视图编码候选，减少10.789%。只限训练输入，不是实测延迟／显存／质量，不是1%因果。原图SHA已跨新机逐一核对、QA和唯一图像两口径均保留；GPU四条件和50%预算不据此改变。见train_view_census/v1/VERIFIED_RESULTS.md/json，不重复本统计冒充进展。
+- 新CPU部署对照为FP32稠密／decoder INT8／all-linear INT8，现有PyTorch2.6/fbgemm、2线程、同五TRAIN、8token三次计时与64token质量，不用TEST，不是原创或完整质量。v1控制器1396931仅CPU退役，保全FP32模型1396938/start710495837自然完成；之后v2独立重做三条件。v2只删除量化前枚举named对旧FP32模块的无用Python引用，防止虚增后续INT8常驻；原源／READY保留，两真实小模型控制和AST精确核验完成，不是完整模型内存优势。
+- 唯一CPU精度续接1398856，权威cpu_precision/v2/controller_state.json及RESUME_LAUNCH；等待v1模型自然结束并验COMPLETE后自动v2。原TRAIN五个参考集均恰等主答案（自然10个重复参考，其他1个），REFERENCE_EQUIVALENCE证明这些五题原F1完全等价；未来全量必须row['answers']，不可泛化单参考。当前无新的完整F1／GPU／端侧收益。
+- 研究GPU唯一服务仍CPU788779／entry edge_visual_priority_queue_20261019.py；新GPU1他人474973/556654/732164仍实际存活，健康wait，不启用旧机空闲GPU作研究。全部原GPU科学源和两机正式基线不变。CPU精度只是等待期间的补充，不阻塞GPU部署四条件。
+
 # 2026-10-19补充：CPU三条件已完整结束，SpaRTA正式封存
 
 - 旧CPU父1313719／子1313720已正常结束，勿重启。三条件十五TRAIN请求完整证明已核验：dense／uniform50／DivPrune50五题TTFT合计2063.943／1564.008／1679.567秒；均匀约减24.2%，视觉处理仍约1156秒。DivPrune大图选择约19–60秒，慢于同预算均匀；只是Xeon4210两线程FP16单轮点测量，不是GPU／现代PC／手机结论、没有Answer F1，不能填正式质量或宣称目标实现。见cpu_visual_probe/v1/VERIFIED_RESULTS.md/json。下一实际动作是新GPU1部署探针，不重复该CPU审计。
