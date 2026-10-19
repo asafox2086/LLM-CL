@@ -1,3 +1,5 @@
+> **操作排队修订：** 当前GPU完整确认自然完成后，先取得原12格TRAIN-only更新策略对照，再返回其余完整测试。所有科学文件／数据／预算不变，所有原完整确认保留；没有新性能结论。[修订与凭据](train_update_pilot_20261019/v1/priority_v2/README.md)。
+
 > **正式基线维护完成：** Qwen顺序LoRA恢复支线已由实际检查点、归档与冻结完整验证器核验，AP47.812／FWT13.258／BWT4.415，正式4／14；无GPU重跑，资源缺失明确保留。[凭据](../two_backbone_pct01_20261017/qwen_seqft_io_recovery_20261019/README.md)。研究方案与其余基线持续。
 
 > **当前唯一调度：** [TRAIN-only更新对照](train_update_pilot_20261019/v1/PROTOCOL.md)已准入，CPU384025等待当前完整测试自然完成；两系数21454仍先做，12格尚无GPU结果。Qwen Seq收尾CPU核验发现第18阶段重复日志，尚未认证完成，原文件保留。

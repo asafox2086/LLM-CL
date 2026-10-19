@@ -69,7 +69,7 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 | [问题发现总报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md) | 按问题、实验、结果、证明、改进、效果记录；区分已证实、已反驳、未解决。[关键发现](summary/onevision_diagnostics_20261016/KEY_FINDINGS.md)提供证据索引。 |
 | [两模块四格诊断](summary/onevision_diagnostics_20261016/warm_quality_20261018/predeclared_hard_case/RESEARCH_FINDINGS.md) | 同155题四格与SeqFT逐题比较；点优势小且域宏差区间含0，完整21454待。 |
 | [研究诊断表](summary/onevision_diagnostics_20261016/functional_router/MAIN_TABLE_DIAGNOSTIC.md) | 原生AnyRes/BF16、同155题的六方法对照；不能混入正式V2或当完整21454题结果。 |
-| [唯一研究队列](summary/onevision_diagnostics_20261016/feature_identity_repair_20261018/README.md) | 实时状态以该目录queue_state及实际进程为准，旧队列路径保留为历史/redirect，不能恢复旧CPU所有者。 |
+| [唯一研究队列](summary/onevision_diagnostics_20261016/train_update_pilot_20261019/v1/priority_v2/README.md) | 当前GPU自然完成后接既有TRAIN-only更新对照，再返回全部原完整确认；实际进程与当前queue_state优先，旧入口为历史。 |
 | [文献问题与启发](summary/onevision_diagnostics_20261016/LITERATURE_PROBLEMS.md) | 他人发现、验证角度、解决方式及适用边界；不是本模型已证实原因。 |
 
 2026-10-18运行快照：研究仅新GPU1。原质量硬调用完整确认因FinMME:5082辅助特征缺id的日志异常停止，旧预测和失败证据保留；[新实现修复与实际GPU门禁](summary/onevision_diagnostics_20261016/feature_identity_repair_20261018/README.md)已通过。温启动19阶段与500NLL/155生成已封存，AP+4.000；温池四视图已实际启动GPU415408，接续全部18数据量控制，再从头重测完整确认；全部其余既定实验保留。两机正式基线继续，新GPU0保留；完整四格收益仍待。

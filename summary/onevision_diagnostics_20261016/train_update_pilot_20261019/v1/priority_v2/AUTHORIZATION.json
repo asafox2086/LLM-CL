@@ -1,0 +1,258 @@
+{
+  "delegated_GPU1_plan": true,
+  "basis": "User updated objective: test inherited LoRA plus TRAIN functional-quality calling. Preserve current GPU natural completion and every old case; four final cells before old soft confirmation. No TEST scheduling.",
+  "wrapper_entrypoint_sha256": "0544a1c6c185af9aed26724d6c279d63708941585136cdb4ca3df63930821d03",
+  "cold_queue_sha256": "9850a24dfc056419fcf02b46045756d0bfefc70939c8141698f55fae2794e9db",
+  "entrypoint_sha256": "9246d8d59a11ee7553a24a98c973bf5bc800ad12176ea0b6dd68c99e54622f28",
+  "unchanged_previous_queue_sha256": "5e9fe9a8ae9fe53e0c70846eca549531b0a8c9fe70f6d955fc9a85cec62ebd12",
+  "warm_plan_sha256": "b211709b5f18d71b16a0ba9d22e0c8c32b86b5f2ed1e9b0ce433b3ead576a8ca",
+  "study_plan_sha256": "4563cf1eea1cf1102242306be4fd324b81588bc6c42000ecfd85309ffa822467",
+  "order": [
+    "ready_sharedS1",
+    "original_cosine_train2",
+    "fixed_pool_functional_pilot4views",
+    "existing_quality_hard_full21454_natural_completion",
+    "warm_initialization_only_train19",
+    "warm_quality_pilot4views",
+    "all18_uniqueTRAIN_initialization_trajectories_both1and4_endpoints",
+    "original_learned_cosine_full",
+    "warm_initialization_only_full21454",
+    "warm_quality_hard_full21454",
+    "predeclared_quality_soft_full21454",
+    "languagecue4",
+    "matched48_SeqFT_first",
+    "remaining_original_cosine_full",
+    "all_original_remaining_jobs"
+  ],
+  "all_previous_jobs_retained": true,
+  "no_TEST_choice": true,
+  "GPU_source_edits": false,
+  "new_CPU_policy_checks": 66,
+  "worker_CPU_checks": [
+    37,
+    142
+  ],
+  "ancestor_policy_checks": [
+    25,
+    28
+  ],
+  "new_entrypoint_sha256": "079ea767b07f51fef8a0410d8e51857e67a37969617aadac554948f9bc274c11",
+  "source_sha256": {
+    "analysis/onevision_warm_quality_probe.py": "bd4fcd8da29e97d8e95d239a8bb0d2b80ffc974451c0ad890481332217e2f386",
+    "analysis/onevision_cold_quality_queue.py": "079ea767b07f51fef8a0410d8e51857e67a37969617aadac554948f9bc274c11",
+    "analysis/onevision_cold_quality_report.py": "29ef81fafd8c73a584cb2ea2ebc96a11c95d97e7575cc12eb32dcdf58113d93c",
+    "analysis/onevision_functional_router_probe.py": "7a473e20b568deb958974c6a39da58ae8ec611c55f28e1e65db8923a694c6c3b",
+    "analysis/onevision_functional_router_core.py": "f6767747c76d691134a693fea37f82a37f22e8173cb01cc15c818100341231b5",
+    "analysis/onevision_warm_start_trial.py": "0d1b426d8439243b89f618296a8109f2aa9a87bee8340f91feb5ebf5686c5a31",
+    "analysis/onevision_causal_feedback_queue.py": "0544a1c6c185af9aed26724d6c279d63708941585136cdb4ca3df63930821d03"
+  },
+  "failure_preserved": true,
+  "no_old_partial_predictions": true,
+  "new_source_sha256": {
+    "analysis/onevision_feature_identity_repair.py": "51d1578d3553e2d9655f844ab1a1d047eb920a1584b0b46f1dbaf539c61a1bcd",
+    "analysis/onevision_identity_repair_worker.py": "68b2bfc16a081b6a1672dcf8ed91f77c2a71bebca2437d578c22d0b999d9c9cd",
+    "analysis/onevision_identity_repair_queue_v2.py": "8d38cecb97c3c2d0e9d213afba63b6d92dc0b424bd44a991f0e1b88d69832422"
+  },
+  "effective_order": [
+    "ready_dependencies",
+    "warm19",
+    "warm_quality_pilot",
+    "all18_data_controls",
+    "cold_quality_hard_full21454_fresh",
+    "all_original_remaining_jobs_unchanged"
+  ],
+  "original_method_sources": {
+    "analysis/onevision_warm_quality_probe.py": "bd4fcd8da29e97d8e95d239a8bb0d2b80ffc974451c0ad890481332217e2f386",
+    "analysis/onevision_cold_quality_queue.py": "079ea767b07f51fef8a0410d8e51857e67a37969617aadac554948f9bc274c11",
+    "analysis/onevision_cold_quality_report.py": "29ef81fafd8c73a584cb2ea2ebc96a11c95d97e7575cc12eb32dcdf58113d93c",
+    "analysis/onevision_functional_router_probe.py": "7a473e20b568deb958974c6a39da58ae8ec611c55f28e1e65db8923a694c6c3b",
+    "analysis/onevision_functional_router_core.py": "f6767747c76d691134a693fea37f82a37f22e8173cb01cc15c818100341231b5",
+    "analysis/onevision_warm_start_trial.py": "0d1b426d8439243b89f618296a8109f2aa9a87bee8340f91feb5ebf5686c5a31",
+    "analysis/onevision_causal_feedback_queue.py": "0544a1c6c185af9aed26724d6c279d63708941585136cdb4ca3df63930821d03"
+  },
+  "v1_CPU_failure_preserved_sha256": "fcabeec1c7ff8638ad946ccc44336c17746f4aafde84fedbf5a8ffb141c03432",
+  "immutable_input_sha256": {
+    "analysis/onevision_identity_repair_queue_v2.py": "8d38cecb97c3c2d0e9d213afba63b6d92dc0b424bd44a991f0e1b88d69832422",
+    "analysis/onevision_identity_repair_worker.py": "68b2bfc16a081b6a1672dcf8ed91f77c2a71bebca2437d578c22d0b999d9c9cd",
+    "analysis/onevision_cold_data_factorial.py": "ac2bf1f976b958601f67adaa58208b413f48c3e4ff44540616664cef91e8f117",
+    "summary/onevision_diagnostics_20261016/feature_identity_repair_20261018/worker_427417_needs_attention.json": "ecebccf61a2492047a6d59f0a85abbc1818dd4e8abcaa7ce1dadfef8953d5115",
+    "summary/onevision_diagnostics_20261016/cold_data_factorial_20261018/case_00_complete.json": "4184cd94c661f60ff8a0ddaa8b2ce66be6f9a41ffa57e2e0ba44ef2638e40b98",
+    "summary/onevision_diagnostics_20261016/cold_data_factorial_20261018/CPU_PLAN_CHECK.json": "4563cf1eea1cf1102242306be4fd324b81588bc6c42000ecfd85309ffa822467"
+  },
+  "no_model_or_data_changes": true,
+  "all_original_jobs_retained": true,
+  "known_failure": "post-completion wrapper demanded MetricExperiment receipt from RepairedExperiment",
+  "no_case00_retry": true,
+  "delegated_research_GPU1_only": true,
+  "recovery_entrypoint_sha256": "ef902c8e666f600d26c03f05a1c91d8e827060eae2516acfa7b59f7f8c9d568f",
+  "v3_CPU_startup_failure_sha256": "2ea9ffb3860ef40d800b75d88ed2864f96f1d3b541f3a22a512f45425bdcc662",
+  "state_cache_queue_sha256": "a0d7b4c317ace51236758c015e81a5fe493bc0cf2caa45cb11c5a8c5013308b0",
+  "unchanged_v4_sha256": "ef902c8e666f600d26c03f05a1c91d8e827060eae2516acfa7b59f7f8c9d568f",
+  "reporter_sha256": "83df84328598565ec9983d07bb07f45dff0b593adbf4f2016892dfcb7c9aaf2d",
+  "GPU1_only": true,
+  "state_cache_order": [
+    "preserve_current_GPU_natural_finish",
+    "new_continuous19_fourviews",
+    "all_remaining18data",
+    "new_both_full21454",
+    "all_original_remaining_jobs"
+  ],
+  "no_TEST_scheduling": true,
+  "research_allowed_GPUs": [
+    0,
+    1
+  ],
+  "max_our_GPU_cards": 3,
+  "one_research_stream": true,
+  "new_device_sources": {
+    "analysis/onevision_research_device_entry.py": "eff8a8319f578222020020a9af5b3d8e94540cd7643d60efcec2836832ca8814",
+    "analysis/onevision_state_cache_flexible_queue.py": "730824b8e82fd574eb7d0be93597b88232f4e9fc11bf3b6522ee402d0129def0"
+  },
+  "device_policy_basis": "Latest human: ifGPU0idle/GPU1busy may useGPU0; our new-server jobs use at most3cards",
+  "frozen_algorithm_sources_unchanged": true,
+  "formal_new_sources": {
+    "analysis/onevision_formal_cache_queue.py": "4088c409d3a4c3f158fc5c31d9de5b4abfda44bf06ce0a73b795c3c6b447b804",
+    "analysis/onevision_formal_state_cache.py": "ec05f27dea1a0cf943d89278eb28510cbc6e148bc458b09c55212e29b4ad6721",
+    "analysis/onevision_formal_state_export.py": "45794ee7c8fdfa4d63c6f8f08aedf7d675a659399f5c520e0460e19fe43f8dc0",
+    "analysis/onevision_formal_cache_entry.py": "e2cddb46150f74c9fa1dceeb316247762e54b52eee3eb0594405738600aa67b1",
+    "analysis/onevision_formal_cache_report.py": "8c12af071cea716216ce4f675063edad794178b78e564faa186bc094e557cc9c",
+    "analysis/onevision_formal_cache_cpu_pipeline.py": "2e5d0ed4572ee9d7ece342a553264cfa4bd0d11567a1f408763778afca65f7da",
+    "analysis/activate_onevision_formal_cache_queue.py": "5de41bb5ec02b79e9e02f8c44b6e141bed515948db17f6dea654b7325b86e754"
+  },
+  "formal_protocol_sha256": "f2bb1f8114557b8272531148de97d5e418600fb9e4b620c70b8b0dfa679b068e",
+  "formal_scientific_settings": "original shared V2 FP16, all original source files untouched",
+  "formal_order": [
+    "preserve_current_GPU_natural_finish",
+    "formal_build_all4",
+    "formal_both21454",
+    "all_original_jobs_retained"
+  ],
+  "old_inheritance_fields_preserved": true,
+  "simple_focus_source_sha256": "df3f9144c993df6eaed5beb33f50017f80c4061758e4d72ef9edaf6b22e34461",
+  "latest_human_priority": "native research first; simple cold-start mechanism, no forced cross-domain LoRA reuse; formal full deferred not removed",
+  "initialization_control_sources": {
+    "analysis/onevision_initialization_source_controls.py": "db765202235b8fbd6be4912efd4f7f230b521c6ea795977ec6e94e2e8d41d065",
+    "analysis/onevision_initialization_source_entry.py": "332d34c4f375dae759346f62d4c199ec68249475375a9150880486fda5c75f9d",
+    "analysis/onevision_initialization_source_report.py": "90c6e5f996b0773d55104d7b43ff03f650712329acfaa8bdc78e61e20dd286f5",
+    "analysis/onevision_initialization_source_queue.py": "627e5accb45df9f3f40ccadb9ceb1b986aea1dc0433f0133f2ec0138605bc305"
+  },
+  "initialization_protocol_sha256": "1137bfb560060d59234c0cc4e01318e893a57a6282ba4522830cf09bc40f844d",
+  "neutral_initialization_sources": {
+    "analysis/onevision_function_neutral_init_queue_v2.py": "653eaac29d5a8db3cd0a90c72f9792d7d46c9346805bf47a8bc8a0837a787e56",
+    "analysis/onevision_function_neutral_init_trial_v2.py": "0534c22f6b7696c95d21578993a3a199e78d7781e67d08a430a81a8a61d4b04f",
+    "analysis/onevision_function_neutral_init_entry_v2.py": "167f1142451fee42c6921e3766f7c125fc7eb3caf1c28fde70c95f31da733aad",
+    "analysis/onevision_function_neutral_init_report_v2.py": "76d17b861fb8978df7a164b2eaf9519a846e8185b39ff034af51776ee9e4c4ff",
+    "analysis/onevision_function_neutral_gradients.py": "3514555c8d4d0cbf0a2c2929f37d84bf5010d86aa5fed5193c0dd570b391cd94",
+    "analysis/onevision_function_neutral_import_check_v2.py": "5a94c055584ae637636d3c9bd37e254d8e4b41af2c9d7798cb877d9a389ae0a4",
+    "analysis/activate_onevision_function_neutral_queue_v2.py": "71486699ca8089e05eb5f76d453b30a0efd28c31967d2b3d66dffa4139eab797"
+  },
+  "neutral_protocol_sha256": "af56bdd542072593ba346d4498a8460801382f9b87a59ca545df57161374aa9d",
+  "identified_v1_failure_sha256": "2fcd1e8acf3ed1a7fb038d208b29f680e0674d52bb692df17f8f3d95b6abb221",
+  "device_import_gate_sha256": "d5f24a600181ed303a386a94008b1af8e0c772757a544a3274f23a6c8e2bfad6",
+  "scientific_settings_and_exact_gates_unchanged": true,
+  "old_factorial_case2_normally_completed": true,
+  "neutral_order": [
+    "cold_compensated_exact",
+    "within_compensated507",
+    "cross_compensated507",
+    "all_original_jobs"
+  ],
+  "answer_compatibility_sources": {
+    "analysis/onevision_answer_compatibility_queue.py": "5cb43403c975588c89b8e94bd4dfc6950e5b14e0715e245aea63c0d0cd5a1533",
+    "analysis/onevision_answer_compatibility_core.py": "feb526931b516ed77274748187154de98081ce2e16ef0e92e15ed133a8df8c58",
+    "analysis/onevision_answer_compatibility_trial.py": "40032076ceb09ec9b9d638c235b203fd18f54882757d9581993623bfeb3ad326",
+    "analysis/onevision_answer_compatibility_entry.py": "ae7218bead244eecec5a8762461b37772c372ec2b9725fec454a0822f1b7652f",
+    "analysis/onevision_answer_compatibility_report.py": "4a2e5b916ff872a6ef396c020b7305aa711bdc0016f883937170d79133b8bac7",
+    "analysis/onevision_answer_compatibility_dispatch_check.py": "7b2996fab6b0f00df7fcf0fd71dcfc0e1af98e8f2599a1285d887a4c6f7e7153",
+    "analysis/activate_onevision_answer_compatibility_queue.py": "f095c6ad2b59bfe0ebf5997e8e394c34849725d4e13f9aabe59455238d048512"
+  },
+  "answer_compatibility_protocol_sha256": "1d1f02ecaeec200a7d87f5f204249e84de834040c0a70d8e4aa8193baf2432ea",
+  "answer_compatibility_order": [
+    "preserve_current_GPU_natural_finish",
+    "finish_all3_v2_neutral",
+    "TRAIN_feedback60_and_two_new_diagnostic_views",
+    "remaining_old18data_controls",
+    "both_new_full21454",
+    "all_original_jobs_retained"
+  ],
+  "feedback_coverage_sources": {
+    "analysis/onevision_feedback_coverage_queue.py": "2ac08461576c47af5514d4dded1a3a4a94c660ba81063a2cebd5f2abbd3f0cd9",
+    "analysis/onevision_feedback_coverage_trial.py": "11081c2f97275d308729bf2156f58149db9953a4fa96c921ad2196356bc21a73",
+    "analysis/onevision_feedback_coverage_entry.py": "20e6538af6b665899b04772458be555ebefb1bcbc4d984759e5835c7fef9b0d6",
+    "analysis/onevision_feedback_coverage_report.py": "2418e29c05f007792ccb7f28f3eb64470b15029ea9473d4e95fadc44f1cb328b",
+    "analysis/onevision_feedback_coverage_cpu_check.py": "a31fff2f1a5c028c38c9e5f17412cd69f11cbbe1575b36a8068e74f23487d20d",
+    "analysis/onevision_feedback_coverage_plan.py": "c469ebd772549880e9e2d1acb82849d66eee4a676aad3ba714743fce4013c2b7",
+    "analysis/activate_onevision_feedback_coverage_queue.py": "b5361c2f55054bd6c8ea2cc07cb07668f0da72b1b9690ec8a48a449ead9ebd12"
+  },
+  "feedback_coverage_protocol_sha256": "67e062784c992b40a89cfb92ed6ca1abad3ff593f049242e7c1afe595ac0876b",
+  "feedback_coverage_order": [
+    "preserve_current_GPU_natural_finish",
+    "coverage_build_two_diagnostics",
+    "remaining_original18_controls",
+    "both_coverage_full21454",
+    "all_original_jobs_and_fulls_retained"
+  ],
+  "osft_budget_sources": {
+    "analysis/onevision_osft_budget_queue_v3.py": "0ebd12c295c3ec67023ccba8e153103e7a89b16edb74bfcc0c7f6ade543f8d9c",
+    "analysis/onevision_osft_budget_core_v3.py": "7344d757c84130c664351c89f21f62b32fcd5e4f2398414b632b9e1d8e425981",
+    "analysis/onevision_osft_budget_trial_v3.py": "dc133e213e3dd46a937bd403d81a7553d410a45d6a3d3c555300c2ad15ad9610",
+    "analysis/onevision_osft_budget_entry_v3.py": "1fa0387eddfbeff66b20bdb507146f426c898b7d764aadadcebcb36649eb8af5",
+    "analysis/onevision_osft_budget_report_v3.py": "585a5c73afb75cec19424484ba3435a6c57308492983d91a35065c36c3389912",
+    "analysis/onevision_osft_budget_cpu_v3.py": "eccd51e52b68877887c02842de0ae3272131f5a01f6b410af64b99051b589698",
+    "analysis/onevision_osft_budget_worker_check_v3.py": "794787eaca7405fe6cbc97f6c598c60884b2fc23a4db5fa8a16693dcbcdeb9a4",
+    "analysis/activate_onevision_osft_budget_queue_v3.py": "c2c8d5a5fca73601a13450236eda7bec7ebcc5a3cdba3d8fec0797ae616585ce",
+    "analysis/onevision_svd_repair_gpu_gate_v3.py": "855780066d6d009b433215db3735092ac04a2e2524ae4786d8c517e41a4330cf"
+  },
+  "osft_budget_protocol_sha256": "f8791da356adfc231e451961d41677238db38991b5a55a5bd92e03f2b162a4a9",
+  "osft_budget_order": [
+    "preserve_current_GPU_natural_finish",
+    "both_budget_SVD_train19",
+    "remaining_original18_controls",
+    "both_budget_SVD_full21454",
+    "all_original_jobs_and_fulls_retained"
+  ],
+  "directional_coeff_sources": {
+    "analysis/onevision_directional_coeff_core.py": "c5c634da34f44255e866f649ed5f6969642af88df2edfe4df214ece1334f2f91",
+    "analysis/onevision_directional_coeff_trial_v2.py": "de784ae3037d424e01d51e8dde2307019da7825185c2b7591e74ff89e7779074",
+    "analysis/onevision_directional_coeff_entry_v2.py": "f5fe5dcfdeb1796c7f49ac9a476c1ebe58f0931eff9bde3c2fd39ea287b07dc5",
+    "analysis/onevision_directional_coeff_cpu_v2.py": "87067644f55f2ade91c4ed390de691034cf4b40e51fdc95c62007ce6ac251230",
+    "analysis/onevision_directional_coeff_report_v2.py": "76e50fe7c43d58e322af081b2d7835760091cdfa08fa590f021e29b7a5209d4c",
+    "analysis/onevision_directional_coeff_queue_v2.py": "e40df764ce5b4e4de3321103f01f35e65115ba8275de1858abb8fee2ec0a4c50",
+    "analysis/activate_onevision_directional_coeff_queue_v2.py": "c56b72dabd39738728bbfb0b24101404dab6824749c9da20732c4e35a44c823f"
+  },
+  "directional_coeff_protocol_sha256": "7767a88e3cf5c164635c72ebc38832d9cb2b1a16b4d4067bbc1d837a97bf58d5",
+  "latest_user_basis": "Directly adapt published update-direction ideas for small-data performance; detailed attribution is not a prerequisite; no fixed module count",
+  "directional_coeff_order": [
+    "preserve_current_GPU_natural_finish",
+    "both_coefficient_train19",
+    "both_coefficient_full21454",
+    "all_original_jobs_and_fulls_retained"
+  ],
+  "TRAIN_update_sources": {
+    "analysis/onevision_train_only_update_pilot.py": "afc64d88431ffc7a5e8bd11032a0bc45647168666abd2e52813aceedfffcac9d",
+    "analysis/onevision_train_update_pilot_queue.py": "ccd20e88b059a6e6322188321f090b7985aed5c22419206cf58796d6a84bf7de",
+    "analysis/activate_onevision_train_update_pilot.py": "87b9e7cffa78b039c7ecc45159733f13e99b55b640d64e282e4703b4185dca5b",
+    "analysis/onevision_train_update_pilot_cpu.py": "bedee8e6ddcd1aa0bec16912202be26542776cb9ae532f0fd5aad0602cae8e8f"
+  },
+  "TRAIN_update_protocol_sha256": "a53e037f681b52df3272f82b7ddd1d91c7c0941d0fa983eeacf74846d718ff11",
+  "TRAIN_update_plan_sha256": "7dbcb9bc5cc66b6431c78f8b1c12258a3ee1e6bcb34ea7fc5e9f541584f888aa",
+  "TRAIN_update_order": [
+    "current_GPU_natural_finish",
+    "both_coefficient_full21454",
+    "TRAIN_only12pilot",
+    "all_original_work"
+  ],
+  "no_TEST_score_selection": true,
+  "no_fixed_module_count": true,
+  "priority_v2_sources": {
+    "analysis/onevision_train_update_priority_v2.py": "4e3112df52ac3d65262352dcbaed0a951dc9fcb18b22161e673c6432c0cf58f2",
+    "analysis/activate_onevision_train_update_priority_v2.py": "a8456267392061ad6c3893900e444be07d290449a23885117be1c537a1eaa289"
+  },
+  "priority_v2_schedule_sha256": "81c2ca5a192c9e45158a4a29ef58367d686b18458283df3f27fedb8d7b345e7a",
+  "priority_v2_order": [
+    "current_GPU_natural_finish",
+    "existing_TRAIN_only_pilot12",
+    "all_previous_fulls_and_work"
+  ],
+  "authorization": "User delegated GPU1 plan and asked direct efficient paper-inspired experiments. Operational ordering only; no score-dependent decisions; all fulls retained."
+}

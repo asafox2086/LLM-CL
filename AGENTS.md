@@ -1,3 +1,9 @@
+# 2026-10-19：缩短方法反馈等待，只改独立CPU排队策略
+
+- 最新唯一入口analysis/onevision_train_update_priority_v2.py，CPU402686/startticks5443776，权威train_update_pilot_20261019/v1/priority_v2/queue_state.json与ACTIVATION。旧384025仅CPU计划退役，不恢复。GPU203850/startticks3213139当前完整确认自然继续，所有GPU／基线／发布器身份保全。
+- 原12格TRAIN-only worker/PLAN/PROTOCOL/4科学准入文件逐SHA不变，当前GPU自然完成后先执行该小对照，再回到随机方向完整21454及所有旧任务。仅覆盖旧协议的操作排队段，不改科学内容／超参／数据／完整确认义务；不是成绩驱动删负条件。六新策略及祖先检查通过，不是GPU效果。操作修订依据用户此前已委托GPU1计划并要求直接高效实验，见priority_v2/SCHEDULE_AMENDMENT.md。
+- 当前完整测试已完成前四域，交通仍慢：最近50题平均生成23.94秒／题，记录只读取耗时与进度，没有按分数调序。两系数完整确认全保留，当前不停止；新pilot尚未启动或产生F1，不把调度改进写作性能提升。
+
 # 2026-10-19：Qwen顺序LoRA恢复分支正式完成，4组结果已核验
 
 - 实际CPU读取17／18／19checkpoint并复算训练参数摘要，确认各validity首尾连续。原冻结resume源码与归档目录证明旧stage18预测已完整隔离，当前S18两格是重训后新生成。原故障目录／日志／预测／资源全部保留；另建training_20261019_verified_resume_branch_v2，预测／权重字节保持相同，明确分离旧中断的7步并计入额外计算。
