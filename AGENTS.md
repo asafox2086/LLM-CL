@@ -1,3 +1,10 @@
+# 2026-10-19：已发表优化器的连续LoRA候选接入，当前GPU自然继续
+
+- 新K52真实TRAIN梯度一步CPU控制：同一B×A，A放大4倍／B缩小4倍时，三个任务AdamW实际deltaW范数约0.103→0.411，反向缩放约0.033；作者LoRA-RITE在这些缩放下deltaW逐值同。是已知优化几何的局部控制，不是F1低分原因已确立或新理论。author PyTorch源d4186b6固定，参考源不入主Git。
+- 新单候选onevision_lora_rite_trial_20261019保留同一A+B跨19任务，不新增专家、不重置A/B；按阶段重置作者优化器，1313TRAIN／19／93主更新／21454不变。按作者内置去尺度clip1取消外部clip，保留默认skip1并记录。540672训练参数，optimizer状态稍多，不宣称少内存。7CPU实现／实际导入0/1／冷零B门槛过，模型GPU和新F1仍待。
+- 同nohup唯一CPU502584，冻结入口analysis/onevision_lora_rite_queue_20261019.py，权威lora_rite_continuous_20261019/v1/queue/queue_state.json与ACTIVATION。旧402686仅CPU计划退役，KillMode=process保全GPU203850/startticks3213139及全部基线／他人／发布器身份；principal完整确认自然继续。先原12格TRAIN-only，再RITE19TRAIN／21454，再random完整及全部旧任务，负条件不删。不恢复旧所有者。
+- 8新调度策略及所有祖先检查通过；科学源／协议READY后冻结，故障独立版本。不用TEST选方法／LR／源／停止点。正式FOREVER OneVision GPU1207239／Qwen等待CPU482168、原5基线和CPU51266保全；正式仍4/16目标，旧发布器4/14范围不改。
+
 # 2026-10-19：FOREVER双骨干模型门槛完成；OneVision正式运行已启动
 
 - v2两骨干均通过19真实图文反向、历史303条／36回放更新（35正LR）、AMP清理精确不变、保存与另进程重载有限反向，重载NLL误差0。它们是接入证明，不是正式F1。v1保存失败／v2空闲采样故障保留，旧gate CPU1189315及两个预检worker均正常结束，不恢复。

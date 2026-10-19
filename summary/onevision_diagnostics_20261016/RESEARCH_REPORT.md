@@ -1,3 +1,5 @@
+**2026-10-19新实验：** [等功能因子尺度控制](optimizer_geometry_20261019/v1/RESEARCH_FINDINGS.md)已完成，支持直接测试更新几何；尚未证明其导致最终F1下降。[连续LoRA-RITE](lora_rite_continuous_20261019/v1/README.md)已排在原12格TRAIN-only后，同1313/19/21454、单专家不扩容。7CPU实现／8策略检查通过，GPU模型及新F1待测，所有基线与原完整确认保留。
+
 > **操作排队修订：** 当前GPU完整确认自然完成后，先取得原12格TRAIN-only更新策略对照，再返回其余完整测试。所有科学文件／数据／预算不变，所有原完整确认保留；没有新性能结论。[修订与凭据](train_update_pilot_20261019/v1/priority_v2/README.md)。
 
 > **正式基线维护完成：** Qwen顺序LoRA恢复支线已由实际检查点、归档与冻结完整验证器核验，AP47.812／FWT13.258／BWT4.415，正式4／14；无GPU重跑，资源缺失明确保留。[凭据](../two_backbone_pct01_20261017/qwen_seqft_io_recovery_20261019/README.md)。研究方案与其余基线持续。

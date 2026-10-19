@@ -1,3 +1,5 @@
+**更新方式试验（2026-10-19）：** [同一个LoRA功能的尺度控制](summary/onevision_diagnostics_20261016/optimizer_geometry_20261019/v1/RESEARCH_FINDINGS.md)显示，A/B缩放可改变AdamW更新；作者LoRA-RITE消除了本次控制中的差异。新[连续单LoRA候选](summary/onevision_diagnostics_20261016/lora_rite_continuous_20261019/v1/README.md)已排在原训练对照后，尚无GPU／F1结果，不宣称最终低分原因已找到或已有内存优势。
+
 **回放基线已接续（2026-10-19）：** FOREVER双骨干真实训练／保存重载门槛通过，OneVision正式作业已在旧GPU0启动，Qwen在新GPU2队列等待。原基线持续；当前共6条GPU基线作业，完整结果仍4组，FOREVER主表留空。[运行状态与恢复规则](summary/two_backbone_pct01_20261017/forever_multimodal_20261019/v3/README.md)。
 
 **正式基线更新（2026-10-19）：** Qwen2-VL顺序LoRA的恢复分支已通过完整19阶段／74格／21454题核验，AP47.812、FWT13.258、BWT4.415，已填主表；目前4组正式结果完成。[恢复凭据与资源限制](summary/two_backbone_pct01_20261017/qwen_seqft_io_recovery_20261019/README.md)：旧文件保留，中断计算另计，资源日志不完整，不能用来宣称内存优势。
@@ -71,7 +73,7 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 | [问题发现总报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md) | 按问题、实验、结果、证明、改进、效果记录；区分已证实、已反驳、未解决。[关键发现](summary/onevision_diagnostics_20261016/KEY_FINDINGS.md)提供证据索引。 |
 | [两模块四格诊断](summary/onevision_diagnostics_20261016/warm_quality_20261018/predeclared_hard_case/RESEARCH_FINDINGS.md) | 同155题四格与SeqFT逐题比较；点优势小且域宏差区间含0，完整21454待。 |
 | [研究诊断表](summary/onevision_diagnostics_20261016/functional_router/MAIN_TABLE_DIAGNOSTIC.md) | 原生AnyRes/BF16、同155题的六方法对照；不能混入正式V2或当完整21454题结果。 |
-| [唯一研究队列](summary/onevision_diagnostics_20261016/train_update_pilot_20261019/v1/priority_v2/README.md) | 当前GPU自然完成后接既有TRAIN-only更新对照，再返回全部原完整确认；实际进程与当前queue_state优先，旧入口为历史。 |
+| [唯一研究队列](summary/onevision_diagnostics_20261016/lora_rite_continuous_20261019/v1/queue/README.md) | 当前GPU自然完成后先原TRAIN-only更新对照，再连续LoRA-RITE训练与完整确认，随后全部原工作；实际queue_state与PID优先。 |
 | [文献问题与启发](summary/onevision_diagnostics_20261016/LITERATURE_PROBLEMS.md) | 他人发现、验证角度、解决方式及适用边界；不是本模型已证实原因。 |
 
 2026-10-18运行快照：研究仅新GPU1。原质量硬调用完整确认因FinMME:5082辅助特征缺id的日志异常停止，旧预测和失败证据保留；[新实现修复与实际GPU门禁](summary/onevision_diagnostics_20261016/feature_identity_repair_20261018/README.md)已通过。温启动19阶段与500NLL/155生成已封存，AP+4.000；温池四视图已实际启动GPU415408，接续全部18数据量控制，再从头重测完整确认；全部其余既定实验保留。两机正式基线继续，新GPU0保留；完整四格收益仍待。
@@ -103,6 +105,7 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 | 少数据下，新建LoRA是否不如继承已有LoRA？ | 同样用11条医学问答训练一次，完整228题测试：从头训练19.88，继承已有LoRA后29.26；原新LoRA此后没有被修改。[证据](summary/onevision_diagnostics_20261016/expert_cold_start_20261018/RESEARCH_FINDINGS.md) | 本例从头训练就没学好；继承已有适配提高9.39分。 |
 | 跨领域训练后的差距都是遗忘吗？ | 同一医学任务学完为20.36分；继续学同领域后34.17，改学其他领域后18.63。[证据](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md) | 差距也包含同领域训练的帮助，不能全部算作遗忘。 |
 | 按输入相似度选择LoRA，能选对吗？ | 在同155题上比较选择方式：固定相似度22.39、学习相似度31.03、依据训练题答题质量选择36.70；顺序训练单LoRA为43.36。[证据](summary/onevision_diagnostics_20261016/functional_router/PILOT_FINDINGS_20261018.md) | 输入相近不保证回答好；这几种选择方式仍未超过简单基线。 |
+| 同样已有LoRA功能，更新还会受参数写法影响吗？ | 三个任务真实训练梯度保持B×A不变；A放大4倍后，AdamW权重更新约为原来的4倍，作者RITE更新相同。[证据](summary/onevision_diagnostics_20261016/optimizer_geometry_20261019/v1/RESEARCH_FINDINGS.md) | 更新几何确实可干预；最终Answer F1与实际资源效果待测。 |
 | 补充专业知识就能提高问答表现吗？ | 让模型学习16条专业事实：能记住这些事实，但相关医学问答未稳定改善。[证据](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md) | 记住知识不等于能在目标问题中用好知识。 |
 | 更新次数很少时，保护旧知识的约束会生效吗？ | 检查PASs-MoE：9个只更新一次的阶段中，一项保护系数始终为0；另验得EWC以当前参数为保护中心时，第一步保护梯度为0。[证据](summary/onevision_diagnostics_20261016/regularizer_budget_20261018/RESEARCH_FINDINGS.md) | 少量更新可能让部分保护机制来不及发挥作用，尚未证明会降低最终分数。 |
 | 专家选择器真的在学习吗？ | 对SMoLoRA原代码做梯度检查：两个选择器没有收到梯度，专家本身正常更新；不更新选择器也能随输入切换专家。[证据](summary/onevision_diagnostics_20261016/smolora_gate_20261018/RESEARCH_FINDINGS.md) | 本次代码检查中，选择发生变化不代表选择器学会了；尚无性能因果结论。 |
