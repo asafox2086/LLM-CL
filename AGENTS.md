@@ -1,3 +1,9 @@
+# 2026-10-19结果前解释边界与既有CPU对照收尾
+
+- 新增architecture_capacity/v1/COMPARISON_BOUNDARIES.md只澄清解释，不改冻结科学源、条件或预算。SMo同总rank少专家会增加单次被选专家宽度；不能把该对照当作相同激活容量或唯一证明路由有害。CL soft混合不能说每专家仅看1/8数据；这六组都不是逐任务新建专家。只1%对照不能宣称数据量交互因果。
+- 原三CPU精度和独立重载已全部自然完成，1408452／1409431／1441149实查均退出，不重启。closeout/VERIFIED_RESULTS按原全部参考和冻结score复核：FP32=100/100/100/0/23.229，decoderINT8=66.667/0/0/3.922/14.368，全INT8=0/100/0/0/0；三个另进程state及五题短token均精确。仅工程封存、0新增请求，不称五域测试AP／方法提升或继续扩展卡常路线。
+- 最新实查GPU1他人474973/556654/956296仍占用95%；CPU1016078/start9384610与五条GPU基线均存活，容量0/6，无异常或GPU attempt，旧工作保全。新QwenCL／SMo仍S0，有实际partial输出更新和CPU运行时间，仅用作健康证据，不读partial分数作最终。
+
 # 2026-10-19新接续：架构扩展必要性消融，而非卡常
 
 - 先说明意义再执行，协议在summary/edge_deployment_20261019/architecture_capacity/v1/PROTOCOL.md：CL-MoE／SMoLoRA各原配置、少专家同总rank、少专家小总rank，共6组；区分专家分工与容量，正负结果各有行动出口，不预设扩展无用。
