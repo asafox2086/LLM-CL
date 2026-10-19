@@ -1,0 +1,40 @@
+{
+  "status": "INDEPENDENT_V2_REPAIR_PRE_GPU",
+  "v1_scientific_sources_untouched": true,
+  "all_non_replay_functions_AST_identical": true,
+  "all_training_and_optimizer_statements_AST_identical": true,
+  "difference": "post-TRAIN unwrap_model(keep_fp32_wrapper=False) before common graph checkpoint",
+  "post_TRAIN_checks": "same parameter identity/storage/versions/hash and one old TRAIN NLL before/after; restore RNG",
+  "extra_TRAIN_forward_per_replay": 2,
+  "extra_optimizer_updates": 0,
+  "all_unchanged_port_files": [
+    "parsp_adapter.py",
+    "sparse_results.py",
+    "osft_adapter.py",
+    "freeze_splits.py",
+    "retrieval.py",
+    "pipeline.py",
+    "checkpoint_probe.py",
+    "aler_adapter.py",
+    "checkpoints.py",
+    "pass_adapter.py",
+    "fv_adapter.py",
+    "sparta_adapter.py",
+    "host_adam.py",
+    "prepare_native.py",
+    "native_auxiliary.py",
+    "replay_adapter.py",
+    "resource_monitor.py",
+    "hyper_adapter.py",
+    "frozen_vision.py",
+    "clmoe_adapter.py",
+    "methods.py",
+    "training_validity.py",
+    "onevision_bridge.py",
+    "runtime_utils.py"
+  ],
+  "source_sha256": {
+    "analysis/forever_multimodal_replay_20261019.py": "bdcbb99a846b5a6fa8a8a66115034bd692d8498fe8d6820d8038e9aaed5aea0a",
+    "analysis/forever_multimodal_replay_v2_20261019.py": "8024931496a032ea666e44376d79614d7c223b17c73ff11a8074494f87cd3683"
+  }
+}

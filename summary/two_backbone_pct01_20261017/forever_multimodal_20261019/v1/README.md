@@ -1,3 +1,5 @@
+> v1已在保存checkpoint时被HF AMP封装拦截；回放完成不等于整体通过。独立[v2修复与实时入口](../v2/README.md)已启用，v1不重启。下文保留原接入记录。
+
 # FOREVER 多模态接入：损失与状态核心
 
 状态：已在旧 GPU0 启动两个 backbone 的独立图文／回放／重载门槛，尚未准入正式 FOREVER 训练，没有性能结果。它不替代当前正在运行的七类基线。实时入口在旧服务器本目录 `gate_attempt/state.json`，失败看 `NEEDS_ATTENTION.json`；不因缺少正式结果而重复启动。

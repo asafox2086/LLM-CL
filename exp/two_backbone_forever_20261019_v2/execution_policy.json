@@ -1,0 +1,154 @@
+{
+  "experiment_id": "two_backbone_forever_20261019_v2",
+  "training_enabled": true,
+  "seed": 42,
+  "epochs": 1,
+  "validation_enabled": false,
+  "methods": [
+    "FOREVER"
+  ],
+  "selected_sources": [
+    "TextVQA",
+    "SLAKE",
+    "RSVQA-LR",
+    "FinMME",
+    "CODA-LM"
+  ],
+  "removed_dataset": "AQUA",
+  "evaluation": "initial all; intermediate current+next; final all; no historical-peak ForgetRate",
+  "checkpoint_all_stages_methods": [
+    "SeqFT_LoRA"
+  ],
+  "save_final_parameters": true,
+  "checkpoint_other_methods": "final only",
+  "conditions": {
+    "full": {
+      "train_fraction": 1.0,
+      "test_fraction": 1.0,
+      "allowed_gpus": [
+        3
+      ],
+      "ready": true,
+      "manifest": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse_labeled_20261017/full/manifest.json",
+      "manifest_sha256": "cf737555dab3646c9916dc63a66f1d52285eebbeed4aa414e807ae5b08a0d952"
+    },
+    "pct01": {
+      "train_fraction": 0.01,
+      "test_fraction": 1.0,
+      "allowed_gpus": [
+        2
+      ],
+      "ready": true,
+      "manifest": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/manifest.json",
+      "manifest_sha256": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777"
+    }
+  },
+  "hosts": {
+    "new3090": {
+      "reserved_gpus": [
+        0,
+        1
+      ],
+      "conditions": {
+        "pct01": [
+          2,
+          3
+        ],
+        "full": []
+      },
+      "minimum_free_mib": 16000,
+      "backbone": "qwen"
+    },
+    "old2080": {
+      "reserved_gpus": [],
+      "conditions": {
+        "pct01": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "minimum_free_mib": 8500,
+      "backbone": "onevision"
+    },
+    "new3090_onevision": {
+      "backbone": "onevision",
+      "reserved_gpus": [
+        0,
+        1,
+        2
+      ],
+      "conditions": {
+        "pct01": [
+          3
+        ]
+      },
+      "minimum_free_mib": 16000
+    },
+    "old2080_qwen_gate": {
+      "reserved_gpus": [],
+      "conditions": {
+        "pct01": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "minimum_free_mib": 8500,
+      "backbone": "qwen"
+    }
+  },
+  "ownership": {
+    "old2080": [
+      "pct01:SeqFT_LoRA",
+      "pct01:CL_MoE",
+      "pct01:SMoLoRA",
+      "pct01:PASs_MoE",
+      "pct01:PaRSP",
+      "pct01:OSFT",
+      "pct01:SpaRTA"
+    ],
+    "new3090": [
+      "pct01:SeqFT_LoRA",
+      "pct01:CL_MoE",
+      "pct01:SMoLoRA",
+      "pct01:PASs_MoE",
+      "pct01:PaRSP",
+      "pct01:OSFT",
+      "pct01:SpaRTA"
+    ],
+    "new3090_onevision": [
+      "pct01:SMoLoRA"
+    ]
+  },
+  "task_count": 19,
+  "framework_version": "shared-v2-uniform-input-and-cache",
+  "backbone_comparison": "all controlled protocol/code identical; native model/tokenizer/processor only",
+  "shared_loss_scale_init": 1,
+  "image_processing": "identical RGB/bicubic aspect-preserving global401408pixel input cap for both; sourceimages never overwritten; thennativeprocessor",
+  "source_dataset_id": "five_domain_native_cl_20261016_sparse",
+  "future_full": "newGPU3 after prioritized paired1% work; legacy full failed on one missing source label and is disabled; new full starts fresh",
+  "shared_image_area_cap": 401408,
+  "shared_visual_cache": "per-model/run CPU LRU128MiB; samecachelogic/dtype; no crossmethod diskcache",
+  "full_label_exclusion": {
+    "id": "SLAKE:1622",
+    "count": 1,
+    "effective_train": 131018,
+    "user_authorized": true
+  },
+  "scope_revision_20261018": {
+    "removed_before_formal_training": [
+      "ALER",
+      "FV_guided_Training"
+    ],
+    "pending_not_admitted": [
+      "FOREVER"
+    ],
+    "reason": "User removes two untrained regularizers; requests a published replay comparator",
+    "details": "summary/two_backbone_pct01_20261017/BASELINES.md",
+    "removed_published_comparison_control_by_user": "ER_LoRA",
+    "ER_history_preserved": true
+  }
+}

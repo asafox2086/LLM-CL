@@ -1,3 +1,16 @@
+# 2026-10-19：FOREVER OneVision门槛完整通过，Qwen由新CPU入口续接
+
+- v2 OneVision已真实完成19图文正反向、历史303条／36次回放、AMP清理／保存以及另进程重载有限反向。参数身份／storage／版本及SHA精确不变，同一旧TRAIN NLL前后精确；模型检查点保存问题已解决。证明在v2/onevision_gpu_verified，仍是非正式预检，不填F1或正式完成数。
+- 旧v2 gate CPU1183977在OneVision重载正常完成后，被启动Qwen前的瞬时GPU利用率19%空闲断言拦截（显存仅8MiB），已退出；旧1184020训练及1187874重载均正常结束，不重跑。CPU-only新入口`analysis/forever_qwen_gate_resume_20261019.py`继承同一冻结v2的OneVision三证明，原idle守卫一字节不改，只在条件暂不满足时健康等待；2次合成等待控制已过。没有放宽利用率／实际进程／显存检查，没有训练源码或超参改变。
+- 当前唯一FOREVER接入CPU1189315/startticks707759998，Qwen worker1189340/startticks707760026在旧GPU0；权威旧机v2/qwen_cpu_resume/state.json。source恢复锁见QWEN_CPU_RECOVERY_READY.json。先读实际PID、QWEN_COMPLETE、BOTH_GPU_GATES_COMPLETE、NEEDS_ATTENTION；新机old_runtime_snapshot只快照，不恢复任何旧CPU/GPU。剩余Qwen预检／重载和正式准入仍待；不得因OneVision通过而直接当作正式基线完成。原研究CPU402686/GPU203850和5条正式基线不变，正式发布仍4/14。
+
+# 2026-10-19：FOREVER v1回放成功、保存失败；独立v2已续上旧GPU0
+
+- v1 OneVision实际19图文反向＋1额外T02更新＋历史303条回放完成：36更新／35正LR／1作者warmup零步／576QA曝光。随后保存method graph被HF AMP包装器的PicklingError拦截；这属于我们的集成错误，不是FOREVER低分。v1 CPU1176100／GPU1176137已失败退出，不恢复。旧source、日志、raw gradients、686字节partial和FAILURE_BOUND保留，不从残片恢复权重，不拼结果。
+- 新独立v2：`exp/two_backbone_forever_20261019_v2`、`analysis/forever_multimodal_replay_v2_20261019.py`。所有训练／优化器语句及其他函数AST精确v1，只在训练后用`unwrap_model(...,keep_fp32_wrapper=False)`去掉不可序列化封装。CPU实际复现同报错，修复后参数／RNG／autocast输出／cloudpickle重载精确；v2实际8CPU更新原始梯度／LR／最终参数仍精确原参考。GPU后置门槛要验证全部参数身份／storage／版本及trainableSHA、同一旧TRAIN NLL前后精确，并恢复RNG。新增每次2TRAIN NLL计费，回放资源窗口包括该清理，不能说纯TRAIN峰值。
+- 当前旧GPU0唯一v2 gate CPU1183977/startticks707690413，OneVision worker1184020/startticks707690462；权威旧 `/data2/liyapeng_grp/program/LLMCL/summary/two_backbone_pct01_20261017/forever_multimodal_20261019/v2/gate_attempt/state.json`。新机mirror只存快照。GPU_GATE_PLAN/PROTOCOL和科学源已冻结，先核验实际PID／proof／NEEDS_ATTENTION再行动，不热改或盲重试。成功后同卡Qwen门槛＋另进程重载仍全部必做，未正式准入FOREVER，主表空白，正式仍4/14。
+- v2正式验证器是`analysis/forever_multimodal_formal_verify_v2_20261019.py`，需两backbone完整GPU／reload和明确FORMAL_ADMISSION才接受，当前尚无正式proof。当前研究CPU402686/GPU203850自然继续，之后12格TRAIN-only；五条正式基线与只读发布器均保留。只用真空闲旧0做基线接入，新机最多3卡规则不变。v1旧门槛只作为历史故障，不恢复。
+
 # 2026-10-19：FOREVER 已上旧 GPU0 做真实接入门槛，不是正式结果
 
 - 新独立图文实现 `exp/two_backbone_forever_20261019_v1` 与 `analysis/forever_multimodal_*_20261019.py`；原活动 V2 *.py 一字节未改，主表仍4/14。CPU8核心检查、实际HF8更新／128合成样本／7正LR＋1作者warmup零步，以及独立作者类最终参数SHA／梯度对照通过；不能称模型收益。原作者选择器／漂移／正则AST原样编译，实际共享FP16初始scale1单列适配。

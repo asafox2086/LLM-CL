@@ -1,0 +1,49 @@
+{
+  "status": "V1_GPU_REPLAY_COMPLETE_BUT_CHECKPOINT_SERIALIZATION_FAILED",
+  "failure": "HF AMP wrapper cannot be pickled",
+  "fresh_version_required": true,
+  "model_performance_evidence": false,
+  "upstream_method_failed": false,
+  "actual_replay": {
+    "status": "ACTUAL_REPLAY_COMPLETE",
+    "stage": 2,
+    "actual_optimizer_updates": 36,
+    "positive_LR_updates": 35,
+    "author_zero_warmup_updates": 1,
+    "actual_QA_exposures": 576,
+    "requested_epochs": 2,
+    "HF_effective_num_train_epochs": 2,
+    "HF_final_epoch": 1.900990099009901,
+    "HF_train_metrics": {
+      "train_runtime": 412.0451,
+      "train_samples_per_second": 1.471,
+      "train_steps_per_second": 0.087,
+      "train_loss": 1.1048694600661595,
+      "epoch": 1.900990099009901
+    },
+    "seconds": 412.3857130985707,
+    "beta": 0.9999999999863666,
+    "model_time_unchanged_by_replay": true,
+    "CPU_control_not_formal": false
+  },
+  "old_worker_exited": true,
+  "old_controller_exited": true,
+  "old_partial_checkpoint": [
+    {
+      "path": "exp/two_backbone_forever_20261019_v1/runs/gates/onevision/20261019_103623/checkpoints/stage_01.pt.partial",
+      "bytes": 686,
+      "sha256": "ef8c8b0453344740a408639ccd7d9b6253985fcde70afd2e27afa83e956023f4"
+    }
+  ],
+  "evidence_sha256": {
+    "summary/two_backbone_pct01_20261017/forever_multimodal_20261019/v1/gate_attempt/NEEDS_ATTENTION.json": "5b5f4221722bb540f4b59f46beb87455cd023df8211b5caedaabd8aba0ba5a28",
+    "summary/two_backbone_pct01_20261017/forever_multimodal_20261019/v1/gate_attempt/onevision_preflight.log": "c451301cb95294135764aad4212bf10dab9e16135e93194b433a0524b2531451",
+    "summary/two_backbone_pct01_20261017/forever_multimodal_20261019/v1/gate_attempt/PROTECTED_AFTER.json": "c181642a346f79b00a0c61351850da4410c7f892a3410848f23f829251963df8",
+    "summary/two_backbone_pct01_20261017/forever_multimodal_20261019/v1/gate_attempt/BASELINE_IDENTITY_CHECK.json": "329d0865913996ca30fcfb33caeb4feff7fc3fb5de90c40457bf5f728ee117c9",
+    "exp/two_backbone_forever_20261019_v1/runs/gates/onevision/20261019_103623/config.json": "a374d51262876d2922f28b9cd7f87dce44d718106ae0bb1d0f1e1b707810eb45",
+    "exp/two_backbone_forever_20261019_v1/runs/gates/onevision/20261019_103623/FOREVER_REPLAY_GPU_GATE.json": "f537755256bc765e74f197921c6b4162724e709b7c7181d450815f7fd61d2372",
+    "exp/two_backbone_forever_20261019_v1/runs/gates/onevision/20261019_103623/method_state/stage_02/actual_author_replay/REPLAY_COMPLETE.json": "3e18677771eae60368439efcb058d23963632779bba681bbfd99de4f1d03456e",
+    "exp/two_backbone_forever_20261019_v1/runs/gates/onevision/20261019_103623/method_state/stage_02/actual_author_replay/SHARED_FP16_INITIAL_SCALE.json": "f6c19c86984a8e6f043f2bdf9ed4a6f2ef4fadba67e9872b44fdda89ce178864"
+  },
+  "not_restoring_partial_or_splicing_results": true
+}
