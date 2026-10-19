@@ -1,7 +1,7 @@
 {
   "CPU_only": true,
   "collector_sha256": "d7aac920f738c6ee8fde9a636560f2d2d6ee7ea1ba9de9e030e6548b4b4cad0a",
-  "verified_method_backbone_pairs": 3,
+  "verified_method_backbone_pairs": 4,
   "required_pairs": 14,
   "TEST_best_run_selection": false,
   "primary_AP19_unchanged": true,
@@ -98,6 +98,38 @@
         },
         "traffic": {
           "F1": 31.937969468850667,
+          "QA": 2123
+        }
+      }
+    },
+    {
+      "backbone": "qwen",
+      "method": "SeqFT_LoRA",
+      "proof_file": "summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/completed/2a0b6d43f89c3cec6cb9.json",
+      "aggregate": {
+        "AP": 47.812159352619155,
+        "FWT": 13.25829976623925,
+        "BWT": 4.414713476250288
+      },
+      "domains": {
+        "natural": {
+          "F1": 86.31201304251312,
+          "QA": 5000
+        },
+        "medical": {
+          "F1": 47.6543050829364,
+          "QA": 2094
+        },
+        "geography": {
+          "F1": 51.10955617752899,
+          "QA": 10004
+        },
+        "finance": {
+          "F1": 26.575526762429092,
+          "QA": 2233
+        },
+        "traffic": {
+          "F1": 33.2103548178799,
           "QA": 2123
         }
       }

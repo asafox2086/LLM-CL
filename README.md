@@ -1,3 +1,5 @@
+**正式基线更新（2026-10-19）：** Qwen2-VL顺序LoRA的恢复分支已通过完整19阶段／74格／21454题核验，AP47.812、FWT13.258、BWT4.415，已填主表；目前4组正式结果完成。[恢复凭据与资源限制](summary/two_backbone_pct01_20261017/qwen_seqft_io_recovery_20261019/README.md)：旧文件保留，中断计算另计，资源日志不完整，不能用来宣称内存优势。
+
 **最新研究进展（2026-10-19）：** [连续系数两组](summary/onevision_diagnostics_20261016/directional_coeff_20261018/v2/REPAIR_FINDINGS.md)都完成19阶段，155题AP20.93／21.72，低于同题顺序LoRA43.36；双完整21454继续，不能宣称提升。[下一项TRAIN-only对照](summary/onevision_diagnostics_20261016/train_update_pilot_20261019/v1/PROTOCOL.md)检查保留当前适配、固定A与提高B更新速度，已排队，尚无GPU结果。正式Ours留空。
 
 **研究重点更新：** 按最新要求先核验数据受限下哪些更新机制有效，暂停预设模块数量；[他人更新方式、已知结果及验证方案](summary/onevision_diagnostics_20261016/DATA_LIMITED_PRIORITY.md)。SVD机制对照v3已实际在GPU1进入初始评测，无新成绩；正式主表口径不变。
@@ -30,7 +32,7 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 | 方法／Backbone | 类型 | 发表会议／年份 | TextVQA<br>自然／通用 | SLAKE<br>医学 | RSVQA-LR<br>遥感 | FinMME<br>金融 | CODA-LM<br>交通 | AP ↑ | FWT ↑ | BWT ↑ |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | **Qwen2-VL-2B-Instruct** | | | | | | | | | | |
-| SeqFT-LoRA | 朴素顺序微调 | 标准对照（无独立发表年份） |  |  |  |  |  |  |  |  |
+| SeqFT-LoRA | 朴素顺序微调 | 标准对照（无独立发表年份） | 86.312 | 47.654 | 51.110 | 26.576 | 33.210 | 47.812 | 13.258 | 4.415 |
 | FOREVER | 回放 | [ACL 2026](https://aclanthology.org/2026.acl-long.1144/) |  |  |  |  |  |  |  |  |
 | CL-MoE | 架构 | [CVPR 2025](https://openaccess.thecvf.com/content/CVPR2025/html/Huai_CL-MoE_Enhancing_Multimodal_Large_Language_Model_with_Dual_Momentum_Mixture-of-Experts_CVPR_2025_paper.html) |  |  |  |  |  |  |  |  |
 | SMoLoRA | 架构 | [ICCV 2025](https://openaccess.thecvf.com/content/ICCV2025/html/Wang_SMoLoRA_Exploring_and_Defying_Dual_Catastrophic_Forgetting_in_Continual_Visual_ICCV_2025_paper.html) |  |  |  |  |  |  |  |  |

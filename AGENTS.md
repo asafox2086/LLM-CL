@@ -1,3 +1,10 @@
+# 2026-10-19：Qwen顺序LoRA恢复分支正式完成，4组结果已核验
+
+- 实际CPU读取17／18／19checkpoint并复算训练参数摘要，确认各validity首尾连续。原冻结resume源码与归档目录证明旧stage18预测已完整隔离，当前S18两格是重训后新生成。原故障目录／日志／预测／资源全部保留；另建training_20261019_verified_resume_branch_v2，预测／权重字节保持相同，明确分离旧中断的7步并计入额外计算。
+- 原完整验证器在新分支通过19阶段、93最终有效更新、74格、21454最终QA及最终checkpointSHA，原CPU发布器51266已独立接纳第四组并更新主表：Qwen SeqFT AP47.812159／FWT13.258300／BWT4.414713；正式已核验4／14。不是新的训练收益，也不是新增方法实验。
+- 原resources有4损坏行，跨PID前后不能相减，恢复资源摘要明确incomplete，不补造或宣称内存优势。旧失败记录／原状态未修改。原CPU发布脚本391837因冗余历史权重IO被单独停止，部分目录保留；独立v2使用硬链接身份核对相同文件，最终SHA及科学验证原门槛不变。见summary/two_backbone_pct01_20261017/qwen_seqft_io_recovery_20261019/RESOLVED_LINEAGE.json。
+- 研究唯一CPU384025与GPU203850仍实际存活，两系数完整确认后接12格TRAIN-only学习策略对照；新方法尚无大幅提升。原5条正式基线／GPU与只读发布器未中断，不恢复历史PID或热改源。
+
 # 2026-10-19：两系数完整确认继续；TRAIN-only更新对照已排队
 
 - 同nohup唯一入口analysis/onevision_train_update_pilot_queue.py，CPU384025/startticks5265584，权威train_update_pilot_20261019/v1/queue/queue_state.json和ACTIVATION。旧106814仅CPU计划退役，不恢复；当前principal完整21454 worker203850/startticks3213139在GPU1自然继续，所有GPU/基线/发布器身份保全。先两系数完整21454，再新12格TRAIN-only对照，再原全部任务；GPU空闲0/1单流、我们最多3卡。
