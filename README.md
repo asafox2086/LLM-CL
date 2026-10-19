@@ -1,3 +1,5 @@
+**2026-10-19实际参数比较：** [100%比1%多更新了什么](summary/two_backbone_pct01_20261017/partial_full_vs_pct01_20261019/parameter_geometry/v2/REPORT.md)：六个Qwen检查点的冻结骨干逐字节相同，均为28层q/v、rank8、1,089,536个训练坐标。医学两阶段100%有效更新幅度为1%的17.79／12.93倍，方向余弦0.166／0.030；1%的A/B几乎所有坐标也已改变。自然更新大7.76倍却分数近似，不能将更大更新等同更好效果。框架／起点／样本量与步数仍混杂，不作唯一原因；CPU独立核验完成，不改基线或GPU队列。
+
 **已有100%训练checkpoint的阶段比较：** [Qwen前三阶段与有效1%的完整测试结果](summary/two_backbone_pct01_20261017/partial_full_vs_pct01_20261019/REPORT.md)。自然问答85.817／86.050，医学Modality83.772／40.314，Position65.213／31.380（100%／1%，原始Answer F1）。100%仅完成S1–S3，两版输入与训练框架不同，属于阶段性描述，不填完整主表或声称纯数据量因果。
 
 **更新方式试验（2026-10-19）：** [同一个LoRA功能的尺度控制](summary/onevision_diagnostics_20261016/optimizer_geometry_20261019/v1/RESEARCH_FINDINGS.md)显示，A/B缩放可改变AdamW更新；作者LoRA-RITE消除了本次控制中的差异。新[连续单LoRA候选](summary/onevision_diagnostics_20261016/lora_rite_continuous_20261019/v1/README.md)已排在原训练对照后，尚无GPU／F1结果，不宣称最终低分原因已找到或已有内存优势。
