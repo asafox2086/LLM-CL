@@ -1,0 +1,155 @@
+{
+  "complete": true,
+  "models": {
+    "onevision": {
+      "model": "LLaVA-OneVision-Qwen2-0.5B-OV",
+      "total_parameters": 893675552,
+      "total_tensor_bytes": 1787351104,
+      "groups": {
+        "other": {
+          "parameters": 896,
+          "serialized_tensor_bytes": 1792,
+          "tensors": 1,
+          "dtypes": {
+            "F16": 896
+          },
+          "fraction_of_tensor_bytes": 1.0026009976381227e-06
+        },
+        "language": {
+          "parameters": 494090112,
+          "serialized_tensor_bytes": 988180224,
+          "tensors": 290,
+          "dtypes": {
+            "F16": 494090112
+          },
+          "fraction_of_tensor_bytes": 0.5528741509088524
+        },
+        "projector": {
+          "parameters": 1836800,
+          "serialized_tensor_bytes": 3673600,
+          "tensors": 4,
+          "dtypes": {
+            "F16": 1836800
+          },
+          "fraction_of_tensor_bytes": 0.0020553320451581515
+        },
+        "vision_encoder": {
+          "parameters": 397747744,
+          "serialized_tensor_bytes": 795495488,
+          "tensors": 421,
+          "dtypes": {
+            "F16": 397747744
+          },
+          "fraction_of_tensor_bytes": 0.44506951444499177
+        }
+      },
+      "decoder_only_hypothetical_weight_compression": {
+        "language_16_to_8bit_total_tensor_ratio": 0.7235629245455738,
+        "language_16_to_4bit_total_tensor_ratio": 0.5853443868183607,
+        "uncompressed_non_language_fraction": 0.44712584909114755,
+        "not_actual_export_or_runtime": true,
+        "scales_padding_runtime_not_included": true
+      },
+      "config_sha256": "839a4fba0bd6949f0db22d4f840935cb0318f6ac28b29c9ce1a5b15735a4a740",
+      "headers": [
+        {
+          "file": "model/LLaVA-OneVision-Qwen2-0.5B-OV/model.safetensors",
+          "header_sha256": "874dbcdff7fd946c2f1d74b0d46059e598b03bdc2b93853f65603360a984c5a5",
+          "file_bytes": 1787445680,
+          "header_bytes": 94568,
+          "tensor_data_bytes": 1787351104,
+          "full_weight_values_not_read": true
+        }
+      ],
+      "selected_vision_feature_layer": -1,
+      "vision_config": {
+        "hidden_size": 1152,
+        "image_size": 384,
+        "intermediate_size": 4304,
+        "model_type": "siglip_vision_model",
+        "num_attention_heads": 16,
+        "num_hidden_layers": 26,
+        "patch_size": 14,
+        "vision_use_head": false
+      }
+    },
+    "qwen": {
+      "model": "Qwen2-VL-2B-Instruct",
+      "total_parameters": 2208985600,
+      "total_tensor_bytes": 4417971200,
+      "groups": {
+        "language": {
+          "parameters": 1543714304,
+          "serialized_tensor_bytes": 3087428608,
+          "tensors": 338,
+          "dtypes": {
+            "BF16": 1543714304
+          },
+          "fraction_of_tensor_bytes": 0.6988340277093703
+        },
+        "vision_encoder": {
+          "parameters": 631183360,
+          "serialized_tensor_bytes": 1262366720,
+          "tensors": 385,
+          "dtypes": {
+            "BF16": 631183360
+          },
+          "fraction_of_tensor_bytes": 0.2857344837376939
+        },
+        "projector": {
+          "parameters": 34087936,
+          "serialized_tensor_bytes": 68175872,
+          "tensors": 6,
+          "dtypes": {
+            "BF16": 34087936
+          },
+          "fraction_of_tensor_bytes": 0.015431488552935791
+        }
+      },
+      "decoder_only_hypothetical_weight_compression": {
+        "language_16_to_8bit_total_tensor_ratio": 0.6505829861453148,
+        "language_16_to_4bit_total_tensor_ratio": 0.47587447921797227,
+        "uncompressed_non_language_fraction": 0.3011659722906297,
+        "not_actual_export_or_runtime": true,
+        "scales_padding_runtime_not_included": true
+      },
+      "config_sha256": "422adefa19e62dd175961cec85bc0400344fe5bf9b22bd1182e05aaae78556e0",
+      "headers": [
+        {
+          "file": "model/Qwen2-VL-2B-Instruct/model-00001-of-00002.safetensors",
+          "header_sha256": "7c0fed2cf13bde1906b514199f0e352183b949d24cce47ec745ed4e4c2caca3c",
+          "file_bytes": 3988609112,
+          "header_bytes": 73808,
+          "tensor_data_bytes": 3988535296,
+          "full_weight_values_not_read": true
+        },
+        {
+          "file": "model/Qwen2-VL-2B-Instruct/model-00002-of-00002.safetensors",
+          "header_sha256": "7692718763e900aed935798025815d45789769dbcef80633a4430084d4baed95",
+          "file_bytes": 429441656,
+          "header_bytes": 5744,
+          "tensor_data_bytes": 429435904,
+          "full_weight_values_not_read": true
+        }
+      ],
+      "selected_vision_feature_layer": null,
+      "vision_config": {
+        "depth": 32,
+        "embed_dim": 1280,
+        "mlp_ratio": 4,
+        "num_heads": 16,
+        "in_chans": 3,
+        "hidden_size": 1536,
+        "patch_size": 14,
+        "spatial_merge_size": 2,
+        "spatial_patch_size": 14,
+        "temporal_patch_size": 2
+      }
+    }
+  },
+  "source_sha256": "656dc8492b86d49bb4785268a44aeb205229c4786e3dcd1d547a36c0d3826c3a",
+  "model_forwards": 0,
+  "GPU_started": false,
+  "TEST_QA": 0,
+  "scope": "Actual base tensor shape/dtype footprint; arithmetic bounds, not trained quality or speed"
+}

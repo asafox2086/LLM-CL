@@ -1,3 +1,18 @@
+# 2026-10-19新增固定粒度控制：327层per-channel INT8已实际启动
+
+- 新独立analysis/edge_cpu_per_channel_20261019.py保持同OSFT／原五TRAIN／seed42／2线程／原25次请求，只将全327线性层权重从默认per-tensor改为per-output-channel动态INT8；activation内核仍fbgemm。每层axis0／qscheme／scale数有限性硬门槛，READY冻结。CPU1425736/start710797144已实际启动，无GPU／TEST／额外LoRA／训练。两真实小Linear门槛证明当前CPU后端可跑、同类严格重载能保per-channel与输出；不是完整0.9B质量。
+- 独立重载观察器1427162/start710807817等本条件COMPLETE才另进程装包、精确state和原五题8token；源edge_cpu_per_channel_reload_20261019.py。只换路径／view／worker／等待标记，原三条件及其重载1409431保留。两个CPU研究模型可并行（当前decoder1420408/start710751148与新per-channel），共享负载只给可行性，未确认正式加速／内存。科学源／分数不热改，故障留证新版本。
+- 当前per-channel只是标准量化粒度控制，不是MBQ，不预设收益；仅依据已完成TRAIN负例新增，不用TEST选择。后续比较全部完成证明，不把partial当方法最终分数，更不能填正式Ours。原默认全INT8负条件继续保留。
+
+# 2026-10-19最新：全INT8先行对照已完整，不能盲目统一降精度
+
+- v1 FP32参考与v2 all-linear INT8各五TRAIN完整结束，并用冻结原评分和全部原answers独立复算：TextVQA100→0、SLAKE100→100、RSVQA100→0、FinMME0→0、CODA23.229→0。仅五TRAIN单题，不是域测试AP或全量。327层INT8包实际1,460,833,621bytes，但fresh重载尚待，FP32镜像3.59GB不是最小公平存储基线（可保FP16文件再升精度）。不能拿字节变小直接沿用F1；不能先归因视觉模块或1%数据。
+- CPU顺序已安全改为all INT8→decoder INT8→fresh FP32，v2科学源和READY不变，原三条件全保留。新CPU1408452，权威cpu_precision/v2/priority/state.json及ACTIVATION；1398856仅空闲CPU观察器退役，旧FP32模型1396938自然完成勿重启，GPU身份保全。准入前nvidia-smi空行解析失败原源／日志保留，实际GPU或模型没被打断；只在准入前跳过空行，不忽略非数字错误。
+- 真正另进程重载观察器CPU1409431/start710653346在cpu_precision/v2/fresh_reload，只等待三组全部完成才serial加载，当前尚未加载模型。actual_HF_constructor_state_checks=3只是小实际HF结构的strict state/vision/logits控制，不是0.9B部署或质量结果。来源edge_cpu_precision_reload_20261019.py冻结；失败保存不盲重试。
+- 两骨干实际权重header统计完成：OneVision893,675,552参数，vision397,747,744（44.51%tensor bytes）；Qwen2-VL2,208,985,600，vision631,183,360（28.57%）另projector34,087,936。仅语言16→8bit理想总tensor少27.64%／34.94%，不是实测包／速度。actual OneVision选vision -1且head已禁用，不能照搬CLIP倒数第二层假设删除尾层／池化头。见component_footprint/v1；不重复本计数冒充进展。
+- 参考MBQ CVPR2025原论文／源码，固定a4d460dfb4b1c07b5d1f3ddda6e86d1c90d6e7f1，code/MBQ/source仅服务器参考、57文件SHA，主Git只metadata，未安装或GPU复现。其token模态梯度加权校准不等于模块敏感度；7B–70B结果不能移植0.5B/1%。若改造只能用原TRAIN，无外部COCO/Pile校准。新方向总入口summary/edge_deployment_20261019/QUANTIZATION_DIRECTION.md。
+- GPU唯一研究CPU788779仍实际wait他人474973/556654/732164，四条件无GPU结果，基线nohup不动。旧叙述“先等待1396938再v2”和1398856为历史。完整目标未达成，Ours／正式部署列保持空白；现在仅negative feasibility证据，不能宣称性能提升或整个领域都变差。
+
 # 2026-10-19继续：完整TRAIN重复统计已封存，CPU精度对照持续
 
 - 新全1313TRAIN／19任务统计与新机独立核验完成：自然0/347、医学19/99、遥感573/573、金融0/89、交通0/205条含精确重复视图；总5487→4895视图编码候选，减少10.789%。只限训练输入，不是实测延迟／显存／质量，不是1%因果。原图SHA已跨新机逐一核对、QA和唯一图像两口径均保留；GPU四条件和50%预算不据此改变。见train_view_census/v1/VERIFIED_RESULTS.md/json，不重复本统计冒充进展。

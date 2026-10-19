@@ -467,3 +467,12 @@ Modality/KG原始梯度L2为36.902/70.805，比例1.9187；实际参数位移L2�
 ## K56：完整冻结TRAIN中的视图重复分布（非质量结论）
 
 全1313TRAIN／19任务已实际处理并在新机逐图SHA独立核验。遥感573/573、医学19/99条含同图精确重复视图，其余自然0/347、金融0/89、交通0/205。QA加权视图5487→4895，可复用计数减少10.789%；不能当成端到端速度／显存改善。它限定了去重直接收益覆盖范围，否定“仅去重就自然解决五域主要负担”的无证据推断。不是少数据因果，不推广TEST；数值与完整质量仍待。[完整计数与边界](../edge_deployment_20261019/train_view_census/v1/VERIFIED_RESULTS.md)。
+
+
+## K57：全INT8不是小模型端侧部署的安全捷径（五TRAIN负例）
+
+先行FP32参考与all-linear INT8均完整五个TRAIN：自然／遥感单题100→0，医学100→100，交通23.229→0；原评分／全部参考独立重算，不能解释为格式后处理或TEST。尚未完成fresh FP32与decoder INT8、独立部署重载或21454质量，不归因某单模块。[逐题先行证明与边界](../edge_deployment_20261019/cpu_precision/v2/initial_quality_observation/VERIFIED_RESULTS.md)。真实327层量化包变小也不足以证明可用，且原FP32镜像不是公平的最小存储基线。
+
+## K58：语言基座小，不代表视觉固定负担也小（结构记账）
+
+两骨干实际header的视觉tensor字节占比OneVision44.51%、Qwen28.57%；只语言16→8bit理想总字节少27.64%／34.94%，未计scale和runtime。不是新理论或延迟因果，但约束了仅优化LoRA／语言部分的端侧收益。配置核对排除了“本OneVision取倒数第二层，可直接删最后一层和head”的错误前提：实际feature_layer=-1，head已关闭。[两骨干完整结构](../edge_deployment_20261019/component_footprint/v1/RESEARCH_FINDINGS.md)。

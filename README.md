@@ -1,3 +1,5 @@
+**端侧新负例：** 全INT8在五个固定TRAIN请求中丢失了部分原有正确答案，尚不能直接采用；仅压语言也受较大的视觉固定负担限制。[当前方向、论文依据与边界](summary/edge_deployment_20261019/QUANTIZATION_DIRECTION.md)。
+
 **新增TRAIN证据：** 全部1313条已核验；精确重复视图集中于遥感与部分医学，合计可少编码10.79%的视图。该比例不是速度或质量收益。[完整统计与边界](summary/edge_deployment_20261019/train_view_census/v1/VERIFIED_RESULTS.md)。
 
 **端侧研究进展：** 三个正式模型已完成实际导出与独立重载；OSFT和顺序LoRA的常规静态包同大，训练参数少不等于部署更小。下一步从高分OSFT检查视觉重复计算与表示压缩，CPU／GPU平台分别实测。[实验与结论](summary/edge_deployment_20261019/RESEARCH_FINDINGS.md)。目前没有经完整质量确认的部署优势，主表未测项留空。

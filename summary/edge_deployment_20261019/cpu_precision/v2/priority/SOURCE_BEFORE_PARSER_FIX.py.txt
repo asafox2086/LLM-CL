@@ -1,0 +1,96 @@
+"""CPU-only operational priority: quantized feedback before fresh dense control."""
+import argparse
+import hashlib
+import json
+import os
+from pathlib import Path
+import signal
+import subprocess
+import sys
+import time
+import traceback
+
+ROOT=Path(__file__).resolve().parents[1]
+STUDY=ROOT/'summary/edge_deployment_20261019/cpu_precision/v2'
+REPORT=STUDY/'priority'
+ORDER=['all_linear_int8','decoder_int8','fp32_dense']
+
+
+def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+def write(name,value):
+    REPORT.mkdir(parents=True,exist_ok=True);p=REPORT/name;t=Path(str(p)+'.tmp')
+    t.write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n');t.replace(p)
+
+
+def identity(pid):
+    try:
+        p=Path('/proc')/str(pid);f=(p/'stat').read_text().split(') ',1)[1].split()
+        return dict(startticks=int(f[19]),uid=p.stat().st_uid,cmdline_sha256=hashlib.sha256((p/'cmdline').read_bytes()).hexdigest()) if f[0]!='Z' else None
+    except (FileNotFoundError,ProcessLookupError):return None
+
+
+def watch():
+    assert os.environ.get('CUDA_VISIBLE_DEVICES')==''
+    assert not (REPORT/'STARTED.json').exists()
+    admission=json.loads((REPORT/'ADMISSION.json').read_text())
+    for rel,h in admission['sources'].items():assert sha(ROOT/rel)==h
+    write('STARTED.json',dict(pid=os.getpid(),identity=identity(os.getpid()),CPU_only=True))
+    for view in ORDER:
+        assert not (STUDY/(view+'_STARTED.json')).exists(),'Do not duplicate an attempted model'
+        if view=='fp32_dense':
+            old=admission['preserved_original_FP32'];pid=old['pid']
+            while identity(pid)==old['identity']:
+                write('state.json',dict(phase='wait_original_FP32_before_fresh_dense',pid=pid));time.sleep(15)
+            assert (ROOT/'summary/edge_deployment_20261019/cpu_precision/v1/fp32_dense_COMPLETE.json').exists()
+        with (REPORT/(view+'_nohup.log')).open('ab') as log:
+            child=subprocess.Popen(['/usr/bin/nohup',str(ROOT/'.vision-env/bin/python'),'-u',
+                str(ROOT/'analysis/edge_cpu_precision_v2_20261019.py'),'--view',view],cwd=ROOT,
+                env=os.environ,stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT)
+            write('state.json',dict(phase='running',view=view,worker_pid=child.pid,identity=identity(child.pid)))
+            code=child.wait()
+        assert code==0 and (STUDY/(view+'_COMPLETE.json')).exists(),'Save failure; no blind retry'
+    (STUDY/'ALL_COMPLETE.json').write_text(json.dumps(dict(complete=True,views=['fp32_dense','decoder_int8','all_linear_int8'],
+        actual_order=ORDER,all_views_preserved=True,not_full_quality=True,priority_source_sha256=sha(__file__)),indent=2)+'\n')
+    write('state.json',dict(phase='complete',all_conditions_preserved=True))
+
+
+def activate():
+    REPORT.mkdir(parents=True,exist_ok=True)
+    assert not (REPORT/'ADMISSION.json').exists()
+    state=json.loads((STUDY/'controller_state.json').read_text())
+    assert state['phase']=='waiting_original_CPU_worker_natural_finish'
+    old=json.loads((STUDY/'RESUME_LAUNCH.json').read_text());pid=old['pid'];ident=identity(pid)
+    assert ident and ident['uid']==os.getuid() and ident['startticks']==old['startticks']
+    assert b'edge_cpu_precision_v2_resume_20261019.py' in (Path('/proc')/str(pid)/'cmdline').read_bytes()
+    assert not (Path('/proc')/str(pid)/'task'/str(pid)/'children').read_text().strip()
+    assert not list(STUDY.glob('*_STARTED.json'))
+    inherited=state['pid'];saved=identity(inherited);assert saved and saved['startticks']==state['startticks']
+    gpu_pids=[int(x) for x in subprocess.check_output(['nvidia-smi','--query-compute-apps=pid','--format=csv,noheader,nounits'],text=True).splitlines()]
+    protected={str(p):identity(p) for p in gpu_pids}
+    # Only the idle CPU watcher is retired. The running model is untouched.
+    os.kill(pid,signal.SIGTERM)
+    assert identity(inherited)==saved
+    assert all(identity(int(p))==v for p,v in protected.items())
+    sources={rel:sha(ROOT/rel) for rel in ['analysis/edge_cpu_precision_priority_20261019.py',
+        'analysis/edge_cpu_precision_v2_20261019.py','summary/edge_deployment_20261019/cpu_precision/v2/READY.json',
+        'summary/edge_deployment_20261019/cpu_precision/v2/priority/SCHEDULE_AMENDMENT.md']}
+    write('ADMISSION.json',dict(retired_CPU_watcher_only=pid,retired_identity=ident,original_state=state,
+        preserved_original_FP32=dict(pid=inherited,identity=saved),protected_GPU_identities=protected,
+        sources=sources,actual_order=ORDER,all_conditions_retained=True,no_scientific_source_changed=True,
+        parallel_original_FP32_is_timing_confound_report_separately=True,CPU_only=True))
+    with (REPORT/'controller_nohup.log').open('ab') as log:
+        child=subprocess.Popen(['/usr/bin/nohup',str(ROOT/'.vision-env/bin/python'),'-u',str(Path(__file__).resolve()),'--watch'],
+            cwd=ROOT,env=dict(os.environ,CUDA_VISIBLE_DEVICES='',OMP_NUM_THREADS='2',MKL_NUM_THREADS='2'),
+            stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
+    write('ACTIVATION.json',dict(pid=child.pid,identity=identity(child.pid),CPU_only=True,no_GPU_interrupted=True))
+    (STUDY/'controller_state.json').write_text(json.dumps(dict(phase='redirect',authoritative=str((REPORT/'state.json').relative_to(ROOT)),CPU_watcher=child.pid))+'\n')
+    print(json.dumps(dict(activated=True,CPU_controller=child.pid,original_FP32_preserved=inherited,order=ORDER)))
+
+
+if __name__=='__main__':
+    parser=argparse.ArgumentParser();parser.add_argument('--watch',action='store_true');a=parser.parse_args()
+    try:
+        if a.watch:watch()
+        else:activate()
+    except Exception:
+        write('FAILURE.json',dict(traceback=traceback.format_exc(),no_blind_retry=True));raise

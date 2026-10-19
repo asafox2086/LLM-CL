@@ -1,0 +1,75 @@
+{
+  "complete_five_TRAIN_requests_per_condition": true,
+  "all_three_v2_views_NOT_complete": true,
+  "formal_quality_NOT_complete": true,
+  "records": {
+    "fp32_dense": {
+      "TextVQA:12860": {
+        "F1": 100.0,
+        "domain": "natural"
+      },
+      "SLAKE:144": {
+        "F1": 100.0,
+        "domain": "medical"
+      },
+      "RSVQA-LR:6002": {
+        "F1": 100.0,
+        "domain": "geography"
+      },
+      "FinMME:2606": {
+        "F1": 0.0,
+        "domain": "finance"
+      },
+      "CODA-LM:Train:Train_general_1804": {
+        "F1": 23.229461756373937,
+        "domain": "traffic"
+      }
+    },
+    "all_linear_int8": {
+      "TextVQA:12860": {
+        "F1": 0.0,
+        "domain": "natural"
+      },
+      "SLAKE:144": {
+        "F1": 100.0,
+        "domain": "medical"
+      },
+      "RSVQA-LR:6002": {
+        "F1": 0.0,
+        "domain": "geography"
+      },
+      "FinMME:2606": {
+        "F1": 0.0,
+        "domain": "finance"
+      },
+      "CODA-LM:Train:Train_general_1804": {
+        "F1": 0.0,
+        "domain": "traffic"
+      }
+    }
+  },
+  "sources": [
+    {
+      "view": "fp32_dense",
+      "path": "summary/edge_deployment_20261019/cpu_precision/v1/fp32_dense_COMPLETE.json",
+      "sha256": "c5cfc12c3d8d76c62ec6e76895720e8a8a8a4974e36b9305d0d85f25853e67af",
+      "quantized_count": 0,
+      "actual_package_bytes": 3590870837
+    },
+    {
+      "view": "all_linear_int8",
+      "path": "summary/edge_deployment_20261019/cpu_precision/v2/all_linear_int8_COMPLETE.json",
+      "sha256": "1c633b10b909e678123baa7579fc4c916977776c20237298b339042aa3475d82",
+      "quantized_count": 327,
+      "actual_package_bytes": 1460833621
+    }
+  ],
+  "primary_score_source_sha256": "4f5c4a34be046c29cfbcdaa4b2957faa907684872ba69083bdef53136a851240",
+  "manifest_sha256": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+  "full_original_reference_scores_independently_recomputed": true,
+  "v1_vs_v2_only_reference_lifetime_change_does_not_change_FP32_arithmetic": true,
+  "not_a_domain_test_mean_or_AP": true,
+  "no_inference_speed_claim_due_shared_CPU": true,
+  "no_quantization_component_causal_attribution": true,
+  "no_main_table_publication": true
+}

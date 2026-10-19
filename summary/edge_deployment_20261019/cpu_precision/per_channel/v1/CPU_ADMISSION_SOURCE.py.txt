@@ -1,0 +1,16 @@
+import torch,pathlib,json,os,subprocess,hashlib
+root=pathlib.Path.cwd();p=root/'summary/edge_deployment_20261019/cpu_precision/per_channel/v1'
+torch.set_num_threads(2);torch.backends.quantized.engine='fbgemm';torch.manual_seed(42)
+a=torch.nn.Sequential(torch.nn.Linear(32,16)).eval();b=torch.nn.Sequential(torch.nn.Linear(32,16)).eval()
+a=torch.ao.quantization.quantize_dynamic(a,{'0':torch.ao.quantization.per_channel_dynamic_qconfig},dtype=torch.qint8,inplace=True)
+assert a[0].weight().qscheme()==torch.per_channel_affine and a[0].weight().q_per_channel_axis()==0
+b=torch.ao.quantization.quantize_dynamic(b,{'0'},dtype=torch.qint8,inplace=True);b.load_state_dict(a.state_dict(),strict=True)
+x=torch.randn(3,32);assert torch.equal(a(x),b(x)) and b[0].weight().qscheme()==torch.per_channel_affine
+assert not torch.cuda.is_initialized()
+(p/'CPU_CHECK.json').write_text(json.dumps(dict(checks=2,actual_per_channel_kernel=True,strict_state_restore_into_same_module_class=True,CPU_only=True,GPU_started=False),indent=2)+'\n')
+subprocess.run([str(root/'.vision-env/bin/python'),'analysis/edge_cpu_per_channel_20261019.py','--prepare'],env=dict(os.environ,CUDA_VISIBLE_DEVICES=''),check=True)
+assert not (p/'LAUNCH.json').exists()
+with (p/'nohup.log').open('wb') as log:
+ c=subprocess.Popen(['/usr/bin/nohup',str(root/'.vision-env/bin/python'),'-u','analysis/edge_cpu_per_channel_20261019.py','--view','all_linear_int8_per_channel'],cwd=root,env=dict(os.environ,CUDA_VISIBLE_DEVICES='',OMP_NUM_THREADS='2',MKL_NUM_THREADS='2'),stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
+v=dict(pid=c.pid,startticks=pathlib.Path('/proc',str(c.pid),'stat').read_text().split()[21],CPU_only=True,source_sha256=hashlib.sha256((root/'analysis/edge_cpu_per_channel_20261019.py').read_bytes()).hexdigest(),TRAIN_only=True)
+(p/'LAUNCH.json').write_text(json.dumps(v,indent=2)+'\n');print(json.dumps(v))
