@@ -11,8 +11,8 @@ import v2_readme_main_table as formal
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORT = ROOT/'summary/edge_deployment_20261019'
-HEADERS = ['最终部署<br>MiB ↓', '新增部署<br>MiB ↓', 'CPU峰值RAM<br>MiB ↓',
-           '首词延迟<br>s ↓', '生成速度<br>tok/s ↑', '常驻适配器<br>数量 ↓']
+HEADERS = ['最终部署<br>MiB ↓', '新增部署<br>MiB ↓', '推理峰值内存<br>CPU RAM／GPU VRAM MiB ↓',
+           '首词延迟<br>CPU／GPU s ↓', '生成速度<br>CPU／GPU tok/s ↑', '常驻适配器<br>数量 ↓']
 FIELDS = ['final_package_MiB', 'package_growth_MiB', 'cpu_peak_RSS_MiB',
           'ttft_seconds', 'decode_tokens_per_second', 'resident_adapters']
 
@@ -49,15 +49,25 @@ def render(text):
         if cells[0].startswith('**'):
             backbone = next(k for k,v in formal.BACKBONES if v in cells[0])
         else:
-            current[backbone,labels[cells[0]]] = cells[3:11]
+            key = (backbone, labels[cells[0]])
+            existing = cells[3:11]
+            if key in rows:
+                expected = [f'{v:.3f}' for v in rows[key]]
+                # A background verifier can seal a new result after a README
+                # snapshot. Fill a previously blank row from that proof; never
+                # silently replace conflicting published scores.
+                assert existing == expected or existing == ['']*8
+                cells[3:11] = expected
+                lines[i] = '| '+' | '.join(cells)+' |'
+            current[key] = cells[3:11]
     for key, vals in rows.items():
         assert current[key] == [f'{v:.3f}' for v in vals]
     new_table = table_with_edge(rows)
     lines[min(positions):max(positions)+1] = new_table.splitlines()
-    note = ('端侧部署目标为**手机／普通CPU**。最终部署大小包含基座、视觉编码器、投影和全部必需适配器／专家／路由／索引；'
+    note = ('端侧部署包括**个人电脑CPU／独立GPU及手机**。最终部署大小包含基座、视觉编码器、投影和全部必需适配器／专家／路由／索引；'
             '新增部署大小为同格式、同精度下最终包减初始包。训练优化器、日志和历史checkpoint不计入部署包。'
-            '参数值更新不等于参数量增加，可折叠更新按实际导出后大小计量。CPU峰值RAM、首词延迟与生成速度须在相同设备、'
-            '线程、精度、输入及生成预算下实测；服务器CPU只能标为代理测试，不能称手机实测。'
+            '参数值更新不等于参数量增加，可折叠更新按实际导出后大小计量。CPU RAM与GPU显存分别报告，延迟与速度注明CPU／GPU设备档；'
+            '方法对比须使用相同设备、线程、精度、输入及生成预算。服务器CPU及服务器安装的消费级GPU须标明实际整机环境，不能称手机实测。'
             '当前部署列均未实测，保持空白。量化／剪枝等改变模型输出的部署版本须单列并验证其Answer F1。'
             ' [指标与一般性问题协议](summary/edge_deployment_20261019/PROTOCOL.md)。')
     marker = '<!-- CPU_EDGE_METRICS_NOTE -->'

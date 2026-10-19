@@ -1,3 +1,19 @@
+# 2026-10-19补充：CPU三条件已完整结束，SpaRTA正式封存
+
+- 旧CPU父1313719／子1313720已正常结束，勿重启。三条件十五TRAIN请求完整证明已核验：dense／uniform50／DivPrune50五题TTFT合计2063.943／1564.008／1679.567秒；均匀约减24.2%，视觉处理仍约1156秒。DivPrune大图选择约19–60秒，慢于同预算均匀；只是Xeon4210两线程FP16单轮点测量，不是GPU／现代PC／手机结论、没有Answer F1，不能填正式质量或宣称目标实现。见cpu_visual_probe/v1/VERIFIED_RESULTS.md/json。下一实际动作是新GPU1部署探针，不重复该CPU审计。
+- 正式OneVision SpaRTA刚由原发布器封存：AP41.828869／FWT17.144973／BWT−2.992495，五域73.595828／40.920807／45.941623／21.328485／34.519812。正式完整现5/16，原七方法发布范围5/14。OSFT46.356693仍最高已完成OneVision参照。Spa826894正常结束勿恢复；旧CL/PAS/FOREVER、新CL/SMo继续。根表新版处理发布器并发封存：只从原完整proof填此前空行，不覆盖冲突旧分数，保留17列／22行及原分数精确；内部MAIN_TABLE和活动采集器不改。
+- 唯一研究CPU788779实际存活，GPU1仍他人作业，四条件GPU探针暂无STARTED／COMPLETE。顶层旧队列继承的research_allowed_GPUs可能显示[0,1]，以本条、state内[1]及新worker硬编码GPU1守卫为准，不能因此启用GPU0。不要为修饰旧状态热改冻结源码。
+
+# 2026-10-19最新：个人电脑CPU／GPU端侧目标与实际部署证据
+
+- 最新人类澄清端侧包含个人电脑GPU。当前目标为冻结1%下五域最终原始Answer F1略高于同骨干最强基线，同时端侧部署指标显著改善；CPU RAM与GPU VRAM、设备／精度／图文预算分别报告。研究仅新GPU1，不将服务器代理冒充手机实测。
+- 三个正式OneVision最终模型实际CPU导出与独立重载完成：SeqFT／OSFT同为1,803,322,513bytes（1719.782MiB），893,675,552个FP16参数。训练参数量／checkpoint大小不代表部署大小。PaRSP导出混合FP16／FP32，不能据其2288.646MiB宣称结构更重。常规SVD折叠、LoRA合并和训练状态清理公平用于基线，不算原创。Seq合并局部FP16输出有变化；CPU OSFT局部精确不证明原GPU质量，主表部署列仍空。
+- 五域固定TRAIN输入审计：医学320方图与遥感256方图各产生两份逐像素完全相同384视图，其他三请求各七个不同视图。是预处理冗余候选，不是1%导致的性质，不证明全数据或可无损删token。GPU将测试同像素视图编码复用、均匀50%与CVPR2025 DivPrune50%，均保留原文字／结构token。只用TRAIN，不以TEST选预算。
+- 最强已完成OneVision OSFT原最终3,028,589,237bytes／SHA f93481daa528bdca4cd6bdb68ca6ec522698dfaf4703cb277cf5548b19aba541及25保存科学源已传新机exp/edge_teacher_transfer_20261019/onevision_osft_final，正式结果发现目录之外。无训练／TEST预测转移，不提交权重。
+- 最新唯一nohup服务冻结入口analysis/edge_visual_priority_queue_20261019.py --watch，CPU788779/startticks7850156；权威summary/edge_deployment_20261019/gpu_visual_probe/v1/queue。CPU739098仅计划退役，所有GPU／基线／发布器身份保全。顺序四条件部署探针→原12格→RITE及完整→random完整与所有旧工作；原科学源码不改，负条件不删。新4策略／3CPU张量检查及祖先检查通过，不是GPU收益。准入前两项CPU集成失败原样保留。
+- 旧机CPU部署探针父1313719／子1313720实际持续运行，三条件全保留。仅5TRAIN强制8token成本代理，partial不是完整质量；不能拿老Xeon FP16数值当所有个人CPU性能。当前GPU1仍他人进程474973／556654／732164，实际健康wait，不能宣称新GPU实验已开始。下一实际动作是读取新证明或等待空闲后自动GPU探针；不重复相同CPU审计。
+- 证据总入口summary/edge_deployment_20261019/RESEARCH_FINDINGS.md；完整目标尚未实现，Ours与未测部署值留空。两机正式基线持续，8×2目标、原4完整保留；历史下文CPU-only／739098／明显F1提升目标已被本条及规则026覆盖。
+
 # 2026-10-19最新用户目标：手机／普通CPU部署、一般性问题、研究仅GPU1
 
 - 最新人类明确要求五域最终Answer F1明显提高，并体现端侧部署优势；设备为手机或普通CPU。规则026优先于旧022弹性设备条款，研究仅新GPU1。可以从已验证最优方法借鉴改造，但问题应跨方法／骨干具有一般性；不能只做单篇论文的优化报告。

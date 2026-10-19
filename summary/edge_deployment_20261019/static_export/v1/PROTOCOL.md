@@ -1,0 +1,7 @@
+# CPU静态部署基线审计 v1
+
+固定尝试已封存的OneVision SeqFT、OSFT、PaRSP三种方法，原训练、checkpoint及预测只读。CPU2线程，CUDA_VISIBLE_DEVICES为空，0新训练／0TEST读取。先验证最终checkpoint实际SHA，再比较首层q与down算子在1和128token、7次交替顺序的CPU时长，并检查静态权重折叠的输出。不是完整请求TTFT、推理RAM或Answer F1。
+
+统一尝试常规静态导出：OSFT预重建所有线性层；SeqFT将LoRA并入权重；PaRSP只导出原模型而不携带历史协方差和投影统计。全部是公平的基线工程步骤，不是自研算法贡献。所有导出均保留原dtype，另进程用标准HF CPU loader重载并核对参数摘要；任何不一致保留失败，不放宽门槛或自动换精度。
+
+OSFT所有替换算子固定输入应逐位相同；LoRA并入FP16可能数值改变，原样报告差异并标记完整质量待验。标准重载还可能改变混合精度PaRSP，保留该负门槛。成功导出或小算子相同均不等于完整F1、手机实测或新方法优势。所有实际package文件清单、SHA、字节、CPU型号及基线checkpoint绑定记录；不将pickle checkpoint字节等同部署大小。原基线仍nohup，研究GPU1队列不改变。
