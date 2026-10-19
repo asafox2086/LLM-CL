@@ -1,0 +1,175 @@
+"""Single GPU1 screen owner. Never dispatch any full TEST evaluation."""
+import argparse
+import ast
+from collections import Counter
+import fcntl
+import json
+import os
+from pathlib import Path
+import re
+import subprocess
+import sys
+import time
+import traceback
+from study import ROOT, PORT, REPORT, WORK, CASES, sha, write, original_train
+
+QUEUE = REPORT/'queue'
+UNIT = 'llmcl-onevision-causal-priority.service'
+ENTRY = str(Path(__file__).relative_to(ROOT))
+
+
+def identity(pid):
+    p = Path('/proc')/str(pid)
+    if not p.exists(): return None
+    s = (p/'stat').read_text().rsplit(') ',1)[1].split()
+    return dict(startticks=s[19], cmdline=(p/'cmdline').read_bytes().replace(bytes([0]),b' ').decode(), uid=p.stat().st_uid)
+
+
+def inventory():
+    sys.path.insert(0, str(ROOT/'analysis'))
+    import onevision_research_device_entry as d
+    return d.inventory()
+
+
+def available(cards, uid):
+    ours = {g for g,v in cards.items() if any(p['uid']==uid for p in v['owners'])}
+    c = cards[1]
+    return not (ours & {0,1}) and len(ours | {1}) <= 3 and not c['owners'] and c['memory_MiB'] < 500 and c['utilization'] < 10
+
+
+def score_function():
+    t = ast.parse((PORT/'runtime_utils.py').read_text())
+    nodes = [n for n in t.body if isinstance(n,ast.FunctionDef) and n.name in ['score','tokens']]
+    ns = dict(re=re, Counter=Counter)
+    exec(compile(ast.Module(body=nodes,type_ignores=[]),'<original-score>', 'exec'),ns)
+    return ns['score']
+
+
+def verify(case, ready):
+    p = REPORT/(case+'_COMPLETE.json')
+    if not p.exists(): return None
+    v = json.loads(p.read_text()); assert v['case']==case and v['complete'] and v['TEST_QA']==0
+    assert v['ready_sha256']==sha(REPORT/'READY.json') and v['source_sha256']==sha(Path(__file__).with_name('run.py'))
+    assert (v['FIT_QA'],v['DEV_QA'],v['updates'])==(ready['FIT_QA'],ready['DEV_QA'],ready['updates'])
+    run = ROOT/v['checkpoint_root']; cp = run/v['checkpoint']['path']
+    assert sha(cp)==v['checkpoint']['sha256']
+    for stage in range(1,20):
+        validity = json.loads((run/'validity'/f'stage_{stage:02d}.json').read_text())
+        assert validity['passed'] and validity['actual_parameters_changed'] and validity['positive_lr_updates']>0
+    events = [json.loads(s) for s in (run/'logs/events.jsonl').read_text().splitlines()]
+    assert len(events)==ready['updates'] and all(any(lr>0 for lr in e['learning_rate_used']) for e in events)
+    assert all(e['gradient_l2_preclip']>=0 and e['loss']==e['loss'] for e in events)
+    split = json.loads((REPORT/'SPLIT.json').read_text()); _,m,data=original_train()
+    gold = {r['id']:r for rr in data.values() for r in rr}; domains={}; seen=[]; scorer=score_function()
+    for t in m['tasks']:
+        wanted = split['dev_ids'][str(t['task'])]
+        if not wanted: continue
+        path=run/'evaluations/stage_19'/f"T{t['task']:02d}_dev_predictions.jsonl"
+        assert sha(path)==v['prediction_sha256'][str(path.relative_to(ROOT))]
+        rows=[json.loads(s) for s in path.read_text().splitlines()]
+        assert [r['id'] for r in rows]==wanted
+        for row in rows:
+            g=gold[row['id']];assert row['references']==g['answers']
+            f1=scorer(row['prediction'],g['answers'])['token_f1'];assert f1==row['scores']['token_f1']
+            domains.setdefault(t['domain'],[]).append(f1);seen.append(row['id'])
+    assert len(seen)==ready['DEV_QA'] and len(set(seen))==len(seen)
+    stats={d:dict(F1=sum(x)/len(x),QA=len(x)) for d,x in domains.items()}
+    assert stats==v['domains'] and sum(x['F1'] for x in stats.values())/5==v['domain_macro']
+    return v
+
+
+def watch():
+    QUEUE.mkdir(parents=True,exist_ok=True)
+    lock=(QUEUE/'coordinator.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+    ready=json.loads((REPORT/'READY.json').read_text())
+    assert all(sha(ROOT/p)==h for p,h in ready['sources'].items())
+    verified={}; worker=None; worker_case=None; handle=None
+    prior=json.loads((QUEUE/'state.json').read_text()) if (QUEUE/'state.json').exists() else {}
+    if prior.get('worker_pid'):
+        old=identity(prior['worker_pid'])
+        if old and old['startticks']==prior['worker_startticks']:
+            worker_case=prior['case']; worker=prior['worker_pid'];worker_startticks=old['startticks']
+    while True:
+        if worker is not None:
+            current=identity(worker) if handle is None or handle.poll() is None else None
+            if current:
+                assert current['startticks']==worker_startticks
+                write(QUEUE/'state.json',dict(phase='running',pid=os.getpid(),case=worker_case,
+                    worker_pid=worker,worker_startticks=worker_startticks,only_GPU=1,full_TEST_dispatch=False))
+                time.sleep(20);continue
+            code=handle.wait() if handle is not None else None
+            if code==75 and not (REPORT/(worker_case+'_STARTED.json')).exists():
+                worker=None;worker_case=None;handle=None;continue
+            got=verify(worker_case,ready);assert got, 'Worker ended without complete proof; preserve and do not retry'
+            verified[worker_case]=got;worker=None;worker_case=None;handle=None
+        for case in CASES:
+            if case not in verified:
+                v=verify(case,ready)
+                if v:verified[case]=v
+        if len(verified)==len(CASES):
+            floor=max(verified[k]['domain_macro'] for k in ['LoRA_qv','OSFT_all'])
+            passing=[k for k in ['LoRA_all','LoRA_extra'] if verified[k]['domain_macro']>floor]
+            write(REPORT/'SCREEN_COMPLETE.json',dict(complete=True,all_four_results=verified,
+                possible_full_retrain_candidates=passing,criterion='DEV domain macro F1 above both fixed references',
+                TEST_QA=0,not_significance_or_final_improvement=True,full_retraining_not_implemented_or_started=True,
+                deployment_advantage_NOT_proven=True))
+            write(QUEUE/'state.json',dict(phase='screen_complete',pid=os.getpid(),passing=passing,full_TEST_dispatch=False))
+            return
+        case=next(k for k in CASES if k not in verified)
+        assert not (REPORT/(case+'_FAILURE.json')).exists()
+        assert not (REPORT/(case+'_STARTED.json')).exists(), 'Unbound attempted run: no blind restart'
+        cards=inventory()
+        if not available(cards,os.getuid()):
+            write(QUEUE/'state.json',dict(phase='wait',pid=os.getpid(),next_case=case,inventory=cards,
+                completed=list(verified),only_GPU=1,full_TEST_dispatch=False))
+            time.sleep(20);continue
+        log=(QUEUE/(case+'_nohup.log')).open('ab')
+        handle=subprocess.Popen([str(ROOT/'.vision-env/bin/python'),'-u',str(Path(__file__).with_name('run.py')),'--case',case],
+            cwd=ROOT,stdout=log,stderr=subprocess.STDOUT,env=dict(os.environ,CUDA_VISIBLE_DEVICES='1'))
+        log.close();worker=handle.pid;worker_case=case
+        info=identity(worker);assert info;worker_startticks=info['startticks']
+        write(QUEUE/'state.json',dict(phase='running',pid=os.getpid(),case=case,worker_pid=worker,
+            worker_startticks=worker_startticks,only_GPU=1,full_TEST_dispatch=False))
+
+
+def activate():
+    def cmd(*args):return subprocess.check_output(args,text=True).strip()
+    ready=json.loads((REPORT/'READY.json').read_text());assert all(sha(ROOT/p)==h for p,h in ready['sources'].items())
+    assert cmd('systemctl','--user','show',UNIT,'-p','MainPID','--value')=='0'
+    assert cmd('systemctl','--user','show',UNIT,'-p','KillMode','--value')=='process'
+    assert not (QUEUE/'ACTIVATION.json').exists()
+    cards=inventory();pids={p['pid'] for c in cards.values() for p in c['owners']}|{51266,482168}
+    protected={str(p):identity(p) for p in pids if identity(p)}
+    QUEUE.mkdir(exist_ok=True)
+    write(QUEUE/'BEFORE.json',dict(protected=protected,inventory=cards,old_CPU_already_stopped=True))
+    drop=Path.home()/'.config/systemd/user'/f'{UNIT}.d'/('99-'+'z'*65+'-osft-increment-screen.conf')
+    assert not drop.exists()
+    drop.write_text('[Service]\nExecStart=\nExecStart=/usr/bin/nohup '+str(ROOT/'.assets-env/bin/python')+' -u '+str(ROOT/ENTRY)+' --watch\n')
+    subprocess.run(['systemctl','--user','daemon-reload'],check=True)
+    subprocess.run(['systemctl','--user','start',UNIT],check=True)
+    pid=int(cmd('systemctl','--user','show',UNIT,'-p','MainPID','--value'))
+    assert identity(pid) and ENTRY in identity(pid)['cmdline']
+    assert all(identity(int(p))==v for p,v in protected.items())
+    write(QUEUE/'ACTIVATION.json',dict(pid=pid,identity=identity(pid),protected_identities_preserved=protected,
+        ready_sha256=sha(REPORT/'READY.json'),only_GPU=1,full_TEST_dispatch=False))
+    print(json.dumps(dict(activated=True,pid=pid,no_GPU_interruption=True)))
+
+
+def policy_check():
+    cards={i:dict(owners=[],memory_MiB=0,utilization=0) for i in range(4)}
+    assert available(cards,7)
+    cards[1]['owners']=[dict(uid=8,pid=3)];assert not available(cards,7)
+    cards[1]['owners']=[];cards[0]['owners']=[dict(uid=7,pid=4)];assert not available(cards,7)
+    assert score_function()('a b',['a b'])['token_f1']==100
+    write(REPORT/'QUEUE_CPU_GATE.json',dict(three_actual_device_policy_checks=True,original_score_compiled=True,
+        no_model_or_GPU_or_TEST=True,not_a_research_result=True))
+
+
+if __name__=='__main__':
+    a=argparse.ArgumentParser();a.add_argument('--watch',action='store_true');a.add_argument('--activate',action='store_true');args=a.parse_args()
+    try:
+        if args.watch:watch()
+        elif args.activate:activate()
+        else:policy_check()
+    except Exception:
+        write(QUEUE/'needs_attention.json',dict(traceback=traceback.format_exc(),no_blind_retry=True));raise
