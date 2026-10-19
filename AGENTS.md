@@ -1,3 +1,11 @@
+# 2026-10-19：FOREVER双骨干模型门槛完成；OneVision正式运行已启动
+
+- v2两骨干均通过19真实图文反向、历史303条／36回放更新（35正LR）、AMP清理精确不变、保存与另进程重载有限反向，重载NLL误差0。它们是接入证明，不是正式F1。v1保存失败／v2空闲采样故障保留，旧gate CPU1189315及两个预检worker均正常结束，不恢复。
+- 独立v3只改运行I/O：主训练循环AST及模型／评分／回放内核精确v2。7项真实文件事务控制通过；每阶段持久提交后只留最新权重，恢复时完整归档未提交分支、重建已提交阶段事件，资源按PID分段，不跨PID相减。源与PROTOCOL由FORMAL_ADMISSION冻结，故障需独立版本，不热改。原正式V2源未改。
+- 旧GPU0已实际启动FOREVER OneVision正式运行：CPU1207220/startticks708049594、GPU1207239/startticks708049618，权威旧机forever_multimodal_20261019/v3/formal_queue/onevision/state.json。当前S0完整初始评价，尚无主训练更新或正式F1；不沿用预检权重／预测。新Qwen CPU482168/startticks6176588健康等空闲GPU2及原调度无待发1%任务，GPU3保留原通道，不争卡。先实查身份／完成证明，不能凭本快照重复启动。
+- 基线目标现8方法×2骨干=16组，已完整核验仍4组；原七方法发布器覆盖14组，FOREVER另用v3独立验证器，不能改写原索引范围或提前填成绩。五条原基线和CPU51266继续，新增OneVision后共6条实际GPU基线。两机训练源／冻结数据相同。
+- 主研究CPU402686/startticks5443776与GPU203850/startticks3213139保持原入口，当前principal完整确认自然继续，再12格TRAIN-only更新对照，再random完整与全部旧工作。只用实际空闲0/1单研究流／新机我们最多3卡；当前没有新的方法F1提升。新状态见v3/README及只读old_runtime_snapshot；已结束的旧所有者勿恢复。
+
 # 2026-10-19：FOREVER OneVision门槛完整通过，Qwen由新CPU入口续接
 
 - v2 OneVision已真实完成19图文正反向、历史303条／36次回放、AMP清理／保存以及另进程重载有限反向。参数身份／storage／版本及SHA精确不变，同一旧TRAIN NLL前后精确；模型检查点保存问题已解决。证明在v2/onevision_gpu_verified，仍是非正式预检，不填F1或正式完成数。

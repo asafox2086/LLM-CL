@@ -1,0 +1,20 @@
+{
+  "status": "ROLLING_TRANSACTION_AND_RECOVERY_CPU_PASS",
+  "checks": [
+    "missing committed stage cannot silently resume dirty weights",
+    "only latest committed weight retained; older SHA metadata retained",
+    "uncommitted model/events/replay/evaluation/validity archived intact",
+    "canonical events contain committed updates only, despite damaged future tail",
+    "rerun future stage counted once and rolling final retained",
+    "archive/delete paths confined to the exact run",
+    "resume resource segment cannot claim full-run or cross-PID growth"
+  ],
+  "checks_passed": 7,
+  "GPU": false,
+  "ML_training_or_performance": false,
+  "synthetic_checkpoint_bytes_not_models": true,
+  "source_sha256": {
+    "exp/two_backbone_forever_20261019_v3/rolling_io.py": "950888ce767a8f7a6146fc119a7edc51186a0c605e0caf700999f9bad7a97691",
+    "analysis/forever_rolling_io_cpu_20261019.py": "52960073e64ab1316954c1b379370b6041d5ae34a4cc4e1edbb32c28888e5985"
+  }
+}
