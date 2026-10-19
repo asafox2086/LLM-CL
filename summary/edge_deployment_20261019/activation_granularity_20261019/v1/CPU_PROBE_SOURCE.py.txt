@@ -1,0 +1,18 @@
+import torch,json,copy
+torch.set_num_threads(2);torch.manual_seed(42);torch.backends.quantized.engine='fbgemm'
+base=torch.nn.Sequential(torch.nn.Linear(16,16,bias=False)).eval()
+with torch.no_grad():base[0].weight.copy_(torch.eye(16))
+small=torch.full((1,16),.01);large=torch.full((1,16),1000.)
+rows=[]
+for name,qconfig in [('per_tensor_weights',torch.ao.quantization.default_dynamic_qconfig),('per_channel_weights',torch.ao.quantization.per_channel_dynamic_qconfig)]:
+ q=torch.ao.quantization.quantize_dynamic(copy.deepcopy(base),{'0':qconfig},dtype=torch.qint8,inplace=True)
+ alone=q(small);joined=q(torch.cat([small,large]))[:1]
+ assert torch.all(alone>0) and torch.equal(joined,torch.zeros_like(joined))
+ rows.append(dict(weight_layout=name,first_row_input_unchanged=True,weight_unchanged=True,alone_mean=float(alone.mean()),with_large_row_mean=float(joined.mean()),same_small_row_output_changed=True))
+mm=[]
+for m,k,n in [(3,32,16),(1,896,896),(8,4304,896)]:
+ a=torch.randint(-12,13,(m,k),dtype=torch.int8);b=torch.randint(-12,13,(k,n),dtype=torch.int8);out=torch._int_mm(a,b)
+ assert out.dtype==torch.int32 and torch.equal(out,(a.float()@b.float()).int())
+ mm.append(dict(shape=[m,k,n],integer_accumulation_exact=True))
+assert not torch.cuda.is_initialized()
+print(json.dumps(dict(CPU_only=True,synthetic_only=True,TRAIN_QA=0,TEST_QA=0,MODEL_FORWARDS_0p9B=0,activation_context_coupling=rows,integer_mm_backend=mm,not_a_QA_causal_proof=True,not_a_new_theory=True)))

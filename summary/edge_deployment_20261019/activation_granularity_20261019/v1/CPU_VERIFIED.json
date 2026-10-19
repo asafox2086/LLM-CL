@@ -1,0 +1,55 @@
+{
+  "CPU_only": true,
+  "synthetic_only": true,
+  "TRAIN_QA": 0,
+  "TEST_QA": 0,
+  "MODEL_FORWARDS_0p9B": 0,
+  "activation_context_coupling": [
+    {
+      "weight_layout": "per_tensor_weights",
+      "first_row_input_unchanged": true,
+      "weight_unchanged": true,
+      "alone_mean": 0.009960785508155823,
+      "with_large_row_mean": 0.0,
+      "same_small_row_output_changed": true
+    },
+    {
+      "weight_layout": "per_channel_weights",
+      "first_row_input_unchanged": true,
+      "weight_unchanged": true,
+      "alone_mean": 0.009960785508155823,
+      "with_large_row_mean": 0.0,
+      "same_small_row_output_changed": true
+    }
+  ],
+  "integer_mm_backend": [
+    {
+      "shape": [
+        3,
+        32,
+        16
+      ],
+      "integer_accumulation_exact": true
+    },
+    {
+      "shape": [
+        1,
+        896,
+        896
+      ],
+      "integer_accumulation_exact": true
+    },
+    {
+      "shape": [
+        8,
+        4304,
+        896
+      ],
+      "integer_accumulation_exact": true
+    }
+  ],
+  "not_a_QA_causal_proof": true,
+  "not_a_new_theory": true,
+  "executed_source_sha256": "864ebd678fb1a36b9c8d568a3f6fd79ff2aa25c47c292733bb3c01435e28d804",
+  "upstream_exact_version_reference": "https://raw.githubusercontent.com/pytorch/pytorch/v2.6.0/aten/src/ATen/native/quantized/cpu/qlinear_dynamic.cpp"
+}

@@ -1,3 +1,9 @@
+# 2026-10-19新封存：逐通道控制完整负例；激活粒度是下一待实施控制
+
+- per-channel CPU1425736已正常完成，勿重启。原五TRAIN独立按全部原参考复算F1=0/0/0/5/25.988701，327层axis0已验，包1,472,520,821bytes；自然／医学／遥感未恢复，不能采用为最终方法或推广全部量化无效。VERIFIED_RESULTS在cpu_precision/per_channel/v1。新独立部署重载1427162仍需实际proof，不把模型完成当重载完成。
+- 新合成CPU控制验证：相同小行0.01单独输出.0099608，和大行1000一起经过标准动态INT8变0；per-tensor/per-channel权重都如此。PyTorch2.6 FBGEMM公开实现也显示全input共用激活min/max。是实现事实／合成控制，不是0.9B QA因果或新理论。CPU整数矩阵乘三个形状精确核对。下一实际新模型方向是同一整数核／权重／范围下整张量vs逐token激活尺度；worker尚未实现，不说已在跑或已有提升，不重复这些已完成算子检查冒充进展。见activation_granularity_20261019/v1/RESEARCH_FINDINGS.md。
+- GPU1仍实际他人占用（最近474973/556654/956296），CPU788779健康wait；旧732164已被新他人进程替代不是研究故障。先看实际handle和proof，原CPUdecoder1420408和其后fresh FP32／所有负条件保留，实际PID以后复核。目标仍未达成。
+
 # 2026-10-19新增固定粒度控制：327层per-channel INT8已实际启动
 
 - 新独立analysis/edge_cpu_per_channel_20261019.py保持同OSFT／原五TRAIN／seed42／2线程／原25次请求，只将全327线性层权重从默认per-tensor改为per-output-channel动态INT8；activation内核仍fbgemm。每层axis0／qscheme／scale数有限性硬门槛，READY冻结。CPU1425736/start710797144已实际启动，无GPU／TEST／额外LoRA／训练。两真实小Linear门槛证明当前CPU后端可跑、同类严格重载能保per-channel与输出；不是完整0.9B质量。

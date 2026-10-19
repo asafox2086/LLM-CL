@@ -33,3 +33,10 @@
 新增固定per-output-channel INT8控制：位宽仍8、同327个线性层与同五TRAIN，仅权重scale粒度不同；不是新LoRA／新训练或MBQ复现。现有CPU内核和严格state恢复的小实际Linear门槛通过，完整模型试验已真实启动，完整五题与重载结果待。原全部三条件保留，不能预设逐通道必恢复质量。
 
 [独立协议](cpu_precision/per_channel/v1/PROTOCOL.md) · [实际启动记录](cpu_precision/per_channel/v1/LAUNCH.json)
+
+
+## 逐通道控制已完整，下一步换检验对象
+
+[逐通道完整五TRAIN结果](cpu_precision/per_channel/v1/VERIFIED_RESULTS.md)没有恢复原高分。仅改权重粒度尚不足够。[实际CPU激活范围控制](activation_granularity_20261019/v1/RESEARCH_FINDINGS.md)表明，两种权重方案仍共享整输入的激活范围；一个大行可使不变的小行输出归零。
+
+这是可检验的下一方向，不是已证明的QA唯一原因。接下来应在相同整数核下比较激活粒度，或借鉴已发表的敏感度校准；不要继续盲目增LoRA、删视觉尾层或仅以更小权重MSE宣称质量改善。完整模型对照尚未实施，保留所有负结果和完整评测要求。
