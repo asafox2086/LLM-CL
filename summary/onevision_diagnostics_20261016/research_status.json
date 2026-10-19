@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-18T13:47:31.433457+00:00",
+  "updated_utc": "2026-10-19T01:26:58.855790+00:00",
   "completed": {
     "knowledge": 17,
     "basis_trajectories": 9,
@@ -321,7 +321,7 @@
   },
   "latest_user_problem_first": true,
   "module_count_not_prespecified": true,
-  "current_authoritative_queue": "directional_coeff_20261018/v1/queue/queue_state.json",
+  "current_authoritative_queue": "train_update_pilot_20261019/v1/queue/queue_state.json",
   "current_CPU_pid": 95973,
   "current_research_worker": 96818,
   "current_research_phase": "directional_coeff_initial_exact_gate_pending",
@@ -352,5 +352,37 @@
     "AP19": 25.18054691514705,
     "QA_generated": 155,
     "full_complete": false
+  },
+  "directional_coeff_v2": {
+    "phase": "full",
+    "CPU_pid": 106814,
+    "worker_pid": 203850,
+    "both_fulls_required": true,
+    "old_v1_failed_before_optimizer": true,
+    "scientific_ids_hyperparameters_unchanged": true,
+    "correction": "Match sealed native deterministic backend, CPU threads6 and seed42",
+    "both_train19_complete": true,
+    "both_initial500_155_exact": true,
+    "new_large_improvement_demonstrated": false,
+    "diagnostic_AP19": {
+      "principal": 20.930304606887937,
+      "random": 21.722013479448737,
+      "native_SeqFT": 43.362536135144616
+    },
+    "failure_evidence": "directional_coeff_20261018/v2/V1_FAILURE_EVIDENCE.json"
+  },
+  "TRAIN_update_pilot": {
+    "CPU_pid": 384025,
+    "phase": "admitted_waiting_current_GPU_and_both_coefficient_fulls",
+    "conditions": 12,
+    "TRAIN_only_selection": true,
+    "GPU_started": false,
+    "protocol": "train_update_pilot_20261019/v1/PROTOCOL.md"
+  },
+  "qwen_SeqFT_recovery": {
+    "phase": "needs_checkpoint_lineage_and_stage18_evaluation_audit",
+    "original_status_not_marked_completed": true,
+    "no_blind_resume": true,
+    "report": "../two_backbone_pct01_20261017/qwen_seqft_io_recovery_20261019"
   }
 }

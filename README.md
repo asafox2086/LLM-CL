@@ -1,4 +1,4 @@
-**直接轻量改造已准入：** 按最新要求优先试论文方案，[连续主方向小系数及随机方向对照](summary/onevision_diagnostics_20261016/directional_coeff_20261018/v1/README.md)仅12288训练参数，跨任务不扩容；GPU与完整效果尚待，正式Ours保持空缺。原SVDfree同155题AP25.181，未改善原生Seq43.363，负结果保留。
+**最新研究进展（2026-10-19）：** [连续系数两组](summary/onevision_diagnostics_20261016/directional_coeff_20261018/v2/REPAIR_FINDINGS.md)都完成19阶段，155题AP20.93／21.72，低于同题顺序LoRA43.36；双完整21454继续，不能宣称提升。[下一项TRAIN-only对照](summary/onevision_diagnostics_20261016/train_update_pilot_20261019/v1/PROTOCOL.md)检查保留当前适配、固定A与提高B更新速度，已排队，尚无GPU结果。正式Ours留空。
 
 **研究重点更新：** 按最新要求先核验数据受限下哪些更新机制有效，暂停预设模块数量；[他人更新方式、已知结果及验证方案](summary/onevision_diagnostics_20261016/DATA_LIMITED_PRIORITY.md)。SVD机制对照v3已实际在GPU1进入初始评测，无新成绩；正式主表口径不变。
 

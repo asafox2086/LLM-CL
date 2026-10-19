@@ -1,3 +1,16 @@
+# 2026-10-19：两系数完整确认继续；TRAIN-only更新对照已排队
+
+- 同nohup唯一入口analysis/onevision_train_update_pilot_queue.py，CPU384025/startticks5265584，权威train_update_pilot_20261019/v1/queue/queue_state.json和ACTIVATION。旧106814仅CPU计划退役，不恢复；当前principal完整21454 worker203850/startticks3213139在GPU1自然继续，所有GPU/基线/发布器身份保全。先两系数完整21454，再新12格TRAIN-only对照，再原全部任务；GPU空闲0/1单流、我们最多3卡。
+- 新对照借鉴LoRA-FA冻结A的拓扑与LoRA+的A/B不同学习率，不冒充原作者全部优化器或新原创。共同native T01已学A+B起点，目标T02/T04/T11原11/26/12 TRAIN；四条件为AB继续／AB且B LR16倍／固定A只训B／固定A且B LR16倍。全部12格都做，仅比较TRAIN拟合与旧TRAIN损伤，不读TEST选配置，不发布F1。7CPU实权重/优化器/导入门槛与6新调度策略及祖先检查过，不是GPU收益。源/协议READY后冻结，后续独立新版本修复。
+- 目标训练196QA曝光／16更新，额外目标NLL392和旧TRAIN NLL96，源历史347TRAIN/22更新计费。196608训练坐标对AB540672仅是训练参数减少，固定A仍常驻；真实CPU/GPU前后/峰值/梯度/状态记录。初次CPU准入曾误写T11数量6，实际冻结数据为12，准入前纠正并留证，未改数据或运行源。
+- 两机正式基线实际新CL7965/SMo181717、旧CL341019/PAS342152/Spa826894继续。Qwen Seq3256终止于资源日志JSON损坏，并有恢复后第18阶段双训练日志；CPU完整验证未过，完成状态未改、未填主表、不冒称完成。先核对最终checkpoint支线及S18评测一致性，不能简单删日志/拼评测或盲重跑。资源原始文件保留、缺失样本不补造。见summary/two_backbone_pct01_20261017/qwen_seqft_io_recovery_20261019。
+
+# 2026-10-19：系数候选两组19阶段完成，未取得诊断提升
+
+- 独立v2恢复原参考deterministic=True／线程6／seed42，两组完整初始500NLL／155生成均精确通过。各19阶段／93次正LR有限更新封存，阶段系数连续未重置。155题AP主方向20.930305、随机21.722013，低于同题native Seq43.362536；不是方法提升，完整21454两组均保留，目前principal完整确认实际worker203850，先实查PID／完成证明。研究与正式V2仍分开。
+- 原v1在任何训练前因12／500金融NLL不一致被拦截，155生成／分数均同，旧95973/96818不恢复。原故障源码／预测／证明全保留，不拼预测或放宽门槛。独立19TRAIN×5运行探针同运行设置下原LoRA与零系数模型逐项同，切换运行设置会改变1条视觉特征和NLL。探针成对比较只用TRAIN，继承六图文门槛含既有TEST哨兵FinMME:5082，范围纠正单列，不能称整个进程零TEST。
+- 唯一nohup CPU106814/startticks1992605，analysis/onevision_directional_coeff_queue_v2.py，权威directional_coeff_20261018/v2/queue/queue_state.json与ACTIVATION。新／旧基线继续，GPU0/1单研究流、我们最多3卡，不热改源，不按TEST选秩／LR／条件。旧细因果作业／负条件／完整确认均保留。
+
 # 新候选已实际接上GPU1 — 2026-10-18
 
 - 新principal_coeff_r16 worker96818/startticks1839357在GPU1通过六真实图文前向、12288训练参数／stage00／冻结基底已核验，STARTED_GATE.json绑定；初始500/155精确native门槛尚待，不能称TRAIN完成或F1提升。原86799已正常完整退出，继承回执通过。唯一CPU95973保留、所有基线和观察器持续。后续先实查新worker／证明，不恢复原旧PID、不热改新冻结源。

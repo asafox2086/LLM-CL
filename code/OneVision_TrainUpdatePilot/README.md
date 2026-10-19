@@ -1,0 +1,3 @@
+# TRAIN-only轻量更新对照源码
+
+入口analysis/onevision_train_only_update_pilot.py；准入analysis/onevision_train_update_pilot_cpu.py；唯一调度analysis/onevision_train_update_pilot_queue.py。借鉴LoRA-FA固定A拓扑（非完整梯度修正优化器）及LoRA+学习率分组，独立图文适配，不声称原创。协议见summary/onevision_diagnostics_20261016/train_update_pilot_20261019/v1/PROTOCOL.md。

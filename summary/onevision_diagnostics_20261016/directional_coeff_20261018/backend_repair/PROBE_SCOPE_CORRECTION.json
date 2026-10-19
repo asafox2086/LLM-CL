@@ -1,0 +1,12 @@
+{
+  "original_probe_proof_sha256": "8454d8e3cf582a71fc37077483318f98d4d27fa9689df9405f9c9cdd3922f7bb",
+  "paired_runtime_comparison_QA": 19,
+  "paired_comparison_uses_TRAIN_only": true,
+  "paired_conditions": 5,
+  "extra_pair_TRAIN_NLL_calls": 95,
+  "scope_correction": "TEST_QA=0 in the original proof describes only the paired comparison, not the inherited six-input renderer gate. MetricExperiment invokes that gate once with five TRAIN sentinels and one pre-existing TEST sentinel FinMME:5082. The sentinel is never used to select method, rank or LR.",
+  "sentinel_TEST_rows": 1,
+  "no_TEST_based_hyperparameter_selection": true,
+  "optimizer_updates": 0,
+  "original_source_and_proof_preserved": true
+}
