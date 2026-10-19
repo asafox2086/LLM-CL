@@ -1,0 +1,36 @@
+{
+  "status": "CORE_BRIDGE_ONLY_NOT_GPU_ADMITTED",
+  "checks_passed": 8,
+  "checks": [
+    "imports preserve CUDA_VISIBLE_DEVICES 0/1 and do not initialize CUDA",
+    "new selector bridge reproduces all 303 pinned historical TRAIN IDs",
+    "one-step calibration records actual displacement and retains final replay",
+    "unchanged author regularized total loss and gradient are exact",
+    "replay updates parameter reference without advancing author model time",
+    "first stage does not fabricate historical samples or replay",
+    "larger budgets fail closed instead of omitting dynamic replay",
+    "author intensity scaling retains original 0.5 and 3 bounds"
+  ],
+  "upstream_revision": "bbeb549a21e59d9490f20a2b02099ee766a67f48",
+  "author_training_source_sha256": "908f32db42264b3911d3a913a58c2807eba2f87e07a3848973e78422139b3e88",
+  "source_sha256": {
+    "analysis/forever_multimodal_core_20261019.py": "2d9d5be87d81df80eab6ddf0095ce399c9a73d9c8c29909a5022d2364fdeeed8",
+    "analysis/forever_multimodal_core_cpu_20261019.py": "0531f8720a9c764820bd33caa560cda3d5ae4277f707ed118b3210d11e057afc"
+  },
+  "TRAIN_files_sha256": {
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T01_train.jsonl": "5732cd30e78ea2d808526c62312ed2d25e9541a07b3ba5ad2b19d4f0123217c8",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T02_train.jsonl": "7f59b10ae613e76dc166c6bba157ba9b16d8839e1f8331c3d6feca9f42f790b4"
+  },
+  "model_loaded": false,
+  "GPU_forward": 0,
+  "TEST_predictions_or_answers_read": 0,
+  "actual_forever_optimizer_updates": 0,
+  "CPU_toy_tensors_only": true,
+  "ready_to_launch_formal_run": false,
+  "pending": [
+    "common multimodal runner integration",
+    "actual HF replay scheduler and optimizer instrumentation",
+    "both-backbone finite-gradient and checkpoint-reload gates",
+    "independent formal publication verifier"
+  ]
+}

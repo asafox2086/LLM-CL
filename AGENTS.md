@@ -1,3 +1,11 @@
+# 2026-10-19：FOREVER 已上旧 GPU0 做真实接入门槛，不是正式结果
+
+- 新独立图文实现 `exp/two_backbone_forever_20261019_v1` 与 `analysis/forever_multimodal_*_20261019.py`；原活动 V2 *.py 一字节未改，主表仍4/14。CPU8核心检查、实际HF8更新／128合成样本／7正LR＋1作者warmup零步，以及独立作者类最终参数SHA／梯度对照通过；不能称模型收益。原作者选择器／漂移／正则AST原样编译，实际共享FP16初始scale1单列适配。
+- 旧服务器唯一gate CPU1176100/startticks707580382，实际OneVision worker1176137/startticks707580440在GPU0；随后同卡Qwen只做门槛。权威在旧 `/data2/liyapeng_grp/program/LLMCL/summary/two_backbone_pct01_20261017/forever_multimodal_20261019/v1/gate_attempt/state.json`。先实查PID／证明／NEEDS_ATTENTION，不能从新机镜像state重复启动。source与GPU_GATE_PLAN/PROTOCOL已冻结，故障新版本修复、不盲重试。门槛含原19 TRAIN图文反向＋额外T02一条更新＋真实历史303条两轮请求回放／另进程重载；HF实际QA／更新与尾批单列。共同图文门槛含旧FinMME5082哨兵，不称全进程零TEST。
+- 当前真实LLaVA19前向/反向均已过，作者回放已出现正LR有限更新；整项门槛／重载与Qwen仍待，不说FOREVER正式已跑完或有F1。两个GPU门槛及正式发布器准入前不发正式训练。论文ACL2026主会，新增结果只填完整合法证明，FOREVER主表空白保留。
+- 旧CL341019/PAS342152/Spa826894、新CL7965/SMo181717与CPU发布器51266均实际存活。新研究CPU402686/当前完整GPU203850自然继续，后接原12格TRAIN-only更新对照，未改队列、来源或协议；新机我们的作业仍最多3卡。旧GPU0允许使用，不抢他人；原本空闲才启动门槛。
+- 核心第一版CPU摘要编码不一致（换行vs原JSON）失败已封存，READY前修正，0模型/GPU；原HF默认AMP源也在共同scale1适配前封存，CPU参数精确一致。作者额外回放/缓冲/参考/原始梯度存储全部计费；未测内存优势。
+
 # 2026-10-19：缩短方法反馈等待，只改独立CPU排队策略
 
 - 最新唯一入口analysis/onevision_train_update_priority_v2.py，CPU402686/startticks5443776，权威train_update_pilot_20261019/v1/priority_v2/queue_state.json与ACTIVATION。旧384025仅CPU计划退役，不恢复。GPU203850/startticks3213139当前完整确认自然继续，所有GPU／基线／发布器身份保全。

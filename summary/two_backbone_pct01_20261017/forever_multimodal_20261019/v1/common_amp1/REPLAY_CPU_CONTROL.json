@@ -1,0 +1,91 @@
+{
+  "status": "ACTUAL_HF_CPU_CONTROL_PASSED_NOT_GPU_ADMITTED",
+  "synthetic_not_experimental_QA": true,
+  "GPU_forward": 0,
+  "TEST_rows_or_predictions_read": 0,
+  "backbone_loaded": false,
+  "formal_performance_result": false,
+  "control": {
+    "status": "CPU_CONTROL_COMPLETE",
+    "stage": 2,
+    "actual_optimizer_updates": 8,
+    "positive_LR_updates": 7,
+    "author_zero_warmup_updates": 1,
+    "actual_QA_exposures": 128,
+    "requested_epochs": 2,
+    "HF_effective_num_train_epochs": 2,
+    "HF_final_epoch": 2.0,
+    "HF_train_metrics": {
+      "train_runtime": 0.1246,
+      "train_samples_per_second": 1027.107,
+      "train_steps_per_second": 64.194,
+      "train_loss": 0.15508686937391758,
+      "epoch": 2.0
+    },
+    "seconds": 0.9395903740005451,
+    "beta": 0.9999999999422651,
+    "model_time_unchanged_by_replay": true,
+    "CPU_control_not_formal": true
+  },
+  "evidence_version": "common_amp1",
+  "used_LR": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      2e-05,
+      2e-05
+    ],
+    [
+      4e-05,
+      4e-05
+    ],
+    [
+      6e-05,
+      6e-05
+    ],
+    [
+      8e-05,
+      8e-05
+    ],
+    [
+      0.0001,
+      0.0001
+    ],
+    [
+      6.666666666666667e-05,
+      6.666666666666667e-05
+    ],
+    [
+      3.3333333333333335e-05,
+      3.3333333333333335e-05
+    ]
+  ],
+  "raw_gradient_l2": [
+    10.326001788145945,
+    14.530533549329022,
+    12.839583811018448,
+    17.665387026654678,
+    12.831973857545956,
+    13.024504200387886,
+    14.93966299955432,
+    14.439952887538716
+  ],
+  "parameter_delta_l2": [
+    0.0,
+    3.417381770964637e-05,
+    6.857993746860583e-05,
+    0.0001027256537432723,
+    0.00013737457119541551,
+    0.000172169329340437,
+    0.00011529197128639687,
+    5.682410654038784e-05
+  ],
+  "exp_trace": "exp/forever_multimodal_cpu_control_20261019/v1/common_amp1",
+  "source_sha256": {
+    "analysis/forever_multimodal_core_20261019.py": "2d9d5be87d81df80eab6ddf0095ce399c9a73d9c8c29909a5022d2364fdeeed8",
+    "analysis/forever_multimodal_replay_20261019.py": "bdcbb99a846b5a6fa8a8a66115034bd692d8498fe8d6820d8038e9aaed5aea0a",
+    "analysis/forever_multimodal_replay_cpu_20261019.py": "b025a06b256bef75c641d23889be0925d74cb77b5579b9845e3063e3f544a8f2"
+  }
+}
