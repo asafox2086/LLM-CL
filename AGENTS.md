@@ -1,3 +1,11 @@
+# 2026-10-20：CPU v1测量失败已留证，独立v2等待168算子精确门槛
+
+- 原CPU1666055和观察器1668481均已退出；v1在原CPU／折叠NLL精确门槛失败，没有有效功能探针或F1结果，勿恢复旧PID。source/READY/FAILURE不改。
+- 根因候选是折叠时未保留原CPU autocast上下文；原作者核有矩阵乘法，显式转FP32不自动关autocast。新CPU控制1680808/start17191239逐个核验全部168算子，当前部分通过不是完整证明。此为工程修复，不是精度研究或方法提升。
+- 新CPU续接1682880/start17213880，analysis/cpu_function_space_resume_20261020.py；权威summary/edge_deployment_20261019/cpu_function_space_20261020/v2/CONTROLLER_STATE.json。只有完整门槛通过才一次启动cpu_function_space_20261020_v2.py；同原dtype/rank/48处/10QA，首题门槛改用原医学校准题，校准顺序公开；仍须真实NLL精确，不放宽、不拼接、不盲重试。新source/ADMISSION冻结。
+- K59的96.67%、8.20%等仅为无外层autocast的指定精度重建系数谱，不能称已验证实际前向谱；原EVIDENCE和数值保留，见CONTEXT_SCOPE_CORRECTION。两个零训练控制也不作原GPU漂移上界。正式基线F1来自原训练／评测，未受这次分析错误影响。
+- GPU唯一服务仍1154006，baseline原码不改；新CL7965／SMo181717／发布器51266实查存活。正式七方法索引仍5/14，加独立FOREVER总6/16，Ours和未测部署列空白。
+
 # 2026-10-20：CPU功能空间小测已实际启动，尚无质量收益
 
 - 用户允许CPU小型探究；新analysis/cpu_function_space_20261020.py与cpu_function_space_20261020/v1协议已冻结。新nohup CPU1666055/start16977492，PyTorch两数值线程、interop1（进程另有库后台线程），不占GPU。原GPU1服务1154006与两机基线不改。
