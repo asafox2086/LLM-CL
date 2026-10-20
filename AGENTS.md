@@ -1,3 +1,11 @@
+# 2026-10-20：FOREVER完整核验，正式6/16；GPU1研究仍待资源
+
+- FOREVER／OneVision已自然完成，旧CPU1207220和GPU1207239均退出勿恢复。原v3验证器完整通过19有效阶段／74格／21454QA／最终checkpoint SHA与18段作者回放。AP45.245427/FWT17.747674/BWT5.641974；域64.485833/46.102623/50.569772/9.622705/33.369891。最强已完成OneVision仍OSFT46.356693。
+- 额外回放13952次历史QA曝光、872优化器调用（854正LR／18作者warmup零LR），主训练仍1313QA／93正LR。不要把重复曝光当新增独立数据，不能称同计算预算。FOREVER五域宏均分40.830，低于Seq42.186；AP19提高不等于五域均分提高。
+- 首次独立核验因旧机缺preflight证据文件失败；从新机原封存文件按预期SHA99a01a7cb53b88deb4e1099e5f7618a5d9bbefcde06b66fdef24e87f4bd82d05逐字节恢复，同一未改v3验证器在独立dependency_restore_v1输出通过。旧失败日志保留，无训练／生成／评分重跑或门槛放宽。旧机FOREVER权威state已事务更新completed_verified，旧running为历史。
+- 新analysis/v2_forever_main_table_20261020.py --write在独立CPU进程组合原七方法证明与FOREVER专用证明，填根README和内部主表。原活动14范围发布器／源／索引不改，其完成数仍5；总16范围另见forever_verified_20261020/PUBLICATION.json，为6。后续有新封存结果才刷新联合入口，勿用旧七方法文档渲染器清空FOREVER行。Ours及未测部署列空白。
+- 新研究仍唯一CPU1154006/start9767347、osft_increment_screen/v1冻结入口。实际GPU1为他人556654/1342755/1514212/1610345占用约23GiB，四组无STARTED／完成／故障，健康wait，不新增精度或CPU重复审计。旧CL/PAS已进入最终S19评测，已封存前16任务；新QwenCL仍S0/T18，SMo仍S0/T16，均实际活着，不能按旧快照重启。
+
 # 2026-10-19最新方向：最强OSFT的额外更新位置，小测先行
 
 - 最新人类要求先找1%最强基线额外做了什么，能否只保留有效增量，而非继续任意压参数／拆专家。当前最强已完成OneVision OSFT AP46.357，对Seq40.286；优势首先在习得，非本次更防遗忘。额外120个k/o/FFN位置、容量、SVD投影和LR仍混杂，不预设哪个是唯一原因。

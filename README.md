@@ -1,3 +1,6 @@
+<!-- FOREVER_V3_PUBLICATION_20261020 -->
+**正式基线新结果：** FOREVER／OneVision完整核验AP45.245、FWT17.748、BWT5.642；正式完成6/16组。额外13,952次历史QA曝光／872次回放更新另计，不当作相同训练计算量。[完整证明与回放成本](summary/two_backbone_pct01_20261017/forever_verified_20261020/README.md)。
+
 **当前研究：最强OSFT的额外变动能否轻量复现？** 已实现四组共同小测：原顺序LoRA、原OSFT、普通LoRA覆盖相同七类位置、普通LoRA只更新额外五类位置。冻结1213 FIT／100 DEV（每领域20），从原1313内部按图像／场景留出，不用官方TEST筛选。新唯一队列CPU1154006已接续，GPU1仍他人占用，尚无本轮训练／质量收益；旧六容量自动全测不再运行。[问题、对照、筛选与资源边界](summary/edge_deployment_20261019/osft_increment_screen/v1/README.md)。
 
 **数值条件与公平性：** 停止以浮点／量化精度调整作为方法研究。正式V2公共入口的基座与外层autocast默认FP16，SMoLoRA保留BF16实现例外；各方法还可能包含FP32适配参数或分解因子，参数存储精度不等于计算精度。因此现表不能称所有方法严格同精度，跨例外的成绩差异也不能全部归功于算法。容量消融在各家内部固定原条件：CL三组FP16基座、FP32适配器且其前向禁用autocast；SMo三组BF16基座／autocast、FP32适配器存储。后续方法与对照固定并公开数值条件，质量与部署成本均按同一条件比较；旧精度实验只作工程附录，不计方法贡献。[完整守则](rules/029_numerical_conditions_not_method_contribution_20261019.md)。
@@ -67,7 +70,7 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 | Ours | 自研方法 | 未发表 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | **LLaVA-OneVision-Qwen2-0.5B-OV** |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | SeqFT-LoRA | 朴素顺序微调 | 标准对照（无独立发表年份） | 75.632 | 40.758 | 46.711 | 15.891 | 31.938 | 40.286 | 14.783 | 1.775 |  |  |  |  |  |  |
-| FOREVER | 回放 | [ACL 2026](https://aclanthology.org/2026.acl-long.1144/) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| FOREVER | 回放 | [ACL 2026](https://aclanthology.org/2026.acl-long.1144/) | 64.486 | 46.103 | 50.570 | 9.623 | 33.370 | 45.245 | 17.748 | 5.642 |  |  |  |  |  |  |
 | CL-MoE | 架构 | [CVPR 2025](https://openaccess.thecvf.com/content/CVPR2025/html/Huai_CL-MoE_Enhancing_Multimodal_Large_Language_Model_with_Dual_Momentum_Mixture-of-Experts_CVPR_2025_paper.html) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | SMoLoRA | 架构 | [ICCV 2025](https://openaccess.thecvf.com/content/ICCV2025/html/Wang_SMoLoRA_Exploring_and_Defying_Dual_Catastrophic_Forgetting_in_Continual_Visual_ICCV_2025_paper.html) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | PASs-MoE | 架构（兼正则） | [ACL 2026](https://aclanthology.org/2026.acl-long.1474/) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
@@ -76,11 +79,11 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 | SpaRTA | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.334/) | 73.596 | 40.921 | 45.942 | 21.328 | 34.520 | 41.829 | 17.145 | -2.992 |  |  |  |  |  |  |
 | Ours | 自研方法 | 未发表 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 
-五个数据集列为训练结束后的完整域内QA平均F1；AP为19个原生任务等权平均，FWT/BWT按已测的必要阶段计算。两种权重口径不同。[FOREVER（ACL 2026）正式运行](summary/two_backbone_pct01_20261017/forever_multimodal_20261019/v3/README.md)已通过双骨干模型／保存重载门槛；OneVision在旧GPU0进行正式S0评价，Qwen等待原基线后的空闲GPU2；Ours尚无可填入此正式表的完整结果。ER-LoRA已按用户要求移出比较，已有结果保留在历史证据中。
+五个数据集列为训练结束后的完整域内QA平均F1；AP为19个原生任务等权平均，FWT/BWT按已测的必要阶段计算。两种权重口径不同。[FOREVER（ACL 2026）正式运行](summary/two_backbone_pct01_20261017/forever_multimodal_20261019/v3/README.md)已通过双骨干模型／保存重载门槛；OneVision已通过完整19阶段／74格／21454题及回放成本核验，Qwen仍等待原基线后的空闲GPU2；Ours尚无可填入此正式表的完整结果。ER-LoRA已按用户要求移出比较，已有结果保留在历史证据中。
 
 类型按主要抗遗忘机制归类，PASs-MoE兼有正则化；LoRA是参数化方式，不单独作为上述方法类型。会议链接指向正式发表页，年份按会议届次。
 
-[方法分类、发表信息及状态](summary/two_backbone_pct01_20261017/BASELINES.md) · [完整主表与协议](summary/two_backbone_pct01_20261017/MAIN_TABLE.md) · [逐题核验索引](summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/VERIFIED_INDEX.json)
+[方法分类、发表信息及状态](summary/two_backbone_pct01_20261017/BASELINES.md) · [完整主表与协议](summary/two_backbone_pct01_20261017/MAIN_TABLE.md) · [逐题核验索引](summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/VERIFIED_INDEX.json) · [FOREVER额外完整核验](summary/two_backbone_pct01_20261017/forever_verified_20261020/README.md)
 
 <!-- CPU_EDGE_METRICS_NOTE -->
 端侧部署包括**个人电脑CPU／独立GPU及手机**。最终部署大小包含基座、视觉编码器、投影和全部必需适配器／专家／路由／索引；新增部署大小为同格式、同精度下最终包减初始包。训练优化器、日志和历史checkpoint不计入部署包。参数值更新不等于参数量增加，可折叠更新按实际导出后大小计量。CPU RAM与GPU显存分别报告，延迟与速度注明CPU／GPU设备档；方法对比须使用相同设备、线程、精度、输入及生成预算。服务器CPU及服务器安装的消费级GPU须标明实际整机环境，不能称手机实测。当前部署列均未实测，保持空白。量化／剪枝等改变模型输出的部署版本须单列并验证其Answer F1。 [指标与一般性问题协议](summary/edge_deployment_20261019/PROTOCOL.md)。
@@ -92,7 +95,7 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 
 | 入口 | 内容与边界 |
 | --- | --- |
-| [正式双骨干主表](summary/two_backbone_pct01_20261017/MAIN_TABLE.md) | Qwen2-VL-2B与OneVision 0.5B分块，五领域最终分数、AP/FWT/BWT。只填完整核验结果；[只读发布器](summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/README.md)覆盖原14个组合，FOREVER双骨干已独立准入；共16个目标中4组完整核验，未完成格留空。 |
+| [正式双骨干主表](summary/two_backbone_pct01_20261017/MAIN_TABLE.md) | Qwen2-VL-2B与OneVision 0.5B分块，五领域最终分数、AP/FWT/BWT。只填完整核验结果；[只读发布器](summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/README.md)覆盖原14个组合，FOREVER双骨干已独立准入；共16个目标中6组完整核验，未完成格留空。 |
 | [正式V2框架与公平性](summary/two_backbone_native_cl_20261017_v2/README.md) | 两机共享TRAIN/TEST ID、原生任务顺序、方法代码、预算、公共图像输入与评分；原生processor/tokenizer因骨干而异。旧零LR/V1结果隔离。 |
 | [当前两模块源码索引](code/OneVision_ColdStartQuality/README.md) | A完整继承+B TRAIN质量调用；源文件、实际包装器、四格协议和证据入口。与早期位移保护原型分开，不混结果。 |
 | [问题发现总报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md) | 按问题、实验、结果、证明、改进、效果记录；区分已证实、已反驳、未解决。[关键发现](summary/onevision_diagnostics_20261016/KEY_FINDINGS.md)提供证据索引。 |

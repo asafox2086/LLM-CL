@@ -10,7 +10,7 @@
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | **Qwen2-VL-2B-Instruct** | | | | | | | | |
 | SeqFT-LoRA | 86.312 | 47.654 | 51.110 | 26.576 | 33.210 | 47.812 | 13.258 | 4.415 |
-| FOREVER（待准入） |  |  |  |  |  |  |  |  |
+| FOREVER |  |  |  |  |  |  |  |  |
 | CL-MoE |  |  |  |  |  |  |  |  |
 | SMoLoRA |  |  |  |  |  |  |  |  |
 | PASs-MoE |  |  |  |  |  |  |  |  |
@@ -20,7 +20,7 @@
 | Ours |  |  |  |  |  |  |  |  |
 | **LLaVA-OneVision-Qwen2-0.5B-OV** | | | | | | | | |
 | SeqFT-LoRA | 75.632 | 40.758 | 46.711 | 15.891 | 31.938 | 40.286 | 14.783 | 1.775 |
-| FOREVER（待准入） |  |  |  |  |  |  |  |  |
+| FOREVER | 64.486 | 46.103 | 50.570 | 9.623 | 33.370 | 45.245 | 17.748 | 5.642 |
 | CL-MoE |  |  |  |  |  |  |  |  |
 | SMoLoRA |  |  |  |  |  |  |  |  |
 | PASs-MoE |  |  |  |  |  |  |  |  |
@@ -33,4 +33,6 @@
 
 补充汇总说明：上表领域列按域内QA加权，AP按19个原生任务等权，两者不是同一权重。原实现已有的五领域宏平均为SeqFT **42.186**、ER **42.958**；ER在该补充汇总较高，原主AP仍较低。主表AP/FWT/BWT及唯一原始Answer F1均不改。[完整42908题复算与两层权重分解](../onevision_diagnostics_20261016/v2_aggregation_20261018/RESEARCH_FINDINGS.md)。
 
-后续完成结果由[只读CPU发布器](completion_observer_seven_20261018/README.md)按19阶段有效更新、全部74格原始Answer F1及最终checkpoint核验后入表；当前范围为两骨干各7个已准入方法，不表示14组已经跑完。FOREVER为第8项计划比较，未准入的占位不计完成。[发表信息及调整依据](BASELINES.md)。[核验索引](completion_observer_seven_20261018/VERIFIED_INDEX.json)。
+后续完成结果由[只读CPU发布器](completion_observer_seven_20261018/README.md)按19阶段有效更新、全部74格原始Answer F1及最终checkpoint核验后入表；当前范围为两骨干各7个已准入方法，不表示14组已经跑完。FOREVER已作为第8个方法独立准入；OneVision完整结果由v3专用验证器核验，Qwen尚待运行。原七方法发布器范围14组不变。[发表信息及调整依据](BASELINES.md)。[核验索引](completion_observer_seven_20261018/VERIFIED_INDEX.json)。
+
+[FOREVER独立完整核验与额外回放成本](forever_verified_20261020/README.md)。
