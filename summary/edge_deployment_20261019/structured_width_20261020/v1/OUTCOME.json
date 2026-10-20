@@ -1,0 +1,126 @@
+{
+  "source_sha256": "eaa895a606d9787ffbfeb71b11ee2c1552832609427c03a0e3f796a29fdf5182",
+  "verified_results_sha256": "1ad7a1ead3781284f2e6b6e6fbfe8834a7f7f3afafdebcb70ae2470201a9740c",
+  "all_complete_sha256": "20c9dd94b40c013b1d641d0e7a91624d6aa845945b99b9e97e57027da42ae989",
+  "same_original_inputs_across_cases": true,
+  "records": {
+    "dense": {
+      "complete_sha256": "8cdbb8c6a101dbb54ec3b71469f581995ff14a3d8fafdb9ec709b9b3aaf697c5",
+      "package_bytes": 1803323773,
+      "five_seen_TRAIN_mean_F1": 47.088607594936704,
+      "loaded_RSS_bytes": 3758186496,
+      "loaded_PSS_bytes": 3614561280,
+      "loaded_USS_bytes": 3582185472,
+      "forced8_generation_peak_RSS_bytes": 4115042304,
+      "all10_generation_peak_RSS_bytes": 4153458688,
+      "forced8_TTFT_sum_seconds": 2510.776288196008,
+      "forced8_decode_tps_by_probe": [
+        3.6300276032384553,
+        4.3394923640986445,
+        6.04730805103766,
+        3.6602384265824606,
+        3.929013348355673
+      ],
+      "free64_output_tokens_by_probe": [
+        5,
+        3,
+        2,
+        2,
+        56
+      ],
+      "case_seconds": 5205.706881257996,
+      "warmup_calibration_NLL": 0.6714380383491516
+    },
+    "weight": {
+      "complete_sha256": "3a96069c16e3cd64b748d5665ccdd5f5a3e749dbdd40b8646784975c92c78e56",
+      "package_bytes": 1231644085,
+      "five_seen_TRAIN_mean_F1": 0.0,
+      "loaded_RSS_bytes": 2770587648,
+      "loaded_PSS_bytes": 2624923648,
+      "loaded_USS_bytes": 2592337920,
+      "forced8_generation_peak_RSS_bytes": 3006013440,
+      "all10_generation_peak_RSS_bytes": 3042537472,
+      "forced8_TTFT_sum_seconds": 1684.0827584640065,
+      "forced8_decode_tps_by_probe": [
+        4.02477486273759,
+        4.998773600853143,
+        6.676558363070832,
+        3.1710209965568383,
+        4.5068195828738595
+      ],
+      "free64_output_tokens_by_probe": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "case_seconds": 3463.499042719981,
+      "warmup_calibration_NLL": 10.22105884552002,
+      "differences_from_dense": {
+        "five_seen_TRAIN_F1_pp": -47.088607594936704,
+        "package_bytes_relative_reduction": 0.3170144466342595,
+        "loaded_RSS_bytes_relative_reduction": 0.262786013693345,
+        "loaded_PSS_bytes_relative_reduction": 0.2737919087098726,
+        "loaded_USS_bytes_relative_reduction": 0.2763250422785479,
+        "forced8_generation_peak_RSS_bytes_relative_reduction": 0.2695060662977816,
+        "all10_generation_peak_RSS_bytes_relative_reduction": 0.2674689456306927,
+        "forced8_TTFT_sum_seconds_relative_reduction": 0.329258139651295
+      }
+    },
+    "fluctuation": {
+      "complete_sha256": "64567e2a5b9f2c71ab500ce70a1729d3fe5d790a7b30b8540bccaa04ab1c64b5",
+      "package_bytes": 1231644085,
+      "five_seen_TRAIN_mean_F1": 21.75438596491228,
+      "loaded_RSS_bytes": 2779226112,
+      "loaded_PSS_bytes": 2633200640,
+      "loaded_USS_bytes": 2600640512,
+      "forced8_generation_peak_RSS_bytes": 3097153536,
+      "all10_generation_peak_RSS_bytes": 3160797184,
+      "forced8_TTFT_sum_seconds": 1672.3081521189597,
+      "forced8_decode_tps_by_probe": [
+        3.5750044386064803,
+        4.933696747126726,
+        6.928253548819686,
+        4.278034178895782,
+        4.509601517881391
+      ],
+      "free64_output_tokens_by_probe": [
+        2,
+        2,
+        2,
+        2,
+        6
+      ],
+      "case_seconds": 3460.887061583984,
+      "warmup_calibration_NLL": 1.5953861474990845,
+      "differences_from_dense": {
+        "five_seen_TRAIN_F1_pp": -25.334221630024423,
+        "package_bytes_relative_reduction": 0.3170144466342595,
+        "loaded_RSS_bytes_relative_reduction": 0.2604874412278235,
+        "loaded_PSS_bytes_relative_reduction": 0.27150200646204015,
+        "loaded_USS_bytes_relative_reduction": 0.27400729740885954,
+        "forced8_generation_peak_RSS_bytes_relative_reduction": 0.2473580325068755,
+        "all10_generation_peak_RSS_bytes_relative_reduction": 0.23899635907489736,
+        "forced8_TTFT_sum_seconds_relative_reduction": 0.33394776747692145
+      }
+    }
+  },
+  "new_model_forwards": 0,
+  "new_optimizer_updates": 0,
+  "generation_requests_in_three_original_cases": 30,
+  "warmup_requests_in_three_original_cases": 3,
+  "prepare_seconds": 2941.310821969004,
+  "total_prepare_and_case_seconds": 15071.403807530965,
+  "decision": "STOP fixed simultaneous vision/language half-width without recovery; no full TEST",
+  "inference": "Input-aware ordering retains more function than weight-only on these probes, but neither preserves reference quality.",
+  "limitations": [
+    "Five teacher-seen TRAIN probes, one per domain; not domain F1, DEV or formal AP.",
+    "Joint vision/language removal does not identify which component caused quality loss.",
+    "No recovery training; this does not reject structured pruning with recovery or all compact alternatives.",
+    "Single serial CPU pass, shared server load, no uncertainty or phone/GPU evidence.",
+    "Original reporter peak covers forced8 only; all10 peak added here excludes warmup/load/prepare and is not full-run peak.",
+    "Teacher saw original DEV; it cannot be used to select compression by that DEV score."
+  ],
+  "goal_achieved": false
+}
