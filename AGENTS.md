@@ -1,3 +1,10 @@
+# 2026-10-20：CPU功能空间小测已实际启动，尚无质量收益
+
+- 用户允许CPU小型探究；新analysis/cpu_function_space_20261020.py与cpu_function_space_20261020/v1协议已冻结。新nohup CPU1666055/start16977492，PyTorch两数值线程、interop1（进程另有库后台线程），不占GPU。原GPU1服务1154006与两机基线不改。
+- 固定FIT内每域一个校准图像组、一个独立探针组，共10QA；原teacher见过全部1313TRAIN，因此不称teacher未见数据或泛化F1。48处q/down，同rank8比较权重SVD和校准输出PCA，仅测局部作用，不代替完整模型质量、结构删除或部署收益。
+- 先原CPU首题与常规折叠NLL精确门槛，再共10QA（11前向、零反向）；READY后不热改。全部完成证明才发布。SVD-LLM/Dobi-SVD仅启发功能误差视角，不称原论文复现或原创。源、原图、QA、精度固定；不读官方TEST、不用DEV答案筛选，不追加精度卡常。
+- CPU1666055活着而尚无PROGRESS不是故障；先看实际PID/startticks/log及FAILURE/COMPLETE。不按等待时间盲重启。旧大谱本地传输曾中断，GitHub e043055已存在，网络复制不改科学结果。
+
 # 2026-10-20：用户授权CPU探究；正式最终更新空间已完成实测
 
 - 新summary/edge_deployment_20261019/cpu_update_space_20261020/v1/README.md：正式OSFT168矩阵与SeqFT48矩阵，CPU两线程135秒，全谱及独立截断残差／QR核验通过。OSFT变化96.67%平方范数在q/v外，最佳每矩阵rank8保留8.20%；不是准确率贡献或可删性。两方法末态局部维数不同，不能把训练坐标数当有效空间。

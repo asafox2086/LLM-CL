@@ -1,3 +1,5 @@
+**2026-10-20 CPU功能空间小测：** [同rank8比较权重方向与真实输入作用](summary/edge_deployment_20261019/cpu_function_space_20261020/v1/README.md)已实际nohup启动。固定5个校准QA＋5个独立图像组探针、48处q/down；teacher已见这些训练题，本轮不是泛化F1或部署成果。原GPU四组小测和基线不变。
+
 **2026-10-20 CPU实际更新空间：** [216个正式最终矩阵的谱分析与两处零训练控制](summary/edge_deployment_20261019/cpu_update_space_20261020/v1/README.md)已完成：OSFT变化平方范数96.67%在q/v之外，每矩阵最佳rank8只保留8.20%总变化；共同q/v投到SeqFT末态切空间保留1.97%，低维各向同性参考1.84%。两处零训练CPU漂移不足实际变化范数0.1%。这些是权重空间事实，不是F1贡献或参数可删证明，不能把OSFT等同普通小LoRA；原四组GPU1小测与两机基线保持。
 
 <!-- FOREVER_V3_PUBLICATION_20261020 -->
