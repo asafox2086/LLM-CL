@@ -1,3 +1,5 @@
+**2026-10-20 CPU功能空间完整结果：** 同样只保留8个方向，按真实输入拟合的近似比只按权重选择更接近原更新的作用：5个探针平均局部相对误差49.983%→37.326%，240个局部配对中224个降低、16个升高。teacher见过这些训练题；这不是Answer F1、参数可删或端侧收益。[问题、实验结果、结论与下一步](summary/edge_deployment_20261019/cpu_function_space_20261020/v2/FINDINGS.md)。CPU原作业已正常结束，GPU1四组小测继续按原队列等待资源；主表Ours与未测部署项保持空白。下面执行记录保留为历史，以AGENTS顶部为当前状态。
+
 **CPU整模校验通过：** [修复版预定医学校准题](summary/edge_deployment_20261019/cpu_function_space_20261020/v2/README.md)的原／折叠NLL逐值相同，首条校准完成，继续原10题功能对照。不是F1或端侧结果，不将一题校验外推所有输入／GPU。
 
 **CPU修复门槛完成：** [168算子同上下文全部精确](summary/edge_deployment_20261019/cpu_function_space_20261020/v2/repair_gate/VERIFIED_REPAIR.md)，修复版10题模型已实际启动。真实整模NLL门槛与完整功能结果仍待，不是F1或部署收益。

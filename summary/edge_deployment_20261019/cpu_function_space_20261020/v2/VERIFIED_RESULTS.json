@@ -1,0 +1,50 @@
+{
+  "status": "TEN_QA_CPU_FUNCTION_SPACE_INDEPENDENTLY_VERIFIED",
+  "evidence_sha256": "04976aa3d8b41929e91cea76c1fa7f8e8908e32320f9ee6a8a7ce1f62c00a7c6",
+  "report_source_sha256": "0945849987cb0ead401d6cadcde098b7e25f88390b9cba93f8a2eb68a6222d19",
+  "probe_results": [
+    {
+      "id": "TextVQA:4029",
+      "domain": "natural",
+      "reference_energy": 5.286771192729527,
+      "weight_rank8_relative_error": 0.5459759836226827,
+      "function_rank8_relative_error": 0.45658208282418533
+    },
+    {
+      "id": "SLAKE:6439",
+      "domain": "medical",
+      "reference_energy": 1.4218756978248168,
+      "weight_rank8_relative_error": 0.5366870041423638,
+      "function_rank8_relative_error": 0.40333122141644145
+    },
+    {
+      "id": "RSVQA-LR:70264",
+      "domain": "geography",
+      "reference_energy": 3.8073314538150473,
+      "weight_rank8_relative_error": 0.3701337917547512,
+      "function_rank8_relative_error": 0.2634462753063843
+    },
+    {
+      "id": "FinMME:754",
+      "domain": "finance",
+      "reference_energy": 2.0086812879706852,
+      "weight_rank8_relative_error": 0.4889970383465323,
+      "function_rank8_relative_error": 0.3543982809387922
+    },
+    {
+      "id": "CODA-LM:Train:Train_regional_8726",
+      "domain": "traffic",
+      "reference_energy": 89.83187728665172,
+      "weight_rank8_relative_error": 0.5573649939123079,
+      "function_rank8_relative_error": 0.3885272392736339
+    }
+  ],
+  "domain_macro_relative_error": {
+    "weight_rank8_relative_error": 0.4998317623557276,
+    "function_rank8_relative_error": 0.3732570199518874
+  },
+  "CPU_only": true,
+  "AnswerF1_measured": false,
+  "deployed_compressed_model_measured": false,
+  "calibration_function_error_scope": "pooled per layer; no per-calibration-QA function-error artifact"
+}

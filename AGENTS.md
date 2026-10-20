@@ -1,3 +1,11 @@
+# 2026-10-20：CPU功能空间完整核验（K60），尚无F1／端侧收益
+
+- v2的10QA×48处完整结束，EVIDENCE SHA04976aa3d8b41929e91cea76c1fa7f8e8908e32320f9ee6a8a7ce1f62c00a7c6，原独立报告与新二次汇总逐值一致。同rank8，五域探针平均局部相对误差49.983%→37.326%；240处层题配对224低、16高。是原CPU上下文下ΔW·X的FP64局部几何，非Answer F1／自由生成／可删参数／部署收益；不能与K59不同上下文系数谱直接混算。
+- teacher已见这些TRAIN；5个校准QA共84答案预测位置，其中交通73，未token均衡。5个探针图像组只在拟合近似时未使用，不叫teacher未见数据或总体显著性。只测q/down，不外推全部结构。
+- 模型1690566和续接1682880均正常退出，CONTROLLER_STATE=complete_verified，勿恢复。实际v2测量5276.18秒／11前向／0更新，之前修复及v1失败另计。OBSERVED_CPU_RESOURCE_SNAPSHOT仅一次运行中观察，不叫部署RAM、纯TRAIN峰值或前后增长。源、原图／权重SHA和参数不变检查保留。
+- 新analysis/cpu_function_space_outcome_20261020.py为已封存记录二次汇总，0新前向，详见v2/FINDINGS.md和OUTCOME.json。当前没有完整压缩模型，Ours与未测部署列仍空；不要拿小增量文件替代完整基座成本。
+- 原GPU1四条件小测及守卫／科学源保持冻结，旧六容量自动全测与旧CPU不恢复。若未来筛选整模压缩，要用相同FIT训练teacher＋仅FIT校准，在独立100DEV上筛选；现成正式teacher已见1313（含DEV），不能拿其该DEV表现挑方案。新整模压缩尚未启动／准入；不得把计划当收益或为保持活跃重复CPU审计。
+
 # 2026-10-20：CPU v2预定整模NLL精确门槛已过，功能结果仍待
 
 - CPU_FOLD_GATE：SLAKE:5162原／折叠NLL均0.6714380383491516，exact=true；WHOLE_NLL_GATE_VERIFIED绑定READY与源SHA，无额外模型重放。仅预定CPU一题，不等同全部输入／GPU／自由生成等价。
