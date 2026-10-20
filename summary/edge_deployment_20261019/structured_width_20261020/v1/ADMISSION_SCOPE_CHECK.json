@@ -1,0 +1,21 @@
+{
+  "scope": "pre_READY synthetic admission failure diagnosis; meta-only construction, zero forward/update",
+  "original_vision_sites": [
+    "vision_tower.vision_model.encoder.layers.0.mlp",
+    "vision_tower.vision_model.encoder.layers.1.mlp",
+    "vision_tower.vision_model.head.mlp"
+  ],
+  "fixed_vision_sites": [
+    "vision_tower.vision_model.encoder.layers.0.mlp",
+    "vision_tower.vision_model.encoder.layers.1.mlp"
+  ],
+  "unexpected_site": [
+    "vision_tower.vision_model.head.mlp"
+  ],
+  "synthetic_hidden_size": 16,
+  "synthetic_encoder_layers": 2,
+  "old_source_sha256": "bd4aae7216525cea1485d2330673c908edcd72e2a7804dbfadb7aa893643ac69",
+  "fixed_source_sha256": "2c4defa57fbcf293b10aa2b48318e54b4b83c683ef1d8e8b5c460e6e1a55e377",
+  "CUDA_initialized": false,
+  "not_research_or_quality_gain": true
+}

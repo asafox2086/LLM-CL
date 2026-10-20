@@ -1,3 +1,13 @@
+# 2026-10-20：整模FFN结构删减CPU小测已实际启动（非质量成果）
+
+- 最新人类允许CPU小型探究。K60完整结束后，新独立analysis/edge_width_pilot_20261020.py --all已nohup/nice10启动：控制CPU1733330/start18066383，真实准备worker1733331/start18066392；唯一实时入口summary/edge_deployment_20261019/structured_width_20261020/v1/CONTROLLER_STATE.json，各阶段STARTED/COMPLETE/FAILURE为准。最近worker活着、RSS约3.34GiB，尚无新原／折叠门槛、完整压缩包或F1结果；不要把准备进程当推理／部署成功。GPU唯一研究owner1154006及两机正式基线均未改、身份保全。
+- 预定三条件：共同CPU FP16/SDPA完整参考、两支FFN各半宽且权重排序、同半宽且输入波动排序；两删减组都均值补偿。物理删gate/up行＋down列、视觉fc1行＋fc2列，新增语言常量bias计入；不改精度／视觉token数／层数／注意力。约31.99%完整参数下降是事前成本预算，不是已测收益／最优比例。借鉴FLAP AAAI2024 WIFV/补偿，作者commit3bb57db3449dd2fa04a5c2192de80e87e33be2b1，只metadata入Git，不称全作者复现或新算法。
+- 相同K60的5FIT校准＋5其他图像组TRAIN探针，teacher已见全部，不当未见泛化或DEV。QA等权矩统计，语言取全部非图像提示＋答案位置，视觉取全部位置；不按最终分数选题。三条件各fresh包严格参数重载，1校准NLL预热＋5强制8token成本＋5自由最多64token原AnswerF1；全部正负公布。单轮服务器CPU仅可行性代理，不能填正式Ours／部署列或宣称手机/GPU加速。
+- CPU_GATE为真实小HF文本/视觉前向与严格重载、常量补偿／QA权重控制，仅工程准入。首次门槛误枚举合成池化头在READY前失败，旧源/错误保留；已在READY前限定encoder并禁用合成头，与真实配置一致。urllib参考下载CA失败未降TLS门槛，改用正常git传输；无0.9B重试或正式基线变动。
+- READY绑定五源（含原selection）、协议、原helper、数据/原图、上游metadata、K60完整证据。科学源/协议已冻结，任何真实失败保留并独立版本修复，不热改、不降门槛、不拼部分、不自动恢复STARTED。预备每新工作前2h／每case每新探针前90m预算；源完整继承预定CPU上下文折叠，必须实际原／折叠及fresh dense NLL精确。
+- 顺序prepare→dense→weight→fluctuation，只有一个CPU模型、两数值线程/interop1，0优化器/0GPU。当前不是新的GPU队列owner，不停旧GPU守卫、不用新GPU0或旧卡研究。旧K60的1690566/1682880正常完成勿恢复。实际文件、RSS/PSS/USS与推理RSS峰值、TTFT/tok/s、全部原始输出／参考私有保存及独立原评分复算由新脚本完成；小测待结果，不反复重复CPU准入充当科研。
+- 即使本轮局部有效，未来选择方案仍须FIT teacher＋独立100DEV，再原1313/21454完整确认与同设备端侧测量。正式OSFT已经见过1313（含DEV），不能用它该DEV表现挑方案。完整目标未实现，基线持续nohup，主表不改。
+
 # 2026-10-20：CPU功能空间完整核验（K60），尚无F1／端侧收益
 
 - v2的10QA×48处完整结束，EVIDENCE SHA04976aa3d8b41929e91cea76c1fa7f8e8908e32320f9ee6a8a7ce1f62c00a7c6，原独立报告与新二次汇总逐值一致。同rank8，五域探针平均局部相对误差49.983%→37.326%；240处层题配对224低、16高。是原CPU上下文下ΔW·X的FP64局部几何，非Answer F1／自由生成／可删参数／部署收益；不能与K59不同上下文系数谱直接混算。
