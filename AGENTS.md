@@ -1,3 +1,9 @@
+# 2026-10-21：CL-MoE正式完整，当前7/16
+
+- OneVision CL-MoE由原冻结采集器接受19有效阶段/74格/21454最终QA及最终checkpoint SHA8550fdeb886a0e942ee9038ab0aeae7e5933b943094ee3af40c0816df592ffa4。AP42.287530/FWT19.039038/BWT0.011868；五域74.657264/41.139424/50.049980/14.913887/33.109542。AP对Seq+2.001、对OSFT-4.069；最强已完成OneVision仍OSFT，不泛化架构普遍无效。部署列无实测继续空。
+- 原七方法索引现6/14，加FOREVER专用证明1组，总7/16。新sealed出现后才用原v2_forever_main_table_20261020.py --write联合更新，FOREVER行及原七方法旧分数均保留；活动采集器51266与科学源未改。详见cl_moe_verified_20261021/PUBLICATION.json。
+- 旧CL341019自然结束勿恢复，旧PAS342152、新Qwen CL7965/SMo181717实际仍活。GPU1仍他人556654/1342755/1514212/1753724占用，队列1154006健康wait；当前没有新研究模型收益。CPU半宽已完成负结果不恢复。
+
 # 2026-10-21：CPU整模半宽完整负结果，停止两候选自动全测
 
 - structured_width_20261020/v1三条件及独立报告全部完成，CONTROLLER_STATE=complete_verified；CPU1733330及prepare1733331/dense1752368/weight1781222/fluctuation1800146正常结束，勿恢复。READY与科学源码未改，原逐题预测、完整包、fresh参数digest和原Answer F1复算完整。

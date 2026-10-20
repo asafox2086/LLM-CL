@@ -1,3 +1,6 @@
+<!-- CL_MOE_VERIFIED_20261021 -->
+**CL-MoE正式结果新增：** OneVision完整核验AP42.288、FWT19.039、BWT0.012；相对顺序LoRAAP高2.001分，低于OSFT4.069分。正式完成7/16，最强已完成OneVision仍OSFT；端侧未测留空。[完整结果与核验依据](summary/two_backbone_pct01_20261017/cl_moe_verified_20261021/README.md)。
+
 **结构删减小测完整负结果：** 同一OSFT末态的完整参考、按权重排序半宽、按输入波动排序半宽三组均完成严格重载和独立原评分核验。相同FP16完整包1719.784→1174.587 MiB（少31.701%），加载后RSS约少26%；但5道teacher已见TRAIN探针平均Answer F1为47.089／0／21.754，当前无恢复训练的同时半宽方案不通过，停止自动完整测试。不能称这些通道无用，也不泛化所有压缩无效。[问题、完整结果、结论与行动](summary/edge_deployment_20261019/structured_width_20261020/v1/FINDINGS.md)。这是单轮CPU可行性，不是域测试／独立DEV或最终部署成功，Ours／正式部署列仍空。GPU1原四条件队列与两机基线不变；以下旧执行记录保留为历史。
 
 **2026-10-20 CPU功能空间完整结果：** 同样只保留8个方向，按真实输入拟合的近似比只按权重选择更接近原更新的作用：5个探针平均局部相对误差49.983%→37.326%，240个局部配对中224个降低、16个升高。teacher见过这些训练题；这不是Answer F1、参数可删或端侧收益。[问题、实验结果、结论与下一步](summary/edge_deployment_20261019/cpu_function_space_20261020/v2/FINDINGS.md)。CPU原作业已正常结束，GPU1四组小测继续按原队列等待资源；主表Ours与未测部署项保持空白。下面执行记录保留为历史，以AGENTS顶部为当前状态。
@@ -13,7 +16,7 @@
 **2026-10-20 CPU系数空间（上下文范围已更正）：** [216个正式最终矩阵的谱分析与两处零训练控制](summary/edge_deployment_20261019/cpu_update_space_20261020/v1/README.md)已完成：OSFT变化平方范数96.67%在q/v之外，每矩阵最佳rank8只保留8.20%总变化；共同q/v投到SeqFT末态切空间保留1.97%，低维各向同性参考1.84%。两处零训练CPU漂移不足实际变化范数0.1%。这些是权重空间事实，不是F1贡献或参数可删证明，不能把OSFT等同普通小LoRA；原四组GPU1小测与两机基线保持。
 
 <!-- FOREVER_V3_PUBLICATION_20261020 -->
-**正式基线新结果：** FOREVER／OneVision完整核验AP45.245、FWT17.748、BWT5.642；正式完成6/16组。额外13,952次历史QA曝光／872次回放更新另计，不当作相同训练计算量。[完整证明与回放成本](summary/two_backbone_pct01_20261017/forever_verified_20261020/README.md)。
+**正式基线新结果：** FOREVER／OneVision完整核验AP45.245、FWT17.748、BWT5.642；正式完成7/16组。额外13,952次历史QA曝光／872次回放更新另计，不当作相同训练计算量。[完整证明与回放成本](summary/two_backbone_pct01_20261017/forever_verified_20261020/README.md)。
 
 **当前研究：最强OSFT的额外变动能否轻量复现？** 已实现四组共同小测：原顺序LoRA、原OSFT、普通LoRA覆盖相同七类位置、普通LoRA只更新额外五类位置。冻结1213 FIT／100 DEV（每领域20），从原1313内部按图像／场景留出，不用官方TEST筛选。新唯一队列CPU1154006已接续，GPU1仍他人占用，尚无本轮训练／质量收益；旧六容量自动全测不再运行。[问题、对照、筛选与资源边界](summary/edge_deployment_20261019/osft_increment_screen/v1/README.md)。
 
@@ -85,7 +88,7 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 | **LLaVA-OneVision-Qwen2-0.5B-OV** |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | SeqFT-LoRA | 朴素顺序微调 | 标准对照（无独立发表年份） | 75.632 | 40.758 | 46.711 | 15.891 | 31.938 | 40.286 | 14.783 | 1.775 |  |  |  |  |  |  |
 | FOREVER | 回放 | [ACL 2026](https://aclanthology.org/2026.acl-long.1144/) | 64.486 | 46.103 | 50.570 | 9.623 | 33.370 | 45.245 | 17.748 | 5.642 |  |  |  |  |  |  |
-| CL-MoE | 架构 | [CVPR 2025](https://openaccess.thecvf.com/content/CVPR2025/html/Huai_CL-MoE_Enhancing_Multimodal_Large_Language_Model_with_Dual_Momentum_Mixture-of-Experts_CVPR_2025_paper.html) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| CL-MoE | 架构 | [CVPR 2025](https://openaccess.thecvf.com/content/CVPR2025/html/Huai_CL-MoE_Enhancing_Multimodal_Large_Language_Model_with_Dual_Momentum_Mixture-of-Experts_CVPR_2025_paper.html) | 74.657 | 41.139 | 50.050 | 14.914 | 33.110 | 42.288 | 19.039 | 0.012 |  |  |  |  |  |  |
 | SMoLoRA | 架构 | [ICCV 2025](https://openaccess.thecvf.com/content/ICCV2025/html/Wang_SMoLoRA_Exploring_and_Defying_Dual_Catastrophic_Forgetting_in_Continual_Visual_ICCV_2025_paper.html) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | PASs-MoE | 架构（兼正则） | [ACL 2026](https://aclanthology.org/2026.acl-long.1474/) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | PaRSP | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.1244/) | 73.346 | 38.743 | 54.088 | 20.609 | 32.655 | 40.390 | 18.503 | -0.484 |  |  |  |  |  |  |
