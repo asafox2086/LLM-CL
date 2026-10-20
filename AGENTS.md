@@ -6,7 +6,7 @@
 
 # 2026-10-20：整模FFN结构删减CPU小测已实际启动（非质量成果）
 
-- 最新人类允许CPU小型探究。K60完整结束后，新独立analysis/edge_width_pilot_20261020.py --all已nohup/nice10启动：控制CPU1733330/start18066383，真实准备worker1733331/start18066392；唯一实时入口summary/edge_deployment_20261019/structured_width_20261020/v1/CONTROLLER_STATE.json，各阶段STARTED/COMPLETE/FAILURE为准。最近worker活着、RSS约3.34GiB，尚无新原／折叠门槛、完整压缩包或F1结果；不要把准备进程当推理／部署成功。GPU唯一研究owner1154006及两机正式基线均未改、身份保全。
+- CPU结构对照最新状态：控制1733330/start18066383，权威仍为summary/edge_deployment_20261019/structured_width_20261020/v1/CONTROLLER_STATE.json。prepare和dense完整结束，旧1733331与1752368正常退出勿恢复；参考5探针/10次生成完成，fresh全部参数digest精确且医学校准NLL0.6714380383491516精确。当前weight worker1781222/start18881886真实运行，之后仍fluctuation，再原独立报告核验三条件。参考单条件完成不代表删减有效，全部评分/资源比较仍待，不热改或恢复旧worker。原GPU1队列1154006及两机基线不变。
 - 预定三条件：共同CPU FP16/SDPA完整参考、两支FFN各半宽且权重排序、同半宽且输入波动排序；两删减组都均值补偿。物理删gate/up行＋down列、视觉fc1行＋fc2列，新增语言常量bias计入；不改精度／视觉token数／层数／注意力。约31.99%完整参数下降是事前成本预算，不是已测收益／最优比例。借鉴FLAP AAAI2024 WIFV/补偿，作者commit3bb57db3449dd2fa04a5c2192de80e87e33be2b1，只metadata入Git，不称全作者复现或新算法。
 - 相同K60的5FIT校准＋5其他图像组TRAIN探针，teacher已见全部，不当未见泛化或DEV。QA等权矩统计，语言取全部非图像提示＋答案位置，视觉取全部位置；不按最终分数选题。三条件各fresh包严格参数重载，1校准NLL预热＋5强制8token成本＋5自由最多64token原AnswerF1；全部正负公布。单轮服务器CPU仅可行性代理，不能填正式Ours／部署列或宣称手机/GPU加速。
 - CPU_GATE为真实小HF文本/视觉前向与严格重载、常量补偿／QA权重控制，仅工程准入。首次门槛误枚举合成池化头在READY前失败，旧源/错误保留；已在READY前限定encoder并禁用合成头，与真实配置一致。urllib参考下载CA失败未降TLS门槛，改用正常git传输；无0.9B重试或正式基线变动。
