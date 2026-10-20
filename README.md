@@ -1,3 +1,5 @@
+**2026-10-20 CPU实际更新空间：** [216个正式最终矩阵的谱分析与两处零训练控制](summary/edge_deployment_20261019/cpu_update_space_20261020/v1/README.md)已完成：OSFT变化平方范数96.67%在q/v之外，每矩阵最佳rank8只保留8.20%总变化；共同q/v投到SeqFT末态切空间保留1.97%，低维各向同性参考1.84%。两处零训练CPU漂移不足实际变化范数0.1%。这些是权重空间事实，不是F1贡献或参数可删证明，不能把OSFT等同普通小LoRA；原四组GPU1小测与两机基线保持。
+
 <!-- FOREVER_V3_PUBLICATION_20261020 -->
 **正式基线新结果：** FOREVER／OneVision完整核验AP45.245、FWT17.748、BWT5.642；正式完成6/16组。额外13,952次历史QA曝光／872次回放更新另计，不当作相同训练计算量。[完整证明与回放成本](summary/two_backbone_pct01_20261017/forever_verified_20261020/README.md)。
 
