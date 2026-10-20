@@ -1,3 +1,5 @@
+**CPU整模校验通过：** [修复版预定医学校准题](summary/edge_deployment_20261019/cpu_function_space_20261020/v2/README.md)的原／折叠NLL逐值相同，首条校准完成，继续原10题功能对照。不是F1或端侧结果，不将一题校验外推所有输入／GPU。
+
 **CPU修复门槛完成：** [168算子同上下文全部精确](summary/edge_deployment_20261019/cpu_function_space_20261020/v2/repair_gate/VERIFIED_REPAIR.md)，修复版10题模型已实际启动。真实整模NLL门槛与完整功能结果仍待，不是F1或部署收益。
 
 **2026-10-20 测量修复与范围更正：** CPU功能小测v1未通过原模型／折叠NLL精确门槛，原证据保留、无有效探针结果。[独立v2](summary/edge_deployment_20261019/cpu_function_space_20261020/v2/README.md)正在核验同上下文168算子，完整通过后才一次接续原10QA。K59的8.20%等属于无外层autocast系数谱，[不能直接称原前向实际权重谱](summary/edge_deployment_20261019/cpu_update_space_20261020/v1/CONTEXT_SCOPE_CORRECTION.md)。正式基线F1不受本分析修复影响，未取得新质量／部署收益。
