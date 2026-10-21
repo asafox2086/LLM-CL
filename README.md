@@ -1,3 +1,5 @@
+**2026-10-22完整确认未通过：** LoRA_all完成原1313/19/93与最终21454QA独立核验，五域宏**44.894423**，低于PASs46.619976与OSFT45.937438；五域均低于OSFT，AP19=44.794146也低于两参照。原DEV点估计优势未在此次完整确认中保持，停止本固定配置，不据TEST调参重跑。[全部领域、成本与证据](summary/edge_deployment_20261019/osft_increment_confirmation_20261022/v1/FINDINGS.md)；[科研结论与行动边界](summary/edge_deployment_20261019/osft_increment_confirmation_20261022/v1/DECISION.md)。普通LoRA不是新算法，当前没有自研方法成功结论；正式8/16基线口径与Ours空白保留，端侧仅背景。下方启动/阶段等待记录均为历史，原确认服务已正常结束。
+
 **2026-10-22完整训练已完成：** LoRA_all从原基座完成1313 TRAIN/19阶段/93有效更新，已进入唯一最终21454题评测，尚无最终质量结论。固定五域宏判据与金融等逐域结果待完整封存后报告。[确认状态与协议](summary/edge_deployment_20261019/osft_increment_confirmation_20261022/v1/README.md)。原科学源/数值/数据不变，端侧仅科研背景。
 
 **研究解释补充：** 逐矩阵重建OSFT失败，不能一般性排除独立训练低秩模型的功能；另需注意文献中每任务合并重置的LoRA，与本项目连续同A/B的更新空间不同。[论文核对、手算反例及行动边界](summary/edge_deployment_20261019/function_not_weight_reconstruction_20261022/FINDINGS.md)。不新增模型实验，不改当前完整确认，尚非质量收益。

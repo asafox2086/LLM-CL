@@ -1,3 +1,5 @@
+**2026-10-22后续确认已收束：** 唯一LoRA_all从基座完整1313/93→21454后，五域宏44.894423未达预定强参照；五域均低于OSFT。保留原四组DEV全部正负及候选规则，停止该确认配置，不恢复本screen或据TEST追加备选。[完整确认结果](../../osft_increment_confirmation_20261022/v1/FINDINGS.md) · [解释与行动边界](../../osft_increment_confirmation_20261022/v1/DECISION.md)。下方启动/等待记录为历史。
+
 **2026-10-22后续：** 原四组与筛选规则完全保留，唯一LoRA_all已在[独立完整确认v1](../../osft_increment_confirmation_20261022/v1/README.md)从基座全1313训练。该后续不恢复本screen、不重训其余三组；尚无最终确认成绩。下方“尚未实现/启动”等为此前历史。
 
 **2026-10-22SCREEN_COMPLETE：** 四组原条件全部完整，原名单仅LoRA_all。全部正负与六对配对分析公开，金融下降及区间跨0保留；不称最终收益。原CPU2400/extra15299正常结束，服务inactive/exit0，不重启。独立full确认仅进入准备，尚无新READY/启动；下方旧PID/阶段记录为历史。[最终小测报告](RESULTS_20261022.md)；[确认决定](FULL_CONFIRMATION_DECISION.md)。原源/READY/数据/评分均未改。
