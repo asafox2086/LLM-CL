@@ -1,3 +1,5 @@
+**2026-10-21现有结果与论文分析：** 四个完整基线逐题原F1复算完成。PASs与OSFT总AP仅差0.049，但有2950/2295题分别更高/更低；遥感presence刚习得均约75、最终77.056/60.880，说明平均BWT会掩盖任务间差别。PASs实际训练参数1.408亿，不能因LoRA/MoE名称当作轻量。结合HC-SMoE、CoMe等原论文，后续简化必须验证功能替代及完整成本；原四组FIT/DEV不变。[完整分析、全部19任务与论文边界](summary/edge_deployment_20261019/sealed_baseline_tradeoffs_20261021/FINDINGS.md)。0新模型前向，未产生新方法/部署收益。
+
 <!-- PASS_MOE_VERIFIED_20261021 -->
 **PASs-MoE正式结果新增：** OneVision完整核验AP46.406、FWT14.726、BWT−1.732，正式完成8/16。它是当前最高AP点估计，比OSFT高0.049分，尚不能称显著领先；五域均分46.620。部署未测留空。[完整结果、比较边界与核验依据](summary/two_backbone_pct01_20261017/pass_moe_verified_20261021/README.md)。
 
