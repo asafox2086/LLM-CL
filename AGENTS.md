@@ -1,3 +1,10 @@
+# 2026-10-21：PaRSP实际更新范围与SpaRTA未触发机制已实证审计
+
+- 新sealed_update_constraints_20261021完整65.196秒：两组原F1/SHA重算、PaRSP19阶段mask与最终168矩阵、来源及独立评审通过。EVIDENCE SHA2ab1c524b9d34986899d0a8a4057ab444b3fe2906afc8e6b2daa436eca83852c。OLD CPU2506110已正常结束勿恢复；0新模型前向/模型优化/GPU，1次4×4合成AdamW步，反序列化过一个既有PaRSP图。
+- 相对run配置指定基座，o_proj/down_proj在19阶段投影前名义列mask并集外分别有1742333/14843392坐标变化；row-mask v/gate/up及q/k并集外0。总并集外变化能量占所测ΔW2.9344%。这不是逐步泄漏率、有效维数、可删神经元或F1因果。源顺序mask→右投影及Adam几何须分开；不热改基线、不把改hook顺序当修复。来源补核绑定config执行SHA/archived runner/作者manifest；基座为同目录固定文件，无额外历史S0逐权重快照比对。
+- SpaRTA93主更新/全局200周期→实际恢复0；不为关闭该机制新增恒等训练消融。PaRSP requires_grad整张量134195328、SpaRTA10401792，不是有效维数/端侧成本；习得40.848/44.664、BWT−.484/−2.992。PaRSP既有定位/构投影3603.471秒+协方差3238.868秒另计。详见FINDINGS.md，0新方法收益，Ours/部署空白。
+- 用户再次指出无效等待：健康且无行动变化时安静等待，不再每轮分钟级重复汇报存活，不把重复巡检当研究。当前CPU两支物理半宽与GPU1四组仍原条件自然执行，封存完整结果才分析；可以分析既有artifact/论文中尚未解决的具体问题，但不为填时间追加实验或重复已完成审计。两机基线保持，研究仅NEW GPU1，目标未完成。
+
 # 2026-10-21：已有projector恢复的论文/源码核对，保留条件候选未启动
 
 - 新projector_recovery_literature_20261021核对IJCV2026 VLMCompression及固定作者revision16fc04bf08be4ed9036412715819cd6a77c0c61e。论文只剪语言骨干，5% LLaVA数据约33250条，是本1313的25.324倍；压缩分母/相对性能口径不同，不能直接外推。作者示例ft在freeze_llm后仍wrap r16 LoRA，不能只看冻结旗标称projector-only。
