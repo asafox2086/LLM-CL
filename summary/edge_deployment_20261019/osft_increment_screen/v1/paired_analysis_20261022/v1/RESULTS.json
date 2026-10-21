@@ -1,0 +1,605 @@
+{
+  "supplemental_after_qv_seen": true,
+  "analysis_sha256": "e87dfceaf8c5dcf0f490c87b3e139106e6c7a51345b0919eb95fd3c56be41276",
+  "design_sha256": "e0070d235043ade603f18289a20974937a52c5c9df64ec30e90fb50eb125f06d",
+  "screen_complete_sha256": "1f56aa877ccecf7f93eb61c8520df9bdd81137939b5d669ca66851d518363174",
+  "complete_sha256": {
+    "LoRA_qv": "09f7594e05dd45734e6b412ae183e067e144fc341c115c163d011d9cc19946bf",
+    "OSFT_all": "04ac1132e190d9aedf238bf5a9309d9ea2791e3d75e63816d310ff11d4819f83",
+    "LoRA_all": "23bf0d0c2ff4817bc36b14c0865426f4f5f6e25e9f84c9d8c3338ac1dc64ffaa",
+    "LoRA_extra": "c499af4d5163e7a91cc6c18942cdd474fcd37ab8d9041d7ce32db6bf30d155f6"
+  },
+  "split_sha256": "d8e2dd59767c53eb833988dda87b4330ac208d2c804e42e327725f09d38bcb9d",
+  "python": "3.10.21",
+  "replicates": 10000,
+  "seed": 20261022,
+  "paired_group_draw_sha256": "e4de53a620da2ba9573b9c48610f29f15146ae73fcc2ded592f99e12d1699784",
+  "point_domain_F1": {
+    "LoRA_qv": {
+      "natural": 60.666666666666664,
+      "medical": 48.357142857142854,
+      "geography": 35.0,
+      "finance": 20.0,
+      "traffic": 35.328385326886746
+    },
+    "OSFT_all": {
+      "natural": 59.0,
+      "medical": 40.357142857142854,
+      "geography": 40.0,
+      "finance": 25.0,
+      "traffic": 39.56185996257246
+    },
+    "LoRA_all": {
+      "natural": 64.0,
+      "medical": 42.69047619047619,
+      "geography": 50.0,
+      "finance": 15.0,
+      "traffic": 38.072269125330976
+    },
+    "LoRA_extra": {
+      "natural": 60.666666666666664,
+      "medical": 42.69047619047619,
+      "geography": 45.0,
+      "finance": 15.0,
+      "traffic": 38.467936907021524
+    }
+  },
+  "point_macro_F1": {
+    "LoRA_qv": 39.870438970139254,
+    "OSFT_all": 40.78380056394307,
+    "LoRA_all": 41.95254906316144,
+    "LoRA_extra": 40.36501595283288
+  },
+  "pairs": {
+    "LoRA_all_minus_LoRA_qv": {
+      "domain_difference_pp": {
+        "natural": 3.3333333333333357,
+        "medical": -5.666666666666664,
+        "geography": 15.0,
+        "finance": -5.0,
+        "traffic": 2.74388379844423
+      },
+      "macro_difference_pp": 2.0821100930221874,
+      "QA_comparison": {
+        "natural": {
+          "higher": 1,
+          "lower": 0,
+          "equal": 19
+        },
+        "medical": {
+          "higher": 1,
+          "lower": 2,
+          "equal": 17
+        },
+        "geography": {
+          "higher": 5,
+          "lower": 2,
+          "equal": 13
+        },
+        "finance": {
+          "higher": 0,
+          "lower": 1,
+          "equal": 19
+        },
+        "traffic": {
+          "higher": 14,
+          "lower": 6,
+          "equal": 0
+        }
+      },
+      "known_group_comparison": {
+        "natural": {
+          "higher": 1,
+          "lower": 0,
+          "equal": 19
+        },
+        "medical": {
+          "higher": 1,
+          "lower": 2,
+          "equal": 15
+        },
+        "geography": {
+          "higher": 4,
+          "lower": 2,
+          "equal": 5
+        },
+        "finance": {
+          "higher": 0,
+          "lower": 1,
+          "equal": 19
+        },
+        "traffic": {
+          "higher": 14,
+          "lower": 6,
+          "equal": 0
+        }
+      },
+      "exploratory_group_resampling_percentile_interval_pp": {
+        "natural": [
+          0.0,
+          10.000000000000007
+        ],
+        "medical": [
+          -21.111111111111114,
+          6.3492063492063515
+        ],
+        "geography": [
+          -14.285714285714285,
+          41.17647058823529
+        ],
+        "finance": [
+          -15.0,
+          0.0
+        ],
+        "traffic": [
+          -0.48721965333271955,
+          5.881222210655365
+        ],
+        "macro": [
+          -5.0342289159244995,
+          8.229200456425941
+        ]
+      }
+    },
+    "LoRA_extra_minus_LoRA_qv": {
+      "domain_difference_pp": {
+        "natural": 0.0,
+        "medical": -5.666666666666664,
+        "geography": 10.0,
+        "finance": -5.0,
+        "traffic": 3.1395515801347784
+      },
+      "macro_difference_pp": 0.4945769826936228,
+      "QA_comparison": {
+        "natural": {
+          "higher": 0,
+          "lower": 0,
+          "equal": 20
+        },
+        "medical": {
+          "higher": 1,
+          "lower": 2,
+          "equal": 17
+        },
+        "geography": {
+          "higher": 4,
+          "lower": 2,
+          "equal": 14
+        },
+        "finance": {
+          "higher": 0,
+          "lower": 1,
+          "equal": 19
+        },
+        "traffic": {
+          "higher": 14,
+          "lower": 6,
+          "equal": 0
+        }
+      },
+      "known_group_comparison": {
+        "natural": {
+          "higher": 0,
+          "lower": 0,
+          "equal": 20
+        },
+        "medical": {
+          "higher": 1,
+          "lower": 2,
+          "equal": 15
+        },
+        "geography": {
+          "higher": 3,
+          "lower": 2,
+          "equal": 6
+        },
+        "finance": {
+          "higher": 0,
+          "lower": 1,
+          "equal": 19
+        },
+        "traffic": {
+          "higher": 14,
+          "lower": 6,
+          "equal": 0
+        }
+      },
+      "exploratory_group_resampling_percentile_interval_pp": {
+        "natural": [
+          0.0,
+          0.0
+        ],
+        "medical": [
+          -21.111111111111114,
+          6.3492063492063515
+        ],
+        "geography": [
+          -18.75,
+          36.84210526315789
+        ],
+        "finance": [
+          -15.0,
+          0.0
+        ],
+        "traffic": [
+          -0.7620540019380856,
+          6.996518375243758
+        ],
+        "macro": [
+          -6.402818258799974,
+          6.6671978646404515
+        ]
+      }
+    },
+    "LoRA_all_minus_OSFT_all": {
+      "domain_difference_pp": {
+        "natural": 5.0,
+        "medical": 2.3333333333333357,
+        "geography": 10.0,
+        "finance": -10.0,
+        "traffic": -1.4895908372414866
+      },
+      "macro_difference_pp": 1.168748499218374,
+      "QA_comparison": {
+        "natural": {
+          "higher": 1,
+          "lower": 0,
+          "equal": 19
+        },
+        "medical": {
+          "higher": 1,
+          "lower": 1,
+          "equal": 18
+        },
+        "geography": {
+          "higher": 2,
+          "lower": 0,
+          "equal": 18
+        },
+        "finance": {
+          "higher": 0,
+          "lower": 2,
+          "equal": 18
+        },
+        "traffic": {
+          "higher": 9,
+          "lower": 9,
+          "equal": 2
+        }
+      },
+      "known_group_comparison": {
+        "natural": {
+          "higher": 1,
+          "lower": 0,
+          "equal": 19
+        },
+        "medical": {
+          "higher": 1,
+          "lower": 1,
+          "equal": 16
+        },
+        "geography": {
+          "higher": 2,
+          "lower": 0,
+          "equal": 9
+        },
+        "finance": {
+          "higher": 0,
+          "lower": 2,
+          "equal": 18
+        },
+        "traffic": {
+          "higher": 9,
+          "lower": 9,
+          "equal": 2
+        }
+      },
+      "exploratory_group_resampling_percentile_interval_pp": {
+        "natural": [
+          0.0,
+          15.000000000000007
+        ],
+        "medical": [
+          -4.34782608695653,
+          12.631578947368421
+        ],
+        "geography": [
+          0.0,
+          25.0
+        ],
+        "finance": [
+          -25.0,
+          0.0
+        ],
+        "traffic": [
+          -3.548220958125988,
+          0.47220450801529634
+        ],
+        "macro": [
+          -3.349001785105011,
+          5.821657299513331
+        ]
+      }
+    },
+    "LoRA_extra_minus_OSFT_all": {
+      "domain_difference_pp": {
+        "natural": 1.6666666666666643,
+        "medical": 2.3333333333333357,
+        "geography": 5.0,
+        "finance": -10.0,
+        "traffic": -1.0939230555509383
+      },
+      "macro_difference_pp": -0.4187846111101905,
+      "QA_comparison": {
+        "natural": {
+          "higher": 1,
+          "lower": 1,
+          "equal": 18
+        },
+        "medical": {
+          "higher": 1,
+          "lower": 1,
+          "equal": 18
+        },
+        "geography": {
+          "higher": 1,
+          "lower": 0,
+          "equal": 19
+        },
+        "finance": {
+          "higher": 0,
+          "lower": 2,
+          "equal": 18
+        },
+        "traffic": {
+          "higher": 5,
+          "lower": 11,
+          "equal": 4
+        }
+      },
+      "known_group_comparison": {
+        "natural": {
+          "higher": 1,
+          "lower": 1,
+          "equal": 18
+        },
+        "medical": {
+          "higher": 1,
+          "lower": 1,
+          "equal": 16
+        },
+        "geography": {
+          "higher": 1,
+          "lower": 0,
+          "equal": 10
+        },
+        "finance": {
+          "higher": 0,
+          "lower": 2,
+          "equal": 18
+        },
+        "traffic": {
+          "higher": 5,
+          "lower": 11,
+          "equal": 4
+        }
+      },
+      "exploratory_group_resampling_percentile_interval_pp": {
+        "natural": [
+          -9.999999999999993,
+          15.0
+        ],
+        "medical": [
+          -4.34782608695653,
+          12.631578947368421
+        ],
+        "geography": [
+          0.0,
+          16.66666666666667
+        ],
+        "finance": [
+          -25.0,
+          0.0
+        ],
+        "traffic": [
+          -2.9033330783041897,
+          0.7491235177685122
+        ],
+        "macro": [
+          -4.76098685735607,
+          4.098710318790412
+        ]
+      }
+    },
+    "OSFT_all_minus_LoRA_qv": {
+      "domain_difference_pp": {
+        "natural": -1.6666666666666643,
+        "medical": -8.0,
+        "geography": 5.0,
+        "finance": 5.0,
+        "traffic": 4.233474635685717
+      },
+      "macro_difference_pp": 0.9133615938038133,
+      "QA_comparison": {
+        "natural": {
+          "higher": 1,
+          "lower": 1,
+          "equal": 18
+        },
+        "medical": {
+          "higher": 1,
+          "lower": 3,
+          "equal": 16
+        },
+        "geography": {
+          "higher": 3,
+          "lower": 2,
+          "equal": 15
+        },
+        "finance": {
+          "higher": 1,
+          "lower": 0,
+          "equal": 19
+        },
+        "traffic": {
+          "higher": 15,
+          "lower": 5,
+          "equal": 0
+        }
+      },
+      "known_group_comparison": {
+        "natural": {
+          "higher": 1,
+          "lower": 1,
+          "equal": 18
+        },
+        "medical": {
+          "higher": 1,
+          "lower": 3,
+          "equal": 14
+        },
+        "geography": {
+          "higher": 3,
+          "lower": 2,
+          "equal": 6
+        },
+        "finance": {
+          "higher": 1,
+          "lower": 0,
+          "equal": 19
+        },
+        "traffic": {
+          "higher": 15,
+          "lower": 5,
+          "equal": 0
+        }
+      },
+      "exploratory_group_resampling_percentile_interval_pp": {
+        "natural": [
+          -15.0,
+          9.999999999999993
+        ],
+        "medical": [
+          -26.666666666666668,
+          9.166666666666671
+        ],
+        "geography": [
+          -20.0,
+          24.0
+        ],
+        "finance": [
+          0.0,
+          15.0
+        ],
+        "traffic": [
+          0.5499023395405671,
+          7.540036045255788
+        ],
+        "macro": [
+          -6.102736184706278,
+          6.931688903452749
+        ]
+      }
+    },
+    "LoRA_all_minus_LoRA_extra": {
+      "domain_difference_pp": {
+        "natural": 3.3333333333333357,
+        "medical": 0.0,
+        "geography": 5.0,
+        "finance": 0.0,
+        "traffic": -0.3956677816905483
+      },
+      "macro_difference_pp": 1.5875331103285646,
+      "QA_comparison": {
+        "natural": {
+          "higher": 1,
+          "lower": 0,
+          "equal": 19
+        },
+        "medical": {
+          "higher": 0,
+          "lower": 0,
+          "equal": 20
+        },
+        "geography": {
+          "higher": 1,
+          "lower": 0,
+          "equal": 19
+        },
+        "finance": {
+          "higher": 0,
+          "lower": 0,
+          "equal": 20
+        },
+        "traffic": {
+          "higher": 8,
+          "lower": 10,
+          "equal": 2
+        }
+      },
+      "known_group_comparison": {
+        "natural": {
+          "higher": 1,
+          "lower": 0,
+          "equal": 19
+        },
+        "medical": {
+          "higher": 0,
+          "lower": 0,
+          "equal": 18
+        },
+        "geography": {
+          "higher": 1,
+          "lower": 0,
+          "equal": 10
+        },
+        "finance": {
+          "higher": 0,
+          "lower": 0,
+          "equal": 20
+        },
+        "traffic": {
+          "higher": 8,
+          "lower": 10,
+          "equal": 2
+        }
+      },
+      "exploratory_group_resampling_percentile_interval_pp": {
+        "natural": [
+          0.0,
+          10.000000000000007
+        ],
+        "medical": [
+          0.0,
+          0.0
+        ],
+        "geography": [
+          0.0,
+          16.666666666666664
+        ],
+        "finance": [
+          0.0,
+          0.0
+        ],
+        "traffic": [
+          -1.9482654548253149,
+          1.1354448727992594
+        ],
+        "macro": [
+          -0.22925703270640546,
+          4.23271505774053
+        ]
+      }
+    }
+  },
+  "original_candidates_unchanged": [
+    "LoRA_all"
+  ],
+  "intervals_are_not_tests_or_equivalence_or_guaranteed_coverage": true,
+  "not_training_seed_uncertainty": true,
+  "unknown_cross_group_dependence_not_removed": true,
+  "new_model_requests": 0,
+  "new_backward_calls": 0,
+  "new_optimizer_steps": 0,
+  "analysis_seconds": 25.7740603430002
+}

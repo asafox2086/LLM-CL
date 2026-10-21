@@ -1,0 +1,525 @@
+{
+  "complete": true,
+  "all_four_results": {
+    "LoRA_qv": {
+      "complete": true,
+      "case": "LoRA_qv",
+      "FIT_QA": 1213,
+      "DEV_QA": 100,
+      "TEST_QA": 0,
+      "updates": 87,
+      "domains": {
+        "natural": {
+          "F1": 60.666666666666664,
+          "QA": 20
+        },
+        "medical": {
+          "F1": 48.357142857142854,
+          "QA": 20
+        },
+        "geography": {
+          "F1": 35.0,
+          "QA": 20
+        },
+        "finance": {
+          "F1": 20.0,
+          "QA": 20
+        },
+        "traffic": {
+          "F1": 35.32838532688674,
+          "QA": 20
+        }
+      },
+      "domain_macro": 39.870438970139254,
+      "checkpoint": {
+        "path": "checkpoints/stage_19.pt",
+        "stage": 19,
+        "bytes": 1926004196,
+        "sha256": "f6dfd79ce1b59d8a3fbd0e8c6e0b65aca4f60ef5490ba136e1f2ade07a916b6c",
+        "seconds": 16.75272318700013,
+        "manifest_sha256": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+        "method": "LoRA_qv",
+        "full_architecture_and_runtime": true,
+        "optimizer_saved": false
+      },
+      "checkpoint_root": "exp/osft_increment_screen_20261019/v1/private/LoRA_qv",
+      "prediction_sha256": {
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_qv/evaluations/stage_19/T01_dev_predictions.jsonl": "d4c81c603465600ffc52ed3dd3465bf044fc97f2f34e59efd11108300f999698",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_qv/evaluations/stage_19/T02_dev_predictions.jsonl": "726c9560b399128d330d37d49d788767a97272adfe2093def4bfe829292ecea7",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_qv/evaluations/stage_19/T03_dev_predictions.jsonl": "2f51802535d100d4d1087166597803c32a6b5c6c502e0db35144fe34bb5a634e",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_qv/evaluations/stage_19/T04_dev_predictions.jsonl": "4addad493d554c77b6d3ed63e67eda0906aa845f6b0e3f518a8cda8bd4998b26",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_qv/evaluations/stage_19/T05_dev_predictions.jsonl": "62be9012710831b42873e1ba8b1853618c24513aacd903a28a37f3030271dc5d",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_qv/evaluations/stage_19/T06_dev_predictions.jsonl": "551e090ec4f6b0f3e436467e79d2686c22f034e88062fb47d305a94c2a4cfdb4",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_qv/evaluations/stage_19/T10_dev_predictions.jsonl": "19cb02a2c86f95979eb366a2273f67030fc5a55caf4cd8d2a4a8289cfa617015",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_qv/evaluations/stage_19/T11_dev_predictions.jsonl": "76cebdc0d3c4a38e5a37d2a1fe44fd894f6a7c65459990a49d215c6d17aa2eed",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_qv/evaluations/stage_19/T13_dev_predictions.jsonl": "6a399477ddece877958c949910056a4661fce77d4b91273f33e9eadb639bd2c9",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_qv/evaluations/stage_19/T14_dev_predictions.jsonl": "8981d59464c86297e063587724c926cc687ea7db4679bef7c4311384a7f25781",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_qv/evaluations/stage_19/T15_dev_predictions.jsonl": "d986179a195bb8c0d2c7f7098b87068aa50863d2b589aa3a49baf33d863f9ac0",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_qv/evaluations/stage_19/T16_dev_predictions.jsonl": "37f3d036a1816b9c8c3c6fc5787003d4b8683dccd57f6f4532515a29bd35443d",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_qv/evaluations/stage_19/T17_dev_predictions.jsonl": "e11643552ba440f205a1e4bbc9493473ab3896488737e1abbeb59698a1cb8521",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_qv/evaluations/stage_19/T18_dev_predictions.jsonl": "233d3aaf5fe0010268fdcc072493532c62df65b5e9a20b3c58a1400a33619023",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_qv/evaluations/stage_19/T19_dev_predictions.jsonl": "2f813a4706e352eb3431b30153c2d6d8ea0c9ae08c0aede78d99fa730af09b8a"
+      },
+      "source_sha256": "ee9763437719acec498097ae685f29d782e1b99e726e7b34a47b479c7d125ca3",
+      "ready_sha256": "75b86e6272295b548c82cb73fd29dc60671e18b23314b625d46486232b0d1893",
+      "memory_summary": {
+        "unit": "bytes",
+        "before": {
+          "phase": "training_before",
+          "stage": 0,
+          "unix": 1792603851.8501425,
+          "pid": 3609,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 2504998912,
+          "VmRSS_bytes": 1393016832,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 1160611840,
+          "Private_Clean_bytes": 98131968,
+          "Private_Dirty_bytes": 980029440,
+          "cpu_uss_bytes": 1078161408,
+          "gpu_allocated_bytes": 1839035904,
+          "gpu_reserved_bytes": 3137339392,
+          "gpu_peak_allocated_bytes": 2398251520,
+          "gpu_peak_reserved_bytes": 3137339392,
+          "gpu_process_nvml_bytes": 3468689408,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "after": {
+          "phase": "training_after",
+          "stage": 19,
+          "unix": 1792604683.9861376,
+          "pid": 3609,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 2504998912,
+          "VmRSS_bytes": 1764577280,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 1514661888,
+          "Private_Clean_bytes": 101883904,
+          "Private_Dirty_bytes": 1325907968,
+          "cpu_uss_bytes": 1427791872,
+          "gpu_allocated_bytes": 1847556608,
+          "gpu_reserved_bytes": 1914699776,
+          "gpu_peak_allocated_bytes": 2457176064,
+          "gpu_peak_reserved_bytes": 3036676096,
+          "gpu_process_nvml_bytes": 2256535552,
+          "trainable_parameters": 540672,
+          "trainable_parameter_bytes": 2162688,
+          "model_parameter_bytes": 1789513792
+        },
+        "growth_bytes": {
+          "VmRSS_bytes": 371560448,
+          "Pss_bytes": 354050048,
+          "cpu_uss_bytes": 349630464,
+          "gpu_allocated_bytes": 8520704,
+          "gpu_reserved_bytes": -1222639616,
+          "gpu_process_nvml_bytes": -1212153856
+        },
+        "observed_peak_bytes": {
+          "VmRSS_bytes": 2036850688,
+          "Pss_bytes": 1787049984,
+          "cpu_uss_bytes": 1709797376,
+          "gpu_allocated_bytes": 2227931136,
+          "gpu_reserved_bytes": 5609881600,
+          "gpu_process_nvml_bytes": 5951717376
+        },
+        "note": "Process memory; CUDA allocator, reserved cache and NVML process allocation are separate. Before/after retain method state and exclude optimizer after cleanup."
+      },
+      "deployment_NOT_measured": true,
+      "not_full_TEST_or_formal_main_result": true
+    },
+    "OSFT_all": {
+      "complete": true,
+      "case": "OSFT_all",
+      "FIT_QA": 1213,
+      "DEV_QA": 100,
+      "TEST_QA": 0,
+      "updates": 87,
+      "domains": {
+        "natural": {
+          "F1": 59.0,
+          "QA": 20
+        },
+        "medical": {
+          "F1": 40.357142857142854,
+          "QA": 20
+        },
+        "geography": {
+          "F1": 40.0,
+          "QA": 20
+        },
+        "finance": {
+          "F1": 25.0,
+          "QA": 20
+        },
+        "traffic": {
+          "F1": 39.56185996257248,
+          "QA": 20
+        }
+      },
+      "domain_macro": 40.78380056394307,
+      "checkpoint": {
+        "path": "checkpoints/stage_19.pt",
+        "stage": 19,
+        "bytes": 3028584949,
+        "sha256": "2b3abd97794a5e767b479b1ae8f01e962644f10039031aeb68908b114001399a",
+        "seconds": 26.396346813000036,
+        "manifest_sha256": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+        "method": "OSFT_all",
+        "full_architecture_and_runtime": true,
+        "optimizer_saved": false
+      },
+      "checkpoint_root": "exp/osft_increment_screen_20261019/v1/private/OSFT_all",
+      "prediction_sha256": {
+        "exp/osft_increment_screen_20261019/v1/private/OSFT_all/evaluations/stage_19/T01_dev_predictions.jsonl": "7f1391f8e5f8f783badf3d3651481f594a629671a875047a716f8349eeaec3c2",
+        "exp/osft_increment_screen_20261019/v1/private/OSFT_all/evaluations/stage_19/T02_dev_predictions.jsonl": "2711e3ae4eab8680684e626b807e522272a566ab6e40ce378b5ddab739627b71",
+        "exp/osft_increment_screen_20261019/v1/private/OSFT_all/evaluations/stage_19/T03_dev_predictions.jsonl": "bcc71caf52511cdc1b89764586eb91437220354fa1072d106fa87ee3883a1270",
+        "exp/osft_increment_screen_20261019/v1/private/OSFT_all/evaluations/stage_19/T04_dev_predictions.jsonl": "5d0b5eb40cce79c7453babff0a89ed4b83d6b526f7ef1252035c65547bad9ea4",
+        "exp/osft_increment_screen_20261019/v1/private/OSFT_all/evaluations/stage_19/T05_dev_predictions.jsonl": "0181df6e3692af3cac04f8ad3ee561ae57f46a75b8db65ecbea0b5e916cdf3e3",
+        "exp/osft_increment_screen_20261019/v1/private/OSFT_all/evaluations/stage_19/T06_dev_predictions.jsonl": "506f34298d7fa99a200dfbaa7decc5f9b24ecdfa9817b81327a9039dc668a491",
+        "exp/osft_increment_screen_20261019/v1/private/OSFT_all/evaluations/stage_19/T10_dev_predictions.jsonl": "dd41dc535fa7f637445c3abff2e7e8341aec97ff03684e73dc9dd5c0ed6bb3d2",
+        "exp/osft_increment_screen_20261019/v1/private/OSFT_all/evaluations/stage_19/T11_dev_predictions.jsonl": "82a85366a4ad11c11e13653ff6c94a60d1efe46e0f18de65250c26d80367f9b4",
+        "exp/osft_increment_screen_20261019/v1/private/OSFT_all/evaluations/stage_19/T13_dev_predictions.jsonl": "14cacb9c67e7b58266a30ef16d1a0c1ab7cea46b932e9ee0156ea9a0ac4070e5",
+        "exp/osft_increment_screen_20261019/v1/private/OSFT_all/evaluations/stage_19/T14_dev_predictions.jsonl": "4fba09a576b12242551371b12b19c1282a49b4c8e0439bf5695dac79ef972a34",
+        "exp/osft_increment_screen_20261019/v1/private/OSFT_all/evaluations/stage_19/T15_dev_predictions.jsonl": "ee1f05dcbe82a229ebbb0b4b27fc28d5d1cf753342d7b8fcf81a3918620f7756",
+        "exp/osft_increment_screen_20261019/v1/private/OSFT_all/evaluations/stage_19/T16_dev_predictions.jsonl": "7f8629411f4590af46bfe3e8eb415847d5bdb9e94fc4bc5f68f35175f3a01b22",
+        "exp/osft_increment_screen_20261019/v1/private/OSFT_all/evaluations/stage_19/T17_dev_predictions.jsonl": "85646445a673a5ef87452f726b934e28731b8e3fbb56bc28e763a2a03df416b8",
+        "exp/osft_increment_screen_20261019/v1/private/OSFT_all/evaluations/stage_19/T18_dev_predictions.jsonl": "5c8b675f3ffbbd6c2c64612402f2f83ba84ce82b648828858378d9f759eeb28c",
+        "exp/osft_increment_screen_20261019/v1/private/OSFT_all/evaluations/stage_19/T19_dev_predictions.jsonl": "4c8886b23a5439d5c76b3e2da4d595bc3727b609813cab2b2dc241220915620c"
+      },
+      "source_sha256": "ee9763437719acec498097ae685f29d782e1b99e726e7b34a47b479c7d125ca3",
+      "ready_sha256": "75b86e6272295b548c82cb73fd29dc60671e18b23314b625d46486232b0d1893",
+      "memory_summary": {
+        "unit": "bytes",
+        "before": {
+          "phase": "training_before",
+          "stage": 0,
+          "unix": 1792604831.1710851,
+          "pid": 8959,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 2505871360,
+          "VmRSS_bytes": 1419051008,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 1173183488,
+          "Private_Clean_bytes": 99856384,
+          "Private_Dirty_bytes": 988639232,
+          "cpu_uss_bytes": 1088495616,
+          "gpu_allocated_bytes": 2949142016,
+          "gpu_reserved_bytes": 4877975552,
+          "gpu_peak_allocated_bytes": 3707843072,
+          "gpu_peak_reserved_bytes": 4877975552,
+          "gpu_process_nvml_bytes": 5242880000,
+          "trainable_parameters": 113766144,
+          "trainable_parameter_bytes": 455064576,
+          "model_parameter_bytes": 1526762560
+        },
+        "after": {
+          "phase": "training_after",
+          "stage": 19,
+          "unix": 1792606393.7083077,
+          "pid": 8959,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 5754228736,
+          "VmRSS_bytes": 5392900096,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 5143459840,
+          "Private_Clean_bytes": 114438144,
+          "Private_Dirty_bytes": 4942979072,
+          "cpu_uss_bytes": 5057417216,
+          "gpu_allocated_bytes": 2966946304,
+          "gpu_reserved_bytes": 4208984064,
+          "gpu_peak_allocated_bytes": 5756420096,
+          "gpu_peak_reserved_bytes": 6234832896,
+          "gpu_process_nvml_bytes": 4584374272,
+          "trainable_parameters": 113766144,
+          "trainable_parameter_bytes": 455064576,
+          "model_parameter_bytes": 1526762560
+        },
+        "growth_bytes": {
+          "VmRSS_bytes": 3973849088,
+          "Pss_bytes": 3970276352,
+          "cpu_uss_bytes": 3968921600,
+          "gpu_allocated_bytes": 17804288,
+          "gpu_reserved_bytes": -668991488,
+          "gpu_process_nvml_bytes": -658505728
+        },
+        "observed_peak_bytes": {
+          "VmRSS_bytes": 5498925056,
+          "Pss_bytes": 5249529856,
+          "cpu_uss_bytes": 5163487232,
+          "gpu_allocated_bytes": 5659150336,
+          "gpu_reserved_bytes": 7459569664,
+          "gpu_process_nvml_bytes": 7834959872
+        },
+        "note": "Process memory; CUDA allocator, reserved cache and NVML process allocation are separate. Before/after retain method state and exclude optimizer after cleanup."
+      },
+      "deployment_NOT_measured": true,
+      "not_full_TEST_or_formal_main_result": true
+    },
+    "LoRA_all": {
+      "complete": true,
+      "case": "LoRA_all",
+      "FIT_QA": 1213,
+      "DEV_QA": 100,
+      "TEST_QA": 0,
+      "updates": 87,
+      "domains": {
+        "natural": {
+          "F1": 64.0,
+          "QA": 20
+        },
+        "medical": {
+          "F1": 42.69047619047619,
+          "QA": 20
+        },
+        "geography": {
+          "F1": 50.0,
+          "QA": 20
+        },
+        "finance": {
+          "F1": 15.0,
+          "QA": 20
+        },
+        "traffic": {
+          "F1": 38.07226912533098,
+          "QA": 20
+        }
+      },
+      "domain_macro": 41.95254906316144,
+      "checkpoint": {
+        "path": "checkpoints/stage_19.pt",
+        "stage": 19,
+        "bytes": 1941592509,
+        "sha256": "e05f7780263e313f5422ee6b547515631ad76bccd1752a51873947ab6658866c",
+        "seconds": 15.821053861999644,
+        "manifest_sha256": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+        "method": "LoRA_all",
+        "full_architecture_and_runtime": true,
+        "optimizer_saved": false
+      },
+      "checkpoint_root": "exp/osft_increment_screen_20261019/v1/private/LoRA_all",
+      "prediction_sha256": {
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_all/evaluations/stage_19/T01_dev_predictions.jsonl": "45896137a6f75a4682353ae5abfe69d645154b6a9e777a9bcbae6334195cf1ec",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_all/evaluations/stage_19/T02_dev_predictions.jsonl": "d31860b14d921e9aa11a9e21f56080d2cfccc5f027c3647f7dfdf30acd549a73",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_all/evaluations/stage_19/T03_dev_predictions.jsonl": "d2640db81c4ab11dab50c01ab2f8724db4f152dab1d0894729ffb8fdea1c4ce3",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_all/evaluations/stage_19/T04_dev_predictions.jsonl": "7c386e3da52e440681f2f89bb71d831dc7871b28b527e82045e1e572faa468d1",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_all/evaluations/stage_19/T05_dev_predictions.jsonl": "a9cff2e518d4469aeaec6f032b9448eb869fff00f71f6aae1d2d486a1e268673",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_all/evaluations/stage_19/T06_dev_predictions.jsonl": "9372875ceee637545545d139ac094e3d5e84dc63b5e9345086c65e3d2b7f8098",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_all/evaluations/stage_19/T10_dev_predictions.jsonl": "82f23b2700410d9392f9563d0d57f13873b21154f0a637272ad185ae1e429f5f",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_all/evaluations/stage_19/T11_dev_predictions.jsonl": "eee660acb5e766df1854d63c4bc9d3603d6061c41f024e471d2f9aae95ca3fa5",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_all/evaluations/stage_19/T13_dev_predictions.jsonl": "823cc8b20ca81cfb020d0783075c4ba9db5e72289e12986745aff91b20b4f8af",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_all/evaluations/stage_19/T14_dev_predictions.jsonl": "34b28848d9b09bfbe58708a71292bfaf94174fa293441284b9bff4d45294993e",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_all/evaluations/stage_19/T15_dev_predictions.jsonl": "52d536b6ff0391798df4dc27f24da3dd425e90337e952e39d2c5be50e34c52c2",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_all/evaluations/stage_19/T16_dev_predictions.jsonl": "924db3cd71f00e1a49ad817cad9ac7a76967bf0ba142e529efdf24c0fd03502b",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_all/evaluations/stage_19/T17_dev_predictions.jsonl": "81c3d36587b6fb5b9d924117e1043b1f32d3df55f5aff56d02012faa687476fa",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_all/evaluations/stage_19/T18_dev_predictions.jsonl": "5c7a7cb7cf335795930a3d2a2e059ab3730ebc216b5c15123c24458f9a2affb6",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_all/evaluations/stage_19/T19_dev_predictions.jsonl": "390c45e1c4f2a251e7fffacdc3681c1230b59b4d7d48ff2317e0652037ebd28b"
+      },
+      "source_sha256": "ee9763437719acec498097ae685f29d782e1b99e726e7b34a47b479c7d125ca3",
+      "ready_sha256": "75b86e6272295b548c82cb73fd29dc60671e18b23314b625d46486232b0d1893",
+      "memory_summary": {
+        "unit": "bytes",
+        "before": {
+          "phase": "training_before",
+          "stage": 0,
+          "unix": 1792606578.444561,
+          "pid": 12798,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 2507161600,
+          "VmRSS_bytes": 1380081664,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 1135524864,
+          "Private_Clean_bytes": 83251200,
+          "Private_Dirty_bytes": 968015872,
+          "cpu_uss_bytes": 1051267072,
+          "gpu_allocated_bytes": 1854469632,
+          "gpu_reserved_bytes": 3323985920,
+          "gpu_peak_allocated_bytes": 2421175808,
+          "gpu_peak_reserved_bytes": 3323985920,
+          "gpu_process_nvml_bytes": 3655335936,
+          "trainable_parameters": 4399104,
+          "trainable_parameter_bytes": 17596416,
+          "model_parameter_bytes": 1804947520
+        },
+        "after": {
+          "phase": "training_after",
+          "stage": 19,
+          "unix": 1792607553.3935845,
+          "pid": 12798,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 2507161600,
+          "VmRSS_bytes": 1791586304,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 1543487488,
+          "Private_Clean_bytes": 104263680,
+          "Private_Dirty_bytes": 1353457664,
+          "cpu_uss_bytes": 1457721344,
+          "gpu_allocated_bytes": 1862990336,
+          "gpu_reserved_bytes": 1920991232,
+          "gpu_peak_allocated_bytes": 2719901184,
+          "gpu_peak_reserved_bytes": 3353346048,
+          "gpu_process_nvml_bytes": 2262827008,
+          "trainable_parameters": 4399104,
+          "trainable_parameter_bytes": 17596416,
+          "model_parameter_bytes": 1804947520
+        },
+        "growth_bytes": {
+          "VmRSS_bytes": 411504640,
+          "Pss_bytes": 407962624,
+          "cpu_uss_bytes": 406454272,
+          "gpu_allocated_bytes": 8520704,
+          "gpu_reserved_bytes": -1402994688,
+          "gpu_process_nvml_bytes": -1392508928
+        },
+        "observed_peak_bytes": {
+          "VmRSS_bytes": 2009276416,
+          "Pss_bytes": 1761460224,
+          "cpu_uss_bytes": 1675689984,
+          "gpu_allocated_bytes": 2504837632,
+          "gpu_reserved_bytes": 5869928448,
+          "gpu_process_nvml_bytes": 6211764224
+        },
+        "note": "Process memory; CUDA allocator, reserved cache and NVML process allocation are separate. Before/after retain method state and exclude optimizer after cleanup."
+      },
+      "deployment_NOT_measured": true,
+      "not_full_TEST_or_formal_main_result": true
+    },
+    "LoRA_extra": {
+      "complete": true,
+      "case": "LoRA_extra",
+      "FIT_QA": 1213,
+      "DEV_QA": 100,
+      "TEST_QA": 0,
+      "updates": 87,
+      "domains": {
+        "natural": {
+          "F1": 60.666666666666664,
+          "QA": 20
+        },
+        "medical": {
+          "F1": 42.69047619047619,
+          "QA": 20
+        },
+        "geography": {
+          "F1": 45.0,
+          "QA": 20
+        },
+        "finance": {
+          "F1": 15.0,
+          "QA": 20
+        },
+        "traffic": {
+          "F1": 38.467936907021524,
+          "QA": 20
+        }
+      },
+      "domain_macro": 40.36501595283288,
+      "checkpoint": {
+        "path": "checkpoints/stage_19.pt",
+        "stage": 19,
+        "bytes": 1939366877,
+        "sha256": "7a1aa2b6ffb80e4395718f7f06e09e21592bfd1dc8854d3cd03866e6019d5fcb",
+        "seconds": 15.867984880000222,
+        "manifest_sha256": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+        "method": "LoRA_extra",
+        "full_architecture_and_runtime": true,
+        "optimizer_saved": false
+      },
+      "checkpoint_root": "exp/osft_increment_screen_20261019/v1/private/LoRA_extra",
+      "prediction_sha256": {
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_extra/evaluations/stage_19/T01_dev_predictions.jsonl": "156ccd2ac2cfa1687e3ec261c44d325a789c69ceb0e6a4cff6c0c4c93f98a447",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_extra/evaluations/stage_19/T02_dev_predictions.jsonl": "9211b4018c3bdf31a1bb555a7f2f11a005c7030a32deade0c80cd94f84fe84fe",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_extra/evaluations/stage_19/T03_dev_predictions.jsonl": "641aa84f39932fbc8faab6e5bb2f781ee24ecdcc364e58edef34e4aa34fd317a",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_extra/evaluations/stage_19/T04_dev_predictions.jsonl": "be5b48e0ffc10356e6ebe6b47a3a94aa5521cf293be900bdcf33cf0a2d3475f1",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_extra/evaluations/stage_19/T05_dev_predictions.jsonl": "dd4d053f3902256d55e2060bf3bc7e6fc74fd9816773e7de364fec5643634ef3",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_extra/evaluations/stage_19/T06_dev_predictions.jsonl": "ba6be13d24d04313a57b7edbf9f7f8fabc3d20a90335c7b2b9f2b1aec35f9b7c",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_extra/evaluations/stage_19/T10_dev_predictions.jsonl": "9b75cc3aa7bfdcc7d61d34bcf953c4783d6d59f6b02427cea89f48f41301a8d1",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_extra/evaluations/stage_19/T11_dev_predictions.jsonl": "b4602c1a2c6263fabeaf5f65937b7e6e8504f86e46a6080322543906e634590a",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_extra/evaluations/stage_19/T13_dev_predictions.jsonl": "50999c10a8556850b07461d240a3c836dd30a67717d27d988c461bb45eff3328",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_extra/evaluations/stage_19/T14_dev_predictions.jsonl": "d0376f31c75a9eb567002b8a8a4c30cdaafce58fad231641e47e6e0fe127ef66",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_extra/evaluations/stage_19/T15_dev_predictions.jsonl": "de730aa6d238853cdabe6eb2ce9e62a89825e0db79bc0f8907b542280a28c938",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_extra/evaluations/stage_19/T16_dev_predictions.jsonl": "574fae5791709d48c29da2c89a24df36c50589206c4099879083aedd45d643d5",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_extra/evaluations/stage_19/T17_dev_predictions.jsonl": "0c12a89318ae0c405df23af0195a968991a0f3b8c973e0c149c9089e09e6e8b5",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_extra/evaluations/stage_19/T18_dev_predictions.jsonl": "bfcd67771e56f6837db3a31eebfbc64022fc5a7ca8ab0ddeaabeb31c39cdbe20",
+        "exp/osft_increment_screen_20261019/v1/private/LoRA_extra/evaluations/stage_19/T19_dev_predictions.jsonl": "96f31439056e30fbefa4dfe5fe433bbd4ed206dea85100165a2dafcee2b10d87"
+      },
+      "source_sha256": "ee9763437719acec498097ae685f29d782e1b99e726e7b34a47b479c7d125ca3",
+      "ready_sha256": "75b86e6272295b548c82cb73fd29dc60671e18b23314b625d46486232b0d1893",
+      "memory_summary": {
+        "unit": "bytes",
+        "before": {
+          "phase": "training_before",
+          "stage": 0,
+          "unix": 1792607706.0578368,
+          "pid": 15299,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 2505768960,
+          "VmRSS_bytes": 1388322816,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 1146682368,
+          "Private_Clean_bytes": 88989696,
+          "Private_Dirty_bytes": 973844480,
+          "cpu_uss_bytes": 1062834176,
+          "gpu_allocated_bytes": 1852306944,
+          "gpu_reserved_bytes": 3326083072,
+          "gpu_peak_allocated_bytes": 2417931776,
+          "gpu_peak_reserved_bytes": 3326083072,
+          "gpu_process_nvml_bytes": 3657433088,
+          "trainable_parameters": 3858432,
+          "trainable_parameter_bytes": 15433728,
+          "model_parameter_bytes": 1802784832
+        },
+        "after": {
+          "phase": "training_after",
+          "stage": 19,
+          "unix": 1792608631.0490816,
+          "pid": 15299,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 2505768960,
+          "VmRSS_bytes": 1757446144,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 1513166848,
+          "Private_Clean_bytes": 109891584,
+          "Private_Dirty_bytes": 1318006784,
+          "cpu_uss_bytes": 1427898368,
+          "gpu_allocated_bytes": 1860827648,
+          "gpu_reserved_bytes": 1916796928,
+          "gpu_peak_allocated_bytes": 2685516288,
+          "gpu_peak_reserved_bytes": 3342860288,
+          "gpu_process_nvml_bytes": 2258632704,
+          "trainable_parameters": 3858432,
+          "trainable_parameter_bytes": 15433728,
+          "model_parameter_bytes": 1802784832
+        },
+        "growth_bytes": {
+          "VmRSS_bytes": 369123328,
+          "Pss_bytes": 366484480,
+          "cpu_uss_bytes": 365064192,
+          "gpu_allocated_bytes": 8520704,
+          "gpu_reserved_bytes": -1409286144,
+          "gpu_process_nvml_bytes": -1398800384
+        },
+        "observed_peak_bytes": {
+          "VmRSS_bytes": 2030673920,
+          "Pss_bytes": 1785787392,
+          "cpu_uss_bytes": 1700532224,
+          "gpu_allocated_bytes": 2451198976,
+          "gpu_reserved_bytes": 5859442688,
+          "gpu_process_nvml_bytes": 6201278464
+        },
+        "note": "Process memory; CUDA allocator, reserved cache and NVML process allocation are separate. Before/after retain method state and exclude optimizer after cleanup."
+      },
+      "deployment_NOT_measured": true,
+      "not_full_TEST_or_formal_main_result": true
+    }
+  },
+  "possible_full_retrain_candidates": [
+    "LoRA_all"
+  ],
+  "criterion": "DEV domain macro F1 above both fixed references",
+  "TEST_QA": 0,
+  "not_significance_or_final_improvement": true,
+  "full_retraining_not_implemented_or_started": true,
+  "deployment_advantage_NOT_proven": true
+}

@@ -1,3 +1,5 @@
+**2026-10-22四组小测完整：** qv/OSFT/all/extra的DEV宏均分为39.870439/40.783801/41.952549/40.365016，原规则只选LoRA_all进入完整确认准备。all对OSFT高1.169pp，但探索性区间跨0、金融仍降，未达五域目标。原screen服务已正常退出，不恢复旧作业。[四组结果与成本](summary/edge_deployment_20261019/osft_increment_screen/v1/RESULTS_20261022.md)；[一次完整确认的决定与评价口径](summary/edge_deployment_20261019/osft_increment_screen/v1/FULL_CONFIRMATION_DECISION.md)。新确认尚未实现/启动，不是正式TEST或新方法成果。
+
 **2026-10-22第三组小测完整：** LoRA_all DEV宏均分41.952549，超过qv39.870439和OSFT40.783801，但金融15低于两个参照，尚未达五域目标。仅支持扩展位置+增加坐标组合在该固定DEV上的改善，不称纯位置因果/显著提升或新算法。最后LoRA_extra已原队列接续，全部四组后才选候选。[完整结果与成本](summary/edge_deployment_20261019/osft_increment_screen/v1/RESULTS_20261022.md)。
 
 **2026-10-22两个完整DEV参照：** OSFT_all五域宏均分40.783801，对LoRA_qv39.870439高0.913362pp；自然/医学下降，另三域提高，尚不支持五域全面或稳定胜出。LoRA_all已原队列接续，LoRA_extra待原顺序，原候选门槛和条件不改。[完整小测结果、成本及解释边界](summary/edge_deployment_20261019/osft_increment_screen/v1/RESULTS_20261022.md)。不是正式TEST/AP或新方法成果。
