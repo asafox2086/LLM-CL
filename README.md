@@ -1,3 +1,5 @@
+**2026-10-22两个完整DEV参照：** OSFT_all五域宏均分40.783801，对LoRA_qv39.870439高0.913362pp；自然/医学下降，另三域提高，尚不支持五域全面或稳定胜出。LoRA_all已原队列接续，LoRA_extra待原顺序，原候选门槛和条件不改。[完整小测结果、成本及解释边界](summary/edge_deployment_20261019/osft_increment_screen/v1/RESULTS_20261022.md)。不是正式TEST/AP或新方法成果。
+
 **2026-10-22首个完整小测参照：** LoRA_qv完成1213 FIT/100 DEV、19阶段/87正LR，DEV五域宏平均Answer F1为39.870439；已独立复核全部原参考与封存证据。OSFT_all已实际接续，其余条件仍按冻结顺序。仅一个参照，尚不能选择候选，也不与正式TEST/AP排名。[完整四组进度与成本口径](summary/edge_deployment_20261019/osft_increment_screen/v1/RESULTS_20261022.md)。
 
 **2026-10-22作业恢复：** 新机重启后，原GPU1四组小测首组LoRA_qv已实际训练；Qwen PASs/PaRSP正式运行，CL/SMo因无阶段权重按原条件新鲜重排，旧尝试保留。五条过期研究自启已停用，当前无新增完整F1，正式仍8/16。[恢复证据](summary/edge_deployment_20261019/reboot_recovery_20261022/v1/FINDINGS.md)。端侧只作科研背景，不恢复部署项目。
