@@ -1,0 +1,64 @@
+{
+  "type": "literature_and_source_read_only",
+  "date": "2026-10-21",
+  "paper": "Structural Pruning of Large Vision Language Models: A Comprehensive Study on Pruning Dynamics, Recovery, and Data Efficiency",
+  "publisher": "https://link.springer.com/article/10.1007/s11263-026-02865-5",
+  "author_manuscript": "https://arxiv.org/html/2604.24380v1",
+  "author_repository": "https://github.com/YiranHuangIrene/VLMCompression",
+  "revision": "16fc04bf08be4ed9036412715819cd6a77c0c61e",
+  "files_sha256": {
+    "VLM/InternVL/internvl_chat/shell/internvl1.5/slurm/Mini-InternVL-Chat-4B-V1-5_pruned_5_50_samples-mm.sh": "bedd06afc339530da9708b874117036633dc840eba28f76befd8437a84782ea3",
+    "VLM/InternVL/internvl_chat/shell/internvl1.5/slurm/Mini-InternVL-Chat-4B-V1-5_pruned_5_50_samples-ft.sh": "76c01810e6b3c0889a37dc8573124ac0f7e5b6f8e63a261c810ad3a5d285b0fd",
+    "VLM/InternVL/internvl_chat/internvl/train/internvl_chat_finetune.py": "ed4ecc62975d03991b15117944ff64011e627f4904c77813f9e52f3da46d33f9"
+  },
+  "script_observations_not_training_run_proof": {
+    "both": {
+      "freeze_llm": true,
+      "freeze_mlp": false,
+      "freeze_backbone": true,
+      "epochs": 1,
+      "per_device_batch": 4,
+      "gradient_accumulation": 4,
+      "learning_rate": 4e-05
+    },
+    "ft_additional_use_llm_lora": 16,
+    "mm_has_no_use_llm_lora_argument": true,
+    "trainer_freezes_llm_before_conditional_wrap_llm_lora": true,
+    "trainer_lines_one_based": {
+      "freeze_llm": [
+        936,
+        938
+      ],
+      "wrap_llm_lora": [
+        946,
+        948
+      ]
+    },
+    "slurm_reservation_gpus": 4,
+    "exported_GPUS_PER_NODE": 1,
+    "actual_world_size_and_global_batch": null,
+    "script_filename_50_is_not_recovery_dataset_size": true
+  },
+  "source_read_transport": {
+    "server_git_show_trainer": "failed GnuTLS recv error -110 while fetching missing partial-clone blob; no model execution",
+    "fallback": "normal verified HTTPS at pinned raw.githubusercontent.com URL, fetched locally and SHA256 recorded",
+    "TLS_checks_disabled": false
+  },
+  "derived_arithmetic_not_new_measurement": {
+    "llava_665k_times_5_percent": 33250,
+    "relative_to_our_1313": 25.323686214775325,
+    "onevision_existing_projector_parameters": 1836800,
+    "onevision_total_parameters": 893675552,
+    "projector_fraction": 0.0020553320451581515,
+    "arxiv_Table4_text_mean_relative_drop_40_30_to_38_87_percent": 3.548387096774193,
+    "arxiv_Table4_reported_Deg_txt_percent": 1.07,
+    "Deg_aggregation_not_reconstructed": true
+  },
+  "new_model_forward_calls": 0,
+  "new_optimizer_calls": 0,
+  "new_GPU_calls": 0,
+  "upstream_source_installed_or_executed": false,
+  "new_recovery_experiment_started": false,
+  "current_width_READY_sha256": "7101cae0e5f23251a63c2097d85c2a4080c20eac38d7c6fd0111c47311beeaff",
+  "goal_achieved": false
+}

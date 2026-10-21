@@ -1,3 +1,9 @@
+# 2026-10-21：已有projector恢复的论文/源码核对，保留条件候选未启动
+
+- 新projector_recovery_literature_20261021核对IJCV2026 VLMCompression及固定作者revision16fc04bf08be4ed9036412715819cd6a77c0c61e。论文只剪语言骨干，5% LLaVA数据约33250条，是本1313的25.324倍；压缩分母/相对性能口径不同，不能直接外推。作者示例ft在freeze_llm后仍wrap r16 LoRA，不能只看冻结旗标称projector-only。
+- 复用已有projector1836800参数是待验证功能替代：vision-only可拟合视觉接口但局部L2不等于F1；text-only视觉输出本来相同，视觉L2为零目标，回答SFT仍须穿冻结LLM反传。需dense/pruned各无恢复与同预算projector恢复四格、FIT-only teacher/独立DEV和完整成本；formal teacher见过DEV不可选路。
+- 独立评审revise，先等原两CPUcase完整，当前不启动恢复/新READY、不改GPU1队列或冻结源。文献与源码只读，0新模型前向/更新/GPU；参数数不当端侧收益。详见projector_recovery_literature_20261021/FINDINGS.md。
+
 # 2026-10-21：CPU补齐视觉/语言半宽2×2对照，尚无质量结果
 
 - 子agent评审接受补齐K61缺失的vision_only/text_only，暂缓PAS固定混合局部拟合。两新条件逐参数继承原dense/joint，原mask/补偿/题目不变，不重新校准、不重跑原三组、不调比例。问题是隔离该固定成本点的单支/组合损失，不判断整类模块无用。
