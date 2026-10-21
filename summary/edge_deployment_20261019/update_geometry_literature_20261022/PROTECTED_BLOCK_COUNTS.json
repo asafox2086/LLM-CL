@@ -1,0 +1,141 @@
+{
+  "kind": "reused_shapes_and_exact_integer_accounting_not_empirical_dimension_measurement",
+  "source": "summary/edge_deployment_20261019/cpu_update_space_20261020/v1/EVIDENCE.json",
+  "source_sha256": "5b60f70502212653e027f0383aa582e75f69355bc7f5529ce075370d88c69b82",
+  "analysis_sha256": "592d4606cd1be6a3012eeab2187f896f1d2be90099c236e13007185fa538b37d",
+  "old_two_totals_are_not_new_findings": true,
+  "totals": {
+    "raw_coordinates": 113766144,
+    "constraint_normal_coordinates": 36421632,
+    "constrained_factor_coordinates": 77344512,
+    "factor_redundancy": 6098688,
+    "full_core_coordinates": 71245824
+  },
+  "by_position": {
+    "q_proj": {
+      "m": 896,
+      "n": 896,
+      "preserved_rank": 672,
+      "trainable_rank": 224,
+      "core_shape": [
+        224,
+        224
+      ],
+      "layers": 24,
+      "raw_coordinates": 9639168,
+      "constraint_normal_coordinates": 7225344,
+      "constrained_factor_coordinates": 2413824,
+      "factor_redundancy": 1209600,
+      "full_core_coordinates": 1204224
+    },
+    "k_proj": {
+      "m": 128,
+      "n": 896,
+      "preserved_rank": 96,
+      "trainable_rank": 32,
+      "core_shape": [
+        32,
+        800
+      ],
+      "layers": 24,
+      "raw_coordinates": 787200,
+      "constraint_normal_coordinates": 147456,
+      "constrained_factor_coordinates": 639744,
+      "factor_redundancy": 25344,
+      "full_core_coordinates": 614400
+    },
+    "v_proj": {
+      "m": 128,
+      "n": 896,
+      "preserved_rank": 96,
+      "trainable_rank": 32,
+      "core_shape": [
+        32,
+        800
+      ],
+      "layers": 24,
+      "raw_coordinates": 787200,
+      "constraint_normal_coordinates": 147456,
+      "constrained_factor_coordinates": 639744,
+      "factor_redundancy": 25344,
+      "full_core_coordinates": 614400
+    },
+    "o_proj": {
+      "m": 896,
+      "n": 896,
+      "preserved_rank": 672,
+      "trainable_rank": 224,
+      "core_shape": [
+        224,
+        224
+      ],
+      "layers": 24,
+      "raw_coordinates": 9639168,
+      "constraint_normal_coordinates": 7225344,
+      "constrained_factor_coordinates": 2413824,
+      "factor_redundancy": 1209600,
+      "full_core_coordinates": 1204224
+    },
+    "gate_proj": {
+      "m": 4864,
+      "n": 896,
+      "preserved_rank": 672,
+      "trainable_rank": 224,
+      "core_shape": [
+        4192,
+        224
+      ],
+      "layers": 24,
+      "raw_coordinates": 30971136,
+      "constraint_normal_coordinates": 7225344,
+      "constrained_factor_coordinates": 23745792,
+      "factor_redundancy": 1209600,
+      "full_core_coordinates": 22536192
+    },
+    "up_proj": {
+      "m": 4864,
+      "n": 896,
+      "preserved_rank": 672,
+      "trainable_rank": 224,
+      "core_shape": [
+        4192,
+        224
+      ],
+      "layers": 24,
+      "raw_coordinates": 30971136,
+      "constraint_normal_coordinates": 7225344,
+      "constrained_factor_coordinates": 23745792,
+      "factor_redundancy": 1209600,
+      "full_core_coordinates": 22536192
+    },
+    "down_proj": {
+      "m": 896,
+      "n": 4864,
+      "preserved_rank": 672,
+      "trainable_rank": 224,
+      "core_shape": [
+        224,
+        4192
+      ],
+      "layers": 24,
+      "raw_coordinates": 30971136,
+      "constraint_normal_coordinates": 7225344,
+      "constrained_factor_coordinates": 23745792,
+      "factor_redundancy": 1209600,
+      "full_core_coordinates": 22536192
+    }
+  },
+  "assumptions": [
+    "fixed_stage_high_bases",
+    "exact_arithmetic_orthogonality",
+    "full_complements_not_arbitrary_rank16"
+  ],
+  "new_model_forward": 0,
+  "new_backward": 0,
+  "new_optimizer_steps": 0,
+  "GPU_calls": 0,
+  "no_checkpoint_or_QA_read": true,
+  "no_F1_or_RAM_or_speed_claim": true,
+  "initial_readonly_grouping_error": "First attempt grouped by penultimate name segment, stopped before output at mixed-shape assertion; fixed by explicit seven-position names; no model was run",
+  "metadata_path_repair_before_publication": "Windows relative path normalized to POSIX; first remote publication failed input check before any write; integer results unchanged; original metadata retained privately"
+}
