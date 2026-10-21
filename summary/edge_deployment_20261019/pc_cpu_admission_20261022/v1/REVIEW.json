@@ -1,0 +1,21 @@
+{
+  "reviewer": "/root/review_next_probe",
+  "decision": "accept_after_provenance_chain_repair_before_start",
+  "worker_sha256": "8c6898a6ce036720dafbc2f506fd10ab0bca56faac1be33ed967cd95e4ec6514",
+  "bootstrap_sha256": "1ae3c36aa6b7943a5be4b488558bd68e63e1dc2569588e3f856b30e8e6d335fa",
+  "protocol_sha256": "b2daf22b11ed92942b3abbb8d7fe6b677dc5dc22fb0fb1aede55170b771d909d",
+  "checks": [
+    "original READY to prepare SHA bound",
+    "original manifest and TRAIN bound to READY",
+    "original row ID, image and helper SHA bound",
+    "fresh parameter digest exact",
+    "CPU FP16/SDPA with one NLL only",
+    "no global environment changes or GPU use",
+    "bounded timeout and no automatic retry"
+  ],
+  "limits": [
+    "engineering admission only",
+    "PLATFORM_DIFFERENCE stops further measurement",
+    "private QA/images/weights/environment excluded from Git"
+  ]
+}

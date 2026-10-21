@@ -1,3 +1,10 @@
+# 2026-10-22：真实个人电脑CPU兼容准入已启动，非方法或部署收益
+
+- 不再靠分钟级存活巡检推进。复用K61 dense完整包1803323773bytes，在本机i7-13650HX/约39.7GiB内存做一次SLAKE:5162原医学TRAIN NLL，0生成/反向/更新/GPU；只用于确认目标设备能否恢复运行。CPU FP16/SDPA不变，Torch2.6.0 Windows CPU build与服务器cu118不同，Python/平台差异公开。不沿用旧F1或宣称加速；Ours/正式部署列空白。
+- 本机隐藏BelowNormal接续41048，启动UTC2026-10-21T16:07:44；private .deployment/pc_cpu_admission_20261022/v1，public summary/edge_deployment_20261019/pc_cpu_admission_20261022/v1。当前只安装隔离依赖和逐SHA传完整包，模型尚未启动；后续READY才允许一次请求，不能凭启动记录称完成。本机4060 Laptop8188MiB有其他活动，本次不用GPU，不改全局/Codex环境。
+- 原prepare/READY/manifest/TRAIN/图像/helper SHA链和fresh参数digest硬核验；独立review accept。依赖45m、传输30m、模型加载+单NLL30m上限；任一失败保留且停止不盲重试、不换dtype。跨平台NLL不精确记PLATFORM_DIFFERENCE并停止后续测量，不放宽原精确门槛。实际COMPLETE/FAILURE为准。
+- 最终同机成本比较仍缺PASs公平动态完整包及fresh功能核验，必须同时保留可合并OSFT强成本锚；不能拿训练pickle当部署包或单OSFT工程数宣布优势。原CPU结构vision_only已5/5 COMPLETE，text_only2206030/start27627273最近2/5，原controller2190288继续，未读partial F1。GPU1守卫1154006仍wait、QwenCL7965/SMo181717与发布器51266存活；旧已完工作勿恢复。冻结科学源与两机基线不改，目标未达成。
+
 # 2026-10-21：PaRSP实际更新范围与SpaRTA未触发机制已实证审计
 
 - 新sealed_update_constraints_20261021完整65.196秒：两组原F1/SHA重算、PaRSP19阶段mask与最终168矩阵、来源及独立评审通过。EVIDENCE SHA2ab1c524b9d34986899d0a8a4057ab444b3fe2906afc8e6b2daa436eca83852c。OLD CPU2506110已正常结束勿恢复；0新模型前向/模型优化/GPU，1次4×4合成AdamW步，反序列化过一个既有PaRSP图。
