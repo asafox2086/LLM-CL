@@ -1,3 +1,11 @@
+# 2026-10-22：首组LoRA_qv完整小测已封存；OSFT_all实际接续
+
+- 原四组首个完整LoRA_qv：1213 FIT/100 DEV、每域20、19有效阶段/87有限正LR，五域原Answer F1为60.666667/48.357143/35/20/35.328385，DEV宏均分39.870438970139254。COMPLETE SHA09f7594e05dd45734e6b412ae183e067e144fc341c115c163d011d9cc19946bf；独立原dispatch.verify/score AST、全部ID/全部原参考/预测与最终CP SHA、19参数变化/87梯度统计/19首步张量SHA已核验，0新模型请求。不是正式1313/21454或新方法收益，不填主表Ours。只有参照，无候选；须等原四组后按原max(qv,OSFT)阈值，所有正负公开。
+- LoRA_qv旧GPU3609已正常完成勿恢复。唯一研究CPU2400/start10012原冻结入口继续，OSFT_all GPU8959/start122564已写STARTED接续；其partial DEV不读。原LoRA_all/extra顺序、科学源/READY/数据/超参不改。后续真实身份与sealed proof优先，旧ACTIVATION仍历史。
+- 完整成本区间已分清：记录模型RUN953.700s含模型/19门槛/训练/保存/DEV，排早期import数据检查；training_before→after832.136s含前18次保存不叫纯训练；update主体500.665s，19保存/哈希/fsync311.071s与墙钟重叠不可再相加，累计写36.646GB非部署包。更新段CUDA allocated记录峰2,870,165,504bytes，观测RSS/PSS/USS/reserved/NVML另列，不称部署成本或精确全峰，CP未部署功能重载。
+- 19个FIT原门槛题每题两路NLL/两路4token生成，每条件38NLL路径+38门槛短生成；四条件若全完400DEV生成之外另152门槛生成。原核验字段native_gate_FIT_exposures=19指门槛题数，不是总模型调用；GATE_COST_SCOPE按原函数AST/原NATIVE_GATE封存补齐口径，无新增调用或原源修改。
+- 结果、成本、review见osft_increment_screen/v1/RESULTS_20261022.md及sealed_case_reports_20261022。9decf9d9bf57c8adc88fd9fa5fbd16bdd3e39c4d已推送5文件完整保护块代数note，矩形尾部薄基不等于完整补空间；只是条件机制问题，不插实验、不把旧维数当新发现。rules032端侧仅科研背景仍优先，原基线/恢复队列继续，完整目标未达成。
+
 # 2026-10-22：新机实际重启；原四组GPU1已开始，旧PID全部作废
 
 - boot8052b133-a708-4278-97f0-c153682956d7实证新机重启，旧1154006/7965/181717/51266不可再报live。原冻结四组自动接续CPU2400/start10012，LoRA_qv GPU3609/start11422已STARTED、原19FIT门槛后实际训练，实查到stage9；未case_COMPLETE不读partial DEV、不当F1成果，不盲重启。
