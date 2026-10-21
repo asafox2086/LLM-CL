@@ -1,0 +1,46 @@
+{
+  "observed_epoch": 1792603877.1937473,
+  "reason": "Disable boot resurrection of explicitly superseded research; preserve frozen active screen and formal services",
+  "units": [
+    {
+      "unit": "llmcl-onevision-basis-budget.service",
+      "before": "Restart=no\nMainPID=2398\nExecStart={ path=/usr/bin/nohup ; argv[]=/usr/bin/nohup /data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/onevision_basis_budget_probe.py ; ignore_errors=no ; start_time=[Thu 2026-10-22 01:27:43 CST] ; stop_time=[n/a] ; pid=2398 ; code=(null) ; status=0/0 }\nKillMode=control-group\nActiveState=active\nUnitFileState=enabled\n",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "Removed /data1/liyapeng/.config/systemd/user/default.target.wants/llmcl-onevision-basis-budget.service.\n",
+      "after": "MainPID=0\nActiveState=inactive\nUnitFileState=disabled\n"
+    },
+    {
+      "unit": "llmcl-onevision-capacity.service",
+      "before": "Restart=on-failure\nMainPID=0\nExecStart={ path=/usr/bin/nohup ; argv[]=/usr/bin/nohup /data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/onevision_capacity_queue.py ; ignore_errors=no ; start_time=[Thu 2026-10-22 01:27:43 CST] ; stop_time=[Thu 2026-10-22 01:30:27 CST] ; pid=2399 ; code=exited ; status=0 }\nKillMode=control-group\nActiveState=inactive\nUnitFileState=enabled\n",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "Removed /data1/liyapeng/.config/systemd/user/default.target.wants/llmcl-onevision-capacity.service.\n",
+      "after": "MainPID=0\nActiveState=inactive\nUnitFileState=disabled\n"
+    },
+    {
+      "unit": "llmcl-onevision-deterministic-native.service",
+      "before": "Restart=on-failure\nMainPID=0\nExecStart={ path=/usr/bin/nohup ; argv[]=/usr/bin/nohup /data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/onevision_deterministic_native.py ; ignore_errors=no ; start_time=[Thu 2026-10-22 01:27:43 CST] ; stop_time=[Thu 2026-10-22 01:29:47 CST] ; pid=2401 ; code=exited ; status=0 }\nKillMode=control-group\nActiveState=inactive\nUnitFileState=enabled\n",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "Removed /data1/liyapeng/.config/systemd/user/default.target.wants/llmcl-onevision-deterministic-native.service.\n",
+      "after": "MainPID=0\nActiveState=inactive\nUnitFileState=disabled\n"
+    },
+    {
+      "unit": "llmcl-onevision-knowledge-fit.service",
+      "before": "Restart=no\nMainPID=0\nExecStart={ path=/usr/bin/nohup ; argv[]=/usr/bin/nohup /data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/onevision_knowledge_fit_probe.py ; ignore_errors=no ; start_time=[Thu 2026-10-22 01:27:43 CST] ; stop_time=[Thu 2026-10-22 01:29:12 CST] ; pid=2403 ; code=exited ; status=0 }\nKillMode=control-group\nActiveState=inactive\nUnitFileState=enabled\n",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "Removed /data1/liyapeng/.config/systemd/user/default.target.wants/llmcl-onevision-knowledge-fit.service.\n",
+      "after": "MainPID=0\nActiveState=inactive\nUnitFileState=disabled\n"
+    },
+    {
+      "unit": "llmcl-onevision-research.service",
+      "before": "Restart=on-failure\nMainPID=0\nExecStart={ path=/usr/bin/nohup ; argv[]=/usr/bin/nohup /data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/onevision_research_worker.py ; ignore_errors=no ; start_time=[Thu 2026-10-22 01:27:44 CST] ; stop_time=[Thu 2026-10-22 01:29:12 CST] ; pid=2518 ; code=exited ; status=0 }\nKillMode=control-group\nActiveState=inactive\nUnitFileState=enabled\n",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "Removed /data1/liyapeng/.config/systemd/user/default.target.wants/llmcl-onevision-research.service.\n",
+      "after": "MainPID=0\nActiveState=inactive\nUnitFileState=disabled\n"
+    }
+  ]
+}

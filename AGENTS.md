@@ -1,3 +1,11 @@
+# 2026-10-22：新机实际重启；原四组GPU1已开始，旧PID全部作废
+
+- boot8052b133-a708-4278-97f0-c153682956d7实证新机重启，旧1154006/7965/181717/51266不可再报live。原冻结四组自动接续CPU2400/start10012，LoRA_qv GPU3609/start11422已STARTED、原19FIT门槛后实际训练，实查到stage9；未case_COMPLETE不读partial DEV、不当F1成果，不盲重启。
+- 新Qwen PASs5774/start52206、PaRSP5779/start52212已按原preflight/reload开始正式运行，用GPU2/3；原screen用GPU1，三卡上限/GPU0不用研究。原CL/SMo受重启中断且两旧run只final保存、无阶段权重，不能强行resume/拼预测；已保留旧失败与成本，按原条件新鲜完整attempt排队，不叫续训。正式仍8/16，已完结果不重跑。
+- 仅CPU正式协调器2521按原KillMode=process停止、事务更新两失败job后原入口接续6262/start58840，当前PASs/PaRSP和screen身份保全。原七范围只读publisher恢复6264/start58844；FOREVER Qwen原CPU恢复6266/start58877，原未尝试worker=null状态/OWNER逐字节private归档，继续原GPU2优先规则等待。源/数据/评分未改，详见reboot_recovery_20261022/v1/RECOVERY.json。
+- 开机误恢复了已撤销basis-budget/capacity/deterministic-native/knowledge-fit/research五旧服务，核验入口后均stop/disable，防止再生；不恢复旧容量或其他旧研究流。原ACTIVATION旧PID仅历史，新boot身份用实际/proc和恢复审计，不改原冻结ACTIVATION/READY。
+- rules032仍优先：端侧只是科研背景，电脑迁移/PAS部署工程不恢复。c3555a36b50dd00ddec4e63f18e06233a1107b88已推送四文件文献/数学分析：同rank不同相对基座更新集合、MiLoRA非每步正交、GA额外FIT/scale成本；不是新质量结果。完整保护块坐标优化仅条件机制问题，未新建实验/READY/插队。
+
 # 2026-10-22最新用户纠正：搞科研，端侧只是背景；停止部署项目方向
 
 - 最新人类原话：“不是要你落地一个项目，我们是搞科研，这个端侧只是一个背景”。新rules032优先覆盖历史真机/设备交付主线要求。回到1%预算下参数扩展与更新机制的必要性、功能替代和原Answer F1；端侧只作轻量化动机/必要成本背景，不再把跨平台迁移、部署包导出或设备适配当研究主线/科学前置。
