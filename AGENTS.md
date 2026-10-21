@@ -1,3 +1,11 @@
+# 2026-10-22：同坐标预算的位置分配对照已独立启动，仅一组FIT/DEV
+
+- 新问题来自原四组DEV及候选TEST前cc445...AGENTS记录：qv540672/all4399104，位置/总坐标混杂。只新增BudgetMatchedQV一条件，48个q/v用4399104坐标，与原168模块all同预算；复用已封存qv/all，不重训。rank65+哈希固定6个v为66是整数预算，非最优rank/搜索。scale4固定（alpha=4r）、LR1e-4、原1213 FIT/100 DEV/19/87及TRAIN AST/数值/提示不改，原r8前缀和构造RNG精确保留。
+- 独立五源/协议review accept；新增24层小HF路径CPU准入5.112秒通过，非实际0.9B质量。READY61c2605f4c6726ee1dc43e022289b293a0f92af90c1ef0d29f68c9962bf6d137已冻结，目录exp/position_coordinate_control_20261022/v1及summary/edge_deployment_20261019/position_coordinate_control_20261022/v1。源审阅前发现保存manifest字段/守卫SHA/2h计费口径，均在准入/READY前修正；无实际模型失败/重试。
+- 唯一新nohup llmcl-onevision-coordinate-control-20261022.service CPU44689/start2220228，GPU1 worker44708/start2220751已真实STARTED并核实实际48模块/4399104/scale4；后续以实际身份/新VERIFIED为准。原基线身份保护精确，最多新三卡，GPU0/旧卡不研究。Restart=no/KillMode=process、不enable开机。原完整确认19535/19516及screen正常结束仍不恢复。
+- 只匹配训练坐标与乘数，不匹配有效维数/Jacobian/实际步长/计算量；同坐标不是纯位置因果。DEV已探索，不叫新留出；primary宽qv减all、secondary减qv，整已知组10000/seed20261022区间仅探索，不显著不当等效。原rsLoRA只提醒缩放影响优化，不采用第二缩放。实际完整100DEV+19validity/87正LR/全参考原F1和SHA后才解释。
+- worker STARTED→COMPLETE总2h含加载/38NLL+38短门槛/TRAIN/保存SHA/100DEV，额外费用全记；最终checkpoint不是部署重载证明。无论正负完成正常退出，不自动1313/21454、不列完整候选、不加scale/rank变体、不据当前TEST救旧配置。当前无新F1，Ours/部署空白。端侧只是背景，完整目标未实现。
+
 # 2026-10-22：LoRA_all完整确认负结果，原服务正常结束，不据TEST追分
 
 - 原1313 TRAIN/19有效阶段/93有限正LR、最终21454QA、全部ID/全原参考Answer F1、checkpoint/梯度/源SHA由原CPU verifier接受。COMPLETE SHAea9bd2283e2cc7d8948267289ff2e4cc7a20685cdc7b511fc176b628870d6a5c；VERIFIED SHAabbd2da43753c6bbeb137d7bef535983efbcafdaf08686f61550886b2f18598d。五域宏44.894422831低于PASs46.619976395和OSFT45.937438210，AP19=44.794145522；primary=false，不称达到目标。
