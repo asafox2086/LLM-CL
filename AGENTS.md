@@ -1,3 +1,9 @@
+# 2026-10-22：功能不要求逐矩阵重建teacher；新文献生命周期差异已核对
+
+- 新function_not_weight_reconstruction_20261022只读三篇原论文和原冻结端口，独立review accept；0新模型/更新/GPU/TEST，没有新实验READY。自行两层精确算术反例：teacher每层rank2变化，另一个每层rank1变化实现相同非恒等diag(4,6)功能；反驳从逐矩阵重建误差直接排除独立训练低秩路线，不证明当前r8/93步或F1等效。
+- ICLR2024表达性定理有无skip/指定矩阵与偏置/非奇异等条件，只存在性不保证本Qwen优化泛化；NeurIPS2025最终Illusion的CL每任务合并重置LoRA并评测重训分类头，非本连续同A/B。条件精确算术ΣB_tA_t≤Tr与单BA≤r只是上界、非FP16前向谱；论文intruder测W相对W0方向，非K59 ΔW能量。TMLR2024原分布保留也非本19任务BWT，不能直接外推。
+- 旧K59上下文更正仍有效，不重测/不把8.20%当质量上限。当前完整确认仍只按原五域AnswerF1判据，一次1313/93→21454；不调rank/scale、不合并重置、不新增intruder或五TRAIN扫描、不据TEST救方案。原19535/19516自然训练与基线保全，源码/READY不改；本轮新增是研究判断边界，不是新方法收益，目标未达成。
+
 # 2026-10-22：唯一LoRA_all完整确认已实际训练，端侧仅科研背景
 
 - 新独立exp/osft_increment_confirmation_20261022/v1四源/协议经review accept并冻结READY a8c4b99aef2e7b5e803d027e45d31aebd5ad60df49fea7c2b459d719249da628；原TRAIN主体AST/TargetLoRA/初始化/数值/提示沿用。只LoRA_all从原基座用全1313/19阶段/93更新，再最终21454一次，不续训FIT、不改rank/LR/seed或据TEST加变体；另外三组结束，不恢复原screen。
