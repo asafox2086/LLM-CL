@@ -1,3 +1,5 @@
+**2026-10-22科研主线：** 唯一LoRA_all完整确认已在GPU1真实训练；原全1313/19阶段/93更新后才一次最终21454QA。新版本已审阅冻结，19训练图文门槛通过，尚无最终成绩。主要检验五域宏能否超过PASs46.620，同时公开金融等各域下降；普通LoRA不是新算法，端侧仅背景。[确认协议与状态](summary/edge_deployment_20261019/osft_increment_confirmation_20261022/v1/README.md)。原四组已结束，正式基线继续。
+
 **2026-10-22四组小测完整：** qv/OSFT/all/extra的DEV宏均分为39.870439/40.783801/41.952549/40.365016，原规则只选LoRA_all进入完整确认准备。all对OSFT高1.169pp，但探索性区间跨0、金融仍降，未达五域目标。原screen服务已正常退出，不恢复旧作业。[四组结果与成本](summary/edge_deployment_20261019/osft_increment_screen/v1/RESULTS_20261022.md)；[一次完整确认的决定与评价口径](summary/edge_deployment_20261019/osft_increment_screen/v1/FULL_CONFIRMATION_DECISION.md)。新确认尚未实现/启动，不是正式TEST或新方法成果。
 
 **2026-10-22第三组小测完整：** LoRA_all DEV宏均分41.952549，超过qv39.870439和OSFT40.783801，但金融15低于两个参照，尚未达五域目标。仅支持扩展位置+增加坐标组合在该固定DEV上的改善，不称纯位置因果/显著提升或新算法。最后LoRA_extra已原队列接续，全部四组后才选候选。[完整结果与成本](summary/edge_deployment_20261019/osft_increment_screen/v1/RESULTS_20261022.md)。

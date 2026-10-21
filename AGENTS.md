@@ -1,3 +1,11 @@
+# 2026-10-22：唯一LoRA_all完整确认已实际训练，端侧仅科研背景
+
+- 新独立exp/osft_increment_confirmation_20261022/v1四源/协议经review accept并冻结READY a8c4b99aef2e7b5e803d027e45d31aebd5ad60df49fea7c2b459d719249da628；原TRAIN主体AST/TargetLoRA/初始化/数值/提示沿用。只LoRA_all从原基座用全1313/19阶段/93更新，再最终21454一次，不续训FIT、不改rank/LR/seed或据TEST加变体；另外三组结束，不恢复原screen。
+- 新nohup llmcl-onevision-full-confirm-20261022.service CPU19516/start666831，GPU1 worker19535/start667344，boot8052b133-a708-4278-97f0-c153682956d7。LAUNCH_OBSERVATION已实证19 TRAIN图文门槛完成、stage1已3有限正LR更新；TRAIN尚未完成、候选TEST未打开，不当质量成果。后续以实际PID/startticks、queue状态及完整VERIFIED为准，不照抄启动快照为live。
+- primary在候选TEST前固定五域QA域均分再等权宏>46.619976395158304；AP19及各域对PASs/OSFT全报告，不能切聚合救结果/隐去金融下降。只最终19格，FWT/BWT=null，不冒称74格、显著或跨seed稳定。4,399,104训练坐标和168模块是实际结构，不是推理压缩/新算法。端侧只科研背景，电脑迁移/PAS部署导出不恢复。
+- 新服务Restart=no/KillMode=process且不enable开机；只STARTED前资源变化75可健康wait，STARTED后的失败保留停止，不盲重训/续写/热改。19阶段权重只新持久SHA通过后删前一private权重，逐步梯度/首步张量/资源保存及门槛全部计费。冻结源/数据/基座SHA不改，最终21454后原score全ID/全参考和19有效阶段/93更新独立CPU核验。
+- 实际正式6262/6264/6266/5774/5779身份保全，GPU2/3基线继续，GPU0他人不动，最多三卡。原screen2400/15299自然完成服务inactive，旧1154006等不恢复。公开ACTIVATION_PUBLIC只含必要保护身份，原完整进程命令审计不入Git。研究未出完整确认成绩，Ours/部署列空，目标未达成。
+
 # 2026-10-22：四组GPU小测全部完整，唯一确认候选LoRA_all；原服务正常退出
 
 - 原四组qv/OSFT/all/extra宏39.870438970/40.783800564/41.952549063/40.365015953，全部1213FIT/100DEV/19有效阶段/87有限正LR、全ID/全参考原AnswerF1/权重与梯度证据核验。原SCREEN_COMPLETE仅possible_full_retrain_candidates=['LoRA_all']，原阈值不改；extra及两个参照不追加完整训练或TEST。SCREEN SHA1f56aa877ccecf7f93eb61c8520df9bdd81137939b5d669ca66851d518363174。

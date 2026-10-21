@@ -1,0 +1,123 @@
+{
+  "observed_unix": 1792610302.6064255,
+  "worker_pid": 19535,
+  "worker_identity": {
+    "startticks": "667344",
+    "cmdline": "/data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/exp/osft_increment_confirmation_20261022/v1/run.py ",
+    "uid": 1004
+  },
+  "coordinator_pid": 19516,
+  "coordinator_identity": {
+    "startticks": "666831",
+    "cmdline": "/data1/liyapeng/program/LLMCL/.assets-env/bin/python -u /data1/liyapeng/program/LLMCL/exp/osft_increment_confirmation_20261022/v1/dispatch.py --watch ",
+    "uid": 1004
+  },
+  "ready_sha256": "a8c4b99aef2e7b5e803d027e45d31aebd5ad60df49fea7c2b459d719249da628",
+  "native19gates_complete": true,
+  "observed_finite_positive_updates": 3,
+  "all_observed_positive_finite": true,
+  "run_status": {
+    "status": "training",
+    "completed_stage": 0,
+    "active_stage": 1
+  },
+  "TRAIN_COMPLETE": false,
+  "TEST_opened": false,
+  "config": {
+    "method": "LoRA_all",
+    "condition": "pct01",
+    "manifest_sha256": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+    "seed": 42,
+    "rank": 8,
+    "alpha": 32,
+    "dropout": 0.1,
+    "learning_rate": 0.0001,
+    "TRAIN_QA": 1313,
+    "stages": 19,
+    "updates": 93,
+    "TEST_QA": 21454,
+    "dtype": "FP16 base/outer CUDA autocast; inherited FP32 LoRA tensors",
+    "trainable_parameters": 4399104,
+    "target_modules": 168,
+    "execution_source_sha256": "5466fb08ea80d677340792af346a18924819731dcf75b0f4ee9ac08336120dd3",
+    "ready_sha256": "a8c4b99aef2e7b5e803d027e45d31aebd5ad60df49fea7c2b459d719249da628",
+    "fresh_base_not_FIT_checkpoint": true,
+    "coverage": "final_only_19_tasks_not_74_cells",
+    "checkpoint_payload_phase_note": "Saved after TRAIN stage before any TEST; inherited payload phase label is not actual evaluation timing"
+  },
+  "actual_baseline_identities": {
+    "6262": {
+      "startticks": "58840",
+      "cmdline": "/data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/pipeline.py ",
+      "uid": 1004
+    },
+    "6264": {
+      "startticks": "58844",
+      "cmdline": "/data1/liyapeng/program/LLMCL/.assets-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/v2_seven_baseline_report.py --mode watch ",
+      "uid": 1004
+    },
+    "6266": {
+      "startticks": "58877",
+      "cmdline": "/data1/liyapeng/program/LLMCL/.assets-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/forever_formal_queue_20261019.py --backbone qwen ",
+      "uid": 1004
+    },
+    "5774": {
+      "startticks": "52206",
+      "cmdline": "/data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py --method PASs_MoE --condition pct01 --run-dir /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/PASs_MoE/training_20261022_013445 ",
+      "uid": 1004
+    },
+    "5779": {
+      "startticks": "52212",
+      "cmdline": "/data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py --method PaRSP --condition pct01 --run-dir /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/PaRSP/training_20261022_013445 ",
+      "uid": 1004
+    }
+  },
+  "inventory": {
+    "0": {
+      "uuid": "GPU-0fc921a0-8588-6976-7e2c-172705ab6980",
+      "memory_MiB": 24002,
+      "utilization": 0,
+      "owners": [
+        {
+          "pid": 7129,
+          "uid": 1020
+        }
+      ]
+    },
+    "1": {
+      "uuid": "GPU-3f5b86c8-feeb-110c-c68c-e04716c0f84c",
+      "memory_MiB": 3700,
+      "utilization": 81,
+      "owners": [
+        {
+          "pid": 19535,
+          "uid": 1004
+        }
+      ]
+    },
+    "2": {
+      "uuid": "GPU-01bbc8c7-11be-9e3c-b786-7c075e675e0a",
+      "memory_MiB": 7128,
+      "utilization": 14,
+      "owners": [
+        {
+          "pid": 5774,
+          "uid": 1004
+        }
+      ]
+    },
+    "3": {
+      "uuid": "GPU-fb856f23-d2d1-87af-54d4-f805742da76f",
+      "memory_MiB": 5368,
+      "utilization": 21,
+      "owners": [
+        {
+          "pid": 5779,
+          "uid": 1004
+        }
+      ]
+    }
+  },
+  "not_a_quality_result": true,
+  "observation_not_permanent_live_claim": true
+}
