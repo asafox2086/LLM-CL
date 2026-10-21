@@ -1,3 +1,5 @@
+**2026-10-22完整训练已完成：** LoRA_all从原基座完成1313 TRAIN/19阶段/93有效更新，已进入唯一最终21454题评测，尚无最终质量结论。固定五域宏判据与金融等逐域结果待完整封存后报告。[确认状态与协议](summary/edge_deployment_20261019/osft_increment_confirmation_20261022/v1/README.md)。原科学源/数值/数据不变，端侧仅科研背景。
+
 **研究解释补充：** 逐矩阵重建OSFT失败，不能一般性排除独立训练低秩模型的功能；另需注意文献中每任务合并重置的LoRA，与本项目连续同A/B的更新空间不同。[论文核对、手算反例及行动边界](summary/edge_deployment_20261019/function_not_weight_reconstruction_20261022/FINDINGS.md)。不新增模型实验，不改当前完整确认，尚非质量收益。
 
 **2026-10-22科研主线：** 唯一LoRA_all完整确认已在GPU1真实训练；原全1313/19阶段/93更新后才一次最终21454QA。新版本已审阅冻结，19训练图文门槛通过，尚无最终成绩。主要检验五域宏能否超过PASs46.620，同时公开金融等各域下降；普通LoRA不是新算法，端侧仅背景。[确认协议与状态](summary/edge_deployment_20261019/osft_increment_confirmation_20261022/v1/README.md)。原四组已结束，正式基线继续。

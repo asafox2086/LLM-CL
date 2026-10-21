@@ -1,3 +1,5 @@
+**2026-10-22训练阶段完成：** 同一GPU1 worker19535完成原1313/19/93，最终权重SHA416ed177803b9bf986dacd73a6d1bf18c6c0c59a1eb65f42785d81a628d31519、1941599549bytes；TRAIN_COMPLETE后已进入原最终21454一次生成。未有最终VERIFIED，不读partial分数，不是质量收益。下方启动观察均为历史；[阶段元数据](TRAIN_PHASE_OBSERVED.json)不代替完整最终核验。
+
 **2026-10-22已启动：** READY a8c4b99aef2e7b5e803d027e45d31aebd5ad60df49fea7c2b459d719249da628；独立审阅accept，CPU19516/GPU1 19535。首次实查19 TRAIN图文门槛完成、stage1有3有限正LR更新，TRAIN未完成、TEST未开，不是质量收益。原正式基线和原screen终态保全。此为启动观察，未来以queue及完整VERIFIED为准；旧“审阅阶段”段落是历史。
 
 # 唯一候选LoRA_all：完整1%最终质量确认

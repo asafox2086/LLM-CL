@@ -1,3 +1,10 @@
+# 2026-10-22：LoRA_all完整1313/19/93训练结束，已进入唯一最终21454评测
+
+- 原独立确认worker19535/start667344同PID自然完成原全部1313 TRAIN、19有效阶段/93正LR更新，最终checkpoint1941599549bytes/SHA416ed177803b9bf986dacd73a6d1bf18c6c0c59a1eb65f42785d81a628d31519，原源/READY a8c4b99a...不改。TRAIN_COMPLETE后才打开固定21454TEST，当前开始唯一最终生成；不得读partial分数或据TEST改rank/LR/路由/提示/步数。该阶段完成不是质量/方法收益，不称达到目标。
+- 原CPU19516/start666831继续；完整后原CPU verifier将核验全部ID/全参考/原score、预测与权重SHA、19validity/93有限正LR/原梯度证据。未有VERIFIED不解释最终F1。primary五域宏>46.619976395158304、AP19与逐域双锚差全报告，FWT/BWT=null，不冒称74格。最终科研pickle未验证部署重载，端侧只背景。
+- TRAIN_PHASE_OBSERVED仅阶段元数据，来源private TRAIN_COMPLETE/NATIVE_GATE/TEST_OPENED/19validity，未打开模型权重对象或候选TEST/预测；CPU观察连接240秒超时是观察器时限，同一19535持续推进，无worker重启/实验失败。原完整训练和保存成本后续与全RUN统一计，不重复CPU审计当成果。
+- 两机正式状态已只读核实：NEW5774/5779实际运行，6262/6264/6266/硬件协调器保全；OLD六方法已自然完成，SMo正式waiting_native_BF16_on_newGPU3，不恢复完成PID/旧v1；原Qwen Seq pipeline历史failed_repeated_resume不影响另封存branch_v2有效完整结果，不因此盲重跑。保持原优先队列，不用GPU0或旧空卡研究。完整目标未实现。
+
 # 2026-10-22：功能不要求逐矩阵重建teacher；新文献生命周期差异已核对
 
 - 新function_not_weight_reconstruction_20261022只读三篇原论文和原冻结端口，独立review accept；0新模型/更新/GPU/TEST，没有新实验READY。自行两层精确算术反例：teacher每层rank2变化，另一个每层rank1变化实现相同非恒等diag(4,6)功能；反驳从逐矩阵重建误差直接排除独立训练低秩路线，不证明当前r8/93步或F1等效。
