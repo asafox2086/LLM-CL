@@ -1,3 +1,10 @@
+# 2026-10-21：CPU补齐视觉/语言半宽2×2对照，尚无质量结果
+
+- 子agent评审接受补齐K61缺失的vision_only/text_only，暂缓PAS固定混合局部拟合。两新条件逐参数继承原dense/joint，原mask/补偿/题目不变，不重新校准、不重跑原三组、不调比例。问题是隔离该固定成本点的单支/组合损失，不判断整类模块无用。
+- width_component_split_20261021/v1已CPU小HF两条件移植和fresh文本/视觉精确门槛、复审后冻结READY7101cae0e5f23251a63c2097d85c2a4080c20eac38d7c6fd0111c47311beeaff。原/新四数学函数AST一致保留门槛，READY前仅修报告封链/参考整模释放/计时口径。原科学源不改。
+- 新nohup CPU2190288/start27210630，prepare2190313/start27211785实际R且CPU时间增长，尚无prepare COMPLETE或新F1；不当成果。CPU2数值线程/interop1/nice10、0GPU/训练，prepare2h+两case各2h预算，失败停止不盲重试。权威服务器CONTROLLER_STATE和真实PID，README启动记录不当live状态。
+- 仅5个teacher已见TRAIN探针；医学/金融原参考0。逐题F1均≥dense且整模包减少才留作未来FIT teacher/独立DEV候选，不称等效/泛化、不自动21454。新旧CPU时序速度不作受控加速；独立报告全部四格/交互F1记账及完整成本。GPU1原1154006、基线7965/181717与发布器51266保全，目标未达成。
+
 # 2026-10-21：四个完整基线的逐题功能与论文分析完成
 
 - 新sealed_baseline_tradeoffs_20261021只读四组完整预测/日志，原Answer F1及SHA复算15.264秒、0新前向/更新/GPU；EVIDENCE SHAe5afa79b6bfeba63eff51b5855936f1072d00676bf9df1957ba4a70cce8d4626。PASs/OSFT习得均分48.047/47.888、BWT−1.732/−1.616；参数实际140771328/113766144，不能当端侧成本。

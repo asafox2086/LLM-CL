@@ -1,3 +1,5 @@
+**2026-10-21新CPU问题：** 先前视觉与语言FFN同时半宽质量下降，尚未区分各支损失。本轮直接继承原完整包和半宽包，补“只减视觉”“只减语言”两格，不重跑原三组、不调比例或换题；已冻结并实际启动CPU prepare，尚无新F1结果。五道teacher已见TRAIN只作功能/整模成本可行性，不能当五域测试、独立DEV或最终端侧收益。[问题、评审、严格对照与行动出口](summary/edge_deployment_20261019/width_component_split_20261021/v1/README.md)。原GPU1队列及基线不变。
+
 **2026-10-21现有结果与论文分析：** 四个完整基线逐题原F1复算完成。PASs与OSFT总AP仅差0.049，但有2950/2295题分别更高/更低；遥感presence刚习得均约75、最终77.056/60.880，说明平均BWT会掩盖任务间差别。PASs实际训练参数1.408亿，不能因LoRA/MoE名称当作轻量。结合HC-SMoE、CoMe等原论文，后续简化必须验证功能替代及完整成本；原四组FIT/DEV不变。[完整分析、全部19任务与论文边界](summary/edge_deployment_20261019/sealed_baseline_tradeoffs_20261021/FINDINGS.md)。0新模型前向，未产生新方法/部署收益。
 
 <!-- PASS_MOE_VERIFIED_20261021 -->
