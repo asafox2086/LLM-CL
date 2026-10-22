@@ -1,3 +1,12 @@
+# 2026-10-22：固定完整短侧补基的训练必要性先导已冻结，尚未模型启动
+
+- 新PROOF在单阶段精确算术下证明：m≥n固定V_low、m<n固定U_low，短侧余维恰为r，继续学长侧及S可表达原允许集合。固定一因子已有LoRA-FA先例，不称新算法/同Adam轨迹/实际每步严格同空间；逐阶段高基仍可分化。原S保留，不要求初态奇异值全非零。问题转为有限预算下短侧训练的功能价值，不从NormOnly阴性推出原USV必要。
+- 新exp/osft_short_factor_control_20261022/v1五源、PROOF/PROTOCOL经独立review accept；唯一小HF CPU准入3.513秒，初态state/forward/RNG及共享原始梯度精确，冻结侧投影后全digest不变、两形状分支、重SVD重冻与HostAdamW/scheduler通过。READY61cbee3f91df15a997169e184754ef8bd8dbb364cb6823f76c826ee6ec6f667f冻结；CPU仅准入，实际0.9B未启动。原作者核/基线源不改。
+- 唯一新nohup服务llmcl-onevision-osft-short-factor-control-20261022.service CPU64178/start3179335；02:16:35UTC actual active/wait，无worker/STARTED/完成/故障。02:17:09UTC GPU1他人63543/start3172525存活，4506MiB/40%仅瞬时；正式6262/6264/6266/5774/5779身份匹配保全。以后仍看实际queue/身份，不重复分钟巡检、不把本快照当live，不用GPU0/旧卡，不恢复已完研究。
+- 仅一组原LR1e-5/1213FIT/100已探索DEV/19/87/原TRAIN AST/原FP16+FP32 USV。预计113766144→89485056训练坐标，全部USV存储不减少；原短侧grad None/不进optimizer，每阶段原参数投影需skip_u或临时V副本防真实冻结侧被写，完整披露。首步19组实际autocast权重步幅、87梯度/clip/实际CPU moment字节、阶段冻结SHA及全部费用记录；after-step观测时间不含before capture，全RUN/TRAIN包含两半。
+- 只按预定宏点估计严格高于原FIT-only OSFT40.783800564与qv39.870438970且实际梯度/moment字节下降，才保留后续fresh FIT-only PASs参照必要性评审；区间跨0不改点筛规则但限制稳定性，不当等效，不自动新实验/PAS/1313/21454。未过/失败结束，不搜LR/侧别/scale；不据旧TEST救分。端侧只背景，Ours/正式表不改。
+- implicit_core_feasibility_20261022本轮整数/固定源码核对及独立评审完成，0张量/模型/QA/GPU：直接QR/core所计state仅少9.31%且初态实际重构未对齐；保留原FP16起点的offset形式state增29.99%、state+gradient增16.52%。停止这项实现，不是所有隐式表示下界；旧71245824坐标不当新发现。HOFTv1现已读，Householder不是原创；Torch保存字段不乘168当checkpoint/offload实际显存峰。新信息改变实施优先级，不当F1或部署收益。科研目标未实现。
+
 # 2026-10-22：仅已有归一化参数的固定配方完整负结果，按协议结束
 
 - RMSNorm_only原1213FIT/19有效阶段/87有限正LR→100DEV经原独立verifier接受，VERIFIED SHA3b8c2b0bd67ee6db5c63846f1c400ef74c999eb9979a6bfb985fe92014ffe922；COMPLETE SHA18fa14e301668a589dbb7593af2aa16151043b451854b576729136f5d180f830。最终CP1924454244bytes/SHAd0b5ab9c212732c32c1b82de30ed56e2b22224432a9113d950e40e8dfa2c1a6a。原五源/READY8676bc60...不改，消费者唯一执行、OUTCOME SHA608fb84a69f86dba9ec142595bea208e278699b25e3afc5a1323805de8b1bbb1，独立结果review accept。
