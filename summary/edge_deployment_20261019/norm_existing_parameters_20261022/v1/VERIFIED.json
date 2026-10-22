@@ -1,0 +1,1926 @@
+{
+  "complete": true,
+  "quality": {
+    "domains": {
+      "natural": {
+        "F1": 48.365190365190365,
+        "QA": 20
+      },
+      "medical": {
+        "F1": 9.857142857142858,
+        "QA": 20
+      },
+      "geography": {
+        "F1": 38.33333333333333,
+        "QA": 20
+      },
+      "finance": {
+        "F1": 8.333333333333332,
+        "QA": 20
+      },
+      "traffic": {
+        "F1": 11.32467171896241,
+        "QA": 20
+      }
+    },
+    "domain_macro": 23.242734321592458,
+    "prediction_sha256": {
+      "exp/norm_existing_parameters_20261022/v1/private/evaluations/stage_19/T01_dev_predictions.jsonl": "ca370856f3a0ac61dcaff0da6a66db1163be9c6d71497101052653c9eb5d64e4",
+      "exp/norm_existing_parameters_20261022/v1/private/evaluations/stage_19/T02_dev_predictions.jsonl": "956db5e37809ddc8723e956f2575986160c02d126b9b5f130319a9fe491e69d6",
+      "exp/norm_existing_parameters_20261022/v1/private/evaluations/stage_19/T03_dev_predictions.jsonl": "832a529e3b14407d247ec18764e1476239ee6e48cf1e23ca3d72afb2e3c0b499",
+      "exp/norm_existing_parameters_20261022/v1/private/evaluations/stage_19/T04_dev_predictions.jsonl": "7292e87119c0c0a9343057400d53f114fec527bfc644bf0135184d2c2f83949d",
+      "exp/norm_existing_parameters_20261022/v1/private/evaluations/stage_19/T05_dev_predictions.jsonl": "2499d8cc7baf282cbc247234704f99e95a3581f0386e17552da7eb27d0c0358a",
+      "exp/norm_existing_parameters_20261022/v1/private/evaluations/stage_19/T06_dev_predictions.jsonl": "eff0867604022e493398d277d6eea71c207794bacf7bfbf1d57f36bc44b2d46f",
+      "exp/norm_existing_parameters_20261022/v1/private/evaluations/stage_19/T10_dev_predictions.jsonl": "13bf5048615198906028b5348053d0b6ea69c7f27c18fd19422de44084e4579c",
+      "exp/norm_existing_parameters_20261022/v1/private/evaluations/stage_19/T11_dev_predictions.jsonl": "34e977f07e9150683b65ff01ab29983b978adb71e8e7cef562a586ad976681cc",
+      "exp/norm_existing_parameters_20261022/v1/private/evaluations/stage_19/T13_dev_predictions.jsonl": "d432de33497f23ced2e0f25de8ac4e1cf7293cb31a6616478584f975580a2955",
+      "exp/norm_existing_parameters_20261022/v1/private/evaluations/stage_19/T14_dev_predictions.jsonl": "98882dd1bfa97f072a8fef0e2d17ecb8ae568a1e96c8ae9cb0c286a1717d7657",
+      "exp/norm_existing_parameters_20261022/v1/private/evaluations/stage_19/T15_dev_predictions.jsonl": "3e0684cb5f0ecd44b5cb09ba435cdbbe9d851ccd5d6ccd1395baccb7f5558110",
+      "exp/norm_existing_parameters_20261022/v1/private/evaluations/stage_19/T16_dev_predictions.jsonl": "8ca8af478f1d49c142d48143e84cd097f178e880705028bb531c0d1e17ca5b0d",
+      "exp/norm_existing_parameters_20261022/v1/private/evaluations/stage_19/T17_dev_predictions.jsonl": "d2e3cda8a492ec40d2f86b49fd39b89f53ca7f7d33c39081b90d02d040cadbb4",
+      "exp/norm_existing_parameters_20261022/v1/private/evaluations/stage_19/T18_dev_predictions.jsonl": "6e374a52822eb1a87f43beabe6fbd3459584dd56ea54a95be080f41a607719c3",
+      "exp/norm_existing_parameters_20261022/v1/private/evaluations/stage_19/T19_dev_predictions.jsonl": "bf1867c838b31a858cfb38242ca0683dde5ebba37f3bd8392b13c1018a6205e3"
+    }
+  },
+  "paired": {
+    "primary": "RMSNorm_only_macro_strictly_above_both_anchors",
+    "secondary": "paired_against_both_anchors",
+    "comparisons": {
+      "LoRA_qv": {
+        "domain_difference_pp": {
+          "natural": -12.301476301476303,
+          "medical": -38.5,
+          "geography": 3.333333333333333,
+          "finance": -11.666666666666668,
+          "traffic": -24.00371360792433
+        },
+        "QA_comparison": {
+          "natural": {
+            "higher": 1,
+            "lower": 8,
+            "equal": 11
+          },
+          "medical": {
+            "higher": 1,
+            "lower": 9,
+            "equal": 10
+          },
+          "geography": {
+            "higher": 4,
+            "lower": 3,
+            "equal": 13
+          },
+          "finance": {
+            "higher": 1,
+            "lower": 3,
+            "equal": 16
+          },
+          "traffic": {
+            "higher": 1,
+            "lower": 19,
+            "equal": 0
+          }
+        },
+        "exploratory_group_interval_pp": {
+          "natural": [
+            -21.404040404040405,
+            -4.563092463092478
+          ],
+          "medical": [
+            -61.50019841269841,
+            -18.7967105263158
+          ],
+          "geography": [
+            -21.666666666666668,
+            28.571428571428573
+          ],
+          "finance": [
+            -30.0,
+            4.999999999999998
+          ],
+          "traffic": [
+            -30.970928315247853,
+            -16.677295478397916
+          ],
+          "macro": [
+            -24.511466092762547,
+            -8.948959840880262
+          ]
+        },
+        "macro_difference_pp": -16.62770464854679
+      },
+      "OSFT_all": {
+        "domain_difference_pp": {
+          "natural": -10.634809634809635,
+          "medical": -30.5,
+          "geography": -1.6666666666666672,
+          "finance": -16.666666666666668,
+          "traffic": -28.237188243610056
+        },
+        "QA_comparison": {
+          "natural": {
+            "higher": 2,
+            "lower": 8,
+            "equal": 10
+          },
+          "medical": {
+            "higher": 1,
+            "lower": 7,
+            "equal": 12
+          },
+          "geography": {
+            "higher": 2,
+            "lower": 2,
+            "equal": 16
+          },
+          "finance": {
+            "higher": 1,
+            "lower": 4,
+            "equal": 15
+          },
+          "traffic": {
+            "higher": 0,
+            "lower": 20,
+            "equal": 0
+          }
+        },
+        "exploratory_group_interval_pp": {
+          "natural": [
+            -23.626262626262623,
+            3.1111111111111085
+          ],
+          "medical": [
+            -50.0,
+            -12.732056590752256
+          ],
+          "geography": [
+            -17.391304347826086,
+            20.0
+          ],
+          "finance": [
+            -36.66666666666667,
+            1.6666666666666656
+          ],
+          "traffic": [
+            -33.47873554155631,
+            -23.004488825909306
+          ],
+          "macro": [
+            -24.594087605352904,
+            -10.053578767959525
+          ]
+        },
+        "macro_difference_pp": -17.541066242350603
+      }
+    },
+    "replicates": 10000,
+    "seed": 20261022,
+    "not_equivalence_or_significance_or_training_seed_uncertainty": true,
+    "reused_DEV_not_new_holdout": true,
+    "automatic_full_confirmation": false
+  },
+  "FIT_QA": 1213,
+  "DEV_QA": 100,
+  "updates": 87,
+  "TEST_QA": 0,
+  "complete_sha256": "18fa14e301668a589dbb7593af2aa16151043b451854b576729136f5d180f830",
+  "ready_sha256": "8676bc60504a610a39c0f5f942f961643f509883e0171c399f9cf81eb1ac1186",
+  "source_sha256": "a2134148d2aac5a9b5747658d0d8380625c0402ef6fdb7f40cd7b7e5bd4303e7",
+  "checkpoint": {
+    "path": "checkpoints/stage_19.pt",
+    "stage": 19,
+    "bytes": 1924454244,
+    "sha256": "d0b5ab9c212732c32c1b82de30ed56e2b22224432a9113d950e40e8dfa2c1a6a",
+    "seconds": 15.96350987599726,
+    "manifest_sha256": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+    "method": "RMSNorm_only",
+    "full_architecture_and_runtime": true,
+    "optimizer_saved": false
+  },
+  "new_model_requests": 0,
+  "possible_followup_fresh_PAS_reference": false,
+  "fixed_anchor_threshold": 40.78380056394307,
+  "final_gain_change": {
+    "master": {
+      "changed": 43007,
+      "l2": 0.4025901257991791
+    },
+    "forward": {
+      "changed": 34896,
+      "l2": 0.4087078273296356
+    }
+  },
+  "actual_forward_update_evidence": [
+    {
+      "stage": 1,
+      "step": 1,
+      "updates": 21,
+      "from_previous": {
+        "master": {
+          "changed": 43008,
+          "l2": 0.020733129233121872,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 1336,
+          "l2": 0.004068505950272083,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 1,
+      "step": 2,
+      "updates": 21,
+      "from_previous": {
+        "master": {
+          "changed": 43005,
+          "l2": 0.018451694399118423,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 2846,
+          "l2": 0.010347922332584858,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 1,
+      "step": 3,
+      "updates": 21,
+      "from_previous": {
+        "master": {
+          "changed": 43005,
+          "l2": 0.017518730834126472,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 6752,
+          "l2": 0.03755342587828636,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 1,
+      "step": 4,
+      "updates": 21,
+      "from_previous": {
+        "master": {
+          "changed": 43003,
+          "l2": 0.01663253642618656,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 2730,
+          "l2": 0.01273777149617672,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 1,
+      "step": 5,
+      "updates": 21,
+      "from_previous": {
+        "master": {
+          "changed": 42998,
+          "l2": 0.015749773010611534,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 1625,
+          "l2": 0.007946918718516827,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 1,
+      "step": 6,
+      "updates": 21,
+      "from_previous": {
+        "master": {
+          "changed": 43001,
+          "l2": 0.014765365049242973,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 18100,
+          "l2": 0.126663476228714,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 1,
+      "step": 7,
+      "updates": 21,
+      "from_previous": {
+        "master": {
+          "changed": 43001,
+          "l2": 0.013620742596685886,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 4042,
+          "l2": 0.04409020394086838,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 1,
+      "step": 8,
+      "updates": 21,
+      "from_previous": {
+        "master": {
+          "changed": 42992,
+          "l2": 0.012479666620492935,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 2293,
+          "l2": 0.02870151400566101,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 1,
+      "step": 9,
+      "updates": 21,
+      "from_previous": {
+        "master": {
+          "changed": 42998,
+          "l2": 0.011311995796859264,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 5476,
+          "l2": 0.03789375349879265,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 1,
+      "step": 10,
+      "updates": 21,
+      "from_previous": {
+        "master": {
+          "changed": 42997,
+          "l2": 0.010176265612244606,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 2556,
+          "l2": 0.025575555860996246,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 1,
+      "step": 11,
+      "updates": 21,
+      "from_previous": {
+        "master": {
+          "changed": 42995,
+          "l2": 0.008947297930717468,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 2332,
+          "l2": 0.021597489714622498,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 1,
+      "step": 12,
+      "updates": 21,
+      "from_previous": {
+        "master": {
+          "changed": 42981,
+          "l2": 0.00762292742729187,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 1596,
+          "l2": 0.017297975718975067,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 1,
+      "step": 13,
+      "updates": 21,
+      "from_previous": {
+        "master": {
+          "changed": 42983,
+          "l2": 0.006377639248967171,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 1864,
+          "l2": 0.05524691194295883,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 1,
+      "step": 14,
+      "updates": 21,
+      "from_previous": {
+        "master": {
+          "changed": 42965,
+          "l2": 0.0052510579116642475,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 1644,
+          "l2": 0.053868457674980164,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 1,
+      "step": 15,
+      "updates": 21,
+      "from_previous": {
+        "master": {
+          "changed": 42967,
+          "l2": 0.004126306623220444,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 1272,
+          "l2": 0.04364914074540138,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 1,
+      "step": 16,
+      "updates": 21,
+      "from_previous": {
+        "master": {
+          "changed": 42939,
+          "l2": 0.0031078332103788853,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 839,
+          "l2": 0.034002844244241714,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 1,
+      "step": 17,
+      "updates": 21,
+      "from_previous": {
+        "master": {
+          "changed": 42940,
+          "l2": 0.00217628781683743,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 596,
+          "l2": 0.028107106685638428,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 1,
+      "step": 18,
+      "updates": 21,
+      "from_previous": {
+        "master": {
+          "changed": 42900,
+          "l2": 0.0014164871536195278,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 398,
+          "l2": 0.02171923778951168,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 1,
+      "step": 19,
+      "updates": 21,
+      "from_previous": {
+        "master": {
+          "changed": 42781,
+          "l2": 0.0008045567665249109,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 250,
+          "l2": 0.01565621607005596,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 1,
+      "step": 20,
+      "updates": 21,
+      "from_previous": {
+        "master": {
+          "changed": 42498,
+          "l2": 0.0003603865916375071,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 128,
+          "l2": 0.009017998352646828,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 1,
+      "step": 21,
+      "updates": 21,
+      "from_previous": {
+        "master": {
+          "changed": 40851,
+          "l2": 8.895592327462509e-05,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 39,
+          "l2": 0.004122133366763592,
+          "total": 43008
+        }
+      },
+      "from_stage_start": {
+        "master": {
+          "changed": 43008,
+          "l2": 0.1854112297296524,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 33994,
+          "l2": 0.1964891403913498,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 2,
+      "step": 1,
+      "updates": 1,
+      "from_previous": {
+        "master": {
+          "changed": 43007,
+          "l2": 0.020736532285809517,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 4820,
+          "l2": 0.07629374414682388,
+          "total": 43008
+        }
+      },
+      "from_stage_start": {
+        "master": {
+          "changed": 43007,
+          "l2": 0.020736532285809517,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 4820,
+          "l2": 0.07629374414682388,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 3,
+      "step": 1,
+      "updates": 1,
+      "from_previous": {
+        "master": {
+          "changed": 43008,
+          "l2": 0.020736457780003548,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 5792,
+          "l2": 0.06673727184534073,
+          "total": 43008
+        }
+      },
+      "from_stage_start": {
+        "master": {
+          "changed": 43008,
+          "l2": 0.020736457780003548,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 5792,
+          "l2": 0.06673727184534073,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 4,
+      "step": 1,
+      "updates": 2,
+      "from_previous": {
+        "master": {
+          "changed": 43008,
+          "l2": 0.02073615975677967,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 5128,
+          "l2": 0.06018512323498726,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 4,
+      "step": 2,
+      "updates": 2,
+      "from_previous": {
+        "master": {
+          "changed": 42994,
+          "l2": 0.008959745056927204,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 2582,
+          "l2": 0.03834822401404381,
+          "total": 43008
+        }
+      },
+      "from_stage_start": {
+        "master": {
+          "changed": 43008,
+          "l2": 0.02899978868663311,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 6802,
+          "l2": 0.07064950466156006,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 5,
+      "step": 1,
+      "updates": 1,
+      "from_previous": {
+        "master": {
+          "changed": 43007,
+          "l2": 0.02073667384684086,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 8448,
+          "l2": 0.08242917060852051,
+          "total": 43008
+        }
+      },
+      "from_stage_start": {
+        "master": {
+          "changed": 43007,
+          "l2": 0.02073667384684086,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 8448,
+          "l2": 0.08242917060852051,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 6,
+      "step": 1,
+      "updates": 1,
+      "from_previous": {
+        "master": {
+          "changed": 43008,
+          "l2": 0.020735464990139008,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 6925,
+          "l2": 0.07098894566297531,
+          "total": 43008
+        }
+      },
+      "from_stage_start": {
+        "master": {
+          "changed": 43008,
+          "l2": 0.020735464990139008,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 6925,
+          "l2": 0.07098894566297531,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 7,
+      "step": 1,
+      "updates": 1,
+      "from_previous": {
+        "master": {
+          "changed": 43008,
+          "l2": 0.02073327638208866,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 7891,
+          "l2": 0.07575076818466187,
+          "total": 43008
+        }
+      },
+      "from_stage_start": {
+        "master": {
+          "changed": 43008,
+          "l2": 0.02073327638208866,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 7891,
+          "l2": 0.07575076818466187,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 8,
+      "step": 1,
+      "updates": 1,
+      "from_previous": {
+        "master": {
+          "changed": 43008,
+          "l2": 0.020735451951622963,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 6525,
+          "l2": 0.06630270183086395,
+          "total": 43008
+        }
+      },
+      "from_stage_start": {
+        "master": {
+          "changed": 43008,
+          "l2": 0.020735451951622963,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 6525,
+          "l2": 0.06630270183086395,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 9,
+      "step": 1,
+      "updates": 1,
+      "from_previous": {
+        "master": {
+          "changed": 43007,
+          "l2": 0.020736850798130035,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 6563,
+          "l2": 0.06595862656831741,
+          "total": 43008
+        }
+      },
+      "from_stage_start": {
+        "master": {
+          "changed": 43007,
+          "l2": 0.020736850798130035,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 6563,
+          "l2": 0.06595862656831741,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 10,
+      "step": 1,
+      "updates": 1,
+      "from_previous": {
+        "master": {
+          "changed": 43004,
+          "l2": 0.020735228434205055,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 6063,
+          "l2": 0.0650830790400505,
+          "total": 43008
+        }
+      },
+      "from_stage_start": {
+        "master": {
+          "changed": 43004,
+          "l2": 0.020735228434205055,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 6063,
+          "l2": 0.0650830790400505,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 11,
+      "step": 1,
+      "updates": 1,
+      "from_previous": {
+        "master": {
+          "changed": 43008,
+          "l2": 0.02073625475168228,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 6214,
+          "l2": 0.06426405161619186,
+          "total": 43008
+        }
+      },
+      "from_stage_start": {
+        "master": {
+          "changed": 43008,
+          "l2": 0.02073625475168228,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 6214,
+          "l2": 0.06426405161619186,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 12,
+      "step": 1,
+      "updates": 1,
+      "from_previous": {
+        "master": {
+          "changed": 43008,
+          "l2": 0.020734570920467377,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 5868,
+          "l2": 0.0625624880194664,
+          "total": 43008
+        }
+      },
+      "from_stage_start": {
+        "master": {
+          "changed": 43008,
+          "l2": 0.020734570920467377,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 5868,
+          "l2": 0.0625624880194664,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 13,
+      "step": 1,
+      "updates": 11,
+      "from_previous": {
+        "master": {
+          "changed": 43007,
+          "l2": 0.020736027508974075,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 5993,
+          "l2": 0.061925776302814484,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 13,
+      "step": 2,
+      "updates": 11,
+      "from_previous": {
+        "master": {
+          "changed": 42994,
+          "l2": 0.016319701448082924,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 4658,
+          "l2": 0.05386399105191231,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 13,
+      "step": 3,
+      "updates": 11,
+      "from_previous": {
+        "master": {
+          "changed": 42997,
+          "l2": 0.015551838092505932,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 4938,
+          "l2": 0.05628538131713867,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 13,
+      "step": 4,
+      "updates": 11,
+      "from_previous": {
+        "master": {
+          "changed": 42993,
+          "l2": 0.013489292934536934,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 3991,
+          "l2": 0.04839944466948509,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 13,
+      "step": 5,
+      "updates": 11,
+      "from_previous": {
+        "master": {
+          "changed": 42994,
+          "l2": 0.011495869606733322,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 3940,
+          "l2": 0.04892440140247345,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 13,
+      "step": 6,
+      "updates": 11,
+      "from_previous": {
+        "master": {
+          "changed": 42988,
+          "l2": 0.009357484057545662,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 3233,
+          "l2": 0.04424428567290306,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 13,
+      "step": 7,
+      "updates": 11,
+      "from_previous": {
+        "master": {
+          "changed": 42991,
+          "l2": 0.00646792259067297,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 2189,
+          "l2": 0.0357527993619442,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 13,
+      "step": 8,
+      "updates": 11,
+      "from_previous": {
+        "master": {
+          "changed": 42976,
+          "l2": 0.004532951395958662,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 1501,
+          "l2": 0.029216615483164787,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 13,
+      "step": 9,
+      "updates": 11,
+      "from_previous": {
+        "master": {
+          "changed": 42938,
+          "l2": 0.002510504797101021,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 855,
+          "l2": 0.021098632365465164,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 13,
+      "step": 10,
+      "updates": 11,
+      "from_previous": {
+        "master": {
+          "changed": 42825,
+          "l2": 0.0011413861066102982,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 365,
+          "l2": 0.012852160260081291,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 13,
+      "step": 11,
+      "updates": 11,
+      "from_previous": {
+        "master": {
+          "changed": 41866,
+          "l2": 0.00025016366271302104,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 101,
+          "l2": 0.00598481297492981,
+          "total": 43008
+        }
+      },
+      "from_stage_start": {
+        "master": {
+          "changed": 43006,
+          "l2": 0.09616707265377045,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 21443,
+          "l2": 0.13703930377960205,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 14,
+      "step": 1,
+      "updates": 11,
+      "from_previous": {
+        "master": {
+          "changed": 43008,
+          "l2": 0.02073589526116848,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 6339,
+          "l2": 0.06533302366733551,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 14,
+      "step": 2,
+      "updates": 11,
+      "from_previous": {
+        "master": {
+          "changed": 43004,
+          "l2": 0.0191382747143507,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 6122,
+          "l2": 0.06472181528806686,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 14,
+      "step": 3,
+      "updates": 11,
+      "from_previous": {
+        "master": {
+          "changed": 43005,
+          "l2": 0.017546331509947777,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 5332,
+          "l2": 0.05860484018921852,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 14,
+      "step": 4,
+      "updates": 11,
+      "from_previous": {
+        "master": {
+          "changed": 43007,
+          "l2": 0.015453273430466652,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 4843,
+          "l2": 0.056607265025377274,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 14,
+      "step": 5,
+      "updates": 11,
+      "from_previous": {
+        "master": {
+          "changed": 43003,
+          "l2": 0.012458263896405697,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 4181,
+          "l2": 0.05101882666349411,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 14,
+      "step": 6,
+      "updates": 11,
+      "from_previous": {
+        "master": {
+          "changed": 43001,
+          "l2": 0.00969165749847889,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 3166,
+          "l2": 0.04368703439831734,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 14,
+      "step": 7,
+      "updates": 11,
+      "from_previous": {
+        "master": {
+          "changed": 42999,
+          "l2": 0.0067393542267382145,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 2345,
+          "l2": 0.03657172992825508,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 14,
+      "step": 8,
+      "updates": 11,
+      "from_previous": {
+        "master": {
+          "changed": 42993,
+          "l2": 0.004027894698083401,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 1402,
+          "l2": 0.02864058129489422,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 14,
+      "step": 9,
+      "updates": 11,
+      "from_previous": {
+        "master": {
+          "changed": 42964,
+          "l2": 0.0021476808469742537,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 817,
+          "l2": 0.02073422446846962,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 14,
+      "step": 10,
+      "updates": 11,
+      "from_previous": {
+        "master": {
+          "changed": 42927,
+          "l2": 0.000905403692740947,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 354,
+          "l2": 0.012243731878697872,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 14,
+      "step": 11,
+      "updates": 11,
+      "from_previous": {
+        "master": {
+          "changed": 42640,
+          "l2": 0.000226558608119376,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 83,
+          "l2": 0.005364068318158388,
+          "total": 43008
+        }
+      },
+      "from_stage_start": {
+        "master": {
+          "changed": 43008,
+          "l2": 0.1072419285774231,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 24792,
+          "l2": 0.15107150375843048,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 15,
+      "step": 1,
+      "updates": 14,
+      "from_previous": {
+        "master": {
+          "changed": 43007,
+          "l2": 0.02071620337665081,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 6173,
+          "l2": 0.06503275781869888,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 15,
+      "step": 2,
+      "updates": 14,
+      "from_previous": {
+        "master": {
+          "changed": 43006,
+          "l2": 0.016312895342707634,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 5151,
+          "l2": 0.058209847658872604,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 15,
+      "step": 3,
+      "updates": 14,
+      "from_previous": {
+        "master": {
+          "changed": 43004,
+          "l2": 0.015587898902595043,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 4902,
+          "l2": 0.05697935074567795,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 15,
+      "step": 4,
+      "updates": 14,
+      "from_previous": {
+        "master": {
+          "changed": 42996,
+          "l2": 0.01458285003900528,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 4442,
+          "l2": 0.053752511739730835,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 15,
+      "step": 5,
+      "updates": 14,
+      "from_previous": {
+        "master": {
+          "changed": 42998,
+          "l2": 0.013865473680198193,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 4419,
+          "l2": 0.053192444145679474,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 15,
+      "step": 6,
+      "updates": 14,
+      "from_previous": {
+        "master": {
+          "changed": 43002,
+          "l2": 0.012570305727422237,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 4074,
+          "l2": 0.050964079797267914,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 15,
+      "step": 7,
+      "updates": 14,
+      "from_previous": {
+        "master": {
+          "changed": 43002,
+          "l2": 0.010927814058959484,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 3455,
+          "l2": 0.047635383903980255,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 15,
+      "step": 8,
+      "updates": 14,
+      "from_previous": {
+        "master": {
+          "changed": 42999,
+          "l2": 0.009020893834531307,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 2972,
+          "l2": 0.04280412197113037,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 15,
+      "step": 9,
+      "updates": 14,
+      "from_previous": {
+        "master": {
+          "changed": 42997,
+          "l2": 0.007019467651844025,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 2404,
+          "l2": 0.039195094257593155,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 15,
+      "step": 10,
+      "updates": 14,
+      "from_previous": {
+        "master": {
+          "changed": 42986,
+          "l2": 0.005134209059178829,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 1789,
+          "l2": 0.034253016114234924,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 15,
+      "step": 11,
+      "updates": 14,
+      "from_previous": {
+        "master": {
+          "changed": 42974,
+          "l2": 0.0033801263198256493,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 1126,
+          "l2": 0.02615266479551792,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 15,
+      "step": 12,
+      "updates": 14,
+      "from_previous": {
+        "master": {
+          "changed": 42959,
+          "l2": 0.0019337276462465525,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 704,
+          "l2": 0.01996481791138649,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 15,
+      "step": 13,
+      "updates": 14,
+      "from_previous": {
+        "master": {
+          "changed": 42868,
+          "l2": 0.0008822234813123941,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 293,
+          "l2": 0.012706157751381397,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 15,
+      "step": 14,
+      "updates": 14,
+      "from_previous": {
+        "master": {
+          "changed": 41741,
+          "l2": 0.00019622784748207778,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 69,
+          "l2": 0.006253518629819155,
+          "total": 43008
+        }
+      },
+      "from_stage_start": {
+        "master": {
+          "changed": 43006,
+          "l2": 0.1232653558254242,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 26440,
+          "l2": 0.16312846541404724,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 16,
+      "step": 1,
+      "updates": 5,
+      "from_previous": {
+        "master": {
+          "changed": 43008,
+          "l2": 0.020735882222652435,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 6380,
+          "l2": 0.06706862151622772,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 16,
+      "step": 2,
+      "updates": 5,
+      "from_previous": {
+        "master": {
+          "changed": 42994,
+          "l2": 0.01456188689917326,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 4387,
+          "l2": 0.05479106307029724,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 16,
+      "step": 3,
+      "updates": 5,
+      "from_previous": {
+        "master": {
+          "changed": 42994,
+          "l2": 0.010052181780338287,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 3083,
+          "l2": 0.044521354138851166,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 16,
+      "step": 4,
+      "updates": 5,
+      "from_previous": {
+        "master": {
+          "changed": 42959,
+          "l2": 0.005059570074081421,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 1662,
+          "l2": 0.029850883409380913,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 16,
+      "step": 5,
+      "updates": 5,
+      "from_previous": {
+        "master": {
+          "changed": 42844,
+          "l2": 0.0013169767335057259,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 477,
+          "l2": 0.01661357656121254,
+          "total": 43008
+        }
+      },
+      "from_stage_start": {
+        "master": {
+          "changed": 42999,
+          "l2": 0.04628365859389305,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 11336,
+          "l2": 0.09481476992368698,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 17,
+      "step": 1,
+      "updates": 3,
+      "from_previous": {
+        "master": {
+          "changed": 43005,
+          "l2": 0.020732754841446877,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 6294,
+          "l2": 0.06617283821105957,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 17,
+      "step": 2,
+      "updates": 3,
+      "from_previous": {
+        "master": {
+          "changed": 43000,
+          "l2": 0.01378016360104084,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 4452,
+          "l2": 0.05342558026313782,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 17,
+      "step": 3,
+      "updates": 3,
+      "from_previous": {
+        "master": {
+          "changed": 42976,
+          "l2": 0.0043770014308393,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 1671,
+          "l2": 0.03077300637960434,
+          "total": 43008
+        }
+      },
+      "from_stage_start": {
+        "master": {
+          "changed": 43008,
+          "l2": 0.03745802864432335,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 10434,
+          "l2": 0.08844590932130814,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 18,
+      "step": 1,
+      "updates": 7,
+      "from_previous": {
+        "master": {
+          "changed": 43005,
+          "l2": 0.020734870806336403,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 6414,
+          "l2": 0.06601740419864655,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 18,
+      "step": 2,
+      "updates": 7,
+      "from_previous": {
+        "master": {
+          "changed": 43000,
+          "l2": 0.017432188615202904,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 5297,
+          "l2": 0.059723611921072006,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 18,
+      "step": 3,
+      "updates": 7,
+      "from_previous": {
+        "master": {
+          "changed": 42990,
+          "l2": 0.014125981368124485,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 4454,
+          "l2": 0.054336659610271454,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 18,
+      "step": 4,
+      "updates": 7,
+      "from_previous": {
+        "master": {
+          "changed": 42996,
+          "l2": 0.010481413453817368,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 3440,
+          "l2": 0.04522662237286568,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 18,
+      "step": 5,
+      "updates": 7,
+      "from_previous": {
+        "master": {
+          "changed": 42987,
+          "l2": 0.006585368886590004,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 2308,
+          "l2": 0.03635162115097046,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 18,
+      "step": 6,
+      "updates": 7,
+      "from_previous": {
+        "master": {
+          "changed": 42963,
+          "l2": 0.0031741922721266747,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 1209,
+          "l2": 0.02588811330497265,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 18,
+      "step": 7,
+      "updates": 7,
+      "from_previous": {
+        "master": {
+          "changed": 42737,
+          "l2": 0.0007627488230355084,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 288,
+          "l2": 0.012335690669715405,
+          "total": 43008
+        }
+      },
+      "from_stage_start": {
+        "master": {
+          "changed": 43008,
+          "l2": 0.06983289867639542,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 17145,
+          "l2": 0.11899339407682419,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 19,
+      "step": 1,
+      "updates": 3,
+      "from_previous": {
+        "master": {
+          "changed": 43003,
+          "l2": 0.020734837278723717,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 6394,
+          "l2": 0.06555693596601486,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 19,
+      "step": 2,
+      "updates": 3,
+      "from_previous": {
+        "master": {
+          "changed": 43002,
+          "l2": 0.013765232637524605,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 4339,
+          "l2": 0.05196407809853554,
+          "total": 43008
+        }
+      }
+    },
+    {
+      "stage": 19,
+      "step": 3,
+      "updates": 3,
+      "from_previous": {
+        "master": {
+          "changed": 42983,
+          "l2": 0.004336453974246979,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 1544,
+          "l2": 0.0289484690874815,
+          "total": 43008
+        }
+      },
+      "from_stage_start": {
+        "master": {
+          "changed": 43008,
+          "l2": 0.03743504360318184,
+          "total": 43008
+        },
+        "forward": {
+          "changed": 10331,
+          "l2": 0.08673840761184692,
+          "total": 43008
+        }
+      }
+    }
+  ],
+  "not_whole_function_change_proof": true,
+  "automatic_full_confirmation": false,
+  "original_screen_and_full_confirmation_unchanged": true,
+  "CPU_verification_seconds": 9.733432831002574
+}
