@@ -1,3 +1,11 @@
+# 2026-10-22：fresh PAS参照4小时超时，按协议关闭；质量缺测
+
+- PAS v2同一冻结worker10568在backward处触发4h TimeoutError，CPU10505/worker均自然退出，unit failed/MainPID0/exit1；无TRAIN_COMPLETE/COMPLETE/VERIFIED/DEV预测。记录77/87更新、最后S17 step3/46QA、1074 FIT曝光及17完整checkpoint/validity；最后记录后的inflight工作未知，不按零计。保留源/READY0f0faa9d...、FAILURE/needs_attention及费用，不续训/延时/建v3或自动新实验。
+- 最后CP17为3051081597bytes，实际一次流SHA45caf48ac72dae644cd52d7eba24c70aa43b5baad5cde9d497b6fd88b28f3d33与原metadata相等；只封未完成轨迹，不加载/续训或当最终模型。BUDGET_FAILURE_SEAL a2b1ceac553e55774c82bae6163087a5e493c2cd89d44d59d32cbf43a16a0156封135 JSON/log当前原字节和2677有效资源行；34个PT保留只列尺寸，不补称全内容核验。77个optimizer witness持久存在不等于87完整证明，未运行完整verifier/评分/配对。
+- STARTED→FAILURE文件mtime区间14404.667804秒非完整RUN，更新主体12754.420571秒，17保存元数据1075.757412秒；逻辑51925459759bytes非物理IO，区间重叠不相加。原seal保存字段误用不存在键默认0，错误seal保留，FAILURE_COST_CORRECTION以原metadata秒数更正；无模型/CP重hash/评分重跑。CPU准入/故障封存/原v1探索费用另列，不能称同计算预算。
+- 独立结果review接受：这是预算未完成而PAS质量缺测，不是PAS质量阴性，也不判ShortFixed胜出或失败。原ShortFixed对OSFT/qv探索结果保留，但fresh PAS比较条件未满足，关闭当前完整确认分支，不放行1313/21454。canonical queue closed_budget_timeout，当前无研究worker；勿继续等待/恢复旧入口。正式基线继续保全，Ours/正式表不填，端侧仅背景，科研目标未实现。
+- 权威BUDGET_FAILURE_FINDINGS/REVIEW/SEAL/FAILURE_COST_CORRECTION/PUBLICATION。下方启动/运行/预算截止快照均为历史。无新F1，不以代码/封存/巡检当科研收益。
+
 # 2026-10-22：新boot只中断未STARTED的PAS v2等待，原READY接续CPU
 
 - 约08:18:29UTC NEW再次重启，boot c8bddf24-7969-41d6-a0fc-e5287850807f；旧CPU13658消失。确证无STARTED/private/模型尝试，原源码在STARTED后才导入Torch/CUDA；READY0f0faa9d...与科学源不改。独立review接受只接续同READY等待入口，非再一次fresh模型重做；首次STARTED后若中断/失败/超预算仍停止，4h及累计6h边界不改。不重CPU准入/旧评分，不新增v3。
