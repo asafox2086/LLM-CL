@@ -1,3 +1,9 @@
+# 2026-10-22：新boot只中断未STARTED的PAS v2等待，原READY接续CPU
+
+- 约08:18:29UTC NEW再次重启，boot c8bddf24-7969-41d6-a0fc-e5287850807f；旧CPU13658消失。确证无STARTED/private/模型尝试，原源码在STARTED后才导入Torch/CUDA；READY0f0faa9d...与科学源不改。独立review接受只接续同READY等待入口，非再一次fresh模型重做；首次STARTED后若中断/失败/超预算仍停止，4h及累计6h边界不改。不重CPU准入/旧评分，不新增v3。
+- 原native2497及CL8260/SMo8265合法孩子保全，formal state不改、未向GPU信号；只恢复七范围publisher10495和无TRAIN的FOREVER等待10498。研究CPU10505/start131721于08:40:26UTC接续，旧activation/state私有原字节保存，新CONTROLLER_RECOVERY绑定SHA。上述均是恢复快照，后续看实际身份/PHASE/queue，不能继续照旧boot/PID。
+- 见reboot_recovery_20261022/v4/RECOVERY、REVIEW、FINDINGS、PHASE_OBSERVED；新模型是否STARTED以PHASE和真实proof为准，不把CPU接续当训练或科研收益。Ours/正式表空白规则不变。下方旧boot记录保留为历史。
+
 # 2026-10-22：PAS参照被外部重启中断；独立v2只作一次fresh重做
 
 - NEW约07:29:58UTC外部重启，boot为0e2e9e29-69fa-48e5-b599-6d36f9a70149。原PAS参照v1有46条更新及13阶段checkpoint，无DEV/COMPLETE；optimizer实测证据尚在RAM且已丢失，不能续CP后冒充87步完整证明。原源/READY/费用保留，INTERRUPTION_SEAL b8c109f03efff226e7554a3869b79283f39393ed03aecf7d5b1f82e0a9c03772和EVIDENCE_COVERAGE30b7db20f66cebe17029d246b3d8681c7edf296629e09cfede1b188c1a370655封存；v1关闭不恢复。
