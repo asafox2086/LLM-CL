@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "tiny_HF_layers": 2,
+  "target_modules": 4,
+  "trainable_coordinates": 128,
+  "initial_state_values_and_forward_and_RNG_exact": true,
+  "all_other_weights_frozen": true,
+  "master_dtype": "float32",
+  "forward_weight_dtype": "float16",
+  "finite_backward": true,
+  "tiny_method_graph_roundtrip_exact": true,
+  "zero_update_recorder_exact": true,
+  "optimizer_steps": 0,
+  "new_actual_model_requests": 0,
+  "original_norm_source": {
+    "transformers": "4.46.3",
+    "class_source": "class Qwen2RMSNorm(nn.Module):\n    def __init__(self, hidden_size, eps=1e-6):\n        \"\"\"\n        Qwen2RMSNorm is equivalent to T5LayerNorm\n        \"\"\"\n        super().__init__()\n        self.weight = nn.Parameter(torch.ones(hidden_size))\n        self.variance_epsilon = eps\n\n    def forward(self, hidden_states):\n        input_dtype = hidden_states.dtype\n        hidden_states = hidden_states.to(torch.float32)\n        variance = hidden_states.pow(2).mean(-1, keepdim=True)\n        hidden_states = hidden_states * torch.rsqrt(variance + self.variance_epsilon)\n        return self.weight * hidden_states.to(input_dtype)\n\n    def extra_repr(self):\n        return f\"{tuple(self.weight.shape)}, eps={self.variance_epsilon}\"\n",
+    "class_sha256": "722c47da13258463eb4eb37adf0be2608970b74330fa32048d7481ffb2c53d79"
+  },
+  "seconds": 0.159237526000652
+}

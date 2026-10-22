@@ -1,0 +1,22 @@
+{
+  "method": "RMSNorm_only",
+  "target_modules": 48,
+  "trainable_coordinates": 43008,
+  "targets": [
+    "input_layernorm",
+    "post_attention_layernorm"
+  ],
+  "final_norm_frozen": true,
+  "learning_rate": 0.0001,
+  "master_dtype": "float32",
+  "forward_weight_dtype": "float16",
+  "optimizer_state_dtype": "float32",
+  "reference_names": [
+    "LoRA_qv",
+    "OSFT_all"
+  ],
+  "single_recipe_no_LR_search": true,
+  "strongest_PAS_substitution_not_tested": true,
+  "DEV_already_explored": true,
+  "automatic_full_confirmation": false
+}

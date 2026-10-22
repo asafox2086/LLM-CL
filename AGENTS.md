@@ -1,3 +1,11 @@
+# 2026-10-22：已有归一化增益的功能替代先导已实际训练，端侧仅背景
+
+- 新问题是原1%预算下已有层内通道缩放能否承接适应功能，借鉴ICLR2024 LayerNorm-simple，不称新算法/原论文复现或新增分支普遍不必要。只RMSNorm_only一组48处/43008权重，最终norm及视觉/projector/其余权重冻结；原1213FIT/100已探索DEV/19阶段87更新/LR1e-4，主副本FP32但forward转回原FP16，数值条件公开，不搜LR或位置。
+- 五源/协议review accept，小HF初态forward/RNG/权重/冻结及小图重载/有限反向准入0.159秒通过；READY8676bc60504a610a39c0f5f942f961643f509883e0171c399f9cf81eb1ac1186冻结。目录exp/norm_existing_parameters_20261022/v1及summary/edge_deployment_20261019/norm_existing_parameters_20261022/v1。CPU准入不是科研质量。
+- 唯一新service llmcl-onevision-norm-only-20261022.service，controller55927/start2843981、GPU1 worker55946/start2844491实际STARTED。01:21:03UTC观察原19FIT图文门槛完成/2次正LR训练记录；未读DEV/无质量结论。后续以真实状态/完整VERIFIED为准，不把本启动快照当live。6262/6264/6266/5774/5779身份保全，基线继续，不碰GPU0/旧卡。
+- 87步分别记录FP32主副本与实际forward FP16增益变化、初终私有张量及冻结权重全量digest；主副本变化不等于实际增益变化，更不等于整体功能/F1贡献。只完整后全100ID/全参考原AnswerF1/源/权重/19validity/87梯度及两旧锚配对核验。STARTED起总2h含所有保存/门槛，失败留证停止、不热改/盲重试。
+- 宏未严格高于qv39.870438970与OSFT40.783800564两者即结束此配方，不搜LR；越过也只是可行性候选，未来须另论fresh FIT-only PASs参照，不自动PAS/1313/21454。正式teacher见过DEV不可筛选。43008不是部署压缩/有效维数/收益，Ours空白；科研目标未达成。观察helper第一次占位替换语法错误在执行前停止，仅修元数据helper，无模型重试。
+
 # 2026-10-22：参数化替代先过科学用途判断，暂缓显式完整核心与直接S-only
 
 - 新subspace_parameterization_feasibility_20261022已读SVFT/SVFit固定v1、复用原七位置形状作显式表示成本计算，独立review accept；0模型/QA/优化/GPU，无新READY/worker，不重跑旧谱或旧F1。
