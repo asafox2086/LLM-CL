@@ -1,0 +1,204 @@
+{
+  "complete": true,
+  "quality": {
+    "domains": {
+      "natural": {
+        "F1": 61.5,
+        "QA": 20
+      },
+      "medical": {
+        "F1": 44.5,
+        "QA": 20
+      },
+      "geography": {
+        "F1": 45.0,
+        "QA": 20
+      },
+      "finance": {
+        "F1": 30.0,
+        "QA": 20
+      },
+      "traffic": {
+        "F1": 37.959937042682874,
+        "QA": 20
+      }
+    },
+    "domain_macro": 43.79198740853657,
+    "prediction_sha256": {
+      "exp/position_coordinate_control_20261022/v1/private/evaluations/stage_19/T01_dev_predictions.jsonl": "4ee5965e57dc76ba76243cdac70ff9bbfea4bf2f72c50ad9ae849749d7f97eb9",
+      "exp/position_coordinate_control_20261022/v1/private/evaluations/stage_19/T02_dev_predictions.jsonl": "939c7fedb742184b95cecde407655bfd8c25664c31b65b949bab43bf3e1c2966",
+      "exp/position_coordinate_control_20261022/v1/private/evaluations/stage_19/T03_dev_predictions.jsonl": "3de7d1d8bd9777b92c44c5bf8c04e9daeb09846270ad5ab649c258229d231da7",
+      "exp/position_coordinate_control_20261022/v1/private/evaluations/stage_19/T04_dev_predictions.jsonl": "6827bde843918db047172f98f16f3420187951b431a3b8ed3ffe26b525dd31f1",
+      "exp/position_coordinate_control_20261022/v1/private/evaluations/stage_19/T05_dev_predictions.jsonl": "02a036ae2ee3c8287195759d6b7eb85cff54e572c4bcae805a8300906e22a694",
+      "exp/position_coordinate_control_20261022/v1/private/evaluations/stage_19/T06_dev_predictions.jsonl": "21d8054d4dfcd1476c8377f30f98102a7ed9b9090e2acb06d8c236afeb9ffc96",
+      "exp/position_coordinate_control_20261022/v1/private/evaluations/stage_19/T10_dev_predictions.jsonl": "a727f8af9250cb2f463af6cdb4c21525d2beec252d660b6d0507283932f5c8e6",
+      "exp/position_coordinate_control_20261022/v1/private/evaluations/stage_19/T11_dev_predictions.jsonl": "0c615030a100188b6ba6dbd41ef59d1e06eff484d48198d71aeb8088ca92f3c4",
+      "exp/position_coordinate_control_20261022/v1/private/evaluations/stage_19/T13_dev_predictions.jsonl": "5f4dad80f6443b42ec06336e189592253ab05309be20e5254f3f3b095e274bd7",
+      "exp/position_coordinate_control_20261022/v1/private/evaluations/stage_19/T14_dev_predictions.jsonl": "bc04f1dcb0093deea3cf71b8c262d794961c951319506236ac9497b88eb4f794",
+      "exp/position_coordinate_control_20261022/v1/private/evaluations/stage_19/T15_dev_predictions.jsonl": "a4abbb69d17d063651a7e1648fece48c2305bcc6b145845551e631a6d5ffcfbb",
+      "exp/position_coordinate_control_20261022/v1/private/evaluations/stage_19/T16_dev_predictions.jsonl": "309c86981cc4de6fce04becdb2b436da4c74b214f84507d1a5e1345e6a5f374c",
+      "exp/position_coordinate_control_20261022/v1/private/evaluations/stage_19/T17_dev_predictions.jsonl": "2063129692811fd2c4f254444a2630ffa081144e8ac6faa35a01fa5762277a06",
+      "exp/position_coordinate_control_20261022/v1/private/evaluations/stage_19/T18_dev_predictions.jsonl": "51adec9cec608439d7de7fc8b9d33843b5dde02ff7e33e85eb7686d52ec30b95",
+      "exp/position_coordinate_control_20261022/v1/private/evaluations/stage_19/T19_dev_predictions.jsonl": "4c22d3c648afcb0346f6f03228b6c23644e12d429989bcfb743da7d2e5a32c73"
+    }
+  },
+  "paired": {
+    "primary": "wide_minus_LoRA_all",
+    "secondary": "wide_minus_LoRA_qv",
+    "comparisons": {
+      "LoRA_all": {
+        "domain_difference_pp": {
+          "natural": -2.5,
+          "medical": 1.8095238095238102,
+          "geography": -5.0,
+          "finance": 15.0,
+          "traffic": -0.11233208264810646
+        },
+        "QA_comparison": {
+          "natural": {
+            "higher": 1,
+            "lower": 1,
+            "equal": 18
+          },
+          "medical": {
+            "higher": 2,
+            "lower": 2,
+            "equal": 16
+          },
+          "geography": {
+            "higher": 0,
+            "lower": 1,
+            "equal": 19
+          },
+          "finance": {
+            "higher": 3,
+            "lower": 0,
+            "equal": 17
+          },
+          "traffic": {
+            "higher": 9,
+            "lower": 11,
+            "equal": 0
+          }
+        },
+        "exploratory_group_interval_pp": {
+          "natural": [
+            -15.0,
+            7.5
+          ],
+          "medical": [
+            -10.075187969924812,
+            14.84848484848485
+          ],
+          "geography": [
+            -16.666666666666668,
+            0.0
+          ],
+          "finance": [
+            0.0,
+            30.0
+          ],
+          "traffic": [
+            -2.963851694120611,
+            2.4106137772275944
+          ],
+          "macro": [
+            -3.1346440333800265,
+            6.855608154681002
+          ]
+        },
+        "macro_difference_pp": 1.8394383453751408
+      },
+      "LoRA_qv": {
+        "domain_difference_pp": {
+          "natural": 0.8333333333333328,
+          "medical": -3.8571428571428568,
+          "geography": 10.0,
+          "finance": 10.0,
+          "traffic": 2.6315517157961295
+        },
+        "QA_comparison": {
+          "natural": {
+            "higher": 2,
+            "lower": 1,
+            "equal": 17
+          },
+          "medical": {
+            "higher": 1,
+            "lower": 3,
+            "equal": 16
+          },
+          "geography": {
+            "higher": 4,
+            "lower": 2,
+            "equal": 14
+          },
+          "finance": {
+            "higher": 2,
+            "lower": 0,
+            "equal": 18
+          },
+          "traffic": {
+            "higher": 13,
+            "lower": 7,
+            "equal": 0
+          }
+        },
+        "exploratory_group_interval_pp": {
+          "natural": [
+            -12.5,
+            12.499999999999998
+          ],
+          "medical": [
+            -18.571428571428573,
+            10.0
+          ],
+          "geography": [
+            -15.789473684210526,
+            30.0
+          ],
+          "finance": [
+            0.0,
+            25.0
+          ],
+          "traffic": [
+            -1.052779978261735,
+            6.291664333105695
+          ],
+          "macro": [
+            -3.1970535581147277,
+            10.08652031521045
+          ]
+        },
+        "macro_difference_pp": 3.9215484383973207
+      }
+    },
+    "replicates": 10000,
+    "seed": 20261022,
+    "not_equivalence_or_significance_or_training_seed_uncertainty": true,
+    "reused_DEV_not_new_holdout": true,
+    "automatic_full_confirmation": false
+  },
+  "FIT_QA": 1213,
+  "DEV_QA": 100,
+  "updates": 87,
+  "TEST_QA": 0,
+  "complete_sha256": "5d8758ab4fdfd6a88a995586f7a7b641409871b60df46b0bf9736d13e22815bb",
+  "ready_sha256": "61c2605f4c6726ee1dc43e022289b293a0f92af90c1ef0d29f68c9962bf6d137",
+  "source_sha256": "16f081a84b31601ff803e68297b01214aae2ea46013bbb5c312327d6d537e187",
+  "checkpoint": {
+    "path": "checkpoints/stage_19.pt",
+    "stage": 19,
+    "bytes": 1941445476,
+    "sha256": "119fb0e79a96f2e802c2655a26bec4cd812598650da2725d2f22e3fbef128019",
+    "seconds": 15.883374468998227,
+    "manifest_sha256": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+    "method": "BudgetMatchedQV",
+    "full_architecture_and_runtime": true,
+    "optimizer_saved": false
+  },
+  "new_model_requests": 0,
+  "mechanism_only_no_full_candidates": true,
+  "original_screen_and_full_confirmation_unchanged": true,
+  "CPU_verification_seconds": 8.260550103997957
+}
