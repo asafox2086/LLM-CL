@@ -1,0 +1,208 @@
+{
+  "complete": true,
+  "quality": {
+    "domains": {
+      "natural": {
+        "F1": 64.0,
+        "QA": 20
+      },
+      "medical": {
+        "F1": 42.857142857142854,
+        "QA": 20
+      },
+      "geography": {
+        "F1": 40.0,
+        "QA": 20
+      },
+      "finance": {
+        "F1": 25.0,
+        "QA": 20
+      },
+      "traffic": {
+        "F1": 39.64950260118026,
+        "QA": 20
+      }
+    },
+    "domain_macro": 42.30132909166463,
+    "prediction_sha256": {
+      "exp/osft_short_factor_control_20261022/v2/private/evaluations/stage_19/T01_dev_predictions.jsonl": "80707f3a008fe386955b38df49da0e0b6d9a8366b37d501beb3bde3a412fe12a",
+      "exp/osft_short_factor_control_20261022/v2/private/evaluations/stage_19/T02_dev_predictions.jsonl": "26d6db40a3c45b915d7a82c61dfd4f0b6759bbfbcbcb4f302be9738d8c2eaa43",
+      "exp/osft_short_factor_control_20261022/v2/private/evaluations/stage_19/T03_dev_predictions.jsonl": "797f912a64c4e1d93c9a62d42c55ecbf226953b25bd2feebb4810cf0fad10f19",
+      "exp/osft_short_factor_control_20261022/v2/private/evaluations/stage_19/T04_dev_predictions.jsonl": "c899cbfacc423965abcfd8bb29976601cb4ee336850a7da38755da9afe730450",
+      "exp/osft_short_factor_control_20261022/v2/private/evaluations/stage_19/T05_dev_predictions.jsonl": "3257c177802ddb52827ef1576a51e52f32a2b21d96d6ab26672272c88a5ab708",
+      "exp/osft_short_factor_control_20261022/v2/private/evaluations/stage_19/T06_dev_predictions.jsonl": "0cb607f51b2704295b8bff37816c4fb52d496f30ddd4ff166178333384cf20ca",
+      "exp/osft_short_factor_control_20261022/v2/private/evaluations/stage_19/T10_dev_predictions.jsonl": "fbdf1c8b51243ed02c3e6bd11bfb1afe0d4f1be6a4b48ccdc505b24addee23e6",
+      "exp/osft_short_factor_control_20261022/v2/private/evaluations/stage_19/T11_dev_predictions.jsonl": "86ba035587e881013ee8d0000dc2f7b9cad9aab7e3b3c89a1b909aa234de5c8d",
+      "exp/osft_short_factor_control_20261022/v2/private/evaluations/stage_19/T13_dev_predictions.jsonl": "f418bebce277fa72de99575f2da2a261273e409a3fd9fb567f556cb4d9a5aafd",
+      "exp/osft_short_factor_control_20261022/v2/private/evaluations/stage_19/T14_dev_predictions.jsonl": "6f25cb65b80411373dce6640739776ebcf3b9f430472388d2dba003f2c5a5e6e",
+      "exp/osft_short_factor_control_20261022/v2/private/evaluations/stage_19/T15_dev_predictions.jsonl": "233b277d7c1fa81f363b01a38966dd46174732807d7cf3025917ca4c6318e820",
+      "exp/osft_short_factor_control_20261022/v2/private/evaluations/stage_19/T16_dev_predictions.jsonl": "6e3ddc697073abda97c78563de722e9381273f6b24df742fbd4b53e6334ae984",
+      "exp/osft_short_factor_control_20261022/v2/private/evaluations/stage_19/T17_dev_predictions.jsonl": "274840a1e8bba4c0916a55e7ce7ec147f1c4f10501351b300e957066e8ef14a2",
+      "exp/osft_short_factor_control_20261022/v2/private/evaluations/stage_19/T18_dev_predictions.jsonl": "edafc1befcbfd1095d141d277b7fed88ef28ddd8e6b10a913830fc8834218697",
+      "exp/osft_short_factor_control_20261022/v2/private/evaluations/stage_19/T19_dev_predictions.jsonl": "a1af77b82ea2430204907f58d9578a7696410c787aaa727218cc0b4c784a4c5c"
+    }
+  },
+  "paired": {
+    "primary": "short_fixed_minus_OSFT_all",
+    "secondary": "short_fixed_minus_LoRA_qv",
+    "comparisons": {
+      "OSFT_all": {
+        "domain_difference_pp": {
+          "natural": 5.0,
+          "medical": 2.5,
+          "geography": 0.0,
+          "finance": 0.0,
+          "traffic": 0.0876426386077835
+        },
+        "QA_comparison": {
+          "natural": {
+            "higher": 1,
+            "lower": 0,
+            "equal": 19
+          },
+          "medical": {
+            "higher": 1,
+            "lower": 0,
+            "equal": 19
+          },
+          "geography": {
+            "higher": 0,
+            "lower": 0,
+            "equal": 20
+          },
+          "finance": {
+            "higher": 0,
+            "lower": 0,
+            "equal": 20
+          },
+          "traffic": {
+            "higher": 7,
+            "lower": 7,
+            "equal": 6
+          }
+        },
+        "exploratory_group_interval_pp": {
+          "natural": [
+            0.0,
+            15.0
+          ],
+          "medical": [
+            0.0,
+            7.894736842105263
+          ],
+          "geography": [
+            0.0,
+            0.0
+          ],
+          "finance": [
+            0.0,
+            0.0
+          ],
+          "traffic": [
+            -1.6086608611883855,
+            1.8204653805619135
+          ],
+          "macro": [
+            -0.12626247326974033,
+            3.9628196893636014
+          ]
+        },
+        "macro_difference_pp": 1.5175285277215567
+      },
+      "LoRA_qv": {
+        "domain_difference_pp": {
+          "natural": 3.333333333333333,
+          "medical": -5.5,
+          "geography": 5.0,
+          "finance": 5.0,
+          "traffic": 4.321117274293513
+        },
+        "QA_comparison": {
+          "natural": {
+            "higher": 1,
+            "lower": 0,
+            "equal": 19
+          },
+          "medical": {
+            "higher": 1,
+            "lower": 3,
+            "equal": 16
+          },
+          "geography": {
+            "higher": 3,
+            "lower": 2,
+            "equal": 15
+          },
+          "finance": {
+            "higher": 1,
+            "lower": 0,
+            "equal": 19
+          },
+          "traffic": {
+            "higher": 16,
+            "lower": 4,
+            "equal": 0
+          }
+        },
+        "exploratory_group_interval_pp": {
+          "natural": [
+            0.0,
+            9.999999999999998
+          ],
+          "medical": [
+            -22.77777777777778,
+            9.524350649350641
+          ],
+          "geography": [
+            -20.0,
+            24.0
+          ],
+          "finance": [
+            0.0,
+            15.0
+          ],
+          "traffic": [
+            0.8803474569473407,
+            7.457325847879804
+          ],
+          "macro": [
+            -4.032244057457004,
+            7.833107855087344
+          ]
+        },
+        "macro_difference_pp": 2.430890121525369
+      }
+    },
+    "replicates": 10000,
+    "seed": 20261022,
+    "not_equivalence_or_significance_or_training_seed_uncertainty": true,
+    "reused_DEV_not_new_holdout": true,
+    "automatic_full_confirmation": false
+  },
+  "FIT_QA": 1213,
+  "DEV_QA": 100,
+  "updates": 87,
+  "TEST_QA": 0,
+  "complete_sha256": "9d954c999b5437a6ca52755b5bc458ce8135c276e1fb2495aab4183d5b406633",
+  "ready_sha256": "33cc1c4ad7a4b3e909fefb9a23be8dc0f941645bb91815118a2d6b751bd22d68",
+  "source_sha256": "cbb36e78e55638d96eaf36ab70054f73468b431fb8e92884a44151a9da298949",
+  "checkpoint": {
+    "path": "checkpoints/stage_19.pt",
+    "stage": 19,
+    "bytes": 3028774773,
+    "sha256": "1138fecea9b3f545e3645523730b5d5753659b1523819b318694b0608904769f",
+    "seconds": 25.21485157899997,
+    "manifest_sha256": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+    "method": "OSFT_ShortFixed",
+    "full_architecture_and_runtime": true,
+    "optimizer_saved": false
+  },
+  "new_model_requests": 0,
+  "mechanism_only_no_full_candidates": true,
+  "original_screen_and_full_confirmation_unchanged": true,
+  "primary_quality_pass": true,
+  "measured_gradient_and_moment_cost_pass": true,
+  "possible_fresh_FIT_PAS_reference_followup": true,
+  "automatic_full_confirmation": false,
+  "CPU_verification_seconds": 28.991287684000326
+}

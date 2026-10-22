@@ -1,3 +1,11 @@
+# 固定短侧补基：完整先导已封存
+
+原1213 FIT/19阶段87次更新→100已探索DEV宏42.301329092，对原FIT-only OSFT+1.517528528pp；实际gradient/CPU两moment字节均少21.342982%（对照成本锚为源码计数，非fresh整模峰值/速度）。主要增益来自自然及医学各1题，两对探索区间均跨0。固定quality/cost门槛通过，仅保留功能替代可行性，不证明稳定收益、短侧无用或五域全面改善。
+
+完整事实、逐域/逐题、机制边界、费用与行动见[FINDINGS](FINDINGS.md)、[OUTCOME](OUTCOME.json)、[VERIFIED](VERIFIED.json)。消费者及结果正文独立评审接受，不重跑原verifier/bootstrap；原源/READY及v1失败保留。
+
+v2服务已自然结束，不恢复。下一项fresh FIT-only PASs参照已通过必要性判断，尚无新READY或模型启动；完整确认须另论，不自动开1313/21454，不恢复工程部署项目。以下是保留的启动历史。
+
 # 同条件独立v2：首步梯度保存修复后实际训练
 
 原v1因首步保存目录缺失在0optimizer/0DEV处失败，详见[失败记录](../v1/FAILURE_FINDINGS.md)与[修复边界](REPAIR_SCOPE.md)。不是质量阴性；失败加载/门槛/16QA前后向成本保留，文件mtime区间55.937秒不当完成的RUN测量。不恢复或拼接v1。
