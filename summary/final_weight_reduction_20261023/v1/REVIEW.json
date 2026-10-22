@@ -1,0 +1,14 @@
+{
+  "reviewer": "/root/review_next_probe",
+  "decision": "accept_after_required_text_clarifications_applied",
+  "scope": "Human target, whole-model counting, source interpretation, teacher leakage and no new experiment admission",
+  "files_sha256": {
+    "rules/033_final_model_weight_reduction_20261023.md": "6fd7e7a065c0438c56504e4798a3b1404102406245031ef817782934d98dfb53",
+    "summary/final_weight_reduction_20261023/v1/FINDINGS.md": "c4b9b7c68848e2b1aca91cd7d0509cfc57df8fae1aef7835db8e13ec969536b2"
+  },
+  "required_changes_applied": [
+    "Teacher or restoration start for FIT->DEV selection must not have trained on DEV; formal 1313 teacher cannot distill FIT for that selection either; separate cost is not a leakage cure.",
+    "SliceGPT function invariance restricted to paper architecture, normalization assumptions and exact arithmetic; no FP16 equality assertion."
+  ],
+  "new_model_experiment_authorized": false
+}
