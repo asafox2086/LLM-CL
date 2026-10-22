@@ -1,0 +1,15 @@
+{
+  "decision": "accept",
+  "reviewer": "/root/review_next_probe",
+  "files_sha256": {
+    "exp/pas_fit_reference_20261022/v2/common.py": "affcbef54e25bd697b71d6b0319c5bdedf3c48d88523b4217dad091056e43aa9",
+    "exp/pas_fit_reference_20261022/v2/core.py": "b5413984684a2d2ae49d0fe7268e467d86cbe1a176db823de1284ca4014fc683",
+    "exp/pas_fit_reference_20261022/v2/dispatch.py": "ae53022ce307fc70434da5ff90a836612d3615cf6838b1da3622adb8287edb8b",
+    "exp/pas_fit_reference_20261022/v2/freeze.py": "5f289ccd8e41d086ccfedea288dc24e8149f4a9e52132c5fd945e78b9733f782",
+    "exp/pas_fit_reference_20261022/v2/run.py": "00c6f7a8e959f44dd289c8a698433f3428c5d70b373d9f859ea795e5fad7c606",
+    "summary/edge_deployment_20261019/pas_fit_reference_20261022/v2/PROTOCOL.md": "40c87fd91ff649cf544b5bead75ac00d0eb8c505a45d8de0cc874758bceef575",
+    "summary/edge_deployment_20261019/pas_fit_reference_20261022/v2/BUDGET_AND_REPAIR.md": "7aba369bdbce23fd1e3355be80aa60767377d76d688863da3cdb1eb8dbd2795d"
+  },
+  "scope": "Seven-file static diff review; independent reviewer accepted code; timing sentence corrected before freeze; not quality evidence",
+  "findings": "Fresh original base, no checkpoint resume or missing old optimizer witness substitution. Per-step atomic record plus file and parent fsync; 87 real witnesses unchanged. New worker 4h and conservative cumulative 6h fixed before model, further failure stops. Original PAS mathematics and quality rules retained. CPU gate has not run at review time."
+}

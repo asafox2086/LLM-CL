@@ -1,0 +1,27 @@
+# 重启后的独立fresh v2：保留完整证据门槛，一次有限重做
+
+## 已确认故障与不能续接的证据缺口
+
+NEW boot从f801c9c5-7362-47c3-afc3-1454c1e9d29d变为0e2e9e29-69fa-48e5-b599-6d36f9a70149；约07:29:58UTC外部重启中断原PAS参照。原v1 controller26035/worker26058均失效，只有STARTED，没有COMPLETE/VERIFIED/DEV预测。原源/READY不改，canonical queue独立标为interrupted_external_reboot，不恢复v1。见v1 INTERRUPTED和INTERRUPTION_SEAL（SHAb8c109f03efff226e7554a3869b79283f39393ed03aecf7d5b1f82e0a9c03772）。这不是质量阴性。
+
+第13阶段完整method/learner/RNG checkpoint3055678435bytes，SHA19f02ea802f272123c5b7e3d07120bcd2d348076b4928058ed7c72b9edd6cff6，实际流式SHA与原元数据一致；但原逐步optimizer记录是外部RAM list，到全部TRAIN结束才落盘，checkpoint按设计不持有optimizer。EVIDENCE_COVERAGE SHA30b7db20f66cebe17029d246b3d8681c7edf296629e09cfede1b188c1a370655确认该文件不存在。源代码、梯度或新运行不能伪补前44步实测参数ID/gradient/moment证据。独立评审因此拒绝从该checkpoint接续后只验剩43步来通过原87步完整门槛。
+
+选择仅一次fresh独立v2，模型从同原基座重新执行；不加载旧checkpoint、不复制旧训练/梯度/预测或learner状态，不拼接两次轨迹。保持原19阶段87步及全部科学配置、数值例外、原数据/提示/评分、固定质量规则，未知PAS分数没有参与选择。若v2再中断/超预算/失败，保留并停止，不自动继续重做或延长。
+
+## 原费用保留与事前有限预算修订
+
+原v1有46条完整更新记录：S1–13共44步/573 FIT QA，第14阶段两步/32 QA；重启时下一批是否有未记录曝光/工作未知，不能按0计。没有DEV/TEST。原19FIT门槛38NLL+38short已发生。更新主体记录累计5243.445007秒，13次保存元数据累计448.148892秒；时钟重叠不相加。原resources有1162可解析行、最后第1163行损坏，原完整字节/SHA保留，不静默修复。STARTED文件mtime到新boot btime约6231.326773秒，原最后有效资源快照也保留；这不是完整RUN或精确计算时间。
+
+原2小时STARTED→COMPLETE协议未成功完成，不能回写其预算或把计时清零称同一次成功。该attempt启动后至重启约1小时44分，46步更新主体累计约1小时27分；两者不相加，尚有后续训练/保存/DEV，表明原2小时总额估计不足；只使用时序而非质量分数修订完成边界。
+
+v2在任何实际模型启动前固定worker STARTED→COMPLETE最多14400秒（4小时），包括新加载、原19FIT图文门槛38NLL+38short、全部1213FIT/87更新/19持久checkpoint/100DEV及观察保存。为保守累计支出边界，给已中断v1预留其原完整7200秒额度，而非伪称实际用满；v1预留2h+唯一v2最多4h，累计模型运行预算上限21600秒（6h），另列CPU准入、封存、独立核验成本。实际费用按两次真实记录报告，未知inflight说明；不会称同计算预算。
+
+新增参照仍有明确出口：完整PAS若达到或超过ShortFixed42.30132909166463，按原规则关闭ShortFixed候选，可避免更昂贵的1313/21454确认。即便ShortFixed点估计仍更高，也只进入另一次完整确认必要性评审，不自动全测。
+
+## 修复只影响记录持久性和完成时间上限
+
+v2直接使用原v1冻结PAS构造、回调、HostAdamW观察器和数学源；仅把外部records换为DurableRecords。每次原optimizer实际step后，原标量witness立即写临时JSON、fsync文件、原子替换并fsync父目录；它不挂在method上，不改变权重、梯度、RNG或optimizer生命周期，仍需最终87个真实witness。旧原始文件和失败前缀保留，完整门槛不降低。
+
+必要CPU准入只将已审tiny比较脚手架经过新持久化路径一次：原方法对观察子类的两阶段四更新loss/梯度/权重/RNG/learner状态精确，同时每步严格重载新JSON四次，保留缺目录梯度和全图重载保障；导入Torch前隐藏CUDA、前后未初始化。不重新执行任何已完成实际模型门槛/旧F1/bootstrap来制造进展；新鲜v2自身需要的原图文门槛照协议执行且费用另列。
+
+研究仍仅新物理GPU1单流，尊重他人，最多占NEW三卡；同一旧源/READY/独立新版本，不能热改旧实验或偷放宽数值与质量条件。当前文档是修复及预算安排，没有新F1/方法收益，端侧只背景。

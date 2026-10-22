@@ -1,0 +1,60 @@
+{
+  "passed": true,
+  "CUDA_uninitialized_before_and_after": true,
+  "tiny_HF_layers": 1,
+  "target_modules": 7,
+  "initial_state_forward_RNG_exact": true,
+  "four_updates_original_and_instrumented_loss_raw_gradients_weights_and_RNG_exact": true,
+  "two_stage_original_learner_states_exact": true,
+  "positive_usage_and_stage_history": true,
+  "frozen_base_digest_unchanged": true,
+  "first_gradient_absent_directory_save_reload_exact": true,
+  "full_graph_checkpoint_reload_forward_and_history_exact": true,
+  "optimizer_evidence": [
+    {
+      "stage": 1,
+      "step": 1,
+      "optimizer_parameter_IDs_match": true,
+      "parameter_tensors": 28,
+      "trainable_coordinates": 131072,
+      "gradient_bytes": 524288,
+      "two_moment_bytes": 1048576,
+      "all_moments_CPU": true
+    },
+    {
+      "stage": 1,
+      "step": 2,
+      "optimizer_parameter_IDs_match": true,
+      "parameter_tensors": 28,
+      "trainable_coordinates": 131072,
+      "gradient_bytes": 524288,
+      "two_moment_bytes": 1048576,
+      "all_moments_CPU": true
+    },
+    {
+      "stage": 2,
+      "step": 1,
+      "optimizer_parameter_IDs_match": true,
+      "parameter_tensors": 28,
+      "trainable_coordinates": 131072,
+      "gradient_bytes": 524288,
+      "two_moment_bytes": 1048576,
+      "all_moments_CPU": true
+    },
+    {
+      "stage": 2,
+      "step": 2,
+      "optimizer_parameter_IDs_match": true,
+      "parameter_tensors": 28,
+      "trainable_coordinates": 131072,
+      "gradient_bytes": 524288,
+      "two_moment_bytes": 1048576,
+      "all_moments_CPU": true
+    }
+  ],
+  "new_actual_model_or_QA_or_GPU_requests": 0,
+  "durable_optimizer_witness_each_of_four_steps_strict_reload": true,
+  "durable_commit_count": 4,
+  "repair_only": "Persist original optimizer observations immediately; no change to PAS math, parameter updates or RNG",
+  "seconds": 8.026793854999596
+}

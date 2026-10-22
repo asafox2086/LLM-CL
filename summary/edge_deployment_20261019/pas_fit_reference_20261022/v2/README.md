@@ -1,0 +1,1 @@
+Fresh PAS reference v2 after sealed external reboot. See PROTOCOL, BUDGET_AND_REPAIR, REVIEW, CPU_GATE, READY and LAUNCH_OBSERVATION. No new F1 result. One fresh retry only; 4h worker and conservative cumulative 6h budget. Further failure stops.

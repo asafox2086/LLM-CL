@@ -1,3 +1,13 @@
+# 2026-10-22：PAS参照被外部重启中断；独立v2只作一次fresh重做
+
+- NEW约07:29:58UTC外部重启，boot为0e2e9e29-69fa-48e5-b599-6d36f9a70149。原PAS参照v1有46条更新及13阶段checkpoint，无DEV/COMPLETE；optimizer实测证据尚在RAM且已丢失，不能续CP后冒充87步完整证明。原源/READY/费用保留，INTERRUPTION_SEAL b8c109f03efff226e7554a3869b79283f39393ed03aecf7d5b1f82e0a9c03772和EVIDENCE_COVERAGE30b7db20f66cebe17029d246b3d8681c7edf296629e09cfede1b188c1a370655封存；v1关闭不恢复。
+- 更新主体5243.445秒，启动至新boot约6231.327秒，保存448.149秒重叠不相加。已记录605FIT曝光，未知inflight不按零；38NLL+38short已计费，资源末行损坏保留。这是外部中断及证据缺口，不是质量阴性。
+- 独立v2保留原PAS科学条件、原基座fresh执行及87步实测门槛，只修每步witness原子落盘/fsync；七文件独立review accept。必要CPU准入验证四步持久化严格reload及原微型精确比较，不是模型质量。启动前固定4h总额、v1按原2h保守预留，累计6h；实际费用分列，再失败/中断/超预算即停止，不滚动重做。
+- 正式native新PAS/PaRSP孩子保全；CL/SMo原无CP中断run/费用保留后只按原条件fresh重排。仅CPU协调/发布器及无TRAIN的FOREVER等待入口恢复，未向GPU发信号。见reboot_recovery_20261022/v3；旧boot/PID及下方v1启动记录均为历史。
+- 当前仅GPU1一流，原数值例外/数据/提示/停止规则不改，不读partial DEV，不重旧F1/bootstrap。ShortFixed42.30132909166463须严格高于freshPAS与旧两锚才进入完整确认必要性评审，否则关闭；不自动1313/21454。无新质量结果，Ours/正式表不填，端侧仅背景。
+
+- 发布前2026-10-22T08:08:22.704241+00:00重新核对同一worker身份，原19FIT门槛完整=False，实际TRAIN已观察0条更新；无完整质量读取。仅阶段元数据，非方法收益，仍以后续sealed proof为准。
+
 # 2026-10-22：必要fresh FIT-only PASs参照已独立冻结并真实启动
 
 - 原ShortFixed越过两个预定门槛只保留可行性；正式1313 PASs见过原DEV不能代作筛选锚。独立必要性评审后，只新建exp/pas_fit_reference_20261022/v1五源和对应summary协议，fresh基座/原PAS固定配方1213FIT/19阶段87原更新→唯一100已探索DEV，0官方TEST/teacher/回放。不是重跑正式PAS或重开旧负条件。
