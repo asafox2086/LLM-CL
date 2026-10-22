@@ -1,3 +1,9 @@
+# 2026-10-22：用户内存问题的阶段记录补充，不称轻量高性能方法
+
+- 新shortfixed_memory_growth_20261022/v1只一次消费原封存resources标量，原资源SHA9daf25b9...匹配；同完整运行原PID7170的19个stage_training_end_persistent同phase比较，0新模型/张量/QA/优化/GPU/F1/bootstrap。原科学源与终态不改，不是内存优化成果。
+- 阶段末删除optimizer等局部引用并GC/empty_cache后，GPU allocated为2.958–2.972GB、S1→S19仅净增14.61MB；reserved/NVML首末各净增约.950GB。CPU RSS中段S3–12为4.728–4.790GB，S14–16约4.743GB，S17/18/19为5.548/5.746/6.077GB。不是单调线性增长，也不能说后段稳定/长期有界；这些不是TRAIN/推理峰值，不据快照归因泄漏/缓存/SVD/保存/allocator。
+- 参数计数字节不变但不含注册buffers，不能把固定参数计数当整机内存恒定。21.34%仍仅梯度和CPU Adam两moment对应下降，全部USV存储未减；ShortFixed定位为OSFT必要性消融，尚不能称轻量高性能方法，不由局部减少或100DEV点估计宣布成功。原fresh PAS质量缺测/完整确认关闭不变，不恢复研究worker。EVIDENCE/FINDINGS经一次独立解释review accept；用户最新关心整体成本，后续不得只对原OSFT局部状态作轻量化结论。
+
 # 2026-10-22：fresh PAS参照4小时超时，按协议关闭；质量缺测
 
 - PAS v2同一冻结worker10568在backward处触发4h TimeoutError，CPU10505/worker均自然退出，unit failed/MainPID0/exit1；无TRAIN_COMPLETE/COMPLETE/VERIFIED/DEV预测。记录77/87更新、最后S17 step3/46QA、1074 FIT曝光及17完整checkpoint/validity；最后记录后的inflight工作未知，不按零计。保留源/READY0f0faa9d...、FAILURE/needs_attention及费用，不续训/延时/建v3或自动新实验。

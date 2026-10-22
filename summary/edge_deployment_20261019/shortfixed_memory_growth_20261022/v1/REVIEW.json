@@ -1,0 +1,17 @@
+{
+  "decision": "accept",
+  "reviewer": "/root/review_next_probe",
+  "scope": "One scalar-only analysis for latest human memory-growth question; no new experiment or old quality/norm/bootstrap repeat",
+  "files_sha256": {
+    "summary/edge_deployment_20261019/shortfixed_memory_growth_20261022/v1/EVIDENCE.json": "3a6b6650713f4956ad0610de91b21136a6c55ded93bc5e198822fe8baf8842a3",
+    "summary/edge_deployment_20261019/shortfixed_memory_growth_20261022/v1/FINDINGS.md": "b03f7e510d16b7832ed829986fccdb19712d4e4a47f7889194a80eba6c01c092"
+  },
+  "required_fixes_applied": [
+    "S3-12 RSS range includes S4:4.728-4.790GB",
+    "Same sealed run original worker PID7170; do not imply new per-row PID verification",
+    "Reserved/NVML endpoint net change is not monotone growth",
+    "Persistent means local optimizer references deleted and GC/empty_cache called, not proof all CPU allocations returned to OS",
+    "Stage-end values are not TRAIN or inference peaks"
+  ],
+  "findings": "Phase-matched allocated endpoint +14.61MB, reserved/NVML endpoint +0.950GB each, CPU late-stage rise; parameter counter excludes buffers. Descriptive one-run curve only, not causality or long-run bound. No lightweight/high-performance claim or new model admission."
+}
