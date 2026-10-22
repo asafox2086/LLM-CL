@@ -1,0 +1,141 @@
+{
+  "complete": true,
+  "quality": {
+    "domains": {
+      "natural": {
+        "F1": 64.0,
+        "QA": 20
+      },
+      "medical": {
+        "F1": 42.857142857142854,
+        "QA": 20
+      },
+      "geography": {
+        "F1": 50.0,
+        "QA": 20
+      },
+      "finance": {
+        "F1": 15.0,
+        "QA": 20
+      },
+      "traffic": {
+        "F1": 39.8128110951793,
+        "QA": 20
+      }
+    },
+    "domain_macro": 42.333990790464426,
+    "prediction_sha256": {
+      "exp/osft_protection_control_20261022/v1/private/evaluations/stage_19/T01_dev_predictions.jsonl": "c5342862ec82d9e26ed2a3ba1d5e5426ef2f059644fef84d9219d1582b64df21",
+      "exp/osft_protection_control_20261022/v1/private/evaluations/stage_19/T02_dev_predictions.jsonl": "37def65473e4f87841b60436e27e5ee8eefda30ec2c0e6da61551cc574910217",
+      "exp/osft_protection_control_20261022/v1/private/evaluations/stage_19/T03_dev_predictions.jsonl": "91a3b09cb1cf23b1b7c91d026cc623354f6b7b335f2af50dd7c2100484710c15",
+      "exp/osft_protection_control_20261022/v1/private/evaluations/stage_19/T04_dev_predictions.jsonl": "f484c8c274ffda66e6088bd49801c8592b55064877445438d2bffcb428608792",
+      "exp/osft_protection_control_20261022/v1/private/evaluations/stage_19/T05_dev_predictions.jsonl": "6362cda1f3f5d8711e997249c2c85f40054518ce5b2be00de7be2ec803896a54",
+      "exp/osft_protection_control_20261022/v1/private/evaluations/stage_19/T06_dev_predictions.jsonl": "694b373e9fbedfba81856251d6d6e3bbdc742e55ce85993493dd9728d09ab864",
+      "exp/osft_protection_control_20261022/v1/private/evaluations/stage_19/T10_dev_predictions.jsonl": "cc84e5eb1e031451847b3e7818d7a92065fae2072c822260f16066df16d19704",
+      "exp/osft_protection_control_20261022/v1/private/evaluations/stage_19/T11_dev_predictions.jsonl": "9b67d5f7ba5d50f04d7097d3de29930df96b5282e585a701eb64e78dd0dd71c4",
+      "exp/osft_protection_control_20261022/v1/private/evaluations/stage_19/T13_dev_predictions.jsonl": "580f41a1a225d9f6884d8ea91d81b69635fc525f5527ef55adb8575d2baa1619",
+      "exp/osft_protection_control_20261022/v1/private/evaluations/stage_19/T14_dev_predictions.jsonl": "d8ee72f3882d5791443cdd3b5d3db135bab5f8fe802d945314134a7807ffaaab",
+      "exp/osft_protection_control_20261022/v1/private/evaluations/stage_19/T15_dev_predictions.jsonl": "44bcfa01f70aaebbe49773653fe3031c09905c9d031991aa6258305c313b4dab",
+      "exp/osft_protection_control_20261022/v1/private/evaluations/stage_19/T16_dev_predictions.jsonl": "1ebd4c914d2a093656b74f30d59bfeb0c895844be1c9c1adea48c659d0c35777",
+      "exp/osft_protection_control_20261022/v1/private/evaluations/stage_19/T17_dev_predictions.jsonl": "55eb07a8e57c9d4745c85e933d6cf761ead8340f6a23de65a1c2dd3643e777d6",
+      "exp/osft_protection_control_20261022/v1/private/evaluations/stage_19/T18_dev_predictions.jsonl": "2800cdc3d1769d50869dd7ec7d62241aa4108aeea6334b8ff455b51b96b5bfb5",
+      "exp/osft_protection_control_20261022/v1/private/evaluations/stage_19/T19_dev_predictions.jsonl": "7561cab46e3f1ccf4e9169355cee25c64cab2c57131db42dceea022f0563aff0"
+    }
+  },
+  "paired": {
+    "primary": "no_projection_minus_OSFT_all",
+    "secondary": null,
+    "comparisons": {
+      "OSFT_all": {
+        "domain_difference_pp": {
+          "natural": 5.0,
+          "medical": 2.5,
+          "geography": 10.0,
+          "finance": -10.0,
+          "traffic": 0.2509511326068285
+        },
+        "QA_comparison": {
+          "natural": {
+            "higher": 1,
+            "lower": 0,
+            "equal": 19
+          },
+          "medical": {
+            "higher": 1,
+            "lower": 0,
+            "equal": 19
+          },
+          "geography": {
+            "higher": 2,
+            "lower": 0,
+            "equal": 18
+          },
+          "finance": {
+            "higher": 0,
+            "lower": 2,
+            "equal": 18
+          },
+          "traffic": {
+            "higher": 7,
+            "lower": 7,
+            "equal": 6
+          }
+        },
+        "exploratory_group_interval_pp": {
+          "natural": [
+            0.0,
+            15.0
+          ],
+          "medical": [
+            0.0,
+            7.894736842105263
+          ],
+          "geography": [
+            0.0,
+            25.0
+          ],
+          "finance": [
+            -25.0,
+            0.0
+          ],
+          "traffic": [
+            -1.4292476718737441,
+            2.0490905537436723
+          ],
+          "macro": [
+            -2.738841903104081,
+            5.968742566251311
+          ]
+        },
+        "macro_difference_pp": 1.5501902265213656
+      }
+    },
+    "replicates": 10000,
+    "seed": 20261022,
+    "not_equivalence_or_significance_or_training_seed_uncertainty": true,
+    "reused_DEV_not_new_holdout": true,
+    "automatic_full_confirmation": false
+  },
+  "FIT_QA": 1213,
+  "DEV_QA": 100,
+  "updates": 87,
+  "TEST_QA": 0,
+  "complete_sha256": "b4e8a6e38cbabd0ab65dfc2acf3a17d2f298203f2d6fa94a973ecb4c9d6cd605",
+  "ready_sha256": "6caf387f4f62c534b50928731911d8d8e7ef53de7c531fc4fe8f451baee9f885",
+  "source_sha256": "b4b2da49e31725684a1592896a7a6f25b76d1016fbe4e64731c57a2dff003f5c",
+  "checkpoint": {
+    "path": "checkpoints/stage_19.pt",
+    "stage": 19,
+    "bytes": 3028585525,
+    "sha256": "d2e455d06022d42123ae2a98d79e321be062fc3b6839068ccd6fb418e4940a7d",
+    "seconds": 25.153150520000054,
+    "manifest_sha256": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+    "method": "OSFT_NoProjection",
+    "full_architecture_and_runtime": true,
+    "optimizer_saved": false
+  },
+  "new_model_requests": 0,
+  "mechanism_only_no_full_candidates": true,
+  "original_screen_and_full_confirmation_unchanged": true,
+  "CPU_verification_seconds": 33.37799505200019
+}

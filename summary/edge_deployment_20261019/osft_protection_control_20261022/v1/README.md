@@ -1,3 +1,5 @@
+**已complete_verified：** 去保护包DEV宏42.333990790，原OSFT40.783800564，差+1.550190pp；金融25→15，配对11高/9低/80平，整组探索区间[−2.738841903,5.968742566]跨0。净作用仍未解，默认保留保护包只是操作决策。原CPU48920/GPU48939正常结束，service inactive/exit0，不恢复，不列完整候选或自动全测。[完整科学结论](FINDINGS.md) · [原封存核验](VERIFIED.json) · [成本与全部差异](OUTCOME.json) · [终态](TERMINAL_OBSERVATION.json)。下方启动记录为历史，科学源/READY不改。
+
 # OSFT逐步保护包的净效果
 
 端侧只作科研背景。固定原OSFT七类位置、25%尾部USV初始化、113766144训练坐标、LR1e-5与HostAdamW/offload/逐阶段重SVD，仅同时关闭每微样本梯度投影与每更新参数投影；复用原OSFT_all参照，只新增1213FIT/19阶段87更新→100DEV一组。
