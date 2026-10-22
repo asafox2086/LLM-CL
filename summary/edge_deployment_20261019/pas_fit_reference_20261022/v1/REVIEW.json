@@ -1,0 +1,14 @@
+{
+  "decision": "accept",
+  "reviewer": "/root/review_next_probe",
+  "files_sha256": {
+    "exp/pas_fit_reference_20261022/v1/core.py": "20bf9ce6a9dcc0f850e6f6475ea061f6fbfe647b5c4d3d294a9f84f751217676",
+    "exp/pas_fit_reference_20261022/v1/run.py": "3d663ca878aa2177dd5e2322af6b3c8bb403fa513de24fc1fc330e53a1f871dd",
+    "exp/pas_fit_reference_20261022/v1/common.py": "a1a0a3437ccdf72af1c08743c218ffcf109fb8acb73e50d30bc584a60438f2b6",
+    "exp/pas_fit_reference_20261022/v1/freeze.py": "c127d538f9fbb50de8869a857d11dee423d22040a8b03a406a6d11371d58fb20",
+    "exp/pas_fit_reference_20261022/v1/dispatch.py": "ac9a81021d4bb47390648cdb1063d1b5fa6e3d1dd8e66866ac75f58d63d07eaa",
+    "summary/edge_deployment_20261019/pas_fit_reference_20261022/v1/PROTOCOL.md": "5cdc409758bdbf2e18f36545b6bab33f1d5da20a87afdac7dd55937f902a4c26"
+  },
+  "scope": "Pre-CPU admission static source/protocol review; not quality or CPU_GATE evidence",
+  "findings": "Original PAS math/name/LR/HostAdam/FP32 internal offload/history and callbacks preserved; CUDA hidden before Torch import and checked before/after CPU gate. Existing ShortFixed scores copied only, one new pair, costs/stopping fixed. No GPU or score/bootstrap executed by reviewer."
+}

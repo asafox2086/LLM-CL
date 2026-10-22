@@ -1,3 +1,13 @@
+# 2026-10-22：必要fresh FIT-only PASs参照已独立冻结并真实启动
+
+- 原ShortFixed越过两个预定门槛只保留可行性；正式1313 PASs见过原DEV不能代作筛选锚。独立必要性评审后，只新建exp/pas_fit_reference_20261022/v1五源和对应summary协议，fresh基座/原PAS固定配方1213FIT/19阶段87原更新→唯一100已探索DEV，0官方TEST/teacher/回放。不是重跑正式PAS或重开旧负条件。
+- 六文件独立静态review accept，唯一小HF CPU准入4.040257秒通过；Torch导入前禁CUDA，前后未初始化，原PAS与仅计数子类初态forward/RNG、两阶段四更新loss/原梯度/权重/RNG/learner历史精确，缺目录首步梯度保存严格重载及完整method/learner图重载通过。READY46ea9e103bdc673f98c2cb9cfd90a2276b13ce979a89c6fd80949bf1fdc52f10冻结，原作者核/基线/ShortFixed源不改。CPU仅准入，不是实际0.9B质量。
+- 唯一新unit llmcl-onevision-pas-fit-reference-20261022.service，05:46:36UTC实际CPU26035/start823349、GPU1 worker26058/start823860 active/running并已STARTED，boot f801c9c5-7362-47c3-afc3-1454c1e9d29d。构造168模块/140771328训练坐标/672张量已核实，尚未在该启动快照观察TRAIN事件，无完整F1/partial DEV读取。原4962/4874/5963/5965/5967及他人身份匹配保全，激活CPU helper26009正常返回不构成基线中断。以后看真实身份/新sealed proof，不照抄启动快照为live，不重复分钟级巡检。
+- 原method.name=PASs_MoE不改以保持HostAdamW/默认LR1e-4；七位置r128/alpha256/dropout.05/两个专家/原router及learner、FP16基座外层autocast/FP32适配器内部禁autocast和CPU offload不改，数值例外公开。保留recording/每微样本post_backward的start/len(order)进度、阶段局部tau1.5→.7、跨阶段重要性及A/B参考；十个单批阶段进度0不修正。state_root私有、原save_checkpoints=False仍聚合RAM历史，19完整图保存不冒充部署重载；仅持久SHA通过才删前一权重。
+- 完整后原score全100ID/全参考/CP与源SHA/19validity/87正LR/106梯度文件/原回调及optimizer证据核验，仅新增ShortFixed−PAS一对10000/seed20261022整已知组探索区间；旧ShortFixed只复制封存评分，不重跑旧F1/两配对。ShortFixed42.30132909166463严格高于freshPAS及旧两锚才进入完整确认必要性评审，否则关闭候选；区间跨0不改点规则，不自动1313/21454、不调rank/LR/路由/提示/步数。PAS实际梯度/moment/历史状态和费用单列，不能把仅对OSFT的成本下降写成支配PAS。仅GPU1一流/最多三卡；2h STARTED→COMPLETE含38NLL+38short/87更新/19保存/100DEV，门槛及CPU核验另计。当前只是必要参照启动，Ours/正式表不填、端侧只背景，科研目标未实现。
+
+- 发布前2026-10-22T05:49:49.586897+00:00重新核对同一worker身份，原19FIT门槛完整=True，实际TRAIN已观察0条更新；无完整质量读取。仅阶段元数据，非方法收益，仍以后续sealed proof为准。
+
 # 2026-10-22：短侧冻结完整先导越过固定点门槛，尚非稳定收益或完整确认
 
 - ShortFixed v2原1213FIT/19阶段87有限正LR→100已探索DEV完整通过原独立核验；VERIFIED SHA6289cfecb65f989e75ab8e031e9ee85700a4b18b5005d5ef0203b0789ea9d1fc，COMPLETE9d954c999b5437a6ca52755b5bc458ce8135c276e1fb2495aab4183d5b406633。最终CP3028774773bytes/SHA1138fecea9b3f545e3645523730b5d5753659b1523819b318694b0608904769f。原五源/READY33cc1c4a...不改，消费者唯一执行0.078986秒，OUTCOME97b4bf5f03650f37d7134242f730f8ba372d18f35ece1c9a2097d0e92dcd9e7c；没有重评分/bootstrap/模型请求，独立结果review accept。
