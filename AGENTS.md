@@ -1,3 +1,11 @@
+# 2026-10-22：首步保存故障独立v2已越过，服务器再次重启后正式基线已恢复
+
+- ShortFixed v1在03:07:21→03:08:17UTC（文件mtime55.936747秒，非完成RUN）首个16QA前后向后、clip/optimizer前，torch.save因gradients父目录缺失失败。删除重复JSON写入时漏掉其隐式建目录作用，原静态/小图门槛未覆盖；是实现故障，非质量阴性。原19FIT门槛38NLL+38short已发生，0opt/0event/0CP/0DEV不等于零费用。原源/READY/STARTED/FAILURE/日志保留；V1_FAILURE_SEAL SHA bf87ed77e3a02b112c89561ecf3c99c5fad57c1d36d2335b9a53668bb1b065a1绑定当前artifact，不能重启v1或拼接partial。
+- 独立exp/osft_short_factor_control_20261022/v2只修目录/共用首步保存helper，CPU回归从不存在run/gradients保存并重载全部keys/dtype/值。独立字节/AST review accept，ShortFixedOSFT/optimizer/digest AST及common/PROOF/PROTOCOL不变；准入3.648578秒，READY33cc1c4ad7a4b3e909fefb9a23be8dc0f941645bb91815118a2d6b751bd22d68冻结。原基座新鲜执行、条件/判据/19/87/数值/原作者核不改，v1失败成本单列；不是新增科学变体、门槛放宽或按DEV追分。
+- 唯一新unit llmcl-onevision-osft-short-factor-control-20261022-v2.service，03:45:09UTC实际CPU7045/start90261、GPU1 7170/start90779 active；19门槛完成、原TRAIN已有2条更新，首步梯度358047050bytes已存，越过原故障点。未读partial DEV、无完整F1；只有冻结先导进入训练，不当方法收益/Ours。仍只NEW物理GPU1一流/最多三卡，不用GPU0/旧卡，失败留证独立版本，不恢复v1。
+- 另有独立服务器重启：03:34UTC boot f801c9c5-7362-47c3-afc3-1454c1e9d29d/uptime约367秒，旧8052...和6262/6264/6266/5774/5779失效。正式native自动起CL/SMo；仅停止KillMode=process的CPU2572，保全实际CL4962/SMo4874后接续CPU5963。PAS/PaRSP中断attempt checkpoint_all_stages=false且无权重，保留历史/费用后原条件新鲜排队，不假续训/拼旧预测。publisher5965、FOREVER CPU5967等待GPU2已恢复；旧OWNER失效且从未TRAIN才归档接续。作者源码/评分/数据未改、未向GPU发信号；旧机六完整仍终态，不恢复旧PID。见reboot_recovery_20261022/v2。上述仅恢复快照，不当永久live。
+- 原目录故障在重启前发生，两事件分开；当前无新F1/部署优势，完整数仍8/16，不刷新pending主表，Ours空白。端侧只是科研背景，科研目标未实现；旧block资源条件已改变，后续看v2真实身份/新proof，不继续照旧v1等待快照巡检。
+
 # 2026-10-22：原OSFT短侧梯度分解完成，不据其大小判断参数可删
 
 - 新osft_short_gradient_audit_20261022一次只读原FIT-only OSFT87步504参数norm/19validity/events，0模型/张量/QA/生成/optimizer/GPU，0.180099秒。EVIDENCE SHAec9a8490bb802578dbf248910df4c00e480077bf6a938da8e3dcb41b218374ca；独立实现及结果解释review accept，当前raw/events重新封snapshot，不倒称旧COMPLETE已逐文件封链，不改变旧质量证明。

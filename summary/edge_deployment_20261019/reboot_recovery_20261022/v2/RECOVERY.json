@@ -1,0 +1,87 @@
+{
+  "boot_id": "f801c9c5-7362-47c3-afc3-1454c1e9d29d",
+  "cause": "verified external reboot after prior running baseline attempts",
+  "scientific_source_sha256_before": {
+    "exp/two_backbone_native_cl_20261017_v2/pipeline.py": "a05c27c773dc69369cbef90f89a77c6224d1f5a5d1716c1f8576ac3ff823be17",
+    "exp/two_backbone_native_cl_20261017_v2/run.py": "0e1f794ff1daf0694bdf960c3f89ccd4078764577db75271d8f78684282a39a9",
+    "exp/two_backbone_native_cl_20261017_v2/execution_policy.json": "f6d33cc939ff833ec7799d2d1ec4c238bb97d47d35488034d9174b36f07c2502",
+    "analysis/v2_seven_baseline_report.py": "067b7e41b545483c3746c496b7aa69ce118e5f6526140e3033c0614ee47fb48f",
+    "analysis/v2_verified_baseline_report.py": "d7aac920f738c6ee8fde9a636560f2d2d6ee7ea1ba9de9e030e6548b4b4cad0a",
+    "analysis/forever_formal_queue_20261019.py": "e3c4658221e62a99e80584fa56b701e58c5505416d60c0ecdf8bd08746676138",
+    "summary/edge_deployment_20261019/osft_increment_screen/v1/READY.json": "75b86e6272295b548c82cb73fd29dc60671e18b23314b625d46486232b0d1893"
+  },
+  "CPU_coordinator_before": {
+    "pid": 2572,
+    "startticks": "10304",
+    "uid": 1004,
+    "cmdline": "/data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/pipeline.py "
+  },
+  "fresh_attempts_required": [
+    {
+      "method": "PASs_MoE",
+      "interrupted_run": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/PASs_MoE/training_20261022_013445",
+      "interrupted_completed_stage": 0,
+      "config_sha256": "824481e3b242bb9c6c4d908e98810466590508953df5cf9924cee9bbe9483320",
+      "checkpoint_files": [],
+      "old_predictions_not_reused": true
+    },
+    {
+      "method": "PaRSP",
+      "interrupted_run": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/PaRSP/training_20261022_013445",
+      "interrupted_completed_stage": 1,
+      "config_sha256": "01be50d6195bdd9d7132aec476ab74667794008badaadcb269bf71b8ccbe52a3",
+      "checkpoint_files": [],
+      "old_predictions_not_reused": true
+    }
+  ],
+  "changes": [],
+  "no_GPU_signal_sent": true,
+  "protected_legal_children_before": {
+    "4962": {
+      "pid": 4962,
+      "startticks": "53243",
+      "uid": 1004,
+      "cmdline": "/data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py --method CL_MoE --condition pct01 --run-dir /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_113734 "
+    },
+    "4874": {
+      "pid": 4874,
+      "startticks": "51736",
+      "uid": 1004,
+      "cmdline": "/data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py --method SMoLoRA --condition pct01 --run-dir /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SMoLoRA/training_20261022_113719 "
+    }
+  },
+  "CPU_coordinator_after": {
+    "pid": 5963,
+    "startticks": "58875",
+    "uid": 1004,
+    "cmdline": "/data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/pipeline.py "
+  },
+  "protected_legal_children_after": {
+    "4962": {
+      "pid": 4962,
+      "startticks": "53243",
+      "uid": 1004,
+      "cmdline": "/data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py --method CL_MoE --condition pct01 --run-dir /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_113734 "
+    },
+    "4874": {
+      "pid": 4874,
+      "startticks": "51736",
+      "uid": 1004,
+      "cmdline": "/data1/liyapeng/program/LLMCL/.vision-env/bin/python -u /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py --method SMoLoRA --condition pct01 --run-dir /data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SMoLoRA/training_20261022_113719 "
+    }
+  },
+  "publisher": {
+    "pid": 5965,
+    "startticks": "58878",
+    "uid": 1004,
+    "cmdline": "/data1/liyapeng/program/LLMCL/.assets-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/v2_seven_baseline_report.py --mode watch "
+  },
+  "forever_cpu": {
+    "pid": 5967,
+    "startticks": "58912",
+    "uid": 1004,
+    "cmdline": "/data1/liyapeng/program/LLMCL/.assets-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/forever_formal_queue_20261019.py --backbone qwen "
+  },
+  "scientific_sources_unchanged": true,
+  "complete": true
+}

@@ -1,0 +1,11 @@
+{
+  "short_side_frozen": true,
+  "policy": "m>=n freeze V_low; m<n freeze U_low; reapply after each original reSVD; S_low remains trainable",
+  "parameter_projection": "wide skip_u=True; tall/square original V projection on detached temporary clone",
+  "trainable_coordinates": 89485056,
+  "target_modules": 168,
+  "unfreeze_rank_ratio": 0.25,
+  "learning_rate": 1e-05,
+  "unchanged": "Original seven-target construction/forward/author kernels/HostAdamW/offload/stagewise re-SVD",
+  "scope": "Same single-stage ideal allowed set, not matched optimizer trajectory/step magnitude or fresh controlled time comparison"
+}
