@@ -1,3 +1,11 @@
+# 2026-10-23：S1视觉尾功能承接诊断已独立冻结，CPU调度等待GPU1
+
+- 新exp/visual_tail_function_probe_20261023/v1五源与summary/final_weight_reduction_20261023/visual_tail_function_probe_v1的PROTOCOL/NECESSITY_REVIEW/SOURCE_REVIEW/CPU_GATE/ADMISSION_REVIEW/READY为准。主/子agent往返后仅接受一次起点功能诊断，不是已形成新框架：强参照冻结视觉不能推出视觉尾冗余，语言习得优势的具体原因仍未隔离。旧K69/r200/PAS/ShortFixed及所有旧负条件保持关闭，不恢复。
+- 同一冻结父视觉前13块，独立复制原第14块替代后13块；只用原S1 FIT的325已知组，hash分260组各1QA一次KD、65组各1QA只诊断。原SPLIT/manifest/选中图像SHA绑定，原T1 TRAIN容器按FIT ID过滤，0未来TRAIN文件/原DEV使用/官方TEST。325组不是统计独立图像。KD只拟合实际projected+packed空间tokens，语言/prefix/projector/教师全冻，不teacher回答训练，17更新，195回答NLL前向，无AnswerF1/生成/19阶段语言训练。
+- 唯一tiny CPU FP32图准入3.186360879秒通过，CUDA未初始化；CPU autocast FP32警告后禁用是已披露的门范围，不是实际GPU FP16证明，不改配方/重门。READY9c4288a88269469120646fab5b637880e3f0f386e63eb9bb5f92e61aeaadaa5c冻结，实际HF导入路径/解释器/源hash绑定。原父不变、学生梯度/17步真实optimizer字节、390教师特征请求cache费用、最终14块完整图重载均由冻结worker要求；当前尚无实际模型计数/质量。
+- STARTED至COMPLETE仅1800秒，包括加载/KD/诊断/保存重载，内部alarm加独立controller单调钟期限；只核验并终止自身隔离worker组，不向正式/他人GPU信号。首次STARTED后失败/中断/超预算即停，不重试/延长/v2。仅实际最终完整权重下降≥20%、G0>0且G1≤.5G0、诊断归一化feature MSE下降才进后续必要性评审；50%只是投入门，不是F1保真或掉分容限，G0≤0单列不适用。无自动1213/1313/21454，Ours不填。
+- 唯一新unit llmcl-onevision-visual-tail-function-probe-20261023.service。2026-10-23T15:40:50.569546UTC实际CPU860667/start11289132、bootc8bddf24-7969-41d6-a0fc-e5287850807f active/wait，所有STARTED/COMPLETE/VERIFIED/FAILURE均无。GPU1他人856865/start11095124与857006/start11096682实际活跃，4780MiB/util76仅瞬时；无研究worker/模型尝试，不抢占。以后看实际/proc/startticks/unit/queue，不照抄快照。Restart=no/KillMode=process，不enable开机，旧LAUNCH queue=null仅CPU校验期历史。仅NEW GPU1一流/最多三卡，基线及他人身份在激活前后精确保全。下一实质证据是这个固定诊断完整封存，不分钟巡检/重复CPU门或计数维持活跃。
+
 # 2026-10-23：固定自然布局K69权重近似阴性，停止该成本点
 
 - 新kron_layout_priority_v1的QUESTION/ADMISSION_REVIEW/RUN_DECLARATION/EVIDENCE/EXECUTION/FINDINGS/RESULT_REVIEW记录一次实际CPU矩阵比较，不是模型实验或新框架。只基座第0语言FFN gate/up/down三个张量，普通r200与固定38×7⊗128×128、K69自然索引布局；因子每矩阵1,152,000对1,148,850，不搜索层/置换/shape/K，不计算matrix_rank。

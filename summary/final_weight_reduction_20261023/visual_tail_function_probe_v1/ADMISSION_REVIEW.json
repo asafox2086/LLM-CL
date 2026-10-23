@@ -1,0 +1,47 @@
+{
+  "decision": "accept",
+  "ready_sha256": "9c4288a88269469120646fab5b637880e3f0f386e63eb9bb5f92e61aeaadaa5c",
+  "cpu_gate_sha256": "7cc947243842ff90d7d35e38c75d662b1d537e5002b644ea37eb3f5863d7b86a",
+  "source_review_sha256": "f9cfcbdb7b4e83cd8b27cabc406bf35e6a7b42cad8be84081b82c81b41052d29",
+  "necessity_review_sha256": "62ab34f30704a94b4708413d69b7fb6d5dae0bf018adf55de925b0530c3f5aeb",
+  "review_scope": "Consumption of existing CPU_GATE/READY/source-review and standard-library local source/evidence SHA checks only; no repeated gate, model, Torch, tensor, QA, scoring, bootstrap, weight/image hash or GPU execution.",
+  "source_and_evidence_binding": "All5 READY sources equal the reviewed local bytes; protocol and both reviews and CPU_GATE match READY evidence. No frozen source edits were made.",
+  "actual_tiny_passed_scope": {
+    "CPU_FP32_only": true,
+    "CUDA_initialized": false,
+    "seconds": 3.1863608790008584,
+    "feature_shape": [
+      10,
+      16
+    ],
+    "tiny_SigLIP_26_to_14": true,
+    "student_distinct_from_teacher": true,
+    "projected_AnyRes_gradient_path": true,
+    "parent_unchanged_after_two_updates": true,
+    "original_tower_restored": true,
+    "atomic_missing_directory_JSON_reload": true,
+    "tiny_compact_graph_reload_and_parameter_digest": true
+  },
+  "warning_interpretation": "The reported unsupported CPU float32 autocast warning disables CPU autocast, consistent with the declared FP32-only gate. It is not evidence of CUDA/FP16 validation and does not permit changing the real-worker numerical recipe.",
+  "accepted_action": "Activate the one fixed diagnostic controller under the unchanged READY; it may only wait while GPU1 is unavailable and may make one actual STARTED attempt after its resource guard passes.",
+  "fixed_limits": {
+    "physical_GPU": 1,
+    "STARTED_to_COMPLETE_seconds": 1800,
+    "KD_QA": 260,
+    "diagnostic_QA": 65,
+    "positive_updates": 17,
+    "answer_NLL_forwards": 195,
+    "official_TEST_QA": 0,
+    "automatic_continual_training": false,
+    "retry_or_v2_after_STARTED": false
+  },
+  "runtime_scope": "READY records actual resolved HF module paths and interpreter. The worker must enforce these bindings before model loading; this review did not execute that worker.",
+  "limitations": [
+    "No actual0.9B model was loaded or evaluated by this admission review. Proposed complete-weight reduction and student-coordinate count remain design/runtime assertions until the actual diagnostic seals them.",
+    "The tiny FP32 result does not prove actual CUDA/FP16 finiteness, optimizer behavior, run-time feasibility, final full-model serialization behavior or answer-quality preservation.",
+    "The65 diagnostic groups are held out from KD within S1 FIT, not a new five-domain DEV or statistically independent image sample.",
+    "The fixed50% mean-NLL-gap closure is an investment screen, not an AnswerF1/non-inferiority or permitted-loss guarantee.",
+    "Known inheritance/distillation components and frozen-vision baseline facts do not establish originality or visual-tail redundancy.",
+    "Any STARTED failure, interruption or budget timeout closes this fixed attempt without continuation, extension, automatic v2, full training or TEST."
+  ]
+}

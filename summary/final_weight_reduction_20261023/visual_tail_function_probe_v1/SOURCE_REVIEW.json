@@ -1,0 +1,40 @@
+{
+  "decision": "accept",
+  "review_scope": "Static text/AST and SHA256 review only; no experiment imports, Torch, tensors, data rows, model, CPU gate, QA, scoring, bootstrap or GPU execution.",
+  "files_sha256": {
+    "exp/visual_tail_function_probe_20261023/v1/core.py": "3e73517205621164ca9ec218131c464ff5bebf0c3ff10532cb5dd541c2666660",
+    "exp/visual_tail_function_probe_20261023/v1/run.py": "efec27b1e127bf177071ef71ace1c7020c5c0a48324667c6302080aeb13d99de",
+    "exp/visual_tail_function_probe_20261023/v1/freeze.py": "17e91034c9cd60146cfd2b054463b0098c07fef1d4f3d99c86fe0cdde5d3a2f4",
+    "exp/visual_tail_function_probe_20261023/v1/verify.py": "5b083e7794058271ebd92b2e3842e0c2aa6cd7fd0adef27dc87843d11eb3d284",
+    "exp/visual_tail_function_probe_20261023/v1/dispatch.py": "a7b22234b8c2c431e7f8e491d021ddaa6b1084077656b3d37fc7c8b0b9b7fbfd",
+    "summary/final_weight_reduction_20261023/visual_tail_function_probe_v1/PROTOCOL.md": "bf13a214dbf9782f04614bcc6ad846905a1cb436a18a43b287e985d93808c22b"
+  },
+  "findings": [
+    "Independent deepcopy of original visual block index13, with frozen original prefix0..12 and teacher0..25, is temporarily registered only for student feature extraction and restored in finally. The KD path bypasses the detached teacher cache.",
+    "Only canonical S1 FIT group representatives are used: 260 KD and65 diagnostic, disjoint by frozen known group. Freeze binds the original READY, manifest, SPLIT and selected-image SHA256; the TRAIN container may contain historical DEV rows, which are filtered out of KD/diagnostic use.",
+    "The three diagnostic states use the same65 inputs. Parent NLL is computed once; reuse after KD is conditioned on unchanged full parent parameter digest and exact recorded input/raw tensor hashes. Total answer-NLL calls are195, with no generation or AnswerF1.",
+    "Seventeen updates persist per-step loss/LR/gradient/optimizer witnesses. The verifier independently derives15239504 student coordinates from shapes and requires4-byte gradients and8-byte CPU Adam moments per coordinate.",
+    "Teacher feature request/cache costs are persisted for all390 requests. ResourceMonitor parent-only parameter fields are separated from the independent student state and whole-process RAM/CUDA observations.",
+    "The1800-second worker deadline is protected by an independent controller using STARTED monotonic time and PID/startticks. Signals are confined to the verified own isolated worker process group; identity uncertainty stops with needs_attention and no blind retry.",
+    "Compaction registers only14 visual blocks, clears the feature cache and native input reference, freezes all remaining parameters, saves a minimal method graph and requires full-graph reload/parameter-digest/count agreement.",
+    "Actual resolved HF module paths and interpreter are recorded at freeze and checked before real-model loading; FP32 student master, FP16 autocast/evaluation, HostAdamW and GradScaler init_scale1 are explicit."
+  ],
+  "resolved_blockers": [
+    "External deadline enforcement",
+    "Canonical split/manifest/image provenance",
+    "Student optimizer-byte verification",
+    "Teacher-cache cost coverage",
+    "Actual HF runtime-source provenance",
+    "Explicit GradScaler initial scale"
+  ],
+  "remaining_blockers": [],
+  "limitations": [
+    "Static acceptance permits the single necessary tiny CPU admission only. CPU_GATE, READY and actual-model ADMISSION_REVIEW do not exist or pass by virtue of this review.",
+    "Tiny CPU FP32 checks cannot establish actual0.9B CUDA/FP16 numerical behavior, quality, full-run cost or serialized-graph behavior; the real worker must pass its frozen checks once.",
+    "A50% mean-NLL-gap closure is an investment gate, not AnswerF1 preservation, non-inferiority, generalization or a human tolerated quality loss. G0<=0 makes the necessity ratio inapplicable.",
+    "Known-group separation is not a guarantee of statistical image independence or absence of unknown near duplicates. S1-only recovery does not establish five-domain or continual-learning quality.",
+    "The frozen-vision baseline fact does not prove visual-tail redundancy. This is a function-substitution necessity diagnostic using known inheritance/distillation components, not an accepted original framework.",
+    "No automatic continual training, official TEST, depth/LR search, budget extension, retry/v2 or restoration of closed research branches is authorized."
+  ],
+  "next_allowed_step": "One frozen tiny CPU admission; inspect its actual evidence before deciding model activation."
+}
