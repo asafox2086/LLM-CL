@@ -1,0 +1,29 @@
+{
+  "reviewer": "review_next_probe",
+  "date": "2026-10-23",
+  "decision": "accept",
+  "findings_sha256": "ef7ed03a234191a09925e21ac001aab0a1878e91aa0d7baad3a773b789f30258",
+  "scope": "只读该FINDINGS、NIRVANA v2附录E及MLP Fusion v3相关段落；消费此前已核ZipLM/NTT/NTK-SAP结论。未执行模型、张量、QA、实验、评分、bootstrap或既有artifact消费；无审阅计时声明。",
+  "checks": {
+    "current_version": "NIRVANA当前v2（2026-07-18）确已把保证限定于同输入标量SignGD自代理，增加沿剪枝路径的局部Hessian界及active-group条件。其附录明确delta_P趋零时界任意松，零时无非平凡保证，非有限宽预训练模型紧保证。本稿准确撤销将v1推导问题移植到当前论文的说法。",
+    "counterexample": "在x=g=u=1,d=t>0时，h=ts，J=(tq,ts,s)，S=t(q+2s)，同输入sign自代理为s+t(q+s)，物理删除整通道后相应代理为零。公式及极限正确。delta_P=t(q+2s)/(2+t)趋零，属于作者已声明限制，不反驳该条件性结论。",
+    "adam_boundary": "目标1的平方损失给d梯度(ts-1)s。零moment、偏置修正、无decay/clip且固定eps>0时，其首步更新量趋于eta*s/(s+eps)；函数变化对小eta的一阶系数趋于s^2/(s+eps)。本稿已限定为局部解析说明，不升级为HostAdamW/FP16/87步/F1保证。",
+    "prior_work": "ZipLM已有结构删减后的输出补偿；NTT已有初始输出与训练动力学双约束；MLP Fusion v3明确聚类压缩并分析输出和Adam相关核；NTK-SAP关注训练动力学。该稿没有据此提出原创框架或实验准入。",
+    "actionable_closure": "明确关闭普通成对通道补偿作为新主线及小Taylor单项认证可删且保可学的路线；不自动追加测核、保护、恢复预算或复活旧条件。不是只收集论文摘要。"
+  },
+  "necessary_boundaries": [
+    "解析例子仅说明无条件认证不成立，不是本VLM某个真实参数组已经可删/不可删的证据，也不主张例子原创。",
+    "sign自代理不是任意moment/eps/clip/LR状态下实际AdamW的完整动力学；核谱相同也不保证给定残差响应相同。",
+    "原功能保真与有限预算可塑性须分别有证据；模仿OSFT整体更新不是研究目标，因为其BWT也更差。",
+    "最终减重须真正替代基座权重，不能把少用适应坐标或暗存dense备份当最终完整模型缩小。"
+  ],
+  "source_urls": {
+    "NIRVANA_current_v2": "https://arxiv.org/html/2509.14230v2#A5",
+    "MLP_Fusion_v3": "https://arxiv.org/html/2307.08941v3",
+    "NTT": "https://proceedings.mlr.press/v119/liu20o/liu20o.pdf",
+    "NTK_SAP": "https://arxiv.org/abs/2304.02840",
+    "ZipLM": "https://papers.neurips.cc/paper_files/paper/2023/file/ced46a50befedcb884ccf0cbe8c3ad23-Paper-Conference.pdf"
+  },
+  "required_corrections": [],
+  "disposition": "本页结论可发布为设计去留与适用性边界，无新的质量/减重成果；完成后结束本分支，不继续扩检索或重复解析以维持活跃。"
+}

@@ -1,3 +1,10 @@
+# 2026-10-23：拒绝由小当前贡献直接认证结构可删且可学
+
+- 新learning_response_criterion_review_v1/FINDINGS及RESULT_REVIEW记录有用途的原论文/解析审阅：普通成对通道删除+输出相关补偿已有ZipLM先例，旧半宽也有成对删除；不换名恢复。输出与学习响应同时约束已有Neural Tangent Transfer/MLP Fusion/NTK-SAP/NIRVANA，不作为新框架或模型准入。
+- 单SwiGLU解析族h=d SiLU(gx)ux、x=g=u=1,d=t>0时，组Taylor=t(q+2s)趋零，但SignGD同输入代理=s+t(q+s)趋s>0；固定eps的零moment首步Adam仍可有不随t消失的局部响应。只否定“小Taylor一项就能认证可删且保留可学性”，不是本VLM权重已证无用/有用，不是87步/F1保证，不重复证明维持活跃。
+- 已核NIRVANA当前v2（2026-07-18）而非只读v1：v2明确same-input标量代理、局部smoothness、active-group下界及其退化时界变松。该t族正落在其已声明限制内；不得把v1旧推导问题写成当前论文错误或我们的原创发现，不否定作者经验结果。无新模型/张量/QA/GPU/旧评分或bootstrap，未测新权重/质量。
+- 当前没有新的可执行紧凑框架。下一结构须说明原权重如何被小载体承接及如何保持有限预算习得能力，不能只省adapter坐标、暗存原dense，或复制OSFT全部动力学（其BWT更差）。本轮关闭普通补偿新主线与单proxy认证提议，不自动测核/补恢复/新GPU，全部旧分支终态和基线保全不变，科研目标未实现。
+
 # 2026-10-23：新首批日志观察提示先解决起点功能；视觉大删减假说否决
 
 - 上一轮设计判断已排除普通共享投影作为新框架。本轮新的有用途artifact消费为summary/final_weight_reduction_20261023/initial_loss_evidence_20261023/v1的QUESTION/EVIDENCE/FINDINGS/RESULT_REVIEW：三条已封SHA首记录中，首次optimizer更新前16QA回答NLL为LoRA_qv5.087518595159054、两r200流均17.27503740787506，差+12.187518812716007；阶段末归并尚未发生。分析消费者仅一次0.141646661秒，EVIDENCE SHA0d678580f77860a506e6f942ba942c3257a9b61c7020a5bcedc41e2a7a401ca3，0模型/张量/QA/评分/boot，不重此分析。
