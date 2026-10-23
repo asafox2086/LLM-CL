@@ -1,0 +1,51 @@
+{
+  "review_scope": "Independent mathematical and stream-definition review only; no model, tensor, numerical test, QA, optimizer, GPU, or old formula re-evaluation.",
+  "source": {
+    "path": "D:\\锦\\大学\\科研\\LLMCL\\summary\\final_weight_reduction_20261023\\functional_rank_reuse_v1\\STREAMING_CANDIDATE.md",
+    "sha256": "0aa919b7f37dcfce2c4e0010e96fe07626767772ffd78f65aecd5f57ba88b8e9"
+  },
+  "decision": "retain_as_falsifiable_local_candidate_with_wording_clarifications",
+  "method_novelty_accepted": false,
+  "quality_claim_accepted": false,
+  "experiment_admission": false,
+  "mathematical_checks": [
+    "The joint row shrink with delta equal to sigma_(s+1)^2 has positive-semidefinite covariance loss bounded by delta I. Per-task division by sqrt(N_t) scales that task error by 1/N_t; subsequent merge errors add.",
+    "For the same explicitly scaled A, C=[W^T;-I_m] gives 0 <= L_A(W)-L_S(W) <= Delta*(||W||_F^2+m). No exact linear teacher identity is required for arbitrary paired observed rows.",
+    "For beta>0 and lambda>=0, H is positive definite. Completing the square gives the stated best rank-r solution H_r(J H^(-1/2)) H^(-1/2), including lambda=0.",
+    "For fixed T, S, beta, lambda, and fixed objective scaling, the rank marginal rewards are sigma_j(K)^2. Hard-constraint rank floors and prior hard-constraint residual formulas do not carry over."
+  ],
+  "required_clarifications_before_a_frozen_design": [
+    {
+      "issue": "Sum versus mean across stages",
+      "text": "Dividing each task by sqrt(N_t) defines a sum of per-stage mean squared losses. With fixed lambda its total historical weight accumulates with the number of stages relative to beta. Explicitly choose this sum, or normalize by the number of stages / equivalently scale lambda if a mean is intended. Either is mathematically valid; do not call them the same fixed objective."
+    },
+    {
+      "issue": "What old targets are preserved",
+      "text": "The underlying historical paired-response objective keeps its original collection timestamps. FD itself keeps synthetic summary rows and approximates/discards joint second-order information; it does not preserve every original y value exactly."
+    },
+    {
+      "issue": "End-of-task and merge flushing",
+      "text": "Specify how a final partial buffer with more than s but fewer than 2s rows is reduced to the declared retained size, and include its shrink delta in the error ledger. Define nonexistent singular values as zero when s reaches the ambient dimension."
+    }
+  ],
+  "critical_boundaries": [
+    "The memory is bounded in row count, but Delta may accumulate indefinitely; fixed memory is not a bound on long-term approximation or forgetting.",
+    "Old local inputs are stale when upstream layers change. The stated bound does not control responses at new upstream inputs, whole-network logits, pretraining capability, Answer F1, or actual FP16 arithmetic.",
+    "Current-task post-training pre-consolidation targets can contain errors or forgetting already incurred in that task. Retaining older task summaries prevents silent target replacement, but does not repair already lost abilities.",
+    "Answer-token collection is only defined for aligned language-side layers. It provides no automatic visual-patch or general multimodal-function coverage.",
+    "Temporary candidate rank, initial physical compression, parameter budget, memory dimensions/scaling, and summary cost remain undefined; therefore no GPU/model admission or final-weight-quality conclusion follows."
+  ],
+  "research_value": "This fills a previously missing bounded historical-information flow and replaces an inconsistent hard-target story with a well-defined soft local regression objective. FD, functional regularization, and weighted low-rank approximation are known components. The document is a falsifiable mechanism candidate, not an accepted novel framework.",
+  "next_specific_design_question": "Specify whether upstream representations are allowed to move and what identifiable claim the stored old-coordinate responses can then support. If upstream movement remains unrestricted, describe the mechanism only as a stale-coordinate local surrogate and define an action-changing same-final-budget comparison before any implementation; do not infer whole-model protection from the local bound.",
+  "performed_operations": [
+    "Read STREAMING_CANDIDATE.md",
+    "Standard-library SHA256 and this review JSON write only"
+  ],
+  "unperformed_operations": [
+    "No primary-literature re-audit",
+    "No model/tensor/numerical test",
+    "No QA/TEST/prediction reading",
+    "No optimizer or GPU activity",
+    "No experiment or frozen-source changes"
+  ]
+}

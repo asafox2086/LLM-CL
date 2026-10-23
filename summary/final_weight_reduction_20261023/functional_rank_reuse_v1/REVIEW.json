@@ -1,0 +1,32 @@
+{
+  "reviewer": "/root/review_next_probe",
+  "decision": "accept_as_conditional_mathematical_candidate_only",
+  "novel_framework_accepted": false,
+  "experiment_admission": false,
+  "reviewed_UTC": "2026-10-23T09:53:57.910553+00:00",
+  "scope": "Only new independent-factor global-budget allocation and wording reviewed. Prior accepted single-matrix derivation consumed directly. No model, data, tensor, numerical test, optimizer, QA score, bootstrap or GPU execution; related-work priority claims not newly re-audited.",
+  "files_sha256": {
+    "summary/final_weight_reduction_20261023/functional_rank_reuse_v1/DERIVATION.md": "0187226b286cd9a745b4333d74080ca1fa5233d324e411009ad5bed1feb2f528",
+    "summary/final_weight_reduction_20261023/functional_rank_reuse_v1/GLOBAL_BUDGET.md": "9ee19bf4d409459ae840c0e7f92fb7a66e9a3ea4bd8a3cd10495563dd3f59cdd",
+    "summary/final_weight_reduction_20261023/functional_rank_reuse_v1/RELATED_WORK.md": "edff95a8bb4affbf0c1a94cc8b85f61ea3b8106d008089e85054fce0fe909c2d"
+  },
+  "mathematical_findings": [
+    "Independent factors remove the former shared-D coupling; global budget P_fixed+sum((m+n)r) includes all retained coefficients.",
+    "The lower bound P_fixed+sum((m+n)k) is necessary and, for the stated independent-matrix equality constraints alone, also sufficient for algebraic feasibility; it is not a quality guarantee.",
+    "With fixed Q,Y,T and positive layer weights alpha and equal per-rank cost, selecting largest alpha*sigma^2 marginal gains up to floor(remaining_budget/c) is optimal for this additive proxy; prefix-compatible tie handling is possible.",
+    "For unequal per-rank costs, a marginal gain/cost greedy rule has no general global-optimality guarantee.",
+    "The allocation optimizes the stated local Frobenius proxy, not full-model responses, AnswerF1 or a trainable update trajectory."
+  ],
+  "text_clarifications": [
+    "Explicitly bound q_l by min(m_l,n_l)-k_l or restrict selection to available nonzero residual singular directions; unused budget need not be spent on zero directions.",
+    "Specify floor for equal-cost capacity and tie order that respects increasing within-layer singular index.",
+    "State explicitly that Q_l,Y_l,T_l and alpha_l are fixed during one allocation; if they change with allocation, the proved ranking optimality no longer follows."
+  ],
+  "next_valuable_question": "Define a bounded-cost, strictly seen-FIT-only Q/Y maintenance rule, including target time and whether/how older constraints are retained when the sketch changes. Determine its declared protected functionality and feasibility/closure criterion under B. No advance proof of F1 is required; an executable falsifiable proxy hypothesis and exit are required.",
+  "boundaries": [
+    "No novelty claim for classical constrained truncation plus marginal spectral allocation.",
+    "No automatic model experiment or restoration of factor/PAS/ShortFixed workers.",
+    "k=r still allows changes within the old output column space; it does not mean no learning.",
+    "A final-factor budget does not bound temporary SVD, statistical memory, optimizer memory or wall time."
+  ]
+}
