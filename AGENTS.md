@@ -1,3 +1,10 @@
+# 2026-10-24：原生响应的参数必要性候选，不冒充已承接PAS机制
+
+- native_response_reuse_pilot_v1的PROTOCOL/NECESSITY_REVIEW及MECHANISM_DISCUSSION/DISCUSSION_REVIEW为准。主/子agent实际往返后明确：原生SiLU条件门不等于PASs的RW动态响应自路由，更没有RS历史保护；不存在“已经继承有效机制”的结论。替代性反事实仍有依据：同一紧凑载体既有响应是否足够，能否避免永久新增专家包；严谨的可避免参数发现本身可有价值，不为叫新框架强迫堆模块。
+- 单一SmolVLM-500M固定revision，Q公共q/v、E为FFN-local PAS-derived双专家、R保留原G/U而学习完整D。必要性协议仅有条件接受E→Q→条件R：E/Q须完整验证且E>Q才运行事前固定R；点增益不叫稳定有效，整包比较不能识别RW/RS净因果。原生小模型体积优势属于HF作者，经典Down微调/fold不是我们的框架创新。
+- 当前只有core/runtime局部WIP与语法检查，局部review四个实现问题已修；无完整SOURCE_REVIEW/CPU_GATE/READY/run/dispatch/freeze、无权重或完整tokenizer下载、无Torch/QA/模型/GPU尝试。本轮先停止完整worker扩编，不将必要性接受冒充模型准入，也不自动下载/激活。原协议/必要性review原字节保留，本轮未撤销窄问题或改冻结科学条件。
+- GPU忙不阻止有用途分析；下一工作须具体补选择、旧响应保护、新响应学习怎样由小载体承接，或证明哪些新增权重可避免。不能把现成小模型加已知微调叫新框架，也不因尚无框架抹去必要性研究价值。旧视觉/PAS/r200/ShortFixed全部终态不变，不恢复/巡检/重门；正式基线保全。没有新F1/实际减重或目标完成。
+
 # 2026-10-24：原生紧凑载体只完成元数据资格核对，不是新方法或模型准入
 
 - native_carrier_qualification_v1的EVIDENCE/FINDINGS/RESULT_REVIEW为准。GPU忙期间先查旧共享草案，普通跨层共享基+私有AB已讨论；初始层差与新适应共用私有容量仍未识别，不实现/重开CPU权重近似表。共享非线性字典也仅条件可构造，缺门/输入响应不能靠输出系数凭空补回，不当新框架。

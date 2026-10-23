@@ -1,0 +1,51 @@
+{
+  "decision": "accept_single_fixed_necessity_pilot_pending_source_and_admission",
+  "protocol_sha256": "29cd66391136a84e1b8735cbbc1081d393f5c4f273a3c1406ece6a20c505d425",
+  "files_sha256": {
+    "summary/final_weight_reduction_20261023/native_response_reuse_pilot_v1/PROTOCOL.md": "29cd66391136a84e1b8735cbbc1081d393f5c4f273a3c1406ece6a20c505d425"
+  },
+  "scope": "只审本协议的科研必要性、解释和预算；未运行模型、Torch、QA、评分、bootstrap、下载或准入。",
+  "scientific_value": [
+    "同一原生载体和公共qv使R−Q识别完整down重组是否有额外用途，R−E判断固定配方中永久FFN专家是否是达到观察质量的必要条件。Q不可省。",
+    "E→Q→条件R有明确节约出口：E或Q缺测停止；二者均CASE_VERIFIED且E>Q才执行事前冻结的R。若E≤Q则R未测，不伪造阴性或有效专家替代。",
+    "采用完整down与作者rank128 FFN-local专家，而非为了训练坐标相等削弱适应，符合最终权重为主的要求；不是给已完成正式PAS调参。"
+  ],
+  "fixed_design": {
+    "carrier_revision": "HuggingFaceTB/SmolVLM-500M-Instruct@a7da5b986cb59b408707209984f360a5f4ad7e47",
+    "common_qv_coordinates": 819200,
+    "R_down_coordinates": 78643200,
+    "R_total_train_coordinates": 79462400,
+    "E_FFN_coordinates": 86507520,
+    "E_total_train_coordinates": 87326720,
+    "FIT_QA": 1213,
+    "stages": 19,
+    "updates": 87,
+    "explored_DEV_QA": 100,
+    "case_budget_seconds": {
+      "E": 21600,
+      "Q": 7200,
+      "R": 7200
+    },
+    "total_model_budget_seconds": 36000,
+    "no_retry_extension_or_v2_after_STARTED": true,
+    "automatic_full_confirmation": false
+  },
+  "budget_judgment": "接受这个新载体/新问题的一次最多10小时事前模型投入；它不是延长已关闭PAS作业。E先跑且门控R降低无有效参照时继续投入的浪费。下载、CPU准入、核验及失败费用另报，不称同计算预算。",
+  "minimum_implementation_requirements": [
+    "先独立源审阅、设计固定版本合法下载及成本、实际权重计量、唯一必要tiny CPU门、冻结READY和实际准入证据；本review不代表这些已经完成。",
+    "解析实际native chat/template/tokenizer/generation优先级与assistant终止语义。EOS IDs可以不同，不盲追加旧OneVision EOS，不依据DEV输出调停止；语义无法确定才停。",
+    "三流同CP0/公共qv初值/原始输入；E前冻结所有流源码和参数，不据E/Q成绩改R。输入超限不静默删问题、答案或图块，不翻译或答案映射，不搜索精度。",
+    "每case完整后只一次核验；条件门和汇总消费已有宏/评分，不重跑E/Q F1。",
+    "公平编译和重载、fold公共qv，剥离仅训练历史而保留实际推理所需专家/路由/权重buffers；全部共享存储去重。不能用膨胀训练CP制造R减重。",
+    "独立硬deadline及总预算、PID/startticks/UID/PGID身份绑定，仅终止自身隔离worker；正式/他人GPU受保护。"
+  ],
+  "interpretation_limits": [
+    "R仅固定gate/up参数；Q和上游更新会改变实际隐藏输入与响应。R/E函数空间、Jacobian、噪声/优化及数值路径不同，不能唯一归因预训练响应或证明新方向普遍无用。",
+    "终态100DEV不分离习得与遗忘，四阶段没有DEV。已探索DEV/整组区间不构成新留出、稳定、显著或等效证明。",
+    "E是FFN-local PAS-derived参照，不是正式七位置PAS复现；R输不否定全部原生gate/up/down适应。",
+    "旧43.79198740853657和旧OneVision75%规模是外部用途门，与同骨干结论分开；不能抹去未过外部门时的同载体发现。",
+    "P0为API声明，实际完整存储、BF16路径与任务能力待证。原生基座的体积优势属于作者成果；本对照最多主张实际避免的E依赖。",
+    "选择性down微调、LoRA折叠均有先例；本协议不接受新框架、普遍专家冗余或目标达成主张。"
+  ],
+  "permitted_next_step": "仅允许独立实现和必要下载设计；随后仍须源审阅及准入。不授权模型激活，不声称CPU门或实际模型已经通过。"
+}
