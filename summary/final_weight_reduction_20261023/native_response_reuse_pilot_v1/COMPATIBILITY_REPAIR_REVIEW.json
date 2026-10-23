@@ -1,0 +1,70 @@
+{
+  "decision": "accept_one_independent_v2_compatibility_source_review_and_single_CPU_gate_only",
+  "reviewer": "independent_subagent_review_next_probe",
+  "reviewed_at_UTC": "2026-10-23T17:57:09.191930+00:00",
+  "files_sha256": {
+    "CPU_GATE_STARTED.json": "5f5527fe047e9846177f7441319434ae1b45d52e4cfe8c7f10b9f98d30555c27",
+    "CPU_GATE_FAILURE.json": "7c55e1470eafe21251667191686babc4623059f019bd3e3b8dffccfc9095d1f4",
+    "SOURCE_REVIEW.json": "a9a71ec6c57e5466f10f90fd4cd0af6291eb634711e24fa870b8480b851a7eab",
+    "PROTOCOL.md": "29cd66391136a84e1b8735cbbc1081d393f5c4f273a3c1406ece6a20c505d425",
+    "IMPLEMENTATION_SPEC.md": "2fb71fdf55d70e02b7b82223f670bbec464a7f4c479ef9aaf645e93de64c422b",
+    "ASSET_RECEIPT.json": "f860b2c41c17aae6cda9962580c5a3dbecd8c3962307da098e5c0d51e62fde33",
+    "ASSET_TRANSPORT.json": "4c93bf9b1280fd807c9b7514e1b06098bf33cb379b33c798581dd785ec62680a"
+  },
+  "raw_traceback_record_from_failure": {
+    "path": ".deployment/native_reuse_admission_20261024/admit_1792777938278971533.log",
+    "sha256": "47f5b95db0c113bdc2ad149b13d6eaa057c915d8187e6c57958530b18be070c8",
+    "bytes": 2211
+  },
+  "raw_traceback_independently_read": false,
+  "raw_traceback_scope": "Private log path was not present in this local mirror; its hash is consumed from the preserved FAILURE metadata, not independently reverified here.",
+  "v1_disposition": "failed_CPU_admission_preserved_no_hot_edit_no_gate_rerun",
+  "failure_scope_from_preserved_metadata": {
+    "tiny_constructor_failed": true,
+    "real_carrier_model_attempts": 0,
+    "QA_forward_backward_generation_optimizer_updates": 0,
+    "research_STARTED": false,
+    "READY": false,
+    "not_scientific_quality_negative": true,
+    "CPU_attempt_duration_not_independently_measured": true
+  },
+  "fixed_repair": {
+    "new_independent_version": "v2",
+    "attention_implementation": {
+      "vision_config": "eager",
+      "text_config": "sdpa"
+    },
+    "installed_modeling_utils_sha256_parent_static_inspection": "118bd75838e78b19a55accddcf0a913386d822e812c215d50da99c3d0e91d3da",
+    "source_dispatch_claim_scope": "Parent reports static installed _autoset_attn_implementation accepts a per-subconfig dictionary; this review does not execute it or claim runtime success.",
+    "required_sites": [
+      "tiny Idefics3 construction",
+      "real from_pretrained loading",
+      "final restore_compiled construction"
+    ],
+    "required_runtime_assertions": "Actual vision/text subconfig attention implementations must equal the one fixed mapping at all applicable constructions.",
+    "operator_condition_change_public": true,
+    "no_claim_of_bitwise_equivalent_attention_or_quality": true,
+    "no_backend_precision_or_performance_search": true
+  },
+  "permissions": {
+    "new_minimal_diff_implementation_and_independent_source_review": true,
+    "one_new_CPU_gate_only_after_new_SOURCE_REVIEW": true,
+    "redownload_assets": false,
+    "rerun_v1_CPU_gate": false,
+    "model_or_controller_activation": false,
+    "science_recipe_budget_data_rank_LR_changes": false
+  },
+  "required_preservation": [
+    "v1 six sources and source review",
+    "v1 CPU gate marker/failure/raw log",
+    "original asset receipt and transport evidence",
+    "all prior scientific terminal states"
+  ],
+  "boundaries": [
+    "Reuse the same already SHA-verified fixed-revision assets; any v2 asset provenance must explicitly bind the original receipt without claiming a new download.",
+    "New source review must inspect the minimal diff and bind v1 failure plus revised implementation conditions before a single new CPU admission.",
+    "The original unique-gate restriction remains enforced for v1; this is an explicit one-time compatibility revision, not permission for automatic retries or rolling versions.",
+    "A second gate failure requires stopping and reconsideration; no automatic v3, backend trial sequence or model activation.",
+    "Native BF16 quality, actual carrier parameter/storage counts and runtime EOS remain unproved."
+  ]
+}

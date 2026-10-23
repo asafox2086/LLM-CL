@@ -1,3 +1,11 @@
+# 2026-10-24：v1 CPU门构造期失败；独立v2兼容源码已审，未激活
+
+- 当前以native_response_reuse_pilot_v1的CPU_GATE_FAILURE/COMPATIBILITY_REPAIR_REVIEW与新pilot_v2的IMPLEMENTATION_SPEC/SOURCE_REVIEW为准。v1首个CPU进程876321已exit1，在tiny Idefics3构造时因4.46.3视觉模块不支持显式SDPA报错，0QA/forward/backward/optimizer/真实0.5B STARTED，无CPU_GATE/READY。原六源/审阅/marker/私有失败日志保留，不热改/重门，不当科学质量阴性。
+- 两次NEW资产运输先后因Errno101和TLS issuer失败，均在API/资产之前，没改CA/TLS；临时通道已关。PC执行原已审freeze assets、默认TLS验证98.063秒，原12文件共1019883656bytes，真实safetensors头61224bytes/507482304 BF16系数；模型头非活体共享存储实测。经验证SSH传NEW后12文件逐SHA匹配，ASSET_RECEIPT原字节/ASSET_TRANSPORT保留，PC只作缓存运输、不做模型/训练/部署。下载期来源/LFS/旧元数据核验在PC，NEW接收核全部SHA，范围不能混称。
+- 独立兼容裁决7a4a299e448b29635cc8f4c2e355d95a30a113660501166fdea435533e42eb6e仅许一次v2修复，不自动激活。已静态核安装modeling_utils按subconfig字典分派：唯一固定vision=eager、text=sdpa，同时覆盖tiny构造/真实加载/最终重载并核实际子配置；视觉算子路径变化公开，不称逐值相同/精度或速度收益，不改共享环境、不搜backend。
+- exp/native_response_reuse_20261024/v2六源及其SOURCE_REVIEW 15b5ec0424b05856364736a1744aff80b5dc9a8579a322548b91652632119d0c已独立静态接受，只允许复用已核资产与唯一v2 CPU门。原科学PROTOCOL/必要性review、资产receipt逐字节承接，不重新下载；READY将绑定v1失败/源/裁决。尚无v2 CPU门/READY/ADMISSION或服务/研究worker，下一步是该唯一门，再失败停止重判、不滚动v3，不能借CPU修复绕过真实STARTED后硬停止。
+- 当前仍是有依据的新增专家包必要性研究，不是已承接RW/RS或新框架，未有新F1/保质减重成果。E→Q→条件R科学条件/同数据/原评分/预算均不改；仅源码实施兼容修复，模型预算尚未开始。旧视觉/PAS/r200/ShortFixed均保持关闭，正式基线保全，不重复工程/计数当科研收益。
+
 # 2026-10-24：原生响应必要性六源静态通过，只允许资产与唯一CPU门
 
 - native_response_reuse_pilot_v1新IMPLEMENTATION_SPEC/SOURCE_REVIEW为准。主/子agent确认上一轮机制边界已讲清，可以推进已接受的最少对照，不必再重复同类论证。六源core/runtime/common/run/freeze/dispatch已完成、py_compile通过；独立SOURCE_REVIEW a9a71ec6c57e5466f10f90fd4cd0af6291eb634711e24fa870b8480b851a7eab仅接受固定资产获取与一次tiny CPU准入，明确不接受激活。尚无下载/CPU_GATE/READY/ADMISSION_REVIEW/实际模型/GPU/QA/F1。

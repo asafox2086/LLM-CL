@@ -1,0 +1,49 @@
+{
+  "decision": "accept_source_for_assets_and_single_CPU_gate_only",
+  "reviewer": "independent_subagent_review_next_probe",
+  "reviewed_at_UTC": "2026-10-23T17:58:56.795616+00:00",
+  "sources": {
+    "exp/native_response_reuse_20261024/v2/core.py": "c68f54ccd117346b1aa71ad2531826b13eef4e50ec55ca13b7150d25e64a93c3",
+    "exp/native_response_reuse_20261024/v2/runtime.py": "020c06ee2f18897cba0c89ed3db296bfdbad4ef2efbd428f44cdc8d623e805ac",
+    "exp/native_response_reuse_20261024/v2/common.py": "0a842f71a8c8aecd4e7608247e62d2cc89c304066a7c303a342cc1d220810de5",
+    "exp/native_response_reuse_20261024/v2/run.py": "58f9bdc41c34dcae37e9ea52e3fcfea55755dddf1d8b66d6ad0c7b20caf29a00",
+    "exp/native_response_reuse_20261024/v2/freeze.py": "41e856a1d3c89900ae6af8049f81ced50ed426198d42f438d8a37f10666c5477",
+    "exp/native_response_reuse_20261024/v2/dispatch.py": "fdd143bbc16d40d13d90c1ee57dae230828c1313f9e6520870e0ffac7ebf4c73"
+  },
+  "protocol_sha256": "29cd66391136a84e1b8735cbbc1081d393f5c4f273a3c1406ece6a20c505d425",
+  "implementation_spec_sha256": "e471fb9be887e61b2527508a3f6cb06d6699c175c200087947c4714443f5c4fd",
+  "repair_review_sha256": "7a4a299e448b29635cc8f4c2e355d95a30a113660501166fdea435533e42eb6e",
+  "status_sha256": "c6b51d2bb6d5e20dec275f2ca47fbf424eba0c71fda30088a1172ea2998b50a3",
+  "inherited_v1_source_review_sha256": "a9a71ec6c57e5466f10f90fd4cd0af6291eb634711e24fa870b8480b851a7eab",
+  "inherited_records_sha256": {
+    "NECESSITY_REVIEW.json": "8c743c2e2beee172eab6e6d1927c1a0c94ed507b6d413bddbe4c55a4b14cbd6d",
+    "ASSET_RECEIPT.json": "f860b2c41c17aae6cda9962580c5a3dbecd8c3962307da098e5c0d51e62fde33",
+    "ASSET_TRANSPORT.json": "4c93bf9b1280fd807c9b7514e1b06098bf33cb379b33c798581dd785ec62680a"
+  },
+  "v1_failure_sha256": "7c55e1470eafe21251667191686babc4623059f019bd3e3b8dffccfc9095d1f4",
+  "scope": {
+    "static_minimal_diff_review_against_previously_reviewed_v1": true,
+    "only_reuse_already_verified_assets": true,
+    "new_download_allowed": false,
+    "one_v2_tiny_CPU_admission_after_this_review": true,
+    "controller_or_model_activation_authorized": false,
+    "Torch_module_model_tensor_QA_GPU_download_gate_score_or_bootstrap_executed_by_reviewer": false
+  },
+  "findings": [
+    "已逐文件比较六源v1→v2：runtime与dispatch文本/AST内容不变，但换行字节不同并分别封SHA；其余变化限独立REPORT/WORK版本、固定attention映射及三处构造与实际子配置断言、配置/READY绑定、历史与安装依赖封链、拒绝重复资产下载。",
+    "ATTENTION唯一为vision_config=eager/text_config=sdpa；tiny _from_config、真实from_pretrained、最终restore_compiled均使用dict副本并断言实际vision/text配置。",
+    "真实from_pretrained仍拒绝missing/unexpected/mismatched/error消息；最终strict state/digest重载门保持，未通过源码修改规避。",
+    "freeze.approved绑定本review六源、协议、实施细化和v1独立兼容裁决；READY依赖保留v1 CPU失败/marker/旧源/旧review，并封实际modeling_utils安装文件。",
+    "PROTOCOL、NECESSITY_REVIEW、ASSET_RECEIPT及ASSET_TRANSPORT已与v1逐字节比较一致，明确历史承接而非v2重新获取或重新通过。",
+    "没有改变E/Q/条件R、训练数学/数值dtype、数据/87更新、单次评分、停止出口或6h/2h/2h总10h模型预算；原v1 SOURCE_REVIEW所绑定六源仍与原哈希一致。"
+  ],
+  "limitations": [
+    "本次只静态检查，未执行v2模块、CPU门或真实模型；不把支持dict的静态证据称运行通过。",
+    "视觉eager是实际共同算子条件变化，已公开；不声明与v1请求的SDPA路径逐值相同、质量不变或成本收益。",
+    "仅允许唯一v2 tiny CPU门；v1失败不可热改或重门，再失败不自动v3、不换backend/精度/库版本凑通过。",
+    "原生BF16实际前反向、EOS输入、完整去重权重计数与质量仍待既定准入/worker验证；CPU FP32小图不能代替。",
+    "模型/服务激活仍须READY后的独立ADMISSION_REVIEW。资产只复用并重新校验原receipt所列SHA；没有新下载授权。",
+    "继承v1研究解释边界：固定载体参数必要性对照，不唯一识别RW/RS，不主张新框架、稳定/等效收益或目标完成。"
+  ],
+  "remaining_static_blockers": []
+}

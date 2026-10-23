@@ -1,4 +1,10 @@
-# 完整源码静态审阅通过，尚未模型准入
+# v1 CPU准入构造期失败，保留原源，不重门
+
+CPU_GATE_FAILURE为当前终态：固定Transformers4.46.3的视觉模块不支持全局显式SDPA，首次tiny构造报错，0QA/forward/optimizer/真实载体STARTED。原六源、SOURCE_REVIEW、CPU_GATE_STARTED及私有日志保留，不热改/重跑本门；不能称质量阴性。
+
+12份固定资产已由PC默认TLS下载并核官方LFS/Git blob及旧元数据，原ASSET_RECEIPT逐字节传NEW、12文件全部SHA匹配。两次NEW运输网络/TLS失败保留；没有改CA或关闭TLS校验。独立v2兼容修复按COMPATIBILITY_REPAIR_REVIEW重新审源码后才唯一新门，不自动激活。
+
+下方为首次门之前的历史：
 
 六源core/runtime/common/run/freeze/dispatch已完成并通过独立SOURCE_REVIEW，仅允许固定revision资产获取与一次tiny CPU门。尚无CPU_GATE/READY/ADMISSION_REVIEW、权重下载或模型启动；不得由静态接受直接激活service。导入不会执行试验，语法检查不是模型准入。
 
