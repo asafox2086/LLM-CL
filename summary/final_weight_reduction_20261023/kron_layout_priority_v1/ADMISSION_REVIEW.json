@@ -1,0 +1,30 @@
+{
+  "reviewer": "review_next_probe",
+  "date": "2026-10-23",
+  "decision": "accept_one_fixed_CPU_matrix_priority_analysis_only",
+  "reviewed_sha256": {
+    "analysis/kron_layout_priority_20261023.py": "2bd14deb8667b2680d11aab073328d6b02aa623f878442e875cc92f5f6604464",
+    "QUESTION.md": "8de55b2574da09780855538836cacc4ac2ba04b5f12c25a6662d536670a9dabb"
+  },
+  "scope": "准入仅覆盖一个新进程内、固定第0层gate/up/down三个原张量的CPU矩阵分析；本审阅仅文本/AST及标准库SHA，没有执行SVD、NumPy、模型或张量加载。",
+  "static_checks": {
+    "physical_layout": "W的自然索引重排(38,128,7,128)->(38,7,128,128)->(266,16384)对应sum A_k(38x7) kron B_k(128x128)。down先转置统一分析形状，参数存储量不变。",
+    "parameter_budget": "r200普通因子每矩阵1152000系数；K69 Kronecker因子1148850系数，后者低于前者。仅是假设FP16因子存储字节，不代表已生成/保存/部署这些因子。",
+    "numerics": "原F16元素转float64；各原矩阵与其重排各调用一次compute_uv=False SVD，截断尾平方和计算最佳精确实数模型的相对Frob残差。重排不改变Frob范数，并有总奇异值能量核验。未计算数值rank或保留谱。",
+    "provenance": "核既有头部SHA并对三个本次读取张量原字节封snapshot；不冒充重核整份基座或历史张量逐值链。声明源与QUESTION SHA绑定于外部RUN_DECLARATION。",
+    "output_and_stop": "单次STARTED/EVIDENCE/FAILURE防覆盖，三个结果全部公开。三者均严格更低才保留后续功能讨论，任一不低即关闭固定成本点；混合结果明示。失败/超时停止，不重试。"
+  },
+  "execution_contract_not_implemented_by_reviewed_source": {
+    "external_wall_limit_seconds": 600,
+    "responsibility": "父agent用外部parent subprocess timeout约束NEW上实际矩阵子进程；超时保留停止证据。不把仅终止本地SSH客户端当远端矩阵进程已经终止。外部launcher未在此次两文件范围中审阅，源自身未声称Python信号可以中断C。",
+    "threads": "导入NumPy前请求两数值线程且CUDA不可见；这是请求值，不是运行后的实测线程数。"
+  },
+  "interpretation_limits": [
+    "只回答固定第0层、自然索引分组、r200/K69成本点的权重近似优先级，不是参数必要性/全模型功能或学习能力判定。",
+    "不胜而关闭是保守预算决策，不否定所有Kronecker表示；更低残差也不自动准入全模型或训练。",
+    "满矩阵rank不是功能保留证明；低分离rank与优化几何仍是另一个结构约束。自然索引结果不外推其他置换、层或shape，不据此搜索。",
+    "float64离线残差不包含FP16因子舍入/执行误差，更不是原Answer F1、CPU/GPU模型峰值或原创性成果。"
+  ],
+  "allowed_action": "只按这两个SHA执行一次CPU矩阵分析并消费原结果；不模型/QA/前后向/optimizer/GPU/DEV/TEST/旧F1或bootstrap，不恢复旧研究条件。",
+  "required_source_changes": []
+}

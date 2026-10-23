@@ -1,0 +1,125 @@
+{
+  "scope": "fixed layer0/natural layout/r200 versus K69 priority only; not model function, F1, trainability or novelty",
+  "source_header_sha256": "874dbcdff7fd946c2f1d74b0d46059e598b03bdc2b93853f65603360a984c5a5",
+  "source_header_bytes": 94568,
+  "current_tensor_snapshots_only": true,
+  "declared_full_base_sha256_reverified": false,
+  "run_declaration_sha256": "bd5fe0042760e0b433812183820472f2f0ca0d9ff9e9147acc7b05200c82fd1d",
+  "analysis_sha256": "2bd14deb8667b2680d11aab073328d6b02aa623f878442e875cc92f5f6604464",
+  "question_sha256": "8de55b2574da09780855538836cacc4ac2ba04b5f12c25a6662d536670a9dabb",
+  "numpy_version": "1.26.4",
+  "analysis_dtype": "float64",
+  "source_dtype": "F16",
+  "numeric_threads_requested": 2,
+  "no_torch_or_model_QA_GPU": true,
+  "results": [
+    {
+      "key": "language_model.model.layers.0.mlp.gate_proj.weight",
+      "source_shape": [
+        4864,
+        896
+      ],
+      "analysis_shape": [
+        4864,
+        896
+      ],
+      "source_tensor_sha256": "5397ab889901f087e0819075124aafc99341cc6a719deeb99f75c154abd86735",
+      "source_tensor_bytes": 8716288,
+      "ordinary_rank": 200,
+      "separation_terms": 69,
+      "weight_norm_sq": 1921.4464509326249,
+      "ordinary_factor_coefficients": 1152000,
+      "kron_factor_coefficients": 1148850,
+      "ordinary": {
+        "relative_frobenius_residual": 0.7302842226785076,
+        "tail_norm_sq": 1024.736302160367,
+        "wall_seconds": 0.5906493959919317,
+        "cpu_seconds": 0.974132817
+      },
+      "kron": {
+        "relative_frobenius_residual": 0.8309345156223026,
+        "tail_norm_sq": 1326.6668701488916,
+        "wall_seconds": 0.5176755959982984,
+        "cpu_seconds": 1.0311250010000002
+      },
+      "kron_strictly_better": false,
+      "ordinary_hypothetical_FP16_factor_bytes": 2304000,
+      "kron_hypothetical_FP16_factor_bytes": 2297700
+    },
+    {
+      "key": "language_model.model.layers.0.mlp.up_proj.weight",
+      "source_shape": [
+        4864,
+        896
+      ],
+      "analysis_shape": [
+        4864,
+        896
+      ],
+      "source_tensor_sha256": "0f9c0f7bfcc8ab73910e08d8193d612e113e9e68075e29ae1767dc5a6ed77de6",
+      "source_tensor_bytes": 8716288,
+      "ordinary_rank": 200,
+      "separation_terms": 69,
+      "weight_norm_sq": 1310.1509083143542,
+      "ordinary_factor_coefficients": 1152000,
+      "kron_factor_coefficients": 1148850,
+      "ordinary": {
+        "relative_frobenius_residual": 0.7909173614924373,
+        "tail_norm_sq": 819.5652579875065,
+        "wall_seconds": 0.4905064929916989,
+        "cpu_seconds": 0.9482725190000001
+      },
+      "kron": {
+        "relative_frobenius_residual": 0.8348901471448344,
+        "tail_norm_sq": 913.229630083898,
+        "wall_seconds": 0.5069010440056445,
+        "cpu_seconds": 1.011916667
+      },
+      "kron_strictly_better": false,
+      "ordinary_hypothetical_FP16_factor_bytes": 2304000,
+      "kron_hypothetical_FP16_factor_bytes": 2297700
+    },
+    {
+      "key": "language_model.model.layers.0.mlp.down_proj.weight",
+      "source_shape": [
+        896,
+        4864
+      ],
+      "analysis_shape": [
+        4864,
+        896
+      ],
+      "source_tensor_sha256": "92dc087b4ad8294e1271baded2cc74409662ffa30745b793797069de0338f953",
+      "source_tensor_bytes": 8716288,
+      "ordinary_rank": 200,
+      "separation_terms": 69,
+      "weight_norm_sq": 1289.3890163572687,
+      "ordinary_factor_coefficients": 1152000,
+      "kron_factor_coefficients": 1148850,
+      "ordinary": {
+        "relative_frobenius_residual": 0.7942026262123786,
+        "tail_norm_sq": 813.2921941072636,
+        "wall_seconds": 0.48508919299638364,
+        "cpu_seconds": 0.9129726490000003
+      },
+      "kron": {
+        "relative_frobenius_residual": 0.8340970984273678,
+        "tail_norm_sq": 897.0511084910079,
+        "wall_seconds": 0.5116184720100136,
+        "cpu_seconds": 1.0231483679999993
+      },
+      "kron_strictly_better": false,
+      "ordinary_hypothetical_FP16_factor_bytes": 2304000,
+      "kron_hypothetical_FP16_factor_bytes": 2297700
+    }
+  ],
+  "kron_strict_wins": 0,
+  "decision": "close_fixed_K69_natural_layout_priority_point",
+  "mixed_result": false,
+  "full_matrix_rank_not_computed": true,
+  "spectra_not_retained": true,
+  "elapsed_wall_seconds": 3.61661419099255,
+  "elapsed_cpu_seconds": 6.673523447,
+  "max_RSS_bytes": 159846400,
+  "goal_achieved": false
+}

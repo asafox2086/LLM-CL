@@ -1,3 +1,10 @@
+# 2026-10-23：固定自然布局K69权重近似阴性，停止该成本点
+
+- 新kron_layout_priority_v1的QUESTION/ADMISSION_REVIEW/RUN_DECLARATION/EVIDENCE/EXECUTION/FINDINGS/RESULT_REVIEW记录一次实际CPU矩阵比较，不是模型实验或新框架。只基座第0语言FFN gate/up/down三个张量，普通r200与固定38×7⊗128×128、K69自然索引布局；因子每矩阵1,152,000对1,148,850，不搜索层/置换/shape/K，不计算matrix_rank。
+- 三矩阵相对Frob残差普通/Kron为.730284223/.830934516、.790917361/.834890147、.794202626/.834097098，Kron0/3胜。按事前出口关闭此K69自然布局投入点，不GPU/恢复/搜配置；仅预算优先级阴性，不否定Kron保功能/独立训练或其它布局，不称r200质量更好。索引依赖和局部误差不能替代原Answer F1/可塑性证据。
+- 唯一CPU855029/start10996966自然结束exit0；分析wall3.616614191秒/CPU6.673523447秒/RSS159846400bytes，远端父监督3.728650131秒、600秒硬cap未触发，SSH另计。0模型/QA/训练/评分/GPU，无实际压缩包；仅三张量当前SHA和既有头SHA，不重整文件hash。先例KnGPT2/Krony-PT/BLAST已查，普通Kron不是原创，不重复此比较/整数/文献维持活跃。
+- 全部旧模型条件及正式基线保全不变，当前没有新研究模型准入，科研目标未实现；下一工作不能把本静态表当方法收益或自动开新pipeline。
+
 # 2026-10-23：拒绝由小当前贡献直接认证结构可删且可学
 
 - 新learning_response_criterion_review_v1/FINDINGS及RESULT_REVIEW记录有用途的原论文/解析审阅：普通成对通道删除+输出相关补偿已有ZipLM先例，旧半宽也有成对删除；不换名恢复。输出与学习响应同时约束已有Neural Tangent Transfer/MLP Fusion/NTK-SAP/NIRVANA，不作为新框架或模型准入。
