@@ -1,0 +1,25 @@
+{
+  "decision": "accept_design_screen_only_no_model_admission",
+  "files_sha256": {
+    "summary/final_weight_reduction_20261023/stage_delta_transfer_review_v1/FINDINGS.md": "daf93807e1b90bc3a9c02e18e6e2779a1e56735cd1cb2cc1d3eb65020f434a11"
+  },
+  "review_scope": "Read-only review of this FINDINGS text and its stated formulas/examples against the preceding discussion. No new search, model/tensor/QA reads, scoring, bootstrap, experiments, process operations or changes to frozen evidence.",
+  "findings": [
+    "Delta-KD Eq8 and the alpha1 identity are stated correctly, and the text correctly avoids identifying that alpha family with an arbitrary beta density-ratio interpolation.",
+    "The finite-candidate target is mathematically defined for strictly positive normalized candidate distributions. Model-specific canonical token-path total log-scores, including EOS, can be normalized within the same fixed string set without pretending token coordinates or token-mean losses align.",
+    "The three-event beta1 example is correct: weights are1.2,2.34,0.0025; q(a)=480/1417, below0.6. With positive s(a), q(a)>=s(a) requires the gold ratio to be at least the s-weighted mean ratio.",
+    "The example rejects a sufficient-safety claim based only on teacher gold-NLL improvement. It does not refute the original paper or establish actual supervised-plus-KD optimization or AnswerF1 harm.",
+    "The beta0 comparison correctly retains the same candidate prior anchor and supervised objective. Any stronger comparison with post-KD remains a separate future design requirement, not an added admitted experiment.",
+    "The closure concerns the unclosed proposed framework, not the usefulness of all distillation or parameter-necessity research. Native-student compactness is not presented as a newly invented compression structure."
+  ],
+  "key_boundaries": [
+    "C must contain at least two distinct candidates; a singleton conditional distribution gives zero candidate-KL signal.",
+    "Candidate-conditioned preservation does not preserve the full answer-generation distribution or certify that teacher changes are useful.",
+    "The task-stage teacher delta can include harmful changes, calibration shifts or forgetting; acquisition observations do not identify every change as beneficial.",
+    "Candidate selection, prompt/image comparability, tokenization/EOS convention, length/coverage and all teacher/pre-post snapshot costs remain unresolved implementation choices, not established results.",
+    "The proposed future beta comparison can test the necessity of a teacher-change signal for one fixed student and recipe. It is not a new framework, originality finding, or automatic implementation/model admission.",
+    "No old closed visual, r200, PAS or ShortFixed worker/configuration is restored; no official TEST or seen-DEV teacher is authorized for selection.",
+    "Current worker/baseline status statements are consumed as the report context, not independently re-polled by this review."
+  ],
+  "current_action": "Close this unimplemented draft as an original-framework proposal; retain the identifiable transfer question and known Delta-KD as possible future tools/references, with no new model implementation or admission."
+}
