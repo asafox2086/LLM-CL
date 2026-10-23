@@ -1,0 +1,30 @@
+# 原生起点回答基线：首次输入预处理失败，质量缺测
+
+## 问题与结果
+
+本项只拟建立固定SmolVLM-500M载体在原100DEV上的未适应AnswerF1原点，不是新框架、压缩收益或型号筛选门。唯一首次worker在2026-10-23T19:41:27UTC写STARTED，19:41:42UTC在首题`input_batch`的processor图像resize处失败。真实worker为887285/start12737785、UID1004、PGID887285，boot仍为c8bddf24-7969-41d6-a0fc-e5287850807f。
+
+20:08:43UTC只读观察：unit failed/MainPID0/exit1，canonical queue为closed_failure，controller881459和worker均已退出；无COMPLETE、VERIFY_STARTED或VERIFIED。私有目录只留0字节`predictions.jsonl.partial`及1479字节资源日志。没有到达generate入口，没有回答生成、NLL、backward或optimizer，没有运行评分、完整verifier或bootstrap；原100DEV质量仍缺测。读取原DEV容器、首题原图校验/加载与预处理已经发生，不能称零QA接触、零模型尝试或零费用。
+
+## 具体原因与准入缺口
+
+原固定资产`preprocessor_config.json`为`size.longest_edge=2048`、`max_image_size.longest_edge=512`。READY绑定的Transformers 4.46.3安装源码`image_processing_idefics3.py`中，resize第393–395行只传`resolution_max_side=size['longest_edge']`；其被调函数第116–139行的`max_image_size`默认1820，2048>1820即抛出本次完全匹配的ValueError。此检查发生在785行之后的图像分块之前；512是后续分块规格，不能将错误解释为2048>512。
+
+原runtime未覆盖processor的size；外层401408图像面积限制不改变此配置检查。当前config和相关安装源码SHA均与原READY匹配，runtime及两科学源也相等。该证据定位的是固定配置与这条已安装实现路径的冲突，不外推其它版本或原生模型普遍不能运行。`image_seq_len`未使用警告、BF16、GPU内存、图像像素过大和模型回答能力均不是这份traceback支持的原因。
+
+先前元数据绑定与静态准入没有识别这一配置—调用契约冲突，是本项准入覆盖不足；成功绑定文件SHA不证明文件组合在真实输入上兼容。本轮仅静态解释并封存，不更改源码、配置、分辨率、后端或环境来重试，也不把故障修复当新研究成果。
+
+## 已发生工作、成本与证明范围
+
+- 模型加载、权重上GPU、冻结、初态layout断言和state digest已在失败之前执行；但`MODEL.json`、最终layout/digest和完整计数证明没有持久化。不能将控制流越过断言升级为完整核验或最终冻结不变性证明。
+- STARTED到FAILURE文件mtime间隔15.292006606秒，是失败区间，不是完整模型RUN、纯推理耗时或精确GPU计费。controller失败随后落盘；未触及3600秒预算上限。
+- 原3行资源快照均来自worker887285，无坏行，phase依次periodic/process_before_model/inference_before。后者记录model_parameter_bytes=1014964608、GPU allocated=1036444672、GPU reserved=1061158912、进程NVML=1916796928、RSS=2294329344字节；这些是失败前快照，不是100题推理峰值或受控内存/速度比较，不能替代最终P_total证明。
+- 一次标准库小文件封存写前耗时0.013798428秒，SSH/独立审阅及历史资产运输、实现/准入另计，不称同计算预算。未再导入Torch、运行processor、模型或QA，没有大权重重hash、加载、评分和配对。
+
+原STARTED SHA385f53becc2d14c513ac3898692042b531fa87e8d093889388fe9f4498be89f3，FAILURE f20446591647d34d1adb8a518743301285f766a5cd145529456f3c8b82553360，CONTROLLER_FAILURE 675fb1c2d9eafbb65410dedccbbdc2165e50434fba8e0dcf1c4853c1806e4fa5。新FAILURE_SEAL SHA57c3937c2a16c72dca0e1e47f974d902da35c6d6b78d0edd435c66517da60de6只封当前小JSON/log/报告/科学源、相关runtime/config及3行原资源字节；不称全部资产重新核验。原traceback、activation log、资源和空partial原样保留，不删除失败。
+
+## 结论与行动
+
+这是实现兼容故障，固定载体质量缺测；不是模型质量阴性、专家可避免的证明或保质减重成果。作者原生小模型的体积不算我们的创新。原READY7374addaab87a59ceb6a5a0be17e8b3859b94ddb48e76470c411c756504afd17、两科学源及PROTOCOL不改。
+
+冻结规则首次STARTED后失败即关闭已执行：不恢复原unit/controller/worker，不续预测、改配置救跑、延时、自动v2、SFT或换型号。旧资源blocked及wait快照均为历史，当前没有研究worker，也没有另一项已准入的待运行实验；科研总目标未完成。正式基线未被本轮修改或发信号。后续仅在有明确、未重复且能改变研究行动的功能问题时推进必要分析与审阅，不以重复封存/巡检或滚动兼容版本维持活跃。

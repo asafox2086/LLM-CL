@@ -1,3 +1,10 @@
+# 2026-10-24：原生起点基线首次输入预处理失败，按冻结规则关闭
+
+- native_initial_answer_baseline_v1的FAILURE_FINDINGS/FAILURE_SEAL/FAILURE_REVIEW为最新终态。首次真实worker887285/start12737785于2026-10-23T19:41:27UTC STARTED，首题input_batch的processor resize失败；20:08:43UTC实际unit failed/MainPID0/exit1，canonical queue closed_failure，controller881459和worker均退出。无COMPLETE/VERIFY_STARTED/VERIFIED，空partial，未到generate，无AnswerF1。旧18:34/18:42/18:57及goal资源blocked均为历史，不再等或恢复该入口；当前无研究worker/其它已准入待运行实验。
+- 固定preprocessor_config的size.longest_edge=2048，READY绑定Transformers4.46.3 resize只传resolution_max_side到默认max_image_size=1820，2048>1820前置检查直接抛错；512是之后的分块规格，不是本次上限。401408外部面积cap不改变这个配置检查。当前config/安装源/runtime/两科学源SHA均匹配READY，静态原因与traceback一致，不归因原图大、BF16、image_seq_len警告或模型能力。先前静态准入漏此兼容契约，绑定SHA不等于真实输入兼容。
+- 模型加载/上GPU/冻参与初态digest、首题图像校验加载及预处理实际发生，0生成不等于0工作/0费用；最终MODEL/layout/不变性证明未落盘。STARTED→FAILURE mtime15.292006606秒非完整RUN，3行同PID资源仅失败前快照非推理峰。一次小文件封存写前.013798428秒、历史下载/实现/准入/SSH/独立审阅另计；不重新大权重hash/导入processor/模型/QA/评分/bootstrap。FAILURE_SEAL57c3937c2a16c72dca0e1e47f974d902da35c6d6b78d0edd435c66517da60de6为当前小字节封存，不补称完整资产重核。
+- 主/子agent独立核对接受故障关闭而非质量阴性。原两科学源、READY7374adda...和协议不改；不调配置/分辨率救跑、不续预测/延时/v2/换型号/自动训练，原失败原字节保留。原生载体质量缺测，既没有方法成功也没有可删参数证据，完整科研目标未实现。后续不将当前状态说成GPU外部等待；仅有新有效正式proof或具体未重复、会改变判断的研究分析时推进，不反复封存/巡检填时间。正式基线本轮未改或发信号。
+
 # 2026-10-24：原生分组加beta动态缩放候选停止实施
 
 - 新response_contrast_contract_v1/NATIVE_PARTITION_FOLLOWUP及NATIVE_PARTITION_REVIEW为本轮具体候选去留，不覆盖原FINDINGS。将原SwiGLU配对通道分两组，令y=h+beta*(pi1-pi2)*(h1-h2)、beta初始0，在实数中保原h且beta1变2pi混合；但这属于MoEfication/DenseMoE/MoV相关已有分组与动态缩放范式，不称与先例逐项完全相同，也不因零起点命名新框架。beta未限制时不能把整个族称凸混合。
