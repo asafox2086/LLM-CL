@@ -1,0 +1,798 @@
+{
+  "passed": true,
+  "tiny_HF_only": true,
+  "not_actual_model_quality": true,
+  "cases": {
+    "Spectral": {
+      "actual_optimizer_updates": 4,
+      "consolidations": [
+        {
+          "stage": 1,
+          "case": "Spectral",
+          "current_QA": 1,
+          "old_QA": 0,
+          "current_rejected_id_sha256": [],
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 32,
+            "CPU_tensor_storage_count": 1,
+            "logical_current_payload_bytes": 177,
+            "logical_bank_payload_bytes": 0,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_payload_bytes": 177,
+          "old_payload_bytes": 0,
+          "current_coverage": [
+            {
+              "id_sha256": "f3436f50b2f7f1613ad142dbce1d24801d9daaabc45ecb2db909251a214c9840",
+              "group": "g1",
+              "domain": "tiny"
+            }
+          ],
+          "old_coverage": [],
+          "gradient_QA": 0,
+          "candidate_forward_QA": 0,
+          "mask_different": false,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 14176,
+          "spectral_masks": {
+            "model.layers.0.mlp.gate_proj": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "model.layers.0.mlp.up_proj": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "model.layers.0.mlp.down_proj": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "model.layers.1.mlp.gate_proj": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "model.layers.1.mlp.up_proj": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "model.layers.1.mlp.down_proj": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ]
+          },
+          "answer_masks": null,
+          "count_after": 13024,
+          "final_trainable": 0,
+          "bank_after_QA": 1,
+          "bank_after_bytes": 177,
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 32,
+            "CPU_tensor_storage_count": 1,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 177,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "seconds": 0.2955387609981699
+        },
+        {
+          "stage": 2,
+          "case": "Spectral",
+          "current_QA": 1,
+          "old_QA": 1,
+          "current_rejected_id_sha256": [],
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 32,
+            "CPU_tensor_storage_count": 1,
+            "logical_current_payload_bytes": 177,
+            "logical_bank_payload_bytes": 177,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_payload_bytes": 177,
+          "old_payload_bytes": 177,
+          "current_coverage": [
+            {
+              "id_sha256": "b459afddb3a09621ee29b78b3968e566d7fb0001d96395d54030eb703b0337a9",
+              "group": "g2",
+              "domain": "tiny"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "f3436f50b2f7f1613ad142dbce1d24801d9daaabc45ecb2db909251a214c9840",
+              "group": "g1",
+              "domain": "tiny"
+            }
+          ],
+          "gradient_QA": 0,
+          "candidate_forward_QA": 0,
+          "mask_different": false,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 14176,
+          "spectral_masks": {
+            "model.layers.0.mlp.gate_proj": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "model.layers.0.mlp.up_proj": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "model.layers.0.mlp.down_proj": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "model.layers.1.mlp.gate_proj": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "model.layers.1.mlp.up_proj": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "model.layers.1.mlp.down_proj": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ]
+          },
+          "answer_masks": null,
+          "count_after": 13024,
+          "final_trainable": 0,
+          "bank_after_QA": 2,
+          "bank_after_bytes": 354,
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 32,
+            "CPU_tensor_storage_count": 1,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 354,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "seconds": 0.0049059369921451434
+        }
+      ],
+      "final_coefficients": 13024,
+      "full_graph_roundtrip_exact": true
+    },
+    "Answer": {
+      "actual_optimizer_updates": 4,
+      "consolidations": [
+        {
+          "stage": 1,
+          "case": "Answer",
+          "current_QA": 1,
+          "old_QA": 0,
+          "current_rejected_id_sha256": [],
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 32,
+            "CPU_tensor_storage_count": 1,
+            "logical_current_payload_bytes": 177,
+            "logical_bank_payload_bytes": 0,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_payload_bytes": 177,
+          "old_payload_bytes": 0,
+          "current_coverage": [
+            {
+              "id_sha256": "f3436f50b2f7f1613ad142dbce1d24801d9daaabc45ecb2db909251a214c9840",
+              "group": "g1",
+              "domain": "tiny"
+            }
+          ],
+          "old_coverage": [],
+          "gradient_QA": 1,
+          "candidate_forward_QA": 2,
+          "mask_different": true,
+          "selected": "answer",
+          "fallback": null,
+          "count_before": 14176,
+          "parent_gate_NLL": 3.3681421279907227,
+          "gate_stats": {
+            "model.layers.0.mlp.gate_proj": {
+              "norm": 0.0007941678049974144,
+              "finite": true,
+              "deletion_costs": [
+                -0.00035599712282419205,
+                0.0003067234647460282,
+                -0.0002505761804059148,
+                -0.0002523713046684861,
+                -2.8090726118534803e-06,
+                -0.000341241859132424,
+                -7.949718565214425e-06,
+                0.000408116786275059,
+                1.8188027752330527e-05,
+                -1.5051837181090377e-06
+              ],
+              "signed_score_sha256": "9b51b68bb0b758aa0b0eb2e2dfbbdf5bd5e6d02c66a07cf408370edeb55f156c"
+            },
+            "model.layers.0.mlp.up_proj": {
+              "norm": 0.0007476800819858909,
+              "finite": true,
+              "deletion_costs": [
+                0.00010868915705941617,
+                -0.0003430862561799586,
+                -0.0005147356423549354,
+                -0.00013852727715857327,
+                4.599103704094887e-05,
+                0.00023043763940222561,
+                -0.00015835100202821195,
+                0.0002518728724680841,
+                4.0266153519041836e-05,
+                2.9054799597361125e-06
+              ],
+              "signed_score_sha256": "295a86476d264eb4720fecc9cb359beabc37a2d4d4b08a045738572b35c08803"
+            },
+            "model.layers.0.mlp.down_proj": {
+              "norm": 0.0007770877564325929,
+              "finite": true,
+              "deletion_costs": [
+                -8.074127254076302e-05,
+                -0.0004899154882878065,
+                0.00012250401778146625,
+                0.00045071705244481564,
+                -0.0003528285014908761,
+                1.9675062503665686e-05,
+                -6.332164048217237e-05,
+                -0.00010030879639089108,
+                1.466147841711063e-05,
+                3.8003604458936024e-06
+              ],
+              "signed_score_sha256": "9b123650eb0928faa1bcb714a0e750906d6d86c7f11e00829095215c98133470"
+            },
+            "model.layers.1.mlp.gate_proj": {
+              "norm": 0.001828285283409059,
+              "finite": true,
+              "deletion_costs": [
+                -0.00028009305242449045,
+                -0.0013504321686923504,
+                -0.0003514302952680737,
+                -0.0004723682068288326,
+                0.0004748143255710602,
+                -0.0002850990276783705,
+                0.0007537606288678944,
+                0.00046474626287817955,
+                4.0663617255631834e-05,
+                3.667240162030794e-05
+              ],
+              "signed_score_sha256": "c479bc0b367e397c5772db7dda7e8440035d0d800bd2abf8271eed5d1c976e93"
+            },
+            "model.layers.1.mlp.up_proj": {
+              "norm": 0.0017729980172589421,
+              "finite": true,
+              "deletion_costs": [
+                -0.0013525299727916718,
+                -2.1657091565430164e-05,
+                0.00028445926727727056,
+                -8.358053310075775e-05,
+                2.8984344680793583e-05,
+                -0.0007994779152795672,
+                0.00023846600379329175,
+                0.0007253967924043536,
+                5.103935836814344e-05,
+                1.1674397683236748e-05
+              ],
+              "signed_score_sha256": "bd240d519d83af809dd84919025b20fd33fcb0d061535984d721de44511ef257"
+            },
+            "model.layers.1.mlp.down_proj": {
+              "norm": 0.001742849126458168,
+              "finite": true,
+              "deletion_costs": [
+                -0.0003001018485520035,
+                0.0002548422198742628,
+                -0.0006607859977521002,
+                -0.0005744316149502993,
+                0.0013296077959239483,
+                -0.00045822866377420723,
+                -0.00025804329197853804,
+                -0.00026708771474659443,
+                1.0076827493321616e-05,
+                7.314948106795782e-06
+              ],
+              "signed_score_sha256": "a669c482b013bc4ec5eb2e30598796dbfcfa31061b2eb23efedd12484f2c6615"
+            }
+          },
+          "spectral_NLL": 3.36843204498291,
+          "answer_NLL": 3.3652753829956055,
+          "spectral_masks": {
+            "model.layers.0.mlp.gate_proj": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "model.layers.0.mlp.up_proj": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "model.layers.0.mlp.down_proj": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "model.layers.1.mlp.gate_proj": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "model.layers.1.mlp.up_proj": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "model.layers.1.mlp.down_proj": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ]
+          },
+          "answer_masks": {
+            "model.layers.0.mlp.gate_proj": [
+              1,
+              2,
+              3,
+              4,
+              6,
+              7,
+              8,
+              9
+            ],
+            "model.layers.0.mlp.up_proj": [
+              0,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "model.layers.0.mlp.down_proj": [
+              0,
+              2,
+              3,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "model.layers.1.mlp.gate_proj": [
+              0,
+              2,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "model.layers.1.mlp.up_proj": [
+              1,
+              2,
+              3,
+              4,
+              6,
+              7,
+              8,
+              9
+            ],
+            "model.layers.1.mlp.down_proj": [
+              0,
+              1,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ]
+          },
+          "count_after": 13024,
+          "final_trainable": 0,
+          "bank_after_QA": 1,
+          "bank_after_bytes": 177,
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 32,
+            "CPU_tensor_storage_count": 1,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 177,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "seconds": 0.01720595799270086
+        },
+        {
+          "stage": 2,
+          "case": "Answer",
+          "current_QA": 1,
+          "old_QA": 1,
+          "current_rejected_id_sha256": [],
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 32,
+            "CPU_tensor_storage_count": 1,
+            "logical_current_payload_bytes": 177,
+            "logical_bank_payload_bytes": 177,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_payload_bytes": 177,
+          "old_payload_bytes": 177,
+          "current_coverage": [
+            {
+              "id_sha256": "b459afddb3a09621ee29b78b3968e566d7fb0001d96395d54030eb703b0337a9",
+              "group": "g2",
+              "domain": "tiny"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "f3436f50b2f7f1613ad142dbce1d24801d9daaabc45ecb2db909251a214c9840",
+              "group": "g1",
+              "domain": "tiny"
+            }
+          ],
+          "gradient_QA": 2,
+          "candidate_forward_QA": 4,
+          "mask_different": true,
+          "selected": "answer",
+          "fallback": null,
+          "count_before": 14176,
+          "parent_gate_NLL": 3.365126609802246,
+          "gate_stats": {
+            "model.layers.0.mlp.gate_proj": {
+              "norm": 0.0005093369982205331,
+              "finite": true,
+              "deletion_costs": [
+                4.800967872142792e-07,
+                -0.00019743654411286116,
+                -5.332360160537064e-06,
+                1.9891347619704902e-05,
+                0.00015629164408892393,
+                0.00044138258090242743,
+                2.7667982067214325e-05,
+                1.9945673557231203e-06,
+                1.5233454178087413e-06,
+                1.0757830750662833e-06
+              ],
+              "signed_score_sha256": "4a3c233b94f70012c2b60dbd05b7c62cf5c04fe944cbf380c73db9b525f1720b"
+            },
+            "model.layers.0.mlp.up_proj": {
+              "norm": 0.000374367373296991,
+              "finite": true,
+              "deletion_costs": [
+                1.2065873306710273e-05,
+                8.290449477499351e-05,
+                0.00013487189426086843,
+                -0.00010840875620488077,
+                -2.990526263602078e-05,
+                0.0003183677908964455,
+                2.9539565730374306e-05,
+                7.969207217684016e-06,
+                1.8847140381694771e-07,
+                -8.986689863377251e-07
+              ],
+              "signed_score_sha256": "a2e405c62429e9f924569ce29c79b719c8821bc6ae9f2c8796afd62833e772f9"
+            },
+            "model.layers.0.mlp.down_proj": {
+              "norm": 0.0003970945836044848,
+              "finite": true,
+              "deletion_costs": [
+                0.0001094579347409308,
+                4.410445399116725e-05,
+                -4.825403811992146e-05,
+                -6.940809544175863e-05,
+                2.8581689548445866e-05,
+                0.0003683676477521658,
+                3.7655145206372254e-06,
+                9.258480531570967e-06,
+                6.309824129857589e-07,
+                1.3411636246019043e-08
+              ],
+              "signed_score_sha256": "814ec4efa773868d4f3a7b2683451b5d8864b53094f2214f3be008dc49bed69f"
+            },
+            "model.layers.1.mlp.gate_proj": {
+              "norm": 0.000936602707952261,
+              "finite": true,
+              "deletion_costs": [
+                0.0004957347409799695,
+                -0.0001695763785392046,
+                0.00031799054704606533,
+                -0.0003833696246147156,
+                0.0004166640865150839,
+                0.0004224601434543729,
+                4.898901534033939e-05,
+                4.604124114848673e-06,
+                1.107199932448566e-05,
+                -1.6239027900155634e-07
+              ],
+              "signed_score_sha256": "caaf5d6ce733b40d60942be6b80e49812d5134fb346bef2e9a7270925fba9817"
+            },
+            "model.layers.1.mlp.up_proj": {
+              "norm": 0.000976563896983862,
+              "finite": true,
+              "deletion_costs": [
+                0.0009660259820520878,
+                -1.6442936612293124e-05,
+                6.295312778092921e-05,
+                1.1450792953837663e-05,
+                0.00011064219870604575,
+                4.245887976139784e-05,
+                4.410481051309034e-05,
+                9.136926564679015e-06,
+                -5.737048923037946e-06,
+                5.32270860276185e-07
+              ],
+              "signed_score_sha256": "9bfca28dd34894666600501f0220739f123f2351c91bffa25d814f880b98162b"
+            },
+            "model.layers.1.mlp.down_proj": {
+              "norm": 0.0011824972461909056,
+              "finite": true,
+              "deletion_costs": [
+                0.0005753962323069572,
+                0.00015745643759146333,
+                0.0009668334387242794,
+                -0.0002595898986328393,
+                -7.058298797346652e-05,
+                -0.0001854325528256595,
+                2.5318215193692595e-05,
+                1.6255160517175682e-05,
+                -8.534357220923994e-09,
+                -2.466275361712178e-08
+              ],
+              "signed_score_sha256": "15b671ed0bbcb749d26a93a3cee193b4dc1b5fa83b89a0b6a654f90502406f44"
+            }
+          },
+          "spectral_NLL": 3.365055799484253,
+          "answer_NLL": 3.3642616271972656,
+          "spectral_masks": {
+            "model.layers.0.mlp.gate_proj": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "model.layers.0.mlp.up_proj": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "model.layers.0.mlp.down_proj": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "model.layers.1.mlp.gate_proj": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "model.layers.1.mlp.up_proj": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "model.layers.1.mlp.down_proj": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ]
+          },
+          "answer_masks": {
+            "model.layers.0.mlp.gate_proj": [
+              0,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "model.layers.0.mlp.up_proj": [
+              0,
+              1,
+              2,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "model.layers.0.mlp.down_proj": [
+              0,
+              1,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "model.layers.1.mlp.gate_proj": [
+              0,
+              2,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "model.layers.1.mlp.up_proj": [
+              0,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              9
+            ],
+            "model.layers.1.mlp.down_proj": [
+              0,
+              1,
+              2,
+              4,
+              6,
+              7,
+              8,
+              9
+            ]
+          },
+          "count_after": 13024,
+          "final_trainable": 0,
+          "bank_after_QA": 2,
+          "bank_after_bytes": 354,
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 32,
+            "CPU_tensor_storage_count": 1,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 354,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "seconds": 0.02404529700288549
+        }
+      ],
+      "final_coefficients": 13024,
+      "full_graph_roundtrip_exact": true
+    }
+  },
+  "missing_directory_gradient_roundtrip": true,
+  "persistent_optimizer_roundtrip": true,
+  "initial_shared_forward_exact": true,
+  "stage_local_initialization_preserves_RNG": true,
+  "first_B_gradient_zero": true,
+  "final_physical_shapes_checked": true,
+  "entire_graph_reload_exact": true,
+  "CUDA_initialized": false,
+  "seconds": 3.0566109140054323
+}

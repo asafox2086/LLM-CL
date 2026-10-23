@@ -1,0 +1,44 @@
+{
+  "decision": "accept",
+  "files_sha256": {
+    "exp/answer_guided_rank_renewal_20261023/v1/core.py": "e9cba676d8002db71921a77b11dc056056675d857a52d881a94d4a9c212996e2",
+    "exp/answer_guided_rank_renewal_20261023/v1/common.py": "55bff4858a9348be8fcc7017a3348dc9712894a12bdeef0dbcf9623c3ae51853",
+    "exp/answer_guided_rank_renewal_20261023/v1/run.py": "81bb3d0f9846012340cb63db1f605fbc3b5a0b619e265e6893446c0d23646fa1",
+    "exp/answer_guided_rank_renewal_20261023/v1/freeze.py": "a87a34eea384074b6200b10e975bd3f5c980b41f4e860e6a86e74a6d91c3aebc",
+    "exp/answer_guided_rank_renewal_20261023/v1/dispatch.py": "73a85f23830667820e0ea99f4c4ca88e1d64f376a0bdbadad5ca2c310bb76218",
+    "summary/final_weight_reduction_20261023/answer_guided_pilot_v1/PROTOCOL.md": "e1b35dc63ee41141a82e719f519468a1b8d51cb78a3437edb32868edd1e8d105"
+  },
+  "necessity_review_sha256": "57bbbcd583be7b6a1ac9387c48b633b88c888295dab0111b9ebafd381605e9d2",
+  "review_scope": "Static implementation review of the five new sources and fixed protocol, with necessary reads of the frozen original TRAIN/optimizer/checkpoint/bridge helpers. AST syntax parsing only, without importing or executing experiment modules. This permits the specified one-shot CPU admission; successful admission and a frozen READY remain necessary before any model activation.",
+  "checks": [
+    "The initial dense FFN weights are replaced by frozen FP16 square-root SVD factors. No original FFN weight, dense compensation, or permanently retained training residual is added. Actual model count and 72 expected shapes are asserted.",
+    "Both flows bind the same untrained stage-0 complete checkpoint and compare its full parameter digest/layout. The Answer flow loads that checkpoint, not Spectral stage-19 weights, optimizer, bank or predictions; both reset training seed42 after native gates.",
+    "Only FP32 A/B temporary factors are optimized, initialized by local layer/stage RNG with A zero and B fixed uniform scale. HostAdamW, outer FP16 autocast, scale4, dropout.1, stage resets and the original frozen TRAIN AST retain the fixed 1213/19/87 recipe.",
+    "The small QR/core SVD represents [left,4A][right;B] without constructing a dense parent W. It uses master FP32 A/B, so it is not claimed lossless relative to rounded/autocast training forward.",
+    "Gate deletion costs are -g and retain the largest signed values with index tie-breaking. Full scalar costs are sealed and the independent verifier reconstructs top200 masks. Candidate evaluations physically slice all factors to 200 columns/rows before whole-decoder NLL; identical/empty cases explicitly fall back.",
+    "Current candidates are chosen from current-stage FIT by fixed hash/group rules. The historical bank is unchanged during scoring and is merged only after selection. Logical byte caps are checked before cloning; rejected QA are not replaced by alternatives. Bounded online group eviction makes no global historical minimum-hash promise.",
+    "The LRU/current/bank CPU tensor union is deduplicated by underlying storage and reported separately from logical metadata payloads and process memory. Consolidation records expose coverage, refusals, extra QA and selection activity.",
+    "The original stage updates produce durable per-step optimizer witness files, 87 raw gradient records, 19 first-gradient tensors and 19 validity records. Final factors are frozen and A/B/gates absent; the final saved graph clears new training banks and the public visual LRU.",
+    "Every new checkpoint is saved/hashed before its predecessor weight is removed. The final complete graph is reloaded and full parameter/layout digests are checked before DEV, with full parameter digest unchanged after DEV.",
+    "Only the two new DEV sets are rescored with all original references/IDs. One Answer-minus-Spectral paired analysis is generated once; the old wide-QV threshold is copied from its existing proof, without old F1 or pair reruns.",
+    "STARTED follows a fresh physical-GPU1 ownership/memory/utilization guard and precedes Torch/CUDA import. The per-flow monotonic timer covers model work; actual per-flow and aggregate elapsed limits are checked. Original resource rows and checkpoint metadata are SHA-sealed and independently checked, including worker PID, visible GPU1 and run_finished.",
+    "The dispatcher is single-stream, rejects repeat starts and stops both flows after any started failure. Restart=no, no boot enable, no baseline/other-user GPU signals or automatic full confirmation are introduced.",
+    "READY will bind all five sources, the original scientific dependencies, TRAIN/SPLIT/config/base hashes, processor/tokenizer small files, both reviews, intervention and the sole CPU admission evidence."
+  ],
+  "resolved_pre_READY_findings": [
+    "Added actual deduplicated CPU storage union plus logical batch-shape/dtype metadata accounting.",
+    "Added monotonic elapsed budget evidence, resource/summary/checkpoint-metadata hashes and independent per-flow/aggregate validation.",
+    "Added full signed gate deletion-cost scalar persistence and independent mask ranking reconstruction.",
+    "Final checkpoint clears public visual cache as well as new training memory; pre-final training_after phase is explicitly distinguished from compact consolidation boundaries."
+  ],
+  "remaining_boundaries_not_blockers": [
+    "The original 19-task FIT native-interface gates are explicitly additional all-task pre-training forwards/generations, not future-task optimization, statistics for compression, or selection data; do not call the entire process free of all future-task forward exposure.",
+    "Storage-union values are explicit snapshots of retained CPU tensors, not a complete CPU/RSS peak or Python overhead bound. Process resources and CUDA peak accounting are separate.",
+    "Passing tiny CPU admission will establish limited implementation admissibility, not actual-model quality, final-weight benefit, original novelty or stable gains.",
+    "The review is static. No end-to-end executability, runtime budget success, actual count, checkpoint reload or generation equality is claimed as observed."
+  ],
+  "reviewer_executed_models_or_tests": false,
+  "reviewer_imported_Torch_or_experiment_modules": false,
+  "old_published_files_modified": false,
+  "automatic_new_conditions_or_full_confirmation": false
+}

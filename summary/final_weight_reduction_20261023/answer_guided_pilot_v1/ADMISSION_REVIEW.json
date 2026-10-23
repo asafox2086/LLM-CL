@@ -1,0 +1,97 @@
+{
+  "decision": "accept_CPU_admission_and_guarded_single_stream_scheduling",
+  "consumed_files_sha256": {
+    "CPU_GATE.json": "5928981f9441331cf5274200d13bf0d3d36fee9a9057ba33b75b8b4cfc241ca1",
+    "INTERVENTION.json": "ead4c665d66390b4ce0f525a3060e5696c158563d154472d0c463e39f5c89d80",
+    "READY.json": "bb00ee0d5c50b9854f01fdb6e5a6f8efd50f3b547409e04487ae25d4b25bec06",
+    "SOURCE_REVIEW.json": "5d7c169a034fabb9cd9c223c445ada70c6482fbce4036d0e3a5507b131d0a4a0"
+  },
+  "ready_sha256": "bb00ee0d5c50b9854f01fdb6e5a6f8efd50f3b547409e04487ae25d4b25bec06",
+  "SHA_checks": "CPU_GATE, INTERVENTION and SOURCE_REVIEW actual local bytes equal READY evidence hashes. READY five-source/protocol declarations equal the accepted SOURCE_REVIEW hash map; necessity-review declaration equals the source review binding. No source re-review, base-weight hash rerun, TRAIN/DEV/QA reading or gate rerun was performed.",
+  "observed_tiny_gate": {
+    "passed": true,
+    "CUDA_initialized": false,
+    "seconds": 3.0566109140054323,
+    "cases": {
+      "Spectral": {
+        "actual_optimizer_updates": 4,
+        "stages": 2,
+        "tiny_FFN_matrices": 6,
+        "tiny_retained_rank": 8,
+        "tiny_final_coefficients": 13024,
+        "different_masks": [
+          false,
+          false
+        ],
+        "selected": [
+          "spectral",
+          "spectral"
+        ],
+        "gradient_QA": [
+          0,
+          0
+        ],
+        "candidate_forward_QA": [
+          0,
+          0
+        ]
+      },
+      "Answer": {
+        "actual_optimizer_updates": 4,
+        "stages": 2,
+        "tiny_FFN_matrices": 6,
+        "tiny_retained_rank": 8,
+        "tiny_final_coefficients": 13024,
+        "different_masks": [
+          true,
+          true
+        ],
+        "selected": [
+          "answer",
+          "answer"
+        ],
+        "gradient_QA": [
+          1,
+          2
+        ],
+        "candidate_forward_QA": [
+          2,
+          4
+        ]
+      }
+    },
+    "initial_shared_forward_exact": true,
+    "stage_local_RNG_preserved": true,
+    "first_B_gradient_zero": true,
+    "missing_directory_gradient_roundtrip": true,
+    "persistent_optimizer_roundtrip": true,
+    "full_graph_roundtrip_exact": true
+  },
+  "design_only_not_actual_0_9B_observations": {
+    "actual_FFN_matrices_to_be_tested": 72,
+    "rank": 200,
+    "temporary_rank": 16,
+    "expected_final_coefficients": 662833184,
+    "temporary_training_coordinates": 6635520,
+    "expected_temporary_total_coefficients": 669468704,
+    "FIT_QA_per_flow": 1213,
+    "stages": 19,
+    "positive_updates_per_flow": 87,
+    "DEV_QA_per_flow": 100,
+    "per_flow_model_budget_seconds": 7200,
+    "aggregate_model_budget_seconds": 14400,
+    "actual_model_counts_reload_budget_quality_and_memory_still_unobserved": true
+  },
+  "interpretation": "The existing tiny CPU result supports the limited implementation admission stated in SOURCE_REVIEW. It is not actual OneVision training, native multimodal gate success, measured compression of the 0.9B model, Answer F1, final-model memory/cost success or novelty. The 3.0566-second gate is admission cost, not model-run cost; outer freeze wall time is not independently recorded in the four consumed files.",
+  "permitted_next_action": "Activate only the already-frozen unique CPU dispatcher for these two sequential flows. Actual model STARTED remains contingent on the fresh physical-GPU1 ownership/memory/utilization guard, at-most-three-own-card rule, unchanged READY/source checks and the original no-retry/budget exits.",
+  "resource_boundary": "The parent reports GPU1 occupied by other users. This review does not independently inspect live GPU state and does not authorize interrupting any process or bypassing the guard. With that state unchanged, only healthy CPU waiting is permitted.",
+  "exits_unchanged": "Any started failure/interruption/timeout closes the pilot; no resume, extension, replacement flow, hyperparameter search, PAS revival or automatic full confirmation. Old research terminals remain closed.",
+  "reviewer_actions": [
+    "Read only the three new evidence files and own SOURCE_REVIEW",
+    "Check file SHA and scalar/schema consistency with standard library",
+    "Write this admission review only"
+  ],
+  "reviewer_ran_CPU_gate_Torch_model_QA_scoring_bootstrap_or_GPU": false,
+  "quality_or_novelty_accepted": false,
+  "scientific_sources_or_READY_modified": false
+}

@@ -1,3 +1,11 @@
+# 2026-10-23：固定规模回答引导归并已独立冻结并启动CPU调度
+
+- 新exp/answer_guided_rank_renewal_20261023/v1五源和summary/final_weight_reduction_20261023/answer_guided_pilot_v1协议/三评审/CPU_GATE/INTERVENTION/READY为准。必要性与静态源码审阅接受一次固定两流可行性小测；唯一tiny-HF CPU准入3.056610914秒（freeze入口23.365613秒）通过，CUDA未初始化，READY bb00ee0d5c50b9854f01fdb6e5a6f8efd50f3b547409e04487ae25d4b25bec06冻结，源/协议不可热改。不是F1/原创性或实际大模型压缩成果，不重复准入/旧公式/计数当进展。
+- 共同未训练CP0，72FFN r200物理替换；设计完整662833184对原893675552少约25.83%，阶段内只学临时b16共6635520坐标。Spectral普通谱归并；Answer一次门梯度最大−g mask与谱mask物理切成200维后整体回答NLL二选一，再物理删列。最终不保留dense残差/AB/gate/回放库，所有视觉/连接器/嵌入仍计入，FP32代数父不保证与实际autocast父函数无损等价。
+- 原1213FIT19阶段87正LR→各100已探索DEV，不TEST/teacher/未来FIT统计。当前最多2QA/16MiB，旧最多8组/32MiB；旧库评分期间固定、选完后并当前，记录真实union/覆盖/被拒/同mask/fallback/所有额外曝光。Answer额外teacher-forced曝光≤570、反向≤190，完整费用明列，不能称同计算预算或只因更好proxy。training_after仍在最后归并前含AB，紧凑边界用consolidation_after_saved。
+- 单流每case STARTED→COMPLETE最多7200秒、两流总14400秒（CPU准入/独立核验另列）。任一STARTED后失败/中断/超预算即整个先导停止，不续CP/延时/自动v2/补恢复或搜rank/LR。只有STARTED/CUDA前75为未尝试资源变化可健康wait。实际减重≤75%原锚、Answer宏严格胜Spectral且>原合法FIT-only最高43.79198740853657才进入后续必要性评审，不自动全1313/21454。负结果只关闭本配方；旧PAS质量缺测、不补fresh PAS，Ours不填。
+- 唯一unit llmcl-onevision-answer-guided-rank-renewal-20261023.service；最近实查2026-10-23T11:06:33.171919+00:00 CPU830049/start9629402，bootc8bddf24-7969-41d6-a0fc-e5287850807f，phase=wait，STARTED={'Spectral': False, 'Answer': False}。以后看真实/proc/startticks/unit/queue与sealed proof，不照抄快照或因早期state=null盲重启；Restart=no/KillMode=process、不enable。GPU1他人占用则只CPU等候，不抢卡/中断。原科学源及正式基线保全，所有旧研究保持关闭。
+
 # 2026-10-23：回答损失引导固定规模归并的具体候选，未准入模型
 
 - summary/final_weight_reduction_20261023/answer_anchor_design_v1把上游漂移后的旧坐标缺口转为稳定接口后的整个当前decoder回答损失比较。只读19个旧gate标量，既有packed FP16特征单份2.661–8.066MB；不是所有FIT/实际回放库/峰值，旧128MiB缓存不是新方法，额外anchor须计union和全部临时费用。0新模型/张量/QA/GPU/评分或bootstrap，不重复该元数据分析。
