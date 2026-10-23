@@ -1,3 +1,10 @@
+# 2026-10-24：原生分组加beta动态缩放候选停止实施
+
+- 新response_contrast_contract_v1/NATIVE_PARTITION_FOLLOWUP及NATIVE_PARTITION_REVIEW为本轮具体候选去留，不覆盖原FINDINGS。将原SwiGLU配对通道分两组，令y=h+beta*(pi1-pi2)*(h1-h2)、beta初始0，在实数中保原h且beta1变2pi混合；但这属于MoEfication/DenseMoE/MoV相关已有分组与动态缩放范式，不称与先例逐项完全相同，也不因零起点命名新框架。beta未限制时不能把整个族称凸混合。
+- 子agent纠正：原前向通常没有分别物化h1/h2，保持原h路径的contrast需额外Down计算；分两次Down再求和则改初态浮点路径。不同通道组不保能量分数不同，固定索引无功能划分证据。冻结G/U/D且只学每层beta只改固定修正方向的强度，不能学新选择几何；无RS/旧回答保护。父全部权重仍在，beta还略增，原生小基座优势属于作者，不是我们压缩。
+- 关闭这项候选实施，不写新运行源/CPU门、不矩阵/分组搜索、不补组件或新GPU。只留“同坐标dynamic对static响应重加权是否有额外用途”的未证问题，未冻分组/温度/配方/预算，当前不执行、起点结果也不自动触发。0模型/张量/QA/优化/GPU/评分/bootstrap，不将本轮讨论当保质减重或新框架。
+- 当前固定起点基线调度不变。18:57:42.368747UTC第三轮实查同CPU881459/start12333479 active/wait，无worker/STARTED/任一终态；GPU1 UID1024的856865/start11095124、857006/start11096682仍实际占用，4780MiB/util10仅瞬时（GPU1当前列表未见875771，不推断该进程终态）。前两轮18:34/18:42资源等待均历史有证；按真实goal阻塞审计，不把研究难当阻塞，不为活跃泛读/重复已完分析。资源条件变化后原READY自动首次尝试，blocked不取消已授权CPU调度或小时跟进；不强行用update_goal改active/complete。
+
 # 2026-10-24：共同项折叠与双线性gauge不保证响应自路由减重
 
 - 新response_contrast_contract_v1/FINDINGS及RESULT_REVIEW为一次已完成的原论文/条件代数核对。主/子agent确认旧账本没有闭合这两个具体主张；只消费既有a路由事实并定向核SLBF v1§4.2/DeepSeekMoE§3.2，0新模型/张量/矩阵/QA/评分/CPU门/GPU。不是新压缩算法或实际参数可删性发现，不再重复本核对或扩成矩阵筛查/gauge编码。
