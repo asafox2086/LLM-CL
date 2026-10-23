@@ -1,0 +1,17 @@
+{
+  "reviewer": "/root/review_next_probe",
+  "scope": "Conceptual review only, no code/model/CPU admission or experiment authorization",
+  "decision": "reject_as_novel_framework",
+  "retain_research_question": true,
+  "no_implementation_or_GPU_admission": true,
+  "reason": "Shared basis, layer-specific low-rank residuals, factor reuse and protection overlap known prior work; no concrete fixed-budget redistribution rule yet.",
+  "required_gaps": [
+    "Specify which non-invertible operation releases capacity and its approximation cost; reversible refactorization alone does not.",
+    "Explain how initial layer differences and new-task adaptation share limited residual capacity.",
+    "Define computable bounded historical functional statistics; local covariance does not guarantee old-answer preservation under upstream drift.",
+    "Close the full final-weight budget including all shared factors, layer coefficients, residuals and remaining model, with training history and temporary cost separate."
+  ],
+  "conditional_minimum_controls": "If both consolidation and functional constraints remain claimed mechanisms: matched-initialization matched-final-budget 2x2, with extra work charged. A same-size independent-factor reference is additionally needed only when claiming sharing itself helps.",
+  "not_a_scientific_quality_result": true,
+  "recorded_by_parent_from_reviewer_message": true
+}

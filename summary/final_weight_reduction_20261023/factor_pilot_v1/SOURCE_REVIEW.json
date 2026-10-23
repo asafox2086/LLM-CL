@@ -1,0 +1,31 @@
+{
+  "reviewer": "/root/review_next_probe",
+  "decision": "accept",
+  "reviewed_UTC": "2026-10-23T09:32:01.390110+00:00",
+  "scope": "Pre-admission static source and protocol review only; no model, tensor, CPU admission, GPU, QA scoring or bootstrap executed. Does not certify CPU_GATE or future performance.",
+  "files_sha256": {
+    "exp/final_weight_factor_pilot_20261023/v1/core.py": "cf7a1dabf0f35cf7fe7f8fca70643195e5c7e7ac0752cf1c6def4aff513b2054",
+    "exp/final_weight_factor_pilot_20261023/v1/common.py": "18481393af7f3b945695a43127dc9d5fddca8cb75adb1d0ec5fbafd0265ab26d",
+    "exp/final_weight_factor_pilot_20261023/v1/run.py": "3a64dd545fbbab46eae43522055803655db655dfbc0d26d67b9758b4c8b75422",
+    "exp/final_weight_factor_pilot_20261023/v1/freeze.py": "ca53f48fea4a01ee13e06d5f1c67f737bd6de9810c401d9a8fca808ce9d7e66b",
+    "exp/final_weight_factor_pilot_20261023/v1/dispatch.py": "f52ff5763528bb5d99cda716afd1659599a427ebc5d181c36b4090c67627f873",
+    "summary/final_weight_reduction_20261023/factor_pilot_v1/PROTOCOL.md": "bcabbd9af163e82e151b15372953cb308a86d4247ea20ccb59c1c46d7e25e400",
+    "summary/final_weight_reduction_20261023/factor_pilot_v1/QUESTION.md": "5670b908b917385bba84c329213b10d2eaa30e46a0d08518fe228622c42d7676",
+    "summary/final_weight_reduction_20261023/factor_pilot_v1/NECESSITY_REVIEW.json": "38a5040165f389307a95ab83694a5026ba55fce38cb6cd94511be59f77e88b35"
+  },
+  "findings": {
+    "physical_FFN_replacement": "72 fixed rank540 two-factor FP16 modules; original dense module replaced and local dense/SVD temporaries deleted; no dense original retained by Factors class; factors remain frozen through original TargetLoRA construction.",
+    "fair_final_weight_count": "803837984 folded shape coefficients; 804378656 with original540672 qv coordinates; registered buffers disclosed and distinct Parameter shared-storage views reject admission. Folded count is not a claim that a new numerical merge was run.",
+    "training_scope": "Fresh original base, data-free compression, original qv-r8 recipe and original19-stage87-update TRAIN AST; no future input calibration, teacher or official TEST.",
+    "evidence_and_reload": "Per-step optimizer witness commits atomically through fsync file and parent directory;106 gradient files and87 witnesses checked; actual complete final checkpoint reload before sole100DEV, parameter digests and layout bound.",
+    "old_anchors": "Existing qv/OSFT predictions bound by sealed SHA/ID/reference; old scored scalars copied without old scoring or old paired analyses; only two new paired contrasts.",
+    "resources_and_exit": "GPU1 pre-STARTED guard and unique owner,7200s STARTED-to-COMPLETE budget includes SVD/saves/reload/DEV; failure preserves and stops, no automatic full confirmation.",
+    "admission": "CUDA hidden before Torch import; tiny CPU admission still pending. freeze requires neither READY nor CPU_GATE to exist."
+  },
+  "resolved_pre_READY_revision": "Added CPU_GATE absence assertion to prevent repeating a successful tiny admission after later READY-writing failure; no scientific condition changed.",
+  "remaining_limits": [
+    "Only a fixed-cost-point feasibility screen; not a new algorithm, stable gain, strongest-reference success or deployment advantage.",
+    "No compressed-before-adaptation DEV condition, so no recovery causal effect claim.",
+    "Actual CPU admission, full factor layout/weight equality and all runtime evidence must pass; static acceptance is not runtime completion."
+  ]
+}
