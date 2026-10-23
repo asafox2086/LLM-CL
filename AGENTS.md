@@ -1,3 +1,10 @@
+# 2026-10-24：视觉尾方案不是强参照机制派生，未尝试前关闭调度
+
+- 人类要求GPU忙也分析，追问视觉尾方案究竟借鉴何种有效机制。主/子agent往返重新审查后，共同结论：视觉冻结是Seq与强参照的共同条件，不是差分收益机制；13→1来自成本点、S1来自数据合法性、蒸馏是通用迁移。语言0更新的诊断不能验证OSFT受限适应或PASs响应选择/重要秩保护。独立可行性问题有用途，但不能充当当前机制来源主线，不因已实现/已准入就继续排队。
+- 已实际关闭唯一视觉诊断CPU860667/start11289132，unit inactive/MainPID0，0worker/STARTED/private模型目录/模型尝试。权威visual_tail_function_probe_v1/DIRECTION_CLOSED.json、MECHANISM_DIRECTION_REVIEW.md及其独立review。终态closed_before_model_attempt_human_mechanism_direction，不是质量阴性；原五源、READY9c4288a8...、CPU_GATE及三旧review保留不改，准入3.186360879秒和实现费用保留。不得自动恢复该CPU/启动模型/重门/v2或搜深度/LR。所有GPU身份前后精确保全，只对systemd跟踪的唯一自身CPU MainPID STOP/停止/CONT，无GPU信号。
+- 机制解释分层：OSFT本设置Acq47.888对38.605、BWT反而更差，只是成绩分解，位置/容量/LR/投影因果未隔离。其论文按层自适应分配不在本地固定25%端口，不能拿来自解释本地收益。PASs作者Table2在LLaVA1.5-7B/6专家/3epoch有RW与RW+RS的组件增益支持，非本1%因果或唯一机理。静态核实本地a路由复用A_e x均方能量，不能等同完整B_e A_e x功能贡献；全部活跃专家softmax不是top-k稀疏推理，更不自动减少W0。
+- 后续机制讨论须同时回答：哪项原回答功能由什么更小载体承接，同一载体如何允许有用的新任务响应改变；完整计W0/增量/冻结/专家/路由，不能只省adapter/训练状态。未给出这两项就没有闭合新框架，不先挑大部件再倒推故事。已有先例及全部旧分支终态保留，正式基线保全。GPU忙不阻止有用途的论文/源码/机制分析；旧goal资源blocked不是等待已关闭视觉诊断的理由。新F1/保质减重/新框架均未实现。下方冻结与启动均为历史，勿照旧wait恢复。
+
 # 2026-10-23：S1视觉尾功能承接诊断已独立冻结，CPU调度等待GPU1
 
 - 新exp/visual_tail_function_probe_20261023/v1五源与summary/final_weight_reduction_20261023/visual_tail_function_probe_v1的PROTOCOL/NECESSITY_REVIEW/SOURCE_REVIEW/CPU_GATE/ADMISSION_REVIEW/READY为准。主/子agent往返后仅接受一次起点功能诊断，不是已形成新框架：强参照冻结视觉不能推出视觉尾冗余，语言习得优势的具体原因仍未隔离。旧K69/r200/PAS/ShortFixed及所有旧负条件保持关闭，不恢复。
