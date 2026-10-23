@@ -1,8 +1,9 @@
-# 2026-10-24：独立原生起点回答基线已冻结，尚未激活
+# 2026-10-24：独立原生起点回答基线已准入，CPU资源调度已激活
 
 - 新native_initial_answer_baseline_v1的PROTOCOL/NECESSITY_REVIEW/SOURCE_REVIEW/READY为准，独立于已关闭native E/Q/R。主/子agent拒绝重证明既有span条件，接受补一个缺失的同载体未适应质量原点：只固定SmolVLM-500M原revision与既核12资产，原100DEV恰一次生成，0FIT适应/backward/optimizer/专家/NLL/额外QA。不是新框架、参数可删性或模型筛选门，不按高低换型号；作者预训练能力不算我们增益。
 - 两份最小独立推理源码已审；没有E/make_method/训练或旧CPU门调用。metadata封安装路径最初误用sysconfig purelib，在Torch导入前失败，旧源/review/log及METADATA_FREEZE_FAILURE6683acf...保留；独立增量review仅许顶层find_spec定位真实包，不改环境/后端/推理。修后metadata freeze通过，CUDA/Torch未导入，无新CPU梯度门。READY7374addaab87a59ceb6a5a0be17e8b3859b94ddb48e76470c411c756504afd17绑定真实解释器/包路径、两源、旧screen READY的原SPLIT/manifest、100DEV ID顺序与原资产SHA。
-- 当前尚无STARTED/模型/QA/F1，READY不是结果。后续必须独立ADMISSION_REVIEW通过并白名单发布后才可激活新unit。固定BF16/vision=eager/text=sdpa/原输入政策和生成cap，超长/加载/EOS歧义即停；真实完整P_total/权重buffer与共享、state前后digest/同PID资源全部记录，完整后唯一原AnswerF1。不读partial，无旧配对/bootstrap重跑。
+- 独立ADMISSION_REVIEW f49bfb4612ada0ed93997b09f8805aaf83e282deb919acbce46727fdf80b5ed2接受唯一纯推理检查；5b8aad2bb57dc6571ddf54e6c3cd8f5c42f6d8ba已推送13文件精确镜像后才激活。新unit llmcl-native-initial-answer-baseline-20261024.service，18:34:28.879186UTC真实controller881459/start12333479 UID1004、bootc8bddf24-7969-41d6-a0fc-e5287850807f active/wait，无worker/STARTED/COMPLETE/VERIFIED/FAILURE；仍0模型/QA/F1。LAUNCH的queue=null仅CPU源核验期历史，不能盲重启。后续看真实/proc/startticks/unit/queue/proof，不把快照当永久live，不分钟巡检。
+- 固定BF16/vision=eager/text=sdpa/原输入政策和生成cap，超长/加载/EOS歧义即停；真实完整P_total/权重buffer与共享、state前后digest/同PID资源全部记录，完整后唯一原AnswerF1。不读partial，无旧配对/bootstrap重跑。激活只启动自身systemd CPU，原实际GPU身份前后相等，没有GPU信号；Restart=no/KillMode=process、不enable。
 - 单次STARTED→COMPLETE3600秒含加载/100生成/全部保存观察；是资源封顶，不是用户时限或1%定义。只NEW GPU1/最多三卡，独立自身PID/startticks/UID/PGID watchdog；STARTED后故障/中断/超预算即关闭，不续预测/延时/v2。无自动训练/新型号/框架主张；单题高分不认证稳定能力或用来挑路由。旧E/Q/R、视觉/PAS/r200/ShortFixed等终态保全，正式基线不动，科研目标未实现。
 
 # 2026-10-24：原生响应先导v2 CPU梯度一致性未通过，当前实现关闭
