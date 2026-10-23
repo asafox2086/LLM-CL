@@ -41,12 +41,14 @@ def tensor_hash(batch):
  return h.hexdigest()
 
 class NativeRuntime:
- def __init__(self,processor,model,root,policy_value,context_limit=8192,input_dtype=None):
+ def __init__(self,processor,model,root,policy_value,context_limit=8192,input_dtype=None,image_SHA256=None):
   import torch
   self.processor,self.model,self.root,self.policy=processor,model,Path(root),policy_value
   self.context_limit=context_limit;self.input_records=[];self.requests=[];self.native_gates=[]
   self.input_dtype=torch.bfloat16 if input_dtype is None else input_dtype
   self.capture_logits=False;self.last_logits_SHA256=None
+  self.phase='UNASSIGNED'
+  self.image_SHA256=image_SHA256
  def input_batch(self,row,task,processor,device):
   import torch
   from PIL import Image
@@ -57,7 +59,9 @@ class NativeRuntime:
    retrieval=sorted(retrieve(row['question'],chunks,5));context='\n'.join(chunks[i] for i in retrieval)
   messages=[];images=[];shapes=[];hashes=[]
   for name in row.get('images',[]):
-   p=ROOT/name;hashes.append(dict(path=name,sha256=__import__('core').sha(p)))
+   p=ROOT/name;image_sha=__import__('core').sha(p)
+   assert self.image_SHA256 is not None and self.image_SHA256[name]==image_sha,'Original image SHA changed'
+   hashes.append(dict(path=name,sha256=image_sha))
    with Image.open(p) as image:
     im=image.convert('RGB');before=im.size
     if im.width*im.height>401408:
@@ -82,7 +86,8 @@ class NativeRuntime:
   details=dict(prompt_tokens=int(batch['input_ids'].shape[1]),prepared_input_SHA256=prepared,
    image_SHA256=hashes,image_shapes=shapes,retrieved_chunk_indexes=retrieval,common_image_area_cap=401408,
    visual_tokens=int((batch['input_ids']==self.model.config.image_token_id).sum()))
-  self.input_records.append(dict(id=row['id'],task=task['task'],**details))
+  assert self.phase in ('TRAIN','NATIVE_GATE','DEV')
+  self.input_records.append(dict(id=row['id'],task=task['task'],phase=self.phase,**details))
   batch={k:t.to(device) for k,t in batch.items()}
   batch['_messages']=messages;batch['_prompt']=prompt
   return batch,details
@@ -128,6 +133,7 @@ class NativeRuntime:
   return self.processor.tokenizer.decode(response,skip_special_tokens=True),len(response)
  def gate(self,row,task,stage):
   import torch
+  self.phase='NATIVE_GATE'
   self.model.eval();batch,details=self.input_batch(row,task,self.processor,self.model.device)
   with torch.no_grad(),torch.autocast('cuda',dtype=torch.bfloat16):loss,length=self.answer_loss(self.model,batch,row['answer'],self.processor)
   assert torch.isfinite(loss)
@@ -135,6 +141,7 @@ class NativeRuntime:
   self.native_gates.append(dict(stage=stage,id=row['id'],loss=float(loss),target_tokens=length,
    short_generation_tokens=n,prepared_input_SHA256=details['prepared_input_SHA256']))
  def evaluate(self,manifest,dev):
+  self.phase='DEV'
   self.model.eval()
   for task in manifest['tasks']:
    k=task['task']

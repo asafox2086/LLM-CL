@@ -1,7 +1,7 @@
-# 未准入的局部实现
+# 完整源码静态审阅通过，尚未模型准入
 
-只有core.py/runtime.py，尚无完整run/common/freeze/dispatch、SOURCE_REVIEW、CPU_GATE、READY、权重下载或模型启动。导入不会执行试验。局部语法检查不是模型准入。
+六源core/runtime/common/run/freeze/dispatch已完成并通过独立SOURCE_REVIEW，仅允许固定revision资产获取与一次tiny CPU门。尚无CPU_GATE/READY/ADMISSION_REVIEW、权重下载或模型启动；不得由静态接受直接激活service。导入不会执行试验，语法检查不是模型准入。
 
-必要性草案见summary/final_weight_reduction_20261023/native_response_reuse_pilot_v1。MECHANISM_DISCUSSION进一步明确：原生FFN条件门不等于承接PASs的RW/RS。当前停止完整worker扩编，不自动下载/激活，不把现成小模型+选择性微调叫新框架。
+必要性协议和实施细化见summary/final_weight_reduction_20261023/native_response_reuse_pilot_v1。MECHANISM_DISCUSSION明确：原生FFN条件门不等于承接PASs的RW/RS。前轮暂停扩编的机制问题已实际讲清；独立review确认可继续实施窄必要性对照，而非再次追加相同讨论。现在按分段准入推进，不把现成小模型+选择性微调叫新框架。
 
 旧视觉/PAS/r200/ShortFixed等均保持终态。本目录不授权恢复任何旧作业。

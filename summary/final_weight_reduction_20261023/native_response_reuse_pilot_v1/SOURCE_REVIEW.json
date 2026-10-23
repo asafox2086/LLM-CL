@@ -1,0 +1,40 @@
+{
+  "decision": "accept_source_for_assets_and_single_CPU_gate_only",
+  "reviewer": "independent_subagent_review_next_probe",
+  "reviewed_at_UTC": "2026-10-23T17:40:24.018984+00:00",
+  "sources": {
+    "exp/native_response_reuse_20261024/v1/core.py": "89aad3d1281f5adca0866c8033b37435f2575add5d7b21a77d204b6aaaac3af3",
+    "exp/native_response_reuse_20261024/v1/runtime.py": "0ed5ac42f6958741c2e1f5d35a551af4e54a61778ff72a6d4c37c100d9fa13f6",
+    "exp/native_response_reuse_20261024/v1/common.py": "d84cc3c090af3d5ad035e0b576d5000a0679d710631240f57ad9065f9762bb28",
+    "exp/native_response_reuse_20261024/v1/run.py": "7cf6c842dcf38e0fe34f4d5d254d431d681c2ea441b2eda8878520f44d17a275",
+    "exp/native_response_reuse_20261024/v1/freeze.py": "fad3c27ddc61af06a1454a3f484bab52c822ecf741a2db912201aad5c067d400",
+    "exp/native_response_reuse_20261024/v1/dispatch.py": "9cf6689103e8c76dcf83ffebacf283a16dbf269198939f83797f516c3477ffc9"
+  },
+  "protocol_sha256": "29cd66391136a84e1b8735cbbc1081d393f5c4f273a3c1406ece6a20c505d425",
+  "implementation_spec_sha256": "2fb71fdf55d70e02b7b82223f670bbec464a7f4c479ef9aaf645e93de64c422b",
+  "necessity_review_sha256": "8c743c2e2beee172eab6e6d1927c1a0c94ed507b6d413bddbe4c55a4b14cbd6d",
+  "scope": {
+    "static_source_and_protocol_only": true,
+    "model_activation_authorized": false,
+    "asset_acquisition_and_one_tiny_CPU_admission_only": true,
+    "Torch_model_tensor_QA_GPU_download_score_or_bootstrap_executed_by_reviewer": false
+  },
+  "findings": [
+    "三条件独立fresh构造；公共q/v按模块seed初始化，R仅更新原完整down，E为固定作者核/learner的FFN-local参照，不冒充正式七位置PAS。",
+    "E原回调、阶段tau及状态持久化沿原数学；tiny门设原作者forward/learner直调参考并逐步比较loss、梯度、权重、RNG及历史，实际通过与否尚未执行。",
+    "原TRAIN AST接入保留19阶段/87更新；输入分phase、全ID/顺序、每batch QA IDs、梯度/optimizer/validity及实际文件全集有独立核验。",
+    "最终编译公平fold公共q/v，R down回BF16；清训练引用后重构完整图strict加载及digest检查，E保留推理专家，状态存储与最终权重口径分开。",
+    "完整case单次评分，E/Q封存proof后E>Q才允许事前冻结R；汇总不重评分E/Q，只新增固定两配对。",
+    "首次STARTED预算由worker alarm和独立controller单调钟共同约束；仅校验身份后终止自身隔离worker组，75仅无STARTED/private的未尝试资源等待。",
+    "修正后SOURCE_REVIEW与READY均绑定IMPLEMENTATION_SPEC；安装源含实际Idefics3/Llama/SigLIP及processor实际image_processor定义文件，解释器和依赖SHA在worker加载前检查。",
+    "资产清单在既有固定API快照存在；官方SHA/Git blob、固定元数据、BF16头部计数及实际from_pretrained loading错误均设停止条件。"
+  ],
+  "limitations": [
+    "本审阅没有执行任何模块、资产下载、CPU门、真实BF16前反向、原生输入或模型重载；静态接受不等于这些已通过。",
+    "CPU门仅FP32 tiny图；原生完整权重/共享存储、BF16/上下文/真实标签和终止行为须按已固定准入与worker验证，失败不得补试或调整配方。",
+    "R/E不匹配函数空间、训练坐标、梯度几何、内部算子精度或计算预算；结果只回答固定载体/配方下新增专家包必要性，不能唯一归因RW/RS或预训练响应。",
+    "原生载体自身减重属于原作者；普通Down微调和LoRA折叠不构成新框架。DEV已探索、外部旧锚跨骨干，任何点结果均非稳定、等效或完整目标证据。",
+    "不得据此激活controller；资产与唯一CPU门完成后仍需独立READY准入评审。任何STARTED失败/中断/超时按原协议停止全pilot，无恢复/新v2/预算延期。"
+  ],
+  "remaining_static_blockers": []
+}

@@ -68,8 +68,12 @@ def layout(model):
    assert unique%p.element_size()==0,n
    out[n]=dict(shape=list(p.shape),numel=p.numel(),bytes=p.numel()*p.element_size(),
     storage_unique_bytes=unique,storage_unique_elements=unique//p.element_size(),dtype=str(p.dtype),requires_grad=p.requires_grad)
- return dict(weights=weights,buffers=buffers,weight_coefficients=sum(x['storage_unique_elements'] for x in weights.values()),
-  weight_bytes=sum(x['storage_unique_bytes'] for x in weights.values()),buffer_bytes=sum(x['storage_unique_bytes'] for x in buffers.values()),
+ # Only these known deterministic/index buffers are excluded from weight count.
+ derived={n for n in buffers if n.endswith(('.inv_freq','.position_ids','._expert_mask'))}
+ weight_buffers={n:v for n,v in buffers.items() if n not in derived}
+ return dict(weights=weights,buffers=buffers,weight_buffers=weight_buffers,derived_buffers=sorted(derived),
+  weight_coefficients=sum(x['storage_unique_elements'] for x in [*weights.values(),*weight_buffers.values()]),
+  weight_bytes=sum(x['storage_unique_bytes'] for x in [*weights.values(),*weight_buffers.values()]),buffer_bytes=sum(x['storage_unique_bytes'] for x in buffers.values()),
   trainable_coordinates=sum(p.numel() for p in model.parameters() if p.requires_grad))
 
 def names(model,targets):
@@ -214,3 +218,48 @@ def restore_compiled(path,device='cpu',dtype=None):
  assert digest(model.state_dict().values())==payload['state_digest']
  for p in model.parameters():p.requires_grad=False
  return model.to(device).eval()
+
+def cpu_tree(value):
+ import torch
+ if isinstance(value,torch.Tensor):return value.detach().cpu().clone()
+ if isinstance(value,dict):return {k:cpu_tree(v) for k,v in value.items()}
+ if isinstance(value,list):return [cpu_tree(v) for v in value]
+ if isinstance(value,tuple):return tuple(cpu_tree(v) for v in value)
+ return value
+
+def save_tensor_file(path,value):
+ import torch,time
+ path=Path(path);assert not path.exists();path.parent.mkdir(parents=True,exist_ok=True)
+ tick=time.monotonic();temp=path.with_suffix(path.suffix+'.tmp')
+ with temp.open('wb') as f:torch.save(value,f);f.flush();os.fsync(f.fileno())
+ temp.replace(path)
+ if os.name!='nt':
+  fd=os.open(path.parent,os.O_RDONLY|os.O_DIRECTORY)
+  try:os.fsync(fd)
+  finally:os.close(fd)
+ return dict(path=path.name,bytes=path.stat().st_size,sha256=sha(path),seconds=time.monotonic()-tick)
+
+def observed_optimizer(method,factory,root,qa_ids=lambda:[]):
+ import torch
+ from types import MethodType
+ optimizer=factory(method);assert optimizer.__class__.__name__=='HostAdamW'
+ expected={id(p):n for n,p in method.model.named_parameters() if p.requires_grad}
+ assert len(expected)==sum(len(g['params']) for g in optimizer.param_groups)
+ assert all(g['lr']==1e-4 and g['weight_decay']==0 and g['eps']==1e-8 and tuple(g['betas'])==(.9,.999) for g in optimizer.param_groups)
+ original=optimizer.step;number=0
+ def step(_optimizer,*args,**kwargs):
+  nonlocal number
+  parameters=[p for g in optimizer.param_groups for p in g['params']]
+  match={id(p) for p in parameters}==set(expected);assert match
+  assert all(p.grad is not None and p.grad.dtype==torch.float32 for p in parameters)
+  result=original(*args,**kwargs);number+=1
+  moments=[v for p in parameters for n,v in optimizer.state[p].items() if n in ('exp_avg','exp_avg_sq')]
+  assert len(moments)==2*len(parameters)
+  order=sorted(parameters,key=lambda p:expected[id(p)])
+  write(Path(root)/'optimizer'/f"S{method.live['stage']:02d}_{number:03d}.json",dict(stage=method.live['stage'],step=number,QA_IDs=qa_ids(),
+   parameter_IDs_match=match,parameter_names=[expected[id(p)] for p in order],parameter_IDs=[id(p) for p in order],
+   coordinates=sum(p.numel() for p in parameters),gradient_bytes=sum(p.grad.numel()*p.grad.element_size() for p in parameters),
+   gradient_dtypes=sorted({str(p.grad.dtype) for p in parameters}),two_moment_bytes=sum(p.numel()*p.element_size() for p in moments),
+   moment_devices=sorted({p.device.type for p in moments})))
+  return result
+ optimizer.step=MethodType(step,optimizer);return optimizer
