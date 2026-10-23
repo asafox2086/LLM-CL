@@ -1,3 +1,10 @@
+# 2026-10-24：原生紧凑载体只完成元数据资格核对，不是新方法或模型准入
+
+- native_carrier_qualification_v1的EVIDENCE/FINDINGS/RESULT_REVIEW为准。GPU忙期间先查旧共享草案，普通跨层共享基+私有AB已讨论；初始层差与新适应共用私有容量仍未识别，不实现/重开CPU权重近似表。共享非线性字典也仅条件可构造，缺门/输入响应不能靠输出系数凭空补回，不当新框架。
+- 主/子agent最终只对SmolVLM-500M-Instruct做一次官方API+6配置元数据读取，revision a7da5b986cb59b408707209984f360a5f4ad7e47。官方API声明507482304 BF16系数，不是我们读权重头/去重存储实测；Apache2/英文、Idefics3原生图文→文本接口。先前256M网页只读为历史，不成对照/候选，不扩型号榜单。原生预训练小模型可能避免先损坏OneVision起点再少步恢复，但本任务能力未知，现成模型规模优势不算我们创新。
+- 新静态边界：processor splitting开启，整体2048/子图512，image_seq_len64不是整图总token；8k左截断不能静默丢原问答。generation_config EOS49279与tokenizer的end_of_utterance相应，但special_tokens_map/text_config指向im_end/2，运行加载优先级/停止行为未核实。官方BF16示例不证明真实前反向路径，原DEV预训练重叠未知，不称严格干净teacher。原始图像/问题/全部参考不翻译映射，原AnswerF1不改。
+- 本轮0权重/完整tokenizer载荷/QA/模型/GPU/优化/评分/CPU模型门/环境安装，只取得载体继续讨论资格；不下载/SFT/蒸馏或启动新worker。下一实施仍须同一载体明确的参数必要性干预/对照/全成本/正负出口，跨骨干规模—质量差不能归因我们的算法。旧视觉/PAS/r200/ShortFixed终态不变，正式索引本轮只读仍七范围7/14加FOREVER独立1，无新proof不重发布。目标未实现，不把元数据当保质减重成果或因困难标外部阻塞。
+
 # 2026-10-24：阶段delta迁移有直接先例，教师改善不足以认证学生受益
 
 - GPU忙期间主/子agent继续具体设计讨论，stage_delta_transfer_review_v1/FINDINGS及RESULT_REVIEW为准。原生紧凑学生保留自身prior、迁移教师阶段前后响应的草案，在beta=1时已有Delta-KD v1 §3.1 Eq8直接先例；原生学生既有规模优势加普通蒸馏不能称我们发明了减重框架。旧视觉尾已关闭，不再等待它。

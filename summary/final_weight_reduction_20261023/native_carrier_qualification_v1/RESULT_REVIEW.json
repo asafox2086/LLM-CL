@@ -1,0 +1,37 @@
+{
+  "decision": "accept_metadata_qualification_only_no_model_admission",
+  "files_sha256": {
+    "summary/final_weight_reduction_20261023/native_carrier_qualification_v1/EVIDENCE.json": "de7f066fabe4907c6337c7e1f1a3352c02755a181eee0a8801d2c086f979b75b",
+    "summary/final_weight_reduction_20261023/native_carrier_qualification_v1/FINDINGS.md": "f11b44eb1257a82ea45fc4a3e3d53d31634a3e0d14e06a11c06586b9a4d3f71d"
+  },
+  "review_scope": "Read the two requested artifacts; optionally checked only the seven existing private official-metadata snapshots with standard-library SHA/JSON. No network, weight headers/tensors, tokenizer vocabulary/merges payload, QA, model, Torch, GPU, scoring, bootstrap or environment installation.",
+  "metadata_checks": {
+    "official_source_snapshots_SHA_and_bytes_match": true,
+    "source_files_checked": 7,
+    "API_revision_matches_pinned_revision": true,
+    "pinned_revision": "a7da5b986cb59b408707209984f360a5f4ad7e47",
+    "API_safetensors_declaration_matches": true,
+    "declared_parameters": 507482304,
+    "declared_weight_dtype": "BF16",
+    "generation_EOS_49279_and_text_config_EOS_2_confirmed_statically": true,
+    "not_runtime_interface_verification": true
+  },
+  "findings": [
+    "The500M model is the sole selected metadata-qualification object; prior256M reads are accurately retained as historical source reads rather than a model comparison or admitted condition.",
+    "API parameter count, license, architecture and native multimodal interface are separated from actual local complete-model measurements and task competence.",
+    "The corrected r200 sentence distinguishes completed pilot quality failure from pre-update logged-NLL differences with missing historical preprocessing-hash coverage; no unique compression-causality claim remains.",
+    "Image splitting and64-token metadata are not treated as64 total tokens for arbitrary original images. Context/truncation and EOS metadata discrepancies remain implementation questions.",
+    "The declared BF16 dtype and author example do not certify actual forward/backward support or numerical comparability to the old OneVision FP16 path.",
+    "Unknown pretraining overlap and cross-backbone differences are disclosed. Native compactness belongs to the existing author model, not an invented compression structure or a demonstrated quality-cost gain."
+  ],
+  "unproven": [
+    "Actual complete weight/storage count including shared-storage deduplication and required buffers",
+    "Actual BF16 forward/backward numerical path and fixed-budget training feasibility",
+    "Original image/question execution, truncation, special-token/EOS behavior and unmodified answer-generation interface",
+    "Original five-domain AnswerF1, continual-learning competence or parameter/expert necessity",
+    "Absence of original DEV overlap in pretraining",
+    "Any new framework, originality or achieved research goal"
+  ],
+  "current_action": "Metadata qualification only. No download, model/CPU gate, installation, SFT, distillation or new worker is admitted. A specific identifiable mechanism/parameter-necessity question and fixed quality/cost exits remain required before any later implementation review.",
+  "status_scope": "Worker/formal-baseline status statements in FINDINGS are consumed as report context, not independently re-polled by this review."
+}
