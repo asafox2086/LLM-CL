@@ -1,0 +1,25 @@
+{
+  "decision": "accept_conditional_algebra_and_design_rejection_only",
+  "reviewer": "independent_subagent_review_next_probe",
+  "reviewed_at_UTC": "2026-10-23T18:47:43.505747+00:00",
+  "findings_sha256": "6d81fc92022516b1d2ab6748af2eefca5623b53be5902ed49dbeb8e113a1e203",
+  "findings_before_shared_A_addendum_sha256": "7589db4e28413d4d537a6400cf83e6f5d3aedf738e126162b134c69c30018f36",
+  "no_model_admission": true,
+  "accepted_checks": [
+    "两活跃专家、相同缩放并入D、eval无dropout的共同/差分tanh恒等式成立；保留stacked A和signed B仍2r(m+n)只是一个无额外省存构造，不是全局最小表示下界。",
+    "m,n>=2r的补零分块例给出差分rank2r；非零门值开集上的输出线性包仍可达2r，反驳把该差分一般压成输出rank r载体的推论，不指称实际权重秩。",
+    "SLBF原文的bilinear gauge乘积保持与可逆pivot条件没有被扩成PAS路由保持保证；标量反例保持两个BA却改变softmax混合，代数成立。",
+    "metric补偿式成立；r²减去对称metric独立系数r(r+1)/2后的r(r−1)/2仅构造级理想账，完整metric张量、pivot和编码成本必须按实际保存计数。",
+    "单专家全输入能量保持在A满行秩时约束正交；整个softmax只依赖分数差，共同二次偏移和退化例外未被错误排除。",
+    "新加共享完全相同A/归一化/tau且无其它专家专属分数时，a路由恒等权并可合并B；只否定以这种共享保持原RW专家选择的说法，不否定其它输入依赖或主张实际模型满足条件。",
+    "eval精确实数条件不外推训练dropout、Adam/RS轨迹、有限精度或AnswerF1；终态仅拒绝共同fold/普通gauge即可省一专家作为新主方法依据。"
+  ],
+  "text_edit_by_reviewer": "Added the requested minimal conditional shared-A routing-collapse paragraph; no other interpretation or scientific artifact was changed.",
+  "limitations": [
+    "Only the new text and the existing discussion were consumed; no new browsing, source audit, matrix/rank computation, model/tensor/QA/GPU/gate/scoring or bootstrap was performed.",
+    "No actual weight deletion, compact encoding, quality retention, parameter necessity or new-framework claim is accepted.",
+    "No gauge implementation, matrix screen, new model or reopening/repair of closed native E/Q/R is authorized.",
+    "The native starting baseline remains an independently admitted descriptive check, not evidence for these structural conditions; the quoted wait observation is historical and was not polled here."
+  ],
+  "required_further_text_changes": []
+}

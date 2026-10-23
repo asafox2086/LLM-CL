@@ -1,3 +1,10 @@
+# 2026-10-24：共同项折叠与双线性gauge不保证响应自路由减重
+
+- 新response_contrast_contract_v1/FINDINGS及RESULT_REVIEW为一次已完成的原论文/条件代数核对。主/子agent确认旧账本没有闭合这两个具体主张；只消费既有a路由事实并定向核SLBF v1§4.2/DeepSeekMoE§3.2，0新模型/张量/矩阵/QA/评分/CPU门/GPU。不是新压缩算法或实际参数可删性发现，不再重复本核对或扩成矩阵筛查/gauge编码。
+- 两个全活跃eval低秩专家可写成均值加tanh门控差分。均值fold到W后，一个保函数构造仍需[A1;A2]与[B1,-B2]，共2r(m+n)系数；差分可达rank2r，不能从“一个差分项”声称少一套专家。这不是所有表示的成本下界。完全共享相同A、相同归一化/tau且无其它专家分数时，a路由恒1/2、整个支路可fold，但动态选择也随之消失；没有证明实际权重如此。
+- SLBF的普通GL gauge保持BA，但PAS的A还决定路由。标量反例中BA均不变而混合输出变；补偿metric也须计最终权重。省r²再存r(r+1)/2的净r(r−1)/2仅构造级独立系数账，非实际存储/普遍下界。softmax允许共同score偏移，不能无条件说所有合法T均正交；eval实数也不保证FP逐值或同训练/RS。
+- 关闭“共同fold/普通gauge即可省一专家”的主方法依据，不开新模型、不修旧E/Q/R，不把代数当F1收益。未来小载体须同时承接输入相关差异和选择信息，不能只保平均输出/BA。原生起点基线仍按原READY独立等待首次尝试：18:42:08UTC真实CPU881459/start12333479 active/wait，无worker/STARTED/终态；GPU1他人实际活跃，9408MiB/util97仅瞬时，不永久live或继续分钟巡检。科研目标未实现，不以分析完成标总目标完成。
+
 # 2026-10-24：独立原生起点回答基线已准入，CPU资源调度已激活
 
 - 新native_initial_answer_baseline_v1的PROTOCOL/NECESSITY_REVIEW/SOURCE_REVIEW/READY为准，独立于已关闭native E/Q/R。主/子agent拒绝重证明既有span条件，接受补一个缺失的同载体未适应质量原点：只固定SmolVLM-500M原revision与既核12资产，原100DEV恰一次生成，0FIT适应/backward/optimizer/专家/NLL/额外QA。不是新框架、参数可删性或模型筛选门，不按高低换型号；作者预训练能力不算我们增益。
