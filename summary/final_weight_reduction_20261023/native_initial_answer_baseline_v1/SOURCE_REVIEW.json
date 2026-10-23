@@ -1,0 +1,44 @@
+{
+  "decision": "accept_fixed_unadapted_forward_baseline_source_only",
+  "reviewer": "independent_subagent_review_next_probe",
+  "reviewed_at_UTC": "2026-10-23T18:30:59.448495+00:00",
+  "sources": {
+    "exp/native_initial_answer_baseline_20261024/v1/baseline.py": "bbf55cbd48ac7e08d062bf137ae593a084d482442780a71d869e366bdc9a6810",
+    "exp/native_initial_answer_baseline_20261024/v1/dispatch.py": "c61085c3ea987ca85c1038ed78d94262e23e6c4f2adf03abb9efd592c2095403"
+  },
+  "protocol_sha256": "92afc15fdb4298303d5f363464e3df4ed1726c774a07ac3f81e9acebfe80c84d",
+  "necessity_review_sha256": "f13f055606404fcd636e57a595bf0137c5c1860fa89810b8ba302e3ed4880ff5",
+  "scope": {
+    "static_review_of_two_new_sources_and_incremental_closure_fixes": true,
+    "only_no_Torch_metadata_freeze_and_READY_creation_authorized": true,
+    "controller_model_QA_activation_authorized": false,
+    "CPU_gradient_gate_authorized": false,
+    "new_asset_download_authorized": false,
+    "old_native_v2_source_changes_authorized": false,
+    "incremental_metadata_path_fix_review": true
+  },
+  "findings": [
+    "两源只提供metadata freeze、独立纯推理worker、完整后唯一verifier及controller；未调用旧make_method、训练、作者E回调或CPU门。",
+    "metadata显式绑定原screen READY的manifest/SPLIT SHA，并封原task顺序100DEV ID序列SHA；freeze绑定该旧READY，worker/verifier共用同链。TRAIN容器仅按冻结DEV ID过滤，无重分组。",
+    "freeze验证SOURCE_REVIEW的NECESSITY实际SHA、最终协议SHA及精确两源集合；READY/check_ready封源、依赖、安装源、解释器与元数据链。",
+    "真实加载固定BF16、视觉eager/语言SDPA并拒绝四类loading错误；输入保持原native runtime政策，超长或停止语义歧义即失败。没有静默截断或输出质量修补路径。",
+    "generate覆写沿原固定调用，仅同一输出增加末token与EOS/cap终止证据，不增加模型请求。精确100请求/输入ID顺序/全部原refs/输入及图像SHA在完整后核验。",
+    "全模型requires_grad=False、eval、inference_mode；完整state digest及布局前后一致，实际完整权重/共享存储与派生buffer分别报告；无adapter、专家或optimizer。",
+    "原score/tokens AST由封SHA原runtime_utils提取，取score字典token_f1并以全部refs计分；VERIFY_STARTED防重入，完整退出后只评分一次。",
+    "worker alarm及controller独立单调钟3600秒边界同时存在；controller只验证并终止自己的PID/startticks/UID/隔离PGID，失败停止，75仅无STARTED/private的未尝试等待。",
+    "本次只改freeze安装路径元数据：顶层find_spec定位torch/transformers唯一package location与origin，逐文件存在并位于root内，READY记package_locations；前后仍断言Torch未导入。未安装、调整环境或查询子模块。",
+    "原baseline源码备份SHA与原SOURCE_REVIEW及失败记录相等；dispatch原字节不变，baseline全部非freeze函数AST不变。freeze检查旧review/metadata失败实际SHA并纳READY依赖，当前新review绑定新源。"
+  ],
+  "limitations": [
+    "This review did not execute either source as a module or run metadata freeze, Torch, model, tensor, QA, generation, GPU, scoring, bootstrap or any CPU admission.",
+    "Metadata READY is not runtime admission: complete BF16 loading, native EOS/input behavior, actual storage counts and answer quality remain unproved.",
+    "A separate independent ADMISSION_REVIEW tied to the actual READY is required before controller activation; this file grants no activation.",
+    "This is a previously missing fixed starting baseline, not a novelty, parameter-avoidability, RW/RS, compact-method or stable-capability result. The explored DEV cannot support a positive-retain/negative-discard carrier search.",
+    "Closed E/Q/R v1/v2 and other historical branches remain closed; this review does not relax their failed gradient parity criterion or authorize v3.",
+    "原metadata路径冻结失败发生于Torch导入和READY之前，保留为实现记录；本次仅接受一次修后metadata freeze，不是CPU门成功或模型准入。"
+  ],
+  "remaining_static_blockers": [],
+  "previous_source_review_sha256": "aee3b8e4be6757941deed63aa0b35c98442ebbc91d740f60ada85971cf243c98",
+  "metadata_failure_sha256": "6683acfbc860e58defbf47bfd94460f37bad0ecef27d7a6eb361d19f743cc6ba",
+  "metadata_repair_source_backup_sha256": "a006e7e53772c5a4a58e74e4878d5dc521e9fb66d6a62b83a7fe590def13c4be"
+}

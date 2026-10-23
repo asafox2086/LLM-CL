@@ -1,0 +1,46 @@
+{
+  "decision": "accept_single_fixed_initial_answer_baseline_pending_source_review_only",
+  "reviewer": "independent_subagent_review_next_probe",
+  "reviewed_at_UTC": "2026-10-23T18:22:04.642615+00:00",
+  "protocol_sha256": "92afc15fdb4298303d5f363464e3df4ed1726c774a07ac3f81e9acebfe80c84d",
+  "question": "Establish the previously unmeasured, fixed SmolVLM-500M starting AnswerF1 before any local FIT adaptation, so subsequent same-carrier changes can be attributed relative to an observed starting point.",
+  "necessity": [
+    "No real same-carrier quality score exists; metadata and failed synthetic E admission do not supply this baseline.",
+    "The result separates original authors' pretrained capability/size from any future proposed adaptation gain.",
+    "This is a fixed descriptive origin, with neither a score admission threshold nor a positive-retain/negative-discard model selection rule."
+  ],
+  "accepted_scope": {
+    "one_fixed_carrier_revision": "HuggingFaceTB/SmolVLM-500M-Instruct@a7da5b986cb59b408707209984f360a5f4ad7e47",
+    "original_DEV_generation_requests": 100,
+    "additional_QA_NLL_short_generation_calibration": 0,
+    "local_training_backward_optimizer_adapters_experts": 0,
+    "maximum_STARTED_to_COMPLETE_seconds": 3600,
+    "independent_verification_cost_separate": true,
+    "unique_full_score_pass_after_complete_and_exit": true
+  },
+  "protocol_edits_by_reviewer": [
+    "Replaced per-question high-score capability wording with observed fixed-set performance; prohibited choosing routes/modules from those scores.",
+    "Made native loading-key/error rejection explicit; no ignored keys or backend change to continue.",
+    "Made the independent monotonic watchdog and own PID/startticks/UID/isolated-PGID termination boundary explicit."
+  ],
+  "implementation_requirements": [
+    "Separate minimal inference entry and independent source review; no invocation of closed E/Q/R entry, make_method, training or CPU gradient admission.",
+    "Reuse pinned asset hashes and fixed native BF16/vision-eager/text-SDPA/input/template/generation policy; ambiguity, loading incompatibility or input overflow stops the attempt.",
+    "Exactly the original 100 DEV IDs/references and task generation budgets; full input/image provenance, state/layout before-after, actual weight/storage counts and process resource/cost records.",
+    "Only complete sealed output is scored once; partial output remains incomplete, and STARTED failure/interruption/timeout has no resume, extension or automatic v2."
+  ],
+  "limits": [
+    "An individual correct response is not a certified stable capability; low initial score does not establish that 87-step adaptation is hopeless.",
+    "The already explored DEV is not an unseen holdout; this is neither RW/RS evidence nor proof that native Down replaces experts.",
+    "Native pretrained scale and quality belong to the model authors, not this research method.",
+    "The closed native E/Q/R implementations remain closed; this review does not authorize their repair or resurrection."
+  ],
+  "permissions": {
+    "minimal_independent_inference_implementation_and_source_review": true,
+    "model_activation_or_QA_execution": false,
+    "new_CPU_gradient_gate": false,
+    "new_weight_download_or_carrier_search": false,
+    "automatic_followup_training_or_new_experiment": false
+  },
+  "review_execution": "Only new protocol text was read/edited and this review written using the standard library; no model/module/Torch/tensor/QA/GPU/scoring was run."
+}

@@ -1,0 +1,54 @@
+{
+  "decision": "accept_single_fixed_unadapted_baseline_activation",
+  "reviewer": "independent_subagent_review_next_probe",
+  "reviewed_at_UTC": "2026-10-23T18:33:31.600471+00:00",
+  "ready_sha256": "7374addaab87a59ceb6a5a0be17e8b3859b94ddb48e76470c411c756504afd17",
+  "sources": {
+    "exp/native_initial_answer_baseline_20261024/v1/baseline.py": "bbf55cbd48ac7e08d062bf137ae593a084d482442780a71d869e366bdc9a6810",
+    "exp/native_initial_answer_baseline_20261024/v1/dispatch.py": "c61085c3ea987ca85c1038ed78d94262e23e6c4f2adf03abb9efd592c2095403"
+  },
+  "source_review_sha256": "bceeae77d34cba1eb06953be2f4a966e11e6c68ac2b7e9088d18a2101db07921",
+  "necessity_review_sha256": "f13f055606404fcd636e57a595bf0137c5c1860fa89810b8ba302e3ed4880ff5",
+  "freeze_receipt_sha256": "f363ab97e70c984d5d9375734de69f5092173aff206aabdce4c1e6197adff39d",
+  "checks": {
+    "local_source_evidence_dependency_SHA_files_matched": {
+      "sources": 2,
+      "evidence": 3,
+      "dependencies": 17
+    },
+    "manifest_SHA_matches_original_screen_READY_and_execution_policy": true,
+    "original_SPLIT_SHA_matched": true,
+    "DEV_ID_order_SHA_recomputed_from_original_19_task_SPLIT": "fd36a6695153e0e41cc89c7c73a38a2ba2cfbf6ac8c6ee2ff79092f15270baa2",
+    "DEV_IDs": 100,
+    "known_DEV_groups": 89,
+    "each_domain_QA": 20,
+    "asset_file_list_matches_prior_receipt_without_asset_read_or_hash": true,
+    "package_origins_roots_environment_path_consistency": true,
+    "metadata_freeze_reports_no_Torch_model_QA_or_gradient_gate": true
+  },
+  "activation_limits": {
+    "single_physical_GPU": 1,
+    "maximum_new_host_GPU_cards_in_use": 3,
+    "respect_other_users_and_formal_jobs": true,
+    "one_unadapted_carrier_only": true,
+    "generation_requests": 100,
+    "local_training_backward_optimizer_NLL_extra_QA": 0,
+    "STARTED_to_COMPLETE_budget_seconds": 3600,
+    "first_STARTED_failure_interruption_or_timeout_stops_without_retry_resume_extension_or_v2": true,
+    "resource_return_75_only_before_STARTED_and_private_directory": true,
+    "no_automatic_SFT_carrier_search_or_followup_experiment": true
+  },
+  "runtime_conditions": [
+    "The frozen worker/controller must recheck READY/source/environment and asset SHA, actual GPU availability and identity before the fixed one-shot run.",
+    "Native BF16 loading must reject missing/unexpected/mismatched/error entries; use the fixed vision-eager/text-SDPA/template/EOS/input and task generation caps, stopping on incompatibility rather than altering them.",
+    "Only complete output after actual worker exit is scored once; partial output is not a result, and all original references and 100 IDs are required."
+  ],
+  "scope_and_limitations": [
+    "This review consumed existing READY/FREEZE_RECEIPT plus locally mirrored source/evidence/dependency metadata; no freeze, module/Torch/model/tensor/QA/GPU/asset hash/scoring/bootstrap was executed.",
+    "The canonical manifest file and installed remote package files are not present in this local mirror; their recorded hashes/provenance were consumed, not independently reread remotely. Manifest SHA equality and DEV IDs/order were checked from the preserved original READY/policy/SPLIT chain; actual worker source checks remain mandatory.",
+    "Package location records are internally consistent metadata, not evidence of successful BF16 execution, native EOS generation, actual live storage counts or quality.",
+    "The reported 0.2147349049919285 seconds belongs to the existing metadata freeze receipt, not a duration independently measured by this reviewer.",
+    "This admits a fixed descriptive starting baseline only; it does not reopen failed E/Q/R implementations or prove RW/RS, expert redundancy, model capability, new method novelty or the research goal achieved.",
+    "Explored DEV scores cannot become a positive-retain/negative-discard model search or per-question route/module selection rule."
+  ]
+}
