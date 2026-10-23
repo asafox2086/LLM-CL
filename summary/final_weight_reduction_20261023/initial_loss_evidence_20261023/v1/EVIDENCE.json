@@ -1,0 +1,103 @@
+{
+  "question_sha256": "6281b43f2bf5e12efc419377f718c97b13eee1072bc7aea2b7a8f63304d631e1",
+  "analysis_source_sha256": "202f001ee4e0eaf86b96ea672c6c80a3881f62f9d52a63e1366dc6a7ccc40f6f",
+  "observed_UTC": "2026-10-23T14:13:15.019307+00:00",
+  "records": {
+    "LoRA_qv": {
+      "first_pre_update_batch": {
+        "stage": 1,
+        "step": 1,
+        "qa_seen": 16,
+        "total_qa": 327,
+        "loss": 5.087518595159054,
+        "prompt_tokens": 65871,
+        "target_tokens": 72,
+        "learning_rate_used": [
+          0.0001
+        ]
+      },
+      "event_log_sha256": "b91dabc812f1c180fab6bb53874277f03ecb91e3c5989ac475fe234a6b89ed7e",
+      "complete_sha256": "09f7594e05dd45734e6b412ae183e067e144fc341c115c163d011d9cc19946bf",
+      "complete_path": "summary/edge_deployment_20261019/osft_increment_screen/v1/LoRA_qv_COMPLETE.json",
+      "event_rows": 87
+    },
+    "Spectral": {
+      "first_pre_update_batch": {
+        "stage": 1,
+        "step": 1,
+        "qa_seen": 16,
+        "total_qa": 327,
+        "loss": 17.27503740787506,
+        "prompt_tokens": 65871,
+        "target_tokens": 72,
+        "learning_rate_used": [
+          0.0001
+        ]
+      },
+      "event_log_sha256": "384b018abd2de91e0bb479b2e0008b4d6e9c8a4422751290f702a649ee7f90f8",
+      "complete_sha256": "c45e423d2693cbbe5ce4af20f8d8c31fc0f0c9f703f80be8ab2f616516752a77",
+      "complete_path": "summary/final_weight_reduction_20261023/answer_guided_pilot_v1/cases/Spectral/COMPLETE.json",
+      "event_rows": 87,
+      "NLL_difference_from_qv": 12.187518812716007
+    },
+    "Answer": {
+      "first_pre_update_batch": {
+        "stage": 1,
+        "step": 1,
+        "qa_seen": 16,
+        "total_qa": 327,
+        "loss": 17.27503740787506,
+        "prompt_tokens": 65871,
+        "target_tokens": 72,
+        "learning_rate_used": [
+          0.0001
+        ]
+      },
+      "event_log_sha256": "a112061c2b9c2bd0b6835dbf9b097b658f47739ea412dbc886cf7833fe3a8524",
+      "complete_sha256": "8061b99ef1b66a27ae17041f5241cc1d3738328d6e8c901920778161530db019",
+      "complete_path": "summary/final_weight_reduction_20261023/answer_guided_pilot_v1/cases/Answer/COMPLETE.json",
+      "event_rows": 87,
+      "NLL_difference_from_qv": 12.187518812716007
+    }
+  },
+  "shared_manifest_sha256": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+  "shared_split_sha256": "d8e2dd59767c53eb833988dda87b4330ac208d2c804e42e327725f09d38bcb9d",
+  "shared_training_AST_sha256": "2b31ff9e06234e967ea42d3cb6d594c82050054c7c2c058d77f61bf8100dda7f",
+  "same_common_base_file_hash_declarations": true,
+  "historical_preprocessing_hash_match": false,
+  "strict_input_and_preprocess_match": false,
+  "controlled_causality": false,
+  "additional_files_only_frozen_in_new_run": [
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/added_tokens.json",
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/chat_template.json",
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/config.json",
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/download_integrity.json",
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/generation_config.json",
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/merges.txt",
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/preprocessor_config.json",
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/processor_config.json",
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/special_tokens_map.json",
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/tokenizer.json",
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/tokenizer_config.json",
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/upstream_metadata.json",
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/video_preprocessor_config.json",
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/vocab.json"
+  ],
+  "common_source_count": 32,
+  "input_and_training_sources": {
+    "exp/two_backbone_native_cl_20261017_v2/run.py": "0e1f794ff1daf0694bdf960c3f89ccd4078764577db75271d8f78684282a39a9",
+    "exp/two_backbone_native_cl_20261017_v2/runtime_utils.py": "4f5c4a34be046c29cfbcdaa4b2957faa907684872ba69083bdef53136a851240",
+    "exp/two_backbone_native_cl_20261017_v2/onevision_bridge.py": "f3b1dd38af3b58dbfa69073da698ea2bf39a3a11850fb1069a80e38d0e3669a9",
+    "exp/two_backbone_native_cl_20261017_v2/frozen_vision.py": "8211651e92d17019f6ce6cf9615df7f6b5fcaeecc765aec4acdf916c448a35bd"
+  },
+  "provenance_sha256": {
+    "summary/edge_deployment_20261019/osft_increment_screen/v1/READY.json": "75b86e6272295b548c82cb73fd29dc60671e18b23314b625d46486232b0d1893",
+    "summary/final_weight_reduction_20261023/answer_guided_pilot_v1/READY.json": "bb00ee0d5c50b9854f01fdb6e5a6f8efd50f3b547409e04487ae25d4b25bec06",
+    "summary/edge_deployment_20261019/osft_increment_screen/v1/sealed_case_reports_20261022/LoRA_qv_VERIFIED.json": "5c96600cecad1422944148cc64251033f6ecb462cd8e3000666b1d444ab90c15"
+  },
+  "no_model_tensor_QA_generation_optimizer_GPU_score_bootstrap": true,
+  "batch_input_digest_available": false,
+  "no_final_F1_causality_or_unique_SVD_attribution": true,
+  "interpretation_scope": "Same declared FIT recipe, ordering source and batch token counts, not input-tensor identity or a new controlled model run. The recorded loss precedes the first optimizer update, so any difference is already present before stage-end consolidation. One batch is not a five-domain or final F1 diagnosis.",
+  "consumer_seconds_before_write": 0.14164666099532042
+}

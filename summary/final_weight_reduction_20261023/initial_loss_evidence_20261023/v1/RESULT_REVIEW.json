@@ -1,0 +1,57 @@
+{
+  "reviewer": "review_next_probe",
+  "date": "2026-10-23",
+  "decision": "accept_descriptive_timing_evidence_and_design_priority_no_causal_attribution",
+  "reviewed_sha256": {
+    "EVIDENCE.json": "0d678580f77860a506e6f942ba942c3257a9b61c7020a5bcedc41e2a7a401ca3",
+    "QUESTION.md": "6281b43f2bf5e12efc419377f718c97b13eee1072bc7aea2b7a8f63304d631e1",
+    "analysis/initial_compression_loss_evidence_20261023.py": "202f001ee4e0eaf86b96ea672c6c80a3881f62f9d52a63e1366dc6a7ccc40f6f"
+  },
+  "scope": {
+    "consumed": "既有EVIDENCE、执行前QUESTION、分析源及必要原TRAIN/方法/NativeGate静态源码；核本地小文件SHA。",
+    "not_repeated": [
+      "原consumer",
+      "任何event日志读取或重新分组",
+      "verify、原F1或bootstrap",
+      "模型、权重、张量、QA或GPU",
+      "大文件hash"
+    ]
+  },
+  "numerical_observations_consumed_not_recomputed_from_logs": {
+    "LoRA_qv_first_batch_recorded_NLL": 5.087518595159054,
+    "Spectral_first_batch_recorded_NLL": 17.27503740787506,
+    "Answer_first_batch_recorded_NLL": 17.27503740787506,
+    "reported_difference_each_from_qv": 12.187518812716007,
+    "shared_first_record": {
+      "stage": 1,
+      "step": 1,
+      "qa_seen": 16,
+      "total_qa": 327,
+      "prompt_tokens": 65871,
+      "target_tokens": 72
+    },
+    "consumer_seconds": 0.14164666099532042
+  },
+  "static_definition_review": {
+    "aggregation": "runtime_utils.answer_loss给每QA内目标token平均交叉熵；原TRAIN把16个QA的loss各除本批QA数后累加，非所有目标token合并加权NLL。两个所审method无training_loss/extra_loss覆盖。",
+    "timing": "原run.py 261–281先做16个micro前向/反向并累积loss_sum，290才scaler.step；随后日志写入此前loss_sum。新run仅在stage TRAIN前pre_stage、后finish_stage/consolidate，首条loss发生首次optimizer更新及首次阶段末归并之前。",
+    "order": "相同manifest/SPLIT及原TRAIN确定性ID排序源码支持同声明首批顺序；不替代实际逐批输入digest。",
+    "native_gate": "原forward_gate比较同一个模型的手工/原生回答路径与短生成；通过该门槛不证明压缩模型对未压缩父模型保留质量。"
+  },
+  "evidence_limits": {
+    "historical_preprocessing_hash_match": false,
+    "strict_input_and_preprocess_match": false,
+    "controlled_causality": false,
+    "missing": "旧READY未封14个preprocess/config/tokenizer文件的历史SHA，且无逐批输入digest；未发现共有权重/输入源码声明冲突不等于历史预处理一致已证。",
+    "not_supported": [
+      "压缩或SVD单独造成该NLL差的受控因果",
+      "最终F1失败幅度或各域损伤的解释",
+      "归并/遗忘对后续损伤没有贡献",
+      "正式零样本未压缩基座质量结论",
+      "统计显著性、等效或新性能收益"
+    ]
+  },
+  "accepted_interpretation": "在同声明FIT配方、确定性顺序源码及相同QA/token计数下，所比较日志的首批NLL差异已在首次optimizer更新前出现；当时尚未发生阶段末归并。将下一设计的检查优先级放到起点功能承接与输入可比性有依据，不把全部失败先归于后续归并/遗忘。",
+  "wording_guard": "QUESTION开头“损伤证据/定位损伤”应理解并在对外结论写为“日志差异的最早可见时间位置”；历史预处理缺测时不写成已证压缩致损。",
+  "action": "本问题一次消费已经回答，结束此artifact分支；不调rank/LR、不恢复旧worker、不新增模型探针。视觉4.6KB共同清理只保留工程附录，非下一主方法。"
+}

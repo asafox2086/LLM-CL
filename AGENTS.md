@@ -1,3 +1,11 @@
+# 2026-10-23：新首批日志观察提示先解决起点功能；视觉大删减假说否决
+
+- 上一轮设计判断已排除普通共享投影作为新框架。本轮新的有用途artifact消费为summary/final_weight_reduction_20261023/initial_loss_evidence_20261023/v1的QUESTION/EVIDENCE/FINDINGS/RESULT_REVIEW：三条已封SHA首记录中，首次optimizer更新前16QA回答NLL为LoRA_qv5.087518595159054、两r200流均17.27503740787506，差+12.187518812716007；阶段末归并尚未发生。分析消费者仅一次0.141646661秒，EVIDENCE SHA0d678580f77860a506e6f942ba942c3257a9b61c7020a5bcedc41e2a7a401ca3，0模型/张量/QA/评分/boot，不重此分析。
+- 同manifest/SPLIT/TRAIN AST、共有权重SHA/公共输入源码和首批QA/token计数匹配；旧READY只封weights、缺14份preprocess/config历史哈希，也无逐批input digest。缺测不是冲突，但historical_preprocessing_hash_match/strict_input_and_preprocess_match/controlled_causality均false，在读loss之前已收窄解释且子agent接受。只称同声明配方首批日志差异已存在，不唯一归因压缩/SVD，不外推各域或最终F1因果/显著性。
+- 下一方法设计应优先说明起点如何承接预训练回答功能与输入如何可比，不能直接把全部失败归给后续遗忘/归并而继续换mask/保护。原NativeGate只验证同一压缩模型manual/native兼容，不是对原父模型的质量保真。没有新结构/可执行算法/准入，不恢复r200 CP、换rank/LR/补恢复或自动新训练；所有旧条件仍关闭。
+- 另有一次vision_reachability_20261023/v1当前源码/配置/94568byte头核验：真实vision_feature_layer=-1，26层末block参与所选特征；vision_use_head=false，head原本不存在，均不能算可删大块。post_layernorm仅2304F16系数/4608bytes在当前eval回答路径不可达，只是各基线公平公共清理候选，未实际删/跑模型，不能报实际权重减小/评分保持或整SigLIP API/TRAIN等价。不为几个KB启动GPU/重载/导出；附录分支关闭，不重源码/头计数审计维持活跃。
+- 主/子agent独立沟通已接受上述边界。当前研究模型仍无worker，正式基线保全，目标未实现；旧goal资源blocked不是等已完作业。下一实质工作需具体功能承接方案/必要对照/全成本与停止规则，不能以更多规则、统计快照或泛读充当新方法。
+
 # 2026-10-23：主子agent往返讨论后，关闭普通共享投影的新框架主张
 
 - 人类要求主agent与子agent实际沟通设计。新summary/final_weight_reduction_20261023/gate_up_shared_input_feasibility_v1的EVIDENCE/DISCUSSION/DISCUSSION_REVIEW记录往返与去留：SkipCat原论文§3.2/附录B已直接共享同层gate/up输入投影，普通拼接共享不能作为新框架贡献；不是只泛泛审阅。没有模型/张量/谱/QA/GPU/评分/准入，当前无研究worker，全部旧条件保持关闭。

@@ -1,0 +1,67 @@
+{
+  "reviewer": "review_next_probe",
+  "date": "2026-10-23",
+  "decision": "accept_static_scope_reject_large_deletion_hypothesis_close_without_model_experiment",
+  "independently_read": {
+    "method": "通过既有SSH只读标准库解析已安装源码与配置，不导入torch或实验模块。",
+    "files": [
+      "transformers/models/llava_onevision/modeling_llava_onevision.py",
+      "transformers/models/siglip/modeling_siglip.py",
+      "torch/nn/modules/normalization.py",
+      "torch/nn/functional.py",
+      "exp/two_backbone_native_cl_20261017_v2/onevision_bridge.py",
+      "exp/two_backbone_native_cl_20261017_v2/frozen_vision.py",
+      "exp/two_backbone_native_cl_20261017_v2/runtime_utils.py",
+      "model/LLaVA-OneVision-Qwen2-0.5B-OV/config.json"
+    ],
+    "source_hashes": {
+      "siglip": "28ff4f412be8cb9c2398bd7bedd47685d1f9c806e6fa69e1761a6d7f3e7c2dcd",
+      "onevision_bridge": "f3b1dd38af3b58dbfa69073da698ea2bf39a3a11850fb1069a80e38d0e3669a9",
+      "frozen_vision": "8211651e92d17019f6ce6cf9615df7f6b5fcaeecc765aec4acdf916c448a35bd",
+      "runtime_utils": "4f5c4a34be046c29cfbcdaa4b2957faa907684872ba69083bdef53136a851240"
+    }
+  },
+  "findings": [
+    {
+      "candidate": "last_vision_encoder_block",
+      "decision": "retain",
+      "evidence": "实际vision_feature_layer=-1且num_hidden_layers=26；SiglipEncoder在全部层循环完成后追加最终hidden_states。所选tuple末项因此依赖第26层，不能按其他LLaVA常见-2配置删除。",
+      "lines": "SiglipEncoder.forward 891–919；OneVision.get_image_features 525–531"
+    },
+    {
+      "candidate": "pooling_head",
+      "decision": "not_constructed",
+      "evidence": "实际vision_use_head=false；SiglipVisionTransformer.__init__仅在self.use_head为真时创建head。没有head实例不能记为真实可避免存量。",
+      "lines": "SiglipVisionTransformer.__init__ 1062–1067"
+    },
+    {
+      "candidate": "post_layernorm",
+      "decision": "unreachable_weight_group_for_current_answer_eval_path_only",
+      "evidence": "post_layernorm只另绑定last_hidden_state；返回hidden_states仍直接取encoder_outputs.hidden_states。标准nn.LayerNorm调用F.layer_norm/torch.layer_norm，无原地写所选张量。OneVision只消费hidden_states[vision_feature_layer]，不消费视觉last_hidden_state或pooler_output。",
+      "lines": "SiglipVisionTransformer.forward 1098–1109；OneVision.get_image_features 525–531"
+    },
+    {
+      "candidate": "other_answer_paths",
+      "decision": "no_bypass_found_in_reviewed_scope",
+      "evidence": "PackedVision调用core.get_image_features；Bridge.generate把该特征送language_model.generate。NativeGate的core.forward与core.generate仍使用同一原生图像特征选择路径；缓存命中仅复用该特征，未见postnorm/head旁路。",
+      "lines": "onevision_bridge 32–42、85–94、128–159；OneVision.forward 666–694及prepare_inputs_for_generation 797–803"
+    }
+  ],
+  "parent_header_facts_consumed": {
+    "independence_limit": "以下实存权重数量由父agent只读safetensors头部取得；本review未独立读取头部或任何张量，亦未删除权重或实测输出。",
+    "post_layernorm_coefficients": 2304,
+    "post_layernorm_F16_bytes": 4608,
+    "head_weight_entries": 0,
+    "last_encoder_block_coefficients": 15239504,
+    "base_coefficients": 893675552,
+    "postnorm_fraction_of_base_percent_approx": 0.000258,
+    "header_bytes": 94568
+  },
+  "limits": [
+    "只覆盖当前固定配置的回答eval数据依赖，不证明整个SiglipVisionModel公开API等价。",
+    "未实测TRAIN RNG、优化轨迹、质量、峰值RAM、速度或删除后的完整重载。",
+    "静态未达输出不等于模块没被执行；原代码仍计算post_layernorm，其返回值不进入所审回答路径。",
+    "未实际删除，不能报告实际完整模型权重已减少；旧权重锚、冻结源及既有proof不回写。"
+  ],
+  "action": "大删减假说否决。4.6KB组仅记为可公平用于各同骨干基线的共同清理候选/工程附录，不启动模型、GPU、checkpoint重载或导出实验，不当自研方法或目标达成；结束本分支。"
+}
