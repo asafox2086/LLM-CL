@@ -1,5 +1,7 @@
-# 独立v2源码已审，只允许唯一CPU门
+# closed_CPU_admission_gradient_parity_failure
 
-v1 CPU门在构造期因视觉SDPA不支持而失败，原源/review/marker/log保留，不能重跑v1。v2仅固定三处统一使用语言SDPA、视觉eager并核实际子配置，三科学条件/数据/数值dtype/预算/出口不变。实际attention路径变化公开，不称逐值相同或速度收益。
+唯一v2 CPU准入877717已exit1。tiny E在backward及作者post_backward之后、clip与当前optimizer之前的精确梯度比较未通过；失败参数、stage/step、数值差和有限性未记录，根因未解。此前synthetic更新数未知，不称零更新。Q/R小图路径未进入。
 
-复用12份已核资产，不再次下载；没有真实模型STARTED。独立SOURCE_REVIEW仅接受v2唯一CPU门，尚无门/READY/激活；READY后仍需独立准入才能激活。再失败不滚动v3或换backend凑通过。
+权威记录为native_response_reuse_pilot_v2的CPU_GATE_FAILURE、BACKWARD_CONTRACT、FINDINGS与FAILURE_REVIEW。一次静态反向契约核对已完成，已知上下文差异不足以证明失败原因；不重复该分析或CPU门。
+
+没有CPU_GATE通过、READY、ADMISSION、研究service或真实载体STARTED；0原QA、0真实0.5B训练、0GPU模型工作、0新AnswerF1。保留六源及全部历史原字节，不放宽容差、不重门、不滚动v3、不激活E/Q/R。实现关闭不等于原科学问题或方法质量阴性，完整科研目标未实现。

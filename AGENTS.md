@@ -1,3 +1,10 @@
+# 2026-10-24：原生响应先导v2 CPU梯度一致性未通过，当前实现关闭
+
+- native_response_reuse_pilot_v2的CPU_GATE_FAILURE/BACKWARD_CONTRACT/FINDINGS及独立FAILURE_REVIEW为当前终态。唯一v2 CPU877717已exit1，tiny E在backward与作者post_backward之后、clip及当前optimizer之前的梯度精确比较失败。原失败JSON的raw标签由FINDINGS收窄，原字节保留；具体参数、stage/step、差值、有限性及此前synthetic更新数缺测，不补称零更新、舍入差或NaN原因。
+- 一次主/子agent静态核对已完成：Hosted保存张量到CPU及禁autocast上下文与作者直调参考不同，但实际保存布局/失败参数未记录，不能归因为本次根因；未发现足以确定解释的数学或状态错位。loss/RNG相等不证明反向一致或有限。不要重复该核对/CPU门/下载/源码审计维持活跃。
+- 六源、旧review/marker/资产receipt和私有失败日志冻结保留。没有CPU_GATE通过/READY/ADMISSION/service/真实载体STARTED，0原QA、0真实0.5B训练、0GPU模型工作、0新AnswerF1。关闭当前实现，不放宽容差、不重门、不自动v3或激活E/Q/R；没有参数可避免或质量阴性结论，也不是GPU资源等待。
+- 原生响应是否可避免新增专家包仍未获科学结果；现成小模型规模属于作者，经典Down微调不是新框架。完整权重与原AnswerF1主目标未实现。下一研究须有会改变判断的功能承接/参数必要性问题，不以滚动兼容版本代替科研；旧视觉/PAS/r200/ShortFixed及两机正式基线终态保全。下方v2下一步CPU门等表述均为历史。
+
 # 2026-10-24：v1 CPU门构造期失败；独立v2兼容源码已审，未激活
 
 - 当前以native_response_reuse_pilot_v1的CPU_GATE_FAILURE/COMPATIBILITY_REPAIR_REVIEW与新pilot_v2的IMPLEMENTATION_SPEC/SOURCE_REVIEW为准。v1首个CPU进程876321已exit1，在tiny Idefics3构造时因4.46.3视觉模块不支持显式SDPA报错，0QA/forward/backward/optimizer/真实0.5B STARTED，无CPU_GATE/READY。原六源/审阅/marker/私有失败日志保留，不热改/重门，不当科学质量阴性。

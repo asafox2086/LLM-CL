@@ -1,0 +1,27 @@
+{
+  "scope": "One static backward-contract comparison; no module/Torch/tensor/QA/optimizer/GPU execution.",
+  "source_review_SHA256": "15b5ec0424b05856364736a1744aff80b5dc9a8579a322548b91652632119d0c",
+  "failure_SHA256": "02323ae16c0baaf1265582351c9051c2bbd33292978575637e85f875adf499fc",
+  "inspected_new_sources": {
+    "exp/native_response_reuse_20261024/v2/core.py": "c68f54ccd117346b1aa71ad2531826b13eef4e50ec55ca13b7150d25e64a93c3",
+    "exp/native_response_reuse_20261024/v2/runtime.py": "020c06ee2f18897cba0c89ed3db296bfdbad4ef2efbd428f44cdc8d623e805ac",
+    "exp/native_response_reuse_20261024/v2/common.py": "0a842f71a8c8aecd4e7608247e62d2cc89c304066a7c303a342cc1d220810de5",
+    "exp/native_response_reuse_20261024/v2/run.py": "58f9bdc41c34dcae37e9ea52e3fcfea55755dddf1d8b66d6ad0c7b20caf29a00",
+    "exp/native_response_reuse_20261024/v2/freeze.py": "41e856a1d3c89900ae6af8049f81ced50ed426198d42f438d8a37f10666c5477",
+    "exp/native_response_reuse_20261024/v2/dispatch.py": "fdd143bbc16d40d13d90c1ee57dae230828c1313f9e6520870e0ffac7ebf4c73"
+  },
+  "installed_source_snapshots_SHA256": {
+    "torch_autograd_graph": "dc95fec41c1ee6a9f571cbec60c1e37bab50b34963ce871b6ee3b1f36c5de291",
+    "author_layer": "75d46bcd7850ec3c03d13968f1e4180098d62a1da7ab905df6f9fa1d054a4b6a",
+    "author_learner": "95ff81926866e3a94b041a83fd67dfa0ec27087f58dba590ba3c8d6a50e27728"
+  },
+  "comparison_point": "After backward and learner.post_backward; before clip/current optimizer step",
+  "known_context_difference": "Hosted saved-tensor CPU packing and autocast-disable contexts are bypassed by direct reference.",
+  "pack_source_fact": "Allocates by size/dtype/layout and copies; original stride is not explicitly supplied.",
+  "no_actual_saved_layout_or_failure_parameter_record": true,
+  "loss_and_gradient_finiteness_unproven": true,
+  "no_determined_mathematical_or_state_root_cause": true,
+  "no_roundoff_or_NaN_causal_claim": true,
+  "disposition": "Close current implementation; no repeat, tolerance relaxation or automatic v3.",
+  "not_quality_evidence": true
+}
