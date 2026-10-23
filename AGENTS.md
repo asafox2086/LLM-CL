@@ -1,3 +1,12 @@
+# 2026-10-23：固定规模回答引导完整阴性，实际减重但回答质量未保留
+
+- 当前唯一answer_guided_pilot_v1已完成两流各1213FIT/19有效阶段/87有限正LR/100已探索DEV；原唯一verifier及新Answer−Spectral配对通过，VERIFIED SHA90942989b8518e318f82c66ea3abfeb5b06249cbbe8d256aa88f367d4b329596。READY bb00ee0d...、五科学源和PROTOCOL不改。不是故障/质量缺测，也不是目标达成；不重跑verify/F1/bootstrap。
+- 实际完整权重893675552→662833184（−25.83066835423512%），最终权重参数1325666368bytes/另9032bytes派生索引buffers、完整图CP约1.333GB，视觉/连接器等完整计入，临时AB/gate/库清除。两流宏Spectral0.9103938463304205、Answer0.8801465054807822，远低旧合法FIT-only锚43.79198740853657；Answer−Spectral −.03024734085pp，4高4低92平，探索组区间[-.09376792085,.01544438653]。不是质量保留/稳定/等效/新留出或新颖性成果。
+- Answer19/19提出不同mask，但19/19实际候选NLL均选回谱，无空集合/同maskfallback；138门反向+276候选前向，414额外teacher-forced曝光。不能声称回答mask发挥了保留质量的作用。共同CP0且全选谱仍最终digest不同，不据此宣称相同实际轨迹，也不无证据归因RNG/数值/SVD。初压、有限恢复、归并与实现/优化根因未隔离，不否定所有低秩/回答信息。
+- RUN1401.282612/1525.758256秒合计2927.040868，保存282.742951/274.504243秒、更新629.782382/649.176392秒重叠不相加；各19CP逻辑28.216GB非物理IO。Answer同PID周期CPU RSS峰19.271GB对Spectral4.832GB，GPUallocated2.758/2.763GB、NVML5.048/4.930GB，旧库32MiB不是整机RAM上限，不称受控内存/速度优势。准入3.056611秒在freeze23.365613秒内，唯一核验12.348661秒，消费者唯一.357781444秒另计。
+- OUTCOME SHAae84b2b852c9c75e68852ad83606b0425b6aed26fa3fe647d0cae6fd7cec07ff，FINDINGS/RESULT_REVIEW/RESULT_PUBLICATION为结果入口。按冻结出口关闭本r200/b16/原LR配方，不全1313/21454、不追rank/LR/库、不自动补恢复/v2/新模型；Ours/FWT/BWT不填。所有旧研究仍关闭，正式基线保全。未来新设计先有功能承接假说/合法恢复范围/有区分力对照/总预算与正负出口，不以重复计数/公式/审计或等待已完worker当科研进展。
+- 2026-10-23T13:18:28.202297UTC原unit inactive/MainPID0/exit0、queue complete_verified，CPU830049与worker834265/837565自然结束；当前无研究worker。旧wait/running快照均历史，勿恢复本完成入口。科研目标未实现，旧goal资源blocked不是仍在等此先导。下方原冻结和启动历史完整保留。
+
 # 2026-10-23：固定规模回答引导归并已独立冻结并启动CPU调度
 
 - 新exp/answer_guided_rank_renewal_20261023/v1五源和summary/final_weight_reduction_20261023/answer_guided_pilot_v1协议/三评审/CPU_GATE/INTERVENTION/READY为准。必要性与静态源码审阅接受一次固定两流可行性小测；唯一tiny-HF CPU准入3.056610914秒（freeze入口23.365613秒）通过，CUDA未初始化，READY bb00ee0d5c50b9854f01fdb6e5a6f8efd50f3b547409e04487ae25d4b25bec06冻结，源/协议不可热改。不是F1/原创性或实际大模型压缩成果，不重复准入/旧公式/计数当进展。

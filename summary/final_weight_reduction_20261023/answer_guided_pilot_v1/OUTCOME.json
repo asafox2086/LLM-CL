@@ -1,0 +1,4168 @@
+{
+  "question": "Does the answer-guided fixed-size flow preserve DEV quality at a smaller final complete model?",
+  "consumed_UTC": "2026-10-23T13:21:40.290210+00:00",
+  "verified_sha256": "90942989b8518e318f82c66ea3abfeb5b06249cbbe8d256aa88f367d4b329596",
+  "ready_sha256": "bb00ee0d5c50b9854f01fdb6e5a6f8efd50f3b547409e04487ae25d4b25bec06",
+  "source_sha256": "0f4bae48904ab61b1a32da072fdbc2ed5469ac99e9d15f993aaac6a970c07c31",
+  "final_coefficients": 662833184,
+  "base_coefficients": 893675552,
+  "reduction_percent": 25.83066835423512,
+  "old_best_legal_FIT_only_macro": 43.79198740853657,
+  "cases": {
+    "Spectral": {
+      "quality": {
+        "domains": {
+          "natural": {
+            "F1": 0.15151515151515152,
+            "QA": 20
+          },
+          "medical": {
+            "F1": 0.0,
+            "QA": 20
+          },
+          "geography": {
+            "F1": 0.0,
+            "QA": 20
+          },
+          "finance": {
+            "F1": 0.08748788629266717,
+            "QA": 20
+          },
+          "traffic": {
+            "F1": 4.312966193844284,
+            "QA": 20
+          }
+        },
+        "domain_macro": 0.9103938463304205,
+        "prediction_sha256": {
+          "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/evaluations/stage_19/T01_dev_predictions.jsonl": "71f9ce4e270fcf9e62bc8a65a705e55590c22adcf1f4e6d4cfa9e39f53f86174",
+          "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/evaluations/stage_19/T02_dev_predictions.jsonl": "88b34e8e83aa183f22d97720bab265ed15638507ef2b739129cc2e53fdff10f9",
+          "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/evaluations/stage_19/T03_dev_predictions.jsonl": "8156b99637fd0422994b912c8dc9bd2ad6693e978ab4c81742f55d50c716ed77",
+          "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/evaluations/stage_19/T04_dev_predictions.jsonl": "677bbc37a4bad5c81f7b0d5492958a1fa5b33596e2ead4b45b243150f0e36049",
+          "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/evaluations/stage_19/T05_dev_predictions.jsonl": "d94e0152f2b2e0bd17c2af0a412d033abe678a528c2064f476fe6b943981d94a",
+          "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/evaluations/stage_19/T06_dev_predictions.jsonl": "4eb6533280f131afacfa23b01e1c23ea153cfef16cd4aeade5da070e80a6b39b",
+          "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/evaluations/stage_19/T10_dev_predictions.jsonl": "f2e00728938a6970d48ec8ce8ed8c7a507b1cce03c2db52ac17b0e0d08f1b281",
+          "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/evaluations/stage_19/T11_dev_predictions.jsonl": "e7aabe0409b330aadab2027955598841e31cd2a4a67fe625105406287d38d96c",
+          "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/evaluations/stage_19/T13_dev_predictions.jsonl": "0eb52d8c7aa9b8ad5c4491ac37190ad032fcbceb1ba3fac03686e373468a2c94",
+          "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/evaluations/stage_19/T14_dev_predictions.jsonl": "e9c12663b20fdf58fde4481e2fae8de920a1be2b3cde2992990152b87bb3ae56",
+          "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/evaluations/stage_19/T15_dev_predictions.jsonl": "e743713e94487878feb0f190f00e508712db2c57307aea6dd663dcce0e4c2d7e",
+          "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/evaluations/stage_19/T16_dev_predictions.jsonl": "fe70633f1b0ac65d1cd0c93d2e2d90b6db762e684b75ffada6de7f0a105fa62a",
+          "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/evaluations/stage_19/T17_dev_predictions.jsonl": "b9edef0d21e3f9accccbebf4579077cdd08bf1c2098bb95825a0f3499dcc7f0a",
+          "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/evaluations/stage_19/T18_dev_predictions.jsonl": "dce376f35a241d36446740c27362da109134afb8394c862a081e5e2777e98647",
+          "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/evaluations/stage_19/T19_dev_predictions.jsonl": "6b5f7af02aa9fe18011bcc0d3e1fdae7efcd73cf495d7870e046a98bc5f07538"
+        }
+      },
+      "model_RUN_seconds": 1401.2826118640078,
+      "gradient_QA": 0,
+      "candidate_forward_QA": 0,
+      "different_masks": 0,
+      "answer_selected": 0,
+      "fallback_counts": {
+        "null": 19
+      },
+      "trainable_coordinates_during_stage": 6635520,
+      "gradient_bytes": 26542080,
+      "two_CPU_moment_bytes": 53084160,
+      "compact_parameter_bytes": 1325666368,
+      "non_weight_buffer_bytes": 9032,
+      "complete_sha256": "c45e423d2693cbbe5ce4af20f8d8c31fc0f0c9f703f80be8ab2f616516752a77",
+      "checkpoint": {
+        "path": "checkpoints/stage_19.pt",
+        "stage": 19,
+        "bytes": 1333082516,
+        "sha256": "ab30cae5c601666c5d638dc42750540e4cfe8a81de1ff72deff4f07e6963a2a7",
+        "seconds": 14.814122322000912,
+        "manifest_sha256": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+        "method": "CompactRenewal",
+        "full_architecture_and_runtime": true,
+        "optimizer_saved": false
+      },
+      "all_weight_digest_before_DEV": "83a4791042de094d12cc865baf58d2d75a641e8c02d50fa527101b2006611871",
+      "full_checkpoint_reload": true,
+      "native_gate": {
+        "NLL_paths": 38,
+        "short_generations": 38,
+        "max_new_tokens": 4
+      },
+      "FIT_QA": 1213,
+      "DEV_QA": 100,
+      "valid_stages": 19,
+      "positive_LR_updates": 87,
+      "stages": [
+        {
+          "stage": 1,
+          "current_QA": 1,
+          "old_QA": 0,
+          "current_payload_bytes": 9324819,
+          "old_payload_bytes": 0,
+          "gradient_QA": 0,
+          "candidate_forward_QA": 0,
+          "mask_different": false,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 1,
+          "bank_after_bytes": 9324819,
+          "seconds": 2.061247650999576,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 138058096,
+            "CPU_tensor_storage_count": 22,
+            "logical_current_payload_bytes": 9324819,
+            "logical_bank_payload_bytes": 0,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 138058096,
+            "CPU_tensor_storage_count": 22,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 9324819,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            }
+          ],
+          "old_coverage": [],
+          "current_rejected_id_sha256": [
+            "e0ab34b43de46b0fc60d58108a06b5d7aaa6c48129c26101ebece59268d9ee75"
+          ],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {}
+        },
+        {
+          "stage": 2,
+          "current_QA": 2,
+          "old_QA": 1,
+          "current_payload_bytes": 5371682,
+          "old_payload_bytes": 9324819,
+          "gradient_QA": 0,
+          "candidate_forward_QA": 0,
+          "mask_different": false,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 3,
+          "bank_after_bytes": 14696501,
+          "seconds": 2.0594991230027517,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 146308704,
+            "CPU_tensor_storage_count": 34,
+            "logical_current_payload_bytes": 5371682,
+            "logical_bank_payload_bytes": 9324819,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 146308704,
+            "CPU_tensor_storage_count": 34,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 14696501,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "023c048f95ec8f2b8c8da64bff9891391f7063aabdc291c5899879ae9a0342ed",
+              "group": "d7d97ba4adb9f4c9f8460ed21b4e44a7ccff9da752a37e16a989adfcdf0288da",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "3af3894785c962984b13828eae0ffe4646f47a755e1f92a446b77a558d3dabde",
+              "group": "3af3894785c962984b13828eae0ffe4646f47a755e1f92a446b77a558d3dabde",
+              "domain": "medical"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {}
+        },
+        {
+          "stage": 3,
+          "current_QA": 2,
+          "old_QA": 3,
+          "current_payload_bytes": 9374629,
+          "old_payload_bytes": 14696501,
+          "gradient_QA": 0,
+          "candidate_forward_QA": 0,
+          "mask_different": false,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 5,
+          "bank_after_bytes": 24071130,
+          "seconds": 2.0508778750081547,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 155383248,
+            "CPU_tensor_storage_count": 44,
+            "logical_current_payload_bytes": 9374629,
+            "logical_bank_payload_bytes": 14696501,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 155383248,
+            "CPU_tensor_storage_count": 44,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 24071130,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "33381696a193258b039a9032c63ab23721f3899168ee58e10a6d6bb6c1513daf",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "a886fcb7efd77382b0916dea42018e9bea3df81a946c85316b4a7a0f51dedb64",
+              "group": "a886fcb7efd77382b0916dea42018e9bea3df81a946c85316b4a7a0f51dedb64",
+              "domain": "medical"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "023c048f95ec8f2b8c8da64bff9891391f7063aabdc291c5899879ae9a0342ed",
+              "group": "d7d97ba4adb9f4c9f8460ed21b4e44a7ccff9da752a37e16a989adfcdf0288da",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "3af3894785c962984b13828eae0ffe4646f47a755e1f92a446b77a558d3dabde",
+              "group": "3af3894785c962984b13828eae0ffe4646f47a755e1f92a446b77a558d3dabde",
+              "domain": "medical"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {}
+        },
+        {
+          "stage": 4,
+          "current_QA": 2,
+          "old_QA": 5,
+          "current_payload_bytes": 9374478,
+          "old_payload_bytes": 24071130,
+          "gradient_QA": 0,
+          "candidate_forward_QA": 0,
+          "mask_different": false,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 7,
+          "bank_after_bytes": 33445608,
+          "seconds": 2.050073860998964,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 163402160,
+            "CPU_tensor_storage_count": 50,
+            "logical_current_payload_bytes": 9374478,
+            "logical_bank_payload_bytes": 24071130,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 163402160,
+            "CPU_tensor_storage_count": 50,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 33445608,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "group": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "8e5e0e5f0c7122ef45c167eb7190b254cd554992c1dca948fd2cfa47d87d40ea",
+              "group": "8e5e0e5f0c7122ef45c167eb7190b254cd554992c1dca948fd2cfa47d87d40ea",
+              "domain": "medical"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "023c048f95ec8f2b8c8da64bff9891391f7063aabdc291c5899879ae9a0342ed",
+              "group": "d7d97ba4adb9f4c9f8460ed21b4e44a7ccff9da752a37e16a989adfcdf0288da",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "3af3894785c962984b13828eae0ffe4646f47a755e1f92a446b77a558d3dabde",
+              "group": "3af3894785c962984b13828eae0ffe4646f47a755e1f92a446b77a558d3dabde",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "33381696a193258b039a9032c63ab23721f3899168ee58e10a6d6bb6c1513daf",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "a886fcb7efd77382b0916dea42018e9bea3df81a946c85316b4a7a0f51dedb64",
+              "group": "a886fcb7efd77382b0916dea42018e9bea3df81a946c85316b4a7a0f51dedb64",
+              "domain": "medical"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {}
+        },
+        {
+          "stage": 5,
+          "current_QA": 2,
+          "old_QA": 7,
+          "current_payload_bytes": 13377429,
+          "old_payload_bytes": 33445608,
+          "gradient_QA": 0,
+          "candidate_forward_QA": 0,
+          "mask_different": false,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 6,
+          "bank_after_bytes": 30759633,
+          "seconds": 2.047681891999673,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 180746256,
+            "CPU_tensor_storage_count": 58,
+            "logical_current_payload_bytes": 13377429,
+            "logical_bank_payload_bytes": 33445608,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 164684080,
+            "CPU_tensor_storage_count": 46,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 30759633,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "2c38e96432c73e6c016eee54c55c05fb677d46f51a30fa1a70d3e68e1396bdc6",
+              "group": "2c38e96432c73e6c016eee54c55c05fb677d46f51a30fa1a70d3e68e1396bdc6",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "group": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "domain": "medical"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "023c048f95ec8f2b8c8da64bff9891391f7063aabdc291c5899879ae9a0342ed",
+              "group": "d7d97ba4adb9f4c9f8460ed21b4e44a7ccff9da752a37e16a989adfcdf0288da",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "3af3894785c962984b13828eae0ffe4646f47a755e1f92a446b77a558d3dabde",
+              "group": "3af3894785c962984b13828eae0ffe4646f47a755e1f92a446b77a558d3dabde",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "33381696a193258b039a9032c63ab23721f3899168ee58e10a6d6bb6c1513daf",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "a886fcb7efd77382b0916dea42018e9bea3df81a946c85316b4a7a0f51dedb64",
+              "group": "a886fcb7efd77382b0916dea42018e9bea3df81a946c85316b4a7a0f51dedb64",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "group": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "8e5e0e5f0c7122ef45c167eb7190b254cd554992c1dca948fd2cfa47d87d40ea",
+              "group": "8e5e0e5f0c7122ef45c167eb7190b254cd554992c1dca948fd2cfa47d87d40ea",
+              "domain": "medical"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {}
+        },
+        {
+          "stage": 6,
+          "current_QA": 2,
+          "old_QA": 6,
+          "current_payload_bytes": 9374600,
+          "old_payload_bytes": 30759633,
+          "gradient_QA": 0,
+          "candidate_forward_QA": 0,
+          "mask_different": false,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 7,
+          "bank_after_bytes": 33445554,
+          "seconds": 2.0236346470046556,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 174057840,
+            "CPU_tensor_storage_count": 54,
+            "logical_current_payload_bytes": 9374600,
+            "logical_bank_payload_bytes": 30759633,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 167369568,
+            "CPU_tensor_storage_count": 50,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 33445554,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "group": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "3d77185f4dae7afb4e296ff8174ff8e028f0ee3ea9da0bba5bd3e0597e999e45",
+              "group": "3d77185f4dae7afb4e296ff8174ff8e028f0ee3ea9da0bba5bd3e0597e999e45",
+              "domain": "medical"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "3af3894785c962984b13828eae0ffe4646f47a755e1f92a446b77a558d3dabde",
+              "group": "3af3894785c962984b13828eae0ffe4646f47a755e1f92a446b77a558d3dabde",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "33381696a193258b039a9032c63ab23721f3899168ee58e10a6d6bb6c1513daf",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "group": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "8e5e0e5f0c7122ef45c167eb7190b254cd554992c1dca948fd2cfa47d87d40ea",
+              "group": "8e5e0e5f0c7122ef45c167eb7190b254cd554992c1dca948fd2cfa47d87d40ea",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "group": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "domain": "medical"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {}
+        },
+        {
+          "stage": 7,
+          "current_QA": 2,
+          "old_QA": 7,
+          "current_payload_bytes": 13377436,
+          "old_payload_bytes": 33445554,
+          "gradient_QA": 0,
+          "candidate_forward_QA": 0,
+          "mask_different": false,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 5,
+          "bank_after_bytes": 28073866,
+          "seconds": 2.037406015995657,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 178085072,
+            "CPU_tensor_storage_count": 57,
+            "logical_current_payload_bytes": 13377436,
+            "logical_bank_payload_bytes": 33445554,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 159337600,
+            "CPU_tensor_storage_count": 41,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 28073866,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "c78ce6b421081193f8ce08f75ce88dfb9166b360cc9384bc6c0e1d238526b2d7",
+              "group": "c78ce6b421081193f8ce08f75ce88dfb9166b360cc9384bc6c0e1d238526b2d7",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "79c7e514ad859a243e5f27f666f658c536b9403250fed7b374c7aeaf5e878383",
+              "group": "79c7e514ad859a243e5f27f666f658c536b9403250fed7b374c7aeaf5e878383",
+              "domain": "medical"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "3af3894785c962984b13828eae0ffe4646f47a755e1f92a446b77a558d3dabde",
+              "group": "3af3894785c962984b13828eae0ffe4646f47a755e1f92a446b77a558d3dabde",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "33381696a193258b039a9032c63ab23721f3899168ee58e10a6d6bb6c1513daf",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "group": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "group": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "group": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "3d77185f4dae7afb4e296ff8174ff8e028f0ee3ea9da0bba5bd3e0597e999e45",
+              "group": "3d77185f4dae7afb4e296ff8174ff8e028f0ee3ea9da0bba5bd3e0597e999e45",
+              "domain": "medical"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {}
+        },
+        {
+          "stage": 8,
+          "current_QA": 2,
+          "old_QA": 5,
+          "current_payload_bytes": 13377476,
+          "old_payload_bytes": 28073866,
+          "gradient_QA": 0,
+          "candidate_forward_QA": 0,
+          "mask_different": false,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 5,
+          "bank_after_bytes": 28073866,
+          "seconds": 2.065215497990721,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 175375360,
+            "CPU_tensor_storage_count": 50,
+            "logical_current_payload_bytes": 13377476,
+            "logical_bank_payload_bytes": 28073866,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 161998720,
+            "CPU_tensor_storage_count": 42,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 28073866,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "6a99704ddf8dc2af5f74b6441784cf17da85b2e607f709307c162188467247df",
+              "group": "6a99704ddf8dc2af5f74b6441784cf17da85b2e607f709307c162188467247df",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "5ef119037afdf75727333d1f1b430dc2c298bd3b57bb42414ca55b6c0338c23e",
+              "group": "5ef119037afdf75727333d1f1b430dc2c298bd3b57bb42414ca55b6c0338c23e",
+              "domain": "medical"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "33381696a193258b039a9032c63ab23721f3899168ee58e10a6d6bb6c1513daf",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "group": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "group": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "group": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "domain": "medical"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {}
+        },
+        {
+          "stage": 9,
+          "current_QA": 1,
+          "old_QA": 5,
+          "current_payload_bytes": 6688766,
+          "old_payload_bytes": 28073866,
+          "gradient_QA": 0,
+          "candidate_forward_QA": 0,
+          "mask_different": false,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 5,
+          "bank_after_bytes": 28073866,
+          "seconds": 2.0301707000035094,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 168687072,
+            "CPU_tensor_storage_count": 46,
+            "logical_current_payload_bytes": 6688766,
+            "logical_bank_payload_bytes": 28073866,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 161998720,
+            "CPU_tensor_storage_count": 42,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 28073866,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "e4c636371727cf9ce4e7f10b1de3df10f8c569d206d7e923c53678609e80b7a5",
+              "group": "e4c636371727cf9ce4e7f10b1de3df10f8c569d206d7e923c53678609e80b7a5",
+              "domain": "medical"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "33381696a193258b039a9032c63ab23721f3899168ee58e10a6d6bb6c1513daf",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "group": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "group": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "group": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "domain": "medical"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {}
+        },
+        {
+          "stage": 10,
+          "current_QA": 2,
+          "old_QA": 5,
+          "current_payload_bytes": 13377479,
+          "old_payload_bytes": 28073866,
+          "gradient_QA": 0,
+          "candidate_forward_QA": 0,
+          "mask_different": false,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 5,
+          "bank_after_bytes": 28073866,
+          "seconds": 2.0369615760137094,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 175375376,
+            "CPU_tensor_storage_count": 50,
+            "logical_current_payload_bytes": 13377479,
+            "logical_bank_payload_bytes": 28073866,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 161998720,
+            "CPU_tensor_storage_count": 42,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 28073866,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "a0ebb77452fa92cdf975256698c2c185079d82f2b76270acd04223f05d0428c4",
+              "group": "c7e864e16d5408d4be459234bf9dd95e51824760b6b1a1ce2b6a5bd3cdebb80b",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "6ac63c624c3aa7185390a14b9a2a21304f2e83ba51c4358c813b329ade647cb0",
+              "group": "6ac63c624c3aa7185390a14b9a2a21304f2e83ba51c4358c813b329ade647cb0",
+              "domain": "medical"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "33381696a193258b039a9032c63ab23721f3899168ee58e10a6d6bb6c1513daf",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "group": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "group": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "group": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "domain": "medical"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {}
+        },
+        {
+          "stage": 11,
+          "current_QA": 2,
+          "old_QA": 5,
+          "current_payload_bytes": 9374698,
+          "old_payload_bytes": 28073866,
+          "gradient_QA": 0,
+          "candidate_forward_QA": 0,
+          "mask_different": false,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 5,
+          "bank_after_bytes": 28073979,
+          "seconds": 2.0659714540088316,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 167405072,
+            "CPU_tensor_storage_count": 50,
+            "logical_current_payload_bytes": 9374698,
+            "logical_bank_payload_bytes": 28073866,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 158031312,
+            "CPU_tensor_storage_count": 42,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 28073979,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "2c9d3b2605551cd3365c0760dcf7763403f846623da5f8cb30cfaf1eccd26ca0",
+              "group": "2bd590a529521614626b79a48a5154c2c2cb130e2796ad399dc6d15554f2d165",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "c5bab555eec7a6eeab913e94b1e82d944b5e9246ca4a95884332984a3fcc22ac",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "33381696a193258b039a9032c63ab23721f3899168ee58e10a6d6bb6c1513daf",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "group": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "group": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "group": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "domain": "medical"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {}
+        },
+        {
+          "stage": 12,
+          "current_QA": 2,
+          "old_QA": 5,
+          "current_payload_bytes": 5371969,
+          "old_payload_bytes": 28073979,
+          "gradient_QA": 0,
+          "candidate_forward_QA": 0,
+          "mask_different": false,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 7,
+          "bank_after_bytes": 33445948,
+          "seconds": 2.0408843049954157,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 163450832,
+            "CPU_tensor_storage_count": 53,
+            "logical_current_payload_bytes": 5371969,
+            "logical_bank_payload_bytes": 28073979,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 163450832,
+            "CPU_tensor_storage_count": 53,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 33445948,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "e1d518f4186f01fb5615fbc651bfc13f1ffe260aa3c193ac7d14099598a46fe2",
+              "group": "23618ce3949dec1d9094d49a8563eab9d79fcc890c435a35ab7d4d47afa6dcb8",
+              "domain": "geography"
+            },
+            {
+              "id_sha256": "9ba5513778dbbedbc5e4c753e747bd130e1d080507ac460e917250d38215e3bc",
+              "group": "47ba96909395660c94174f55aa6d64189ff4879ba4b99dbedd5970968bf14cef",
+              "domain": "geography"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "c5bab555eec7a6eeab913e94b1e82d944b5e9246ca4a95884332984a3fcc22ac",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "group": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "group": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "group": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "domain": "medical"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {}
+        },
+        {
+          "stage": 13,
+          "current_QA": 2,
+          "old_QA": 7,
+          "current_payload_bytes": 5371869,
+          "old_payload_bytes": 33445948,
+          "gradient_QA": 0,
+          "candidate_forward_QA": 0,
+          "mask_different": false,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 7,
+          "bank_after_bytes": 33445848,
+          "seconds": 2.051141664996976,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 171870064,
+            "CPU_tensor_storage_count": 86,
+            "logical_current_payload_bytes": 5371869,
+            "logical_bank_payload_bytes": 33445948,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 166498928,
+            "CPU_tensor_storage_count": 78,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 33445848,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "e1a65aa5a321cf497dc73ea6828dfdfc3adb5a9efe1f2e895ee828eb8dc659bb",
+              "group": "e9dba631ef3403285e9522aa5b16deacb5c0cd5fa3bf8f9789fd060f61b26361",
+              "domain": "geography"
+            },
+            {
+              "id_sha256": "6ac5d8b4e4c15f8f31b0c334c8012770a504d11d18a5b307103ca2d3632dd557",
+              "group": "978c411afbb282de84656c18e634929fb8c0fac52288fde77d3a66fc6f1e7e51",
+              "domain": "geography"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "c5bab555eec7a6eeab913e94b1e82d944b5e9246ca4a95884332984a3fcc22ac",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "group": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "group": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "group": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "e1d518f4186f01fb5615fbc651bfc13f1ffe260aa3c193ac7d14099598a46fe2",
+              "group": "23618ce3949dec1d9094d49a8563eab9d79fcc890c435a35ab7d4d47afa6dcb8",
+              "domain": "geography"
+            },
+            {
+              "id_sha256": "9ba5513778dbbedbc5e4c753e747bd130e1d080507ac460e917250d38215e3bc",
+              "group": "47ba96909395660c94174f55aa6d64189ff4879ba4b99dbedd5970968bf14cef",
+              "domain": "geography"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {}
+        },
+        {
+          "stage": 14,
+          "current_QA": 2,
+          "old_QA": 7,
+          "current_payload_bytes": 5371901,
+          "old_payload_bytes": 33445848,
+          "gradient_QA": 0,
+          "candidate_forward_QA": 0,
+          "mask_different": false,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 7,
+          "bank_after_bytes": 33445848,
+          "seconds": 2.044975415992667,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 171870000,
+            "CPU_tensor_storage_count": 86,
+            "logical_current_payload_bytes": 5371901,
+            "logical_bank_payload_bytes": 33445848,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 166498928,
+            "CPU_tensor_storage_count": 78,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 33445848,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "045cfb2e6a55e95f433821d717ba51f42ec8e0d1e81f29f6e8d16584c364a124",
+              "group": "045cfb2e6a55e95f433821d717ba51f42ec8e0d1e81f29f6e8d16584c364a124",
+              "domain": "geography"
+            },
+            {
+              "id_sha256": "938f0c423501fbcfe947ad6c4591f390b65df0dd80dde8d245e9d43f9ad09509",
+              "group": "d9eea3e621194f5712cfd1d90fd28bbcd0b2d2effcc5525c60b9c13218cd92eb",
+              "domain": "geography"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "c5bab555eec7a6eeab913e94b1e82d944b5e9246ca4a95884332984a3fcc22ac",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "group": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "group": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "group": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "e1a65aa5a321cf497dc73ea6828dfdfc3adb5a9efe1f2e895ee828eb8dc659bb",
+              "group": "e9dba631ef3403285e9522aa5b16deacb5c0cd5fa3bf8f9789fd060f61b26361",
+              "domain": "geography"
+            },
+            {
+              "id_sha256": "6ac5d8b4e4c15f8f31b0c334c8012770a504d11d18a5b307103ca2d3632dd557",
+              "group": "978c411afbb282de84656c18e634929fb8c0fac52288fde77d3a66fc6f1e7e51",
+              "domain": "geography"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {}
+        },
+        {
+          "stage": 15,
+          "current_QA": 2,
+          "old_QA": 7,
+          "current_payload_bytes": 5371995,
+          "old_payload_bytes": 33445848,
+          "gradient_QA": 0,
+          "candidate_forward_QA": 0,
+          "mask_different": false,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 7,
+          "bank_after_bytes": 33445881,
+          "seconds": 2.0416075169923715,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 171870096,
+            "CPU_tensor_storage_count": 86,
+            "logical_current_payload_bytes": 5371995,
+            "logical_bank_payload_bytes": 33445848,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 166498960,
+            "CPU_tensor_storage_count": 78,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 33445881,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "197afe73b216c1214842bfdc8e65c62ec8b9f85f4df836585627c7c6afcb69b0",
+              "group": "89be5a071e9ba9571b38a7ff1612c35c05f2661c26c7473cc33cde8338e36b5a",
+              "domain": "geography"
+            },
+            {
+              "id_sha256": "cc4efdd3af245c885e47a8ba7c104456bf60b1350ab8bc75875816a215d1c431",
+              "group": "080b6bc999be21b665b5c0855c01d2c8e1ff9742e6ea79d0951845a0849ab984",
+              "domain": "geography"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "c5bab555eec7a6eeab913e94b1e82d944b5e9246ca4a95884332984a3fcc22ac",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "group": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "group": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "group": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "6ac5d8b4e4c15f8f31b0c334c8012770a504d11d18a5b307103ca2d3632dd557",
+              "group": "978c411afbb282de84656c18e634929fb8c0fac52288fde77d3a66fc6f1e7e51",
+              "domain": "geography"
+            },
+            {
+              "id_sha256": "045cfb2e6a55e95f433821d717ba51f42ec8e0d1e81f29f6e8d16584c364a124",
+              "group": "045cfb2e6a55e95f433821d717ba51f42ec8e0d1e81f29f6e8d16584c364a124",
+              "domain": "geography"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {}
+        },
+        {
+          "stage": 16,
+          "current_QA": 2,
+          "old_QA": 7,
+          "current_payload_bytes": 10919680,
+          "old_payload_bytes": 33445881,
+          "gradient_QA": 0,
+          "candidate_forward_QA": 0,
+          "mask_different": false,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 7,
+          "bank_after_bytes": 33243794,
+          "seconds": 2.0395321660034824,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 175367776,
+            "CPU_tensor_storage_count": 60,
+            "logical_current_payload_bytes": 10919680,
+            "logical_bank_payload_bytes": 33445881,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 164246832,
+            "CPU_tensor_storage_count": 52,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 33243794,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "c63d4952ce6ed52f0382c4aab6bf434e2fc8c38f258e69195c2bfb1bb228e837",
+              "group": "c63d4952ce6ed52f0382c4aab6bf434e2fc8c38f258e69195c2bfb1bb228e837",
+              "domain": "finance"
+            },
+            {
+              "id_sha256": "3f9ddd41f2f89ce0127a965e433fd4b4123dfa6b02488480faad8a8aec5d2a1d",
+              "group": "3f9ddd41f2f89ce0127a965e433fd4b4123dfa6b02488480faad8a8aec5d2a1d",
+              "domain": "finance"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "c5bab555eec7a6eeab913e94b1e82d944b5e9246ca4a95884332984a3fcc22ac",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "group": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "group": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "group": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "045cfb2e6a55e95f433821d717ba51f42ec8e0d1e81f29f6e8d16584c364a124",
+              "group": "045cfb2e6a55e95f433821d717ba51f42ec8e0d1e81f29f6e8d16584c364a124",
+              "domain": "geography"
+            },
+            {
+              "id_sha256": "197afe73b216c1214842bfdc8e65c62ec8b9f85f4df836585627c7c6afcb69b0",
+              "group": "89be5a071e9ba9571b38a7ff1612c35c05f2661c26c7473cc33cde8338e36b5a",
+              "domain": "geography"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {}
+        },
+        {
+          "stage": 17,
+          "current_QA": 2,
+          "old_QA": 7,
+          "current_payload_bytes": 15690639,
+          "old_payload_bytes": 33243794,
+          "gradient_QA": 0,
+          "candidate_forward_QA": 0,
+          "mask_different": false,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 7,
+          "bank_after_bytes": 33243794,
+          "seconds": 2.078096015000483,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 177393072,
+            "CPU_tensor_storage_count": 52,
+            "logical_current_payload_bytes": 15690639,
+            "logical_bank_payload_bytes": 33243794,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 161705776,
+            "CPU_tensor_storage_count": 44,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 33243794,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "ed1bf531f3aca50e7e701fd2723fdb0e3d090578d3e96de990548a5a2d830e69",
+              "group": "ed1bf531f3aca50e7e701fd2723fdb0e3d090578d3e96de990548a5a2d830e69",
+              "domain": "traffic"
+            },
+            {
+              "id_sha256": "0115bd5daa5adaba38a6504e3f121b8c05cb1eff6ce9f0a8fce4442107fafc84",
+              "group": "0115bd5daa5adaba38a6504e3f121b8c05cb1eff6ce9f0a8fce4442107fafc84",
+              "domain": "traffic"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "c5bab555eec7a6eeab913e94b1e82d944b5e9246ca4a95884332984a3fcc22ac",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "group": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "group": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "group": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "045cfb2e6a55e95f433821d717ba51f42ec8e0d1e81f29f6e8d16584c364a124",
+              "group": "045cfb2e6a55e95f433821d717ba51f42ec8e0d1e81f29f6e8d16584c364a124",
+              "domain": "geography"
+            },
+            {
+              "id_sha256": "3f9ddd41f2f89ce0127a965e433fd4b4123dfa6b02488480faad8a8aec5d2a1d",
+              "group": "3f9ddd41f2f89ce0127a965e433fd4b4123dfa6b02488480faad8a8aec5d2a1d",
+              "domain": "finance"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {}
+        },
+        {
+          "stage": 18,
+          "current_QA": 2,
+          "old_QA": 7,
+          "current_payload_bytes": 15685775,
+          "old_payload_bytes": 33243794,
+          "gradient_QA": 0,
+          "candidate_forward_QA": 0,
+          "mask_different": false,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 6,
+          "bank_after_bytes": 26555047,
+          "seconds": 2.0576100110047264,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 182516752,
+            "CPU_tensor_storage_count": 53,
+            "logical_current_payload_bytes": 15685775,
+            "logical_bank_payload_bytes": 33243794,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 160144352,
+            "CPU_tensor_storage_count": 41,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 26555047,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "d4f44e2582070a375f0118ca529c4504736ef3e16b91026bf4591a3109fe0a3d",
+              "group": "d4f44e2582070a375f0118ca529c4504736ef3e16b91026bf4591a3109fe0a3d",
+              "domain": "traffic"
+            },
+            {
+              "id_sha256": "a1ae2518f723b37bbf25b29a178169679ed5f801bcce48edb5280de696fbd0db",
+              "group": "a1ae2518f723b37bbf25b29a178169679ed5f801bcce48edb5280de696fbd0db",
+              "domain": "traffic"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "c5bab555eec7a6eeab913e94b1e82d944b5e9246ca4a95884332984a3fcc22ac",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "group": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "group": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "group": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "045cfb2e6a55e95f433821d717ba51f42ec8e0d1e81f29f6e8d16584c364a124",
+              "group": "045cfb2e6a55e95f433821d717ba51f42ec8e0d1e81f29f6e8d16584c364a124",
+              "domain": "geography"
+            },
+            {
+              "id_sha256": "3f9ddd41f2f89ce0127a965e433fd4b4123dfa6b02488480faad8a8aec5d2a1d",
+              "group": "3f9ddd41f2f89ce0127a965e433fd4b4123dfa6b02488480faad8a8aec5d2a1d",
+              "domain": "finance"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {}
+        },
+        {
+          "stage": 19,
+          "current_QA": 2,
+          "old_QA": 6,
+          "current_payload_bytes": 15688755,
+          "old_payload_bytes": 26555047,
+          "gradient_QA": 0,
+          "candidate_forward_QA": 0,
+          "mask_different": false,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 6,
+          "bank_after_bytes": 26555047,
+          "seconds": 2.063983461004682,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 171292256,
+            "CPU_tensor_storage_count": 48,
+            "logical_current_payload_bytes": 15688755,
+            "logical_bank_payload_bytes": 26555047,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 155605216,
+            "CPU_tensor_storage_count": 40,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 26555047,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "72e8185658119cc3e593b1ebdc22ee1180fb4dbf7027b87714246639146dbe98",
+              "group": "72e8185658119cc3e593b1ebdc22ee1180fb4dbf7027b87714246639146dbe98",
+              "domain": "traffic"
+            },
+            {
+              "id_sha256": "2aef014024661848246e40205e3dfee77bebfb79a9216b4bc665e9d01656cfae",
+              "group": "2aef014024661848246e40205e3dfee77bebfb79a9216b4bc665e9d01656cfae",
+              "domain": "traffic"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "c5bab555eec7a6eeab913e94b1e82d944b5e9246ca4a95884332984a3fcc22ac",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "group": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "group": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "045cfb2e6a55e95f433821d717ba51f42ec8e0d1e81f29f6e8d16584c364a124",
+              "group": "045cfb2e6a55e95f433821d717ba51f42ec8e0d1e81f29f6e8d16584c364a124",
+              "domain": "geography"
+            },
+            {
+              "id_sha256": "3f9ddd41f2f89ce0127a965e433fd4b4123dfa6b02488480faad8a8aec5d2a1d",
+              "group": "3f9ddd41f2f89ce0127a965e433fd4b4123dfa6b02488480faad8a8aec5d2a1d",
+              "domain": "finance"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {}
+        }
+      ],
+      "event_timing_sums": {
+        "seconds": 629.782381629062
+      },
+      "save_seconds": 282.7429507189954,
+      "logical_checkpoint_bytes": 28216476634,
+      "memory_summary": {
+        "unit": "bytes",
+        "before": {
+          "phase": "training_before",
+          "stage": 0,
+          "unix": 1792755644.6998072,
+          "pid": 834265,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 2505687040,
+          "VmRSS_bytes": 1473110016,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 1220158464,
+          "Private_Clean_bytes": 85086208,
+          "Private_Dirty_bytes": 1041096704,
+          "cpu_uss_bytes": 1126182912,
+          "gpu_allocated_bytes": 1387709952,
+          "gpu_reserved_bytes": 2726297600,
+          "gpu_peak_allocated_bytes": 1945914368,
+          "gpu_peak_reserved_bytes": 2726297600,
+          "gpu_process_nvml_bytes": 3091202048,
+          "trainable_parameters": 0,
+          "trainable_parameter_bytes": 0,
+          "model_parameter_bytes": 1325666368
+        },
+        "after": {
+          "phase": "training_after",
+          "stage": 19,
+          "unix": 1792756648.0601187,
+          "pid": 834265,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4554231808,
+          "VmRSS_bytes": 4386734080,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 4126073856,
+          "Private_Clean_bytes": 88969216,
+          "Private_Dirty_bytes": 3937034240,
+          "cpu_uss_bytes": 4026003456,
+          "gpu_allocated_bytes": 1417677312,
+          "gpu_reserved_bytes": 1916796928,
+          "gpu_peak_allocated_bytes": 2006664704,
+          "gpu_peak_reserved_bytes": 3114270720,
+          "gpu_process_nvml_bytes": 2292187136,
+          "trainable_parameters": 6635520,
+          "trainable_parameter_bytes": 26542080,
+          "model_parameter_bytes": 1352208448
+        },
+        "growth_bytes": {
+          "VmRSS_bytes": 2913624064,
+          "Pss_bytes": 2905915392,
+          "cpu_uss_bytes": 2899820544,
+          "gpu_allocated_bytes": 29967360,
+          "gpu_reserved_bytes": -809500672,
+          "gpu_process_nvml_bytes": -799014912
+        },
+        "observed_peak_bytes": {
+          "VmRSS_bytes": 4832305152,
+          "Pss_bytes": 4571557888,
+          "cpu_uss_bytes": 4471476224,
+          "gpu_allocated_bytes": 2763205120,
+          "gpu_reserved_bytes": 4555014144,
+          "gpu_process_nvml_bytes": 4930404352
+        },
+        "note": "Process memory; CUDA allocator, reserved cache and NVML process allocation are separate. Before/after retain method state and exclude optimizer after cleanup."
+      },
+      "phase_caution": "training_after retains temporary AB before the last consolidation; compact boundaries are consolidation_after_saved/layouts"
+    },
+    "Answer": {
+      "quality": {
+        "domains": {
+          "natural": {
+            "F1": 0.15151515151515152,
+            "QA": 20
+          },
+          "medical": {
+            "F1": 0.0,
+            "QA": 20
+          },
+          "geography": {
+            "F1": 0.0,
+            "QA": 20
+          },
+          "finance": {
+            "F1": 0.08733041341736994,
+            "QA": 20
+          },
+          "traffic": {
+            "F1": 4.16188696247139,
+            "QA": 20
+          }
+        },
+        "domain_macro": 0.8801465054807822,
+        "prediction_sha256": {
+          "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/evaluations/stage_19/T01_dev_predictions.jsonl": "5b96455dfee71d84ce02296f7666dc842bcb642288f40e60ce50386fc5cde0b2",
+          "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/evaluations/stage_19/T02_dev_predictions.jsonl": "346323d8e0426d5761075e12727d0c0a5e5b5f0e123d9cb8596b55fcd315cae5",
+          "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/evaluations/stage_19/T03_dev_predictions.jsonl": "d7083ac3680a625fbd0c9c64f4994275b897d2b460dad5416a7e27219005c31a",
+          "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/evaluations/stage_19/T04_dev_predictions.jsonl": "79efe1e6dd7d9ad1c94030ce1c58b32f1612cb284d197d71553f7c603c5d5a14",
+          "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/evaluations/stage_19/T05_dev_predictions.jsonl": "834249a593813805132ead2ce9ee849b6b73bd85032cba4e28d5415b3038c525",
+          "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/evaluations/stage_19/T06_dev_predictions.jsonl": "871928784d96ab78ebfc3332cbba7dbbd92c51ea09a02d211cf4a57ec07d5c04",
+          "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/evaluations/stage_19/T10_dev_predictions.jsonl": "ccbc97471bd8d26025f7fcd16a45755d32d4dfa717874af11eaf968cacfacc72",
+          "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/evaluations/stage_19/T11_dev_predictions.jsonl": "76c21e11125a229819b20f65494fd6ce932927ade57562b53df8829f62bd9c6e",
+          "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/evaluations/stage_19/T13_dev_predictions.jsonl": "255e209b2581adc9c4bfc11d462ce1914a4aa3e7c8e1e7d0cc2ea5e4452341d3",
+          "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/evaluations/stage_19/T14_dev_predictions.jsonl": "7735e9c9728c0674bbb1bad1cfe262aa8e8db379fb99643e5e8f5bb89424298e",
+          "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/evaluations/stage_19/T15_dev_predictions.jsonl": "ff7305787c5a5377ef1e7d7204e7371b934e63416327e0da9f2b2fff4918fac9",
+          "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/evaluations/stage_19/T16_dev_predictions.jsonl": "87303214069b88f96894f4c4968d61108bbc115e7f667ccb6597eb321d8ddb0f",
+          "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/evaluations/stage_19/T17_dev_predictions.jsonl": "f1bbd9d09ddb5cb1d80c785e8756ce036c4a5eb093603f346355c6ce4e81d0f6",
+          "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/evaluations/stage_19/T18_dev_predictions.jsonl": "78fbc6a7f1976b8d1086c78bb0b7c1068d84c4771f9775698521a57633b30ea6",
+          "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/evaluations/stage_19/T19_dev_predictions.jsonl": "8e0d42e3856ed5a4923686cf46ce17d2e5367d1bfbb59d3d9193855658d3bd1f"
+        }
+      },
+      "model_RUN_seconds": 1525.7582558279973,
+      "gradient_QA": 138,
+      "candidate_forward_QA": 276,
+      "different_masks": 19,
+      "answer_selected": 0,
+      "fallback_counts": {
+        "null": 19
+      },
+      "trainable_coordinates_during_stage": 6635520,
+      "gradient_bytes": 26542080,
+      "two_CPU_moment_bytes": 53084160,
+      "compact_parameter_bytes": 1325666368,
+      "non_weight_buffer_bytes": 9032,
+      "complete_sha256": "8061b99ef1b66a27ae17041f5241cc1d3738328d6e8c901920778161530db019",
+      "checkpoint": {
+        "path": "checkpoints/stage_19.pt",
+        "stage": 19,
+        "bytes": 1333082772,
+        "sha256": "bbf0e612e9eecb9466fc66d30b3b5c39c58e6a66d556130f0ad13edfe1a8c12d",
+        "seconds": 12.137085348993423,
+        "manifest_sha256": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+        "method": "CompactRenewal",
+        "full_architecture_and_runtime": true,
+        "optimizer_saved": false
+      },
+      "all_weight_digest_before_DEV": "fff771f444ae53964c6777de021716fd1325d8f87769efe6e46d845f8f629aca",
+      "full_checkpoint_reload": true,
+      "native_gate": {
+        "NLL_paths": 38,
+        "short_generations": 38,
+        "max_new_tokens": 4
+      },
+      "FIT_QA": 1213,
+      "DEV_QA": 100,
+      "valid_stages": 19,
+      "positive_LR_updates": 87,
+      "stages": [
+        {
+          "stage": 1,
+          "current_QA": 1,
+          "old_QA": 0,
+          "current_payload_bytes": 9324819,
+          "old_payload_bytes": 0,
+          "gradient_QA": 1,
+          "candidate_forward_QA": 2,
+          "mask_different": true,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 1,
+          "bank_after_bytes": 9324819,
+          "seconds": 11.125700689997757,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 138058096,
+            "CPU_tensor_storage_count": 22,
+            "logical_current_payload_bytes": 9324819,
+            "logical_bank_payload_bytes": 0,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 138058096,
+            "CPU_tensor_storage_count": 22,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 9324819,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            }
+          ],
+          "old_coverage": [],
+          "current_rejected_id_sha256": [
+            "e0ab34b43de46b0fc60d58108a06b5d7aaa6c48129c26101ebece59268d9ee75"
+          ],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {
+            "parent_gate_NLL": 9.400496482849121,
+            "spectral_NLL": 10.8801908493042,
+            "answer_NLL": 14.531947135925293
+          }
+        },
+        {
+          "stage": 2,
+          "current_QA": 2,
+          "old_QA": 1,
+          "current_payload_bytes": 5371682,
+          "old_payload_bytes": 9324819,
+          "gradient_QA": 3,
+          "candidate_forward_QA": 6,
+          "mask_different": true,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 3,
+          "bank_after_bytes": 14696501,
+          "seconds": 5.602492432008148,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 146308704,
+            "CPU_tensor_storage_count": 34,
+            "logical_current_payload_bytes": 5371682,
+            "logical_bank_payload_bytes": 9324819,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 146308704,
+            "CPU_tensor_storage_count": 34,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 14696501,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "023c048f95ec8f2b8c8da64bff9891391f7063aabdc291c5899879ae9a0342ed",
+              "group": "d7d97ba4adb9f4c9f8460ed21b4e44a7ccff9da752a37e16a989adfcdf0288da",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "3af3894785c962984b13828eae0ffe4646f47a755e1f92a446b77a558d3dabde",
+              "group": "3af3894785c962984b13828eae0ffe4646f47a755e1f92a446b77a558d3dabde",
+              "domain": "medical"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {
+            "parent_gate_NLL": 8.17521595954895,
+            "spectral_NLL": 9.585070729255676,
+            "answer_NLL": 13.394644737243652
+          }
+        },
+        {
+          "stage": 3,
+          "current_QA": 2,
+          "old_QA": 3,
+          "current_payload_bytes": 9374629,
+          "old_payload_bytes": 14696501,
+          "gradient_QA": 5,
+          "candidate_forward_QA": 10,
+          "mask_different": true,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 5,
+          "bank_after_bytes": 24071130,
+          "seconds": 7.147305875012535,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 155383248,
+            "CPU_tensor_storage_count": 44,
+            "logical_current_payload_bytes": 9374629,
+            "logical_bank_payload_bytes": 14696501,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 155383248,
+            "CPU_tensor_storage_count": 44,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 24071130,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "33381696a193258b039a9032c63ab23721f3899168ee58e10a6d6bb6c1513daf",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "a886fcb7efd77382b0916dea42018e9bea3df81a946c85316b4a7a0f51dedb64",
+              "group": "a886fcb7efd77382b0916dea42018e9bea3df81a946c85316b4a7a0f51dedb64",
+              "domain": "medical"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "023c048f95ec8f2b8c8da64bff9891391f7063aabdc291c5899879ae9a0342ed",
+              "group": "d7d97ba4adb9f4c9f8460ed21b4e44a7ccff9da752a37e16a989adfcdf0288da",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "3af3894785c962984b13828eae0ffe4646f47a755e1f92a446b77a558d3dabde",
+              "group": "3af3894785c962984b13828eae0ffe4646f47a755e1f92a446b77a558d3dabde",
+              "domain": "medical"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {
+            "parent_gate_NLL": 7.54162855943044,
+            "spectral_NLL": 8.462457100550333,
+            "answer_NLL": 14.491275469462076
+          }
+        },
+        {
+          "stage": 4,
+          "current_QA": 2,
+          "old_QA": 5,
+          "current_payload_bytes": 9374478,
+          "old_payload_bytes": 24071130,
+          "gradient_QA": 7,
+          "candidate_forward_QA": 14,
+          "mask_different": true,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 7,
+          "bank_after_bytes": 33445608,
+          "seconds": 9.02278464200208,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 163402160,
+            "CPU_tensor_storage_count": 50,
+            "logical_current_payload_bytes": 9374478,
+            "logical_bank_payload_bytes": 24071130,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 163402160,
+            "CPU_tensor_storage_count": 50,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 33445608,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "group": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "8e5e0e5f0c7122ef45c167eb7190b254cd554992c1dca948fd2cfa47d87d40ea",
+              "group": "8e5e0e5f0c7122ef45c167eb7190b254cd554992c1dca948fd2cfa47d87d40ea",
+              "domain": "medical"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "023c048f95ec8f2b8c8da64bff9891391f7063aabdc291c5899879ae9a0342ed",
+              "group": "d7d97ba4adb9f4c9f8460ed21b4e44a7ccff9da752a37e16a989adfcdf0288da",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "3af3894785c962984b13828eae0ffe4646f47a755e1f92a446b77a558d3dabde",
+              "group": "3af3894785c962984b13828eae0ffe4646f47a755e1f92a446b77a558d3dabde",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "33381696a193258b039a9032c63ab23721f3899168ee58e10a6d6bb6c1513daf",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "a886fcb7efd77382b0916dea42018e9bea3df81a946c85316b4a7a0f51dedb64",
+              "group": "a886fcb7efd77382b0916dea42018e9bea3df81a946c85316b4a7a0f51dedb64",
+              "domain": "medical"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {
+            "parent_gate_NLL": 6.40732867717743,
+            "spectral_NLL": 7.123165655136108,
+            "answer_NLL": 9.983241415023803
+          }
+        },
+        {
+          "stage": 5,
+          "current_QA": 2,
+          "old_QA": 7,
+          "current_payload_bytes": 13377429,
+          "old_payload_bytes": 33445608,
+          "gradient_QA": 9,
+          "candidate_forward_QA": 18,
+          "mask_different": true,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 6,
+          "bank_after_bytes": 30759633,
+          "seconds": 11.627157195995096,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 180746256,
+            "CPU_tensor_storage_count": 58,
+            "logical_current_payload_bytes": 13377429,
+            "logical_bank_payload_bytes": 33445608,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 164684080,
+            "CPU_tensor_storage_count": 46,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 30759633,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "2c38e96432c73e6c016eee54c55c05fb677d46f51a30fa1a70d3e68e1396bdc6",
+              "group": "2c38e96432c73e6c016eee54c55c05fb677d46f51a30fa1a70d3e68e1396bdc6",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "group": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "domain": "medical"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "023c048f95ec8f2b8c8da64bff9891391f7063aabdc291c5899879ae9a0342ed",
+              "group": "d7d97ba4adb9f4c9f8460ed21b4e44a7ccff9da752a37e16a989adfcdf0288da",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "3af3894785c962984b13828eae0ffe4646f47a755e1f92a446b77a558d3dabde",
+              "group": "3af3894785c962984b13828eae0ffe4646f47a755e1f92a446b77a558d3dabde",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "33381696a193258b039a9032c63ab23721f3899168ee58e10a6d6bb6c1513daf",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "a886fcb7efd77382b0916dea42018e9bea3df81a946c85316b4a7a0f51dedb64",
+              "group": "a886fcb7efd77382b0916dea42018e9bea3df81a946c85316b4a7a0f51dedb64",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "group": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "8e5e0e5f0c7122ef45c167eb7190b254cd554992c1dca948fd2cfa47d87d40ea",
+              "group": "8e5e0e5f0c7122ef45c167eb7190b254cd554992c1dca948fd2cfa47d87d40ea",
+              "domain": "medical"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {
+            "parent_gate_NLL": 5.928987434932163,
+            "spectral_NLL": 6.523457629340034,
+            "answer_NLL": 10.001179695129395
+          }
+        },
+        {
+          "stage": 6,
+          "current_QA": 2,
+          "old_QA": 6,
+          "current_payload_bytes": 9374600,
+          "old_payload_bytes": 30759633,
+          "gradient_QA": 8,
+          "candidate_forward_QA": 16,
+          "mask_different": true,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 7,
+          "bank_after_bytes": 33445554,
+          "seconds": 10.327893420006149,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 174057840,
+            "CPU_tensor_storage_count": 54,
+            "logical_current_payload_bytes": 9374600,
+            "logical_bank_payload_bytes": 30759633,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 167369568,
+            "CPU_tensor_storage_count": 50,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 33445554,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "group": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "3d77185f4dae7afb4e296ff8174ff8e028f0ee3ea9da0bba5bd3e0597e999e45",
+              "group": "3d77185f4dae7afb4e296ff8174ff8e028f0ee3ea9da0bba5bd3e0597e999e45",
+              "domain": "medical"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "3af3894785c962984b13828eae0ffe4646f47a755e1f92a446b77a558d3dabde",
+              "group": "3af3894785c962984b13828eae0ffe4646f47a755e1f92a446b77a558d3dabde",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "33381696a193258b039a9032c63ab23721f3899168ee58e10a6d6bb6c1513daf",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "group": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "8e5e0e5f0c7122ef45c167eb7190b254cd554992c1dca948fd2cfa47d87d40ea",
+              "group": "8e5e0e5f0c7122ef45c167eb7190b254cd554992c1dca948fd2cfa47d87d40ea",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "group": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "domain": "medical"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {
+            "parent_gate_NLL": 6.76896846294403,
+            "spectral_NLL": 7.283238450686137,
+            "answer_NLL": 10.755594611167908
+          }
+        },
+        {
+          "stage": 7,
+          "current_QA": 2,
+          "old_QA": 7,
+          "current_payload_bytes": 13377436,
+          "old_payload_bytes": 33445554,
+          "gradient_QA": 9,
+          "candidate_forward_QA": 18,
+          "mask_different": true,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 5,
+          "bank_after_bytes": 28073866,
+          "seconds": 11.620255085988902,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 178085072,
+            "CPU_tensor_storage_count": 57,
+            "logical_current_payload_bytes": 13377436,
+            "logical_bank_payload_bytes": 33445554,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 159337600,
+            "CPU_tensor_storage_count": 41,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 28073866,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "c78ce6b421081193f8ce08f75ce88dfb9166b360cc9384bc6c0e1d238526b2d7",
+              "group": "c78ce6b421081193f8ce08f75ce88dfb9166b360cc9384bc6c0e1d238526b2d7",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "79c7e514ad859a243e5f27f666f658c536b9403250fed7b374c7aeaf5e878383",
+              "group": "79c7e514ad859a243e5f27f666f658c536b9403250fed7b374c7aeaf5e878383",
+              "domain": "medical"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "3af3894785c962984b13828eae0ffe4646f47a755e1f92a446b77a558d3dabde",
+              "group": "3af3894785c962984b13828eae0ffe4646f47a755e1f92a446b77a558d3dabde",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "33381696a193258b039a9032c63ab23721f3899168ee58e10a6d6bb6c1513daf",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "group": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "group": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "group": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "3d77185f4dae7afb4e296ff8174ff8e028f0ee3ea9da0bba5bd3e0597e999e45",
+              "group": "3d77185f4dae7afb4e296ff8174ff8e028f0ee3ea9da0bba5bd3e0597e999e45",
+              "domain": "medical"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {
+            "parent_gate_NLL": 4.931081482342311,
+            "spectral_NLL": 4.971895796912057,
+            "answer_NLL": 12.486737251281738
+          }
+        },
+        {
+          "stage": 8,
+          "current_QA": 2,
+          "old_QA": 5,
+          "current_payload_bytes": 13377476,
+          "old_payload_bytes": 28073866,
+          "gradient_QA": 7,
+          "candidate_forward_QA": 14,
+          "mask_different": true,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 5,
+          "bank_after_bytes": 28073866,
+          "seconds": 10.43260548300168,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 175375360,
+            "CPU_tensor_storage_count": 50,
+            "logical_current_payload_bytes": 13377476,
+            "logical_bank_payload_bytes": 28073866,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 161998720,
+            "CPU_tensor_storage_count": 42,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 28073866,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "6a99704ddf8dc2af5f74b6441784cf17da85b2e607f709307c162188467247df",
+              "group": "6a99704ddf8dc2af5f74b6441784cf17da85b2e607f709307c162188467247df",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "5ef119037afdf75727333d1f1b430dc2c298bd3b57bb42414ca55b6c0338c23e",
+              "group": "5ef119037afdf75727333d1f1b430dc2c298bd3b57bb42414ca55b6c0338c23e",
+              "domain": "medical"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "33381696a193258b039a9032c63ab23721f3899168ee58e10a6d6bb6c1513daf",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "group": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "group": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "group": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "domain": "medical"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {
+            "parent_gate_NLL": 7.854997897148133,
+            "spectral_NLL": 7.866878271102905,
+            "answer_NLL": 10.839841175079345
+          }
+        },
+        {
+          "stage": 9,
+          "current_QA": 1,
+          "old_QA": 5,
+          "current_payload_bytes": 6688766,
+          "old_payload_bytes": 28073866,
+          "gradient_QA": 6,
+          "candidate_forward_QA": 12,
+          "mask_different": true,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 5,
+          "bank_after_bytes": 28073866,
+          "seconds": 9.035670729004778,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 168687072,
+            "CPU_tensor_storage_count": 46,
+            "logical_current_payload_bytes": 6688766,
+            "logical_bank_payload_bytes": 28073866,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 161998720,
+            "CPU_tensor_storage_count": 42,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 28073866,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "e4c636371727cf9ce4e7f10b1de3df10f8c569d206d7e923c53678609e80b7a5",
+              "group": "e4c636371727cf9ce4e7f10b1de3df10f8c569d206d7e923c53678609e80b7a5",
+              "domain": "medical"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "33381696a193258b039a9032c63ab23721f3899168ee58e10a6d6bb6c1513daf",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "group": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "group": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "group": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "domain": "medical"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {
+            "parent_gate_NLL": 7.1002342224121096,
+            "spectral_NLL": 7.9200835704803465,
+            "answer_NLL": 15.901069068908694
+          }
+        },
+        {
+          "stage": 10,
+          "current_QA": 2,
+          "old_QA": 5,
+          "current_payload_bytes": 13377479,
+          "old_payload_bytes": 28073866,
+          "gradient_QA": 7,
+          "candidate_forward_QA": 14,
+          "mask_different": true,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 5,
+          "bank_after_bytes": 28073866,
+          "seconds": 10.367236929989303,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 175375376,
+            "CPU_tensor_storage_count": 50,
+            "logical_current_payload_bytes": 13377479,
+            "logical_bank_payload_bytes": 28073866,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 161998720,
+            "CPU_tensor_storage_count": 42,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 28073866,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "a0ebb77452fa92cdf975256698c2c185079d82f2b76270acd04223f05d0428c4",
+              "group": "c7e864e16d5408d4be459234bf9dd95e51824760b6b1a1ce2b6a5bd3cdebb80b",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "6ac63c624c3aa7185390a14b9a2a21304f2e83ba51c4358c813b329ade647cb0",
+              "group": "6ac63c624c3aa7185390a14b9a2a21304f2e83ba51c4358c813b329ade647cb0",
+              "domain": "medical"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "33381696a193258b039a9032c63ab23721f3899168ee58e10a6d6bb6c1513daf",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "group": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "group": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "group": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "domain": "medical"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {
+            "parent_gate_NLL": 7.058070778846741,
+            "spectral_NLL": 7.182314014434813,
+            "answer_NLL": 14.40029101371765
+          }
+        },
+        {
+          "stage": 11,
+          "current_QA": 2,
+          "old_QA": 5,
+          "current_payload_bytes": 9374698,
+          "old_payload_bytes": 28073866,
+          "gradient_QA": 7,
+          "candidate_forward_QA": 14,
+          "mask_different": true,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 5,
+          "bank_after_bytes": 28073979,
+          "seconds": 9.690573660001974,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 167405072,
+            "CPU_tensor_storage_count": 50,
+            "logical_current_payload_bytes": 9374698,
+            "logical_bank_payload_bytes": 28073866,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 158031312,
+            "CPU_tensor_storage_count": 42,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 28073979,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "2c9d3b2605551cd3365c0760dcf7763403f846623da5f8cb30cfaf1eccd26ca0",
+              "group": "2bd590a529521614626b79a48a5154c2c2cb130e2796ad399dc6d15554f2d165",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "c5bab555eec7a6eeab913e94b1e82d944b5e9246ca4a95884332984a3fcc22ac",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "33381696a193258b039a9032c63ab23721f3899168ee58e10a6d6bb6c1513daf",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "group": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "group": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "group": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "domain": "medical"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {
+            "parent_gate_NLL": 7.792914295196533,
+            "spectral_NLL": 7.398780441284179,
+            "answer_NLL": 9.046800780296326
+          }
+        },
+        {
+          "stage": 12,
+          "current_QA": 2,
+          "old_QA": 5,
+          "current_payload_bytes": 5371969,
+          "old_payload_bytes": 28073979,
+          "gradient_QA": 7,
+          "candidate_forward_QA": 14,
+          "mask_different": true,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 7,
+          "bank_after_bytes": 33445948,
+          "seconds": 9.096948464997695,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 163450832,
+            "CPU_tensor_storage_count": 53,
+            "logical_current_payload_bytes": 5371969,
+            "logical_bank_payload_bytes": 28073979,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 163450832,
+            "CPU_tensor_storage_count": 53,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 33445948,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "e1d518f4186f01fb5615fbc651bfc13f1ffe260aa3c193ac7d14099598a46fe2",
+              "group": "23618ce3949dec1d9094d49a8563eab9d79fcc890c435a35ab7d4d47afa6dcb8",
+              "domain": "geography"
+            },
+            {
+              "id_sha256": "9ba5513778dbbedbc5e4c753e747bd130e1d080507ac460e917250d38215e3bc",
+              "group": "47ba96909395660c94174f55aa6d64189ff4879ba4b99dbedd5970968bf14cef",
+              "domain": "geography"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "c5bab555eec7a6eeab913e94b1e82d944b5e9246ca4a95884332984a3fcc22ac",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "group": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "group": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "group": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "domain": "medical"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {
+            "parent_gate_NLL": 6.573573350906372,
+            "spectral_NLL": 7.000259757041932,
+            "answer_NLL": 13.623112297058103
+          }
+        },
+        {
+          "stage": 13,
+          "current_QA": 2,
+          "old_QA": 7,
+          "current_payload_bytes": 5371869,
+          "old_payload_bytes": 33445948,
+          "gradient_QA": 9,
+          "candidate_forward_QA": 18,
+          "mask_different": true,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 7,
+          "bank_after_bytes": 33445848,
+          "seconds": 10.52579201500339,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 171870064,
+            "CPU_tensor_storage_count": 86,
+            "logical_current_payload_bytes": 5371869,
+            "logical_bank_payload_bytes": 33445948,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 166498928,
+            "CPU_tensor_storage_count": 78,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 33445848,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "e1a65aa5a321cf497dc73ea6828dfdfc3adb5a9efe1f2e895ee828eb8dc659bb",
+              "group": "e9dba631ef3403285e9522aa5b16deacb5c0cd5fa3bf8f9789fd060f61b26361",
+              "domain": "geography"
+            },
+            {
+              "id_sha256": "6ac5d8b4e4c15f8f31b0c334c8012770a504d11d18a5b307103ca2d3632dd557",
+              "group": "978c411afbb282de84656c18e634929fb8c0fac52288fde77d3a66fc6f1e7e51",
+              "domain": "geography"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "c5bab555eec7a6eeab913e94b1e82d944b5e9246ca4a95884332984a3fcc22ac",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "group": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "group": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "group": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "e1d518f4186f01fb5615fbc651bfc13f1ffe260aa3c193ac7d14099598a46fe2",
+              "group": "23618ce3949dec1d9094d49a8563eab9d79fcc890c435a35ab7d4d47afa6dcb8",
+              "domain": "geography"
+            },
+            {
+              "id_sha256": "9ba5513778dbbedbc5e4c753e747bd130e1d080507ac460e917250d38215e3bc",
+              "group": "47ba96909395660c94174f55aa6d64189ff4879ba4b99dbedd5970968bf14cef",
+              "domain": "geography"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {
+            "parent_gate_NLL": 4.538978646908488,
+            "spectral_NLL": 5.139306707041603,
+            "answer_NLL": 16.521252359662736
+          }
+        },
+        {
+          "stage": 14,
+          "current_QA": 2,
+          "old_QA": 7,
+          "current_payload_bytes": 5371901,
+          "old_payload_bytes": 33445848,
+          "gradient_QA": 9,
+          "candidate_forward_QA": 18,
+          "mask_different": true,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 7,
+          "bank_after_bytes": 33445848,
+          "seconds": 10.341131281995331,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 171870000,
+            "CPU_tensor_storage_count": 86,
+            "logical_current_payload_bytes": 5371901,
+            "logical_bank_payload_bytes": 33445848,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 166498928,
+            "CPU_tensor_storage_count": 78,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 33445848,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "045cfb2e6a55e95f433821d717ba51f42ec8e0d1e81f29f6e8d16584c364a124",
+              "group": "045cfb2e6a55e95f433821d717ba51f42ec8e0d1e81f29f6e8d16584c364a124",
+              "domain": "geography"
+            },
+            {
+              "id_sha256": "938f0c423501fbcfe947ad6c4591f390b65df0dd80dde8d245e9d43f9ad09509",
+              "group": "d9eea3e621194f5712cfd1d90fd28bbcd0b2d2effcc5525c60b9c13218cd92eb",
+              "domain": "geography"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "c5bab555eec7a6eeab913e94b1e82d944b5e9246ca4a95884332984a3fcc22ac",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "group": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "group": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "group": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "e1a65aa5a321cf497dc73ea6828dfdfc3adb5a9efe1f2e895ee828eb8dc659bb",
+              "group": "e9dba631ef3403285e9522aa5b16deacb5c0cd5fa3bf8f9789fd060f61b26361",
+              "domain": "geography"
+            },
+            {
+              "id_sha256": "6ac5d8b4e4c15f8f31b0c334c8012770a504d11d18a5b307103ca2d3632dd557",
+              "group": "978c411afbb282de84656c18e634929fb8c0fac52288fde77d3a66fc6f1e7e51",
+              "domain": "geography"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {
+            "parent_gate_NLL": 5.945105859211513,
+            "spectral_NLL": 5.063352125031607,
+            "answer_NLL": 10.274496759687151
+          }
+        },
+        {
+          "stage": 15,
+          "current_QA": 2,
+          "old_QA": 7,
+          "current_payload_bytes": 5371995,
+          "old_payload_bytes": 33445848,
+          "gradient_QA": 9,
+          "candidate_forward_QA": 18,
+          "mask_different": true,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 7,
+          "bank_after_bytes": 33445881,
+          "seconds": 10.33230404400092,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 171870096,
+            "CPU_tensor_storage_count": 86,
+            "logical_current_payload_bytes": 5371995,
+            "logical_bank_payload_bytes": 33445848,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 166498960,
+            "CPU_tensor_storage_count": 78,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 33445881,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "197afe73b216c1214842bfdc8e65c62ec8b9f85f4df836585627c7c6afcb69b0",
+              "group": "89be5a071e9ba9571b38a7ff1612c35c05f2661c26c7473cc33cde8338e36b5a",
+              "domain": "geography"
+            },
+            {
+              "id_sha256": "cc4efdd3af245c885e47a8ba7c104456bf60b1350ab8bc75875816a215d1c431",
+              "group": "080b6bc999be21b665b5c0855c01d2c8e1ff9742e6ea79d0951845a0849ab984",
+              "domain": "geography"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "c5bab555eec7a6eeab913e94b1e82d944b5e9246ca4a95884332984a3fcc22ac",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "group": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "group": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "group": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "6ac5d8b4e4c15f8f31b0c334c8012770a504d11d18a5b307103ca2d3632dd557",
+              "group": "978c411afbb282de84656c18e634929fb8c0fac52288fde77d3a66fc6f1e7e51",
+              "domain": "geography"
+            },
+            {
+              "id_sha256": "045cfb2e6a55e95f433821d717ba51f42ec8e0d1e81f29f6e8d16584c364a124",
+              "group": "045cfb2e6a55e95f433821d717ba51f42ec8e0d1e81f29f6e8d16584c364a124",
+              "domain": "geography"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {
+            "parent_gate_NLL": 4.212815441191196,
+            "spectral_NLL": 4.184661328792572,
+            "answer_NLL": 15.527088505881174
+          }
+        },
+        {
+          "stage": 16,
+          "current_QA": 2,
+          "old_QA": 7,
+          "current_payload_bytes": 10919680,
+          "old_payload_bytes": 33445881,
+          "gradient_QA": 9,
+          "candidate_forward_QA": 18,
+          "mask_different": true,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 7,
+          "bank_after_bytes": 33243794,
+          "seconds": 11.525117861994659,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 175367776,
+            "CPU_tensor_storage_count": 60,
+            "logical_current_payload_bytes": 10919680,
+            "logical_bank_payload_bytes": 33445881,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 164246832,
+            "CPU_tensor_storage_count": 52,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 33243794,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "c63d4952ce6ed52f0382c4aab6bf434e2fc8c38f258e69195c2bfb1bb228e837",
+              "group": "c63d4952ce6ed52f0382c4aab6bf434e2fc8c38f258e69195c2bfb1bb228e837",
+              "domain": "finance"
+            },
+            {
+              "id_sha256": "3f9ddd41f2f89ce0127a965e433fd4b4123dfa6b02488480faad8a8aec5d2a1d",
+              "group": "3f9ddd41f2f89ce0127a965e433fd4b4123dfa6b02488480faad8a8aec5d2a1d",
+              "domain": "finance"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "c5bab555eec7a6eeab913e94b1e82d944b5e9246ca4a95884332984a3fcc22ac",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "group": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "group": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "group": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "045cfb2e6a55e95f433821d717ba51f42ec8e0d1e81f29f6e8d16584c364a124",
+              "group": "045cfb2e6a55e95f433821d717ba51f42ec8e0d1e81f29f6e8d16584c364a124",
+              "domain": "geography"
+            },
+            {
+              "id_sha256": "197afe73b216c1214842bfdc8e65c62ec8b9f85f4df836585627c7c6afcb69b0",
+              "group": "89be5a071e9ba9571b38a7ff1612c35c05f2661c26c7473cc33cde8338e36b5a",
+              "domain": "geography"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {
+            "parent_gate_NLL": 4.965097188949585,
+            "spectral_NLL": 5.665154031344824,
+            "answer_NLL": 17.312930447714667
+          }
+        },
+        {
+          "stage": 17,
+          "current_QA": 2,
+          "old_QA": 7,
+          "current_payload_bytes": 15690639,
+          "old_payload_bytes": 33243794,
+          "gradient_QA": 9,
+          "candidate_forward_QA": 18,
+          "mask_different": true,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 7,
+          "bank_after_bytes": 33243794,
+          "seconds": 12.4575344449986,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 177393072,
+            "CPU_tensor_storage_count": 52,
+            "logical_current_payload_bytes": 15690639,
+            "logical_bank_payload_bytes": 33243794,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 161705776,
+            "CPU_tensor_storage_count": 44,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 33243794,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "ed1bf531f3aca50e7e701fd2723fdb0e3d090578d3e96de990548a5a2d830e69",
+              "group": "ed1bf531f3aca50e7e701fd2723fdb0e3d090578d3e96de990548a5a2d830e69",
+              "domain": "traffic"
+            },
+            {
+              "id_sha256": "0115bd5daa5adaba38a6504e3f121b8c05cb1eff6ce9f0a8fce4442107fafc84",
+              "group": "0115bd5daa5adaba38a6504e3f121b8c05cb1eff6ce9f0a8fce4442107fafc84",
+              "domain": "traffic"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "c5bab555eec7a6eeab913e94b1e82d944b5e9246ca4a95884332984a3fcc22ac",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "group": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "group": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "group": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "045cfb2e6a55e95f433821d717ba51f42ec8e0d1e81f29f6e8d16584c364a124",
+              "group": "045cfb2e6a55e95f433821d717ba51f42ec8e0d1e81f29f6e8d16584c364a124",
+              "domain": "geography"
+            },
+            {
+              "id_sha256": "3f9ddd41f2f89ce0127a965e433fd4b4123dfa6b02488480faad8a8aec5d2a1d",
+              "group": "3f9ddd41f2f89ce0127a965e433fd4b4123dfa6b02488480faad8a8aec5d2a1d",
+              "domain": "finance"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {
+            "parent_gate_NLL": 7.6018770933151245,
+            "spectral_NLL": 7.972869685717992,
+            "answer_NLL": 10.940093381064278
+          }
+        },
+        {
+          "stage": 18,
+          "current_QA": 2,
+          "old_QA": 7,
+          "current_payload_bytes": 15685775,
+          "old_payload_bytes": 33243794,
+          "gradient_QA": 9,
+          "candidate_forward_QA": 18,
+          "mask_different": true,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 6,
+          "bank_after_bytes": 26555047,
+          "seconds": 12.257677108005737,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 182516752,
+            "CPU_tensor_storage_count": 53,
+            "logical_current_payload_bytes": 15685775,
+            "logical_bank_payload_bytes": 33243794,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 160144352,
+            "CPU_tensor_storage_count": 41,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 26555047,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "d4f44e2582070a375f0118ca529c4504736ef3e16b91026bf4591a3109fe0a3d",
+              "group": "d4f44e2582070a375f0118ca529c4504736ef3e16b91026bf4591a3109fe0a3d",
+              "domain": "traffic"
+            },
+            {
+              "id_sha256": "a1ae2518f723b37bbf25b29a178169679ed5f801bcce48edb5280de696fbd0db",
+              "group": "a1ae2518f723b37bbf25b29a178169679ed5f801bcce48edb5280de696fbd0db",
+              "domain": "traffic"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "c5bab555eec7a6eeab913e94b1e82d944b5e9246ca4a95884332984a3fcc22ac",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "group": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "group": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "group": "cf55c55085a2ba85f965474d30fa902f6fb0f383d9283a24842f79df7e323916",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "045cfb2e6a55e95f433821d717ba51f42ec8e0d1e81f29f6e8d16584c364a124",
+              "group": "045cfb2e6a55e95f433821d717ba51f42ec8e0d1e81f29f6e8d16584c364a124",
+              "domain": "geography"
+            },
+            {
+              "id_sha256": "3f9ddd41f2f89ce0127a965e433fd4b4123dfa6b02488480faad8a8aec5d2a1d",
+              "group": "3f9ddd41f2f89ce0127a965e433fd4b4123dfa6b02488480faad8a8aec5d2a1d",
+              "domain": "finance"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {
+            "parent_gate_NLL": 8.527401770864213,
+            "spectral_NLL": 7.626663701874868,
+            "answer_NLL": 11.0324798311506
+          }
+        },
+        {
+          "stage": 19,
+          "current_QA": 2,
+          "old_QA": 6,
+          "current_payload_bytes": 15688755,
+          "old_payload_bytes": 26555047,
+          "gradient_QA": 8,
+          "candidate_forward_QA": 16,
+          "mask_different": true,
+          "selected": "spectral",
+          "fallback": null,
+          "count_before": 669468704,
+          "count_after": 662833184,
+          "final_trainable": 0,
+          "bank_after_QA": 6,
+          "bank_after_bytes": 26555047,
+          "seconds": 11.010149975991226,
+          "memory_before": {
+            "actual_CPU_tensor_storage_union_bytes": 171292256,
+            "CPU_tensor_storage_count": 48,
+            "logical_current_payload_bytes": 15688755,
+            "logical_bank_payload_bytes": 26555047,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "memory_after": {
+            "actual_CPU_tensor_storage_union_bytes": 155605216,
+            "CPU_tensor_storage_count": 40,
+            "logical_current_payload_bytes": 0,
+            "logical_bank_payload_bytes": 26555047,
+            "excludes_Python_allocator_overhead_and_other_process_memory": true
+          },
+          "current_coverage": [
+            {
+              "id_sha256": "72e8185658119cc3e593b1ebdc22ee1180fb4dbf7027b87714246639146dbe98",
+              "group": "72e8185658119cc3e593b1ebdc22ee1180fb4dbf7027b87714246639146dbe98",
+              "domain": "traffic"
+            },
+            {
+              "id_sha256": "2aef014024661848246e40205e3dfee77bebfb79a9216b4bc665e9d01656cfae",
+              "group": "2aef014024661848246e40205e3dfee77bebfb79a9216b4bc665e9d01656cfae",
+              "domain": "traffic"
+            }
+          ],
+          "old_coverage": [
+            {
+              "id_sha256": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "group": "9cf68574d0da0c85b871136f8e98510ed11d2765d9034c44173e14e0b4581396",
+              "domain": "natural"
+            },
+            {
+              "id_sha256": "c5bab555eec7a6eeab913e94b1e82d944b5e9246ca4a95884332984a3fcc22ac",
+              "group": "6be16365081081cfa1c67e813dd92012823636ed7d29d461c4648fd9602d3a71",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "group": "796258e383a54e16a08921f0c6c465f3a141eb00e17c71a376b59c932255c3d8",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "group": "037e53486c5a2186dafc574025b8f91a0ea820ed56ff97f19548597dce713229",
+              "domain": "medical"
+            },
+            {
+              "id_sha256": "045cfb2e6a55e95f433821d717ba51f42ec8e0d1e81f29f6e8d16584c364a124",
+              "group": "045cfb2e6a55e95f433821d717ba51f42ec8e0d1e81f29f6e8d16584c364a124",
+              "domain": "geography"
+            },
+            {
+              "id_sha256": "3f9ddd41f2f89ce0127a965e433fd4b4123dfa6b02488480faad8a8aec5d2a1d",
+              "group": "3f9ddd41f2f89ce0127a965e433fd4b4123dfa6b02488480faad8a8aec5d2a1d",
+              "domain": "finance"
+            }
+          ],
+          "current_rejected_id_sha256": [],
+          "compact_parameter_bytes": 1325666368,
+          "candidate_NLL": {
+            "parent_gate_NLL": 8.151536782582602,
+            "spectral_NLL": 7.6585804621378575,
+            "answer_NLL": 10.53082001209259
+          }
+        }
+      ],
+      "event_timing_sums": {
+        "seconds": 649.176391756002
+      },
+      "save_seconds": 274.5042428779707,
+      "logical_checkpoint_bytes": 28216482266,
+      "memory_summary": {
+        "unit": "bytes",
+        "before": {
+          "phase": "training_before",
+          "stage": 0,
+          "unix": 1792757018.8973649,
+          "pid": 837565,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 4863205376,
+          "VmRSS_bytes": 4863205376,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 4352205824,
+          "Private_Clean_bytes": 78983168,
+          "Private_Dirty_bytes": 3923910656,
+          "cpu_uss_bytes": 4002893824,
+          "gpu_allocated_bytes": 1363816960,
+          "gpu_reserved_bytes": 2661285888,
+          "gpu_peak_allocated_bytes": 1921361408,
+          "gpu_peak_reserved_bytes": 2661285888,
+          "gpu_process_nvml_bytes": 4167041024,
+          "trainable_parameters": 0,
+          "trainable_parameter_bytes": 0,
+          "model_parameter_bytes": 1325666368
+        },
+        "after": {
+          "phase": "training_after",
+          "stage": 19,
+          "unix": 1792758194.3834503,
+          "pid": 837565,
+          "visible_gpu": "1",
+          "VmHWM_bytes": 19122364416,
+          "VmRSS_bytes": 18866855936,
+          "VmSwap_bytes": 0,
+          "Pss_bytes": 18354012160,
+          "Private_Clean_bytes": 209928192,
+          "Private_Dirty_bytes": 17793236992,
+          "cpu_uss_bytes": 18003165184,
+          "gpu_allocated_bytes": 1402107392,
+          "gpu_reserved_bytes": 1639972864,
+          "gpu_peak_allocated_bytes": 1988720640,
+          "gpu_peak_reserved_bytes": 2418016256,
+          "gpu_process_nvml_bytes": 3277848576,
+          "trainable_parameters": 6635520,
+          "trainable_parameter_bytes": 26542080,
+          "model_parameter_bytes": 1352208448
+        },
+        "growth_bytes": {
+          "VmRSS_bytes": 14003650560,
+          "Pss_bytes": 14001806336,
+          "cpu_uss_bytes": 14000271360,
+          "gpu_allocated_bytes": 38290432,
+          "gpu_reserved_bytes": -1021313024,
+          "gpu_process_nvml_bytes": -889192448
+        },
+        "observed_peak_bytes": {
+          "VmRSS_bytes": 19271360512,
+          "Pss_bytes": 18817798144,
+          "cpu_uss_bytes": 18466947072,
+          "gpu_allocated_bytes": 2758363648,
+          "gpu_reserved_bytes": 3409969152,
+          "gpu_process_nvml_bytes": 5047844864
+        },
+        "note": "Process memory; CUDA allocator, reserved cache and NVML process allocation are separate. Before/after retain method state and exclude optimizer after cleanup."
+      },
+      "phase_caution": "training_after retains temporary AB before the last consolidation; compact boundaries are consolidation_after_saved/layouts"
+    }
+  },
+  "new_pair": {
+    "primary": "Answer_minus_Spectral",
+    "domain_difference_pp": {
+      "natural": 0.0,
+      "medical": 0.0,
+      "geography": 0.0,
+      "finance": -0.0001574728752972293,
+      "traffic": -0.1510792313728942
+    },
+    "macro_difference_pp": -0.03024734084963828,
+    "QA_comparison": {
+      "natural": {
+        "higher": 0,
+        "lower": 0,
+        "equal": 20
+      },
+      "medical": {
+        "higher": 0,
+        "lower": 0,
+        "equal": 20
+      },
+      "geography": {
+        "higher": 0,
+        "lower": 0,
+        "equal": 20
+      },
+      "finance": {
+        "higher": 0,
+        "lower": 1,
+        "equal": 19
+      },
+      "traffic": {
+        "higher": 4,
+        "lower": 3,
+        "equal": 13
+      }
+    },
+    "all_QA_differences": [
+      {
+        "id_sha256": "00eacc882e84c4a9a28b27caad8bc4360547798b152ecb5893f9c6a069b468e0",
+        "domain": "natural",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "0483710d507e6c0df01bdd8156722c707179b52f9d733ebd869dfaa6d134345c",
+        "domain": "natural",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "06dc026fd7b3bbc5d04c85f237bcfae60002d6be8e0cc878ad02dae391ad7cf7",
+        "domain": "natural",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "103e10912e2c227da370eaf18c4e90a119672fcdfb84e51dbb0f2822f98503bf",
+        "domain": "natural",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "1fb3c2e74bfa1fcced7e9c7937e0e4ba2b60c2422d83c6f109f8c487938b26a9",
+        "domain": "natural",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "32d2846e6bd8642fa9e248422d5882bad0124cd191395b93e015dee91f9bb30e",
+        "domain": "natural",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "3ca3f1ebbc0f94647cfbd7231a97365adafcb8373feae395a983681e8fdfc05a",
+        "domain": "natural",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "41cccddfd1dd962491c75878c4371fe13801563982237f36507956f1a2e586ff",
+        "domain": "natural",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "46f358c783799f0bcc8ce7d6bb28fb28987502d3879132a56cdfb72c37dec018",
+        "domain": "natural",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "5401bdddedc1b5dd05b641c74dd447205d9630a8043fb34ed922e2e0cacee30a",
+        "domain": "natural",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "58c3a051045e61d3cd41f287886845720c129edd0123cf90525398cc8d82cf4b",
+        "domain": "natural",
+        "factor": 3.0303030303030303,
+        "anchor": 3.0303030303030303,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "6414ef48a41d14b614eabb08b76f3a7e83bb13750e0b40fa14e8f875be529fad",
+        "domain": "natural",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "71cbfdc1af47001bf6da14e775ff2aa21ded71bf121c66ab9ba73862a024c8fc",
+        "domain": "natural",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "7beaf73d14181249673a3b94fac75b8642f6305f4b30023f9de9e5fe1446645c",
+        "domain": "natural",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "a4eddb3e4fa61befd9d0eb768365e1f3bd6f37c54596b6e823a937d7e78ccb1d",
+        "domain": "natural",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "a7bc48ce28f48f43d87c9475ba376c5b92b8d76e6694effa8ac03a3d435e9500",
+        "domain": "natural",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "ab86eac4172efc6e4a07a156aebaca2afd853c1ebff6ccae3ce6430cb59541a4",
+        "domain": "natural",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "c1e44fc2af56f062af5f15df5925e08201bd93fe0179b62b9a970daf248cc98f",
+        "domain": "natural",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "ead886d2f1c2b301e9583d97a3e3e7ffcea660a4249b6e6b18ad7a6baff8d0d1",
+        "domain": "natural",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "f689449c108a52129309d46d9c6d4e13d6adefb3e3c35bfc30a211b43fcecdeb",
+        "domain": "natural",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "1bb6142730dc2d3a55e1aa81aa32c3c831db49533dc1237789ad3785b66b30e7",
+        "domain": "medical",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "1f0508c9589a7a64fc9cb74ce758c83dfe9134d3ef3225c43b49503ed4fdfb33",
+        "domain": "medical",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "3c9db417d7a7fb50849f7b743a7ae20a2b2e32bd5721b8badf9a37668718b10d",
+        "domain": "medical",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "44f74b0e8bf5f496ec1a9b6f13e86a373ab0bce6622ce5035558ad0168ffba31",
+        "domain": "medical",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "2ba6b7836d38f47733b94819e10775cc53674413cdf29e158b2511b9fc9e0fb2",
+        "domain": "medical",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "ece2ca9f1ad23ce172b9d569f3191683672ee7f0b25d7375052587870f68fdf8",
+        "domain": "medical",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "59dfce8d64527f9c54d275af0a17852b36b81b64d1f299ea73a1661f31db8244",
+        "domain": "medical",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "5d5c00e443a84f8dc09654c385b610cca1f192086e081e8c9ba7e4a0ae800ac4",
+        "domain": "medical",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "7c7a7dd9152b6424bddf730d7bb74001374c4209fbdf965291a86ebfe0304f6b",
+        "domain": "medical",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "9b5c8c528fe18f8f117c47beea83e9ea7a57d997ef11c8ba389dc0748935992d",
+        "domain": "medical",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "9f91e43e924f2a3f1795103c537f092023ef8f873ffc9da4ae64bc1ef2109578",
+        "domain": "medical",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "a0f9ada06ba7797a39836737c3016125feeefa115da91330924c291628586d4e",
+        "domain": "medical",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "aa4e9f550b4379d25f9b7ba9f84e7362c89f2cd8f82b0b9d6cfa823f9dae65a7",
+        "domain": "medical",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "aceb4c7264d69286f1d45fd2e93332dd8d63f58e8b843260e609134ae472c49d",
+        "domain": "medical",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "b37678791372bad4e0990442ef8c2d64a966956345c08d118a7cf5841803c920",
+        "domain": "medical",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "072dd83d0b0e2635720e4920c51861b238cf3d600a474ae680c2ab6bf2852ace",
+        "domain": "medical",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "9241a2ae0aa03206dd8b705e97f64b9c240ac09a9e4c1a4d05e498a3c975e8de",
+        "domain": "medical",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "d23cfb8851cfdd03a03db60ffb8203aa81a496c56f5394aaa12b6655bda0ffaa",
+        "domain": "medical",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "eedc7af69c7f059f7b756d433dd71e770e0db33554a6d207d72030ba338323c3",
+        "domain": "medical",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "f39907ae9c50d29350feb7f5e5f446e1dc8bde6821045067831d57e675e72a0a",
+        "domain": "medical",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "04ea8b8d4df81441d333129555719f4f089dae65c427c4a687aa27935aecb353",
+        "domain": "geography",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "31082d3d2f9a2705e1809fa15f9a6643a8518263770c4e7259ac90bc762f6259",
+        "domain": "geography",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "48ea8579444f81f150d3630aae6bd52315aa24f8d244697c1701dd4e7747bb6a",
+        "domain": "geography",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "6c7e365e50b49ba3f3140d1bf79609806781a7c7589b4016384d39fcd30b3ac5",
+        "domain": "geography",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "7f77363211050c04de82305027adf8a0aff30a875df4b5333b7533cf9f2c1ad1",
+        "domain": "geography",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "30fd4e0c59a4c3adc026538363e9ab726bd1bc50d2a49fef1e11ff048738e331",
+        "domain": "geography",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "2273ce6263c1345324794b3320e29d72af67a75acbddf967e55647abc9295e5d",
+        "domain": "geography",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "dd83292950eb5941e190be588c6f530ab10349fd9abb1de57c6335d322208cac",
+        "domain": "geography",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "3b0550536e070a3746427afbca94ffae251f14d7f1e8fe80aa245c5df5ca16bb",
+        "domain": "geography",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "7467dd532e30b32fa7d3be15031c42e9b1dc0f6d9a91199075b98916f9558e68",
+        "domain": "geography",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "f028f9d6df985577b91618f9bc0fd5c21338a9d1034bf32c5e0d5fcc1a25ceb7",
+        "domain": "geography",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "eccdc69b426237f6d403d5a91075555666d42ec325f76c339cf3afac68ea6f4e",
+        "domain": "geography",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "0fb47e0976a61053dcaa549fd86af037ed4d67117b5ce3527f1423a6008ac879",
+        "domain": "geography",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "57ee9c3307a13b9434318c356055d0fc08990403bf1b20128c4391e9de8dd603",
+        "domain": "geography",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "074ad900e11d1eb5117e48ed19b9c3866449dc932bec5a1bf777f42529992a03",
+        "domain": "geography",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "9667e3c5c6604cd11c716ede4f0a6d6493188feac7ee230c1a1258fbe2297d31",
+        "domain": "geography",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "244d7cda46ac87a5006a61d92593274398aa20620c514a29c4d90ada6cc873e4",
+        "domain": "geography",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "480af01e47c9a4d0099a4fc5711321ca4364596b3ff01d9dd7f54db623da33dc",
+        "domain": "geography",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "d833df5ddd597bdc6415fc5c33af2092bbb0668f26e723f3683311f696c894d8",
+        "domain": "geography",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "97c98cd76e4e35311a55054472fc41e63e2363e41fb1b360d2cb6482ace6989a",
+        "domain": "geography",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "04921eafc4ebe76ac9d444bfafb1960bd52d37b026e3cceb5d00dfdc4894d005",
+        "domain": "finance",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "057ef37ffd8938cf1445af612e87db2a56217f1460ee3ea596ddf5e8003801a1",
+        "domain": "finance",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "0f92196bb69582a4a3218a89daa11d88128a33d961a86b8bd5b52fa32a861422",
+        "domain": "finance",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "2afbbd8bc59a6d89ed70592ef2ce284a8b754ac947406db026d30de267f4834d",
+        "domain": "finance",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "385ba1936c12ad270e3be343df9147239fcd3208d18a0af76fa27d5d6e03bb5c",
+        "domain": "finance",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "5f67ded942e030c95e7c66a099680af524d6365bf83bd710bafef3db453b3ec7",
+        "domain": "finance",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "6acb6f4933724ac45f97d05c1529790a528c9d4d2ba25c2d3d03afe19450a8e5",
+        "domain": "finance",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "7c5fe1721c3c0704df56bc9bd04b6f6aed31bfee881d73fe6e5a54cea8a426b2",
+        "domain": "finance",
+        "factor": 1.3513513513513513,
+        "anchor": 1.3513513513513513,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "800fb0d3d91e58f7792686f57888cfdf9dde963922e1de29e1fcc5352ef9cab2",
+        "domain": "finance",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "865c148423ff5e9e25c2343a568266cd7f58b405b2d011787677d589acdd63c9",
+        "domain": "finance",
+        "factor": 0.3952569169960474,
+        "anchor": 0.398406374501992,
+        "difference_pp": -0.003149457505944586
+      },
+      {
+        "id_sha256": "9ead8c5ae66579fd2e1cb0b7c81a21cdbd031dd3163fad9f7fb79f5f2b39f8b9",
+        "domain": "finance",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "a5a289cd7b3fe264732d38c80e3631d9e67ad86b0a9bd5f3a939a2f0978e5c84",
+        "domain": "finance",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "aa7968ab563b151dcd9e894535d5d15498ee210693872f9160ce7504106f4e7e",
+        "domain": "finance",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "b3ceb2eaad526750db805b7168849a7c4d50f2dd0ae7d36ba9a41d4596215e83",
+        "domain": "finance",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "b55ac40987f4724358f3bd646be70d005493ad069ee9617f90f968de6d56c54f",
+        "domain": "finance",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "ec9e8b86478cfe52467c494bdf6b77df2b8388cdf1ba101c26a5a676f201bf6b",
+        "domain": "finance",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "ef124606c36173f3744d3a925aa53a40c391d1de3d3fe3e336dff6dcc6bcea11",
+        "domain": "finance",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "f40e765124a8c2ec8afd73016fda5b8c2434fa6f778c6a6b37224fb2b9105162",
+        "domain": "finance",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "f4ebdef379b3cb5123edccc7568a3682d7725b9d533d8109f607caefee846742",
+        "domain": "finance",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "fc0a021cf2bba8282b2528b581632ac7825581c7ebca95fd54cf12940864a67a",
+        "domain": "finance",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "085313aac043c926b8b0a4686fd1851f59cab7d4f70863aabefafc15585541cc",
+        "domain": "traffic",
+        "factor": 0.0,
+        "anchor": 2.631578947368421,
+        "difference_pp": -2.631578947368421
+      },
+      {
+        "id_sha256": "1812dcaf1aa3f145f40e17b6cce0da0c3fa9928ccaa59ae714c67241e753c322",
+        "domain": "traffic",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "349ae59c66d0215dffcb20027091a6c1831dc306f85c267e923301b3f81e72ef",
+        "domain": "traffic",
+        "factor": 2.207505518763797,
+        "anchor": 2.207505518763797,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "361a4b3035a105a5ac91e2e1b62aaeb74d782fdf60be48c31e46626322924eba",
+        "domain": "traffic",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "3d5330a17f2acf908defc8f1991a826ee0b12f495fa610de130f04fd1c241559",
+        "domain": "traffic",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "47980c245cc8075a377351a9603d411dc6bfdb7c4915d2ecf41afa8a35e917ea",
+        "domain": "traffic",
+        "factor": 3.1298904538341157,
+        "anchor": 3.1201248049921997,
+        "difference_pp": 0.009765648841915997
+      },
+      {
+        "id_sha256": "4ad3073c77a940cb21435d20370ad3d9a4e161ff7c9e9d8e311ad8ac336c5752",
+        "domain": "traffic",
+        "factor": 2.666666666666667,
+        "anchor": 1.9047619047619049,
+        "difference_pp": 0.7619047619047621
+      },
+      {
+        "id_sha256": "4b118d10bbafcb32d2a0b2cc8624e23be68e23ff8133c29afdda737c374e5e29",
+        "domain": "traffic",
+        "factor": 2.385008517887564,
+        "anchor": 2.385008517887564,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "57f4d1461e6e8046442c00eab88a7284f5c4c0b502046d84ddb7fbbaa3c5f6e9",
+        "domain": "traffic",
+        "factor": 4.597701149425287,
+        "anchor": 4.545454545454546,
+        "difference_pp": 0.05224660397074121
+      },
+      {
+        "id_sha256": "5dbef21c4b6e1c99df6b33337ab0ed7fd07aedb0bdfa93b23ba3b92c00dfe065",
+        "domain": "traffic",
+        "factor": 2.3255813953488373,
+        "anchor": 2.8503562945368173,
+        "difference_pp": -0.5247748991879799
+      },
+      {
+        "id_sha256": "68091013d9bf2d85adaa23aac808dea0ab006ed2454ca0fdbf96e4af96e7c787",
+        "domain": "traffic",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "797c3b8788776fbffa22c637f457fdd537f41957c38301b466cc7fdc15c47ea0",
+        "domain": "traffic",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "8c6bd3f931daa5bf0ca4586e17912a66cd464a78201f6a5a67b57e4950999d25",
+        "domain": "traffic",
+        "factor": 25.196850393700785,
+        "anchor": 25.196850393700785,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "9410df4a4d244d734400f889d6f442e3e54708d503919b203c1ee3634ea1697d",
+        "domain": "traffic",
+        "factor": 1.809954751131222,
+        "anchor": 1.809954751131222,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "9b185b76a4580d0d7e8180ce0a5052221ab87519d0f3f9d6cc3184bfe2ad91ef",
+        "domain": "traffic",
+        "factor": 13.084112149532709,
+        "anchor": 13.084112149532709,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "a54bb18d0490bf2d70032620498011dddeda92bb41a21670f37fc18a2545af86",
+        "domain": "traffic",
+        "factor": 2.272727272727273,
+        "anchor": 2.272727272727273,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "b9c6a7bc2093804846930b2a94589e0227bab17d8cbb031317a1bfebf0a1334e",
+        "domain": "traffic",
+        "factor": 9.768637532133676,
+        "anchor": 10.614525139664805,
+        "difference_pp": -0.8458876075311288
+      },
+      {
+        "id_sha256": "ba0ed30ec3fd49348cbf2c2ef1d376c3a4b9168d03ade41f5dccbefb74f40260",
+        "domain": "traffic",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      },
+      {
+        "id_sha256": "d21011b72c5e3a52bf0db9ef3c9123c7e7863b7398128bd82bbb9bc2736ace7f",
+        "domain": "traffic",
+        "factor": 13.793103448275861,
+        "anchor": 13.636363636363635,
+        "difference_pp": 0.1567398119122263
+      },
+      {
+        "id_sha256": "f53475ef03ff1f5f1c420a4ab8089a5d7c77bfa8ccc7273419a5bc84fa70f53a",
+        "domain": "traffic",
+        "factor": 0.0,
+        "anchor": 0.0,
+        "difference_pp": 0.0
+      }
+    ],
+    "exploratory_group_interval_pp": {
+      "natural": [
+        0.0,
+        0.0
+      ],
+      "medical": [
+        0.0,
+        0.0
+      ],
+      "geography": [
+        0.0,
+        0.0
+      ],
+      "finance": [
+        -0.0004724186258916879,
+        0.0
+      ],
+      "traffic": [
+        -0.46883960424195686,
+        0.07722980628646077
+      ],
+      "macro": [
+        -0.09376792084839138,
+        0.015444386528539205
+      ]
+    },
+    "replicates": 10000,
+    "seed": 20261023,
+    "reused_DEV_not_new_holdout": true,
+    "not_equivalence_significance_or_training_seed_uncertainty": true,
+    "old_two_comparisons_not_repeated": true
+  },
+  "binding": {
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/consolidation/S01.json": "df97069d56bdee331247ebb97481f86d9a63f5f9dc3c2823ab5fe39dfca100a6",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/layouts/S01.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/checkpoints/stage_01.json": "242ed64e5fcc5de71ea4acaf556896cab3c59d4679748fe8effd4164f12247d8",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/consolidation/S02.json": "e8a679fac84172d84b2d74a6afada5c92cede36f414bfba47df5268331eedbf0",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/layouts/S02.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/checkpoints/stage_02.json": "95d95024e574ff91f8998d5581688a4b6746f4f67ccd3e2fe3f00f59039382e1",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/consolidation/S03.json": "281609d8e0f00014849464cc30e9e9ce77b7948f4cc14307e48f46680d85f2d7",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/layouts/S03.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/checkpoints/stage_03.json": "17ce889b01a3a87912338aa62fc93e983fb08b52388c67c23b2b5ff49cc20361",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/consolidation/S04.json": "caa11de4ebfe5f2ae3e92ab02d3c5adddcf025796c6491fd5f566fb370a64418",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/layouts/S04.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/checkpoints/stage_04.json": "c394594cd1a3767319061d4caae0497c3daa2c246523eb1e2b35067917269333",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/consolidation/S05.json": "e2ff7f0d90587aba070be6defa236b1817c90c1f9ddd868448781d164db12d51",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/layouts/S05.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/checkpoints/stage_05.json": "43e7c2ec0f27935a0b116cf7da0e2e8696d90183d3b449b99ddb588a1c677520",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/consolidation/S06.json": "efaae68acab1a62b7eabb43f0c72a0bf3a5efade2827c1b2ea41d970d8edc9b9",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/layouts/S06.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/checkpoints/stage_06.json": "743854f6a14b511e22bd37df1ea98cd4d4f5491ef54c3235116937375012a252",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/consolidation/S07.json": "0c83280b262e2e596f877c72fdbae119c0552cbd3ff34617efddd92a6fb43643",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/layouts/S07.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/checkpoints/stage_07.json": "eefa722b7783160ef0937f2444102c76688325f7b5574dd487cefdb4ae75ec93",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/consolidation/S08.json": "d00785f8c41fb3c6ffe8f29ff9cb556b902c9cad373926ce85b4a7013ef3fd2a",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/layouts/S08.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/checkpoints/stage_08.json": "075eabe83d6b29d1bf64ecbe72d9ab9f1dc706dda4343a191ff6ad7b62bf4d6a",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/consolidation/S09.json": "8d314a5b95d049a2e2c6b77eb21f24aef446c66c9c4d97faa3f1380be27eaaea",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/layouts/S09.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/checkpoints/stage_09.json": "aa13033da4402a1e7bd8b783e24a19d90f09003edd2d4d5ffde5cd89b3798694",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/consolidation/S10.json": "91dfce8dcc121d5a33a59d0afd48d105c89162ef2aaf4c9f5624e67d39430d79",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/layouts/S10.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/checkpoints/stage_10.json": "88439d7660e300335e4bce32267f3e5cd0f79bb9789b15fba478f2e1c4501052",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/consolidation/S11.json": "ad6b65e251375a23027f13a4e4b98c13520bb574e46a23dc82f15f711001b632",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/layouts/S11.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/checkpoints/stage_11.json": "8f7ef82ace550944b9928fd626938f991341ac578f803b3bf8a402159cea4972",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/consolidation/S12.json": "25e029549b2d7b24c60e16fbb9d224f4f126773ccdacf582e3a71f004d6ace64",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/layouts/S12.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/checkpoints/stage_12.json": "1e61ff50a09b6687377c5fedff5d513fdb689ff79f465aca0b965ac8cc923917",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/consolidation/S13.json": "ac91a4f805000fe02745978e23f9f443801843c5d30c9d44cbe2c6d3d84bc4ce",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/layouts/S13.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/checkpoints/stage_13.json": "5ee186fc210e54e01c244ecdc57eea892abdda2ddb126e1f5381195d60429df5",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/consolidation/S14.json": "3948d2b9744cc4d16b9667af60b25ca9c81bf21caac80fd4ba492fabb7224e16",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/layouts/S14.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/checkpoints/stage_14.json": "ab9e551b67fcccf2546f20072f0ce7e455306d0c6680138d0089bf9ae83e7850",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/consolidation/S15.json": "af59300095b31b91d7f1b33ef974c8a06fc2e36e1dc01fa70b30be2e7a2b20eb",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/layouts/S15.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/checkpoints/stage_15.json": "130f5ee2b8a6c746400f18c266e7a9f50ce575438ade6b6fd83c34c2735214b3",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/consolidation/S16.json": "5de0d7f3f44dd3bb5315da7e933ceedda8a3edcb8ed4c0e6f453571f514f0d20",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/layouts/S16.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/checkpoints/stage_16.json": "4434e1abc3baf2095fdbf5652bcd3b36e14808f23d9bd0b4dcb8555297125f68",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/consolidation/S17.json": "57b825a5632b65f7e7f1cde2a2da0f6e40ee43f40281230f2c128ef1197c8bbd",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/layouts/S17.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/checkpoints/stage_17.json": "326ed45bdae682e35622e459d761e2ecbc814573409552cc407cbd1710a3dcc6",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/consolidation/S18.json": "2061321265b36e2cbdee39f0821b5731d26dac63627e7dc0ad494233214c3627",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/layouts/S18.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/checkpoints/stage_18.json": "4b8553ba6619f3d4de8c7ae928ab0cb5252703de048fbed9a2eed5a440ecb804",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/consolidation/S19.json": "adb46df1101a0c79356b3274ca6a584adc50be7ea8cbabdfa14ea3eaf86afdb8",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/layouts/S19.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Spectral/checkpoints/stage_19.json": "0684f78a62db45081aa2f2c5fc6c3ff1499680bda604a50cbb7f8f3e65c205fb",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/consolidation/S01.json": "22972fa13c7d36876674b5064fbb6c7a0ae2d3a9f2ff05c4dd2621a6831c8fdb",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/layouts/S01.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/checkpoints/stage_01.json": "6a1323943c72b9d155029aa2f8ecb6323d10bc23c72d2b0f3a54fb5de9bf11ca",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/consolidation/S02.json": "60458ec76e6360526dfdfdb95cf950ccad89c88a4a09a38812f04ba7f729b000",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/layouts/S02.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/checkpoints/stage_02.json": "fb4ea367427a4ff7d0e9ba7177b7038ae9e189e962885904123672b6bfb9d241",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/consolidation/S03.json": "a89fa60fd0b7d74cb5e02f2dd7d62915d353434299f07a2ee9c66089a4c17b48",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/layouts/S03.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/checkpoints/stage_03.json": "8e6b8fe8bed4a893178e98ff71a547e5f75d59bbaf740350a3ab9ff43d7f3486",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/consolidation/S04.json": "be88ab6fd1e831c81d1320dd359c1b831d34eab139240e1c59702ccacd97c92b",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/layouts/S04.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/checkpoints/stage_04.json": "3d2d3d9df58174bcec26860cd6b8846cd97d4c3b276c927e26f0efeaa9c1cae2",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/consolidation/S05.json": "dea9974a58af89e85194a27a9db5ea821937730313db40551ea925db46340a08",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/layouts/S05.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/checkpoints/stage_05.json": "968bda6765f092edc523b016189134ce65c7a801a42b3ef9f40631599d2a725f",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/consolidation/S06.json": "e2c2d9052755ea1447cfa9747171f74f472f770a161c2d638cb6fab031164eb4",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/layouts/S06.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/checkpoints/stage_06.json": "17edc61aefbf199f91c637937d56ac1c25e62064fbe05b60d79d2227cd8203c3",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/consolidation/S07.json": "f3c77b16da8a4ddba8766100cfd88d67fabdc24598999a3e5c73536b185560d7",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/layouts/S07.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/checkpoints/stage_07.json": "116e0b908c8b9749dafc7f64a7ec361f7864948b71cabb1e9d8ce000add923fd",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/consolidation/S08.json": "f8ea2a6230cb00616b3d5d58f768467417178a865970a8a730c655c72ddb0c6f",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/layouts/S08.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/checkpoints/stage_08.json": "6545ba351325ac8ed9bfafccda335fd549500f5a6d671d4611b7e45e720e119d",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/consolidation/S09.json": "04b1b6fb0575812e01d3b51ec86486165eb6f25e69f817e77affc2cc39b506e8",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/layouts/S09.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/checkpoints/stage_09.json": "d24a4e8133c698841814f48028170261ce739b5f4a82e0da29771491781443db",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/consolidation/S10.json": "f8d5bca80f849f8d874dfdc2fa85e585d0b96a59fa16b3fad668bc1c828f5930",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/layouts/S10.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/checkpoints/stage_10.json": "67ab4be62a3fc8e41c4c23fad06f8edd01856eea39fed50d14c401728d25eb93",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/consolidation/S11.json": "08c665bde347e6dc6f4a44f329517cdbe2f187f3893ad46f90ebf3c4e24fb4e0",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/layouts/S11.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/checkpoints/stage_11.json": "82a957a8a53f0c48baf7479a5a472aa0abbffcbade200cbd46a6959e07e96513",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/consolidation/S12.json": "c4db1ea41977fd88076d5fb78b34ae69bd5825f3aca586cbc7c3d794434ee206",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/layouts/S12.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/checkpoints/stage_12.json": "a6ddbf6d87ab62e2fad73f7ff8caeca586a27c7ca9fcfb9072e6883f46f169d3",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/consolidation/S13.json": "e09062c198becdaa61cad9115ffced9413e3b0c4a5d9141b7ad577efab6ea31f",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/layouts/S13.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/checkpoints/stage_13.json": "5d1ad6fb13e724df81dea8cd261a221c363cdeca95e63d3bf3d5745c6538fec2",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/consolidation/S14.json": "071569bf5b45095548b1052c2b46f9cfb38ecda3f2ef3bae70bdc27256045405",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/layouts/S14.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/checkpoints/stage_14.json": "662aae5dd1a73b6ee3df123d903db16a7b713462681bdd0929d7758578beb7ff",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/consolidation/S15.json": "8cf899f3548932fdf21353a98e1a4f46a23cb7c493ddb0a5573453f15d53f3af",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/layouts/S15.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/checkpoints/stage_15.json": "95b2070ff928f512a506a339cee846b5070f895b994b0e891678bf6f640f068c",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/consolidation/S16.json": "955e2fba5ddaa87fd731c5f30e2f8ef69b6256077cbf90ee7f1a0bf2f4a0b2f9",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/layouts/S16.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/checkpoints/stage_16.json": "1a6043f907c2bb1502a8e174aa1c896cb03cac3b31361e6fb3e0ba05e7892c2b",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/consolidation/S17.json": "d41e39d382ac917fc9ada6364f747372d70a8d223c957da7bf507a9bccca8b70",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/layouts/S17.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/checkpoints/stage_17.json": "2e675522fcc3c2cbd9bdf976c8e5d43a6de8c1e0a8e43f2091d36c72f731494e",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/consolidation/S18.json": "8fa391643a05885b1a3695aa10559f346403a64fbf5da1579953754a8cebcad1",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/layouts/S18.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/checkpoints/stage_18.json": "d5f44e2fc525014a0463c5b56fea5883649a7a2b8d52634b6f034e1be103b1df",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/consolidation/S19.json": "f6a14c9d9b5dc07e58cfaedd1454fd42b9876d8b4b656e7cae7372b8f0d01771",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/layouts/S19.json": "421f1847ccff1cdc00836095675d624d17dad14fa900a268875c8ee61429b871",
+    "exp/answer_guided_rank_renewal_20261023/v1/private/Answer/checkpoints/stage_19.json": "620b6689d73a52901d1e8141bcdcfa2c56de725321cb08b99be3ddd37d056825"
+  },
+  "decision": "closed_negative_fixed_recipe",
+  "no_full_confirmation": true,
+  "no_retry_or_rank_LR_bank_search": true,
+  "no_new_model": true,
+  "no_QA_or_tensor_read": true,
+  "no_score_or_bootstrap_repeated": true,
+  "no_novelty_or_goal_achievement_claim": true,
+  "TEST_QA": 0,
+  "FWT": null,
+  "BWT": null,
+  "aggregate_model_RUN_seconds": 2927.040867692005,
+  "CPU_verification_seconds": 12.348661121010082,
+  "CPU_gate_seconds": 3.056610914,
+  "whole_freeze_entry_seconds": 23.365613,
+  "cost_caution": "Gate time is inside freeze entry. Save/consolidation/event timing overlap RUN; logical checkpoint bytes are not measured physical IO. Observed memory peaks are process-specific and not a fresh controlled speed or baseline memory experiment.",
+  "interpretation": [
+    "Both complete flows meet the final-weight target but fail the quality target by a large margin.",
+    "Answer proposed a distinct mask in all 19 stages; all 19 finite NLL comparisons selected the spectral candidate. This is not an empty-bank or identical-mask fallback.",
+    "Same CP0 and all-spectral decisions do not establish equal realized training trajectories. Final weight digests differ; this consumption does not identify why.",
+    "Initial compression, restricted 87-update adaptation, finite-precision consolidation, and implementation/optimization factors are not causally separated.",
+    "Do not generalize this failure to all low-rank representations or all uses of answer information. Do not call either method successful compression with retained quality.",
+    "Explored 100 DEV, one seed, 20 QA/domain, 89 known groups; tasks 7/8/9/12 have no DEV. No equivalence, stability, new holdout, training-seed uncertainty, or final TEST result."
+  ],
+  "consumer_seconds_before_write": 0.3577814439922804
+}

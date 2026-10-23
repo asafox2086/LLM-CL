@@ -1,4 +1,16 @@
-# 固定规模回答引导归并：当前状态
+# 固定规模回答引导归并：完整负结果，已关闭
+
+两流Spectral/Answer均已完整完成1213FIT、19阶段、87正LR更新及各100已探索DEV，并通过原唯一验证器。实际完整权重从893675552降至662833184（−25.83%），但五域宏F1分别只有0.9103938463/0.8801465055，远低于旧合法FIT-only锚43.7919874085。这是减重但未保留回答质量的固定配方负结果，不能称轻量高性能方法。
+
+Answer在全部19阶段提出不同mask，整体回答NLL二选一全部选回谱候选；没有空集合或相同mask fallback。额外138门反向QA、276候选前向QA计费，不能声称回答mask发挥了保留质量的作用。两流实际结果未建立等同，根因尚未由本实验隔离。
+
+当前无研究worker，原unit已自然inactive/exit0、canonical queue complete_verified。按预定出口关闭本r200/b16/原LR配方，不全1313/21454、不追rank/LR/库、不自动补恢复或v2，不恢复旧worker。所有旧负条件仍关闭、正式基线保全、科研目标未实现。
+
+结果详情见[FINDINGS](FINDINGS.md)、[OUTCOME](OUTCOME.json)、[RESULT_REVIEW](RESULT_REVIEW.json)和[RESULT_PUBLICATION](RESULT_PUBLICATION.json)。原PROTOCOL、五科学源及READY完全不改；原PUBLICATION/LAUNCH_OBSERVATION/PHASE_OBSERVED是冻结与启动历史。VERIFIED SHA90942989b8518e318f82c66ea3abfeb5b06249cbbe8d256aa88f367d4b329596，OUTCOME SHAae84b2b852c9c75e68852ad83606b0425b6aed26fa3fe647d0cae6fd7cec07ff。
+
+DEV已探索、单seed、每域20QA，不称新留出、显著、稳定、等效或完整TEST结果。细分成本与进程内存观测均在FINDINGS公开；32MiB库上限不是整机RAM上限。原verifier/评分/bootstrap不重跑，Ours/FWT/BWT不填。
+
+# 以下为原冻结与启动历史，已由上面的完整结果覆盖
 
 ## 问题
 

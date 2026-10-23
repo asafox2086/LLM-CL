@@ -1,0 +1,182 @@
+{
+  "decision": "accept_complete_negative_result_and_close_fixed_recipe",
+  "review_scope": "Independent interpretation and small-JSON provenance consistency review only. Read current AGENTS top and rules032-034, existing VERIFIED, both STARTED/COMPLETE and the already-executed OUTCOME consumer. The original verifier is relied upon, not rerun. No original prediction/QA/weight/tensor/CP payload, F1 computation, bootstrap, model, optimizer, CPU admission or GPU execution.",
+  "consumed_evidence_sha256": {
+    "summary/final_weight_reduction_20261023/answer_guided_pilot_v1/VERIFIED.json": "90942989b8518e318f82c66ea3abfeb5b06249cbbe8d256aa88f367d4b329596",
+    "summary/final_weight_reduction_20261023/answer_guided_pilot_v1/OUTCOME.json": "ae84b2b852c9c75e68852ad83606b0425b6aed26fa3fe647d0cae6fd7cec07ff",
+    "summary/final_weight_reduction_20261023/answer_guided_pilot_v1/cases/Spectral/COMPLETE.json": "c45e423d2693cbbe5ce4af20f8d8c31fc0f0c9f703f80be8ab2f616516752a77",
+    "summary/final_weight_reduction_20261023/answer_guided_pilot_v1/cases/Spectral/STARTED.json": "f6aa1153be4bcb59c0cabe3d0f8b86a1cb0f8ac43b9b1af9d216aebf5ef48098",
+    "summary/final_weight_reduction_20261023/answer_guided_pilot_v1/cases/Answer/COMPLETE.json": "8061b99ef1b66a27ae17041f5241cc1d3738328d6e8c901920778161530db019",
+    "summary/final_weight_reduction_20261023/answer_guided_pilot_v1/cases/Answer/STARTED.json": "fdcec711ceebef9f1433f39b5750b49d744dda4be60b1d373615ea084f94330d"
+  },
+  "case_evidence": {
+    "Spectral": {
+      "quality": {
+        "natural": {
+          "F1": 0.15151515151515152,
+          "QA": 20
+        },
+        "medical": {
+          "F1": 0.0,
+          "QA": 20
+        },
+        "geography": {
+          "F1": 0.0,
+          "QA": 20
+        },
+        "finance": {
+          "F1": 0.08748788629266717,
+          "QA": 20
+        },
+        "traffic": {
+          "F1": 4.312966193844284,
+          "QA": 20
+        }
+      },
+      "domain_macro": 0.9103938463304205,
+      "model_RUN_seconds": 1401.2826118640078,
+      "final_coefficients": 662833184,
+      "final_trainable": 0,
+      "parameter_bytes": 1325666368,
+      "full_checkpoint_reload_recorded": true,
+      "final_weight_digest": "83a4791042de094d12cc865baf58d2d75a641e8c02d50fa527101b2006611871",
+      "gradient_QA": 0,
+      "candidate_forward_QA": 0,
+      "different_masks": 0,
+      "answer_selected": 0,
+      "fallback_counts": {
+        "null": 19
+      },
+      "observed_memory_maximum_bytes": {
+        "VmRSS_bytes": 4832305152,
+        "Pss_bytes": 4571557888,
+        "cpu_uss_bytes": 4471476224,
+        "gpu_allocated_bytes": 2763205120,
+        "gpu_reserved_bytes": 4555014144,
+        "gpu_process_nvml_bytes": 4930404352
+      },
+      "save_seconds_19_stage_metadata": 282.7429507189954,
+      "recorded_update_seconds_sum": 629.782381629062,
+      "logical_19_checkpoint_bytes": 28216476634
+    },
+    "Answer": {
+      "quality": {
+        "natural": {
+          "F1": 0.15151515151515152,
+          "QA": 20
+        },
+        "medical": {
+          "F1": 0.0,
+          "QA": 20
+        },
+        "geography": {
+          "F1": 0.0,
+          "QA": 20
+        },
+        "finance": {
+          "F1": 0.08733041341736994,
+          "QA": 20
+        },
+        "traffic": {
+          "F1": 4.16188696247139,
+          "QA": 20
+        }
+      },
+      "domain_macro": 0.8801465054807822,
+      "model_RUN_seconds": 1525.7582558279973,
+      "final_coefficients": 662833184,
+      "final_trainable": 0,
+      "parameter_bytes": 1325666368,
+      "full_checkpoint_reload_recorded": true,
+      "final_weight_digest": "fff771f444ae53964c6777de021716fd1325d8f87769efe6e46d845f8f629aca",
+      "gradient_QA": 138,
+      "candidate_forward_QA": 276,
+      "different_masks": 19,
+      "answer_selected": 0,
+      "fallback_counts": {
+        "null": 19
+      },
+      "observed_memory_maximum_bytes": {
+        "VmRSS_bytes": 19271360512,
+        "Pss_bytes": 18817798144,
+        "cpu_uss_bytes": 18466947072,
+        "gpu_allocated_bytes": 2758363648,
+        "gpu_reserved_bytes": 3409969152,
+        "gpu_process_nvml_bytes": 5047844864
+      },
+      "save_seconds_19_stage_metadata": 274.5042428779707,
+      "recorded_update_seconds_sum": 649.176391756002,
+      "logical_19_checkpoint_bytes": 28216482266
+    }
+  },
+  "conclusions": [
+    "Both flows completed the recorded 19-stage/87-positive-update/100-explored-DEV protocol and actual compact layout. Final full model weight coefficients decreased from 893675552 to 662833184, but the quality target was missed severely: Spectral macro0.9103938463304205 and Answer macro0.8801465054807822 on the 0-to-100 F1 scale, far below the fixed legal FIT-only anchor43.79198740853657. This is a completed scientific negative result, not a training crash or successful quality-retaining compression.",
+    "The Answer flow proposed a different structural mask in every stage, performed138 gate-backward QA and276 candidate-forward QA, and adopted zero answer masks. From the fixed strict-comparison rule and recorded finite comparisons, no proposed answer mask strictly beat that stage spectral candidate on its own selected combined NLL. This is neither an empty-bank nor an identical-mask fallback.",
+    "The two complete flows share the same recorded untrained CP0 binding, but their final parameter digests and observed DEV scores differ. All-spectral choices do not establish bitwise-identical weights, functions or trajectories. A low-rank factor digest difference alone also does not prove an effective dense-matrix difference because factor representations can be redundant.",
+    "With zero answer-mask adoption, the endpoint macro difference is not evidence that adopting answer masks harmed or improved quality. It does not isolate the effect of the ranking proposal from the complete execution paths.",
+    "Initial data-free compression, restricted temporary adaptation, finite-precision reparameterization, and implementation/optimization factors were not causally separated. Neither RNG, SVD, rounding, capacity insufficiency nor a specific implementation defect is identified as the cause. There is no pre-adaptation DEV measurement supporting a claim that quality collapsed immediately at initial compression.",
+    "The exploratory paired interval spans zero and is conditional on already-explored QA groups, one training seed and this procedure. It establishes neither equivalence, stable harm, stable gain, cross-seed uncertainty nor final TEST performance.",
+    "The fixed primary exit is false. Close this r200/b16/one-LR/bounded-bank recipe, preserve all positive/negative evidence and cost, and do not perform full confirmation, hyperparameter rescue, worker restoration or fresh PAS replacement. This does not refute all low-rank representations or all uses of answer information."
+  ],
+  "recorded_pair": {
+    "macro_difference_pp": -0.03024734084963828,
+    "domain_difference_pp": {
+      "natural": 0.0,
+      "medical": 0.0,
+      "geography": 0.0,
+      "finance": -0.0001574728752972293,
+      "traffic": -0.1510792313728942
+    },
+    "QA_comparison_by_domain": {
+      "natural": {
+        "higher": 0,
+        "lower": 0,
+        "equal": 20
+      },
+      "medical": {
+        "higher": 0,
+        "lower": 0,
+        "equal": 20
+      },
+      "geography": {
+        "higher": 0,
+        "lower": 0,
+        "equal": 20
+      },
+      "finance": {
+        "higher": 0,
+        "lower": 1,
+        "equal": 19
+      },
+      "traffic": {
+        "higher": 4,
+        "lower": 3,
+        "equal": 13
+      }
+    },
+    "exploratory_macro_interval_pp": [
+      -0.09376792084839138,
+      0.015444386528539205
+    ]
+  },
+  "cost_interpretation": [
+    "The recorded model RUN times are1401.2826118640078 and1525.7582558279973 seconds, total2927.040867692005, within the frozen budget. Initialization/compression/save belongs to the Spectral/shared-init path, while Answer reloads that CP0. Raw wall differences are not a controlled measure of selection overhead or method speed.",
+    "Update-body and19-stage save metadata sums are overlapping components of RUN and must not be added to RUN. The checkpoint byte sums are logical serialized outputs, not measured physical IO or final model-weight size.",
+    "Answer observed RSS maximum19271360512 bytes versus Spectral4832305152 bytes is a process observation, not a controlled causal attribution to any cache or mechanism. The local32/16MiB bank caps and176MiB retained-tensor union cap are not whole-process RAM limits.",
+    "Observed allocated GPU maxima2758363648/2763205120 and NVML maxima5047844864/4930404352 are distinct quantities and sampled/recorded maxima. They are not inference peaks, complete deployment costs or proof of a memory advantage. training_after still precedes the final consolidation and contains temporary A/B, as OUTCOME correctly warns.",
+    "CPU verification12.348661121010082 seconds and admission are separate exploration costs. Gate3.056610914 seconds is inside the reported freeze-entry23.365613 seconds, so those two must not be added."
+  ],
+  "outcome_text_assessment": "OUTCOME interpretation, negative closure, null FWT/BWT, explored-DEV caveats and cost caution are acceptable. In prose, explicitly keep the zero-adoption endpoint difference separate from the unobserved causal benefit of answer-selected structures; call memory values observed maxima.",
+  "possible_followup_only": false,
+  "no_full_confirmation": true,
+  "no_retry_or_rank_LR_bank_search": true,
+  "no_goal_or_novelty_achievement": true,
+  "terminal_state_scope": "Parent reports service inactive/exit0 and queue complete_verified at2026-10-23T13:18:28UTC. The reviewer did not poll or independently inspect live processes.",
+  "unmodified": [
+    "Scientific sources",
+    "READY",
+    "Existing COMPLETE/VERIFIED/OUTCOME",
+    "All older closed research branches"
+  ],
+  "new_action_authorized_by_this_review": "None; preserve and publish the completed negative result and terminate this fixed branch."
+}
