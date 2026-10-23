@@ -1,0 +1,68 @@
+{
+  "reviewer": "review_next_probe",
+  "date": "2026-10-23",
+  "decision": "accept_narrowed_question_reject_shared_factor_as_new_framework_no_experiment_admission",
+  "scope": {
+    "performed": [
+      "定向阅读原始SkipCat论文及官方出版页",
+      "与主agent往返讨论结构重合、最终权重边界和两类可识别对照",
+      "仅标准库写入此新审阅文件"
+    ],
+    "not_performed": [
+      "模型或张量加载",
+      "QA或预测读取",
+      "训练、GPU、评分或bootstrap",
+      "作者实现复现",
+      "新实验准入"
+    ]
+  },
+  "direct_prior": {
+    "paper": "SkipCat: Rank-Maximized Low-Rank Compression of Large Language Models via Shared Projection and Block Skipping",
+    "official": "https://ojs.aaai.org/index.php/AAAI/article/view/39591",
+    "primary_full_text": "https://arxiv.org/html/2512.13494v1",
+    "locations": [
+      "3.2",
+      "Appendix B",
+      "4.3 Table 3",
+      "Appendix E"
+    ],
+    "overlap": "同层gate/up沿输出维拼接，共享输入低秩投影、保留两个输出重构分支；当前Wg=FgR、Wu=FuR结构已有直接先例。Cat-only同压缩率消融也已存在，但同时覆盖注意力与MLP，不是孤立gate/up的1%图文持续适应。",
+    "boundary": "其语言模型、混合文本白化及离线压缩设置不能保证本任务质量。定向检索未找到可验证的作者公开代码链接，不能声称核验过作者实现。"
+  },
+  "discussion_corrections": [
+    "共享R并不绑死两支输出适应：固定R时deltaFg与deltaFu仍独立；受约束的是门与值共同输入子空间的变更。",
+    "R的两支梯度相加是链式法则，不证明存在功能冲突；坐标依赖的负内积不能直接用于分配私有rank或解释F1。",
+    "同rank共享只减少因子表示中的重复输入因子，不能把全部低秩截断造成的整模减重归功于共享。",
+    "形状不证明实际共同rowspace低秩；保持两支线性映射的条件也不等同于整个SwiGLU函数的必要秩。"
+  ],
+  "parent_static_facts_consumed_not_independently_tensor_verified": {
+    "n": 896,
+    "m": 4864,
+    "layers": 24,
+    "base_coefficients": 893675552,
+    "shared_pair_cost": "k*(2*m+n)=10624*k",
+    "independent_pair_cost": "2*r*(m+n)=11520*r",
+    "equal_budget_integer_relation": "k=90*t, r=83*t",
+    "weight_scope": "gate/up总209190912，仅占原整模约23.408%；只动这两类无法达到旧25%整模成本点，该25%并非新的人类硬门槛。非冗余k<=896时重复输入因子减少最多约原整模2.156%，也不是相对原dense的净压缩证明。"
+  },
+  "two_questions_must_remain_separate": {
+    "A_learning_constraint": {
+      "question": "从共同父函数复制Rg=Ru=R，比较共享输入基与可独立改变的两个输入基，输入子空间共享的学习约束在固定配方下是否有可观测代价？",
+      "accept_concept": "精确实数代数下可保持初始有效W相同；真实实现仍需公开实际数值路径。独立副本多存一份R，预算不相等，必须完整计入。",
+      "conclusion_limit": "只能判断这一学习约束与新增存储的实际tradeoff；不能单独证明独立输入基普遍必要、私有rank分配正确或新框架有效。"
+    },
+    "B_size_quality": {
+      "question": "在相同最终完整权重预算下，共享或部分私有输入坐标能否得到更好的质量？",
+      "accept_concept": "这是规模—质量问题，需要独立明确结构预算；初始函数未必匹配，初始化损伤和参数化差异必须公开。",
+      "conclusion_limit": "不能拿各自SVD起点的结果唯一归因为共享梯度冲突，也不能把A的同功能与B的同预算说成天然同时满足。",
+      "unresolved_common_parent": "共同低秩父函数或零输出预分配列仅是可构造性线索，不证明保住原预训练回答功能；共同坏起点没有科研可用性保证。初始Jacobian差异须披露，所有预分配零列仍计入最终完整权重，不能按零输出当作已删除。"
+    }
+  },
+  "final_disposition": {
+    "closed": "普通拼接共享R作为原创主框架的主张关闭，不实现或自动开启GPU。",
+    "retained": "仅保留输入子空间独立适应是否值得额外存储这一具体、未证的必要性问题；已知共享表示可作为未来对照。",
+    "not_formed": "尚未形成shared+private算法，也没有保质量删权重的新证据。",
+    "next_decision_boundary": "若未来不能给出共同父函数、确切学习范围、完整权重计费及可推翻的质量—成本行动规则，则不进入新实验；发现直接先例不否定参数删除或复用研究本身。",
+    "historical_closures": "不恢复r200、factor、PAS、ShortFixed或其他已关闭条件，不自动完整确认。"
+  }
+}
