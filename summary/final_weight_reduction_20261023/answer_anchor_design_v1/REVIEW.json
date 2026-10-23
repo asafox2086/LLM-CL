@@ -1,0 +1,53 @@
+{
+  "decision": "accept_useful_falsifiable_question_reject_novel_framework_and_experiment_admission",
+  "files_sha256": {
+    "DESIGN.md": "51c5a3b3c48083a6e819ae903e85b2e8ec833033893c1d047abed90af2c212e9",
+    "RELATED_WORK.md": "afbf48879290bbc532355d3bc5b4c85b24ed87d0167c27ac1e094fbe9eab4e20",
+    "INTERFACE_EVIDENCE.json": "9bdcc36ae0452c25b63a3153d386813fb77e7ac84b29e7c8df5799f99fad73d3",
+    "PROVENANCE.json": "347b23a69a58afe619af8a6e4aef36eb8d3c29e663c79d4c252513552da1f6b5"
+  },
+  "scope": "Conceptual usefulness, algebraic sign, capacity, data-flow and evidence-scope review. Only these four new files were read; no model, tensor, QA, optimizer, GPU, F1 or bootstrap execution. No independent comprehensive literature audit or original gate/source re-execution.",
+  "accepted_points": [
+    "Recomputing the current full decoder on preserved seen-FIT inputs avoids claiming that stale internal layer coordinates remain current. It directly measures teacher-forced answer NLL on those anchors, not generation F1 or general protection.",
+    "With a zero A and finite nonzero B, the new residual is initially zero. The first-step A gradient may be nonzero while the first-step B gradient is zero. Training the temporary factors can introduce directions absent from the frozen compact F/G.",
+    "A thin factorization of F G^T + A B^T has rank at most r+b. Retaining exactly r components per layer fixes the allocated final factor count; it does not imply numerical rank exactly r or bound approximation/forgetting error.",
+    "At z=1, deleting one scalar gate has first-order loss change -g. The response candidate must keep the largest -g deletion costs, without absolute values; simultaneous deletions remain only a first-order proposal. The subsequent full-candidate evaluations are necessary to select between the two proposed structures, not to prove global optimality.",
+    "Both masks in one flow and stage share that flow-specific decomposed parent. Complete flows can have different parents after their first different choice, as the document explicitly states.",
+    "The 19 recorded feature payloads support only the stated sample-wise payload range and separate-entry total. They are not an actual deduplicated bank, all-FIT distribution, full memory peak or final-model reduction. A 32 MiB bank is an untested cost point.",
+    "The final weight budget includes the full fixed visual/text/projector components and compact factors; no original dense residual or inference-time anchor bank may be omitted. Temporary expansion, optimizer state, SVD and LRU/anchor union costs remain separate training costs."
+  ],
+  "necessary_text_clarification": [
+    "Specify descending ordering explicitly: retain the r components with largest -g. Negative scores are permitted and are not converted to absolute importance.",
+    "An index-free bounded online bank must be described by its actual online rule. It cannot promise recovery of the minimum-hash QA among all historical samples of an evicted/rejected group after that information has been discarded."
+  ],
+  "minimum_items_to_freeze_before_any_model_admission": [
+    "Selected physical replacement matrices, fixed per-layer ranks and final B below the common complete-model anchor; exact common initial compact model and its permitted initialization/recovery data schedule. No future-stage statistics or full-TRAIN teacher may enter it.",
+    "Temporary per-layer b and aggregate expansion limit, A/B initialization and scaling, factor packing/dtypes, LR/optimizer/reset rules, current-FIT update budget, and a total hard cost/time exit for both complete flows.",
+    "Anchor hash/scene-group identity, byte ledger and deduplication, rejection/eviction semantics, timing of current-stage admission into the historical bank, and fixed current-calibration sample/token limits. Empty-history and empty-calibration cases must be explicit.",
+    "Original TRAIN token/mask/position/attention semantics, QA-mean NLL aggregation and current/history weights, exact two candidate construction/sorting/tie rules, and the meaning of the decomposed parent under finite precision.",
+    "Full-flow comparison primary quality criterion and acceptable quality/cost exit, reporting all domains and explored-DEV status; unequal added anchor exposure/gradient/evaluation cost must not be called equal compute. No automatic full confirmation or third mechanism."
+  ],
+  "main_unresolved_risks": [
+    "Common initial compression may already remove useful pretrained function; post-task rank renewal cannot be assumed to repair it.",
+    "The same repeatedly reused small bank supplies gradient proposals and selects candidates, so anchor overfitting and domain/group undercoverage are expected risks. Lower chosen-anchor NLL is a consequence of the rule and not a scientific success result.",
+    "Stable-feature caching requires the entire producer, preprocessing, image packing, embeddings and semantic metadata to remain compatible. It is optional engineering, not a source of new functional protection or free storage.",
+    "Temporary factor-only training and truncation may fail to learn new tasks or retain old ones. Fixed stored coefficient counts do not establish useful function capacity or quality retention.",
+    "Without matched added computation, two complete flows support a quality-versus-cost comparison of full procedures, not a pure superiority claim for the proxy. They do not compare against the unimplemented FD/local-response candidate."
+  ],
+  "novelty_assessment": "Expand/train/truncate, latent replay, gradient-based component scores, and supervised finite-candidate selection are known ideas. The present candidate is sufficiently explicit to define a useful falsifiable question, but naming their combination does not establish a novel framework. The declared prior-work list is not an exhaustiveness certificate.",
+  "action": "Retain for a bounded design decision only. Resolve the minimum frozen items before deciding whether implementation is worth its cost; do not launch an experiment or revive any closed worker on the basis of this review.",
+  "published_files_modified": false,
+  "wording_followup": {
+    "previous_design_sha256": "51c5a3b3c48083a6e819ae903e85b2e8ec833033893c1d047abed90af2c212e9",
+    "final_design_sha256": "51c5a3b3c48083a6e819ae903e85b2e8ec833033893c1d047abed90af2c212e9",
+    "status": "requested_sign_sorting_and_bounded_bank_clarifications_present",
+    "checked": [
+      "Descending -g, retaining signed negative scores.",
+      "Stage-t scoring uses the fixed prior-stage bank; current FIT enters history only after selection.",
+      "Only retained group representatives are compared; evicted groups reappear as new candidates, without a global-history minimum-hash or reservoir promise.",
+      "Current calibration, merge buffers and metadata are separately costed."
+    ],
+    "scope": "Necessary text check and SHA update only; no new mechanism review or numerical/model test."
+  },
+  "necessary_text_clarification_status": "resolved_in_final_design; minimum freeze items remain intentionally unresolved"
+}

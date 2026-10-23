@@ -1,3 +1,10 @@
+# 2026-10-23：回答损失引导固定规模归并的具体候选，未准入模型
+
+- summary/final_weight_reduction_20261023/answer_anchor_design_v1把上游漂移后的旧坐标缺口转为稳定接口后的整个当前decoder回答损失比较。只读19个旧gate标量，既有packed FP16特征单份2.661–8.066MB；不是所有FIT/实际回放库/峰值，旧128MiB缓存不是新方法，额外anchor须计union和全部临时费用。0新模型/张量/QA/GPU/评分或bootstrap，不重复该元数据分析。
+- 具体候选T=FGᵀ+ABᵀ，阶段内冻紧凑F/G，只当前FIT学习临时秩；两mask同固定每层r，谱截断与回答门梯度预计删除代价最大者，整个回答NLL有限二选一后物理删列。两完整流程后续T会分化，新增梯度/历史曝光/评估不能称同计算预算。原dense残差不保留，视觉/连接器/嵌入仍全部计入最终权重。
+- 新review只保留可推翻的质量—成本问题，不接受原创性或实验准入。临时增广/截断、latent replay、持续压缩和功能代理均有先例；候选训练NLL更好由选择规则产生，不是发现。初始压缩恢复、模块/B/r/b/训练和校准总额仍须具体冻结；32MiB anchor只是待审成本点、无覆盖保证。旧库阶段内固定，当前FIT选完后才并库；被淘汰组重见不假恢复历史最优代表。
+- 新PROVENANCE保留晚到review followup为新文件，并从原receipt恢复旧已发布STREAMING_REVIEW逐字节；旧报告/科学源/READY不改。本轮仅设计与用途边界，没有新轻量或F1成果。rules028–034、最终完整权重/原Answer F1主目标不变，所有旧研究worker/负条件/factor pilot保持关闭，正式基线保全。不靠重复设计审计维持活跃。
+
 # 2026-10-23：固定权重预算的功能响应归并仅为数学候选
 
 - summary/final_weight_reduction_20261023/functional_rank_reuse_v1补齐局部旧响应约束低秩解与独立因子的完整预算分配；review仅accept_as_conditional_mathematical_candidate_only，非原创框架/模型准入。rank满仍可复用旧输出方向学习输入映射，但不能凭空加入新输出方向；硬保护预算地板可能用尽全部容量。经典约束近似/动态低秩/方向记忆均有先例。
