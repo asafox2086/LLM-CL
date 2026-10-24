@@ -1,0 +1,46 @@
+--- a/exp/sparse_connection_plasticity_20261024/v1_launch_repair/initialize.py
++++ b/NEW_INDEPENDENT_INIT_ONLY_VERSION/initialize.py
+@@
+ def initialize(model, processor, formal, calibration, diagnostic, task, checked_input, monitor, output):
+     assert len(calibration) == len(diagnostic) == 16
++    # PROPOSAL ONLY. Do not apply to any frozen source directory.
++    def finite_summary(tensor):
++        value = tensor.detach()
++        finite = bool(torch.isfinite(value).all())
++        return dict(dtype=str(value.dtype), shape=list(value.shape), all_finite=finite,
++            nan_count=int(torch.isnan(value).sum()), inf_count=int(torch.isinf(value).sum()),
++            max_abs=float(value.abs().max()) if finite and value.numel() else None)
+@@
+         solvers = {name: pruner_class(model.get_submodule(name)) for name in names}
++        captures = {name: 0 for name in names}
++        capture_context = {}
+         handles = []
+         for name in names:
+             def capture(module, arguments, result, name=name):
+-                solvers[name].add_batch(arguments[0].detach(), result.detach())
++                with torch.autocast('cuda', enabled=False):
++                    solvers[name].add_batch(arguments[0].detach(), result.detach())
++                    capture_context[name] = dict(input_dtype=str(arguments[0].dtype),
++                        H_dtype=str(solvers[name].H.dtype),
++                        autocast_enabled_during_statistics=torch.is_autocast_enabled())
++                captures[name] += 1
+@@
+         for name in names:
+             solver = solvers[name]
+             assert solver.nsamples == 16
+-            keep = prune_fixed(solver)
+             base = model.get_submodule(name)
++            prefix = 'numeric_' + name.replace('.', '_')
++            before = dict(name=name, completed_add_batch_calls=captures[name],
++                context=capture_context[name], H=finite_summary(solver.H),
++                weight=finite_summary(base.weight))
++            write(output / (prefix + '_before.json'), before)
++            assert captures[name] == 16
++            assert not capture_context[name]['autocast_enabled_during_statistics']
++            assert before['H']['all_finite'] and before['weight']['all_finite']
++            try:
++                keep = prune_fixed(solver)
++            finally:
++                write(output / (prefix + '_after.json'), dict(name=name,
++                    weight=finite_summary(base.weight)))
+             shape = list(base.weight.shape)

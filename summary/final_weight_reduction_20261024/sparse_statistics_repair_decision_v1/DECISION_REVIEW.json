@@ -1,0 +1,35 @@
+{
+  "decision": "accept_proposal_for_human_decision_only",
+  "files_sha256": {
+    "summary/final_weight_reduction_20261024/sparse_statistics_repair_decision_v1/PROPOSAL.md": "d28e8ee0b25089e9f438613b87a6f810e77698df98ed1efa64444f8f788bef4d",
+    "summary/final_weight_reduction_20261024/sparse_statistics_repair_decision_v1/UNAPPLIED_INITIALIZATION_PATCH.diff": "91161a0f83a6521ba7ac6bb4089abaeceb1ae6f18105947a721c6d7b3c6e53c0",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_launch_repair_v1/PROTOCOL.md": "ffc5fca0acf329b06ed7b38fd21bfbf9f3898775de2bbe248c7ea659db88573f",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_launch_repair_v1/INITIAL_FAILURE_FINDINGS.md": "dab992d05ca5213426dbe40826976b42196838e971a0161892c600652274b835",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_launch_repair_v1/INITIAL_FAILURE_SEAL.json": "f13b64367d1094abb71e2ee962cf3db31920861067dca63088167c73369ef77f",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_launch_repair_v1/INITIAL_FAILURE_REVIEW.json": "341e999653e2d493cf87bddc4885f76a4ae238decc90f93513bcaed10bf041c9",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_launch_repair_v1/phases/init/FAILURE.json": "443b608676c8352829ede4cccb7e138c013812658e87e56d3ff1f0fadbb1be84"
+  },
+  "preproposal_AGENTS_sha256": "2ddabce21a0e31e966c173227936ced90b5abfedfc459535aa36a2ffd9e818a2",
+  "preproposal_AGENTS_source_commit": "e513fee7689e64813c808211f66e8552fbda3bf2",
+  "source_commit_provenance_scope": "Commit supplied by parent; git show could not resolve the object locally (exit 128), so commit-to-AGENTS-byte equality was not independently verified. The hash above is the actual current local file.",
+  "no_model_admission": true,
+  "human_stop_rule_change_required": true,
+  "proposal_status": "Unapplied, unexecuted proposal only. Existing failed science point remains closed; publishing a pending proposal does not override its stop rule.",
+  "findings": [
+    "The proposed intervention is bounded: disable autocast only around the author add_batch statistics call, retain model-forward and final weight dtypes, and add finite-value/context/count observations.",
+    "This changes the actual statistics arithmetic context and is not claimed to preserve the previous numerical trajectory or to fix a proven cause.",
+    "The potential use is one independent fresh initialization feasibility check, not a repeated quality search or an automatic return to Frozen/Plastic training.",
+    "The additional initialization is explicitly capped at 3600 model seconds, with original fixed requests and NLL damage gate, historic failed costs retained, and failure/nonfinite/interruption/timeout/gate failure stopping the attempt.",
+    "A successful initialization would not establish Answer F1 preservation, sparse-learning benefit, parameter dispensability, or originality."
+  ],
+  "limitations_and_later_implementation_requirements": [
+    "The diff is a proposal, not reviewed executable runtime. Any authorized implementation needs independent source and admission review before execution.",
+    "The shown capture counter counts completed add_batch calls and is persisted before pruning after calibration; it is not a per-call durable journal or an observation of internal SparseGPT iterations.",
+    "The finally observation must not conceal an original pruning exception if observation or writing also fails; preserving original failure evidence is a later implementation requirement, not permission to add retries.",
+    "Finite summaries allocate temporary reductions and synchronize device work; all resulting memory/time and request accounting remain charged within the fixed scope.",
+    "The original stopping rule is still binding until the human specifically authorizes the one-init exception. No old-directory patch, old dispatch activation, CPU gate, tensor test, or model execution is authorized here.",
+    "No further investigation of the already-closed NaN evidence was performed for this review."
+  ],
+  "text_edit": "Clarified the ambiguous phrase original small model as original OneVision 2:4 replacement; no scientific source or unapplied patch was modified.",
+  "review_execution": "Read proposal and unapplied diff, checked their authorization/scope against existing stop clauses, and hashed small referenced files. No runtime/model/QA/tensor/CPU-gate execution."
+}

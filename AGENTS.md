@@ -1,3 +1,10 @@
+# 2026-10-24：统计上下文修复只有人类决策提案，未授权执行
+
+- 新sparse_statistics_repair_decision_v1的PROPOSAL/UNAPPLIED_INITIALIZATION_PATCH/DECISION_REVIEW只供人类决定。原稀疏固定点依旧关闭，无新runtime源码、READY、模型准入、服务或worker；没有应用补丁/重门/张量测试/重演旧数值故障。提案发布不改变原停止条款。
+- 主/子agent判断一般持续科研授权不足以撤销“首次STARTED失败即关闭、不修跑/自动新版本”的具体条款。拟请人类是否允许一次例外：独立fresh初始化最多3600模型秒，只隔离统计hook的autocast及补有限性/调用计数；原模型前向与最终dtype、作者数学/2:4/阻尼/校准/输入/原NLL投入门不变，历史费用保留。
+- 这会改变实际统计算术上下文，不声称逐值等价、已证根因修复或必然保质。原16校准/16诊断、420NLL/4短生成及全部观察/保存费用计入。再失败/非有限/中断/超时/门不过即停；即使成功亦不自动进入Frozen/Plastic、DEV或全确认。后续实现须独立源码/准入审阅，计数是校准后持久汇总而非逐调用journal，finally观测不得掩盖原异常。
+- 当前唯一待人类决定是是否允许这一次额外初始化。没有答复不等于同意，不按旧goal连续跟进/空卡/原准入启动。其它具体有用途研究可独立判断，但不能改名绕过此决定、重复失败缺口/R算术/旧审计维持活跃。科研目标未实现，不标完成；本提案不是新研究收益。
+
 # 2026-10-24：OSFT轨迹优势不是初态评分差原样延续
 
 - 新osft_initial_gap_check_v1的QUESTION/ADMISSION/EVIDENCE/FINDINGS/RESULT_REVIEW为一次已完成的既有聚合消费。EVIDENCE f8aa29c1f14efbf7a5c704b86fa366a616c42ee532b73e64dec88491942fb989，review5e2cbf805ae1b4e524aed26c9acaaf54b70fe45d606195af2764c3185a0473d4；只两个旧封存JSON、19任务三时点和五域现成均值，0原QA/预测/张量/模型/新评分/bootstrap，消费者.011933100秒、监督重叠不加，旧模型费用保留。已结案，不重此算术/旧profile/原评分或扩同类统计维持活跃。
