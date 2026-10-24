@@ -1,0 +1,28 @@
+{
+  "decision": "accept_single_sealed_aggregate_contrast_only",
+  "consumer_sha256": "a238cb408e3b65d25e0627d52bdeef60555b08a3de6d9529e04619e8a3481f00",
+  "question_sha256": "7cf6d64769148f554bae509064a0b63ea6b024e9dbda8225d31c8bf4c597cd5a",
+  "input_sha256": {
+    "summary/final_weight_reduction_20261024/response_failure_profile_v1/EVIDENCE.json": "a108efa50b356245372e015e688eaadfb7136de296d8609bd7f8674c733b2ae3",
+    "summary/onevision_diagnostics_20261016/osft_acquisition_20261018/EVIDENCE.json": "205755014d528f03a53cf953d618b986c0cb1f9dca23612317f933d916682db5"
+  },
+  "scope": "One local standard-library consumption of the two existing aggregate JSON files, supervised by an external 60-second timeout; no execution was performed during this review.",
+  "findings": [
+    "The existing ledger reports acquired task means but does not subtract the corresponding S0 score gap; this bounded contrast answers that specific descriptive question.",
+    "The consumer checks all 19 task keys, matching QA counts and total 21454, finite score ranges, and agreement of acquired/final task means with the existing acquisition evidence.",
+    "Task-equal AP19-style contrasts and copied domain aggregates are reported separately. Both trajectories retain all initial, acquired and final values.",
+    "Exclusive output creation prevents silently overwriting an earlier attempt. Input, source and question hashes are checked before consumption."
+  ],
+  "limitations": [
+    "R>0 rejects only the same-point constant-offset account of the observed acquisition score gap; it is not an adjusted causal effect and does not exclude effects of initial parameterization on later optimization.",
+    "Acquired minus S0 combines preceding-task transfer and current-stage effects; it is not current-stage-only learning and does not identify knowledge content.",
+    "A positive arithmetic contrast does not establish significance, stability, equivalence, projection necessity, removable weights, or a successful compact representation.",
+    "The 60-second deadline must be enforced by the external supervisor; the consumer does not implement its own hard timeout.",
+    "No result permits TEST-based recipe selection, another model attempt, or reopening any closed research point."
+  ],
+  "no_model_admission": true,
+  "one_execution_only": true,
+  "external_timeout_seconds": 60,
+  "new_QA_predictions_models_scores_bootstraps": 0,
+  "review_performed": "Static source and question review, plus inspection of existing aggregate schema and small-file SHA256 bindings only; the consumer was not imported or executed."
+}

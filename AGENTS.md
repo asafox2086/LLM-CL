@@ -1,3 +1,10 @@
+# 2026-10-24：OSFT轨迹优势不是初态评分差原样延续
+
+- 新osft_initial_gap_check_v1的QUESTION/ADMISSION/EVIDENCE/FINDINGS/RESULT_REVIEW为一次已完成的既有聚合消费。EVIDENCE f8aa29c1f14efbf7a5c704b86fa366a616c42ee532b73e64dec88491942fb989，review5e2cbf805ae1b4e524aed26c9acaaf54b70fe45d606195af2764c3185a0473d4；只两个旧封存JSON、19任务三时点和五域现成均值，0原QA/预测/张量/模型/新评分/bootstrap，消费者.011933100秒、监督重叠不加，旧模型费用保留。已结案，不重此算术/旧profile/原评分或扩同类统计维持活跃。
+- 原run先make_method再S0评测，不能默认初始函数相同。19任务等权S0：Seq15.0987924595、OSFT15.0509634277（差−.0478290318）；刚习得差+9.2831158438，R=刚习得差−S0差=+9.3309448756。最终差+6.0705408039，原旧审计均值精确承接。故“初态评分更高、同点数延续”这一常数偏移叙述不成立，不是控制初态后的因果效应，也不排除初始参数化通过优化影响后来结果。
+- 五域沿原域内QA等权，不混成AP19。医学刚习得差15.201186到末态3.136410，差距收窄12.064776是两条轨迹的后续变化差，不是OSFT单独遗忘量；自然刚习得仅+.110868、末态−1.725122，不能说五域均改善。acquired−S0含此前迁移与当前阶段，不是当前阶段纯学习。初态均值接近不证明同参数/函数/逐题输出，不识别知识内容、更新空间必要性或可删权重，不外推ShortFixed。
+- 设计仍须同时承接可用起点与有效适应，不能只复现初始输出就宣称借鉴了OSFT收益；位置、坐标、LR、SVD/投影混杂未解。该结果不自动准入模型、不据正式TEST选rank/提示/层或训练配方；所有失败研究继续关闭，当前无研究worker。固定连接数值失败不修跑，缺口静态核对不重复。总目标未实现，不把本标量解释当新方法/减重成果。
+
 # 2026-10-24：固定连接实际初始化数值失败，整个科学点关闭
 
 - sparse_connection_plasticity_launch_repair_v1的INITIAL_FAILURE_FINDINGS/INITIAL_FAILURE_SEAL/INITIAL_FAILURE_REVIEW及原phases/init FAILURE/EXIT、CONTROLLER_FAILURE/queue为最新终态。首次STARTED后实际第0块gate_proj剪后打包，finite(weight).all检查失败；作者唯一数值日志time0.58/error nan。已过每4保留2及删除位全零assert，所以至少一个保留槽非有限，但具体数量/坐标/NaN或Inf细分未存，不补猜。

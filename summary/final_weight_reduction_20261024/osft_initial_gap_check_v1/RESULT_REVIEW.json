@@ -1,0 +1,42 @@
+{
+  "decision": "accept_initial_gap_contrast_only_no_model_admission",
+  "files_sha256": {
+    "analysis/osft_initial_gap_check_20261024.py": "a238cb408e3b65d25e0627d52bdeef60555b08a3de6d9529e04619e8a3481f00",
+    "summary/final_weight_reduction_20261024/osft_initial_gap_check_v1/QUESTION.md": "7cf6d64769148f554bae509064a0b63ea6b024e9dbda8225d31c8bf4c597cd5a",
+    "summary/final_weight_reduction_20261024/osft_initial_gap_check_v1/ADMISSION.json": "0029ef92a238f7dfa4576229c53396deb26150edc5371d03817addccb43e2bba",
+    "summary/final_weight_reduction_20261024/osft_initial_gap_check_v1/STARTED.json": "b91e5d6cf6a4e79bcbe8f2c5d7dfd1f25ced21c76fa20e3e78d411a14e168a5e",
+    "summary/final_weight_reduction_20261024/osft_initial_gap_check_v1/EVIDENCE.json": "f8aa29c1f14efbf7a5c704b86fa366a616c42ee532b73e64dec88491942fb989",
+    "summary/final_weight_reduction_20261024/osft_initial_gap_check_v1/EXECUTION.json": "b973467e8cd279718a4dd34dcd412dcf4873aac71bd9395abd03450943945aa7",
+    "summary/final_weight_reduction_20261024/osft_initial_gap_check_v1/SUPERVISION.json": "766eceb75f1111e9df04de3eef99a71ff74ed942183b276546616ca3451eed45",
+    "summary/final_weight_reduction_20261024/osft_initial_gap_check_v1/FINDINGS.md": "e3a817586a4879b2ea26c926bfda0563898e61f61378b9596ba5731cca79a82d",
+    "summary/final_weight_reduction_20261024/response_failure_profile_v1/EVIDENCE.json": "a108efa50b356245372e015e688eaadfb7136de296d8609bd7f8674c733b2ae3",
+    "summary/onevision_diagnostics_20261016/osft_acquisition_20261018/EVIDENCE.json": "205755014d528f03a53cf953d618b986c0cb1f9dca23612317f933d916682db5"
+  },
+  "document_sha256": "e3a817586a4879b2ea26c926bfda0563898e61f61378b9596ba5731cca79a82d",
+  "no_model_admission": true,
+  "review_scope": "Read existing source, question, admission, sealed aggregate/result/execution/supervision JSON and findings; independently checked arithmetic on existing scalars only. Did not run the consumer, original scoring, bootstrap, model, tensor, QA, or prediction reading.",
+  "checks": {
+    "all_19_task_three_phase_values_match_existing_profile": true,
+    "all_five_domain_three_phase_values_match_existing_profile": true,
+    "task_equal_means_match_existing_acquisition_and_AP19": true,
+    "all_recorded_contrasts_reconciled": true,
+    "input_and_execution_SHA_bindings_match": true,
+    "supervision_reports_returncode_zero_and_under_60_seconds": true,
+    "findings_edits_required": false
+  },
+  "key_results": {
+    "initial_gap_pp": -0.04782903183454934,
+    "acquired_gap_pp": 9.283115843807686,
+    "acquired_gap_minus_initial_gap_pp": 9.330944875642235,
+    "final_gap_pp": 6.070540803864404
+  },
+  "interpretation": [
+    "The positive 9.330944875642235-point contrast rules out only an equal-point constant carryover of the observed S0 score gap as a complete numerical account of the acquisition gap.",
+    "Near-equal mean S0 scores do not establish identical weights, functions, individual outputs or optimization behavior; initial parameterization may still affect subsequent training.",
+    "Acquired minus S0 includes preceding-task transfer and current-stage effects, so it is neither current-stage-only learning nor an adjusted causal effect.",
+    "The medical acquisition-to-final gap contraction compares two trajectories; it is not OSFT-only forgetting. Domain QA weighting remains separate from 19-task equal weighting.",
+    "No result identifies knowledge content, an OSFT component cause, removable weights, compact-model success, or ShortFixed behavior."
+  ],
+  "closure": "This descriptive question is complete. Do not repeat its scalar consumption or reopen closed models; no TEST-based recipe selection or new model admission follows.",
+  "cost_scope": "Consumer 0.011933099973248318 seconds and supervisor 0.17660370000521652 seconds are nested intervals, not additive; historical model costs are unchanged."
+}
