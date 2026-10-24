@@ -1,0 +1,49 @@
+{
+  "unit": "llmcl-domain-end-function-20261025.service",
+  "GPU": 1,
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit=llmcl-domain-end-function-20261025.service",
+    "--property=Restart=no",
+    "--property=KillMode=control-group",
+    "--property=RuntimeMaxSec=1000",
+    "--property=TimeoutStopSec=5",
+    "--setenv=LLMCL_ROOT=/data2/liyapeng_grp/program/LLMCL",
+    "--setenv=LLMCL_RUN=/tmp/llmcl-domain-end-1084-u05yfa1e",
+    "--setenv=LLMCL_ASSET=/tmp/llmcl-compact-first-1084-dw34mzsc/asset_view",
+    "--setenv=LLMCL_GPU=1",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "-u",
+    "/tmp/llmcl-domain-end-1084-u05yfa1e/controller.py"
+  ],
+  "unix": 1792872366.5231044,
+  "ready_sha256": "4898f21c223f8a9c15eb58f1b7e06ae06dd58cc37f2a5475a33cc9bac5bcfda1",
+  "boot": "5b259bd9-d0cb-4a1d-8b90-6e6107080488",
+  "cards_before": {
+    "0": {
+      "uuid": "GPU-783c5d2c-a6f8-9594-472c-4ab9fe54d3b1",
+      "memory_MiB": 8,
+      "utilization": 0,
+      "owners": []
+    },
+    "1": {
+      "uuid": "GPU-3c72e4ce-0896-0b40-d610-be585d2bb51e",
+      "memory_MiB": 8,
+      "utilization": 0,
+      "owners": []
+    },
+    "2": {
+      "uuid": "GPU-25d3cb92-fa97-a722-f9cd-c012bad046a8",
+      "memory_MiB": 8,
+      "utilization": 0,
+      "owners": []
+    },
+    "3": {
+      "uuid": "GPU-fb9fc5ed-bf92-b947-d8c5-302296c4a447",
+      "memory_MiB": 8,
+      "utilization": 0,
+      "owners": []
+    }
+  }
+}
