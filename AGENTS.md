@@ -1,3 +1,9 @@
+# 2026-10-24：功能读出载体首次实际STARTED
+
+- functional_readout_carrier_v1已按准入发布b40ce50d4a9ec20ef7592012ffcef599b61a9096的16白名单文件逐字节镜像后首次启动。13:23:05UTC实际OLD controller3694001/start754659179、init worker3694022/start754659207、UID1084/隔离PGID同PID、boot5b259bd9...、GPU0，active/running且身份匹配，init STARTED。此为快照，后续看真实proof/身份，不将旧queue=null当故障。
+- READY3f427a300c05b7def9fe34309e55615ef4fb05325e8f460f09549614eb53f141及五源/协议冻结；同卡串行init1200/WeightD1800/ResponseD1800首次预算已开始。首次STARTED后失败/中断/超预算即停止，不续CP/延时/救rankLR或自动版本。唯一tiny2.583529秒/监督3.369190秒重叠，0真实QA，不算质量结果。
+- 新问题是完整保G/U功能生成器、只缩线性D读出，已知分解工具允许借用；不是旧up复用救跑，也不声称已解OSFT/ShortFixed机制或已成新框架。实际减重/父五域底线/严格重载和全成本待完整proof。两机正式/他人保全，无信号；目标未实现。
+
 # 2026-10-24：功能读出载体独立起点对照已准入，尚未激活
 
 - 最新人类明确：有先例不能独立否决探索；已有方法可作为工具，在本背景验证功能与成本，贡献由后续具体机制和证据决定。不能要求每个组件全新，也不因换背景自动称原创。functional_readout_carrier_v1已按这一要求完成具体实施/必要性与源码审阅，尚无新质量。
