@@ -1,0 +1,77 @@
+{
+  "decision": "accept_completed_functional_readout_negative_and_closure_only",
+  "model_admission": false,
+  "no_model_admission": true,
+  "no_retry": true,
+  "quality_missing": false,
+  "verified_sha256": "817ccbd72d86103b726d67e771f0d57ac55171bdd518d63dcd3c460498f96070",
+  "outcome_sha256": "f20250eaad16402ba3848012c668e3170575f2a800f3a8b6c02d47d4b9b5dd18",
+  "decision_sha256": "7dcc12f27ae95e311ec58212254ba8c172eed8448585881e4cd42999ea714298",
+  "consumer_sha256": "32e3451a2b41ab9983f93e710d14bcfdeafe32f14a5d53e91b6256292b8932e3",
+  "ready_sha256": "3f427a300c05b7def9fe34309e55615ef4fb05325e8f460f09549614eb53f141",
+  "files_sha256": {
+    "summary/final_weight_reduction_20261024/functional_readout_carrier_v1/PROTOCOL.json": "0662c8d6b6d2e99d84414c9572e981a9b83d9882321fa3306ed2cc4ce0d5e54d",
+    "summary/final_weight_reduction_20261024/functional_readout_carrier_v1/NECESSITY_REVIEW.json": "6b09c7ae7d1bc8490dd84d289e676e6fc2fede9ac6800b86247e64cc124bec94",
+    "summary/final_weight_reduction_20261024/functional_readout_carrier_v1/SOURCE_REVIEW.json": "d6a3191b84e731d8636d0bd5c4a8dd9f3e9aa1a20f72e1f986df33c63d305349",
+    "summary/final_weight_reduction_20261024/functional_readout_carrier_v1/READY.json": "3f427a300c05b7def9fe34309e55615ef4fb05325e8f460f09549614eb53f141",
+    "summary/final_weight_reduction_20261024/functional_readout_carrier_v1/ADMISSION_REVIEW.json": "954068a7b36674581b174516c0f1494f2bb0fab626764e58660e4affd4a7c274",
+    "summary/final_weight_reduction_20261024/functional_readout_carrier_v1/VERIFIED.json": "817ccbd72d86103b726d67e771f0d57ac55171bdd518d63dcd3c460498f96070",
+    "summary/final_weight_reduction_20261024/functional_readout_carrier_v1/VERIFY_STARTED.json": "b03c3e84e05c6a55b003d083349a7db3e922f6d96f594601470fc352a036b220",
+    "summary/final_weight_reduction_20261024/functional_readout_carrier_v1/OUTCOME.json": "f20250eaad16402ba3848012c668e3170575f2a800f3a8b6c02d47d4b9b5dd18",
+    "summary/final_weight_reduction_20261024/functional_readout_carrier_v1/DECISION.json": "7dcc12f27ae95e311ec58212254ba8c172eed8448585881e4cd42999ea714298",
+    "summary/final_weight_reduction_20261024/functional_readout_carrier_v1/README.md": "be41202274a4322a875a6c08d3fc86a2a60455feffc9145c4046faac02cec4aa",
+    "summary/final_weight_reduction_20261024/functional_readout_carrier_v1/init_STARTED.json": "cf728b589682beddd59c9d8d0f70d448b6a24c3aaac90556592766b3b3866a70",
+    "summary/final_weight_reduction_20261024/functional_readout_carrier_v1/init_COMPLETE.json": "fb059a590224e45ff568d523bf27beaa6c7b12b6c8e4ca4ee94540f73ea16eaa",
+    "summary/final_weight_reduction_20261024/functional_readout_carrier_v1/init_EXIT.json": "40ae4dc75f0c78575b3525c86e2b896f2744471dadc837826d20055862d90edf",
+    "summary/final_weight_reduction_20261024/functional_readout_carrier_v1/WeightD_STARTED.json": "e49fb9e8adb09176c3b82f28553cee22c8800f05fd63a41daafd0baa56e3543d",
+    "summary/final_weight_reduction_20261024/functional_readout_carrier_v1/WeightD_COMPLETE.json": "00b889000b24cab7a5b7bd36d0df9694bf375bf137e7bd94f98d5791d809124a",
+    "summary/final_weight_reduction_20261024/functional_readout_carrier_v1/WeightD_EXIT.json": "96714ee198a59cafa111e264eda18c7acbd4548cb87e12162a060a19241133fb",
+    "summary/final_weight_reduction_20261024/functional_readout_carrier_v1/ResponseD_STARTED.json": "9b2d55b42d50e531accf5a18ed6195a65e4c7780bb398b749ee693898aa9de9a",
+    "summary/final_weight_reduction_20261024/functional_readout_carrier_v1/ResponseD_COMPLETE.json": "564d7d9e6d3c6b58f49456ae8f88a156d964102e79787d23f885118af8a1e45c",
+    "summary/final_weight_reduction_20261024/functional_readout_carrier_v1/ResponseD_EXIT.json": "3e6ea92774945a5177f283a8e471041e0b5231770a2326b139859b0cd79bdf0c",
+    "analysis/functional_readout_carrier_outcome_20261024.py": "32e3451a2b41ab9983f93e710d14bcfdeafe32f14a5d53e91b6256292b8932e3"
+  },
+  "review_scope": "Existing small JSON, result text and consumer source only. Checked frozen-proof links, phase identities/exits, copied scalar consistency and arithmetic. No model, tensor, QA, prediction text, scoring, bootstrap, CPU gate, SSH or checkpoint payload/hash executed.",
+  "findings": [
+    "VERIFIED is complete and binds READY plus all three current COMPLETE hashes. OUTCOME binds that exact VERIFIED and the current consumer; DECISION binds the exact OUTCOME. The copied quality and parent scalars agree.",
+    "All three STARTED/COMPLETE/EXIT identities agree on UID1084, the frozen OLD boot and physicalGPU0 with isolated PGID=PID. Actual subprocess exits are0 with identity_after null. Each RUN and exit-observation duration stays within its fixed phase budget.",
+    "Both physical candidates report816728096 complete weight coefficients/1633456192 weight bytes,8.610222784745039% fewer coefficients than893675552. Ordinary buffers9032 bytes and each complete checkpoint1633702890 bytes are reported separately. Physical original D absence, strict-reload layouts/digests, unchanged retained-weight digests and evaluation invariance are present in COMPLETE; checkpoint payloads were not rehashed by this review.",
+    "The parent unadapted AnswerF1 macro is16.116268432502135. WeightD is0.355918588850667 and ResponseD is0. Both are lower in every reported domain than the bound parent. The five-domain floor fails for both, retained_carrier is null and primary_point_pass is false.",
+    "ResponseD has smaller teacher-input local diagnostic error ratios in all24 layers, yet its full-model AnswerF1 is worse than WeightD. These diagnostics measure the two FP16 readouts on original parent states, not the final compressed decoder trajectory, and do not demonstrate whole-network fidelity.",
+    "The existing work records48 teacher decoder passes,32 moment QAs plus16 diagnostic QAs,200 new DEV generations and zero optimizer/backward calls. This is a completed starting-function comparison, not a continual-learning result or an initialization/runtime failure.",
+    "Model RUN sum1238.1650805408135 seconds and successful exit-observation sum1241.2025774028152 seconds overlap and must not be added. Whole-phase sampled RSS is not a controlled inference peak, and durations do not establish controlled speed superiority.",
+    "README and DECISION accurately close this fixed D-only rank200 point. No partial quality was used in this review; the accepted quality originates from the completed unique verifier."
+  ],
+  "scientific_decision": {
+    "action": "close_fixed_D_only_rank200_point",
+    "retained_carrier": null,
+    "goal_achieved": false,
+    "excluded_for_next_design": "Preserving all original G/U together with either of these fixed rank200 down-readout constructions is insufficient to preserve the parent answering function at this cost/data point. Better local response reconstruction alone is not an adequate carrier-selection certificate.",
+    "not_established": [
+      "G/U preservation guarantees whole-model functionality",
+      "the unique source of damage is rank, calibration coverage, layerwise interaction, autoregression or precision",
+      "all low-rank or response-aware carriers fail",
+      "D weights are universally necessary or cannot be replaced",
+      "OSFT/ShortFixed success is explained",
+      "a compact continual framework or permanent-weight necessity theorem has been achieved"
+    ],
+    "missing_functional_evidence": "A future genuinely different carrier would still require actual whole-graph starting-answer preservation before making claims about useful finite-budget adaptation. This statement does not authorize another carrier, another matrix/rank, more fitting or another model.",
+    "next_action": "Publish this completed negative and preserve artifacts; do not continue rotating matrices, rescue rank/LR/data/recovery/time, launch CL or reopen closed branches."
+  },
+  "limitations": [
+    "The explored100DEV, one seed and weak unadapted parent are point-functionality evidence, not an independent holdout, semantic-knowledge measure, statistical noninferiority or trained-strong-reference comparison.",
+    "The outcome consumer rechecks COMPLETE against VERIFIED but does not separately rehash the private local_diagnostic/resources files before reading them. Those files were included in the completed verifier scope; their current bytes were not available in this local review. Auxiliary local-error and resource summaries are therefore accepted as existing consumer records rather than independently resealed files. This does not change the quality/floor closure, which is directly copied from VERIFIED.",
+    "This review confirms completed phase exit proofs, not permanent live service/GPU state. The parent-reported inactive/MainPID0 terminal snapshot was not independently queried; no new SSH or inventory action was taken.",
+    "No tiny success, storage reduction, saved checkpoint, local-error advantage or administrative closure counts as a successful new method. CPU/transport/verification/history costs remain separate."
+  ],
+  "required_changes": [],
+  "review_execution": {
+    "new_model_or_tensor": false,
+    "new_QA_or_prediction_read": false,
+    "score_or_bootstrap": false,
+    "CPU_gate": false,
+    "checkpoint_hash": false,
+    "SSH_or_live_poll": false,
+    "existing_JSON_arithmetic_and_small_SHA_only": true
+  }
+}

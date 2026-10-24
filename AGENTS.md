@@ -1,3 +1,12 @@
+# 2026-10-24：功能读出两载体完整结束，D-only固定点保质失败关闭
+
+- functional_readout_carrier_v1的VERIFIED/OUTCOME/DECISION/README/RESULT_REVIEW/RESULT_PUBLICATION为新终态。VERIFIED 817ccbd72d86103b726d67e771f0d57ac55171bdd518d63dcd3c460498f96070，OUTCOME f20250eaad16402ba3848012c668e3170575f2a800f3a8b6c02d47d4b9b5dd18，独立review 896ae99714253c52bc427b158204afed8704ec5cbf39d2eac01847e443b97285。五源/协议/READY3f427a300c05b7def9fe34309e55615ef4fb05325e8f460f09549614eb53f141不改，唯一自动新200条token_f1评分与标量consumer已完成，不重评分/bootstrap/门/大CP hash。
+- 保原G/U、只物理缩小24个D至r200，两图实际完整816728096（较893675552少8.6102%），但父未适应宏16.1162684325、WeightD .3559185889、ResponseD0；父五域点底线两者均false，均关闭，不在崩坏结果里挑赢家。两臂各100原已探索DEV，父100只严格绑定旧proof/digest/输入后复制，不补生成/评分。
+- 合法S1固定32组各QA等权输出矩统计与16组local检查，共48新教师decoder请求，每QA至多64固定位置；0训练/optimizer/backward/CL/未来FIT/正式teacher/TEST。此实际负结果不支持本D-only固定点足够承接回答功能，不否定所有读出/低秩，也不识别OSFT/ShortFixed、输入漂移/优化/数值的独立因果。局部误差不能代替全图F1；有先例不是本次关闭理由，实际未保质才是。
+- 模型RUN总1238.165080541秒，成功退出观察1241.202577403秒重叠不加；48teacher/200DEV、统计/分解/完整保存重载及观察全含。CPU门2.583529秒/监督3.369190秒重叠、实现/运输/唯一核验及历史另计。唯一consumer0.003491512秒，0新模型/评分。辅助资源/local_diagnostic是原verifier检查后的消费者汇总，结果review未重新取回private原文件复核；不称受控推理峰/速度或能力比例。
+- 13:59:52UTC实际OLD unit inactive/MainPID0/exit0、queue complete_verified；controller3694001/init3694022/WeightD3694837/ResponseD3700533四原身份均无，当前无研究worker/其它准入待运行点。启动KillMode=process与终态control-group两原快照保留，不推运行期变化/发信号。新D-only点不恢复/续CP/延时/救rankLR/QA/恢复/自动版本或CL，不再轮流压其它矩阵。
+- 总科研目标仍未实现，没有保质紧凑新框架。后续仅具体未重复且会改变设计判断的功能承接/有效适应问题可按授权和必要评审推进；不能把旧PID等待/规则/计数/泛读当进展。旧关闭/待人类例外均保留，正式基线保全；只有新sealed formal证明才更新联合表并保留FOREVER和已测存储列。健康无行动变化静默。
+
 # 2026-10-24：功能读出载体首次实际STARTED
 
 - functional_readout_carrier_v1已按准入发布b40ce50d4a9ec20ef7592012ffcef599b61a9096的16白名单文件逐字节镜像后首次启动。13:23:05UTC实际OLD controller3694001/start754659179、init worker3694022/start754659207、UID1084/隔离PGID同PID、boot5b259bd9...、GPU0，active/running且身份匹配，init STARTED。此为快照，后续看真实proof/身份，不将旧queue=null当故障。
