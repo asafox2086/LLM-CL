@@ -196,6 +196,8 @@ ShortFixed实测梯度357,940,224字节、两Adam moment715,880,448字节；较�
 
 完整权重893675552→789080096系数；五个固定输入、各恰32token的GPU peak allocated下降193.007–200.162MiB。显存与F1必须联合判断，本构造未获得保质证据。单层相对排名不是绝对可删性；单删损伤已经非零，不能把全部损失归于层间交互。所有原始产物和完整包已转存NEW private；细节及一次过程隔离修复见[完整结果](summary/ffn_direct_ablation_20261025/v1/FINDINGS.md)。
 
+**同输入机制补证：** 固定原37FIT与8层，新增37次联合NLL。五域宏实际联合损伤1.949195，原有符号单删累计0.306139（原截零选择cost为0.686164），余项1.643055；34/37题余项为正，五域联合损伤均高于原截零累计。由此否决用独立层累计认证本集合保质，不能单独归因输入漂移，也不据此重选层或恢复训练。[完整结果](summary/ffn_joint_effect_20261025/v1/FINDINGS.md)
+
 原OSFT阶段刷新对照：prefix与Fixed完整退出，Refresh因Errno122账户磁盘配额超限失败；原controller／worker已无，三个故障收据.tmp为空，旧queue仍running已失真。没有VERIFIED，不消费部分质量，也不判刷新有效或无效。[终态证明](summary/ffn_static_delete_20261025/v1/STAGE_REFRESH_TERMINAL_OBSERVED.json)。另一个门梯度定位点在联合完整性断言失败，没有删除质量；它与本次已完整测得的功能阴性分开。[实施历史](summary/ffn_static_delete_20261025/v1/README.md)
 
 ## 新会话接续
