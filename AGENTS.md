@@ -1,3 +1,9 @@
+# 2026-10-24：唯一共享载体检查实际首次STARTED，尚无完整质量
+
+- shared_fullspan_carrier_v1/ACTIVATION、STARTED、PHASE_OBSERVED记录当前唯一研究入口。2026-10-24T07:29:59.388472UTC实际OLD unit llmcl-onevision-shared-fullspan-carrier-20261024.service active/running，controller3587357/start752538710、worker3587377/start752538740/UID1084/隔离PGID同PID，GPU0、boot5b259bd9-d0cb-4a1d-8b90-6e6107080488；STARTED unix1792826967.2858713（07:29:27UTC附近）。这些仅时点身份，以后看真实proc/queue/proof，不照抄永久live。无COMPLETE/VERIFIED/FAILURE，未读partial质量。
+- 原五源/协议及READY a4d918ab...不变，首次STARTED后3600秒含全部模型工作，不因观察重置；故障/中断/超预算关闭固定点，不续CP/延时/自动变体。原冻结dispatch完整退出后唯一verify/原评分；不手动补跑。只OLD一流，不向他人/基线GPU信号，Restart=no/KillMode=process，不enable。
+- 当前只是检查借用已知共享稀疏载体是否能承接S1起点回答功能，不是新框架或OSFT性能机理已解。通过也不自动持续训练/U-V；失败不滚动换工具。论文主目标仍是有效功能驱动、完整最终权重更小且原AnswerF1保留/提高，不把实施/准入/启动当成果；全部旧封存/待例外条件保持关闭。
+
 # 2026-10-24：共享完整输入载体仅准入一次S1起点检查，尚非新框架
 
 - shared_fullspan_carrier_v1的PROTOCOL/NECESSITY_REVIEW/SOURCE_REVIEW/CPU_GATE/READY/ADMISSION_REVIEW为当前唯一新入口，exp/shared_fullspan_carrier_20261024/v1五源冻结。READY a4d918ab5a02fbbcd4fd475e73d0f34e5a4e39d042fb687c601354a5974181a4，独立准入be605d21d39fca20374434ea6bb12c365f97d56edc7e30f199d8b9f3a72f488d仅接受一次OLD任一空闲卡单流、STARTED起3600秒检查；发布时尚未激活，实际状态以后读ACTIVATION/STARTED/queue/proof，不把旧无工作或旧PID当live。
