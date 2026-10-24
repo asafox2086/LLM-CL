@@ -1,0 +1,21 @@
+{
+  "unit": "llmcl-vision-interface-transfer-20261025.service",
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit=llmcl-vision-interface-transfer-20261025.service",
+    "--property=Restart=no",
+    "--property=KillMode=control-group",
+    "--property=RuntimeMaxSec=3700",
+    "--property=TimeoutStopSec=5",
+    "--setenv=LLMCL_ROOT=/data2/liyapeng_grp/program/LLMCL",
+    "--setenv=LLMCL_RUN=/tmp/llmcl-vision-interface-1084-9xjxty9s",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "-u",
+    "/tmp/llmcl-vision-interface-1084-9xjxty9s/controller.py"
+  ],
+  "unix": 1792864879.546117,
+  "ready_sha256": "3e279070eb6022d8aed422e3a0fcc7c68ef7926fd7936650268370e857a7943d",
+  "boot": "5b259bd9-d0cb-4a1d-8b90-6e6107080488",
+  "stderr": "Running as unit: llmcl-vision-interface-transfer-20261025.service\n"
+}
