@@ -1,3 +1,9 @@
+# 2026-10-24：输出偏置对照在模型尝试前按论文目标关闭
+
+- global_output_bias_control_v1/DIRECTION_CLOSED.json为本提议终态。五源仍为WIP，旧NECESSITY_REVIEW仅接受实施，不是模型准入；不继续源码验收/CPU门/READY/运输/激活。没有本提议的新模型、QA或质量结果。
+- 全局输出偏置保留全部基座权重；即使达到旧OSFT点锚，当前也没有具体紧凑载体或权重替代决定承接。未达到则只关闭单一eta1配方。两种结果都未闭合新的小模型结构分叉，故不因代码已写或旧实施评审而启动。不得重新包装此对照或自动追加变体。
+- 判断中心仍是可发表的新框架：从强参照有效功能形成具体替代假说，实际减少完整最终权重，并验证原AnswerF1与适应/遗忘；工程可运行和训练参数少不能替代这些目标。此方向纠偏不是科研成果，目标未完成；不恢复旧失败分支，正式基线不动。
+
 # 2026-10-24：共享载体在教师特征捕获超限，固定点关闭，未产生压缩质量结论
 
 - shared_fullspan_carrier_v1的FAILURE_RECEIPT/FAILURE_FINDINGS/FAILURE_REVIEW及原FAILURE/CONTROLLER_FAILURE/ACTUAL_EXIT为最新终态，覆盖下方运行快照。实际OLD unit failed/MainPID0/exit1，controller3587357及worker3587377已自然退出，queue closed_failure；无COMPLETE/VERIFY_STARTED/VERIFIED。当前无研究worker/其它已准入模型，不再等或恢复此入口。READY a4d918ab...及五源/协议不改，不扩大cache/换QA/续CP/延时/自动v2。
