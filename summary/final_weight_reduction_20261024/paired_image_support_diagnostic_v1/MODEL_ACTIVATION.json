@@ -1,0 +1,85 @@
+{
+  "observed_UTC": "2026-10-24T05:54:57.855291+00:00",
+  "execution_host": "OLD",
+  "unit": "llmcl-onevision-paired-image-support-20261024.service",
+  "controller_identity": {
+    "pid": 3560286,
+    "startticks": "751971803",
+    "uid": 1084,
+    "pgid": 3560286
+  },
+  "service": "Restart=no\nMainPID=3560286\nExecMainStatus=0\nKillMode=process\nLoadState=loaded\nActiveState=active\nSubState=running\n",
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit=llmcl-onevision-paired-image-support-20261024.service",
+    "--property=Restart=no",
+    "--property=KillMode=process",
+    "--property=StandardOutput=file:/data2/liyapeng_grp/program/LLMCL/.deployment/paired_image_support_20261024_view/summary/final_weight_reduction_20261024/paired_image_support_diagnostic_v1/model_controller.log",
+    "--property=StandardError=inherit",
+    "--setenv=CUDA_VISIBLE_DEVICES=",
+    "--working-directory=/data2/liyapeng_grp/program/LLMCL/.deployment/paired_image_support_20261024_view",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "-u",
+    "/data2/liyapeng_grp/program/LLMCL/.deployment/paired_image_support_20261024_view/exp/paired_image_support_20261024/v1/dispatch.py"
+  ],
+  "ready_sha256": "467ad42dfdcb755576962fd0acac2c622a075e7c7fef3dc7b6566c74351142c5",
+  "admission_sha256": "89a328101a788fcb1d8cd49e8360dae6fc5325958a28941d0cdd42ba29feeefb",
+  "inventory_before": {
+    "0": {
+      "uuid": "GPU-783c5d2c-a6f8-9594-472c-4ab9fe54d3b1",
+      "memory_MiB": 8,
+      "utilization": 0,
+      "owners": []
+    },
+    "1": {
+      "uuid": "GPU-3c72e4ce-0896-0b40-d610-be585d2bb51e",
+      "memory_MiB": 8,
+      "utilization": 0,
+      "owners": []
+    },
+    "2": {
+      "uuid": "GPU-25d3cb92-fa97-a722-f9cd-c012bad046a8",
+      "memory_MiB": 8,
+      "utilization": 0,
+      "owners": []
+    },
+    "3": {
+      "uuid": "GPU-fb9fc5ed-bf92-b947-d8c5-302296c4a447",
+      "memory_MiB": 8,
+      "utilization": 0,
+      "owners": []
+    }
+  },
+  "inventory_after": {
+    "0": {
+      "uuid": "GPU-783c5d2c-a6f8-9594-472c-4ab9fe54d3b1",
+      "memory_MiB": 8,
+      "utilization": 0,
+      "owners": []
+    },
+    "1": {
+      "uuid": "GPU-3c72e4ce-0896-0b40-d610-be585d2bb51e",
+      "memory_MiB": 8,
+      "utilization": 0,
+      "owners": []
+    },
+    "2": {
+      "uuid": "GPU-25d3cb92-fa97-a722-f9cd-c012bad046a8",
+      "memory_MiB": 8,
+      "utilization": 0,
+      "owners": []
+    },
+    "3": {
+      "uuid": "GPU-fb9fc5ed-bf92-b947-d8c5-302296c4a447",
+      "memory_MiB": 8,
+      "utilization": 0,
+      "owners": []
+    }
+  },
+  "protected_before_still_present": true,
+  "only_own_new_CPU_unit_started": true,
+  "no_GPU_signals_or_baseline_modifications": true,
+  "not_enabled": true,
+  "no_quality_or_compression_result_claim": true
+}

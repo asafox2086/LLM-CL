@@ -1,3 +1,9 @@
+# 2026-10-24：OLD四状态诊断已首次STARTED，尚无完整结果
+
+- MODEL_ACTIVATION/MODEL_PHASE_OBSERVED记录真实首次执行，不是继续等旧失败分支。05:55:54UTC实查OLD unit llmcl-onevision-paired-image-support-20261024.service active/running，controller3560286/start751971803，qv_before worker3560313/start751971833 UID1084/隔离PGID等PID，boot5b259bd9-d0cb-4a1d-8b90-6e6107080488。qv_before已STARTED，其它三态未STARTED，无COMPLETE/FAILURE/VERIFIED；这是历史快照，后续看实际身份/marker/proof，不照抄永久live。
+- 原MODEL_READY467ad42dfdcb755576962fd0acac2c622a075e7c7fef3dc7b6566c74351142c5和三源冻结。全四态同OLD GPU0串行，首次STARTED后故障/中断/超时即整个固定诊断停止，不重跑/换NEW补齐。每态1800/总7200模型秒不因观察重置；仅4态完整退出后原唯一verify，未读partial NLL。不把启动、运输、准入当科研收益或框架完成。
+- 该诊断只判定一项FIT条件响应依据，未形成保质紧凑方法。完整权重/原AnswerF1主目标继续；小时跟进已更新到本实际入口，不再错误等待旧PAS/Smol/稀疏。健康不变安静，不分钟巡检、重复旧审计/配对或为填时间加模型。
+
 # 2026-10-24：四状态图文配对支持诊断已独立准入，全部使用OLD同一环境
 
 - 人类要求以可发表的紧凑新框架为中心。当前仍无已验证保质减重方法；本诊断只检验q/v与OSFT合法1213FIT轨迹相对当前重建起点的条件响应，不解释正式1313刚习得全部优势，不是新知识、参数因果或压缩收益。固定61QA/原图与错图/四状态共488NLL，0训练/生成/旧F1/新bootstrap；域内QA等权、总体五域等权，原图改善、错图变化和相对差中差D并列。
