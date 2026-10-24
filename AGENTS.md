@@ -1,3 +1,12 @@
+# 2026-10-24：gate响应复用两载体完整结束，保质失败关闭
+
+- gate_response_reuse_v1的VERIFIED/OUTCOME/DECISION/RESULT_REVIEW/RESULT_PUBLICATION为新终态；VERIFIED e2a417195c52bc5d06d42f5327e8fedbfe6e5aded3da49511e7a2c365db8e06f、OUTCOME6916532476d21aefe8f31054a29901d2385900db9cddbce47efc65985d20cd80、独立review d4f55565c7c6ccb15e27fe34d1bb81904e1c589f7aedc8c9651178c4e3453969。五科学源/协议/READY e0ed5ad2...冻结不改，唯一原token_f1核验与标量消费者均已执行，不重评分/bootstrap/门/大CP hash。
+- 两载体各1536真实block更新/100DEV生成，共同48QA教师decoder捕获/264241152bytes采样载荷，0TEST/完整持续训练。父未适应宏16.1162684325，Static .2552986097，Reuse .0717948718；Reuse对Static −.183503738pp，1高9低90平，primary/五域父底线均false。全部五域/100ID标量在OUTCOME，不在两个质量地板挑赢家。
+- 两臂24层教师输入上的held误差比均下降，等层均值Static .495707791→.249126385、Reuse .529458974→.245226133；末值约.25不是高度保真，不是全局MSE/最终decoder轨迹或能力比例。Reuse局部均值略低未转成更高本次F1；不识别G/U关系、输入漂移、优化与数值的各自因果。
+- 完整最终权重Static816728096/1633456192bytes、Reuse816706592/1633413184bytes，普通buffers各9032bytes；完整CP1633703018/1633667578bytes，物理无U且严格重载通过。Static多21504公开。实际减重但未保质，没有获得按本方式删独立up的证据，不否定所有共享/低秩，也不是OSFT/PAS/冷启动机制结论或新框架成果。
+- 模型RUN总1072.496211秒、成功退出观察1075.449687秒重叠不加；各196608个block状态呈现、48teacher/200DEV、保存重载、准入/实现/运输/唯一核验及历史另计。唯一消费者.004451892秒。采样全流程RSS/allocated/NVML不称受控推理峰或速度，最终0trainable来自拟合后冻结，不是未训练。
+- 12:35:28UTC实际OLD unit inactive/MainPID0/exit0，queue complete_verified、3673028/3673048/3673772/3676619均无，当前无研究worker/其它准入待运行点；不再等待/恢复。启动KillMode=process、终态show control-group两原快照保留，不推运行期变化或发信号。关闭本固定复用/拟合Static，不加rank/LR/恢复/QA/时长/自动版本或1213/1313/21454，不填Ours；旧分支/两机正式保全，总科研目标未实现。
+
 # 2026-10-24：gate响应复用新对照已实际首次STARTED
 
 - gate_response_reuse_v1/ACTIVATION、PHASE_OBSERVED及init_STARTED为唯一新入口证据。2026-10-24T12:17:07UTC实际OLD controller3673028/start754263262、init worker3673048/start754263290、UID1084/隔离PGID同PID，boot5b259bd9...，GPU0；queue running/init，实际proc匹配，无COMPLETE/FAILURE/VERIFIED，未读partial质量。这是快照，以后核真实身份与proof，不永久live。
