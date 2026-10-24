@@ -1,0 +1,63 @@
+{
+  "decision": "accept_fixed_FFN_role_retention_source_for_single_CPU_gate_and_metadata_only",
+  "no_model_admission": true,
+  "model_admission": false,
+  "source_sha256": {
+    "core.py": "81998fa0d33f3ac6b023b247c1f19de59e217f14ad832cfa08b189470395a9ed",
+    "common.py": "b4054b23a1b215c28eaabd43569a58799bc74ccba0d51bc6a4de63a49c3d8a02",
+    "worker.py": "dac2f1e12243e7721f4b4bf913eac8ecd7b4e53c008a1efb8892b6121806a131",
+    "dispatch.py": "5f5089d66c31a4d4ab2d9b308202b9d5d10e1e6e9d927c21cbad4f91b43f3455",
+    "freeze.py": "a03f07b96279c39b4a7d535ad4a2883c1727ef4b882eeaa43f9819405e304b9f"
+  },
+  "sources": {
+    "exp/ffn_role_retention_20261024/v1/core.py": "81998fa0d33f3ac6b023b247c1f19de59e217f14ad832cfa08b189470395a9ed",
+    "exp/ffn_role_retention_20261024/v1/common.py": "b4054b23a1b215c28eaabd43569a58799bc74ccba0d51bc6a4de63a49c3d8a02",
+    "exp/ffn_role_retention_20261024/v1/worker.py": "dac2f1e12243e7721f4b4bf913eac8ecd7b4e53c008a1efb8892b6121806a131",
+    "exp/ffn_role_retention_20261024/v1/dispatch.py": "5f5089d66c31a4d4ab2d9b308202b9d5d10e1e6e9d927c21cbad4f91b43f3455",
+    "exp/ffn_role_retention_20261024/v1/freeze.py": "a03f07b96279c39b4a7d535ad4a2883c1727ef4b882eeaa43f9819405e304b9f"
+  },
+  "protocol_sha256": "22bc7275017da35050e78b2359cd083c52ad718d2600b87dea46d0e3dce61967",
+  "necessity_review_sha256": "a0771132fa53281e1b4a70b2241fae5099540a1cb794059b379cdb4f673dde7f",
+  "dependencies_read_sha256": {
+    "exp/two_backbone_native_cl_20261017_v2/run.py": "0e1f794ff1daf0694bdf960c3f89ccd4078764577db75271d8f78684282a39a9",
+    "exp/two_backbone_native_cl_20261017_v2/methods.py": "e5bd8f51690b006274ed5adcfa4ef3b1a2c3b0f1d79476d948b71d1cfec41c5b",
+    "exp/two_backbone_native_cl_20261017_v2/runtime_utils.py": "4f5c4a34be046c29cfbcdaa4b2957faa907684872ba69083bdef53136a851240",
+    "exp/two_backbone_native_cl_20261017_v2/onevision_bridge.py": "f3b1dd38af3b58dbfa69073da698ea2bf39a3a11850fb1069a80e38d0e3669a9",
+    "exp/two_backbone_native_cl_20261017_v2/frozen_vision.py": "8211651e92d17019f6ce6cf9615df7f6b5fcaeecc765aec4acdf916c448a35bd",
+    "exp/two_backbone_native_cl_20261017_v2/resource_monitor.py": "a161c8a82bf762622795f64210c95164fb905c6fa80572b35ae5ee3dd7146533",
+    "exp/two_backbone_native_cl_20261017_v2/host_adam.py": "5e733e6b87c12eb9331ff23e8919a142f1861a2beec82ec8b0361d878b9aec8c",
+    "exp/two_backbone_native_cl_20261017_v2/training_validity.py": "0ec302d2fa4e8bb1a87b41c861c3aea78bf473e3df805b87d4dd450d21a2f735"
+  },
+  "anchor_proof_sha256": "acaee0246525532d99318f3798fa0116abd968fa8476a9815284593473fecb56",
+  "scope": [
+    "One necessary synthetic CPU check and metadata freeze/transport for the two fixed role conditions",
+    "No actual pretrained-model loading, original QA forward, generation, training, scoring or activation is authorized by this source review"
+  ],
+  "static_findings": [
+    "KeepGate replaces only up and KeepUp only gate. Both retain dense down and all other components. Square-root FP32 SVD factors are cast to FP16 and frozen; final state contains factor parameters instead of the replaced dense matrix.",
+    "Both initial compressed complete checkpoints derive from the same parent; restoring all original modules between decompositions is guarded by a full parent digest. q/v initialization and training RNG are reset identically, and the final verifier compares q/v initial digests.",
+    "The original stage-training AST prefix retains QA ordering, QA-normalized gradient accumulation, clipping, scaler and scheduler behavior, stage-local optimizer reset and validity checks. One Method instance preserves q/v weights across the 19 stages.",
+    "The two arms share HostAdamW and saved-tensor CPU offload. Durable per-update gradient and optimizer witnesses and per-stage adapter states are produced without introducing trainable compression factors.",
+    "Actual final attention folding removes the q/v adapters. Complete state, layout and digest are saved; training references are released; a new architecture with factor modules strictly reloads the final package before final generation.",
+    "The verifier requires exact phase file sets, all 19 validity/stage states and 87 gradient/optimizer records, matching STARTED/EXIT/COMPLETE identity and READY, one physical GPU, resource PID/terminal phase, checkpoint size/SHA and full 100-ID/all-reference coverage.",
+    "Original tokens/score AST is used once over exactly 500 new predictions after all phases complete. The old wide-q/v point is read from its fixed existing VERIFIED proof without rescoring.",
+    "The dispatcher ignores CPU_GATE_STARTED when checking model-attempt markers, requires a separately bound model-admission review, retains the first selected GPU, checks isolated own-child UID/startticks/PGID before reclamation, and polls against the remaining independent deadline.",
+    "The synthetic check includes actual q/v changes, frozen parameter invariance, folding and disk serialization followed by strict reconstruction/reload, within the existing four updates per arm."
+  ],
+  "resolved_blockers": [
+    "The model-attempt wildcard previously matched CPU_GATE_STARTED; it now checks only the three model phases.",
+    "The synthetic reload now exercises torch.save/load and reconstruction rather than only deepcopy/load_state_dict.",
+    "The final verifier now rejects missing or extra mandatory phase files and checks identity/resources/checkpoint metadata.",
+    "Generation has an observation-only score guard rejecting NaN/+Inf/all-masked rows while preserving normal scores, with one check per generated token.",
+    "Resource sampling is stopped and joined before the final complete snapshot and file hashing; deadline sleep uses the remaining allowance."
+  ],
+  "limitations": [
+    "Static acceptance is not a CPU_GATE pass or actual-model admission. No Torch/module execution, synthetic check, original QA, model, score or activation was performed by this reviewer.",
+    "The tiny gate is FP32 CPU only and cannot prove CUDA FP16 numerical behavior, actual large-model memory/time feasibility, or original Answer F1.",
+    "Counts 816728096 versus 893675552 remain design expectations until actual complete layouts and packages are verified. Retaining base assets for architecture construction is not evidence of reduced inference peak or latency.",
+    "Initial function damage is part of this role-allocation intervention. Initial/final differences do not isolate pure trainability, gate plasticity, PAS causality, or OSFT mechanism.",
+    "Previously explored 100 DEV and a single seed support only the fixed priority decision. Failure closes this point; success does not establish stable superiority, originality, a complete framework, or authorize further experiments.",
+    "Existing closed rank200/other workers and checkpoints remain closed. This is an independent one-branch contrast, not restoration of those runs."
+  ],
+  "required_next_step": "Run only the single reviewed tiny CPU gate and metadata freeze on exact transported bytes; then obtain the separate actual-model admission review before any model STARTED."
+}

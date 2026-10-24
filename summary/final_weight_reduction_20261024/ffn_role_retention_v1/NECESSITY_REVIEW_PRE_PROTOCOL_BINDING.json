@@ -1,0 +1,59 @@
+{
+  "decision": "accept_fixed_FFN_role_retention_implementation_only",
+  "review_basis": "Fixed two-condition design communicated by the parent agent; no protocol or runtime source has been reviewed for this point.",
+  "no_model_admission": true,
+  "allowed_next_scope": [
+    "Independent implementation and one complete source review",
+    "One necessary tiny synthetic admission check after source acceptance",
+    "Separate actual-model admission before activation"
+  ],
+  "conditions": {
+    "KeepGate": "Keep original dense gate and down; replace only up by independent rank-200 square-root SVD factors.",
+    "KeepUp": "Keep original dense up and down; replace only gate by independent rank-200 square-root SVD factors.",
+    "common": "Same fresh original OneVision base, full vision/attention/embedding/projector and down weights; FP32 SVD initialization cast to FP16; frozen compression factors; identical q/v rank-8 adaptation on original 1213 FIT / 19 stages / 87 updates.",
+    "physical_representation": "No dense residual, original replaced matrix, or original SVD basis retained in the final model. Fairly fold q/v into attention weights and save a complete reloadable checkpoint."
+  },
+  "design_counts_not_measured": {
+    "base_complete_weight_scalars": 893675552,
+    "one_dense_projection_all_24_layers": 104595456,
+    "one_rank200_projection_all_24_layers": 27648000,
+    "reduction_scalars": 76947456,
+    "each_condition_complete_folded_weight_scalars": 816728096,
+    "reduction_fraction": 0.08610222784745039,
+    "common_qv_trainable_coordinates": 540672,
+    "actual_layout_aliases_buffers_and_package_cost": "Pending independent implementation verification; these counts are not measured model or package results."
+  },
+  "evaluation_scope": {
+    "fresh_parent_unadapted_DEV_generations": 100,
+    "two_compressed_initial_DEV_generations": 200,
+    "two_compressed_final_DEV_generations": 200,
+    "total_new_DEV_generations": 500,
+    "new_DEV_NLL_requests": 0,
+    "scoring": "Original Answer F1, once per new prediction record; no rescoring of old anchors.",
+    "DEV_status": "Previously explored DEV, not a new independent holdout.",
+    "continue_only_if": "KeepGate final macro strictly exceeds KeepUp final macro and the fixed legal wide-qv anchor, with actual complete weight reduction verified.",
+    "wide_qv_anchor_macro": 43.79198740853657,
+    "otherwise": "Close this fixed role/rank point; no automatic rank, learning-rate, recovery, or extra-condition search."
+  },
+  "findings": [
+    "Compressing only one branch removes the common low-rank down bottleneck from the proposed role comparison and reduces the chance that both conditions reach a shared quality floor.",
+    "Gate and up have equal original shapes, so the exchanged dense-versus-rank200 allocation has exactly matched weight counts. All other architecture and adaptation choices can be shared.",
+    "The original three-projection rank200 result and LoRA placement comparisons do not answer this exchanged-role question.",
+    "A favorable result can select preservation of the original gate projection for subsequent compact-method design; uncertainty about the result does not invalidate this fixed exploration."
+  ],
+  "required_implementation_controls": [
+    "Bind the same original base and identical unchanged down/other weights; preserve identical q/v initial parameters, sample order, training RNG policy and adaptation recipe between conditions.",
+    "Record initial and final scores separately. Keep final and initial role differences visible; do not label their difference as isolated learning ability.",
+    "Bind all datasets, references, input and score helpers; freeze exact budgets, lifecycle and failure rules before model admission.",
+    "Verify actual final complete weight/storage accounting with shared storage deduplicated and required buffers included, and verify complete checkpoint reload before final evaluation."
+  ],
+  "limitations": [
+    "Frozen compression factors with q/v-only adaptation test retained pretrained representations under subsequent common attention adaptation; they do not test direct gate or up trainability.",
+    "Keeping gate weights does not keep actual gate responses fixed because upstream hidden inputs can change.",
+    "Unequal initial function damage is part of the structural intervention, so endpoint superiority does not isolate nonlinear gating geometry from compression approximation or optimization effects.",
+    "The PAS selection/response argument is a motivation, not a demonstrated local causal mechanism transferred by this intervention.",
+    "Failure closes this fixed point only, not all gate-retention structures or all ranks. A positive single-seed explored-DEV point is not stable superiority, a new framework, or automatic full confirmation.",
+    "This is a new single-branch structural contrast, not restoration of any closed rank200 checkpoint or worker.",
+    "No Torch, synthetic gate, data consumption, model, prediction, scoring or activation was executed in this review."
+  ]
+}

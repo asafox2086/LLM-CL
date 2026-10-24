@@ -1,3 +1,11 @@
+# 2026-10-24：同预算FFN角色保留探索已准入，尚未实际模型启动
+
+- ffn_role_retention_v1的PROTOCOL/NECESSITY_REVIEW/SOURCE_REVIEW/CPU_GATE/READY/ADMISSION_REVIEW为本独立点权威。READY d920df2595bd174e1816a5ef1a37198a84731fd1c7827f034d1ed4d1f7845928、准入19ed09a8...仅接受OLD任一真正空卡，首次init后固定同卡串行init1800秒、KeepGate/KeepUp各3600秒，共9000模型秒。发布时尚未激活，后续看ACTIVATION/真实STARTED/COMPLETE/VERIFIED；不将此段当永久实时状态。
+- 两点仅交换语言FFN哪一支保完整：KeepGate只将up物理r200，KeepUp只将gate物理r200，down/视觉/注意力/词表/连接器不变。设计完整权重893675552→816728096（约减8.61%）待真实模型核验；并非已形成主方法。FP32普通SVD平方根分配转FP16、无dense残差；不恢复旧三矩阵r200/旧CP。
+- 原1213FIT/19/87、相同q/v-r8连续跨阶段训练，避免每域重建专家；原冷启动只支持局部完整功能继承，不说所有基线冷启动或本点证明PAS/OSFT因果。原100已探索DEV父一次、两点初末各一次，共500新生成，0额外DEV NLL/旧重评分/bootstrap。初态与末态分列，不把差分叫纯学习因果。只完整退出后原评分唯一核验。
+- 唯一小图门3.593072秒通过、两小点各4步与实际序列化严格重载/qv初值/fold通过，CUDA未初始化，0真实QA；这只是实施准入，不算科研收益。模型首次STARTED故障/中断/超预算即整个固定点停，不滚动r/LR/恢复/v2。正点须KeepGate末态宏同时高KeepUp与既合法wideqv43.79198740853657、完整性/实际减重过，才进入框架设计评审；不自动1313/21454或填Ours。
+- 人类最新明确有意义即可探究，不要求主子agent事前保证正确。评审只排明显无意义和致命混杂，不用反复更正代替执行。旧失败/阴性分支与待人类例外保持原终态，两机基线/他人资源保全。当前总科研目标未完成。
+
 # 2026-10-24：输出偏置对照在模型尝试前按论文目标关闭
 
 - global_output_bias_control_v1/DIRECTION_CLOSED.json为本提议终态。五源仍为WIP，旧NECESSITY_REVIEW仅接受实施，不是模型准入；不继续源码验收/CPU门/READY/运输/激活。没有本提议的新模型、QA或质量结果。

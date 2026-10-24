@@ -1,0 +1,85 @@
+{
+  "decision": "accept_single_fixed_FFN_role_retention_activation",
+  "model_admission": true,
+  "ready_sha256": "d920df2595bd174e1816a5ef1a37198a84731fd1c7827f034d1ed4d1f7845928",
+  "source_review_sha256": "e7664859a377785dc2b304ecdd6f20393d348ab64f42ee0541d138f08ded8763",
+  "necessity_review_sha256": "a0771132fa53281e1b4a70b2241fae5099540a1cb794059b379cdb4f673dde7f",
+  "protocol_sha256": "22bc7275017da35050e78b2359cd083c52ad718d2600b87dea46d0e3dce61967",
+  "cpu_gate_sha256": "b294d3ca242b8e1a36b9fb3811e7507f6c4f4f20de304b6355d42155a4c95e41",
+  "sources": {
+    "exp/ffn_role_retention_20261024/v1/core.py": "81998fa0d33f3ac6b023b247c1f19de59e217f14ad832cfa08b189470395a9ed",
+    "exp/ffn_role_retention_20261024/v1/common.py": "b4054b23a1b215c28eaabd43569a58799bc74ccba0d51bc6a4de63a49c3d8a02",
+    "exp/ffn_role_retention_20261024/v1/worker.py": "dac2f1e12243e7721f4b4bf913eac8ecd7b4e53c008a1efb8892b6121806a131",
+    "exp/ffn_role_retention_20261024/v1/dispatch.py": "5f5089d66c31a4d4ab2d9b308202b9d5d10e1e6e9d927c21cbad4f91b43f3455",
+    "exp/ffn_role_retention_20261024/v1/freeze.py": "a03f07b96279c39b4a7d535ad4a2883c1727ef4b882eeaa43f9819405e304b9f"
+  },
+  "files_sha256": {
+    "summary/final_weight_reduction_20261024/ffn_role_retention_v1/READY.json": "d920df2595bd174e1816a5ef1a37198a84731fd1c7827f034d1ed4d1f7845928",
+    "summary/final_weight_reduction_20261024/ffn_role_retention_v1/CPU_GATE.json": "b294d3ca242b8e1a36b9fb3811e7507f6c4f4f20de304b6355d42155a4c95e41",
+    "summary/final_weight_reduction_20261024/ffn_role_retention_v1/CPU_GATE_STARTED.json": "3d43429f97e98122c04f305130e43d6874d74f922c1feb4b5d29c959310d5250",
+    "summary/final_weight_reduction_20261024/ffn_role_retention_v1/PROTOCOL.md": "22bc7275017da35050e78b2359cd083c52ad718d2600b87dea46d0e3dce61967",
+    "summary/final_weight_reduction_20261024/ffn_role_retention_v1/NECESSITY_REVIEW.json": "a0771132fa53281e1b4a70b2241fae5099540a1cb794059b379cdb4f673dde7f",
+    "summary/final_weight_reduction_20261024/ffn_role_retention_v1/SOURCE_REVIEW.json": "e7664859a377785dc2b304ecdd6f20393d348ab64f42ee0541d138f08ded8763",
+    "summary/final_weight_reduction_20261024/ffn_role_retention_v1/TRANSPORT.json": "8d37d9ca7a239afd2e8c07ee9b4744082d2a60e384d44afd3209f82fec153d92",
+    "summary/final_weight_reduction_20261024/ffn_role_retention_v1/SOURCE_FINAL_TRANSPORT.json": "f65f86c9f43ec2fde9f02f2ddfc6c27a4d0c8afcc63e5dbf2053927bc405c634",
+    "summary/final_weight_reduction_20261024/ffn_role_retention_v1/freeze_stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "summary/final_weight_reduction_20261024/ffn_role_retention_v1/freeze_stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "exp/ffn_role_retention_20261024/v1/core.py": "81998fa0d33f3ac6b023b247c1f19de59e217f14ad832cfa08b189470395a9ed",
+    "exp/ffn_role_retention_20261024/v1/common.py": "b4054b23a1b215c28eaabd43569a58799bc74ccba0d51bc6a4de63a49c3d8a02",
+    "exp/ffn_role_retention_20261024/v1/worker.py": "dac2f1e12243e7721f4b4bf913eac8ecd7b4e53c008a1efb8892b6121806a131",
+    "exp/ffn_role_retention_20261024/v1/dispatch.py": "5f5089d66c31a4d4ab2d9b308202b9d5d10e1e6e9d927c21cbad4f91b43f3455",
+    "exp/ffn_role_retention_20261024/v1/freeze.py": "a03f07b96279c39b4a7d535ad4a2883c1727ef4b882eeaa43f9819405e304b9f"
+  },
+  "execution_binding": {
+    "host": "OLD",
+    "private_view": "/data2/liyapeng_grp/program/LLMCL/.deployment/ffn_role_retention_20261024_view",
+    "uid": 1084,
+    "boot_id": "5b259bd9-d0cb-4a1d-8b90-6e6107080488",
+    "interpreter": "/data2/liyapeng_grp/program/LLMCL/.runtime/conda-env/bin/python3.10",
+    "physical_gpu": "Choose one genuinely free OLD GPU at the first successful init STARTED; retain exactly the same physical GPU for both subsequent conditions.",
+    "phase_order": [
+      "init",
+      "KeepGate",
+      "KeepUp"
+    ],
+    "phase_model_seconds": {
+      "init": 1800,
+      "KeepGate": 3600,
+      "KeepUp": 3600
+    },
+    "cumulative_model_seconds": 9000,
+    "wait_scope": "Resource-change exit75 is unattempted only when no phase STARTED exists. Waiting does not authorize repeat model attempts.",
+    "stop_scope": "Any first model STARTED failure, interruption, nonfinite result or timeout closes the fixed exploration. No resume, extension, automatic repair, extra rank/LR/recovery condition or old-worker restoration."
+  },
+  "actual_admission_evidence": {
+    "CPU_GATE_passed": true,
+    "CPU_GATE_seconds": 3.593072023242712,
+    "CPU_GATE_marker_pid": 3620175,
+    "each_tiny_updates": 4,
+    "each_tiny_weight_coefficients": 5456,
+    "shared_qv_initial_parameters_exact": true,
+    "fold_and_serialized_strict_reload": true,
+    "CUDA_initialized": false,
+    "real_QA": 0,
+    "real_pretrained_model": 0,
+    "stdout_bytes": 0,
+    "stderr_bytes": 0,
+    "supervisor_exit_status_scope": "Parent reported supervision exit0; the local review independently consumes the completed gate/READY artifacts and retained empty streams, not a new process observation."
+  },
+  "findings": [
+    "READY binds exactly the accepted five source hashes, protocol, current necessity/source reviews, actual CPU gate, inherited runtime dependencies, manifest/SPLIT, current processor/config files and the fixed old wide-q/v proof.",
+    "The first transport is a pre-source-final snapshot. SOURCE_FINAL_TRANSPORT explicitly binds and supersedes the changed files before freeze; its merged file map matches READY. This is not a post-freeze scientific change.",
+    "The completed tiny artifacts support CPU structural replacement, nonzero q/v updates, equal q/v initialization, ordinary folding and actual strict serialized reload. They support proceeding to the fixed actual-model test, not a quality result.",
+    "The allowed actual work is only the fresh parent and two single-branch role conditions, with original 1213 FIT / 19 stages / 87 updates per arm and 100 parent plus two initial/final 100-DEV generations, exactly 500 new generations total.",
+    "Both conditions retain one continuous q/v trajectory across stages with the original per-stage optimizer reset, shared HostAdamW/CPU offload policy, frozen compression factors, final q/v folding and complete checkpoint reload.",
+    "All three phases must complete, exit successfully within their original budgets and pass the fixed integrity checks before the single original-score verifier consumes outputs."
+  ],
+  "limitations": [
+    "The CPU gate did not validate actual 0.9B CUDA FP16 numerical behavior, full-data time/memory feasibility, output quality, or practical inference latency.",
+    "816728096 complete coefficients versus 893675552 parent and approximately 8.61 percent fewer remain design expectations. Actual complete layouts, shared storage, buffers and package sizes must be verified; no final compact-model result exists at admission.",
+    "The comparison tests retained pretrained projection roles under common q/v adaptation. It does not identify OSFT/PAS causal mechanisms, direct gate plasticity, knowledge content, or cold-start causality.",
+    "100 DEV is already explored; a favorable fixed point is not stable superiority, an original framework, or permission for additional experiments/full confirmation. Initial/final differences do not isolate pure learning ability.",
+    "This admission does not reopen any closed rank200, native, shared-carrier, sparse-repair or other worker.",
+    "This reviewer performed only small-artifact/source-hash binding checks. No Torch import, gate rerun, model/QA forward, prediction scoring, bootstrap, new asset hash pass or activation was performed."
+  ]
+}
