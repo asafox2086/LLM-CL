@@ -1,3 +1,11 @@
+# 2026-10-24：OSFT阶段刷新机制新对照已准入，尚未激活
+
+- 人类追问不是要求继续无作为。上一只巡检无新研究的goal轮是no progress，不是资源阻塞；root/子agent已实质讨论纠正“每项机制实验必须立即删W0”的过严门。新问题直接决定框架是否需要阶段刷新学习参数化，不能只凭局部代码可行/完整对照立项，也不能用旧首步A梯度/每域清零故事冒充已识别基线原因。
+- osft_stage_refresh_mechanism_v1的PROTOCOL/NECESSITY_REVIEW/SOURCE_REVIEW/CPU_GATE/READY/ADMISSION_REVIEW为权威。READY d276508a82e51855b3c7e4ac94f8fa3329167c7bec6cf190368c09f00271d4a5 与五源/协议冻结。首次tiny在共享SVD切片的计数假设处失败，4.321477秒及旧源/记录原字节保留；仅计数与重载逻辑字段修复后必要完成检查通过，3.891517秒/监督4.721693秒重叠。两次均0真实模型QA，不称首试通过或新效果；无训练/数据/刷新/评分/预算更改，CPU_COUNT_FIX_INTERVENTION绑定初运输旧源和准入新源。旧所有关闭和待人类例外保持原状态，不是复活压缩点。
+- 共同fresh原OSFT先100原DEV初态，再实际S1 327FIT/21更新及20刚习得DEV，保存新完整S1 tensorstate+RNG+method.stage1；Fixed与Refresh从完全相同新前缀分叉S2–19，低U/S/V仍训练、阶段optimizer均reset，仅是否执行后续18次refactor不同，S2实际调用0/168。两逻辑轨迹各1213FIT/87，实际共2099FIT/153更新/480新生成，0TEST/未来FIT优化/正式teacher/旧CP/压缩。
+- 看各问题刚学完和末态，而非只看最后分数；记录边界实际FP16权重和高U/V projector变化，刷新收益不自动等于适应子空间变化，重平衡/舍入/保护参照更新整包未再拆分。不减最终完整权重、不解释全部OSFT/ShortFixed优越性，不自动CL新方法/1313/21454/Ours。正负按协议改变是否保留边界机制的后续设计，混合记权衡，不能不显著称等效。
+- 只OLD真正空卡同卡串行prefix3600/Fixed7200/Refresh7200累计18000模型秒，包含加载/额外模板SVD构造再覆盖同S1/训练/480生成/边界观测/完整保存重载/资源；准入/运输/核验/历史另计。首次实际STARTED后故障/中断/超时整个固定点停止，不续CP/延时/自动新版本/搜LR/rank/QA。发布时未激活，后续看真实ACTIVATION/STARTED/身份/proof；两机正式和他人保全，总目标未实现。
+
 # 2026-10-24：功能读出两载体完整结束，D-only固定点保质失败关闭
 
 - functional_readout_carrier_v1的VERIFIED/OUTCOME/DECISION/README/RESULT_REVIEW/RESULT_PUBLICATION为新终态。VERIFIED 817ccbd72d86103b726d67e771f0d57ac55171bdd518d63dcd3c460498f96070，OUTCOME f20250eaad16402ba3848012c668e3170575f2a800f3a8b6c02d47d4b9b5dd18，独立review 896ae99714253c52bc427b158204afed8704ec5cbf39d2eac01847e443b97285。五源/协议/READY3f427a300c05b7def9fe34309e55615ef4fb05325e8f460f09549614eb53f141不改，唯一自动新200条token_f1评分与标量consumer已完成，不重评分/bootstrap/门/大CP hash。
