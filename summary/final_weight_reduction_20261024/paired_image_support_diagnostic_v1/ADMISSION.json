@@ -1,0 +1,29 @@
+{
+  "decision": "accept_single_label_blind_geometry_pairing_only",
+  "consumer_sha256": "323f7a258c3f26b1e30c17c2ffc9611f1579cdf361fd24ba3fec68038c3d0674",
+  "protocol_sha256": "25d39632b13868668ec6a192acc9001397b9a01af4cbb12c522bf864ba4154b1",
+  "no_model_admission": true,
+  "single_execution_only": true,
+  "remote_consumer_seconds_cap": 120,
+  "outer_supervisor_seconds_cap": 240,
+  "scope": "One metadata/image-SHA/PIL-header geometry pairing execution only. No processor, RGB decode, model, QA forward, prediction, scoring, training, Tiny CPU gate, or second-stage admission.",
+  "findings": [
+    "The consumer does not inspect answer/reference or prediction fields for selection. It parses source-container rows to access only fixed DEV IDs, images and task/source metadata.",
+    "SPLIT and manifest are checked against the existing screen READY; each source file and each selected image are hashed against the sealed metadata. PIL is used for image dimensions without RGB conversion or pixel loading.",
+    "Geometry buckets include task, image count and ordered post-area-cap integer dimensions. The 401408-area-cap calculation matches the current declared input policy.",
+    "The fixed hash-ordered augmenting-path matching constructs a complete target/donor bijection or excludes the entire bucket. Different known groups and disjoint image SHA sets prohibit self/same-group or exact-image reuse.",
+    "The coverage gate is implemented as stated: at least 8 medical QA in at least 2 medical tasks and at least 2 other domains each with at least 8 QA. This is an investment gate, not a power, quality, or semantic-validity claim.",
+    "Successful first-stage coverage would establish geometric constructability only. Actual text/placeholder/mask/position/packed-layout equality remains unverified and separately gated."
+  ],
+  "limitations": [
+    "The source TRAIN containers include DEV and are parsed to select those IDs; no claim is made that the container bytes exclude FIT answers. Answer values are not used to form the pairing.",
+    "Image hashes require reading complete image-file bytes even though image content is not decoded; these reads and the PIL header work are charged.",
+    "Different groups and image SHA disjointness do not establish statistical independence, absence of near-duplicates, semantic modality matching, or that a donor makes the original gold false.",
+    "The selected subset is geometry-conditioned, drawn from explored DEV, and evaluated under one fixed permutation; coverage is not representative by guarantee.",
+    "Both time caps and the once-only rule require the external supervisor; the consumer itself has no hard timeout and only rejects an already existing PAIRING output.",
+    "The second-stage section is a conditional scientific plan only. Neither a pass nor the presence of this protocol authorizes checkpoint/model loading or NLL requests. Its actual full-answer target and numerical path still require source review.",
+    "No automatic mask/seed/size relaxation, subset rescue, data expansion, closed-branch repair or new model activation follows."
+  ],
+  "closure_rule": "If the fixed coverage gate fails, close this diagnostic without changing matching rules or expanding data. If it passes, only a separately reviewed bounded model proposal may be considered.",
+  "review_execution": "Static source/protocol review only; the consumer was not imported or run, and no QA, image, model or tensor was opened during this review."
+}

@@ -1,0 +1,31 @@
+{
+  "decision": "accept_existing_interpreter_only_before_data",
+  "wrapper_sha256": "bfe05aa919285ea0d1d96fc70b61ebc98e3feb635aaf4cc0e5062f06725218df",
+  "consumer_sha256": "323f7a258c3f26b1e30c17c2ffc9611f1579cdf361fd24ba3fec68038c3d0674",
+  "protocol_sha256": "25d39632b13868668ec6a192acc9001397b9a01af4cbb12c522bf864ba4154b1",
+  "admission_sha256": "2af4b32ce069b394f75af481cfa4dfa0436f36ced89be33f03b794323c797e25",
+  "files_sha256": {
+    "analysis/paired_image_support_geometry_20261024.py": "323f7a258c3f26b1e30c17c2ffc9611f1579cdf361fd24ba3fec68038c3d0674",
+    "summary/final_weight_reduction_20261024/paired_image_support_diagnostic_v1/PROTOCOL.md": "25d39632b13868668ec6a192acc9001397b9a01af4cbb12c522bf864ba4154b1",
+    "summary/final_weight_reduction_20261024/paired_image_support_diagnostic_v1/ADMISSION.json": "2af4b32ce069b394f75af481cfa4dfa0436f36ced89be33f03b794323c797e25",
+    "summary/final_weight_reduction_20261024/paired_image_support_diagnostic_v1/ENVIRONMENT_FAILURE.json": "3a2b266c5ddba3381032499efc778c130bc4266ca4021c559ba05b14a0222a55"
+  },
+  "no_model_admission": true,
+  "accepted_delta": "Use the existing .assets-env interpreter instead of .conda-env for the unchanged metadata consumer, and preserve normal/error/timeout stdout and stderr. No package installation, model backend, scientific condition, pairing rule, seed or investment-gate change.",
+  "findings": [
+    "The failure record reports import PIL failure before the consumer timer, admission, SPLIT, QA and image reads. It is one failed implementation invocation, not a completed data analysis or model attempt.",
+    "Original stderr bytes were not preserved; the record correctly identifies its exception/frame as an observation rather than a complete original-byte seal.",
+    "The final wrapper retains output on remote normal/nonzero exit and catches TimeoutExpired to preserve available output plus a TIMEOUT record before raising. There is no retry loop.",
+    "The local SSH-helper subprocess now has timeout 240 and preserves available timeout output. The remote consumer cap is 117 seconds, with a conservative 3-second first-failure reservation and a cumulative 120-second allocation.",
+    "The original consumer, protocol and admission hashes are unchanged; the environment records are transported as immutable payload. No processor, model, Tiny CPU gate, training or score request is introduced."
+  ],
+  "limits": [
+    "The 1.9750345-second original tool wall observation includes SSH and is not the exact remote consumer time. Three seconds is a conservative allocation, not reconstructed exact work cost.",
+    "No availability/import validation was executed during this review; use of .assets-env relies on the reported existing-environment check.",
+    "Only one subsequent complete metadata consumption is authorized. Failure or timeout does not permit further automatic environment changes, source changes or retries.",
+    "This first-stage geometry result can establish or reject only feasibility/coverage under the fixed rule. It does not itself establish a mechanism, useful learning, compact-model quality or a paper contribution.",
+    "Any later controlled NLL diagnostic would remain a separately justified mechanism constraint and cannot replace construction and validation of a compact framework.",
+    "Conditional model-stage boundary: existing runtime_utils.answer_loss truncates tokenizer targets at 512 tokens and appends EOS. A future full-row.answer likelihood diagnostic must explicitly disclose that difference, and review actual target handling, inputs and budget separately. This is not an error in the executed metadata selection, and does not authorize changing the frozen first-stage protocol or starting models."
+  ],
+  "review_scope": "Incremental static reading of final wrapper and failure record plus unchanged small-file hashes only; no wrapper/consumer/module execution or new data/image/model access."
+}
