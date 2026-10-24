@@ -1,3 +1,9 @@
+# 2026-10-24：人类明确停止继续探究，已暂停自动跟进并交接
+
+- 最新人类“别做了，交接吧，你啥都做不出来”。本聊天停止继续科研、停止自动goal推进与子agent工作；自动化lora已PAUSED。总科研目标未实现，不标complete。交接入口HANDOFF.md，成果README.md，细节SUPPLEMENTARY_NOTES.md；按接手会话的人类新指示执行，不自行恢复本聊天的跟进。
+- 当前已启动的冻结stage-refresh原服务保持原样供接管，未向GPU进程发信号，未新增试点或重跑。2026-10-24T15:50:24.235649+00:00仅交接只读实查：OLD同boot5b259bd9.../GPU0，unit active/running、controller3728445/start755358934与Fixed3731901/start755415692身份匹配；prefix COMPLETE/EXIT，Fixed STARTED，Refresh未STARTED，无VERIFIED/故障。此为快照，不是永久live；STOP_HANDOFF.json为交接记录。
+- 所有五源/READY/协议/各自STARTED预算不变，不重置或延长。现有原调度可能继续原同一固定实验后续phase及唯一verify；不把本聊天暂停写成训练已停。结果消费者已准备但未执行；完整VERIFIED后才允许一次消费，不读partial。已关闭旧分支与未获例外均保持，不借交接自动复活。
+
 # 2026-10-24：人类要求已整理成果与新会话交接，以README和补充说明为入口
 
 - 用户明确“把所有成果写到README整理好，其它写补充说明，开新会话”。根README已按正式结果、机制证据、FIT探索、真实压缩负结果、完整参数量与当前研究重整；SUPPLEMENTARY_NOTES.md保存运行交接、故障/缺测、成本、文献与数据来源。README_HISTORY_20261024.md仅历史时间线，QA/图像样例不再复制，原README原字节私有留存；历史“当前/下一步”绝非当前队列。
