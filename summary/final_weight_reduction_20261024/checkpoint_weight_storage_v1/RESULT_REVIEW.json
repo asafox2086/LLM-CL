@@ -1,0 +1,47 @@
+{
+  "decision": "accept_saved_state_weight_accounting_and_table_only",
+  "evidence_sha256": "9bcf7199541b4e4be8d5af8c621bf1c1b524fa9542484dbc8446fb9ede739797",
+  "findings_sha256": "678a14ae8970c1252631e95a411be683281a2a211677e93aedac02783bba6a49",
+  "readme_sha256": "8fa4530136f62c66f67337059e0bc43f8103aa2414bca035ce803784be9ea1ce",
+  "table_check_sha256": "b2701e2dc7e6b11abfe8eb8d1e9fbe38f0d0c7ab0b6a8e10586999b33ee31bb2",
+  "files_sha256": {
+    "summary/final_weight_reduction_20261024/checkpoint_weight_storage_v1/EVIDENCE.json": "9bcf7199541b4e4be8d5af8c621bf1c1b524fa9542484dbc8446fb9ede739797",
+    "summary/final_weight_reduction_20261024/checkpoint_weight_storage_v1/FINDINGS.md": "678a14ae8970c1252631e95a411be683281a2a211677e93aedac02783bba6a49",
+    "summary/final_weight_reduction_20261024/checkpoint_weight_storage_v1/TABLE_CHECK.json": "b2701e2dc7e6b11abfe8eb8d1e9fbe38f0d0c7ab0b6a8e10586999b33ee31bb2",
+    "README.md": "8fa4530136f62c66f67337059e0bc43f8103aa2414bca035ce803784be9ea1ce"
+  },
+  "consumer_sha256": "62bb56da7130270210f752e684d381bdadac0c667bf5b514085f550bad31a3dd",
+  "private_layout_records_sha256": {
+    "onevision/CL_MoE": "123888acc5bac875c6c119ce7f8e65e305fd14eb702d8efd86256c49259271b7",
+    "onevision/FOREVER": "d3bf4fb4fc33f101956926bd3618198047c1b300f8f9b1f33e0e21dda63cd01c",
+    "onevision/OSFT": "ee971bb8727781fd8d80813c70afd27e4d0517e41a136f77a6615b3696566b7f",
+    "onevision/PaRSP": "ea94c35ec7599add9f38fbba960ab320cc15a458094810fadaf7c77222efea4e",
+    "onevision/PASs_MoE": "d463c7c141394813700ae7a8408be47025b90e72f794dbdf81eb07477b3d358c",
+    "onevision/SeqFT_LoRA": "a1f2f1bf46a866c89fd13c3f787e6e28222f5c34cab0729431952a4a208ec6f6",
+    "onevision/SpaRTA": "4bb723d2cfdeb2725257e510b59140c7246891f998a5bfcadfc45d92c6c6744b",
+    "qwen/SeqFT_LoRA": "b86ad7b79f7d5fe1a82fe8cfb2249280b94399102638e607525991f8e0207fb2"
+  },
+  "review_scope": "Read the aggregate evidence, findings, table check, current README and the eight existing symbolic layout records. Recomputed only metadata storage-set arithmetic and table formatting; no checkpoint, tensor payload, model, source execution, QA or quality scoring.",
+  "findings": [
+    "All eight final selected-byte totals and increments match the prior independent metadata calculation. Aggregate private-layout SHA bindings match the current existing records, and dtype-byte totals equal final selected bytes.",
+    "OneVision derived registered inv_freq/position_ids storage is 9032 bytes per completed method; Qwen derived inv_freq is 7504 bytes. These excluded storage keys do not overlap registered Parameter storage. They are explicitly classified as configuration-reconstructible state rather than learned weight bases.",
+    "OSFT U/S/V high bases are retained. High and low factors share 336 archive storage keys and are counted jointly once; buffer-only subtotals are not an additive decomposition of the final total.",
+    "PAS expert masks and all expert weights are retained with shared aliases deduplicated. CL anchors and task_weights add the required 170240 bytes. Model-external exclusion groups cover every observed unregistered model storage, with zero unresolved groups under the previously reviewed inference-use classification.",
+    "The previous SeqFT, OSFT and PaRSP export-before registered-byte counts are exactly matched to the same checkpoint identities; no export or reload was rerun.",
+    "PaRSP has unchanged 893675552 coefficient count but increased bytes due to mixed dtype. OSFT saved factorization also adds representation and dtype bytes. These increases are not presented as trainable-coordinate counts or fair folded compression results.",
+    "The actual README formal block has seventeen columns and exactly eight completed pairs filled in the two storage columns. Their displayed values equal the evidence at three decimals; unfinished pairs and Ours remain 未测. The other four runtime columns remain 未测.",
+    "TABLE_CHECK retains the original quality-cell hash and reports quality cells unchanged; the displayed completed quality values match those previously reviewed. No quality cells were derived from this storage analysis.",
+    "The header and explanatory note explicitly state original saved representation, original dtype, unmerged storage, relative-to-original-base increment, and exclusion of cache/history/container bytes. These are not checkpoint file bytes, inference peak memory, latency or throughput."
+  ],
+  "limitations": [
+    "This is a user-requested report completion, not a new model experiment, compact method, quality improvement or proof that final inference weights were physically exported without training history.",
+    "Checkpoint content identity is inherited from the accepted historical proof and metadata with current archive/size observation; the large files were not newly rehashed.",
+    "Configuration and source reconstructibility justify the documented cache exclusion; no new forward comparison or runtime regeneration test was performed.",
+    "No inference peak memory, first-token latency, generation speed or resident-adapter measurement is admitted by these two columns.",
+    "No activation, repair, retry or new model experiment is authorized by this review."
+  ],
+  "no_model_admission": true,
+  "no_new_model_QA_tensor_score_bootstrap": true,
+  "original_result_sources_unchanged": true,
+  "required_changes": []
+}

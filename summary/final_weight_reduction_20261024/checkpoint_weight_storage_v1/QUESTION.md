@@ -1,0 +1,13 @@
+# 用已保存最终checkpoint填写权重占用
+
+人类要求按保存的最终checkpoint填写主表的最终权重存储与新增权重存储。当前8个已完整核验的方法/骨干组合都有stage19完整method图；文件同时保存训练历史、缓存、processor与RNG，不能直接把文件大小当最终权重。仅为完成所需报告，不是新模型实验或压缩发现。
+
+固定读取这8个最终检查点的ZIP目录与data.pkl元数据，不读storage载荷、不加载模型或执行pickle对象，不改原文件、源、评分、预测与运行。原proof的checkpoint SHA与latest元数据及当前文件尺寸绑定，明确不重新hash大文件，也不将此说成当前全部权重内容重核。
+
+以无执行pickle符号解释器重建method.model的注册参数/缓冲区图，按真实底层storage key共享去重，使用ZIP中该storage实际字节；冻结视觉、连接器、专家、路由、OSFT高基均包括。CL-MoE还计method.anchors与各层task_weights，它们被原prepare_row/forward使用，不能因在model外就漏掉。提取核payload.config.method与请求一致，输出路径、骨干/模型、condition和manifest绑定。注册buffer完整列出，必要权重基/掩码与可派生RoPE等缓存必须分类；全部注册storage只作分类前上界，不能自动当最终权重。另列model内注册之外、尚未归类的tensor storage并人工核用途；未知必要性项未解决前不填该方法的最终数值。PAS保护历史和逐次forward覆盖统计、CL缓存/训练累计、Spa训练快照/输入激活、PaRSP投影历史、FOREVER回放数据等另列，不移入主权重。
+
+比较口径为原保存态、未折叠的必需推理权重/持久状态的实际底层存储，含实际混合dtype与必要buffer。新增量相对同骨干原始预训练权重字节；复用既有component_footprint/v1/COMPLETE的完整基座header证明，不重新读头/模型计数。对于小型派生buffer与输入构造状态，公开其差额，不当架构扩展。没有执行常规LoRA/OSFT合并，不宣称相对于可公平折叠基线的结构压缩；保存态差异不等于方法压缩收益或实际运行峰值。
+
+先静态审符号读取器，允许一次固定范围元数据提取；若遇未支持序列化结构，只保留实施错误，修复须明确仅扩展符号数据语义、不能调用原pickle函数或torch.load。每个元数据读取120秒，总8个最多960秒；对已存SeqFT/OSFT/PaRSP的EXPORTED before字段作独立一致性校验，不重跑导出/重载。仅修复读取器的实现不产生新模型或新质量实验；失败不得用检查点文件大小/参数估算代填。
+
+完成后结果与来源、所有排除项和dtype受独立审阅，填写8个已完整组合的两列；未完成/Ours保持未测。另公开原checkpoint文件字节作为文件指标，不混入权重列。其余推理峰值、首词延迟和速度仍未测，不用保存态字节冒充。

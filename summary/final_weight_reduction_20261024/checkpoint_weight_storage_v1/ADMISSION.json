@@ -1,0 +1,31 @@
+{
+  "decision": "accept_single_eight_final_checkpoint_symbolic_metadata_extraction",
+  "consumer_sha256": "62bb56da7130270210f752e684d381bdadac0c667bf5b514085f550bad31a3dd",
+  "question_sha256": "98a638163611073f7216e2f1b01b32833a7653f5cd521788b7a39839e1e800d1",
+  "checkpoint_count": 8,
+  "stage": 19,
+  "per_checkpoint_seconds": 120,
+  "aggregate_seconds": 960,
+  "scope": "One fixed pass over ZIP directories and data.pkl metadata of the eight already-complete formal checkpoints, with original proof SHA/latest metadata/current-size provenance; no storage payload read or large checkpoint rehash.",
+  "findings": [
+    "The closed opcode VM represents pickle GLOBAL/REDUCE/NEWOBJ/BUILD as inert metadata nodes except explicitly implemented local container/torch tensor-metadata constructors; no archive callable is imported or executed.",
+    "Tensor shape/stride/offset/dtype/storage keys are extracted, selected storage is deduplicated by archive storage key, and storage entry byte sizes are cross-checked against recorded storage elements and dtype.",
+    "The reader now asserts payload.config.method equals the requested method and exposes checkpoint path, config method/backbone/model/condition and manifest SHA.",
+    "Registered parameters and all buffers are listed; selected byte fields are explicitly before buffer classification. Required OSFT high bases, expert masks and inference state must be separated from derived caches before table use.",
+    "CL-MoE method anchors and per-layer task_weights are additionally selected. Unknown model tensor storage is exposed for method-specific classification rather than silently treated as absent.",
+    "The existing three EXPORTED before-byte records may be used as independent saved-checkpoint identity/size checks without repeating export, reload or quality scoring."
+  ],
+  "limitations": [
+    "This admits metadata extraction only. Per-method inference necessity, registered-buffer classification, required unregistered state and public table values still require result review.",
+    "The output is original saved-state, unmerged storage, not a canonical folded representation, full package size, runtime RAM/VRAM, latency, throughput or a compression-performance result.",
+    "Additional weight storage must be relative to the same-backbone original pretrained base, not a stage-zero graph already containing adapters.",
+    "Unknown serialization structures must stop and preserve the implementation failure; any symbolic repair must be reviewed and must not call torch.load, pickle.load or archive functions.",
+    "No guarantee is made from this review that all cloudpickle structures are supported; no checkpoint data.pkl was executed or consumed in this static review.",
+    "No reader, model, processor, tensor operation, QA, scoring, bootstrap, GPU or previous export was run."
+  ],
+  "no_model_admission": true,
+  "no_storage_payload_read": true,
+  "no_new_quality_experiment": true,
+  "table_fill_requires_classification_review": true,
+  "required_changes": []
+}
