@@ -1,3 +1,11 @@
+# 2026-10-24：固定2:4连接载体源码审阅通过，仅放行唯一CPU门
+
+- 新exp/sparse_connection_plasticity_20261024/v1十一源及summary/final_weight_reduction_20261024/sparse_connection_plasticity_v1的PROTOCOL/NECESSITY_REVIEW/SOURCE_REVIEW为当前实施依据；SOURCE_REVIEW 7d5509f8217c8a8aa3b55037db7187f41b33dc282ecd9ef24ddef7dbd00ac388、PROTOCOL ffc5fca0acf329b06ed7b38fd21bfbf9f3898775de2bbe248c7ea659db88573f。仅允许精确运输、私有资产核验和一次tiny CPU实现门，尚无CPU_GATE/READY/模型准入/实际模型或QA结果。
+- 具体问题是更少连接的起点回答损伤及保留连接适应的净价值，不是复现OSFT因果或识别新增知识。SparseGPT为已有工具，固定72语言FFN物理2:4，保原线性维度，只存实际保留值和uint8模式码；设计完整737323040值对893675552少约17.49%，模式码78446592bytes及lookup、其它权重/buffers、实际包和运行峰全计，不是实测减重/速度/质量或新框架成果。
+- 仅当前S1 FIT分16组校准/另16组诊断；24块384校准请求、32诊断和4兼容NLL，共420初态teacher-forced请求及4短生成。固定log(2) NLL损伤门只决定是否继续投入，不是F1容限或保真保证。通过才共同CP0；Frozen只学公共q/v，Plastic另学同mask保留值，原1213/19/87各一次100已探索DEV。额外梯度的clip/qv耦合公开，记录FFN实际末态变化，不能把允许学习当已学到知识。
+- 源码审阅修复了先冻结再装视觉cache、0TRAIN初始化资源收尾、自有child身份核验/异常回收、必需SHA/预测全集、FFN自身变化见证和cache旁路费用；这是实施准入，不当科研收益。原作者源/许可只在私有资产，不入Git，目标OLD副本尚须逐字节核验。唯一CPU门通过后仍须独立ADMISSION_REVIEW才可激活，未过即保留故障，不滚动重试/改容差。
+- 准备使用OLD单卡，NEW不新增占用；原资源扩展规则保留，正式基线及他人不发信号。初始化3600秒、两流各7200秒，首次STARTED故障/中断/超预算关闭整个固定点，无自动恢复/v2/搜索或全1313/21454。旧PAS/r200/视觉/native/ShortFixed等终态保全，科研总目标未实现。
+
 # 2026-10-24：资源范围由人类扩大；PAS保护覆盖核实结束
 
 - 最新人类编辑goal允许使用旧服务器全部可用GPU；新服务器只须至少留一张GPU空闲。此项覆盖下文旧“仅NEW GPU1/OLD不用”的研究资源限制；其余数据、评价、冻结、最终权重主目标和正式基线保全规则不变。安排本方任务时为NEW保留至少一张空闲物理卡，不抢占他人/有效基线；他人占用导致无法留空时，不自行清场。空卡不是任意新实验或恢复旧失败入口的授权。

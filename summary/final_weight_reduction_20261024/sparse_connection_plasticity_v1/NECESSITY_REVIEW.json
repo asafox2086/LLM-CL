@@ -1,0 +1,45 @@
+{
+  "decision": "accept_fixed_sparse_carrier_implementation_only",
+  "protocol_sha256": "ffc5fca0acf329b06ed7b38fd21bfbf9f3898775de2bbe248c7ea659db88573f",
+  "document_sha256": "ffc5fca0acf329b06ed7b38fd21bfbf9f3898775de2bbe248c7ea659db88573f",
+  "no_model_admission": true,
+  "scope": [
+    "Accept the scientific necessity and fixed design for independent implementation, acquisition and pinning of the SparseGPT author source, and one necessary CPU admission after a separate complete source review.",
+    "This review does not accept the current WIP core as source-reviewed, does not authorize a processor/model/QA request, and does not authorize activation or recovery of any closed branch."
+  ],
+  "findings": [
+    "The candidate removes FFN connections physically while retaining the original linear dimensions. It is distinct from the closed rank-200 and half-width conditions and from a training-only sparsity mask.",
+    "The design addresses a concrete carrier question: whether a fixed smaller starting representation can retain enough initial answer function and whether adapting its retained connections adds useful quality over common q/v adaptation.",
+    "Calibration is uniquely defined as eval/no_grad use of the original TRAIN teacher-forcing path with row['answer'], the original EOS/512 target rule, and valid input-token statistics; equality with answers[0] is not assumed, and other references are not concatenated or separately replayed.",
+    "The stated 384 calibration requests are 24 block-wise passes over the same 16 current-S1 FIT representatives. The three statistics for each block precede pruning that block, and later blocks see the pruned prefix. This is an explicit schedule, not a claim of exact reproduction of every SparseGPT calibration detail.",
+    "The disjoint 16 current-S1 FIT diagnostic representatives use per-QA answer-token mean natural-log NLL including EOS, then QA-equal averaging, with matched parent/compressed input and token digests.",
+    "The additive log(2) NLL gate is a prior investment cutoff, not a tolerance for Answer F1 loss, noninferiority, or a guarantee of retained ability.",
+    "Frozen and Plastic share one physical CP0 and fixed mask and differ by permission to train retained FFN values. The induced global clipping and common q/v trajectory changes are correctly included in this net intervention.",
+    "Designed weight values, uint8 pattern metadata, actual final package bytes and runtime memory are separately accounted for. No dense W, dense residual or full-size mask may remain in the final representation.",
+    "Capturing the author structural mask avoids equating numerical nonzero locations with the selected connectivity. Observation-only source changes require mathematical AST equivalence after their removal.",
+    "The 3600-second shared initialization and two 7200-second model-run caps total 18000 seconds; failure/interruption/timeout closes this fixed point without automatic recovery.",
+    "Prior dense anchors are sealed FIT-only scalar quality anchors, not new same-compute controls; the single new paired comparison is Plastic minus Frozen.",
+    "The finalized protocol accounts for 384 calibration plus 32 diagnostic plus 4 compatibility teacher-forced requests in initialization, and 4 short generations; each learning stream has 38 compatibility NLL paths and 38 short generations within its existing cap.",
+    "FFN master/FP16 observations measure whether the permitted intervention actually changes retained values; zero changes remain reportable and changes do not establish knowledge content or quality causality.",
+    "Cache-path hit/miss counters are separated from native-core bypass request counts and are not presented as all visual-tower calls."
+  ],
+  "required_changes": [],
+  "pending_before_any_model_activation": [
+    "Pin and verify the author revision/source and original source/data/weight dependencies in the independent implementation.",
+    "Complete source review of all actual paths, physical packing/reload, structural-mask capture, gradient/state accounting, input semantics and independent watchdogs.",
+    "Perform only the single admitted CPU implementation gate after that source review, then obtain a separate readiness/admission decision before activation."
+  ],
+  "limits": [
+    "The review does not certify quality, actual rank, measured compression, device efficiency or novelty. SparseGPT and ordinary sparse fine-tuning remain prior tools.",
+    "Only current-S1 FIT is available to initialization; no future-task FIT, explored DEV or official TEST may determine the mask or parameters.",
+    "The FIT diagnostic is not an independent test set and the explored 100 DEV remain a limited, single-seed screen.",
+    "A failure or negative Plastic result closes the specified recipe; it does not prove all sparse carriers or all retained-connection learning ineffective. All Frozen outcomes remain reportable.",
+    "The old wide-qv threshold is a prespecified quality investment bar, not a proof that cross-architecture or cross-recipe differences are caused solely by plasticity.",
+    "A positive result permits only later necessity assessment; it does not automatically authorize full training/TEST, establish an original framework, or show superiority to the quality-missing fresh PAS reference.",
+    "No new source module, Torch, processor, model, tensor, QA, CPU gate, GPU operation, score or bootstrap was executed in this review."
+  ],
+  "resource_scope": "OLD available GPUs may be used and at least one NEW physical GPU must remain free under the human resource instruction; protect other users and valid formal baselines. This is not an automatic experiment authorization.",
+  "previous_review_sha256": "806013ece172eeafa13f0ab44df243937aae95708def94388f06c3001695eb13",
+  "previous_protocol_sha256": "6a92d61de24ce71dbfb90e759e0572766f577c89f5c6c290563c07ebc5967c59",
+  "incremental_review_scope": "Protocol additions only: account for existing native/manual compatibility requests and their charged exposures, record initial/final FFN master and actual FP16 layer changes without extra QA/updates, and distinguish cache-path counts from native-core bypass requests. The carrier, data, hyperparameters, quality rules and 18000-second model budget are unchanged."
+}
