@@ -1,0 +1,41 @@
+{
+  "admitted": true,
+  "sources": {
+    "exp/ffn_static_delete_20261025/v1/core.py": "032904b7fe92a0912e18c0e664750c35f4c6fa7bf15fae6fa9a5a350f7277ef8",
+    "exp/ffn_static_delete_20261025/v1/cpu_gate.py": "dffc8a464586ba74e02f2732210f39325bb91cd82a83fc2d1fb7be27c0fdcd8b",
+    "exp/ffn_static_delete_20261025/v1/worker.py": "642df17a613a9c8355f0480d1e50684e906509a59040cf8f1e977c61a6d2c657"
+  },
+  "protocol_sha256": "6f469f0301bc4eacfadbeb7817c291b759b3c13ac2a68cfedafb2373d929d6f5",
+  "parent_proof_sha256": "5c96600cecad1422944148cc64251033f6ecb462cd8e3000666b1d444ab90c15",
+  "parent_complete_sha256": "09f7594e05dd45734e6b412ae183e067e144fc341c115c163d011d9cc19946bf",
+  "split_sha256": "d8e2dd59767c53eb833988dda87b4330ac208d2c804e42e327725f09d38bcb9d",
+  "CPU_GATE_FINAL_sha256": "1967ae5434b830f5694ad5ac8b906b509bb648535175081d5cbf92995b053d4e",
+  "review": {
+    "decision": "accept_one_fixed_diagnostic_after_explicit_repairs",
+    "research_reviewer": "research_review",
+    "implementation_reviewer": "baseline_review",
+    "necessary": "Tests physical residual-branch deletion rather than all-layer low-rank approximation; fixed 11.704% complete-weight saving has bounded value, actual five-domain harm decides.",
+    "repairs": [
+      "Deleted surviving layer reference and assert less than1MiB allocated between graph phases",
+      "Bound old proof through COMPLETE SHA and checkpoint metadata",
+      "FP32 gate multiply and FP16 CPU equality/gradient check",
+      "BI uses actual FP16 residual addition before cosine"
+    ],
+    "limits": [
+      "qv parent is not strongest baseline",
+      "S0 current reconstruction; no pure causal attribution",
+      "Answer-loss vs all-token BI confounds more than aggregation",
+      "Explored100DEV, single seed; no significance/equivalence/framework claim"
+    ],
+    "protocol_sha256": "6f469f0301bc4eacfadbeb7817c291b759b3c13ac2a68cfedafb2373d929d6f5",
+    "sources": {
+      "exp/ffn_static_delete_20261025/v1/core.py": "032904b7fe92a0912e18c0e664750c35f4c6fa7bf15fae6fa9a5a350f7277ef8",
+      "exp/ffn_static_delete_20261025/v1/cpu_gate.py": "dffc8a464586ba74e02f2732210f39325bb91cd82a83fc2d1fb7be27c0fdcd8b",
+      "exp/ffn_static_delete_20261025/v1/worker.py": "642df17a613a9c8355f0480d1e50684e906509a59040cf8f1e977c61a6d2c657"
+    },
+    "CPU_GATE_FINAL_sha256": "1967ae5434b830f5694ad5ac8b906b509bb648535175081d5cbf92995b053d4e"
+  },
+  "budget_seconds": 10800,
+  "free_disk_bytes": 2726506364928,
+  "TEST_QA": 0
+}
