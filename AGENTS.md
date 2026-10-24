@@ -1,3 +1,9 @@
+# 2026-10-24：四状态图文配对诊断完整结束，未支持OSFT整体配对支持增幅更大
+
+- paired_image_support_diagnostic_v1的MODEL_VERIFIED/MODEL_OUTCOME/RESULT_FINDINGS/MODEL_RESULT_REVIEW/MODEL_DECISION为最新结果。61固定几何DEV、四态488NLL、0训练/生成/新F1/bootstrap，源/目标/实际输入与同view视觉特征绑定、各状态内参数及权重buffer前后不变、四态退出预算全过；原唯一verify与唯一结果消费者已完成，不重跑。宏q/v DeltaC .455118248/OSFT .441384426，D=−.013733822，事前第三方向未满足；本固定解释结案，不换置换/seed/扩样追方向，不自动新模型。
+- 医学OSFT原图NLL9.1848→1.4358、错图9.2867→1.6622，q/v两图也均大幅改善，不能把该改善直接归为图像识别学习或换算成98%不用图/来自先验。自然末态偏好原图不等于OSFT相对增幅更大；金融D正只因两负DeltaC里下降较少。撤回本次整体更强配对支持机制依据，不推等效/无图像用途/可删视觉或选择压缩结构，ShortFixed机制仍未解；校准/前缀/格式/知识提取/更新空间因果未分离。
+- 四态记录RUN之和272.745秒、退出观测上界之和278.306秒互相重叠，不是含中间等待的全程墙钟。全部旧权重/冻结源保留，实际OLD unit在06:06:55UTC已inactive/MainPID0、controller/worker均无、queue complete_verified；不再等或恢复该完成入口。此前3560286/3560313/3561496等仅历史身份。当前无研究worker/已准入新模型，目标未实现；只有新有效正式proof或具体未重复且会改变设计判断的问题再推进，不靠工程/规则/计数/重复NLL维持活跃。
+
 # 2026-10-24：OLD四状态诊断已首次STARTED，尚无完整结果
 
 - MODEL_ACTIVATION/MODEL_PHASE_OBSERVED记录真实首次执行，不是继续等旧失败分支。05:55:54UTC实查OLD unit llmcl-onevision-paired-image-support-20261024.service active/running，controller3560286/start751971803，qv_before worker3560313/start751971833 UID1084/隔离PGID等PID，boot5b259bd9-d0cb-4a1d-8b90-6e6107080488。qv_before已STARTED，其它三态未STARTED，无COMPLETE/FAILURE/VERIFIED；这是历史快照，后续看实际身份/marker/proof，不照抄永久live。

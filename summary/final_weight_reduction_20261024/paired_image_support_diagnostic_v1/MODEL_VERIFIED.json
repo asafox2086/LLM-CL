@@ -1,0 +1,2502 @@
+{
+  "ready_sha256": "467ad42dfdcb755576962fd0acac2c622a075e7c7fef3dc7b6566c74351142c5",
+  "complete_files_sha256": {
+    "summary/final_weight_reduction_20261024/paired_image_support_diagnostic_v1/qv_before_COMPLETE.json": "957b971eb54770c54b680ce629c2d1c549b12c82716054647e492f1f977530e5",
+    "summary/final_weight_reduction_20261024/paired_image_support_diagnostic_v1/qv_after_COMPLETE.json": "24c4e9b40bfcbd90e5a73e97549d546c54d15dc7072cfc3acc663162b785ff9c",
+    "summary/final_weight_reduction_20261024/paired_image_support_diagnostic_v1/osft_before_COMPLETE.json": "37cc68db58c2aa7c050446fa4cbaf5e9481dfbb4a884642b7c5cbff1cb2006ae",
+    "summary/final_weight_reduction_20261024/paired_image_support_diagnostic_v1/osft_after_COMPLETE.json": "26449b35b1e8826242f033fb42f35bdfab8d4a47b11c70da73960100ba191a0f"
+  },
+  "total_NLL_requests": 488,
+  "total_model_observed_exit_bound_seconds": 278.30603525135666,
+  "QA": 61,
+  "domains": {
+    "natural": {
+      "QA": 6,
+      "known_groups": 6,
+      "qv_I_original": 5.483442299067974,
+      "qv_I_wrong": 3.197975218296051,
+      "qv_DeltaC": 2.285467080771923,
+      "osft_I_original": 5.516016091530521,
+      "osft_I_wrong": 3.2834676702817283,
+      "osft_DeltaC": 2.2325484212487936,
+      "D": -0.05291865952312946,
+      "relative_I_original": 0.03257379246254762
+    },
+    "medical": {
+      "QA": 13,
+      "known_groups": 13,
+      "qv_I_original": 7.824620538032972,
+      "qv_I_wrong": 7.662866652011871,
+      "qv_DeltaC": 0.16175388602110055,
+      "osft_I_original": 7.749016252847818,
+      "osft_I_wrong": 7.624506772710727,
+      "osft_DeltaC": 0.12450948013709141,
+      "D": -0.03724440588400914,
+      "relative_I_original": -0.07560428518515366
+    },
+    "geography": {
+      "QA": 20,
+      "known_groups": 11,
+      "qv_I_original": 1.9890900898724795,
+      "qv_I_wrong": 2.0017571438103916,
+      "qv_DeltaC": -0.012667053937911987,
+      "osft_I_original": 2.0574206279590728,
+      "osft_I_wrong": 2.074501493666321,
+      "osft_DeltaC": -0.017080865707248448,
+      "D": -0.004413811769336462,
+      "relative_I_original": 0.06833053808659315
+    },
+    "finance": {
+      "QA": 4,
+      "known_groups": 4,
+      "qv_I_original": 1.1943723559379578,
+      "qv_I_wrong": 1.3682393208146095,
+      "qv_DeltaC": -0.17386696487665176,
+      "osft_I_original": 1.4092617630958557,
+      "osft_I_wrong": 1.577453963458538,
+      "osft_DeltaC": -0.16819220036268234,
+      "D": 0.005674764513969421,
+      "relative_I_original": 0.21488940715789795
+    },
+    "traffic": {
+      "QA": 18,
+      "known_groups": 18,
+      "qv_I_original": 0.20092728402879503,
+      "qv_I_wrong": 0.18602299027972752,
+      "qv_DeltaC": 0.014904293749067519,
+      "osft_I_original": 0.3934614923265245,
+      "osft_I_wrong": 0.35832419660356307,
+      "osft_DeltaC": 0.035137295722961426,
+      "D": 0.020233001973893907,
+      "relative_I_original": 0.1925342082977295
+    }
+  },
+  "tasks": {
+    "1": {
+      "QA": 6,
+      "known_groups": 6,
+      "qv_I_original": 5.483442299067974,
+      "qv_I_wrong": 3.197975218296051,
+      "qv_DeltaC": 2.285467080771923,
+      "osft_I_original": 5.516016091530521,
+      "osft_I_wrong": 3.2834676702817283,
+      "osft_DeltaC": 2.2325484212487936,
+      "D": -0.05291865952312946,
+      "relative_I_original": 0.03257379246254762
+    },
+    "4": {
+      "QA": 4,
+      "known_groups": 4,
+      "qv_I_original": 9.37970232963562,
+      "qv_I_wrong": 9.280320301651955,
+      "qv_DeltaC": 0.09938202798366547,
+      "osft_I_original": 8.701792873442173,
+      "osft_I_wrong": 8.589297443628311,
+      "osft_DeltaC": 0.11249542981386185,
+      "D": 0.01311340183019638,
+      "relative_I_original": -0.6779094561934471
+    },
+    "5": {
+      "QA": 3,
+      "known_groups": 3,
+      "qv_I_original": 7.443984299898148,
+      "qv_I_wrong": 7.188114762306213,
+      "qv_DeltaC": 0.2558695375919342,
+      "osft_I_original": 7.711246867974599,
+      "osft_I_wrong": 7.499802832802136,
+      "osft_DeltaC": 0.21144403517246246,
+      "D": -0.04442550241947174,
+      "relative_I_original": 0.2672625680764516
+    },
+    "6": {
+      "QA": 4,
+      "known_groups": 4,
+      "qv_I_original": 6.500839203596115,
+      "qv_I_wrong": 6.477331653237343,
+      "qv_DeltaC": 0.023507550358772278,
+      "osft_I_original": 6.614435568451881,
+      "osft_I_wrong": 6.605029508471489,
+      "osft_DeltaC": 0.009406059980392456,
+      "D": -0.014101490378379822,
+      "relative_I_original": 0.1135963648557663
+    },
+    "11": {
+      "QA": 2,
+      "known_groups": 2,
+      "qv_I_original": 7.9329739809036255,
+      "qv_I_wrong": 7.511157184839249,
+      "qv_DeltaC": 0.42181679606437683,
+      "osft_I_original": 8.16927845776081,
+      "osft_I_wrong": 7.920935869216919,
+      "osft_DeltaC": 0.2483425885438919,
+      "D": -0.17347420752048492,
+      "relative_I_original": 0.23630447685718536
+    },
+    "13": {
+      "QA": 9,
+      "known_groups": 6,
+      "qv_I_original": 1.4244612173901663,
+      "qv_I_wrong": 1.4122470666964848,
+      "qv_DeltaC": 0.012214150693681505,
+      "osft_I_original": 1.5582490898668766,
+      "osft_I_wrong": 1.5420072459512286,
+      "osft_DeltaC": 0.01624184391564793,
+      "D": 0.004027693221966426,
+      "relative_I_original": 0.1337878724767102
+    },
+    "14": {
+      "QA": 5,
+      "known_groups": 5,
+      "qv_I_original": 2.233408212661743,
+      "qv_I_wrong": 2.1423827528953554,
+      "qv_DeltaC": 0.09102545976638794,
+      "osft_I_original": 2.1639570951461793,
+      "osft_I_wrong": 2.0969182014465333,
+      "osft_DeltaC": 0.067038893699646,
+      "D": -0.023986566066741943,
+      "relative_I_original": -0.06945111751556396
+    },
+    "15": {
+      "QA": 6,
+      "known_groups": 6,
+      "qv_I_original": 2.632434962938229,
+      "qv_I_wrong": 2.768834251910448,
+      "qv_DeltaC": -0.13639928897221884,
+      "osft_I_original": 2.717397545774778,
+      "osft_I_wrong": 2.8545622754221163,
+      "osft_DeltaC": -0.1371647296473384,
+      "D": -0.0007654406751195589,
+      "relative_I_original": 0.08496258283654849
+    },
+    "16": {
+      "QA": 4,
+      "known_groups": 4,
+      "qv_I_original": 1.1943723559379578,
+      "qv_I_wrong": 1.3682393208146095,
+      "qv_DeltaC": -0.17386696487665176,
+      "osft_I_original": 1.4092617630958557,
+      "osft_I_wrong": 1.577453963458538,
+      "osft_DeltaC": -0.16819220036268234,
+      "D": 0.005674764513969421,
+      "relative_I_original": 0.21488940715789795
+    },
+    "17": {
+      "QA": 2,
+      "known_groups": 2,
+      "qv_I_original": 0.051876962184906006,
+      "qv_I_wrong": 0.04653167724609375,
+      "qv_DeltaC": 0.005345284938812256,
+      "osft_I_original": 0.11469471454620361,
+      "osft_I_wrong": 0.09861612319946289,
+      "osft_DeltaC": 0.016078591346740723,
+      "D": 0.010733306407928467,
+      "relative_I_original": 0.06281775236129761
+    },
+    "18": {
+      "QA": 10,
+      "known_groups": 10,
+      "qv_I_original": 0.23848332166671754,
+      "qv_I_wrong": 0.22801513671875,
+      "qv_DeltaC": 0.01046818494796753,
+      "osft_I_original": 0.4645252704620361,
+      "osft_I_wrong": 0.4457239508628845,
+      "osft_DeltaC": 0.01880131959915161,
+      "D": 0.008333134651184081,
+      "relative_I_original": 0.2260419487953186
+    },
+    "19": {
+      "QA": 6,
+      "known_groups": 6,
+      "qv_I_original": 0.18801732858022055,
+      "qv_I_wrong": 0.16253318389256796,
+      "qv_DeltaC": 0.025484144687652588,
+      "osft_I_original": 0.3679441213607788,
+      "osft_I_wrong": 0.2992272973060608,
+      "osft_DeltaC": 0.06871682405471802,
+      "D": 0.04323267936706543,
+      "relative_I_original": 0.17992679278055826
+    }
+  },
+  "five_domain_equal_macro": {
+    "qv_I_original": 3.338490513388036,
+    "qv_I_wrong": 2.88337226504253,
+    "qv_DeltaC": 0.45511824834550546,
+    "osft_I_original": 3.425035245551958,
+    "osft_I_wrong": 2.9836508193441755,
+    "osft_DeltaC": 0.4413844262077832,
+    "D": -0.013733822137722345,
+    "relative_I_original": 0.08654473216392292
+  },
+  "candidate_direction_checks": {
+    "original_support_improves": true,
+    "OSFT_pair_support_increases": true,
+    "relative_pair_support_increase": false
+  },
+  "all_candidate_directions": false,
+  "results": [
+    {
+      "id": "CODA-LM:Train:Train_general_1414",
+      "domain": "traffic",
+      "task": 17,
+      "group": "47980c245cc8075a377351a9603d411dc6bfdb7c4915d2ecf41afa8a35e917ea",
+      "donor_id": "CODA-LM:Train:Train_general_2042",
+      "qv_I_original": 0.055118560791015625,
+      "qv_I_wrong": 0.051236867904663086,
+      "qv_DeltaC": 0.003881692886352539,
+      "osft_I_original": 0.12926697731018066,
+      "osft_I_wrong": 0.11827397346496582,
+      "osft_DeltaC": 0.010993003845214844,
+      "D": 0.007111310958862305,
+      "relative_I_original": 0.07414841651916504,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 2.306295156478882,
+          "wrong_NLL": 2.3964426517486572,
+          "C": 0.09014749526977539
+        },
+        "qv_after": {
+          "original_NLL": 2.251176595687866,
+          "wrong_NLL": 2.345205783843994,
+          "C": 0.09402918815612793
+        },
+        "osft_before": {
+          "original_NLL": 2.3065013885498047,
+          "wrong_NLL": 2.3964877128601074,
+          "C": 0.08998632431030273
+        },
+        "osft_after": {
+          "original_NLL": 2.177234411239624,
+          "wrong_NLL": 2.2782137393951416,
+          "C": 0.10097932815551758
+        }
+      }
+    },
+    {
+      "id": "CODA-LM:Train:Train_general_2042",
+      "domain": "traffic",
+      "task": 17,
+      "group": "9410df4a4d244d734400f889d6f442e3e54708d503919b203c1ee3634ea1697d",
+      "donor_id": "CODA-LM:Train:Train_general_1414",
+      "qv_I_original": 0.04863536357879639,
+      "qv_I_wrong": 0.041826486587524414,
+      "qv_DeltaC": 0.006808876991271973,
+      "osft_I_original": 0.10012245178222656,
+      "osft_I_wrong": 0.07895827293395996,
+      "osft_DeltaC": 0.0211641788482666,
+      "D": 0.014355301856994629,
+      "relative_I_original": 0.051487088203430176,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 1.9738128185272217,
+          "wrong_NLL": 2.0266942977905273,
+          "C": 0.052881479263305664
+        },
+        "qv_after": {
+          "original_NLL": 1.9251774549484253,
+          "wrong_NLL": 1.984867811203003,
+          "C": 0.05969035625457764
+        },
+        "osft_before": {
+          "original_NLL": 1.974032998085022,
+          "wrong_NLL": 2.026848077774048,
+          "C": 0.05281507968902588
+        },
+        "osft_after": {
+          "original_NLL": 1.8739105463027954,
+          "wrong_NLL": 1.947889804840088,
+          "C": 0.07397925853729248
+        }
+      }
+    },
+    {
+      "id": "CODA-LM:Train:Train_regional_10259",
+      "domain": "traffic",
+      "task": 18,
+      "group": "57f4d1461e6e8046442c00eab88a7284f5c4c0b502046d84ddb7fbbaa3c5f6e9",
+      "donor_id": "CODA-LM:Train:Train_regional_10674",
+      "qv_I_original": 0.3427269458770752,
+      "qv_I_wrong": 0.3345527648925781,
+      "qv_DeltaC": 0.00817418098449707,
+      "osft_I_original": 0.6416268348693848,
+      "osft_I_wrong": 0.6235721111297607,
+      "osft_DeltaC": 0.018054723739624023,
+      "D": 0.009880542755126953,
+      "relative_I_original": 0.29889988899230957,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 2.7958099842071533,
+          "wrong_NLL": 2.756798028945923,
+          "C": -0.03901195526123047
+        },
+        "qv_after": {
+          "original_NLL": 2.453083038330078,
+          "wrong_NLL": 2.4222452640533447,
+          "C": -0.0308377742767334
+        },
+        "osft_before": {
+          "original_NLL": 2.795872211456299,
+          "wrong_NLL": 2.7584280967712402,
+          "C": -0.037444114685058594
+        },
+        "osft_after": {
+          "original_NLL": 2.154245376586914,
+          "wrong_NLL": 2.1348559856414795,
+          "C": -0.01938939094543457
+        }
+      }
+    },
+    {
+      "id": "CODA-LM:Train:Train_regional_10384",
+      "domain": "traffic",
+      "task": 18,
+      "group": "361a4b3035a105a5ac91e2e1b62aaeb74d782fdf60be48c31e46626322924eba",
+      "donor_id": "CODA-LM:Train:Train_regional_5207",
+      "qv_I_original": 0.2668640613555908,
+      "qv_I_wrong": 0.2943446636199951,
+      "qv_DeltaC": -0.027480602264404297,
+      "osft_I_original": 0.5756335258483887,
+      "osft_I_wrong": 0.5888304710388184,
+      "osft_DeltaC": -0.013196945190429688,
+      "D": 0.01428365707397461,
+      "relative_I_original": 0.30876946449279785,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 3.1520752906799316,
+          "wrong_NLL": 3.2274069786071777,
+          "C": 0.0753316879272461
+        },
+        "qv_after": {
+          "original_NLL": 2.885211229324341,
+          "wrong_NLL": 2.9330623149871826,
+          "C": 0.0478510856628418
+        },
+        "osft_before": {
+          "original_NLL": 3.1511693000793457,
+          "wrong_NLL": 3.2276995182037354,
+          "C": 0.07653021812438965
+        },
+        "osft_after": {
+          "original_NLL": 2.575535774230957,
+          "wrong_NLL": 2.638869047164917,
+          "C": 0.06333327293395996
+        }
+      }
+    },
+    {
+      "id": "CODA-LM:Train:Train_regional_10674",
+      "domain": "traffic",
+      "task": 18,
+      "group": "f53475ef03ff1f5f1c420a4ab8089a5d7c77bfa8ccc7273419a5bc84fa70f53a",
+      "donor_id": "CODA-LM:Train:Train_regional_10259",
+      "qv_I_original": 0.20703983306884766,
+      "qv_I_wrong": 0.16930580139160156,
+      "qv_DeltaC": 0.037734031677246094,
+      "osft_I_original": 0.3434246778488159,
+      "osft_I_wrong": 0.3203091621398926,
+      "osft_DeltaC": 0.02311551570892334,
+      "D": -0.014618515968322754,
+      "relative_I_original": 0.13638484477996826,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 2.190542697906494,
+          "wrong_NLL": 2.3470492362976074,
+          "C": 0.15650653839111328
+        },
+        "qv_after": {
+          "original_NLL": 1.9835028648376465,
+          "wrong_NLL": 2.177743434906006,
+          "C": 0.19424057006835938
+        },
+        "osft_before": {
+          "original_NLL": 2.1927804946899414,
+          "wrong_NLL": 2.3477437496185303,
+          "C": 0.15496325492858887
+        },
+        "osft_after": {
+          "original_NLL": 1.8493558168411255,
+          "wrong_NLL": 2.0274345874786377,
+          "C": 0.1780787706375122
+        }
+      }
+    },
+    {
+      "id": "CODA-LM:Train:Train_regional_2968",
+      "domain": "traffic",
+      "task": 18,
+      "group": "68091013d9bf2d85adaa23aac808dea0ab006ed2454ca0fdbf96e4af96e7c787",
+      "donor_id": "CODA-LM:Train:Train_regional_9413",
+      "qv_I_original": 0.1985938549041748,
+      "qv_I_wrong": 0.1661381721496582,
+      "qv_DeltaC": 0.0324556827545166,
+      "osft_I_original": 0.3918757438659668,
+      "osft_I_wrong": 0.32282471656799316,
+      "osft_DeltaC": 0.06905102729797363,
+      "D": 0.03659534454345703,
+      "relative_I_original": 0.193281888961792,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 2.6640450954437256,
+          "wrong_NLL": 2.7840964794158936,
+          "C": 0.12005138397216797
+        },
+        "qv_after": {
+          "original_NLL": 2.465451240539551,
+          "wrong_NLL": 2.6179583072662354,
+          "C": 0.15250706672668457
+        },
+        "osft_before": {
+          "original_NLL": 2.66375470161438,
+          "wrong_NLL": 2.7839813232421875,
+          "C": 0.12022662162780762
+        },
+        "osft_after": {
+          "original_NLL": 2.271878957748413,
+          "wrong_NLL": 2.4611566066741943,
+          "C": 0.18927764892578125
+        }
+      }
+    },
+    {
+      "id": "CODA-LM:Train:Train_regional_4037",
+      "domain": "traffic",
+      "task": 18,
+      "group": "ba0ed30ec3fd49348cbf2c2ef1d376c3a4b9168d03ade41f5dccbefb74f40260",
+      "donor_id": "CODA-LM:Train:Train_regional_4337",
+      "qv_I_original": 0.2015441656112671,
+      "qv_I_wrong": 0.19559049606323242,
+      "qv_DeltaC": 0.005953669548034668,
+      "osft_I_original": 0.3598670959472656,
+      "osft_I_wrong": 0.3861534595489502,
+      "osft_DeltaC": -0.02628636360168457,
+      "D": -0.03224003314971924,
+      "relative_I_original": 0.15832293033599854,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 2.1217830181121826,
+          "wrong_NLL": 2.2881100177764893,
+          "C": 0.16632699966430664
+        },
+        "qv_after": {
+          "original_NLL": 1.9202388525009155,
+          "wrong_NLL": 2.092519521713257,
+          "C": 0.1722806692123413
+        },
+        "osft_before": {
+          "original_NLL": 2.122016429901123,
+          "wrong_NLL": 2.2872352600097656,
+          "C": 0.16521883010864258
+        },
+        "osft_after": {
+          "original_NLL": 1.7621493339538574,
+          "wrong_NLL": 1.9010818004608154,
+          "C": 0.138932466506958
+        }
+      }
+    },
+    {
+      "id": "CODA-LM:Train:Train_regional_4337",
+      "domain": "traffic",
+      "task": 18,
+      "group": "085313aac043c926b8b0a4686fd1851f59cab7d4f70863aabefafc15585541cc",
+      "donor_id": "CODA-LM:Train:Train_regional_6434",
+      "qv_I_original": 0.20607542991638184,
+      "qv_I_wrong": 0.22878098487854004,
+      "qv_DeltaC": -0.022705554962158203,
+      "osft_I_original": 0.46021103858947754,
+      "osft_I_wrong": 0.4798147678375244,
+      "osft_DeltaC": -0.019603729248046875,
+      "D": 0.003101825714111328,
+      "relative_I_original": 0.2541356086730957,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 2.8594257831573486,
+          "wrong_NLL": 2.9553847312927246,
+          "C": 0.09595894813537598
+        },
+        "qv_after": {
+          "original_NLL": 2.653350353240967,
+          "wrong_NLL": 2.7266037464141846,
+          "C": 0.07325339317321777
+        },
+        "osft_before": {
+          "original_NLL": 2.8584275245666504,
+          "wrong_NLL": 2.955143690109253,
+          "C": 0.09671616554260254
+        },
+        "osft_after": {
+          "original_NLL": 2.398216485977173,
+          "wrong_NLL": 2.4753289222717285,
+          "C": 0.07711243629455566
+        }
+      }
+    },
+    {
+      "id": "CODA-LM:Train:Train_regional_5207",
+      "domain": "traffic",
+      "task": 18,
+      "group": "a54bb18d0490bf2d70032620498011dddeda92bb41a21670f37fc18a2545af86",
+      "donor_id": "CODA-LM:Train:Train_regional_10384",
+      "qv_I_original": 0.2205345630645752,
+      "qv_I_wrong": 0.18479013442993164,
+      "qv_DeltaC": 0.035744428634643555,
+      "osft_I_original": 0.4725736379623413,
+      "osft_I_wrong": 0.4302511215209961,
+      "osft_DeltaC": 0.042322516441345215,
+      "D": 0.00657808780670166,
+      "relative_I_original": 0.2520390748977661,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 2.28999924659729,
+          "wrong_NLL": 2.428565502166748,
+          "C": 0.138566255569458
+        },
+        "qv_after": {
+          "original_NLL": 2.069464683532715,
+          "wrong_NLL": 2.2437753677368164,
+          "C": 0.17431068420410156
+        },
+        "osft_before": {
+          "original_NLL": 2.2907285690307617,
+          "wrong_NLL": 2.4283695220947266,
+          "C": 0.13764095306396484
+        },
+        "osft_after": {
+          "original_NLL": 1.8181549310684204,
+          "wrong_NLL": 1.9981184005737305,
+          "C": 0.17996346950531006
+        }
+      }
+    },
+    {
+      "id": "CODA-LM:Train:Train_regional_6186",
+      "domain": "traffic",
+      "task": 18,
+      "group": "797c3b8788776fbffa22c637f457fdd537f41957c38301b466cc7fdc15c47ea0",
+      "donor_id": "CODA-LM:Train:Train_regional_2968",
+      "qv_I_original": 0.24289655685424805,
+      "qv_I_wrong": 0.23983335494995117,
+      "qv_DeltaC": 0.003063201904296875,
+      "osft_I_original": 0.47385168075561523,
+      "osft_I_wrong": 0.44969987869262695,
+      "osft_DeltaC": 0.02415180206298828,
+      "D": 0.021088600158691406,
+      "relative_I_original": 0.2309551239013672,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 2.3371260166168213,
+          "wrong_NLL": 2.523480176925659,
+          "C": 0.1863541603088379
+        },
+        "qv_after": {
+          "original_NLL": 2.0942294597625732,
+          "wrong_NLL": 2.283646821975708,
+          "C": 0.18941736221313477
+        },
+        "osft_before": {
+          "original_NLL": 2.336756706237793,
+          "wrong_NLL": 2.524121046066284,
+          "C": 0.1873643398284912
+        },
+        "osft_after": {
+          "original_NLL": 1.8629050254821777,
+          "wrong_NLL": 2.0744211673736572,
+          "C": 0.2115161418914795
+        }
+      }
+    },
+    {
+      "id": "CODA-LM:Train:Train_regional_6434",
+      "domain": "traffic",
+      "task": 18,
+      "group": "1812dcaf1aa3f145f40e17b6cce0da0c3fa9928ccaa59ae714c67241e753c322",
+      "donor_id": "CODA-LM:Train:Train_regional_4037",
+      "qv_I_original": 0.2668111324310303,
+      "qv_I_wrong": 0.22791671752929688,
+      "qv_DeltaC": 0.0388944149017334,
+      "osft_I_original": 0.4985506534576416,
+      "osft_I_wrong": 0.40228044986724854,
+      "osft_DeltaC": 0.09627020359039307,
+      "D": 0.05737578868865967,
+      "relative_I_original": 0.23173952102661133,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 2.3049683570861816,
+          "wrong_NLL": 2.383054733276367,
+          "C": 0.07808637619018555
+        },
+        "qv_after": {
+          "original_NLL": 2.0381572246551514,
+          "wrong_NLL": 2.1551380157470703,
+          "C": 0.11698079109191895
+        },
+        "osft_before": {
+          "original_NLL": 2.3050506114959717,
+          "wrong_NLL": 2.3821046352386475,
+          "C": 0.07705402374267578
+        },
+        "osft_after": {
+          "original_NLL": 1.80649995803833,
+          "wrong_NLL": 1.979824185371399,
+          "C": 0.17332422733306885
+        }
+      }
+    },
+    {
+      "id": "CODA-LM:Train:Train_regional_9413",
+      "domain": "traffic",
+      "task": 18,
+      "group": "3d5330a17f2acf908defc8f1991a826ee0b12f495fa610de130f04fd1c241559",
+      "donor_id": "CODA-LM:Train:Train_regional_6186",
+      "qv_I_original": 0.23174667358398438,
+      "qv_I_wrong": 0.23889827728271484,
+      "qv_DeltaC": -0.007151603698730469,
+      "osft_I_original": 0.42763781547546387,
+      "osft_I_wrong": 0.4535033702850342,
+      "osft_DeltaC": -0.025865554809570312,
+      "D": -0.018713951110839844,
+      "relative_I_original": 0.1958911418914795,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 2.314962148666382,
+          "wrong_NLL": 2.3442087173461914,
+          "C": 0.02924656867980957
+        },
+        "qv_after": {
+          "original_NLL": 2.0832154750823975,
+          "wrong_NLL": 2.1053104400634766,
+          "C": 0.0220949649810791
+        },
+        "osft_before": {
+          "original_NLL": 2.3147404193878174,
+          "wrong_NLL": 2.343752384185791,
+          "C": 0.029011964797973633
+        },
+        "osft_after": {
+          "original_NLL": 1.8871026039123535,
+          "wrong_NLL": 1.8902490139007568,
+          "C": 0.0031464099884033203
+        }
+      }
+    },
+    {
+      "id": "CODA-LM:Train:Train_suggestion_1399",
+      "domain": "traffic",
+      "task": 19,
+      "group": "8c6bd3f931daa5bf0ca4586e17912a66cd464a78201f6a5a67b57e4950999d25",
+      "donor_id": "CODA-LM:Train:Train_suggestion_1791",
+      "qv_I_original": 0.07380056381225586,
+      "qv_I_wrong": 0.05769693851470947,
+      "qv_DeltaC": 0.016103625297546387,
+      "osft_I_original": 0.15042781829833984,
+      "osft_I_wrong": 0.09415018558502197,
+      "osft_DeltaC": 0.05627763271331787,
+      "D": 0.040174007415771484,
+      "relative_I_original": 0.07662725448608398,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 1.8845640420913696,
+          "wrong_NLL": 1.9373505115509033,
+          "C": 0.05278646945953369
+        },
+        "qv_after": {
+          "original_NLL": 1.8107634782791138,
+          "wrong_NLL": 1.8796535730361938,
+          "C": 0.06889009475708008
+        },
+        "osft_before": {
+          "original_NLL": 1.8841153383255005,
+          "wrong_NLL": 1.937083125114441,
+          "C": 0.05296778678894043
+        },
+        "osft_after": {
+          "original_NLL": 1.7336875200271606,
+          "wrong_NLL": 1.842932939529419,
+          "C": 0.1092454195022583
+        }
+      }
+    },
+    {
+      "id": "CODA-LM:Train:Train_suggestion_1717",
+      "domain": "traffic",
+      "task": 19,
+      "group": "349ae59c66d0215dffcb20027091a6c1831dc306f85c267e923301b3f81e72ef",
+      "donor_id": "CODA-LM:Train:Train_suggestion_1399",
+      "qv_I_original": 0.31667423248291016,
+      "qv_I_wrong": 0.28031253814697266,
+      "qv_DeltaC": 0.0363616943359375,
+      "osft_I_original": 0.5984823703765869,
+      "osft_I_wrong": 0.5270073413848877,
+      "osft_DeltaC": 0.07147502899169922,
+      "D": 0.03511333465576172,
+      "relative_I_original": 0.28180813789367676,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 2.723231554031372,
+          "wrong_NLL": 2.823511838912964,
+          "C": 0.1002802848815918
+        },
+        "qv_after": {
+          "original_NLL": 2.406557321548462,
+          "wrong_NLL": 2.543199300765991,
+          "C": 0.1366419792175293
+        },
+        "osft_before": {
+          "original_NLL": 2.7229058742523193,
+          "wrong_NLL": 2.824474811553955,
+          "C": 0.10156893730163574
+        },
+        "osft_after": {
+          "original_NLL": 2.1244235038757324,
+          "wrong_NLL": 2.2974674701690674,
+          "C": 0.17304396629333496
+        }
+      }
+    },
+    {
+      "id": "CODA-LM:Train:Train_suggestion_1791",
+      "domain": "traffic",
+      "task": 19,
+      "group": "d21011b72c5e3a52bf0db9ef3c9123c7e7863b7398128bd82bbb9bc2736ace7f",
+      "donor_id": "CODA-LM:Train:Train_suggestion_4687",
+      "qv_I_original": 0.3450441360473633,
+      "qv_I_wrong": 0.33190035820007324,
+      "qv_DeltaC": 0.013143777847290039,
+      "osft_I_original": 0.6032536029815674,
+      "osft_I_wrong": 0.5604040622711182,
+      "osft_DeltaC": 0.04284954071044922,
+      "D": 0.02970576286315918,
+      "relative_I_original": 0.2582094669342041,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 2.458252191543579,
+          "wrong_NLL": 2.5660243034362793,
+          "C": 0.1077721118927002
+        },
+        "qv_after": {
+          "original_NLL": 2.113208055496216,
+          "wrong_NLL": 2.234123945236206,
+          "C": 0.12091588973999023
+        },
+        "osft_before": {
+          "original_NLL": 2.4589264392852783,
+          "wrong_NLL": 2.5659923553466797,
+          "C": 0.10706591606140137
+        },
+        "osft_after": {
+          "original_NLL": 1.855672836303711,
+          "wrong_NLL": 2.0055882930755615,
+          "C": 0.14991545677185059
+        }
+      }
+    },
+    {
+      "id": "CODA-LM:Train:Train_suggestion_3854",
+      "domain": "traffic",
+      "task": 19,
+      "group": "9b185b76a4580d0d7e8180ce0a5052221ab87519d0f3f9d6cc3184bfe2ad91ef",
+      "donor_id": "CODA-LM:Train:Train_suggestion_1717",
+      "qv_I_original": 0.05051112174987793,
+      "qv_I_wrong": 0.06909751892089844,
+      "qv_DeltaC": -0.018586397171020508,
+      "osft_I_original": 0.1678483486175537,
+      "osft_I_wrong": 0.14461994171142578,
+      "osft_DeltaC": 0.02322840690612793,
+      "D": 0.04181480407714844,
+      "relative_I_original": 0.11733722686767578,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 2.2033920288085938,
+          "wrong_NLL": 2.2292306423187256,
+          "C": 0.025838613510131836
+        },
+        "qv_after": {
+          "original_NLL": 2.152880907058716,
+          "wrong_NLL": 2.160133123397827,
+          "C": 0.007252216339111328
+        },
+        "osft_before": {
+          "original_NLL": 2.2024435997009277,
+          "wrong_NLL": 2.229236602783203,
+          "C": 0.02679300308227539
+        },
+        "osft_after": {
+          "original_NLL": 2.034595251083374,
+          "wrong_NLL": 2.0846166610717773,
+          "C": 0.05002140998840332
+        }
+      }
+    },
+    {
+      "id": "CODA-LM:Train:Train_suggestion_4653",
+      "domain": "traffic",
+      "task": 19,
+      "group": "4ad3073c77a940cb21435d20370ad3d9a4e161ff7c9e9d8e311ad8ac336c5752",
+      "donor_id": "CODA-LM:Train:Train_suggestion_3854",
+      "qv_I_original": 0.15154099464416504,
+      "qv_I_wrong": 0.07371783256530762,
+      "qv_DeltaC": 0.07782316207885742,
+      "osft_I_original": 0.33530163764953613,
+      "osft_I_wrong": 0.2116377353668213,
+      "osft_DeltaC": 0.12366390228271484,
+      "D": 0.04584074020385742,
+      "relative_I_original": 0.1837606430053711,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 2.2512874603271484,
+          "wrong_NLL": 2.5793895721435547,
+          "C": 0.32810211181640625
+        },
+        "qv_after": {
+          "original_NLL": 2.0997464656829834,
+          "wrong_NLL": 2.505671739578247,
+          "C": 0.40592527389526367
+        },
+        "osft_before": {
+          "original_NLL": 2.251106023788452,
+          "wrong_NLL": 2.579202890396118,
+          "C": 0.328096866607666
+        },
+        "osft_after": {
+          "original_NLL": 1.915804386138916,
+          "wrong_NLL": 2.367565155029297,
+          "C": 0.45176076889038086
+        }
+      }
+    },
+    {
+      "id": "CODA-LM:Train:Train_suggestion_4687",
+      "domain": "traffic",
+      "task": 19,
+      "group": "5dbef21c4b6e1c99df6b33337ab0ed7fd07aedb0bdfa93b23ba3b92c00dfe065",
+      "donor_id": "CODA-LM:Train:Train_suggestion_4653",
+      "qv_I_original": 0.19053292274475098,
+      "qv_I_wrong": 0.1624739170074463,
+      "qv_DeltaC": 0.028059005737304688,
+      "osft_I_original": 0.35235095024108887,
+      "osft_I_wrong": 0.25754451751708984,
+      "osft_DeltaC": 0.09480643272399902,
+      "D": 0.06674742698669434,
+      "relative_I_original": 0.1618180274963379,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 2.2946927547454834,
+          "wrong_NLL": 2.401841640472412,
+          "C": 0.10714888572692871
+        },
+        "qv_after": {
+          "original_NLL": 2.1041598320007324,
+          "wrong_NLL": 2.239367723464966,
+          "C": 0.1352078914642334
+        },
+        "osft_before": {
+          "original_NLL": 2.293015480041504,
+          "wrong_NLL": 2.40138578414917,
+          "C": 0.10837030410766602
+        },
+        "osft_after": {
+          "original_NLL": 1.940664529800415,
+          "wrong_NLL": 2.14384126663208,
+          "C": 0.20317673683166504
+        }
+      }
+    },
+    {
+      "id": "FinMME:10127",
+      "domain": "finance",
+      "task": 16,
+      "group": "7c5fe1721c3c0704df56bc9bd04b6f6aed31bfee881d73fe6e5a54cea8a426b2",
+      "donor_id": "FinMME:4380",
+      "qv_I_original": 1.392547845840454,
+      "qv_I_wrong": 1.3713489770889282,
+      "qv_DeltaC": 0.02119886875152588,
+      "osft_I_original": 1.9743263721466064,
+      "osft_I_wrong": 1.9964231252670288,
+      "osft_DeltaC": -0.022096753120422363,
+      "D": -0.04329562187194824,
+      "relative_I_original": 0.5817785263061523,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 2.7877144813537598,
+          "wrong_NLL": 2.732872724533081,
+          "C": -0.05484175682067871
+        },
+        "qv_after": {
+          "original_NLL": 1.3951666355133057,
+          "wrong_NLL": 1.3615237474441528,
+          "C": -0.03364288806915283
+        },
+        "osft_before": {
+          "original_NLL": 2.799018621444702,
+          "wrong_NLL": 2.7317330837249756,
+          "C": -0.06728553771972656
+        },
+        "osft_after": {
+          "original_NLL": 0.8246922492980957,
+          "wrong_NLL": 0.7353099584579468,
+          "C": -0.08938229084014893
+        }
+      }
+    },
+    {
+      "id": "FinMME:4380",
+      "domain": "finance",
+      "task": 16,
+      "group": "6acb6f4933724ac45f97d05c1529790a528c9d4d2ba25c2d3d03afe19450a8e5",
+      "donor_id": "FinMME:10127",
+      "qv_I_original": 2.3718955516815186,
+      "qv_I_wrong": 2.5691705644130707,
+      "qv_DeltaC": -0.19727501273155212,
+      "osft_I_original": 2.47026789188385,
+      "osft_I_wrong": 2.65704146027565,
+      "osft_DeltaC": -0.18677356839179993,
+      "D": 0.010501444339752197,
+      "relative_I_original": 0.09837234020233154,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 2.7678277492523193,
+          "wrong_NLL": 2.978207588195801,
+          "C": 0.21037983894348145
+        },
+        "qv_after": {
+          "original_NLL": 0.3959321975708008,
+          "wrong_NLL": 0.4090370237827301,
+          "C": 0.013104826211929321
+        },
+        "osft_before": {
+          "original_NLL": 2.780918598175049,
+          "wrong_NLL": 2.981929063796997,
+          "C": 0.20101046562194824
+        },
+        "osft_after": {
+          "original_NLL": 0.31065070629119873,
+          "wrong_NLL": 0.32488760352134705,
+          "C": 0.014236897230148315
+        }
+      }
+    },
+    {
+      "id": "FinMME:5593",
+      "domain": "finance",
+      "task": 16,
+      "group": "5f67ded942e030c95e7c66a099680af524d6365bf83bd710bafef3db453b3ec7",
+      "donor_id": "FinMME:866",
+      "qv_I_original": 0.7823138236999512,
+      "qv_I_wrong": 0.9125334024429321,
+      "qv_DeltaC": -0.13021957874298096,
+      "osft_I_original": 0.8587126135826111,
+      "osft_I_wrong": 0.9364703297615051,
+      "osft_DeltaC": -0.07775771617889404,
+      "D": 0.052461862564086914,
+      "relative_I_original": 0.07639878988265991,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 1.5483627319335938,
+          "wrong_NLL": 1.6857928037643433,
+          "C": 0.1374300718307495
+        },
+        "qv_after": {
+          "original_NLL": 0.7660489082336426,
+          "wrong_NLL": 0.7732594013214111,
+          "C": 0.007210493087768555
+        },
+        "osft_before": {
+          "original_NLL": 1.5776318311691284,
+          "wrong_NLL": 1.6662073135375977,
+          "C": 0.08857548236846924
+        },
+        "osft_after": {
+          "original_NLL": 0.7189192175865173,
+          "wrong_NLL": 0.7297369837760925,
+          "C": 0.010817766189575195
+        }
+      }
+    },
+    {
+      "id": "FinMME:866",
+      "domain": "finance",
+      "task": 16,
+      "group": "0f92196bb69582a4a3218a89daa11d88128a33d961a86b8bd5b52fa32a861422",
+      "donor_id": "FinMME:5593",
+      "qv_I_original": 0.23073220252990723,
+      "qv_I_wrong": 0.6199043393135071,
+      "qv_DeltaC": -0.38917213678359985,
+      "osft_I_original": 0.3337401747703552,
+      "osft_I_wrong": 0.7198809385299683,
+      "osft_DeltaC": -0.38614076375961304,
+      "D": 0.0030313730239868164,
+      "relative_I_original": 0.103007972240448,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 0.9776625633239746,
+          "wrong_NLL": 1.4134268760681152,
+          "C": 0.4357643127441406
+        },
+        "qv_after": {
+          "original_NLL": 0.7469303607940674,
+          "wrong_NLL": 0.7935225367546082,
+          "C": 0.04659217596054077
+        },
+        "osft_before": {
+          "original_NLL": 0.9770541191101074,
+          "wrong_NLL": 1.415358066558838,
+          "C": 0.43830394744873047
+        },
+        "osft_after": {
+          "original_NLL": 0.6433139443397522,
+          "wrong_NLL": 0.6954771280288696,
+          "C": 0.05216318368911743
+        }
+      }
+    },
+    {
+      "id": "RSVQA-LR:12657",
+      "domain": "geography",
+      "task": 14,
+      "group": "7f77363211050c04de82305027adf8a0aff30a875df4b5333b7533cf9f2c1ad1",
+      "donor_id": "RSVQA-LR:9027",
+      "qv_I_original": 2.375123977661133,
+      "qv_I_wrong": 2.030526101589203,
+      "qv_DeltaC": 0.34459787607192993,
+      "osft_I_original": 2.6330076456069946,
+      "osft_I_wrong": 2.0543128848075867,
+      "osft_DeltaC": 0.578694760799408,
+      "D": 0.23409688472747803,
+      "relative_I_original": 0.2578836679458618,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 3.2187113761901855,
+          "wrong_NLL": 3.006579637527466,
+          "C": -0.21213173866271973
+        },
+        "qv_after": {
+          "original_NLL": 0.8435873985290527,
+          "wrong_NLL": 0.9760535359382629,
+          "C": 0.1324661374092102
+        },
+        "osft_before": {
+          "original_NLL": 3.2835946083068848,
+          "wrong_NLL": 3.0132691860198975,
+          "C": -0.2703254222869873
+        },
+        "osft_after": {
+          "original_NLL": 0.6505869626998901,
+          "wrong_NLL": 0.9589563012123108,
+          "C": 0.30836933851242065
+        }
+      }
+    },
+    {
+      "id": "RSVQA-LR:17811",
+      "domain": "geography",
+      "task": 15,
+      "group": "6c7e365e50b49ba3f3140d1bf79609806781a7c7589b4016384d39fcd30b3ac5",
+      "donor_id": "RSVQA-LR:67306",
+      "qv_I_original": 2.223328199237585,
+      "qv_I_wrong": 2.1123903319239616,
+      "qv_DeltaC": 0.11093786731362343,
+      "osft_I_original": 2.351308548822999,
+      "osft_I_wrong": 2.090610584244132,
+      "osft_DeltaC": 0.26069796457886696,
+      "D": 0.14976009726524353,
+      "relative_I_original": 0.12798034958541393,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 2.2830851078033447,
+          "wrong_NLL": 2.1808247566223145,
+          "C": -0.10226035118103027
+        },
+        "qv_after": {
+          "original_NLL": 0.05975690856575966,
+          "wrong_NLL": 0.06843442469835281,
+          "C": 0.008677516132593155
+        },
+        "osft_before": {
+          "original_NLL": 2.375722885131836,
+          "wrong_NLL": 2.1118626594543457,
+          "C": -0.26386022567749023
+        },
+        "osft_after": {
+          "original_NLL": 0.024414336308836937,
+          "wrong_NLL": 0.02125207521021366,
+          "C": -0.0031622610986232758
+        }
+      }
+    },
+    {
+      "id": "RSVQA-LR:21116",
+      "domain": "geography",
+      "task": 13,
+      "group": "ff91a4a0b6ecb2dbd51b620f60da880ae386def7286202fd3db0cde9a6f95649",
+      "donor_id": "RSVQA-LR:9004",
+      "qv_I_original": 0.659308910369873,
+      "qv_I_wrong": 0.3707399368286133,
+      "qv_DeltaC": 0.28856897354125977,
+      "osft_I_original": 0.8772479295730591,
+      "osft_I_wrong": 0.4274561405181885,
+      "osft_DeltaC": 0.4497917890548706,
+      "D": 0.16122281551361084,
+      "relative_I_original": 0.21793901920318604,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 1.2547804117202759,
+          "wrong_NLL": 1.114983320236206,
+          "C": -0.13979709148406982
+        },
+        "qv_after": {
+          "original_NLL": 0.5954715013504028,
+          "wrong_NLL": 0.7442433834075928,
+          "C": 0.14877188205718994
+        },
+        "osft_before": {
+          "original_NLL": 1.2615442276000977,
+          "wrong_NLL": 1.1255922317504883,
+          "C": -0.13595199584960938
+        },
+        "osft_after": {
+          "original_NLL": 0.3842962980270386,
+          "wrong_NLL": 0.6981360912322998,
+          "C": 0.31383979320526123
+        }
+      }
+    },
+    {
+      "id": "RSVQA-LR:21135",
+      "domain": "geography",
+      "task": 13,
+      "group": "ff91a4a0b6ecb2dbd51b620f60da880ae386def7286202fd3db0cde9a6f95649",
+      "donor_id": "RSVQA-LR:35421",
+      "qv_I_original": 0.014217138290405273,
+      "qv_I_wrong": 0.5767819881439209,
+      "qv_DeltaC": -0.5625648498535156,
+      "osft_I_original": 0.2338581085205078,
+      "osft_I_wrong": 0.7151284217834473,
+      "osft_DeltaC": -0.48127031326293945,
+      "D": 0.08129453659057617,
+      "relative_I_original": 0.21964097023010254,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 0.9257515668869019,
+          "wrong_NLL": 1.8697148561477661,
+          "C": 0.9439632892608643
+        },
+        "qv_after": {
+          "original_NLL": 0.9115344285964966,
+          "wrong_NLL": 1.2929328680038452,
+          "C": 0.38139843940734863
+        },
+        "osft_before": {
+          "original_NLL": 0.9260303974151611,
+          "wrong_NLL": 1.8696779012680054,
+          "C": 0.9436475038528442
+        },
+        "osft_after": {
+          "original_NLL": 0.6921722888946533,
+          "wrong_NLL": 1.154549479484558,
+          "C": 0.4623771905899048
+        }
+      }
+    },
+    {
+      "id": "RSVQA-LR:35421",
+      "domain": "geography",
+      "task": 13,
+      "group": "9a52e4dfd59e265fb2fc62807bcb052e5445e8f2279cb802a8087fa8891add72",
+      "donor_id": "RSVQA-LR:67235",
+      "qv_I_original": -0.15400144457817078,
+      "qv_I_wrong": 0.13984414935112,
+      "qv_DeltaC": -0.29384559392929077,
+      "osft_I_original": -0.24035987257957458,
+      "osft_I_wrong": -0.03819072246551514,
+      "osft_DeltaC": -0.20216915011405945,
+      "D": 0.09167644381523132,
+      "relative_I_original": -0.08635842800140381,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 0.3253839910030365,
+          "wrong_NLL": 0.590528666973114,
+          "C": 0.2651446759700775
+        },
+        "qv_after": {
+          "original_NLL": 0.4793854355812073,
+          "wrong_NLL": 0.450684517621994,
+          "C": -0.028700917959213257
+        },
+        "osft_before": {
+          "original_NLL": 0.32938531041145325,
+          "wrong_NLL": 0.5858420729637146,
+          "C": 0.25645676255226135
+        },
+        "osft_after": {
+          "original_NLL": 0.5697451829910278,
+          "wrong_NLL": 0.6240327954292297,
+          "C": 0.054287612438201904
+        }
+      }
+    },
+    {
+      "id": "RSVQA-LR:35450",
+      "domain": "geography",
+      "task": 15,
+      "group": "9a52e4dfd59e265fb2fc62807bcb052e5445e8f2279cb802a8087fa8891add72",
+      "donor_id": "RSVQA-LR:60602",
+      "qv_I_original": 4.761949762701988,
+      "qv_I_wrong": 4.528697684407234,
+      "qv_DeltaC": 0.23325207829475403,
+      "osft_I_original": 4.801315616816282,
+      "osft_I_wrong": 4.5523886531591415,
+      "osft_DeltaC": 0.24892696365714073,
+      "D": 0.015674885362386703,
+      "relative_I_original": 0.03936585411429405,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 4.842005252838135,
+          "wrong_NLL": 4.606424331665039,
+          "C": -0.2355809211730957
+        },
+        "qv_after": {
+          "original_NLL": 0.08005549013614655,
+          "wrong_NLL": 0.07772664725780487,
+          "C": -0.002328842878341675
+        },
+        "osft_before": {
+          "original_NLL": 4.846164703369141,
+          "wrong_NLL": 4.595267295837402,
+          "C": -0.2508974075317383
+        },
+        "osft_after": {
+          "original_NLL": 0.04484908655285835,
+          "wrong_NLL": 0.0428786426782608,
+          "C": -0.0019704438745975494
+        }
+      }
+    },
+    {
+      "id": "RSVQA-LR:4050",
+      "domain": "geography",
+      "task": 14,
+      "group": "48ea8579444f81f150d3630aae6bd52315aa24f8d244697c1701dd4e7747bb6a",
+      "donor_id": "RSVQA-LR:69243",
+      "qv_I_original": 1.8418668508529663,
+      "qv_I_wrong": 1.763493299484253,
+      "qv_DeltaC": 0.07837355136871338,
+      "osft_I_original": 1.6370152235031128,
+      "osft_I_wrong": 1.4574943780899048,
+      "osft_DeltaC": 0.179520845413208,
+      "D": 0.10114729404449463,
+      "relative_I_original": -0.20485162734985352,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 3.5892951488494873,
+          "wrong_NLL": 3.456542730331421,
+          "C": -0.1327524185180664
+        },
+        "qv_after": {
+          "original_NLL": 1.747428297996521,
+          "wrong_NLL": 1.693049430847168,
+          "C": -0.05437886714935303
+        },
+        "osft_before": {
+          "original_NLL": 3.5400941371917725,
+          "wrong_NLL": 3.4133036136627197,
+          "C": -0.12679052352905273
+        },
+        "osft_after": {
+          "original_NLL": 1.9030789136886597,
+          "wrong_NLL": 1.955809235572815,
+          "C": 0.05273032188415527
+        }
+      }
+    },
+    {
+      "id": "RSVQA-LR:60602",
+      "domain": "geography",
+      "task": 15,
+      "group": "04ea8b8d4df81441d333129555719f4f089dae65c427c4a687aa27935aecb353",
+      "donor_id": "RSVQA-LR:71166",
+      "qv_I_original": 2.491080328822136,
+      "qv_I_wrong": 4.896490275859833,
+      "qv_DeltaC": -2.405409947037697,
+      "osft_I_original": 2.236966550350189,
+      "osft_I_wrong": 4.6814853847026825,
+      "osft_DeltaC": -2.4445188343524933,
+      "D": -0.03910888731479645,
+      "relative_I_original": -0.2541137784719467,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 2.6984927654266357,
+          "wrong_NLL": 5.125679016113281,
+          "C": 2.4271862506866455
+        },
+        "qv_after": {
+          "original_NLL": 0.20741243660449982,
+          "wrong_NLL": 0.2291887402534485,
+          "C": 0.02177630364894867
+        },
+        "osft_before": {
+          "original_NLL": 2.6346898078918457,
+          "wrong_NLL": 5.083599090576172,
+          "C": 2.448909282684326
+        },
+        "osft_after": {
+          "original_NLL": 0.3977232575416565,
+          "wrong_NLL": 0.4021137058734894,
+          "C": 0.004390448331832886
+        }
+      }
+    },
+    {
+      "id": "RSVQA-LR:67235",
+      "domain": "geography",
+      "task": 13,
+      "group": "ee1a5f1f0cf4315ec2278f64f327e4d4f39bcb28bf70693733767e13e18e6f25",
+      "donor_id": "RSVQA-LR:71154",
+      "qv_I_original": 1.3824272751808167,
+      "qv_I_wrong": 3.1715774536132812,
+      "qv_DeltaC": -1.7891501784324646,
+      "osft_I_original": 1.4583919644355774,
+      "osft_I_wrong": 3.3798884600400925,
+      "osft_DeltaC": -1.921496495604515,
+      "D": -0.13234631717205048,
+      "relative_I_original": 0.07596468925476074,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 2.045567035675049,
+          "wrong_NLL": 3.4963536262512207,
+          "C": 1.4507865905761719
+        },
+        "qv_after": {
+          "original_NLL": 0.6631397604942322,
+          "wrong_NLL": 0.32477617263793945,
+          "C": -0.3383635878562927
+        },
+        "osft_before": {
+          "original_NLL": 2.0440592765808105,
+          "wrong_NLL": 3.531822681427002,
+          "C": 1.4877634048461914
+        },
+        "osft_after": {
+          "original_NLL": 0.5856673121452332,
+          "wrong_NLL": 0.15193422138690948,
+          "C": -0.43373309075832367
+        }
+      }
+    },
+    {
+      "id": "RSVQA-LR:67240",
+      "domain": "geography",
+      "task": 14,
+      "group": "ee1a5f1f0cf4315ec2278f64f327e4d4f39bcb28bf70693733767e13e18e6f25",
+      "donor_id": "RSVQA-LR:12657",
+      "qv_I_original": 3.6700245141983032,
+      "qv_I_wrong": 4.255034446716309,
+      "qv_DeltaC": -0.5850099325180054,
+      "osft_I_original": 3.8006261587142944,
+      "osft_I_wrong": 4.336646497249603,
+      "osft_DeltaC": -0.5360203385353088,
+      "D": 0.04898959398269653,
+      "relative_I_original": 0.1306016445159912,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 4.312179088592529,
+          "wrong_NLL": 5.063683986663818,
+          "C": 0.7515048980712891
+        },
+        "qv_after": {
+          "original_NLL": 0.6421545743942261,
+          "wrong_NLL": 0.8086495399475098,
+          "C": 0.1664949655532837
+        },
+        "osft_before": {
+          "original_NLL": 4.222064018249512,
+          "wrong_NLL": 4.962669849395752,
+          "C": 0.7406058311462402
+        },
+        "osft_after": {
+          "original_NLL": 0.4214378595352173,
+          "wrong_NLL": 0.6260233521461487,
+          "C": 0.2045854926109314
+        }
+      }
+    },
+    {
+      "id": "RSVQA-LR:67306",
+      "domain": "geography",
+      "task": 15,
+      "group": "ee1a5f1f0cf4315ec2278f64f327e4d4f39bcb28bf70693733767e13e18e6f25",
+      "donor_id": "RSVQA-LR:69306",
+      "qv_I_original": 1.9642241559922695,
+      "qv_I_wrong": 3.625073656439781,
+      "qv_DeltaC": -1.6608495004475117,
+      "osft_I_original": 1.9702775422483683,
+      "osft_I_wrong": 3.698544081300497,
+      "osft_DeltaC": -1.7282665390521288,
+      "D": -0.06741703860461712,
+      "relative_I_original": 0.006053386256098747,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 2.0227208137512207,
+          "wrong_NLL": 3.7232959270477295,
+          "C": 1.7005751132965088
+        },
+        "qv_after": {
+          "original_NLL": 0.05849665775895119,
+          "wrong_NLL": 0.0982222706079483,
+          "C": 0.039725612848997116
+        },
+        "osft_before": {
+          "original_NLL": 1.9931421279907227,
+          "wrong_NLL": 3.7349677085876465,
+          "C": 1.7418255805969238
+        },
+        "osft_after": {
+          "original_NLL": 0.022864585742354393,
+          "wrong_NLL": 0.03642362728714943,
+          "C": 0.013559041544795036
+        }
+      }
+    },
+    {
+      "id": "RSVQA-LR:67310",
+      "domain": "geography",
+      "task": 13,
+      "group": "ee1a5f1f0cf4315ec2278f64f327e4d4f39bcb28bf70693733767e13e18e6f25",
+      "donor_id": "RSVQA-LR:70186",
+      "qv_I_original": 0.5060176998376846,
+      "qv_I_wrong": 2.3629037737846375,
+      "qv_DeltaC": -1.8568860739469528,
+      "osft_I_original": 0.5732969976961613,
+      "osft_I_wrong": 2.410947307944298,
+      "osft_DeltaC": -1.8376503102481365,
+      "D": 0.0192357636988163,
+      "relative_I_original": 0.06727929785847664,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 0.6151101589202881,
+          "wrong_NLL": 2.460667133331299,
+          "C": 1.8455569744110107
+        },
+        "qv_after": {
+          "original_NLL": 0.10909245908260345,
+          "wrong_NLL": 0.09776335954666138,
+          "C": -0.011329099535942078
+        },
+        "osft_before": {
+          "original_NLL": 0.6157773733139038,
+          "wrong_NLL": 2.4420061111450195,
+          "C": 1.8262287378311157
+        },
+        "osft_after": {
+          "original_NLL": 0.04248037561774254,
+          "wrong_NLL": 0.03105880320072174,
+          "C": -0.011421572417020798
+        }
+      }
+    },
+    {
+      "id": "RSVQA-LR:69243",
+      "domain": "geography",
+      "task": 14,
+      "group": "c1b94b636e3e6e2746d3f4f7a9e09ad7dc5ba1cdb8a4417361e407721495cbd1",
+      "donor_id": "RSVQA-LR:67240",
+      "qv_I_original": 1.998300313949585,
+      "qv_I_wrong": 1.3907966613769531,
+      "qv_DeltaC": 0.6075036525726318,
+      "osft_I_original": 1.649231195449829,
+      "osft_I_wrong": 1.4388935565948486,
+      "osft_DeltaC": 0.21033763885498047,
+      "D": -0.39716601371765137,
+      "relative_I_original": -0.34906911849975586,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 5.148523330688477,
+          "wrong_NLL": 4.255313873291016,
+          "C": -0.8932094573974609
+        },
+        "qv_after": {
+          "original_NLL": 3.1502230167388916,
+          "wrong_NLL": 2.8645172119140625,
+          "C": -0.2857058048248291
+        },
+        "osft_before": {
+          "original_NLL": 5.167436122894287,
+          "wrong_NLL": 4.25272798538208,
+          "C": -0.914708137512207
+        },
+        "osft_after": {
+          "original_NLL": 3.518204927444458,
+          "wrong_NLL": 2.8138344287872314,
+          "C": -0.7043704986572266
+        }
+      }
+    },
+    {
+      "id": "RSVQA-LR:69306",
+      "domain": "geography",
+      "task": 15,
+      "group": "c1b94b636e3e6e2746d3f4f7a9e09ad7dc5ba1cdb8a4417361e407721495cbd1",
+      "donor_id": "RSVQA-LR:35450",
+      "qv_I_original": 2.258637309074402,
+      "qv_I_wrong": 0.556453287601471,
+      "qv_DeltaC": 1.702184021472931,
+      "osft_I_original": 2.6423379778862,
+      "osft_I_wrong": 0.9366551488637924,
+      "osft_DeltaC": 1.7056828290224075,
+      "D": 0.0034988075494766235,
+      "relative_I_original": 0.3837006688117981,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 2.8527352809906006,
+          "wrong_NLL": 1.1239688396453857,
+          "C": -1.7287664413452148
+        },
+        "qv_after": {
+          "original_NLL": 0.5940979719161987,
+          "wrong_NLL": 0.5675155520439148,
+          "C": -0.026582419872283936
+        },
+        "osft_before": {
+          "original_NLL": 2.8138442039489746,
+          "wrong_NLL": 1.1198339462280273,
+          "C": -1.6940102577209473
+        },
+        "osft_after": {
+          "original_NLL": 0.17150622606277466,
+          "wrong_NLL": 0.18317879736423492,
+          "C": 0.011672571301460266
+        }
+      }
+    },
+    {
+      "id": "RSVQA-LR:70186",
+      "domain": "geography",
+      "task": 13,
+      "group": "31082d3d2f9a2705e1809fa15f9a6643a8518263770c4e7259ac90bc762f6259",
+      "donor_id": "RSVQA-LR:9033",
+      "qv_I_original": 7.139856338500977,
+      "qv_I_wrong": 2.578664109110832,
+      "qv_DeltaC": 4.561192229390144,
+      "osft_I_original": 7.351110130548477,
+      "osft_I_wrong": 2.7474869415163994,
+      "osft_DeltaC": 4.603623189032078,
+      "D": 0.04243095964193344,
+      "relative_I_original": 0.2112537920475006,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 7.758634567260742,
+          "wrong_NLL": 2.7391624450683594,
+          "C": -5.019472122192383
+        },
+        "qv_after": {
+          "original_NLL": 0.6187782287597656,
+          "wrong_NLL": 0.16049833595752716,
+          "C": -0.45827989280223846
+        },
+        "osft_before": {
+          "original_NLL": 7.770352363586426,
+          "wrong_NLL": 2.784712553024292,
+          "C": -4.985639810562134
+        },
+        "osft_after": {
+          "original_NLL": 0.4192422330379486,
+          "wrong_NLL": 0.03722561150789261,
+          "C": -0.382016621530056
+        }
+      }
+    },
+    {
+      "id": "RSVQA-LR:71154",
+      "domain": "geography",
+      "task": 13,
+      "group": "d43dbc2cc2de5341bad01a446f9397e49eecf9a2807718d95f1b1e6567bedae5",
+      "donor_id": "RSVQA-LR:21116",
+      "qv_I_original": 1.8507272005081177,
+      "qv_I_wrong": 0.8770294189453125,
+      "qv_DeltaC": 0.9736977815628052,
+      "osft_I_original": 2.0263698548078537,
+      "osft_I_wrong": 1.134576439857483,
+      "osft_DeltaC": 0.8917934149503708,
+      "D": -0.08190436661243439,
+      "relative_I_original": 0.17564265429973602,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 2.2475697994232178,
+          "wrong_NLL": 1.419730544090271,
+          "C": -0.8278392553329468
+        },
+        "qv_after": {
+          "original_NLL": 0.3968425989151001,
+          "wrong_NLL": 0.5427011251449585,
+          "C": 0.1458585262298584
+        },
+        "osft_before": {
+          "original_NLL": 2.2683210372924805,
+          "wrong_NLL": 1.445674180984497,
+          "C": -0.8226468563079834
+        },
+        "osft_after": {
+          "original_NLL": 0.24195118248462677,
+          "wrong_NLL": 0.31109774112701416,
+          "C": 0.06914655864238739
+        }
+      }
+    },
+    {
+      "id": "RSVQA-LR:71166",
+      "domain": "geography",
+      "task": 15,
+      "group": "d43dbc2cc2de5341bad01a446f9397e49eecf9a2807718d95f1b1e6567bedae5",
+      "donor_id": "RSVQA-LR:17811",
+      "qv_I_original": 2.095390021800995,
+      "qv_I_wrong": 0.8939002752304077,
+      "qv_DeltaC": 1.2014897465705872,
+      "osft_I_original": 2.3021790385246277,
+      "osft_I_wrong": 1.1676898002624512,
+      "osft_DeltaC": 1.1344892382621765,
+      "D": -0.06700050830841064,
+      "relative_I_original": 0.2067890167236328,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 2.7681937217712402,
+          "wrong_NLL": 1.6260799169540405,
+          "C": -1.1421138048171997
+        },
+        "qv_after": {
+          "original_NLL": 0.6728036999702454,
+          "wrong_NLL": 0.7321796417236328,
+          "C": 0.05937594175338745
+        },
+        "osft_before": {
+          "original_NLL": 2.7765161991119385,
+          "wrong_NLL": 1.6232942342758179,
+          "C": -1.1532219648361206
+        },
+        "osft_after": {
+          "original_NLL": 0.4743371605873108,
+          "wrong_NLL": 0.4556044340133667,
+          "C": -0.018732726573944092
+        }
+      }
+    },
+    {
+      "id": "RSVQA-LR:9004",
+      "domain": "geography",
+      "task": 13,
+      "group": "986294ade6615b11ac59e4eb54fec2bbab21a90e6f9977918a6353304b000c9c",
+      "donor_id": "RSVQA-LR:21135",
+      "qv_I_original": 1.5267938375473022,
+      "qv_I_wrong": 2.672782450914383,
+      "qv_DeltaC": -1.1459886133670807,
+      "osft_I_original": 1.6438578367233276,
+      "osft_I_wrong": 2.942427061498165,
+      "osft_DeltaC": -1.2985692247748375,
+      "D": -0.1525806114077568,
+      "relative_I_original": 0.11706399917602539,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 2.1503288745880127,
+          "wrong_NLL": 3.0140161514282227,
+          "C": 0.86368727684021
+        },
+        "qv_after": {
+          "original_NLL": 0.6235350370407104,
+          "wrong_NLL": 0.3412337005138397,
+          "C": -0.2823013365268707
+        },
+        "osft_before": {
+          "original_NLL": 2.1569626331329346,
+          "wrong_NLL": 3.0538418292999268,
+          "C": 0.8968791961669922
+        },
+        "osft_after": {
+          "original_NLL": 0.5131047964096069,
+          "wrong_NLL": 0.11141476780176163,
+          "C": -0.4016900286078453
+        }
+      }
+    },
+    {
+      "id": "RSVQA-LR:9027",
+      "domain": "geography",
+      "task": 14,
+      "group": "986294ade6615b11ac59e4eb54fec2bbab21a90e6f9977918a6353304b000c9c",
+      "donor_id": "RSVQA-LR:4050",
+      "qv_I_original": 1.2817254066467285,
+      "qv_I_wrong": 1.2720632553100586,
+      "qv_DeltaC": 0.009662151336669922,
+      "osft_I_original": 1.099905252456665,
+      "osft_I_wrong": 1.1972436904907227,
+      "osft_DeltaC": -0.09733843803405762,
+      "D": -0.10700058937072754,
+      "relative_I_original": -0.18182015419006348,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 3.71175217628479,
+          "wrong_NLL": 3.4539992809295654,
+          "C": -0.2577528953552246
+        },
+        "qv_after": {
+          "original_NLL": 2.4300267696380615,
+          "wrong_NLL": 2.181936025619507,
+          "C": -0.2480907440185547
+        },
+        "osft_before": {
+          "original_NLL": 3.6693880558013916,
+          "wrong_NLL": 3.448204755783081,
+          "C": -0.22118330001831055
+        },
+        "osft_after": {
+          "original_NLL": 2.5694828033447266,
+          "wrong_NLL": 2.2509610652923584,
+          "C": -0.31852173805236816
+        }
+      }
+    },
+    {
+      "id": "RSVQA-LR:9033",
+      "domain": "geography",
+      "task": 13,
+      "group": "986294ade6615b11ac59e4eb54fec2bbab21a90e6f9977918a6353304b000c9c",
+      "donor_id": "RSVQA-LR:67310",
+      "qv_I_original": -0.10519599914550781,
+      "qv_I_wrong": -0.04009968042373657,
+      "qv_DeltaC": -0.06509631872177124,
+      "osft_I_original": 0.10046885907649994,
+      "osft_I_wrong": 0.15834516286849976,
+      "osft_DeltaC": -0.05787630379199982,
+      "D": 0.007220014929771423,
+      "relative_I_original": 0.20566485822200775,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 0.2968864142894745,
+          "wrong_NLL": 0.5243015289306641,
+          "C": 0.22741511464118958
+        },
+        "qv_after": {
+          "original_NLL": 0.4020824134349823,
+          "wrong_NLL": 0.5644012093544006,
+          "C": 0.16231879591941833
+        },
+        "osft_before": {
+          "original_NLL": 0.30069059133529663,
+          "wrong_NLL": 0.5343225002288818,
+          "C": 0.2336319088935852
+        },
+        "osft_after": {
+          "original_NLL": 0.2002217322587967,
+          "wrong_NLL": 0.3759773373603821,
+          "C": 0.1757556051015854
+        }
+      }
+    },
+    {
+      "id": "SLAKE:1276",
+      "domain": "medical",
+      "task": 4,
+      "group": "4d1aad7812cc9e3911d54802c0d5628092ee256aed354d326a7f036bdbd3f85b",
+      "donor_id": "SLAKE:5803",
+      "qv_I_original": 5.824319660663605,
+      "qv_I_wrong": 6.08160787820816,
+      "qv_DeltaC": -0.25728821754455566,
+      "osft_I_original": 3.9908828735351562,
+      "osft_I_wrong": 4.154627561569214,
+      "osft_DeltaC": -0.16374468803405762,
+      "D": 0.09354352951049805,
+      "relative_I_original": -1.8334367871284485,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 6.617709636688232,
+          "wrong_NLL": 6.8369927406311035,
+          "C": 0.2192831039428711
+        },
+        "qv_after": {
+          "original_NLL": 0.7933899760246277,
+          "wrong_NLL": 0.7553848624229431,
+          "C": -0.03800511360168457
+        },
+        "osft_before": {
+          "original_NLL": 6.606010913848877,
+          "wrong_NLL": 6.833089351654053,
+          "C": 0.22707843780517578
+        },
+        "osft_after": {
+          "original_NLL": 2.6151280403137207,
+          "wrong_NLL": 2.678461790084839,
+          "C": 0.06333374977111816
+        }
+      }
+    },
+    {
+      "id": "SLAKE:1830",
+      "domain": "medical",
+      "task": 6,
+      "group": "aceb4c7264d69286f1d45fd2e93332dd8d63f58e8b843260e609134ae472c49d",
+      "donor_id": "SLAKE:6846",
+      "qv_I_original": 8.13194727897644,
+      "qv_I_wrong": 8.024118721485138,
+      "qv_DeltaC": 0.10782855749130249,
+      "osft_I_original": 6.499752044677734,
+      "osft_I_wrong": 6.540417909622192,
+      "osft_DeltaC": -0.04066586494445801,
+      "D": -0.1484944224357605,
+      "relative_I_original": -1.632195234298706,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 8.862701416015625,
+          "wrong_NLL": 8.781206130981445,
+          "C": -0.08149528503417969
+        },
+        "qv_after": {
+          "original_NLL": 0.7307541370391846,
+          "wrong_NLL": 0.7570874094963074,
+          "C": 0.026333272457122803
+        },
+        "osft_before": {
+          "original_NLL": 8.887105941772461,
+          "wrong_NLL": 8.808786392211914,
+          "C": -0.07831954956054688
+        },
+        "osft_after": {
+          "original_NLL": 2.3873538970947266,
+          "wrong_NLL": 2.2683684825897217,
+          "C": -0.11898541450500488
+        }
+      }
+    },
+    {
+      "id": "SLAKE:2993",
+      "domain": "medical",
+      "task": 11,
+      "group": "f39907ae9c50d29350feb7f5e5f446e1dc8bde6821045067831d57e675e72a0a",
+      "donor_id": "SLAKE:8007",
+      "qv_I_original": 6.931586027145386,
+      "qv_I_wrong": 6.577931642532349,
+      "qv_DeltaC": 0.3536543846130371,
+      "osft_I_original": 7.282986402511597,
+      "osft_I_wrong": 7.0595176219940186,
+      "osft_DeltaC": 0.22346878051757812,
+      "D": -0.13018560409545898,
+      "relative_I_original": 0.35140037536621094,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 9.549907684326172,
+          "wrong_NLL": 9.593247413635254,
+          "C": 0.04333972930908203
+        },
+        "qv_after": {
+          "original_NLL": 2.618321657180786,
+          "wrong_NLL": 3.0153157711029053,
+          "C": 0.39699411392211914
+        },
+        "osft_before": {
+          "original_NLL": 9.567179679870605,
+          "wrong_NLL": 9.584588050842285,
+          "C": 0.017408370971679688
+        },
+        "osft_after": {
+          "original_NLL": 2.284193277359009,
+          "wrong_NLL": 2.5250704288482666,
+          "C": 0.2408771514892578
+        }
+      }
+    },
+    {
+      "id": "SLAKE:4803",
+      "domain": "medical",
+      "task": 6,
+      "group": "aa4e9f550b4379d25f9b7ba9f84e7362c89f2cd8f82b0b9d6cfa823f9dae65a7",
+      "donor_id": "SLAKE:6370",
+      "qv_I_original": 5.843836307525635,
+      "qv_I_wrong": 5.643428564071655,
+      "qv_DeltaC": 0.2004077434539795,
+      "osft_I_original": 6.230045557022095,
+      "osft_I_wrong": 6.0400683879852295,
+      "osft_DeltaC": 0.18997716903686523,
+      "D": -0.010430574417114258,
+      "relative_I_original": 0.38620924949645996,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 8.498895645141602,
+          "wrong_NLL": 8.387663841247559,
+          "C": -0.11123180389404297
+        },
+        "qv_after": {
+          "original_NLL": 2.655059337615967,
+          "wrong_NLL": 2.7442352771759033,
+          "C": 0.08917593955993652
+        },
+        "osft_before": {
+          "original_NLL": 8.518244743347168,
+          "wrong_NLL": 8.383577346801758,
+          "C": -0.13466739654541016
+        },
+        "osft_after": {
+          "original_NLL": 2.2881991863250732,
+          "wrong_NLL": 2.3435089588165283,
+          "C": 0.05530977249145508
+        }
+      }
+    },
+    {
+      "id": "SLAKE:4894",
+      "domain": "medical",
+      "task": 5,
+      "group": "9b5c8c528fe18f8f117c47beea83e9ea7a57d997ef11c8ba389dc0748935992d",
+      "donor_id": "SLAKE:9386",
+      "qv_I_original": 6.15926206111908,
+      "qv_I_wrong": 5.800025939941406,
+      "qv_DeltaC": 0.35923612117767334,
+      "osft_I_original": 6.340780258178711,
+      "osft_I_wrong": 5.963274240493774,
+      "osft_DeltaC": 0.3775060176849365,
+      "D": 0.018269896507263184,
+      "relative_I_original": 0.18151819705963135,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 7.703363418579102,
+          "wrong_NLL": 8.037823677062988,
+          "C": 0.3344602584838867
+        },
+        "qv_after": {
+          "original_NLL": 1.544101357460022,
+          "wrong_NLL": 2.237797737121582,
+          "C": 0.6936963796615601
+        },
+        "osft_before": {
+          "original_NLL": 7.717990875244141,
+          "wrong_NLL": 8.027888298034668,
+          "C": 0.30989742279052734
+        },
+        "osft_after": {
+          "original_NLL": 1.3772106170654297,
+          "wrong_NLL": 2.0646140575408936,
+          "C": 0.6874034404754639
+        }
+      }
+    },
+    {
+      "id": "SLAKE:5803",
+      "domain": "medical",
+      "task": 4,
+      "group": "1f0508c9589a7a64fc9cb74ce758c83dfe9134d3ef3225c43b49503ed4fdfb33",
+      "donor_id": "SLAKE:9010",
+      "qv_I_original": 11.75341534614563,
+      "qv_I_wrong": 10.425724506378174,
+      "qv_DeltaC": 1.327690839767456,
+      "osft_I_original": 11.928821831941605,
+      "osft_I_wrong": 10.798956751823425,
+      "osft_DeltaC": 1.1298650801181793,
+      "D": -0.19782575964927673,
+      "relative_I_original": 0.17540648579597473,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 12.130887031555176,
+          "wrong_NLL": 12.442901611328125,
+          "C": 0.3120145797729492
+        },
+        "qv_after": {
+          "original_NLL": 0.3774716854095459,
+          "wrong_NLL": 2.017177104949951,
+          "C": 1.6397054195404053
+        },
+        "osft_before": {
+          "original_NLL": 12.133453369140625,
+          "wrong_NLL": 12.435691833496094,
+          "C": 0.30223846435546875
+        },
+        "osft_after": {
+          "original_NLL": 0.20463153719902039,
+          "wrong_NLL": 1.6367350816726685,
+          "C": 1.432103544473648
+        }
+      }
+    },
+    {
+      "id": "SLAKE:6370",
+      "domain": "medical",
+      "task": 6,
+      "group": "9f91e43e924f2a3f1795103c537f092023ef8f873ffc9da4ae64bc1ef2109578",
+      "donor_id": "SLAKE:4803",
+      "qv_I_original": 6.748738408088684,
+      "qv_I_wrong": 6.970969796180725,
+      "qv_DeltaC": -0.22223138809204102,
+      "osft_I_original": 7.164196312427521,
+      "osft_I_wrong": 7.377304136753082,
+      "osft_DeltaC": -0.21310782432556152,
+      "D": 0.009123563766479492,
+      "relative_I_original": 0.41545790433883667,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 7.942958831787109,
+          "wrong_NLL": 8.14773941040039,
+          "C": 0.20478057861328125
+        },
+        "qv_after": {
+          "original_NLL": 1.1942204236984253,
+          "wrong_NLL": 1.1767696142196655,
+          "C": -0.017450809478759766
+        },
+        "osft_before": {
+          "original_NLL": 7.920009613037109,
+          "wrong_NLL": 8.140501976013184,
+          "C": 0.22049236297607422
+        },
+        "osft_after": {
+          "original_NLL": 0.7558133006095886,
+          "wrong_NLL": 0.7631978392601013,
+          "C": 0.007384538650512695
+        }
+      }
+    },
+    {
+      "id": "SLAKE:6550",
+      "domain": "medical",
+      "task": 5,
+      "group": "a0f9ada06ba7797a39836737c3016125feeefa115da91330924c291628586d4e",
+      "donor_id": "SLAKE:4894",
+      "qv_I_original": 8.478514790534973,
+      "qv_I_wrong": 8.274422645568848,
+      "qv_DeltaC": 0.2040921449661255,
+      "osft_I_original": 8.823667407035828,
+      "osft_I_wrong": 8.756616115570068,
+      "osft_DeltaC": 0.06705129146575928,
+      "D": -0.1370408535003662,
+      "relative_I_original": 0.3451526165008545,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 10.36577320098877,
+          "wrong_NLL": 10.217832565307617,
+          "C": -0.14794063568115234
+        },
+        "qv_after": {
+          "original_NLL": 1.8872584104537964,
+          "wrong_NLL": 1.9434099197387695,
+          "C": 0.056151509284973145
+        },
+        "osft_before": {
+          "original_NLL": 10.355422973632812,
+          "wrong_NLL": 10.23302936553955,
+          "C": -0.12239360809326172
+        },
+        "osft_after": {
+          "original_NLL": 1.5317555665969849,
+          "wrong_NLL": 1.4764132499694824,
+          "C": -0.05534231662750244
+        }
+      }
+    },
+    {
+      "id": "SLAKE:6846",
+      "domain": "medical",
+      "task": 6,
+      "group": "bd79bc605575f97db8737f14232e336ead409b238c7d2b0b388a5d76a1dc1185",
+      "donor_id": "SLAKE:1830",
+      "qv_I_original": 5.278834819793701,
+      "qv_I_wrong": 5.270809531211853,
+      "qv_DeltaC": 0.008025288581848145,
+      "osft_I_original": 6.563748359680176,
+      "osft_I_wrong": 6.462327599525452,
+      "osft_DeltaC": 0.10142076015472412,
+      "D": 0.09339547157287598,
+      "relative_I_original": 1.2849135398864746,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 6.967799663543701,
+          "wrong_NLL": 6.84214448928833,
+          "C": -0.1256551742553711
+        },
+        "qv_after": {
+          "original_NLL": 1.68896484375,
+          "wrong_NLL": 1.571334958076477,
+          "C": -0.11762988567352295
+        },
+        "osft_before": {
+          "original_NLL": 6.9694671630859375,
+          "wrong_NLL": 6.84885835647583,
+          "C": -0.12060880661010742
+        },
+        "osft_after": {
+          "original_NLL": 0.4057188034057617,
+          "wrong_NLL": 0.3865307569503784,
+          "C": -0.0191880464553833
+        }
+      }
+    },
+    {
+      "id": "SLAKE:7867",
+      "domain": "medical",
+      "task": 4,
+      "group": "5d5c00e443a84f8dc09654c385b610cca1f192086e081e8c9ba7e4a0ae800ac4",
+      "donor_id": "SLAKE:1276",
+      "qv_I_original": 7.824901103973389,
+      "qv_I_wrong": 7.666497707366943,
+      "qv_DeltaC": 0.1584033966064453,
+      "osft_I_original": 7.388780117034912,
+      "osft_I_wrong": 7.090214729309082,
+      "osft_DeltaC": 0.2985653877258301,
+      "D": 0.14016199111938477,
+      "relative_I_original": -0.43612098693847656,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 10.050864219665527,
+          "wrong_NLL": 10.05606460571289,
+          "C": 0.005200386047363281
+        },
+        "qv_after": {
+          "original_NLL": 2.2259631156921387,
+          "wrong_NLL": 2.3895668983459473,
+          "C": 0.1636037826538086
+        },
+        "osft_before": {
+          "original_NLL": 10.044184684753418,
+          "wrong_NLL": 10.008994102478027,
+          "C": -0.035190582275390625
+        },
+        "osft_after": {
+          "original_NLL": 2.655404567718506,
+          "wrong_NLL": 2.9187793731689453,
+          "C": 0.26337480545043945
+        }
+      }
+    },
+    {
+      "id": "SLAKE:8007",
+      "domain": "medical",
+      "task": 11,
+      "group": "b37678791372bad4e0990442ef8c2d64a966956345c08d118a7cf5841803c920",
+      "donor_id": "SLAKE:2993",
+      "qv_I_original": 8.934361934661865,
+      "qv_I_wrong": 8.444382727146149,
+      "qv_DeltaC": 0.48997920751571655,
+      "osft_I_original": 9.055570513010025,
+      "osft_I_wrong": 8.78235411643982,
+      "osft_DeltaC": 0.2732163965702057,
+      "D": -0.21676281094551086,
+      "relative_I_original": 0.12120857834815979,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 9.4595365524292,
+          "wrong_NLL": 9.381977081298828,
+          "C": -0.0775594711303711
+        },
+        "qv_after": {
+          "original_NLL": 0.525174617767334,
+          "wrong_NLL": 0.9375943541526794,
+          "C": 0.41241973638534546
+        },
+        "osft_before": {
+          "original_NLL": 9.440793991088867,
+          "wrong_NLL": 9.383450508117676,
+          "C": -0.057343482971191406
+        },
+        "osft_after": {
+          "original_NLL": 0.38522347807884216,
+          "wrong_NLL": 0.6010963916778564,
+          "C": 0.21587291359901428
+        }
+      }
+    },
+    {
+      "id": "SLAKE:9010",
+      "domain": "medical",
+      "task": 4,
+      "group": "eedc7af69c7f059f7b756d433dd71e770e0db33554a6d207d72030ba338323c3",
+      "donor_id": "SLAKE:7867",
+      "qv_I_original": 12.116173207759857,
+      "qv_I_wrong": 12.947451114654541,
+      "qv_DeltaC": -0.8312779068946838,
+      "osft_I_original": 11.498686671257019,
+      "osft_I_wrong": 12.313390731811523,
+      "osft_DeltaC": -0.8147040605545044,
+      "D": 0.016573846340179443,
+      "relative_I_original": -0.6174865365028381,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 13.08664321899414,
+          "wrong_NLL": 14.030999183654785,
+          "C": 0.9443559646606445
+        },
+        "qv_after": {
+          "original_NLL": 0.9704700112342834,
+          "wrong_NLL": 1.0835480690002441,
+          "C": 0.1130780577659607
+        },
+        "osft_before": {
+          "original_NLL": 13.083877563476562,
+          "wrong_NLL": 14.04015064239502,
+          "C": 0.956273078918457
+        },
+        "osft_after": {
+          "original_NLL": 1.5851908922195435,
+          "wrong_NLL": 1.726759910583496,
+          "C": 0.14156901836395264
+        }
+      }
+    },
+    {
+      "id": "SLAKE:9386",
+      "domain": "medical",
+      "task": 5,
+      "group": "59dfce8d64527f9c54d275af0a17852b36b81b64d1f299ea73a1661f31db8244",
+      "donor_id": "SLAKE:6550",
+      "qv_I_original": 7.69417604804039,
+      "qv_I_wrong": 7.489895701408386,
+      "qv_DeltaC": 0.20428034663200378,
+      "osft_I_original": 7.969292938709259,
+      "osft_I_wrong": 7.779518142342567,
+      "osft_DeltaC": 0.1897747963666916,
+      "D": -0.014505550265312195,
+      "relative_I_original": 0.275116890668869,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 8.158561706542969,
+          "wrong_NLL": 7.991200923919678,
+          "C": -0.16736078262329102
+        },
+        "qv_after": {
+          "original_NLL": 0.46438565850257874,
+          "wrong_NLL": 0.5013052225112915,
+          "C": 0.03691956400871277
+        },
+        "osft_before": {
+          "original_NLL": 8.158631324768066,
+          "wrong_NLL": 7.998836994171143,
+          "C": -0.15979433059692383
+        },
+        "osft_after": {
+          "original_NLL": 0.18933838605880737,
+          "wrong_NLL": 0.21931885182857513,
+          "C": 0.02998046576976776
+        }
+      }
+    },
+    {
+      "id": "TextVQA:15099",
+      "domain": "natural",
+      "task": 1,
+      "group": "103e10912e2c227da370eaf18c4e90a119672fcdfb84e51dbb0f2822f98503bf",
+      "donor_id": "TextVQA:16833",
+      "qv_I_original": 3.1521705389022827,
+      "qv_I_wrong": 2.877855896949768,
+      "qv_DeltaC": 0.27431464195251465,
+      "osft_I_original": 3.1139211654663086,
+      "osft_I_wrong": 2.842915415763855,
+      "osft_DeltaC": 0.2710057497024536,
+      "D": -0.003308892250061035,
+      "relative_I_original": -0.03824937343597412,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 4.584635257720947,
+          "wrong_NLL": 4.791869163513184,
+          "C": 0.20723390579223633
+        },
+        "qv_after": {
+          "original_NLL": 1.4324647188186646,
+          "wrong_NLL": 1.9140132665634155,
+          "C": 0.481548547744751
+        },
+        "osft_before": {
+          "original_NLL": 4.573638439178467,
+          "wrong_NLL": 4.7945237159729,
+          "C": 0.2208852767944336
+        },
+        "osft_after": {
+          "original_NLL": 1.4597172737121582,
+          "wrong_NLL": 1.9516083002090454,
+          "C": 0.4918910264968872
+        }
+      }
+    },
+    {
+      "id": "TextVQA:16833",
+      "domain": "natural",
+      "task": 1,
+      "group": "58c3a051045e61d3cd41f287886845720c129edd0123cf90525398cc8d82cf4b",
+      "donor_id": "TextVQA:22143",
+      "qv_I_original": 2.233566999435425,
+      "qv_I_wrong": 1.3569188117980957,
+      "qv_DeltaC": 0.8766481876373291,
+      "osft_I_original": 2.1782150268554688,
+      "osft_I_wrong": 1.2414617538452148,
+      "osft_DeltaC": 0.9367532730102539,
+      "D": 0.060105085372924805,
+      "relative_I_original": -0.055351972579956055,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 4.729559898376465,
+          "wrong_NLL": 7.952184200286865,
+          "C": 3.2226243019104004
+        },
+        "qv_after": {
+          "original_NLL": 2.49599289894104,
+          "wrong_NLL": 6.5952653884887695,
+          "C": 4.0992724895477295
+        },
+        "osft_before": {
+          "original_NLL": 4.72283411026001,
+          "wrong_NLL": 7.949790954589844,
+          "C": 3.226956844329834
+        },
+        "osft_after": {
+          "original_NLL": 2.544619083404541,
+          "wrong_NLL": 6.708329200744629,
+          "C": 4.163710117340088
+        }
+      }
+    },
+    {
+      "id": "TextVQA:1796",
+      "domain": "natural",
+      "task": 1,
+      "group": "a7bc48ce28f48f43d87c9475ba376c5b92b8d76e6694effa8ac03a3d435e9500",
+      "donor_id": "TextVQA:32354",
+      "qv_I_original": 2.738113224506378,
+      "qv_I_wrong": -0.07518243789672852,
+      "qv_DeltaC": 2.8132956624031067,
+      "osft_I_original": 2.7019080221652985,
+      "osft_I_wrong": -0.18317461013793945,
+      "osft_DeltaC": 2.885082632303238,
+      "D": 0.07178696990013123,
+      "relative_I_original": -0.03620520234107971,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 3.0876073837280273,
+          "wrong_NLL": 5.652703285217285,
+          "C": 2.565095901489258
+        },
+        "qv_after": {
+          "original_NLL": 0.34949415922164917,
+          "wrong_NLL": 5.727885723114014,
+          "C": 5.3783915638923645
+        },
+        "osft_before": {
+          "original_NLL": 3.049907922744751,
+          "wrong_NLL": 5.657504081726074,
+          "C": 2.6075961589813232
+        },
+        "osft_after": {
+          "original_NLL": 0.3479999005794525,
+          "wrong_NLL": 5.840678691864014,
+          "C": 5.492678791284561
+        }
+      }
+    },
+    {
+      "id": "TextVQA:22143",
+      "domain": "natural",
+      "task": 1,
+      "group": "32d2846e6bd8642fa9e248422d5882bad0124cd191395b93e015dee91f9bb30e",
+      "donor_id": "TextVQA:15099",
+      "qv_I_original": 12.274920478463173,
+      "qv_I_wrong": 5.72979474067688,
+      "qv_DeltaC": 6.545125737786293,
+      "osft_I_original": 12.306939784437418,
+      "osft_I_wrong": 5.949256896972656,
+      "osft_DeltaC": 6.357682887464762,
+      "D": -0.1874428503215313,
+      "relative_I_original": 0.03201930597424507,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 12.337447166442871,
+          "wrong_NLL": 7.447076797485352,
+          "C": -4.8903703689575195
+        },
+        "qv_after": {
+          "original_NLL": 0.06252668797969818,
+          "wrong_NLL": 1.7172820568084717,
+          "C": 1.6547553688287735
+        },
+        "osft_before": {
+          "original_NLL": 12.348260879516602,
+          "wrong_NLL": 7.52176570892334,
+          "C": -4.826495170593262
+        },
+        "osft_after": {
+          "original_NLL": 0.04132109507918358,
+          "wrong_NLL": 1.5725088119506836,
+          "C": 1.5311877168715
+        }
+      }
+    },
+    {
+      "id": "TextVQA:32354",
+      "domain": "natural",
+      "task": 1,
+      "group": "3ca3f1ebbc0f94647cfbd7231a97365adafcb8373feae395a983681e8fdfc05a",
+      "donor_id": "TextVQA:9177",
+      "qv_I_original": 4.972821474075317,
+      "qv_I_wrong": 3.091275691986084,
+      "qv_DeltaC": 1.8815457820892334,
+      "osft_I_original": 5.215063273906708,
+      "osft_I_wrong": 3.897027015686035,
+      "osft_DeltaC": 1.3180362582206726,
+      "D": -0.5635095238685608,
+      "relative_I_original": 0.24224179983139038,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 6.02617073059082,
+          "wrong_NLL": 10.677726745605469,
+          "C": 4.651556015014648
+        },
+        "qv_after": {
+          "original_NLL": 1.053349256515503,
+          "wrong_NLL": 7.586451053619385,
+          "C": 6.533101797103882
+        },
+        "osft_before": {
+          "original_NLL": 6.031455993652344,
+          "wrong_NLL": 10.664633750915527,
+          "C": 4.633177757263184
+        },
+        "osft_after": {
+          "original_NLL": 0.816392719745636,
+          "wrong_NLL": 6.767606735229492,
+          "C": 5.951214015483856
+        }
+      }
+    },
+    {
+      "id": "TextVQA:9177",
+      "domain": "natural",
+      "task": 1,
+      "group": "71cbfdc1af47001bf6da14e775ff2aa21ded71bf121c66ab9ba73862a024c8fc",
+      "donor_id": "TextVQA:1796",
+      "qv_I_original": 7.5290610790252686,
+      "qv_I_wrong": 6.207188606262207,
+      "qv_DeltaC": 1.3218724727630615,
+      "osft_I_original": 7.580049276351929,
+      "osft_I_wrong": 5.953319549560547,
+      "osft_DeltaC": 1.6267297267913818,
+      "D": 0.3048572540283203,
+      "relative_I_original": 0.050988197326660156,
+      "state_NLL": {
+        "qv_before": {
+          "original_NLL": 9.63972282409668,
+          "wrong_NLL": 8.62705135345459,
+          "C": -1.0126714706420898
+        },
+        "qv_after": {
+          "original_NLL": 2.110661745071411,
+          "wrong_NLL": 2.419862747192383,
+          "C": 0.3092010021209717
+        },
+        "osft_before": {
+          "original_NLL": 9.612448692321777,
+          "wrong_NLL": 8.613649368286133,
+          "C": -0.9987993240356445
+        },
+        "osft_after": {
+          "original_NLL": 2.0323994159698486,
+          "wrong_NLL": 2.660329818725586,
+          "C": 0.6279304027557373
+        }
+      }
+    }
+  ],
+  "new_F1_scores": 0,
+  "new_bootstrap": 0,
+  "training_updates": 0,
+  "TEST_QA": 0,
+  "interpretation": "Geometry-conditioned explored DEV; conditional gold-support trajectory, not knowledge, parameter causality, generation F1 or compression proof.",
+  "no_automatic_next_model": true,
+  "verify_seconds": 0.09135689400136471
+}
