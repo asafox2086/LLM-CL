@@ -1,3 +1,9 @@
+# 2026-10-24：FFN角色保留对照已首次实际STARTED
+
+- ffn_role_retention_v1/ACTIVATION与PHASE_OBSERVED为实际新入口证据。冻结/准入1520d31c已推送18文件精确镜像后，唯一OLD unit llmcl-onevision-ffn-role-retention-20261024.service激活；unix1792834499.575实查controller3622183/start753287479、init worker3622204/start753287504/UID1084/PGID同PID，GPU0、boot5b259bd9...，实际proc与STARTED/queue一致，active/running。仅init已STARTED，未见COMPLETE/FAILURE/VERIFIED，未读partial质量；这是时点快照，后续以实际身份和proof为准。
+- READY d920df25...与五源/协议不变，首次STARTED预算已开始，init1800秒、后续同卡KeepGate/KeepUp各3600秒；任何失败/中断/超预算按固定点关闭，不盲重启/延时/补CP。Restart=no/KillMode=process、不enable。启动wrapper缺sys在systemd调用前停止，修wrapper后首次实际激活，未改冻结源/重复门或额外尝试模型。
+- 原冷启动证据仅指少数新专家低曝光/少更新且完整功能继承有局部收益，不是所有基线都每领域从零或参数完全不动。当前两点同一q/v连续跨阶段，不新增领域专家；它们检验紧凑表示保留，不声称解释冷启动/PAS/OSFT机制。方法总目标仍未实现，只有完整新证据再报告。
+
 # 2026-10-24：同预算FFN角色保留探索已准入，尚未实际模型启动
 
 - ffn_role_retention_v1的PROTOCOL/NECESSITY_REVIEW/SOURCE_REVIEW/CPU_GATE/READY/ADMISSION_REVIEW为本独立点权威。READY d920df2595bd174e1816a5ef1a37198a84731fd1c7827f034d1ed4d1f7845928、准入19ed09a8...仅接受OLD任一真正空卡，首次init后固定同卡串行init1800秒、KeepGate/KeepUp各3600秒，共9000模型秒。发布时尚未激活，后续看ACTIVATION/真实STARTED/COMPLETE/VERIFIED；不将此段当永久实时状态。
