@@ -121,6 +121,96 @@
           }
         }
       }
+    },
+    {
+      "unix": 1792871288.6877277,
+      "boot": "c8bddf24-7969-41d6-a0fc-e5287850807f",
+      "jobs": {
+        "pct01:CL_MoE": {
+          "pid": 8260,
+          "proc_exists": true,
+          "startticks": "60876",
+          "pgid": 8260,
+          "state": "R",
+          "cpu_ticks": 21493888,
+          "run_status": {
+            "status": "evaluation",
+            "completed_stage": 11,
+            "active_stage": 12
+          },
+          "latest_output_metadata": {
+            "path": "evaluations/stage_12/T12_test_predictions.jsonl.partial",
+            "bytes": 48563,
+            "mtime": 1792871287.8226786
+          }
+        },
+        "pct01:SMoLoRA": {
+          "pid": 8265,
+          "proc_exists": true,
+          "startticks": "60882",
+          "pgid": 8265,
+          "state": "R",
+          "cpu_ticks": 21597935,
+          "run_status": {
+            "status": "initial_evaluation",
+            "completed_stage": 0
+          },
+          "latest_output_metadata": {
+            "path": "evaluations/stage_00/T16_test_predictions.jsonl.partial",
+            "bytes": 2133925,
+            "mtime": 1792871172.8584173
+          }
+        }
+      },
+      "sealed_index": {
+        "mtime": 1792567001.5623007,
+        "verified_pairs": 7,
+        "required_pairs": 14,
+        "methods": [
+          {
+            "backbone": "onevision",
+            "method": "CL_MoE",
+            "proof_file": "summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/completed/adc8088c131265b0715b.json"
+          },
+          {
+            "backbone": "onevision",
+            "method": "OSFT",
+            "proof_file": "summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/completed/5193ee4c6861655d85e8.json"
+          },
+          {
+            "backbone": "onevision",
+            "method": "PASs_MoE",
+            "proof_file": "summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/completed/88902345d5cf6fe545e3.json"
+          },
+          {
+            "backbone": "onevision",
+            "method": "PaRSP",
+            "proof_file": "summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/completed/4448534f8895647f6409.json"
+          },
+          {
+            "backbone": "onevision",
+            "method": "SeqFT_LoRA",
+            "proof_file": "summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/completed/b463d0e9fdfecc9eb456.json"
+          },
+          {
+            "backbone": "onevision",
+            "method": "SpaRTA",
+            "proof_file": "summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/completed/5bd7c416e2d1d0306fbf.json"
+          },
+          {
+            "backbone": "qwen",
+            "method": "SeqFT_LoRA",
+            "proof_file": "summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/completed/2a0b6d43f89c3cec6cb9.json"
+          }
+        ]
+      },
+      "forever_complete_metadata": [
+        {
+          "path": "summary/two_backbone_pct01_20261017/forever_multimodal_20261019/v3/formal_verification/dependency_restore_v1/onevision_COMPLETE.json",
+          "bytes": 328252,
+          "mtime": 1792486105.148403
+        }
+      ]
     }
   ],
   "progress_between_snapshots": {
@@ -167,5 +257,15 @@
     "formal_target_pairs": 16,
     "new_sealed_complete_proof": false,
     "formal_scores_or_main_table_changed": false
+  },
+  "latest_terminal_followup": {
+    "compared_to_unix": 1792869821.5653374,
+    "observed_unix": 1792871288.6877277,
+    "new_sealed_complete_proof": false,
+    "verified_index_pairs": 7,
+    "FOREVER_COMPLETE_markers": 1,
+    "formal_target_pairs": 16,
+    "partial_contents_read": false,
+    "large_hashes": false
   }
 }

@@ -1,0 +1,65 @@
+{
+  "accepted": true,
+  "acceptance_scope": "The completed evidence supports the reported scientific negative and fixed-point closure; accepted does not mean quality passed or the research goal was achieved.",
+  "quality_gate_passed": false,
+  "source_VERIFIED_sha256": "24fe7263efa78dc6a95dfa3a413059dd39229dfce7f788da66d520e7e5d66a54",
+  "reviewer": "research_review",
+  "review_scope": "Independent read of the frozen protocol, FINDINGS and existing VERIFIED scalars, training/resource evidence summaries and source binding. No model execution, prediction rescoring, bootstrap, reconstruction of old analyses, or extra experiment.",
+  "evidence": {
+    "initial_macro_F1": 9.09309150050085,
+    "final_macro_F1": 37.46719637362002,
+    "posthoc_macro_F1": 38.96625551916519,
+    "parent_macro_F1": 43.79198740853657,
+    "final_minus_parent_F1_by_domain": {
+      "natural": -23.642857142857146,
+      "medical": -11.666666666666671,
+      "geography": 15.0,
+      "finance": -10.0,
+      "traffic": -1.3144313650589439
+    },
+    "final_minus_posthoc_F1_by_domain": {
+      "natural": 8.69047619047619,
+      "medical": -5.666666666666671,
+      "geography": 0.0,
+      "finance": -10.0,
+      "traffic": -0.5191052515353434
+    },
+    "FIT_QA": 1213,
+    "stages": 19,
+    "positive_lr_updates": 87,
+    "finite_gradient_tensors_per_update": 96,
+    "new_F1_scores": 200,
+    "new_NLL_requests": 0,
+    "prior_quality_anchors_reused_without_rescoring": true,
+    "whole_weight_coefficients_parent": 893675552,
+    "whole_weight_coefficients_compact": 581213056,
+    "whole_weight_saving_fraction": 0.3496375113996628,
+    "all_five_fresh_matched_GPU_peak_windows_lower": true,
+    "complete_checkpoint_bytes": 1434984515,
+    "complete_checkpoint_sha256": "d91aa00be5809afd721bfa4e34578ac0ebeee70b1d841d606581d4947a795879",
+    "complete_checkpoint_smaller_than_parent": true
+  },
+  "supported_conclusions": [
+    "For this fixed small vision prior, frozen S1 affine interface and 87-update wide-q/v recipe, performing the original learning on the final compact representation is not sufficient to preserve the complete parent's five domain point scores.",
+    "The compact graph can learn under the stated finite budget: all five domain endpoint scores exceed its own initial scores. This is not a cannot-learn result.",
+    "The observed order comparison is mixed across domains. Natural F1 improves relative to posthoc replacement, while medical, finance and traffic decrease and geography ties; compact-first is not uniformly better in this setting.",
+    "Complete model weights, actual checkpoint size and all five matched GPU peak windows improve, but four of the five parent domain floors fail. These real resource savings do not turn the point into a quality-preserving compact framework.",
+    "The declared decision close_fixed_representation_87update_recipe follows the predeclared joint quality/resource rule. The original posthoc and OCR negative results remain unchanged."
+  ],
+  "claims_not_supported": [
+    "All compact-first learning strategies are ineffective, or this compact graph cannot learn.",
+    "The differences are statistically significant, stable across seeds or equivalent in the tied domain; this is one seed and 20 repeatedly explored DEV QA per domain.",
+    "Pure parameter capacity, missing visual semantics, an affine interface error or catastrophic forgetting is the uniquely established cause.",
+    "Initial-to-final improvement separates newly acquired function from later retention. The protocol did not measure matched immediate-acquisition endpoints.",
+    "The best natural-domain order result licenses selecting that domain, changing the bridge, unfreezing the tower, increasing steps or searching a new rank on this failed point.",
+    "The 34.963751 percent logical complete-weight reduction is the checkpoint-file reduction or CPU-memory reduction. The actual complete checkpoint bytes and phase RSS are separate evidence; compact evaluation CPU high-water is higher than the parent measurement.",
+    "Different historical full-checkpoint IO permits a training-speed comparison, or these GPU measurements demonstrate an actual edge-device, latency or overall RAM advantage.",
+    "The final model exceeds the strongest formal baseline or establishes a new continual-learning framework."
+  ],
+  "next_design_requirement": {
+    "specific_function_question": "A genuinely new proposal must state whether it supplies missing useful responses at acquisition or protects already acquired useful responses from subsequent overwriting, and explain how its smaller deployed carrier supports that function. The present initial/final comparison does not choose between these functional failures.",
+    "required_discriminating_evidence": "Plan matched just-acquired and final functional readouts in a new independently justified proposal, so a proposed transfer/acquisition mechanism and a proposed retention mechanism have different falsifiable consequences. Candidate-level, task and full-package evidence must all concern the actual compact graph; local proxy improvement and low loss relative to a damaged anchor are insufficient.",
+    "not_a_next_run_authorization": "This requirement does not authorize evaluating old stage snapshots, adding measurements to the closed recipe, increasing recovery budget, reopening the bridge or selecting another compression tool. A new experiment needs an explicit function carrier and a result-dependent design choice beyond another generic repair."
+  },
+  "action": "Accept the result interpretation and close this fixed representation plus 87-update recipe. Preserve all domain and per-ID results, initialization and training/resource costs. The overall scientific goal remains unachieved."
+}

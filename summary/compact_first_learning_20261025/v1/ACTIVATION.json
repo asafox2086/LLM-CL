@@ -1,0 +1,23 @@
+{
+  "unit": "llmcl-compact-first-learning-20261025.service",
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit=llmcl-compact-first-learning-20261025.service",
+    "--property=Restart=no",
+    "--property=KillMode=control-group",
+    "--property=RuntimeMaxSec=3700",
+    "--property=TimeoutStopSec=5",
+    "--setenv=LLMCL_ROOT=/data2/liyapeng_grp/program/LLMCL",
+    "--setenv=LLMCL_RUN=/tmp/llmcl-compact-first-1084-dw34mzsc",
+    "--setenv=LLMCL_ASSET=/tmp/llmcl-compact-first-1084-dw34mzsc/asset_view",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "-u",
+    "/tmp/llmcl-compact-first-1084-dw34mzsc/controller.py"
+  ],
+  "unix": 1792870043.7726233,
+  "ready_sha256": "faf79752df6031b15aa87d640ff7046ce06e4b7498ce95726cd96adb085436a5",
+  "boot": "5b259bd9-d0cb-4a1d-8b90-6e6107080488",
+  "stderr": "Running as unit: llmcl-compact-first-learning-20261025.service\n",
+  "GPU_processes_before": "\n"
+}

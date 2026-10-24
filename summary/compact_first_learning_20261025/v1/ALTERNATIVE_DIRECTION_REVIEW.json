@@ -1,0 +1,15 @@
+{
+  "reviewer": "research_review",
+  "decision": "reject_generic_quantization_update_preservation_as_new_research_line",
+  "local_evidence": "Existing five-TRAIN-example CPU INT8 checks do not establish that 1% continual updates are erased by quantization; their extension remains closed.",
+  "reason": "Low-bit frozen backbones with separate high-precision low-rank adaptation and quantization-aware initialization/merging have direct precedents. A new CL functional hypothesis and a byte-matched comparison are missing.",
+  "primary_sources": [
+    "https://arxiv.org/abs/2305.14314",
+    "https://arxiv.org/abs/2310.08659",
+    "https://arxiv.org/abs/2309.14717"
+  ],
+  "future_evaluation_constraint": "Give strong baselines the same quantization opportunity; count residuals, scales, unquantized components and actual runtime memory. Extra FP16 residual capacity cannot itself establish protection of learned updates.",
+  "new_model_or_QA_requests": 0,
+  "closed_quantization_branch_reopened": false,
+  "current_frozen_experiment_changed": false
+}

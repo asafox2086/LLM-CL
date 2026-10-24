@@ -1,0 +1,223 @@
+{
+  "accepted": true,
+  "acceptance_meaning": "The completed evidence is usable and internally consistent; this is not acceptance of the quality hypothesis or framework success.",
+  "reviewer": "baseline_review",
+  "VERIFIED_sha256": "24fe7263efa78dc6a95dfa3a413059dd39229dfce7f788da66d520e7e5d66a54",
+  "READY_sha256": "faf79752df6031b15aa87d640ff7046ce06e4b7498ce95726cd96adb085436a5",
+  "VERIFIER_PROCESS_sha256": "f709cf30ef3d321abb8bb88d374ea393bbdb669498efbcf8aa8cab43ed80967b",
+  "phase_proofs": {
+    "train": {
+      "identity": {
+        "pid": 3794162,
+        "startticks": "756846419",
+        "uid": 1084,
+        "pgid": 3794162
+      },
+      "seconds": 815.0469527570531,
+      "budget_seconds": 3000,
+      "exit_code": 0,
+      "COMPLETE_sha256": "bcae061d79c793296f05a40eff2bd29c7f03edbc519e3e4576423fcddbbf4760"
+    },
+    "compact_eval": {
+      "identity": {
+        "pid": 3798621,
+        "startticks": "756928043",
+        "uid": 1084,
+        "pgid": 3798621
+      },
+      "seconds": 131.45393668301404,
+      "budget_seconds": 450,
+      "exit_code": 0,
+      "COMPLETE_sha256": "a75c64cb5f3b44cbee21278f7739dbd23242c6e54d684947a52845eed65e31fe"
+    },
+    "parent_resource": {
+      "identity": {
+        "pid": 3799275,
+        "startticks": "756941314",
+        "uid": 1084,
+        "pgid": 3799275
+      },
+      "seconds": 45.02567683532834,
+      "budget_seconds": 150,
+      "exit_code": 0,
+      "COMPLETE_sha256": "ad3c8a3efbde680946c77dd1c442c2f6015551b5c72525b02fbadc108c37a0b5"
+    }
+  },
+  "all_phases_exit0": true,
+  "terminal_observation": {
+    "worker_PID_absence": "Checked by the already-successful unique verifier; not re-queried in this review.",
+    "unit_inactive_exit0_and_GPU_empty": "Root-provided existing terminal observation; not independently re-fetched here."
+  },
+  "counts": {
+    "FIT_QA": 1213,
+    "stages": 19,
+    "positive_LR_updates": 87,
+    "finite_gradient_records": 87,
+    "gradient_tensors_per_update": 96,
+    "new_generations": 210,
+    "new_scores": 200,
+    "new_DEV_NLL": 0,
+    "TEST_QA": 0
+  },
+  "quality": {
+    "parent": {
+      "macro": 43.79198740853657,
+      "domains": {
+        "natural": 61.5,
+        "medical": 44.5,
+        "geography": 45.0,
+        "finance": 30.0,
+        "traffic": 37.959937042682874
+      }
+    },
+    "posthoc": {
+      "macro": 38.96625551916519,
+      "domains": {
+        "natural": 29.166666666666664,
+        "medical": 38.5,
+        "geography": 60.0,
+        "finance": 30.0,
+        "traffic": 37.164610929159274
+      }
+    },
+    "initial": {
+      "macro": 9.09309150050085,
+      "domains": {
+        "natural": 12.428571428571427,
+        "medical": 6.285714285714286,
+        "geography": 18.0,
+        "finance": 0.0,
+        "traffic": 8.751171788218539
+      }
+    },
+    "final": {
+      "macro": 37.46719637362002,
+      "domains": {
+        "natural": 37.857142857142854,
+        "medical": 32.83333333333333,
+        "geography": 60.0,
+        "finance": 20.0,
+        "traffic": 36.64550567762393
+      }
+    }
+  },
+  "final_minus_parent": {
+    "natural": -23.642857142857146,
+    "medical": -11.666666666666671,
+    "geography": 15.0,
+    "finance": -10.0,
+    "traffic": -1.3144313650589439
+  },
+  "final_minus_posthoc": {
+    "natural": 8.69047619047619,
+    "medical": -5.666666666666671,
+    "geography": 0.0,
+    "finance": -10.0,
+    "traffic": -0.5191052515353434
+  },
+  "interpretation": {
+    "compact_initial_to_final_macro_gain": 28.37410487311917,
+    "final_macro_delta_parent": -6.324791034916551,
+    "final_macro_delta_posthoc": -1.4990591455451678,
+    "all_domain_parent_floor_passed": false,
+    "protocol_decision": "close_fixed_representation_87update_recipe",
+    "evidence": "The fixed compact-first recipe learned substantially from its own weak start, but did not preserve the parent each-domain quality floor and did not exceed the posthoc macro. Natural-domain gains over posthoc coexist with medical, finance and traffic losses; geography is tied.",
+    "limits": "Does not identify a unique cause of loss, prove all compact representations unlearnable, or support more steps/unfreezing/bridge rescue of this fixed point."
+  },
+  "storage": {
+    "runtime_graph_parent": {
+      "coefficients": 893675552,
+      "bytes": 1787351104
+    },
+    "runtime_graph_compact": {
+      "coefficients": 581213056,
+      "bytes": 1162426112
+    },
+    "runtime_graph_weight_reduction_fraction": 0.3496375113996628,
+    "actual_parent_checkpoint_bytes": 1787598858,
+    "actual_compact_checkpoint_bytes": 1434984515,
+    "actual_checkpoint_reduction_fraction": 0.19725585604508145,
+    "checkpoint_excess_over_compact_registered_weight_bytes": 272558403,
+    "checkpoint_SHA256_copied_from_existing_verified_receipt": "d91aa00be5809afd721bfa4e34578ac0ebeee70b1d841d606581d4947a795879",
+    "export_alias_limitation": {
+      "source_fact": "export_package iterates state_dict keys and calls detach().cpu().contiguous() separately for every tensor.",
+      "inference": "When the source is CUDA, separate per-key CPU transfers can produce separate serialized storages for tied embedding/lm_head tensors. This is an expected possible contributor to the larger checkpoint payload.",
+      "not_proven": "No checkpoint tensor/storage inventory was read in this review; the unique byte source and exact duplicate contribution have not been independently established.",
+      "CPU_gate_limit": "The synthetic gate exported from CPU, so its existing shared-storage behavior does not establish CUDA-to-CPU export alias preservation.",
+      "reload_fact": "Ordinary strict load copies into the architecture with tied Parameters; the completed graph layout and independent reload show the smaller runtime graph. This does not make its serialized file as small as the older static candidate file."
+    }
+  },
+  "GPU": {
+    "all_five_allocated_peaks_lower": true,
+    "matched_window_controls": [
+      "same original raw pixels",
+      "same text IDs and shape",
+      "same tile/packed-token layout",
+      "32 generated tokens",
+      "no visual cache",
+      "fresh independent model process before DEV generation"
+    ],
+    "per_domain_savings": [
+      {
+        "domain": "natural",
+        "allocated_saving_bytes": 277062144,
+        "allocated_saving_MiB": 264.22705078125
+      },
+      {
+        "domain": "medical",
+        "allocated_saving_bytes": 376350720,
+        "allocated_saving_MiB": 358.916015625
+      },
+      {
+        "domain": "geography",
+        "allocated_saving_bytes": 536048640,
+        "allocated_saving_MiB": 511.2158203125
+      },
+      {
+        "domain": "finance",
+        "allocated_saving_bytes": 376350720,
+        "allocated_saving_MiB": 358.916015625
+      },
+      {
+        "domain": "traffic",
+        "allocated_saving_bytes": 273916416,
+        "allocated_saving_MiB": 261.22705078125
+      }
+    ],
+    "not_claimed": [
+      "physical-device latency",
+      "deployment adaptation",
+      "CPU inference peak reduction"
+    ]
+  },
+  "CPU_RSS": {
+    "phase_highwater_bytes": {
+      "train": 3641237504,
+      "compact_eval": 6042599424,
+      "parent_resource": 4190531584
+    },
+    "compact_eval_bytes": 6042599424,
+    "parent_resource_bytes": 4190531584,
+    "compact_minus_parent_bytes": 1852067840,
+    "interpretation": "Process high-water values include loading and phase work; compact_eval also includes final DEV generation. These are not matched CPU inference peaks and do not show a CPU-memory improvement."
+  },
+  "cost": {
+    "model_phase_seconds": {
+      "train": 815.0469527570531,
+      "compact_eval": 131.45393668301404,
+      "parent_resource": 45.02567683532834
+    },
+    "sum_phase_seconds": 991.5265662753955,
+    "total_budget_seconds": 3600,
+    "initial_bridge_teacher_and_asset_costs_separate": true,
+    "original_parent_full_stage_checkpoint_IO_differs": true,
+    "no_training_speed_claim": true
+  },
+  "review_operations": {
+    "new_model_requests": 0,
+    "new_scoring_requests": 0,
+    "new_verifier_or_gate_executions": 0,
+    "large_checkpoint_hashes": 0,
+    "checkpoint_payload_reads": 0
+  }
+}
