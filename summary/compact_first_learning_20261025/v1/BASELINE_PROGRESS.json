@@ -1,0 +1,171 @@
+{
+  "scope": "NEW read-only process identity, output file metadata, and existing sealed proof index",
+  "snapshots": [
+    {
+      "unix": 1792868325.4218857,
+      "boot": "c8bddf24-7969-41d6-a0fc-e5287850807f",
+      "jobs": {
+        "pct01:CL_MoE": {
+          "pid": 8260,
+          "startticks": "60876",
+          "uid": 1004,
+          "pgid": 8260,
+          "state": "R",
+          "cpu_ticks": 21191173,
+          "run_status": {
+            "status": "evaluation",
+            "completed_stage": 4,
+            "active_stage": 5
+          },
+          "latest_output_metadata": {
+            "path": "evaluations/stage_05/T05_test_predictions.jsonl.partial",
+            "bytes": 33892,
+            "mtime": 1792868324.7375228
+          }
+        },
+        "pct01:SMoLoRA": {
+          "pid": 8265,
+          "startticks": "60882",
+          "uid": 1004,
+          "pgid": 8265,
+          "state": "R",
+          "cpu_ticks": 21298457,
+          "run_status": {
+            "status": "initial_evaluation",
+            "completed_stage": 0
+          },
+          "latest_output_metadata": {
+            "path": "evaluations/stage_00/T16_test_predictions.jsonl.partial",
+            "bytes": 2081221,
+            "mtime": 1792868302.1095212
+          }
+        }
+      }
+    },
+    {
+      "unix": 1792868514.7540915,
+      "boot": "c8bddf24-7969-41d6-a0fc-e5287850807f",
+      "jobs": {
+        "pct01:CL_MoE": {
+          "pid": 8260,
+          "startticks": "60876",
+          "pgid": 8260,
+          "state": "R",
+          "cpu_ticks": 21210379,
+          "run_status": {
+            "status": "evaluation",
+            "completed_stage": 4,
+            "active_stage": 5
+          },
+          "latest_output_metadata": {
+            "path": "evaluations/stage_05/T06_test_predictions.jsonl.partial",
+            "bytes": 62172,
+            "mtime": 1792868514.122626
+          }
+        },
+        "pct01:SMoLoRA": {
+          "pid": 8265,
+          "startticks": "60882",
+          "pgid": 8265,
+          "state": "R",
+          "cpu_ticks": 21317592,
+          "run_status": {
+            "status": "initial_evaluation",
+            "completed_stage": 0
+          },
+          "latest_output_metadata": {
+            "path": "evaluations/stage_00/T16_test_predictions.jsonl.partial",
+            "bytes": 2082810,
+            "mtime": 1792868396.4775314
+          }
+        }
+      }
+    },
+    {
+      "unix": 1792869821.5653374,
+      "boot": "c8bddf24-7969-41d6-a0fc-e5287850807f",
+      "jobs": {
+        "pct01:CL_MoE": {
+          "pid": 8260,
+          "proc_exists": true,
+          "startticks": "60876",
+          "pgid": 8260,
+          "state": "R",
+          "cpu_ticks": 21344789,
+          "run_status": {
+            "status": "evaluation",
+            "completed_stage": 9,
+            "active_stage": 10
+          },
+          "latest_output_metadata": {
+            "path": "evaluations/stage_10/T11_test_predictions.jsonl.partial",
+            "bytes": 1195,
+            "mtime": 1792869820.4430127
+          }
+        },
+        "pct01:SMoLoRA": {
+          "pid": 8265,
+          "proc_exists": true,
+          "startticks": "60882",
+          "pgid": 8265,
+          "state": "R",
+          "cpu_ticks": 21449624,
+          "run_status": {
+            "status": "initial_evaluation",
+            "completed_stage": 0
+          },
+          "latest_output_metadata": {
+            "path": "evaluations/stage_00/T16_test_predictions.jsonl.partial",
+            "bytes": 2107156,
+            "mtime": 1792869619.81034
+          }
+        }
+      }
+    }
+  ],
+  "progress_between_snapshots": {
+    "same_boot_pid_startticks_pgid": true,
+    "CL_MoE_CPU_tick_increase": 19206,
+    "CL_MoE_latest_evaluation_changed_from_T05_to_T06": true,
+    "SMoLoRA_CPU_tick_increase": 19135,
+    "SMoLoRA_same_partial_file_byte_increase": 1589,
+    "conclusion": "Both baseline workers were genuinely advancing during this interval; these observations are not a permanent liveness claim."
+  },
+  "sealed_proof_observation": {
+    "observed_unix": 1792868325.4218857,
+    "index": "summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/VERIFIED_INDEX.json",
+    "index_mtime": 1792567001.5623007,
+    "verified_pairs": 7,
+    "required_pairs": 14,
+    "existing_FOREVER_COMPLETE": {
+      "path": "summary/two_backbone_pct01_20261017/forever_multimodal_20261019/v3/formal_verification/dependency_restore_v1/onevision_COMPLETE.json",
+      "bytes": 328252,
+      "mtime": 1792486105.148403
+    },
+    "new_formal_complete_proof": false,
+    "previously_verified_total_pairs": 8,
+    "formal_target_pairs": 16,
+    "formal_scores_or_main_table_changed": false
+  },
+  "partial_answer_contents_read": false,
+  "QA_or_score_requested": false,
+  "large_checkpoint_hash_performed": false,
+  "model_or_verifier_started": false,
+  "OLD_server_accessed": false,
+  "baseline_process_or_service_modified": false,
+  "followup_progress": {
+    "compared_to_unix": 1792868514.7540915,
+    "observed_unix": 1792869821.5653374,
+    "same_boot_pid_startticks_pgid": true,
+    "CL_MoE_CPU_tick_increase": 134410,
+    "SMoLoRA_CPU_tick_increase": 132032,
+    "SMoLoRA_same_partial_file_byte_increase": 24346,
+    "sealed_index_mtime": 1792567001.5623007,
+    "verified_index_pairs": 7,
+    "FOREVER_COMPLETE_markers": 1,
+    "previously_verified_total_pairs": 8,
+    "formal_target_pairs": 16,
+    "new_sealed_complete_proof": false,
+    "formal_scores_or_main_table_changed": false
+  }
+}

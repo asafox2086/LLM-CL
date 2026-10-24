@@ -1,0 +1,99 @@
+{
+  "accepted": true,
+  "reviewer": "baseline_review",
+  "scope": "Current source composition and the single already-completed synthetic CPU integration gate; independent verifier review remains separate.",
+  "observed_UTC": "2026-10-24T19:22:37.210599+00:00",
+  "source_sha256": {
+    "worker.py": "a689565698f2916bfc5f3d12512e9edaabd269bfa4c7358705dd71fdbd8db62a",
+    "adaptation.py": "66d866a3a41e04df5c260ff84dd526c8084cc40f8f18caa7176e1c5d3e0cbc91",
+    "controller.py": "9420fc3c4db8f2c1cf6dcf77f47ec0bdd3a6b9f5f663c39b131eeb3dabc91a58",
+    "cpu_gate.py": "ebb9c54981be014ee9bc316c6d19691d9207f0584a8a94c940916d7b416674e6"
+  },
+  "protocol_sha256": "cd417b108e702834815136ef6e5857dba2498a73c5b4a3876420ee6abfb8b224",
+  "CPU_GATE": {
+    "path": "CPU_GATE.json",
+    "sha256": "bc1dd6be055706c5f79ce9dd7fe078160d1d7ef1b48a263825704da45c4d48fd",
+    "passed": true,
+    "seconds": 0.5376039799302816,
+    "new_gate_executions_by_this_review": 0,
+    "real_QA": 0,
+    "CUDA_initialized": false,
+    "historical_line_endings_hash": "a539fd840232f451e5c6102f063cf532f6b9546a466390de576f23620cd8cb9e",
+    "transport_line_ending_correction": "Local CRLF normalized to the original remote JSON LF; parsed values and all scientific source hashes unchanged; no repeated gate."
+  },
+  "resolved_findings": [
+    {
+      "problem": "Installing the frozen interface also freezes existing q/v adapters.",
+      "resolution": "Production installation restores exactly the original A/B Parameter identities and bytes, preserves RNG, and leaves all visual/base parameters frozen."
+    },
+    {
+      "problem": "Inherited training AST requires method.vision_original, initialized outside its extracted loop.",
+      "resolution": "Worker assigns model._llmcl_visual_original after frozen-vision installation and before the first training batch."
+    },
+    {
+      "problem": "ResourceMonitor.finish requires a training_before snapshot absent from the extracted stage loop.",
+      "resolution": "Worker now records training_before and training_after around the inherited training execution."
+    },
+    {
+      "problem": "CUDA FP32 folding would differ from the existing parent export arithmetic.",
+      "resolution": "Production fold now computes W+scale*(B@A) on CPU in FP32, casts to original storage dtype, then returns the replacement Linear to its original device; method.layers is cleared."
+    },
+    {
+      "problem": "Compact resource windows originally followed 100 DEV generations while parent windows began in a fresh process.",
+      "resolution": "Both models now measure the same ordered five windows before any DEV generation in their respective independent resource processes."
+    },
+    {
+      "problem": "Protocol initially named HostAdamW although original BudgetQV inherits the default optimizer branch.",
+      "resolution": "Protocol now retains the actual original AdamW selection; no new host_optimizer flag was added."
+    },
+    {
+      "problem": "The old frozen asset view lacks dependencies for the inherited full training module.",
+      "resolution": "Worker and CPU gate accept the explicit independent LLMCL_ASSET view; the old view is not edited. Complete transported asset/runtime binding is still required in READY."
+    }
+  ],
+  "scientific_path": {
+    "fresh_original_language_base": true,
+    "vision_asset_loaded_strictly_into_interface_only": true,
+    "no_S19_language_or_adapter_state_loaded": true,
+    "inherited_rank_plan_and_BudgetQV_AST": true,
+    "inherited_training_AST_hash_checked": true,
+    "original_TRAIN_file_hashes_and_recomputed_image_SPLIT_checked": true,
+    "training_order_and_ready_plan_checked": true,
+    "FIT_QA": 1213,
+    "stages": 19,
+    "updates": 87,
+    "trainable_coordinates": 4399104,
+    "initial_generations": 100,
+    "final_generations": 100,
+    "matched_resource_generations": 10,
+    "new_DEV_NLL_requests": 0,
+    "DEV_optimization": 0,
+    "TEST_QA": 0,
+    "phase_budgets_seconds": {
+      "train": 3000,
+      "compact_eval": 450,
+      "parent_resource": 150
+    },
+    "total_phase_budget_seconds": 3600,
+    "complete_final_weight_coefficients": 581213056,
+    "complete_final_weight_bytes": 1162426112
+  },
+  "controls": {
+    "FP32_nonpersistent_RoPE_preserved": true,
+    "language_SDPA_checked": true,
+    "student_eager": true,
+    "full_model_alias_and_storage_accounting": true,
+    "strict_independent_final_graph_reload": true,
+    "no_adapter_or_original_large_tower_in_final_state": true,
+    "resource_windows_have_no_visual_cache": true
+  },
+  "limits": [
+    "The CPU integration check is not a real pretrained model quality or GPU memory result.",
+    "The scientific keep/close decision requires the parent each-domain F1 floor, actual complete package reduction, and all five matched GPU peak reductions.",
+    "Initial and final new DEV outputs must be scored only once after all phases finish successfully; existing anchors are copied only through their sealed proof chain.",
+    "Independent verifier source review and exact READY/transport admission remain required."
+  ],
+  "remote_access_by_this_review": false,
+  "model_or_verifier_execution_by_this_review": false,
+  "historical_review_sha256_before_gate_line_ending_normalization": "b8ef5b33e0c3446a4e5d49fa4e343d5c0d0d4a95e37a8b710f6d92f771a826df"
+}
