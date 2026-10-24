@@ -1,0 +1,20 @@
+{
+  "unit": "llmcl-ffn-joint-effect-20261025.service",
+  "unix": 1792862864.5845506,
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit=llmcl-ffn-joint-effect-20261025.service",
+    "--property=Restart=no",
+    "--property=KillMode=control-group",
+    "--property=RuntimeMaxSec=630",
+    "--property=TimeoutStopSec=5",
+    "--setenv=LLMCL_ROOT=/data2/liyapeng_grp/program/LLMCL",
+    "--setenv=LLMCL_RUN=/tmp/llmcl-ffn-joint-1084-kioo1r5z",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "-u",
+    "/tmp/llmcl-ffn-joint-1084-kioo1r5z/controller.py"
+  ],
+  "ready_sha256": "696d3fc3cbe3eb18484dfc17d55513e6f47f3db30cb2c5adb770f72d1ec57d14",
+  "stderr": "Running as unit: llmcl-ffn-joint-effect-20261025.service\n"
+}
