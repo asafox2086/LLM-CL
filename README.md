@@ -1,117 +1,26 @@
-**2026-10-24当前状态：** 8组最终checkpoint保存态权重两列已补齐。固定连接对照在首个剪后权重打包时发现非有限值，已按首次启动后停止规则关闭；没有初态功能门或Frozen／Plastic质量结果，不作稀疏质量阴性解释。[实际故障与解释边界](summary/final_weight_reduction_20261024/sparse_connection_plasticity_launch_repair_v1/INITIAL_FAILURE_FINDINGS.md)。当前无研究模型worker，旧质量与权重表数值不变。
+# LLMCL：少数据多模态持续学习与紧凑模型研究
 
-以下日期消息为历史记录，不能据其“正在运行”或“下一步”推断当前状态。
+> 更新：2026-10-24。本文集中记录已有成果、负结果、尚未解释的问题和新会话接续入口。细节见[补充说明](SUPPLEMENTARY_NOTES.md)；原README时间线保存在[历史归档](README_HISTORY_20261024.md)（数据样例省略，原件私有保留），其中“当前／下一步／正在运行”均为历史记录。
 
-**2026-10-22保护包机制对照完整：** 保持原OSFT位置、初始化、训练坐标与优化配置，只关闭两种逐步投影后，DEV五域宏42.333991对原40.783801高1.550190pp；但金融25→15，11题高/9低/80平，探索区间[−2.738842,5.968743]跨0。净作用仍未解，不能据此删保护包、解释遗忘或按域选择路由。本v1正常结束，无完整候选/自动TEST；[全部域、解释边界和成本](summary/edge_deployment_20261019/osft_protection_control_20261022/v1/FINDINGS.md)。端侧仅科研背景，正式基线继续，尚无新方法成功结论。
+## 先看结论与当前状态
 
-**科研主线：** 端侧仅作轻量化背景。下一机制对照固定OSFT原位置、SVD初始化、训练坐标和优化配置，只关闭逐步梯度/参数投影保护包，复用原OSFT的FIT/DEV参照；检验保护包在固定预算下的净作用，不用末态DEV解释遗忘或宣称新方法。仅一组小测，已在GPU1真实STARTED，加载/训练尚无新成绩；不自动完整TEST。[具体问题、正负出口和真实状态](summary/edge_deployment_20261019/osft_protection_control_20261022/v1/README.md)。
+- **已经取得：** 双骨干正式对照中的8组完整核验结果、对应最终checkpoint的完整权重统计、多项习得／冷启动／回答行为诊断，以及一系列完整减重但质量失败的对照。失败结果和费用均保留。
+- **仍未做到：** 尚无最终完整权重更小、又保留强参照回答质量的自研框架。也尚未因果解释OSFT习得优势及ShortFixed点估计表现的原因，不能把性能表或局部误差直接当机制。
+- **当前实际工作：** 新的“OSFT阶段刷新是否帮助习得”对照已启动。2026-10-24 15:30:05 UTC交接观察中，共同第一阶段已完成并成功退出，Fixed分支已STARTED并运行，Refresh未STARTED，尚无完整新效果结果。该条是时点快照，后续以真实运行记录为准。[启动观察](summary/final_weight_reduction_20261024/osft_stage_refresh_mechanism_v1/HANDOFF_OBSERVED.json)
 
-**2026-10-22同预算对照完整：** 都是4399104训练坐标，宽q/v（48模块）DEV宏43.791987，七类r8（168模块）41.952549；差+1.839438pp，但探索区间[−3.135,6.856]跨0、15题高/15低/70平，金融3题贡献集中且三个域下降。原all对小q/v的增益不能单独作为额外120位置必要性的证据，不能据此称位置无用、等效或稳定收益。[全部领域、配对、空间边界与成本](summary/edge_deployment_20261019/position_coordinate_control_20261022/v1/FINDINGS.md)。原协议仅机制对照，本v1正常结束，不列完整候选或自动TEST；不改既有完整确认负结果。端侧仅背景，正式基线继续；下方本v1启动记录为历史。
+研究目标是**更少的最终完整模型权重，同时尽量保留或提高原Answer F1**。可训练参数量和训练状态作为辅助指标；端侧是科研动机，不做设备迁移、部署交付或精度卡常。已有技术可以借用，贡献由具体功能问题、必要对照和证据决定；不能因有先例就否决，也不能因换背景就宣称原创。
 
-**2026-10-22新增一个机制对照：** 针对原DEV中“扩展位置与增加总坐标混杂”，仅新增宽q/v，使其与七类r8同为4399104训练坐标，乘数4固定；复用原两参照，原1213 FIT/100 DEV。rank由预算算术得到，不能称同有效自由度或纯位置因果。独立审阅/必要准入后已冻结并在GPU1启动，尚无新质量成绩；不自动完整TEST或增加变体，不挽救下方已停止的完整配置。[问题、控制、成本与真实状态](summary/edge_deployment_20261019/position_coordinate_control_20261022/v1/README.md)。端侧仍仅科研背景。
+## 实验口径：三类结果不能混排
 
-**2026-10-22完整确认未通过：** LoRA_all完成原1313/19/93与最终21454QA独立核验，五域宏**44.894423**，低于PASs46.619976与OSFT45.937438；五域均低于OSFT，AP19=44.794146也低于两参照。原DEV点估计优势未在此次完整确认中保持，停止本固定配置，不据TEST调参重跑。[全部领域、成本与证据](summary/edge_deployment_20261019/osft_increment_confirmation_20261022/v1/FINDINGS.md)；[科研结论与行动边界](summary/edge_deployment_20261019/osft_increment_confirmation_20261022/v1/DECISION.md)。普通LoRA不是新算法，当前没有自研方法成功结论；正式8/16基线口径与Ours空白保留，端侧仅背景。下方启动/阶段等待记录均为历史，原确认服务已正常结束。
+| 类别 | 数据与评价 | 如何使用 |
+| --- | --- | --- |
+| 正式持续学习 | 原1313 TRAIN／19阶段／完整21454 TEST，seed42，原Answer F1 | 仅完整核验后填正式AP／FWT／BWT；TEST不能选方案 |
+| FIT→DEV先导 | 原训练池分出的1213 FIT／100 DEV，19阶段87次更新 | DEV已反复探索，单seed、每域20题、89个已知组；只筛选，不当新留出或稳定收益 |
+| 历史诊断 | 11／155／228／507题或S1合法FIT子集等各自固定范围 | 仅支持本诊断的局部结论，不与前两类直接排名 |
 
-**2026-10-22完整训练已完成：** LoRA_all从原基座完成1313 TRAIN/19阶段/93有效更新，已进入唯一最终21454题评测，尚无最终质量结论。固定五域宏判据与金融等逐域结果待完整封存后报告。[确认状态与协议](summary/edge_deployment_20261019/osft_increment_confirmation_20261022/v1/README.md)。原科学源/数值/数据不变，端侧仅科研背景。
+唯一指标为原始token Answer F1（0–100）。**AP为19任务等权，五域宏是五个域均值再等权；两者不同。** T7／8／9／12没有探索DEV。用户尚未给定可容许掉分范围，因此没有“非劣／等效”结论。正式1313 teacher见过探索DEV，即使只在FIT蒸馏，也不能拿来筛学生。
 
-**研究解释补充：** 逐矩阵重建OSFT失败，不能一般性排除独立训练低秩模型的功能；另需注意文献中每任务合并重置的LoRA，与本项目连续同A/B的更新空间不同。[论文核对、手算反例及行动边界](summary/edge_deployment_20261019/function_not_weight_reconstruction_20261022/FINDINGS.md)。不新增模型实验，不改当前完整确认，尚非质量收益。
-
-**2026-10-22科研主线：** 唯一LoRA_all完整确认已在GPU1真实训练；原全1313/19阶段/93更新后才一次最终21454QA。新版本已审阅冻结，19训练图文门槛通过，尚无最终成绩。主要检验五域宏能否超过PASs46.620，同时公开金融等各域下降；普通LoRA不是新算法，端侧仅背景。[确认协议与状态](summary/edge_deployment_20261019/osft_increment_confirmation_20261022/v1/README.md)。原四组已结束，正式基线继续。
-
-**2026-10-22四组小测完整：** qv/OSFT/all/extra的DEV宏均分为39.870439/40.783801/41.952549/40.365016，原规则只选LoRA_all进入完整确认准备。all对OSFT高1.169pp，但探索性区间跨0、金融仍降，未达五域目标。原screen服务已正常退出，不恢复旧作业。[四组结果与成本](summary/edge_deployment_20261019/osft_increment_screen/v1/RESULTS_20261022.md)；[一次完整确认的决定与评价口径](summary/edge_deployment_20261019/osft_increment_screen/v1/FULL_CONFIRMATION_DECISION.md)。新确认尚未实现/启动，不是正式TEST或新方法成果。
-
-**2026-10-22第三组小测完整：** LoRA_all DEV宏均分41.952549，超过qv39.870439和OSFT40.783801，但金融15低于两个参照，尚未达五域目标。仅支持扩展位置+增加坐标组合在该固定DEV上的改善，不称纯位置因果/显著提升或新算法。最后LoRA_extra已原队列接续，全部四组后才选候选。[完整结果与成本](summary/edge_deployment_20261019/osft_increment_screen/v1/RESULTS_20261022.md)。
-
-**2026-10-22两个完整DEV参照：** OSFT_all五域宏均分40.783801，对LoRA_qv39.870439高0.913362pp；自然/医学下降，另三域提高，尚不支持五域全面或稳定胜出。LoRA_all已原队列接续，LoRA_extra待原顺序，原候选门槛和条件不改。[完整小测结果、成本及解释边界](summary/edge_deployment_20261019/osft_increment_screen/v1/RESULTS_20261022.md)。不是正式TEST/AP或新方法成果。
-
-**2026-10-22首个完整小测参照：** LoRA_qv完成1213 FIT/100 DEV、19阶段/87正LR，DEV五域宏平均Answer F1为39.870439；已独立复核全部原参考与封存证据。OSFT_all已实际接续，其余条件仍按冻结顺序。仅一个参照，尚不能选择候选，也不与正式TEST/AP排名。[完整四组进度与成本口径](summary/edge_deployment_20261019/osft_increment_screen/v1/RESULTS_20261022.md)。
-
-**2026-10-22作业恢复：** 新机重启后，原GPU1四组小测首组LoRA_qv已实际训练；Qwen PASs/PaRSP正式运行，CL/SMo因无阶段权重按原条件新鲜重排，旧尝试保留。五条过期研究自启已停用，当前无新增完整F1，正式仍8/16。[恢复证据](summary/edge_deployment_20261019/reboot_recovery_20261022/v1/FINDINGS.md)。端侧只作科研背景，不恢复部署项目。
-
-**2026-10-22科研方向纠正：** 用户明确端侧只是科研背景，停止电脑迁移与PAS部署包项目；主线回到1%预算下哪些扩展/更新机制必要、能否更简洁地保留学习收益。CPU固定半宽2×2已全部封存：完整/视觉单支/语言单支/联合五个已见TRAIN均分47.089/33.333/22.051/21.754，三个删减均未通过原逐题不降筛选，停止这些条件；不推断模块无用、一般机制或域泛化。[完整负结果与下一科研问题](summary/edge_deployment_20261019/width_component_split_20261021/v1/FINDINGS.md)。原GPU1四组FIT/DEV及正式基线继续，未产生自研方法提升。
-
-**2026-10-22目标设备前置检查：** 已启动个人电脑CPU最小兼容准入：复用原K61 dense完整包和一次固定已见TRAIN请求，隔离依赖、保持CPU FP16/SDPA，不用本机忙碌GPU。当前是安装/传输阶段，未产生新质量或速度结果。后续同机公平比较仍需PASs动态部署包，并保留OSFT参照；安装、恢复和单次NLL不当方法成果。[目的、协议、评审和真实状态文件](summary/edge_deployment_20261019/pc_cpu_admission_20261022/v1/README.md)。
-
-**2026-10-21实际更新空间审计：** PaRSP最终168矩阵中，o/down有约1659万坐标在19阶段投影前名义mask并集外变化（占全部所测ΔW能量2.9344%）；不能把“40%神经元”当实际更新范围或可删性。SpaRTA本次93主更新未到200恢复周期，关闭恢复不值得重复模型训练。新增审计65.196秒、0模型前向/更新/GPU，原F1不改。[实际权重、原评分、成本、源码与结论边界](summary/edge_deployment_20261019/sealed_update_constraints_20261021/FINDINGS.md)。不是新的方法或部署收益。
-
-**2026-10-21恢复方向的依据：** 核对IJCV2026原文及作者代码后，保留“复用已有projector承接删减功能”的条件候选，尚未启动。论文5%恢复数据在LLaVA上约3.3万条，不能当本1313已足够；仅语言删减时视觉L2本来为零，回答恢复仍须经过冻结LLM反传，不能凭1.84M训练参数称低成本。先等当前分支对照完整，再判断是否值得恢复；需FIT-only teacher/独立DEV与dense同预算恢复控制。[原文、源码与适用边界](summary/edge_deployment_20261019/projector_recovery_literature_20261021/FINDINGS.md)。0新模型前向，未产生新质量或部署收益。
-
-**2026-10-21新CPU问题：** 先前视觉与语言FFN同时半宽质量下降，尚未区分各支损失。本轮直接继承原完整包和半宽包，补“只减视觉”“只减语言”两格，不重跑原三组、不调比例或换题；已完成两包构建与原医学NLL精确控制，进入CPU只减视觉探针，尚无新F1结果。五道teacher已见TRAIN只作功能/整模成本可行性，不能当五域测试、独立DEV或最终端侧收益。[问题、评审、严格对照与行动出口](summary/edge_deployment_20261019/width_component_split_20261021/v1/README.md)。原GPU1队列及基线不变。
-
-**2026-10-21现有结果与论文分析：** 四个完整基线逐题原F1复算完成。PASs与OSFT总AP仅差0.049，但有2950/2295题分别更高/更低；遥感presence刚习得均约75、最终77.056/60.880，说明平均BWT会掩盖任务间差别。PASs实际训练参数1.408亿，不能因LoRA/MoE名称当作轻量。结合HC-SMoE、CoMe等原论文，后续简化必须验证功能替代及完整成本；原四组FIT/DEV不变。[完整分析、全部19任务与论文边界](summary/edge_deployment_20261019/sealed_baseline_tradeoffs_20261021/FINDINGS.md)。0新模型前向，未产生新方法/部署收益。
-
-<!-- PASS_MOE_VERIFIED_20261021 -->
-**PASs-MoE正式结果新增：** OneVision完整核验AP46.406、FWT14.726、BWT−1.732，正式完成8/16。它是当前最高AP点估计，比OSFT高0.049分，尚不能称显著领先；五域均分46.620。部署未测留空。[完整结果、比较边界与核验依据](summary/two_backbone_pct01_20261017/pass_moe_verified_20261021/README.md)。
-
-<!-- CL_MOE_VERIFIED_20261021 -->
-**CL-MoE正式结果新增：** OneVision完整核验AP42.288、FWT19.039、BWT0.012；相对顺序LoRAAP高2.001分，低于OSFT4.069分。正式完成7/16，最强已完成OneVision仍OSFT；端侧未测留空。[完整结果与核验依据](summary/two_backbone_pct01_20261017/cl_moe_verified_20261021/README.md)。
-
-**结构删减小测完整负结果：** 同一OSFT末态的完整参考、按权重排序半宽、按输入波动排序半宽三组均完成严格重载和独立原评分核验。相同FP16完整包1719.784→1174.587 MiB（少31.701%），加载后RSS约少26%；但5道teacher已见TRAIN探针平均Answer F1为47.089／0／21.754，当前无恢复训练的同时半宽方案不通过，停止自动完整测试。不能称这些通道无用，也不泛化所有压缩无效。[问题、完整结果、结论与行动](summary/edge_deployment_20261019/structured_width_20261020/v1/FINDINGS.md)。这是单轮CPU可行性，不是域测试／独立DEV或最终部署成功，Ours／正式部署列仍空。GPU1原四条件队列与两机基线不变；以下旧执行记录保留为历史。
-
-**2026-10-20 CPU功能空间完整结果：** 同样只保留8个方向，按真实输入拟合的近似比只按权重选择更接近原更新的作用：5个探针平均局部相对误差49.983%→37.326%，240个局部配对中224个降低、16个升高。teacher见过这些训练题；这不是Answer F1、参数可删或端侧收益。[问题、实验结果、结论与下一步](summary/edge_deployment_20261019/cpu_function_space_20261020/v2/FINDINGS.md)。CPU原作业已正常结束，GPU1四组小测继续按原队列等待资源；主表Ours与未测部署项保持空白。下面执行记录保留为历史，以AGENTS顶部为当前状态。
-
-**CPU整模校验通过：** [修复版预定医学校准题](summary/edge_deployment_20261019/cpu_function_space_20261020/v2/README.md)的原／折叠NLL逐值相同，首条校准完成，继续原10题功能对照。不是F1或端侧结果，不将一题校验外推所有输入／GPU。
-
-**CPU修复门槛完成：** [168算子同上下文全部精确](summary/edge_deployment_20261019/cpu_function_space_20261020/v2/repair_gate/VERIFIED_REPAIR.md)，修复版10题模型已实际启动。真实整模NLL门槛与完整功能结果仍待，不是F1或部署收益。
-
-**2026-10-20 测量修复与范围更正：** CPU功能小测v1未通过原模型／折叠NLL精确门槛，原证据保留、无有效探针结果。[独立v2](summary/edge_deployment_20261019/cpu_function_space_20261020/v2/README.md)正在核验同上下文168算子，完整通过后才一次接续原10QA。K59的8.20%等属于无外层autocast系数谱，[不能直接称原前向实际权重谱](summary/edge_deployment_20261019/cpu_update_space_20261020/v1/CONTEXT_SCOPE_CORRECTION.md)。正式基线F1不受本分析修复影响，未取得新质量／部署收益。
-
-**2026-10-20 CPU功能空间小测：** [同rank8比较权重方向与真实输入作用](summary/edge_deployment_20261019/cpu_function_space_20261020/v1/README.md)已实际nohup启动。固定5个校准QA＋5个独立图像组探针、48处q/down；teacher已见这些训练题，本轮不是泛化F1或部署成果。原GPU四组小测和基线不变。
-
-**2026-10-20 CPU系数空间（上下文范围已更正）：** [216个正式最终矩阵的谱分析与两处零训练控制](summary/edge_deployment_20261019/cpu_update_space_20261020/v1/README.md)已完成：OSFT变化平方范数96.67%在q/v之外，每矩阵最佳rank8只保留8.20%总变化；共同q/v投到SeqFT末态切空间保留1.97%，低维各向同性参考1.84%。两处零训练CPU漂移不足实际变化范数0.1%。这些是权重空间事实，不是F1贡献或参数可删证明，不能把OSFT等同普通小LoRA；原四组GPU1小测与两机基线保持。
-
-<!-- FOREVER_V3_PUBLICATION_20261020 -->
-**正式基线新结果：** FOREVER／OneVision完整核验AP45.245、FWT17.748、BWT5.642；正式完成8/16组。额外13,952次历史QA曝光／872次回放更新另计，不当作相同训练计算量。[完整证明与回放成本](summary/two_backbone_pct01_20261017/forever_verified_20261020/README.md)。
-
-**当前研究：最强OSFT的额外变动能否轻量复现？** 已实现四组共同小测：原顺序LoRA、原OSFT、普通LoRA覆盖相同七类位置、普通LoRA只更新额外五类位置。冻结1213 FIT／100 DEV（每领域20），从原1313内部按图像／场景留出，不用官方TEST筛选。新唯一队列CPU1154006已接续，GPU1仍他人占用，尚无本轮训练／质量收益；旧六容量自动全测不再运行。[问题、对照、筛选与资源边界](summary/edge_deployment_20261019/osft_increment_screen/v1/README.md)。
-
-**数值条件与公平性：** 停止以浮点／量化精度调整作为方法研究。正式V2公共入口的基座与外层autocast默认FP16，SMoLoRA保留BF16实现例外；各方法还可能包含FP32适配参数或分解因子，参数存储精度不等于计算精度。因此现表不能称所有方法严格同精度，跨例外的成绩差异也不能全部归功于算法。容量消融在各家内部固定原条件：CL三组FP16基座、FP32适配器且其前向禁用autocast；SMo三组BF16基座／autocast、FP32适配器存储。后续方法与对照固定并公开数值条件，质量与部署成本均按同一条件比较；旧精度实验只作工程附录，不计方法贡献。[完整守则](rules/029_numerical_conditions_not_method_contribution_20261019.md)。
-
-**架构扩展必要性：** 已接入CL-MoE／SMoLoRA六组容量消融，分别检验专家分工和总rank是否必要；GPU1仍被他人占用，尚无训练／质量结论。[问题、对照、状态与成本边界](summary/edge_deployment_20261019/architecture_capacity/v1/README.md)。六组是消融，不新增正式基线，主表Ours与未测部署值留空。
-
-**研究问题更正：** 撤回由局部工程试验推导整个领域缺陷的表述；目前尚无兼顾完整质量与端侧优势的新方法。[已证事实、撤回内容及执行修正](summary/edge_deployment_20261019/RESEARCH_RESET_20261019.md)。
-
-**端侧新负例：** 全INT8在五个固定TRAIN请求中丢失了部分原有正确答案，尚不能直接采用；仅压语言也受较大的视觉固定负担限制。[当前方向、论文依据与边界](summary/edge_deployment_20261019/QUANTIZATION_DIRECTION.md)。
-
-**新增TRAIN证据：** 全部1313条已核验；精确重复视图集中于遥感与部分医学，合计可少编码10.79%的视图。该比例不是速度或质量收益。[完整统计与边界](summary/edge_deployment_20261019/train_view_census/v1/VERIFIED_RESULTS.md)。
-
-**端侧研究进展：** 三个正式模型已完成实际导出与独立重载；OSFT和顺序LoRA的常规静态包同大，训练参数少不等于部署更小。下一步从高分OSFT检查视觉重复计算与表示压缩，CPU／GPU平台分别实测。[实验与结论](summary/edge_deployment_20261019/RESEARCH_FINDINGS.md)。目前没有经完整质量确认的部署优势，主表未测项留空。
-
-**目标：个人电脑CPU／GPU及手机端侧部署。** 主表已加入最终部署大小、新增部署大小、CPU峰值RAM、首词延迟、生成速度与常驻适配器数量；未实测留空。[统一测量与一般性问题](summary/edge_deployment_20261019/PROTOCOL.md)。以当前高分完整方法为参照，但只将跨方法／骨干验证的共性问题作为研究结论；所有方法公平地使用常规导出优化。研究仅新GPU1，原科学作业顺序与后台基线保留。
-
-**2026-10-19实际参数比较：** [100%比1%多更新了什么](summary/two_backbone_pct01_20261017/partial_full_vs_pct01_20261019/parameter_geometry/v2/REPORT.md)：六个Qwen检查点的冻结骨干逐字节相同，均为28层q/v、rank8、1,089,536个训练坐标。医学两阶段100%有效更新幅度为1%的17.79／12.93倍，方向余弦0.166／0.030；1%的A/B几乎所有坐标也已改变。自然更新大7.76倍却分数近似，不能将更大更新等同更好效果。框架／起点／样本量与步数仍混杂，不作唯一原因；CPU独立核验完成，不改基线或GPU队列。
-
-**已有100%训练checkpoint的阶段比较：** [Qwen前三阶段与有效1%的完整测试结果](summary/two_backbone_pct01_20261017/partial_full_vs_pct01_20261019/REPORT.md)。自然问答85.817／86.050，医学Modality83.772／40.314，Position65.213／31.380（100%／1%，原始Answer F1）。100%仅完成S1–S3，两版输入与训练框架不同，属于阶段性描述，不填完整主表或声称纯数据量因果。
-
-**更新方式试验（2026-10-19）：** [同一个LoRA功能的尺度控制](summary/onevision_diagnostics_20261016/optimizer_geometry_20261019/v1/RESEARCH_FINDINGS.md)显示，A/B缩放可改变AdamW更新；作者LoRA-RITE消除了本次控制中的差异。新[连续单LoRA候选](summary/onevision_diagnostics_20261016/lora_rite_continuous_20261019/v1/README.md)已排在原训练对照后，尚无GPU／F1结果，不宣称最终低分原因已找到或已有内存优势。
-
-**回放基线已接续（2026-10-19）：** FOREVER双骨干真实训练／保存重载门槛通过，OneVision正式作业已在旧GPU0启动，Qwen在新GPU2队列等待。原基线持续；当前共6条GPU基线作业，完整结果仍4组，FOREVER主表留空。[运行状态与恢复规则](summary/two_backbone_pct01_20261017/forever_multimodal_20261019/v3/README.md)。
-
-**正式基线更新（2026-10-19）：** Qwen2-VL顺序LoRA的恢复分支已通过完整19阶段／74格／21454题核验，AP47.812、FWT13.258、BWT4.415，已填主表；目前4组正式结果完成。[恢复凭据与资源限制](summary/two_backbone_pct01_20261017/qwen_seqft_io_recovery_20261019/README.md)：旧文件保留，中断计算另计，资源日志不完整，不能用来宣称内存优势。
-
-**最新研究进展（2026-10-19）：** [连续系数两组](summary/onevision_diagnostics_20261016/directional_coeff_20261018/v2/REPAIR_FINDINGS.md)都完成19阶段，155题AP20.93／21.72，低于同题顺序LoRA43.36；双完整21454继续，不能宣称提升。[下一项TRAIN-only对照](summary/onevision_diagnostics_20261016/train_update_pilot_20261019/v1/PROTOCOL.md)检查保留当前适配、固定A与提高B更新速度，已排队，尚无GPU结果。正式Ours留空。
-
-**研究重点更新：** 按最新要求先核验数据受限下哪些更新机制有效，暂停预设模块数量；[他人更新方式、已知结果及验证方案](summary/onevision_diagnostics_20261016/DATA_LIMITED_PRIORITY.md)。SVD机制对照v3已实际在GPU1进入初始评测，无新成绩；正式主表口径不变。
-
-**研究接续：** [同20反馈覆盖修正](summary/onevision_diagnostics_20261016/feedback_coverage_20261018/v1/all_six_outcome/RESEARCH_FINDINGS.md)两诊断已完成，AP43.565/43.595对Seq43.363仅小幅点提升。已准入[固定训练参数预算SVD对照v2](summary/onevision_diagnostics_20261016/osft_budget_20261018/v2/queue/README.md)，在真正空闲GPU0/1启动；当前他人占用而等待，不能称已训练。[当前方向](summary/onevision_diagnostics_20261016/DIRECTION_20261018.md)保持小模型／少数据／低资源目标，正式Ours无新结果继续留空。
-
-**研究原因新增：** OSFT的正式优势伴随更强的[刚习得成绩与更大训练容量](summary/onevision_diagnostics_20261016/osft_acquisition_20261018/RESEARCH_FINDINGS.md)，并非相对SeqFT具有更高BWT；不能只按AP归因为防遗忘。新同预算覆盖对照的[TRAIN真实学习核验](summary/onevision_diagnostics_20261016/feedback_coverage_20261018/v1/TRAIN_FIT_FINDINGS.md)已完成，TEST两诊断尚待，正式Ours保持空缺。
-
-# LLMCL：小模型的五领域多模态持续学习
-
-**正式基线新增：** OneVision OSFT已核验完整19阶段／74必要评测格／21454最终QA，AP=46.357、FWT=18.932、BWT=−1.616；SeqFT AP=40.286，差+6.071pp。五域结果已填下方主表。该正式V2结果不能与研究155诊断直接排名；也不能把冷启动局部问题推广成所有既有方法都会变差。[完整核验索引](summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/VERIFIED_INDEX.json)。
-
-**新增发现：** 同域／跨域源的函数补偿均已完成原507题：首步A恢复非零梯度后，F1=15.428／15.533，仍低于完整功能继承18.113／18.468，对应配对图像区间均不含0。不能把冷启动代价全部解释为首步A梯度为0；完整功能复用及正确调用应继续验证。新TRAIN-F1两格已完成诊断，均未取得收益，详见下方。[修订的证明链](summary/onevision_diagnostics_20261016/expert_cold_start_20261018/COLD_START_PROOF.md) · [完整控制与边界](summary/onevision_diagnostics_20261016/function_neutral_init_20261018/v2/function_vs_factor/RESEARCH_FINDINGS.md)。
-
-**当前执行：** 新TRAIN-F1固定匹配与可学习距离两格均完成500NLL／155生成：AP19同为42.860，原顺序43.363，缓存几何45.700。1792维／40步确实更新，但两新格500题路由／NLL及155生成语义字段精确一致；未取得新收益。20锚仅覆盖11／19原生任务，逐题最优相对最佳固定状态的TRAIN空间仅0.144pp。这首先是本次反馈设计的限制，不能推广成1%数据本身无用。[五格完整结果](summary/onevision_diagnostics_20261016/answer_compatibility_20261018/v1/all_five_outcome/RESEARCH_FINDINGS.md) · [真实TRAIN判别空间](summary/onevision_diagnostics_20261016/answer_compatibility_20261018/v1/TRAIN_DECISION_FINDINGS.md)。同20锚覆盖19原生任务的[控制](summary/onevision_diagnostics_20261016/feedback_coverage_20261018/v1/PROTOCOL.md)已实际准入，唯一CPU61499、新GPU0 worker61528先执行原500／155精确门槛，新结果尚待。原数据量case03已正常完成、累计4／18，全部旧任务与完整确认保留。基线继续。
-
-**研究背景：轻量模型、1%数据、低内存增长。** 允许多个LoRA，但以实际领域总Answer F1、AP/FWT/BWT和资源成本评价，不要求每个语言、题型或样本都提升。LoRA是训练参数化，正则化是保护机制，两者可结合；不预设必须扩容或路由。[核心规则](rules/021_lightweight_data_limited_core_20261017.md) · [LoRA与正则化](summary/onevision_diagnostics_20261016/expert_cold_start_20261018/LORA_VS_REGULARIZATION.md)。
-
-**最新执行（2026-10-18）：** 原生连续LoRA＋缓存19阶段/93次更新及四格诊断已完整核验：同155题AP为顺序43.363、缓存几何45.700、缓存质量42.860；域宏差区间均含0，未证大幅稳定提升。相同32道遥感题出现NLL下降而F1下降，质量调用不能直接等同生成质量。[完整四格与边界](summary/onevision_diagnostics_20261016/functional_state_cache_20261018/v1/first_four_view_outcome/RESEARCH_FINDINGS.md)。服务器18:45重启后正式SeqFT接续；CL-MoE保留中断证据后已启动新的独立运行，其他GPU进程保全。[实际执行记录](summary/onevision_diagnostics_20261016/functional_state_cache_20261018/v1/execution_context/README.md)。研究在空闲GPU0/1择一，新机我们的作业最多占三张卡。
-
-**当前主线先保持简单：** [五格来源控制](summary/onevision_diagnostics_20261016/initialization_source_controls_20261018/v1/CONTROL_OUTCOME.md)已全部完成相同26TRAIN／2更新／完整507题：冷启动14.681，同域／跨域全继承18.113／18.468，只继承A并清零B为14.340／14.464。全继承有局部收益；A-only相对冷组区间含0，且源A方向变化较小，不能宣称方向复用无用。额外源12次曝光／2更新另计。[表示与复用的开放方向](rules/023_transfer_compatibility_direction_20261018.md)不锁定LoRA、余弦或线性空间；应学习可迁移关系，不能直接以领域名或语义接近代替复用效果。[三格函数补偿控制](summary/onevision_diagnostics_20261016/function_neutral_init_20261018/v2/PROTOCOL.md)已独立准入，保留源参数、抵消初始旧输出，已全部完成，实际梯度和F1对照见顶部发现。当前新匹配条件继续、所有原任务与基线保留。[实际内存](summary/onevision_diagnostics_20261016/initialization_source_controls_20261018/v1/RESOURCE_SNAPSHOTS.md) · [唯一当前队列](summary/onevision_diagnostics_20261016/answer_compatibility_20261018/v1/queue/README.md)。
-
-[公共V2缓存候选](code/OneVision_FormalStateCache/README.md)的源码、正式SeqFT19阶段小状态和CPU集成已备妥，输入/精度/顺序等与正式框架一致；按最新要求暂后移两个完整确认，不删除。原训练93更新成本仍计入，原生155分数继续只作诊断，正式Ours未完成仍留空。
+正式完成数最后一次证明检查仍为**8／16**：OneVision七组、Qwen顺序LoRA一组；这是已核验数量，不是其它作业当前存活状态。Ours没有正式完整结果。
 
 <!-- FORMAL_MAIN_TABLE_BEGIN -->
 ## 主实验：双骨干1%多领域持续学习
@@ -141,7 +50,7 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 | SpaRTA | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.334/) | 73.596 | 40.921 | 45.942 | 21.328 | 34.520 | 41.829 | 17.145 | -2.992 | 1744.231 | 39.680 | 未测 | 未测 | 未测 | 未测 |
 | Ours | 自研方法 | 未发表 |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |
 
-五个数据集列为训练结束后的完整域内QA平均F1；AP为19个原生任务等权平均，FWT/BWT按已测的必要阶段计算。两种权重口径不同。[FOREVER（ACL 2026）正式运行](summary/two_backbone_pct01_20261017/forever_multimodal_20261019/v3/README.md)已通过双骨干模型／保存重载门槛；OneVision已通过完整19阶段／74格／21454题及回放成本核验，Qwen仍等待原基线后的空闲GPU2；Ours尚无可填入此正式表的完整结果。ER-LoRA已按用户要求移出比较，已有结果保留在历史证据中。
+五个数据集列为训练结束后的完整域内QA平均F1；AP为19个原生任务等权平均，FWT/BWT按已测的必要阶段计算。两种权重口径不同。[FOREVER（ACL 2026）正式运行](summary/two_backbone_pct01_20261017/forever_multimodal_20261019/v3/README.md)已通过双骨干模型／保存重载门槛；OneVision已通过完整19阶段／74格／21454题及回放成本核验，Qwen尚无完整核验结果；原调度描述仅为历史，不能据此推断当前进度；Ours尚无可填入此正式表的完整结果。ER-LoRA已按用户要求移出比较，已有结果保留在历史证据中。
 
 类型按主要抗遗忘机制归类，PASs-MoE兼有正则化；LoRA是参数化方式，不单独作为上述方法类型。会议链接指向正式发表页，年份按会议届次。
 
@@ -153,159 +62,147 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 
 <!-- FORMAL_MAIN_TABLE_END -->
 
-## 当前实验与阅读入口
+## 为什么强参照学得好：已有证据与未解问题
 
-| 入口 | 内容与边界 |
-| --- | --- |
-| [正式双骨干主表](summary/two_backbone_pct01_20261017/MAIN_TABLE.md) | Qwen2-VL-2B与OneVision 0.5B分块，五领域最终分数、AP/FWT/BWT。只填完整核验结果；[只读发布器](summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/README.md)覆盖原14个组合，FOREVER双骨干已独立准入；共16个目标中6组完整核验，未完成格留空。 |
-| [正式V2框架与公平性](summary/two_backbone_native_cl_20261017_v2/README.md) | 两机共享TRAIN/TEST ID、原生任务顺序、方法代码、预算、公共图像输入与评分；原生processor/tokenizer因骨干而异。旧零LR/V1结果隔离。 |
-| [当前两模块源码索引](code/OneVision_ColdStartQuality/README.md) | A完整继承+B TRAIN质量调用；源文件、实际包装器、四格协议和证据入口。与早期位移保护原型分开，不混结果。 |
-| [问题发现总报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md) | 按问题、实验、结果、证明、改进、效果记录；区分已证实、已反驳、未解决。[关键发现](summary/onevision_diagnostics_20261016/KEY_FINDINGS.md)提供证据索引。 |
-| [两模块四格诊断](summary/onevision_diagnostics_20261016/warm_quality_20261018/predeclared_hard_case/RESEARCH_FINDINGS.md) | 同155题四格与SeqFT逐题比较；点优势小且域宏差区间含0，完整21454待。 |
-| [研究诊断表](summary/onevision_diagnostics_20261016/functional_router/MAIN_TABLE_DIAGNOSTIC.md) | 原生AnyRes/BF16、同155题的六方法对照；不能混入正式V2或当完整21454题结果。 |
-| [唯一研究队列](summary/onevision_diagnostics_20261016/lora_rite_continuous_20261019/v1/queue/README.md) | 当前GPU自然完成后先原TRAIN-only更新对照，再连续LoRA-RITE训练与完整确认，随后全部原工作；实际queue_state与PID优先。 |
-| [文献问题与启发](summary/onevision_diagnostics_20261016/LITERATURE_PROBLEMS.md) | 他人发现、验证角度、解决方式及适用边界；不是本模型已证实原因。 |
-
-2026-10-18运行快照：研究仅新GPU1。原质量硬调用完整确认因FinMME:5082辅助特征缺id的日志异常停止，旧预测和失败证据保留；[新实现修复与实际GPU门禁](summary/onevision_diagnostics_20261016/feature_identity_repair_20261018/README.md)已通过。温启动19阶段与500NLL/155生成已封存，AP+4.000；温池四视图已实际启动GPU415408，接续全部18数据量控制，再从头重测完整确认；全部其余既定实验保留。两机正式基线继续，新GPU0保留；完整四格收益仍待。
-
-当前温池质量头已用43历史TRAIN/172次NLL前向完成400次CPU更新，16参数确实改变；这不是Answer F1。评测期间新增外部GPU1作业，已[记录共享设备上下文](summary/onevision_diagnostics_20261016/warm_quality_20261018/execution_context/FOREIGN_GPU_OVERLAP_20261018.json)，当前评测继续、后续待实际空闲；共享时段耗时不作为方法速度优势。
-
-当前预定A+B硬调用条件的500NLL/155生成已核验：AP44.165，较同题原生SeqFT43.363高0.803；域宏平均+0.923、95%区间[-0.760,2.872]含0。它恢复弱冷池，但尚未确立稳定/大幅超过简单基线。见[四格、五域、对照与成本](summary/onevision_diagnostics_20261016/warm_quality_20261018/predeclared_hard_case/RESEARCH_FINDINGS.md)。全部辅助视图现已封存；完整21454及正式表Ours仍待。
-
-已从完成的SeqFT-LoRA、PaRSP完整预测中取出相同155题重算：[已完成基线与A＋B同题比较](summary/onevision_diagnostics_20261016/warm_quality_20261018/completed_baseline_comparison/EVIDENCE.md)。诊断AP分别为41.570、37.401，研究A＋B为44.165；研究AnyRes/BF16与正式V2图像预算/FP16有差异，不能据此宣称公平胜出。PaRSP在155题与完整测试的相对名次不同，正式主表仍只填完整核验结果。
-
-## 研究成果：已知什么，尚缺什么
-
-新增[模块输入控制](summary/onevision_diagnostics_20261016/functional_router/input_dependence_20261018/RESEARCH_FINDINGS.md)曾提示A/B可能重叠；新四格诊断已观察到B在温池仍有+9.140 AP增量。完整收益和统计互补性仍待，不把两个局部收益相加。
-
-**方法开发：** [两个问题、两个模块与四格消融](summary/onevision_diagnostics_20261016/warm_quality_20261018/PROBLEM_AND_METHOD.md)：A继承完整旧适配，B用TRAIN质量校准调用。固定池诊断支持调用贡献，但组合入口已准入自动调度，温启动父池已封存、诊断AP31.025→35.025，预定质量硬调用诊断AP44.165已完成，其余视图已封存、完整21454仍待。
-
-新增[实际首步梯度对照](summary/onevision_diagnostics_20261016/expert_cold_start_20261018/first_factor_gradient/RESEARCH_FINDINGS.md)：同11TRAIN/一步，冷启动48层A均未更新，完整继承后48层A均更新。完整继承同时改变旧功能与优化通道；不能全归旧知识，也不是新增F1。温启动19阶段/155诊断已完成；完整21454及稳定大幅收益仍待。
-
-[模块A的完整19阶段对照](summary/onevision_diagnostics_20261016/warm_start_20261018/first19_outcome/RESEARCH_FINDINGS.md)已完成：同155题诊断AP31.025→35.025、医学F1 15.841→25.339，另外四域答案不变；500条调用精确一致。支持初始化贡献，但仅A仍低于同诊断SeqFT 43.363；B在温池的诊断增量+9.140已取得，完整21454及大幅提升目标仍待。
-
-**后续主线：新LoRA冷启动与弱习得。** 独立[证明过程与下一步判据](summary/onevision_diagnostics_20261016/expert_cold_start_20261018/COLD_START_PROOF.md)串联真实分配、权重不变与初始化干预；已支持一个少数据任务的局部继承收益，完整流程及数据量交互待测。
-
-下表分数均为 Answer F1（越高越好）；小规模诊断的结论仅适用于对应实验。
-
-| 探究的问题 | 做了什么实验，结果是什么 | 结论 |
+| 问题 | 已有数据／干预 | 现在可以说什么 |
 | --- | --- | --- |
-| 方法排名会受平均方式影响吗？ | 对同一批完整测试结果重新汇总：回放比顺序训练的任务平均分低1.01分，领域平均分却高0.77分。[证据](summary/onevision_diagnostics_20261016/v2_aggregation_20261018/RESEARCH_FINDINGS.md) | 平均方式会改变排名；比较时必须统一口径。 |
-| 低分是没学好，还是后来忘了？ | 增加训练更新：医学任务从29.26升至51.96，遥感任务却从76降至44。[证据](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md) | 初次学习不足也是问题；增加训练并非总有效。 |
-| 少数据下，新建LoRA是否不如继承已有LoRA？ | 同样用11条医学问答训练一次，完整228题测试：从头训练19.88，继承已有LoRA后29.26；原新LoRA此后没有被修改。[证据](summary/onevision_diagnostics_20261016/expert_cold_start_20261018/RESEARCH_FINDINGS.md) | 本例从头训练就没学好；继承已有适配提高9.39分。 |
-| 跨领域训练后的差距都是遗忘吗？ | 同一医学任务学完为20.36分；继续学同领域后34.17，改学其他领域后18.63。[证据](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md) | 差距也包含同领域训练的帮助，不能全部算作遗忘。 |
-| 按输入相似度选择LoRA，能选对吗？ | 在同155题上比较选择方式：固定相似度22.39、学习相似度31.03、依据训练题答题质量选择36.70；顺序训练单LoRA为43.36。[证据](summary/onevision_diagnostics_20261016/functional_router/PILOT_FINDINGS_20261018.md) | 输入相近不保证回答好；这几种选择方式仍未超过简单基线。 |
-| 同样已有LoRA功能，更新还会受参数写法影响吗？ | 三个任务真实训练梯度保持B×A不变；A放大4倍后，AdamW权重更新约为原来的4倍，作者RITE更新相同。[证据](summary/onevision_diagnostics_20261016/optimizer_geometry_20261019/v1/RESEARCH_FINDINGS.md) | 更新几何确实可干预；最终Answer F1与实际资源效果待测。 |
-| 补充专业知识就能提高问答表现吗？ | 让模型学习16条专业事实：能记住这些事实，但相关医学问答未稳定改善。[证据](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md) | 记住知识不等于能在目标问题中用好知识。 |
-| 更新次数很少时，保护旧知识的约束会生效吗？ | 检查PASs-MoE：9个只更新一次的阶段中，一项保护系数始终为0；另验得EWC以当前参数为保护中心时，第一步保护梯度为0。[证据](summary/onevision_diagnostics_20261016/regularizer_budget_20261018/RESEARCH_FINDINGS.md) | 少量更新可能让部分保护机制来不及发挥作用，尚未证明会降低最终分数。 |
-| 专家选择器真的在学习吗？ | 对SMoLoRA原代码做梯度检查：两个选择器没有收到梯度，专家本身正常更新；不更新选择器也能随输入切换专家。[证据](summary/onevision_diagnostics_20261016/smolora_gate_20261018/RESEARCH_FINDINGS.md) | 本次代码检查中，选择发生变化不代表选择器学会了；尚无性能因果结论。 |
-| 训练参数少，就一定省内存吗？ | 核对资源统计：除训练参数外，冻结专家、优化器、缓存和临时候选也占内存；尚无同条件下更省内存的完整对照。[口径](rules/021_lightweight_data_limited_core_20261017.md) | 参数少不等于内存低；当前尚未证明内存优势。 |
+| OSFT优势主要在习得还是保持？ | 正式19任务刚习得均分OSFT **47.887821**、Seq **38.604705**；S0为15.050963／15.098792，BWT为−1.616191／+1.774861。[证据](summary/final_weight_reduction_20261024/osft_initial_gap_check_v1/FINDINGS.md) | OSFT在这条轨迹上刚习得更高，但保持指标更差；简单“起点分数高了同样几分”不足以解释。位置、坐标量、LR、分解和保护混杂，尚未识别原因或具体知识 |
+| 所有方法都每域从零、几乎没更新吗？ | 11条医学QA、一次更新的局部新LoRA：从头19.88，完整继承29.26；冷组48层A首步不更新，继承后均更新。[局部证据](summary/onevision_diagnostics_20261016/expert_cold_start_20261018/RESEARCH_FINDINGS.md) | 局部新专家存在弱习得，继承有帮助；**Seq和OSFT跨阶段连续，不是每域清零**。不能推广为所有基线共有故障 |
+| 只是首步A没有梯度吗？ | 独立507题控制：冷14.681，同域／跨域完整继承18.113／18.468；A-only为14.340／14.464；函数中性补偿使首步梯度开放后15.428／15.533。[完整控制](summary/onevision_diagnostics_20261016/function_neutral_init_20261018/v2/function_vs_factor/RESEARCH_FINDINGS.md) | 开放首步梯度没有复制完整继承收益；功能继承与参数化作用不能只用单一首步故事解释 |
+| OSFT必须训练两侧因子吗？ | ShortFixed完成同1213 FIT／87更新，DEV宏42.301329，对原OSFT40.783801；训练梯度和两Adam状态少21.34%。[证据](summary/edge_deployment_20261019/osft_short_factor_control_20261022/v2/FINDINGS.md) | 本配方中冻结短侧仍有竞争力；**前向权重未删、长侧仍学方向**，不证明短侧普遍无用或新轻量方法成立 |
+| 多位置、大坐标量是必要原因吗？ | 同4399104坐标宽q/v **43.791987**，七位置all-r8 **41.952549**，差1.839438pp、探索区间跨0。[证据](summary/edge_deployment_20261019/position_coordinate_control_20261022/v1/FINDINGS.md) | 原位置扩展收益混有容量影响；少数金融题贡献集中，尚未证明额外位置必要或无用 |
+| 逐步保护包一定有净益吗？ | 仅关闭原OSFT梯度／参数两投影，DEV **42.333991**对40.783801；金融25→15，区间跨0。[证据](summary/edge_deployment_20261019/osft_protection_control_20261022/v1/FINDINGS.md) | 净作用未解，不能按平均分宣布保护无用；两组都保留阶段重分解，尚未检验刷新功能 |
+| OSFT只是更会利用图像吗？ | 同环境61题、四状态488次原图／错图NLL，配对支持改善q/v .455118248、OSFT .441384426，相对差 **−.013733822**。[证据](summary/final_weight_reduction_20261024/paired_image_support_diagnostic_v1/RESULT_FINDINGS.md) | 未支持“OSFT整体图文配对支持增加更多”的预定解释；不能反推不需要视觉、识别能力无用或多学了某种知识 |
 
-原生AnyRes单LoRA参考已完成21454题：自然75.917、医学40.943、遥感49.010、金融12.991、交通31.916，19任务AP41.361；完整FWT/BWT仍缺阶段格，不能从最终分数补算。[完整结果](summary/onevision_diagnostics_20261016/full_confirmation_evidence/CAP1_COMPLETION.md)。
+OSFT医学域刚习得相对Seq高15.201186pp，最终仅高3.136410pp；自然域最终反而低1.725122pp。不能把任务平均优势说成五域都由同一机制稳定受益。PASs与OSFT正式AP仅差0.049476pp，也没有分离路由、专家、保护与数值例外的各自因果。
 
-[仅改变新专家初始化的19阶段控制](summary/onevision_diagnostics_20261016/warm_start_20261018/PROTOCOL.md)与[独特TRAIN量×初始化×更新的18轨迹控制](summary/onevision_diagnostics_20261016/cold_data_factorial_20261018/PROTOCOL.md)已冻结并准入，GPU结果待测；CPU机制检查不算模型效果。已有[严格同起点/首批梯度](summary/onevision_diagnostics_20261016/matched_task_domain/first_transition_geometry/VERIFIED_RESULTS.md)、[重复任务六控制](summary/onevision_diagnostics_20261016/matched_task_domain/repeat_control_evidence/T04_VERIFIED_RESULTS.md)、[实际回放覆盖](summary/onevision_diagnostics_20261016/matched_task_domain/replay_exposure/VERIFIED_RESULTS.md)等证据继续保留。
+### 非自然领域回答差：定位到了什么
 
-## 方法 × 方向二维表
+[完整回答行为分析](summary/final_weight_reduction_20261024/response_failure_profile_v1/FINDINGS.md)消费三条正式运行的初态、刚习得与末态记录，没有新生成或重评分：
 
-已整理 **29 篇** 2024–2026 年正式会议论文：持续预训练 6 篇、持续微调 20 篇、持续对齐 3 篇。各方向列直接列出方法名，持续微调细分回放、正则化和架构；列内优先较新论文，同年优先 CVPR／ICCV。横向同一行的方法之间没有对应关系。点击方法名进入正式论文页，点击 PDF 查看仓库文件。年份按正式会议届次；逐篇核验记录见 [paper/verification_audit.md](paper/verification_audit.md)。
+- **金融：** PASs最终2233题有1669题输出同一个单字母选项，其中1185题为零分；OSFT众数1079题，其中819题零分。大量零分在刚学完时已经存在，不能全部归因遗忘，也不能仅用“没按选项格式回答”解释。
+- **遥感：** PASs计数任务2947题中1298题集中为同一数字，其中1213题零分。Seq比较任务4002题中3999题回答相同，任务F1仍约66.72；平均分会掩盖固定回答。
+- **医学：** 最终2094题，Seq／OSFT／PASs分别1022／986／1001题零分，预定字面异常仅覆盖91／58／41题，主要失分仍未解释。
+- **交通：** 2123题全部部分分，是词面重合分布，不能写成全部正确；原记录不足以由触及长度上限断言被截断。
 
-<table>
-<thead>
-<tr><th rowspan="2">持续预训练</th><th colspan="3">持续微调</th><th rowspan="2">持续对齐</th></tr>
-<tr><th>基于回放</th><th>基于正则化</th><th>基于架构</th></tr>
-</thead>
-<tbody>
-<tr><td><a href="https://aclanthology.org/2026.acl-long.427/" title="Data Mixing Agent: Learning to Re-weight Domains for Continual Pre-training"><strong>Data Mixing Agent</strong></a><br>ACL 2026<br><a href="paper/pre_training/2026_ACL_Data_Mixing_Agent.pdf">PDF</a></td><td><a href="https://openaccess.thecvf.com/content/CVPR2026/html/Gao_Re-evaluating_Continual_VQA_Toward_Fair_and_Robust_Evaluation_for_Multimodal_CVPR_2026_paper.html" title="Re-evaluating Continual VQA: Toward Fair and Robust Evaluation for Multimodal Continual Learning"><strong>MaDQ / UCo-VQA</strong></a><br>CVPR 2026<br><a href="paper/pre_finetuning/method_replay/2026_CVPR_MaDQ_UCo_VQA.pdf">PDF</a></td><td><a href="https://openaccess.thecvf.com/content/CVPR2026/html/Li_Multimodal_Continual_Instruction_Tuning_with_Dynamic_Gradient_Guidance_CVPR_2026_paper.html" title="Multimodal Continual Instruction Tuning with Dynamic Gradient Guidance"><strong>DGG</strong></a><br>CVPR 2026<br><a href="paper/pre_finetuning/method_regularization/2026_CVPR_DGG.pdf">PDF</a></td><td><a href="https://aclanthology.org/2026.acl-long.1474/" title="PASs-MoE: Mitigating Misaligned Co-drift among Router and Experts via Pathway Activation Subspaces for Continual Learning"><strong>PASs-MoE</strong></a><br>ACL 2026<br><a href="paper/pre_finetuning/method_architecture/2026_ACL_PASs_MoE.pdf">PDF</a></td><td><a href="https://openaccess.thecvf.com/content/CVPR2026/html/Wang_Harmonious_Parameter_Adaptation_in_Continual_Visual_Instruction_Tuning_for_Safety-Aligned_CVPR_2026_paper.html" title="Harmonious Parameter Adaptation in Continual Visual Instruction Tuning for Safety-Aligned MLLMs"><strong>HPA</strong></a><br>CVPR 2026<br><a href="paper/pre_alignment/2026_CVPR_HPA.pdf">PDF</a></td></tr>
-<tr><td><a href="https://aclanthology.org/2026.acl-long.1722/" title="Glyph: Scaling Context Windows via Visual-Text Compression"><strong>Glyph</strong></a><br>ACL 2026<br><a href="paper/pre_training/2026_ACL_Glyph.pdf">PDF</a></td><td><a href="https://aclanthology.org/2026.acl-long.1144/" title="FOREVER: Forgetting Curve-Inspired Memory Replay for Language Model Continual Learning"><strong>FOREVER</strong></a><br>ACL 2026<br><a href="paper/pre_finetuning/method_replay/2026_ACL_FOREVER.pdf">PDF</a></td><td><a href="https://aclanthology.org/2026.acl-long.1244/" title="Harmonizing the Past, Present, and Future: A Null-Space Constrained Region-Specific Method for Continual Learning in LLMs"><strong>PaRSP</strong></a><br>ACL 2026<br><a href="paper/pre_finetuning/method_regularization/2026_ACL_PaRSP.pdf">PDF</a></td><td><a href="https://proceedings.iclr.cc/paper_files/paper/2026/hash/0dedca10992d34035c9a9776254cfa8c-Abstract-Conference.html" title="Merge before Forget: A Single LoRA Continual Learning via Continual Merging"><strong>SLAO / Merge before Forget</strong></a><br>ICLR 2026<br><a href="paper/pre_finetuning/method_architecture/2026_ICLR_SLAO_Merge_before_Forget.pdf">PDF</a></td><td><a href="https://ojs.aaai.org/index.php/AAAI/article/view/40428" title="LifeAlign: Lifelong Alignment for Large Language Models with Memory-Augmented Focalized Preference Optimization"><strong>LifeAlign</strong></a><br>AAAI 2026<br><a href="paper/pre_alignment/2026_AAAI_LifeAlign.pdf">PDF</a>（作者扩展版）</td></tr>
-<tr><td><a href="https://aclanthology.org/2026.acl-long.1866/" title="From Curated Data to Scalable Models: Continual Pre-training of Dense and MoE Large Language Models for Tibetan"><strong>Tibetan Dense / MoE CPT</strong></a><br>ACL 2026<br><a href="paper/pre_training/2026_ACL_Tibetan_Dense_MoE_CPT.pdf">PDF</a></td><td><a href="https://proceedings.iclr.cc/paper_files/paper/2026/hash/17fc58b1ba92abbb72c5f457e140d851-Abstract-Conference.html" title="Forget Forgetting: Continual Learning in a World of Abundant Memory"><strong>Weight Space Consolidation</strong></a><br>ICLR 2026<br><a href="paper/pre_finetuning/method_replay/2026_ICLR_Weight_Space_Consolidation.pdf">PDF</a></td><td><a href="https://aclanthology.org/2026.acl-long.334/" title="Spectral Disentanglement: Rank-Aware Task Adaptation for Rehearsal-free Continual Learning in LLMs"><strong>SpaRTA</strong></a><br>ACL 2026<br><a href="paper/pre_finetuning/method_regularization/2026_ACL_SpaRTA.pdf">PDF</a></td><td><a href="https://proceedings.mlr.press/v306/wang26le.html" title="CoPE: Continual Probe-guided Expansion for Large Vision-Language Models"><strong>CoPE</strong></a><br>ICML 2026<br><a href="paper/pre_finetuning/method_architecture/2026_ICML_CoPE.pdf">PDF</a></td><td><a href="https://proceedings.iclr.cc/paper_files/paper/2024/hash/6246f93ebf4f2d76ad2bcb3158220d34-Abstract-Conference.html" title="CPPO: Continual Learning for Reinforcement Learning with Human Feedback"><strong>CPPO</strong></a><br>ICLR 2024<br><a href="paper/pre_alignment/2024_ICLR_CPPO.pdf">PDF</a></td></tr>
-<tr><td><a href="https://proceedings.iclr.cc/paper_files/paper/2026/hash/528f0a943a54903939e77509f874d8e8-Abstract-Conference.html" title="Cite Pretrain: Retrieval-Free Knowledge Attribution for Large Language Models"><strong>Cite Pretrain / Active Indexing</strong></a><br>ICLR 2026<br><a href="paper/pre_training/2026_ICLR_Cite_Pretrain_Active_Indexing.pdf">PDF</a></td><td><a href="https://proceedings.neurips.cc/paper_files/paper/2025/hash/087b346ca4d6dd6fcd0663ff6c9a6b69-Abstract-Conference.html" title="Self-Evolving Pseudo-Rehearsal for Catastrophic Forgetting with Task Similarity in LLMs"><strong>SERS</strong></a><br>NeurIPS 2025<br><a href="paper/pre_finetuning/method_replay/2025_NeurIPS_SERS.pdf">PDF</a></td><td><a href="https://proceedings.iclr.cc/paper_files/paper/2026/hash/22620cccae29bbb3f18d226ea0320ff5-Abstract-Conference.html" title="Sculpting Subspaces: Constrained Full Fine-Tuning in LLMs for Continual Learning"><strong>OSFT</strong></a><br>ICLR 2026<br><a href="paper/pre_finetuning/method_regularization/2026_ICLR_OSFT.pdf">PDF</a></td><td><a href="https://proceedings.mlr.press/v306/kong26h.html" title="ECA: Efficient Continual Alignment for Open-Ended Image-to-Text Generation"><strong>ECA</strong></a><br>ICML 2026<br><a href="paper/pre_finetuning/method_architecture/2026_ICML_ECA.pdf">PDF</a></td><td></td></tr>
-<tr><td><a href="https://proceedings.mlr.press/v306/padmanabhan26a.html" title="Updating Parametric Knowledge with Context Distillation Retains Post-Training Capabilities"><strong>DiSC</strong></a><br>ICML 2026<br><a href="paper/pre_training/2026_ICML_DiSC.pdf">PDF</a></td><td></td><td><a href="https://proceedings.mlr.press/v306/xia26j.html" title="Adversarial Latent Embedding Repair for LLM Continual Learning"><strong>ALER</strong></a><br>ICML 2026<br><a href="paper/pre_finetuning/method_regularization/2026_ICML_ALER.pdf">PDF</a></td><td><a href="https://proceedings.mlr.press/v306/xu26cj.html" title="Hyper-LLaVA: Hyperbolic Uncertainty-aware Modality-Balanced Routing for Multimodal Continual Instruction Tuning"><strong>Hyper-LLaVA（本轮移出）</strong></a><br>ICML 2026<br><a href="paper/pre_finetuning/method_architecture/2026_ICML_Hyper_LLaVA.pdf">PDF</a></td><td></td></tr>
-<tr><td><a href="https://proceedings.mlr.press/v306/borodin26a.html" title="Diffract: Spectral View of LLM Domain Adaptation"><strong>Diffract</strong></a><br>ICML 2026<br><a href="paper/pre_training/2026_ICML_Diffract.pdf">PDF</a></td><td></td><td><a href="https://proceedings.iclr.cc/paper_files/paper/2025/hash/74fc5575632191d96881d8015f79dde3-Abstract-Conference.html" title="Unlocking the Power of Function Vectors for Characterizing and Mitigating Catastrophic Forgetting in Continual Instruction Tuning"><strong>FV-guided Training</strong></a><br>ICLR 2025<br><a href="paper/pre_finetuning/method_regularization/2025_ICLR_FV_guided_Training.pdf">PDF</a></td><td><a href="https://openaccess.thecvf.com/content/CVPR2025/html/Huai_CL-MoE_Enhancing_Multimodal_Large_Language_Model_with_Dual_Momentum_Mixture-of-Experts_CVPR_2025_paper.html" title="CL-MoE: Enhancing Multimodal Large Language Model with Dual Momentum Mixture-of-Experts for Continual Visual Question Answering"><strong>CL-MoE（本轮新增，多模态）</strong></a><br>CVPR 2025<br><a href="paper/pre_finetuning/method_architecture/2025_CVPR_CL_MoE.pdf">PDF</a></td><td></td></tr>
-<tr><td></td><td></td><td></td><td><a href="https://openaccess.thecvf.com/content/ICCV2025/html/Tong_Any-SSR_How_Recursive_Least_Squares_Works_in_Continual_Learning_of_ICCV_2025_paper.html" title="Any-SSR: How Recursive Least Squares Works in Continual Learning of Large Language Model"><strong>Any-SSR</strong></a><br>ICCV 2025<br><a href="paper/pre_finetuning/method_architecture/2025_ICCV_Any_SSR.pdf">PDF</a></td><td></td></tr>
-<tr><td></td><td></td><td></td><td><a href="https://openaccess.thecvf.com/content/ICCV2025/html/Guo_Federated_Continual_Instruction_Tuning_ICCV_2025_paper.html" title="Federated Continual Instruction Tuning"><strong>FCIT</strong></a><br>ICCV 2025<br><a href="paper/pre_finetuning/method_architecture/2025_ICCV_FCIT.pdf">PDF</a></td><td></td></tr>
-<tr><td></td><td></td><td></td><td><a href="https://openaccess.thecvf.com/content/ICCV2025/html/Jin_Instruction-Grounded_Visual_Projectors_for_Continual_Learning_of_Generative_Vision-Language_Models_ICCV_2025_paper.html" title="Instruction-Grounded Visual Projectors for Continual Learning of Generative Vision-Language Models"><strong>MVP / Instruction-Grounded Visual Projectors</strong></a><br>ICCV 2025<br><a href="paper/pre_finetuning/method_architecture/2025_ICCV_MVP_Instruction_Grounded_Visual_Projectors.pdf">PDF</a></td><td></td></tr>
-<tr><td></td><td></td><td></td><td><a href="https://openaccess.thecvf.com/content/ICCV2025/html/Wang_SMoLoRA_Exploring_and_Defying_Dual_Catastrophic_Forgetting_in_Continual_Visual_ICCV_2025_paper.html" title="SMoLoRA: Exploring and Defying Dual Catastrophic Forgetting in Continual Visual Instruction Tuning"><strong>SMoLoRA</strong></a><br>ICCV 2025<br><a href="paper/pre_finetuning/method_architecture/2025_ICCV_SMoLoRA.pdf">PDF</a></td><td></td></tr>
-</tbody>
-</table>
+已查金融89 TRAIN＋2233 TEST的所查字段、选项与当前原始投影一致，未发现本地复制错位或检索丢选项；4条非空选项不能严格解析，仍未知，且不认证全部历史逐token输入或作者金标语义。[金融输入合同](summary/final_weight_reduction_20261024/finance_input_contract_v1/FINDINGS.md)
 
-归类按主要机制，混合机制、原论文模型及生成任务见 [论文完整索引](paper/README.md)。预训练条目包含语言／知识／上下文扩展型 CPT，不全部具有序贯抗遗忘实验；HPA 归入持续安全对齐保持。**本轮仅保留FOREVER（ACL2026）作为待适配的回放比较；标准ER-LoRA已移出，DGG仅保留文献。**
+**没有找到统一的致命输出bug。** 输入利用、答案先验、知识调用、有限步优化和参数表示的作用仍未隔离；这些行为现象不是参数可删的证据。
 
-## 当前五数据集／19原生任务协议
+## FIT→DEV探索结果
 
-当前正式框架为`exp/two_backbone_native_cl_20261017_v2/`，结果在`summary/two_backbone_pct01_20261017/`；冻结1%清单为`data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/manifest.json`。旧`exp/five_domain_native_cl_20261016_sparse/`及其2026-10-16启动快照是历史版本，不作为当前运行状态。磁盘写满后的故障保全、真实S9恢复与ER新run重跑见[恢复记录](summary/storage_recovery_20261018/README.md)。
+以下均为同一100已探索DEV的五域宏，不能与正式21454分数混排。各实验完整域分、逐题正负和费用在链接中。
 
-两骨干为Qwen2-VL-2B-Instruct与LLaVA-OneVision-Qwen2-0.5B-OV。相同1313条TRAIN、21454条TEST、19阶段、seed42、一轮、有效batch16/microbatch1，无验证集；公共图像预算401408像素及128MiB CPU缓存。各方法保留已披露的作者差异，同方法跨骨干共享实现。新GPU2/3当前优先Qwen1%，旧GPU0—3运行OneVision1%；SMoLoRA需BF16，等待新机支持硬件的专用lane。新GPU0保留、GPU1只做研究，不抢占他人作业。全量版本已就绪，不把数据就绪写成全量实验已经完成。
+| 条件 | DEV五域宏 | 实际意义与终态 |
+| --- | ---: | --- |
+| q/v LoRA-r8 | 39.870439 | 原先导参照；固定条件完成 |
+| 原OSFT | 40.783801 | 原FIT-only参照；机制尚未解释 |
+| LoRA_all-r8 | 41.952549 | 小测曾入选；完整确认后来失败，见下 |
+| LoRA_extra | 40.365016 | 四组筛选完成，未入选 |
+| 同坐标宽q/v | 43.791987 | 同4.399M坐标对all高1.839438pp，区间跨0；固定对照关闭 |
+| OSFT去逐步保护 | 42.333991 | 平均点高、金融下降，净作用未解；固定对照关闭 |
+| ShortFixed | 42.301329 | 对OSFT高1.517529pp，9高7低84平，区间[−.126262,3.962820]；主要由自然和医学各1题贡献；仅必要性消融 |
+| NormOnly | 23.242734 | 权重确更新但低于两锚；无同DEV零样本base，不能证明已有参数普遍不足；关闭 |
+| fresh PASs FIT参照 | **缺测** | v1重启中断；v2冻结4小时内仅77／87更新，无DEV，不是质量阴性；禁止续跑 |
 
-当前7项已准入方法：SeqFT-LoRA、CL-MoE、SMoLoRA、PASs-MoE、PaRSP、OSFT、SpaRTA。用户移出尚未正式训练的FV-guided Training与ALER，历史预检和文献仍保留。新增顶会回放比较FOREVER（ACL2026），作者源码已固定，待图文适配及GPU准入；计划共8项，不冒充已经开跑。[方法发表信息与状态](summary/two_backbone_pct01_20261017/BASELINES.md)。SeqFT-LoRA是标准顺序微调对照的描述名；标准ER-LoRA已移出当前比较，CL-MoE为CVPR2025多模态方法。Hyper-LLaVA移出本轮，DGG仅保留文献。主要机制归类与LoRA参数化不互斥，例如PASs既有专家架构，也有LoRA参数正则。[V2适配与准入](summary/two_backbone_native_cl_20261017_v2/README.md)。
+四组原筛选见[结果](summary/edge_deployment_20261019/osft_increment_screen/v1/RESULTS_20261022.md)。ShortFixed对q/v高2.430890pp，但医学低5.5pp，探索区间也跨0；它没有通过fresh PASs完整比较，所以未放行完整确认。不能把已有最强正式PASs当合法FIT-only teacher替代。
 
-顺序为TextVQA → SLAKE的Modality/Position/Organ/Size/Abnormality/Quantity/Plane/Shape/Color/KG → RSVQA-LR的rural_urban/presence/count/comp → FinMME → CODA-LM的general/regional/suggestion。原生标签保持，顺序是研究预先冻结课程，不称官方课程。1%划分两机、所有方法完全共享，不重新抽样。
+**LoRA_all完整确认：** 原1313训练／19阶段／93次更新→21454题，五域宏**44.894423**、AP19 **44.794146**，低于正式OSFT和PASs，五域均低OSFT。已关闭这套配方，不据TEST救rank／LR／层／路由。[完整负结果](summary/edge_deployment_20261019/osft_increment_confirmation_20261022/v1/FINDINGS.md)
 
-唯一Acc为**原始Answer F1（0—100）**，不翻译、不映射选项、不额外抽取答案；不并列其他指标作为主Acc。[评分锁](rules/020_answer_f1_primary_20261017.md)。初始全19、中间当前+下一任务、最终全19，共74格/80316条预测；不报告历史峰值ForgetRate，缺格保持null。五领域最终分按各域QA加权，AP按19原生任务等权，二者不可混用。统一Answer F1不是FinMME/CODA-LM的原生官方评分。
+## 真正减少完整权重的探索：哪些失败了
 
-正式V2公共输入与研究原生AnyRes/BF16分开报告；155生成题/500诊断不能冒充完整21454题或填补完整FWT/BWT。[正式执行策略](exp/two_backbone_native_cl_20261017_v2/execution_policy.json)。
+这些是实际完成的负结果，不能因为权重变小或局部误差下降就写成轻量高性能方法。表中0分是实际测得，缺测另标；F1均为对应100已探索DEV宏。
 
-## T5／VL-T5基座核查
+| 固定探索 | 完整最终权重系数 | 起点／末态F1 | 结论与证据 |
+| --- | ---: | --- | --- |
+| 语言三矩阵r200，Spectral／Answer两完整流 | 662,833,184（−25.8307%） | 末态 .910394／.880147 | 两流各1213 FIT／87更新；19次回答候选均未采用。真实减重但质量崩坏，关闭。[证据](summary/final_weight_reduction_20261023/answer_guided_pilot_v1/FINDINGS.md) |
+| KeepGate：保gate/down、只压up | 816,728,096（−8.6102%） | 初 .539926 → 末5.196071 | 同q/v连续适应未恢复；损伤在更新前已出现。[证据](summary/final_weight_reduction_20261024/ffn_role_retention_v1/README.md) |
+| KeepUp：保up/down、只压gate | 816,728,096 | 初0 → 末8.905754 | 同数据／87更新，仍不保质；不能在低质量地板挑通用赢家。[同组证据](summary/final_weight_reduction_20261024/ffn_role_retention_v1/OUTCOME.json) |
+| up局部功能拟合：Static／gate-response Reuse | 816,728,096／816,706,592 | .255299／.071795 | 各1536个block更新，held局部误差均约降至.25，却没保住完整回答。[证据](summary/final_weight_reduction_20261024/gate_response_reuse_v1/OUTCOME.json) |
+| 保gate/up、只压down：WeightD／ResponseD | 两者816,728,096 | .355919／0 | 48个合法S1教师请求、0适应更新，完整保存重载后各100题；两者均失败。[证据](summary/final_weight_reduction_20261024/functional_readout_carrier_v1/README.md) |
 
-T5是文本encoder-decoder模型家族；T5-Small为60M、Base为220M、Large为770M，另有3B和11B，因此不能只凭“T5”判断大小。[Google官方模型列表](https://github.com/google-research/text-to-text-transfer-transformer#released-model-checkpoints)。T5-Base语言模型的FP16纯权重约0.44GB（220M×2字节推算），不包括视觉模块、激活、梯度和优化器，也不是实测训练显存。
+最后三组使用的同管线**未适应父模型**宏为**16.116268**，不是强训练基线。父分只按完整digest和逐ID输入绑定的既有证明复制。真实弱父仍明显高于这些替代图；不能把它们与原正式基线的差值当纯压缩因果。
 
-图文持续问答论文常见的是**VL-T5**，它在T5-Base基础上增加视觉输入；作者原始流程使用每图36个区域的预提取特征。需要把视觉特征提取的时间、模型和存储一起计算。[VL-T5官方代码](https://github.com/j-min/VL-T5) · [视觉特征说明](https://github.com/j-min/VL-T5/blob/main/feature_extraction/README.md)。
+较早半宽方案在5道teacher已见TRAIN探针上，完整／视觉单支／语言单支／联合均分47.089／33.333／22.051／21.754，全部未过原逐题门，**不是独立泛化测试**。[证据](summary/edge_deployment_20261019/width_component_split_20261021/v1/FINDINGS.md)
 
-不能据某张结果表的多行VL-T5认定大部分新方法都用T5：VQACL（CVPR2023）采用VL-T5；CL-MoE（CVPR2025）表1同时对照VL-T5和LLaVA-7B，其提出的方法使用LLaVA-7B；当前参考的Continual LLaVA采用Vicuna语言模型。[VQACL源码](https://github.com/zhangxi1997/VQACL) · [CL-MoE正文](https://arxiv.org/html/2503.00413) · [Continual LLaVA正文](https://arxiv.org/html/2411.02564)。
+共享稀疏载体因捕获超过8GiB预算而失败，固定稀疏连接初始化出现非有限值，Smol原生起点在首题processor接口失败；这些都没有可用质量结论。故障与未执行提议详见补充说明。**目前没有一组基座前向权重已被证明可物理删除、同时保留目标质量。** 这些结果只关闭对应固定点，不否定所有低秩、共享或压缩。
 
-VL-T5适合作为小模型诊断候选，但当前五域是否可用尚未实测：医学、遥感、金融图表与原始自然图像区域特征可能存在差异；TextVQA需考察读字能力，SLAKE需考察原生双语，CODA-LM需考察长答案。不能靠删除这些题、翻译原文或丢弃图像来适配。先核验预训练权重和图像特征管线，再做单任务可学习性／速度／显存测量；是否替换主基座须据测量决定。[完整核查](data/T5_BACKBONE_AUDIT_20261016.md)。
+## 参数量、最终权重与训练开销
 
-## 数据集：来源、数量与复用依据
+### 最终checkpoint的原保存态
 
-单位均为QA，每个来源训练QA低于十万。全部来源已按完整文件计数并冻结清单。保留原始选择、是非、计数等构成。
+下面来自已保存完整checkpoint的元数据提取，包含视觉、语言、连接器、专家、路由、冻结基和必需持久状态，按底层共享storage去重。不是只算adapter，也不是文件容器总大小。
 
-| 领域 | 数据集（图文） | 提出者／首发 | 全量训练 | 1%训练 | 完整测试 | 划分 | 独立实际使用 |
-|---|---|---|---:|---:|---:|---|---|
-| D1 · 自然／通用 | TextVQA | [Amanpreet Singh等，CVPR 2019](https://textvqa.org/) | 34,602 | 347 | 5,000 | 官方train/validation；公开validation作测试 | CoIN（NeurIPS 2024）、SMoLoRA（ICCV 2025） |
-| D2 · 医学 | SLAKE | [Bo Liu等，ISBI 2021](https://www.med-vqa.com/slake/) | 9,834 | 99 | 2,094 | 官方train/test；仅排除用户授权的空答案SLAKE:1622；双语；val2099不用 | Uncertainty-Driven Expert Control（ICCV 2025） |
-| D3 · 地理／遥感 | RSVQA-LR | [Sylvain Lobry等，TGRS 2020](https://rsvqa.sylvainlobry.com/) | 57,223 | 573 | 10,004 | 官方active掩码train/test；val10005不用；不自行分箱 | GeoChat（CVPR 2024）、LHRS-Bot（ECCV 2024）、RSAdapter（TGRS 2024） |
-| D4 · 金融 | FinMME | [Junyu Luo等，ACL 2025主会](https://aclanthology.org/2025.acl-long.1426/) | 8,864 | 89 | 2,233 | 源池11099；2条缺答案单列；11097有标注QA按原图SHA256分组seed42研究80/20，非官方划分 | Beyond Real Weights（WACV 2026）实际评测；AgentFinVQA（2026预印本）实际评测 |
-| D5 · 交通／自动驾驶 | CODA-LM | [Kai Chen等，WACV 2025](https://github.com/DLUT-LYZ/CODA-LM) | 20,495 | 205 | 2,123 | 作者English LLaVA Train/Test；源卡20495/2123；Val18455、Mini193不用 | MPDrive（CVPR 2025）实际评测；RoboTron-Drive（ICCV 2025）实际训练和评测 |
+| 骨干／方法 | 完整保存系数数量 | 最终权重占用 MiB | 相对原基座增加 MiB |
+| --- | ---: | ---: | ---: |
+| OneVision／SeqFT-LoRA | 894,216,224 | 1706.613 | 2.062 |
+| OneVision／FOREVER | 894,216,224 | 1706.613 | 2.062 |
+| OneVision／CL-MoE | 930,877,024 | 1846.463 | 141.912 |
+| OneVision／PASs-MoE | 1,034,447,216 | 2241.552 | 537.001 |
+| OneVision／PaRSP | 893,675,552 | 2273.345 | 568.794 |
+| OneVision／OSFT | 990,913,568 | 2757.984 | 1053.434 |
+| OneVision／SpaRTA | 904,077,344 | 1744.231 | 39.680 |
+| Qwen／SeqFT-LoRA | 2,210,075,136 | 4217.462 | 4.156 |
 
-五数据集合计：有效全量训练 **131,018**（原131,019条仅排除空答案SLAKE:1622），1%训练 **1,313**、完整测试 **21,454**均不变。[排除授权与逐行核验](summary/two_backbone_native_cl_20261017_v2/FULL_MISSING_LABEL_EXCLUSION.json)。拆成19阶段不增加或重复训练样本；SLAKE原全量9,835条、有效9,834条/1%99条是十类合计，最小1%类仅1条。原始源文件不改。
-FinMME的ID3698、9806金答案为空，原记录单独保留审计，不伪造、不以空串监督。作者仅发布名为train的评测池；本研究按图像字节SHA256分组，组哈希seed42排序，20%组留作测试。原选项作为输入，verified_caption/related_sentences只作来源元数据，不输入模型，避免泄漏答案。
-1%组按源题型分层，最大余数分配ceil(1%×各数据集训练量)，seed42哈希选ID；沿用父实验已冻结的ID，再按原生任务互斥拆分，不重新抽样。每阶段ID、顺序和测试SHA256事先冻结在[split_lock.json](data/FiveDomainCL/five_domain_native_cl_20261016_sparse/split_lock.json)；两服务器、所有方法共用且启动核验，文件只读。[19阶段实际数量](data/FiveDomainCL/five_domain_native_cl_20261016_sparse/partition_audit.json)。不自行删掉选择、分类、是非题。CODA-LM保留作者原问题、答案和区域红框图。
+原OneVision基座**893,675,552**系数：语言494,090,112、视觉397,747,744、连接器1,836,800、image_newline896；原Qwen基座2,208,985,600。保存dtype和表示不同，因此**字节增加不等于新增参数**，例如PaRSP系数不变但部分FP32保存。普通LoRA／OSFT／ShortFixed公平常规fold后仍是原稠密形状893,675,552，消除表示冗余不算结构压缩；这里没有声称已运行数值折叠。[全部dtype、排除项和来源](summary/final_weight_reduction_20261024/checkpoint_weight_storage_v1/FINDINGS.md)
 
-## 多模态依据
+### 训练参数是辅助项
 
-五个来源都有真实图像和问题文本，模型同时接收两种输入。**图文任务身份不等于每一道题都必须看图**：SLAKE知识题及语言偏置可能允许捷径。原始构成照常保留；研究诊断包含固定的原图/遮图/错配图视图，证据见[问题发现总报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md)，小诊断不能证明所有任务/每道题均依赖图像。
+| 表示 | 未折叠完整权重系数 | 可训练坐标 |
+| --- | ---: | ---: |
+| 原基座 | 893,675,552 | 本项目起点冻结，不作为训练方法 |
+| q/v LoRA-r8 | 894,216,224 | 540,672 |
+| 七位置LoRA_all-r8 | 898,074,656 | 4,399,104 |
+| 原OSFT | 990,913,568 | 113,766,144 |
+| ShortFixed | 990,913,568 | 89,485,056 |
 
-| 数据集 | 视觉来源与任务 |
-|---|---|
-| TextVQA | 自然照片＋问题：读取场景文字并结合图像作答 |
-| SLAKE | 医学影像＋中英问题；保留视觉题、知识题及OPEN/CLOSED |
-| RSVQA-LR | 遥感图像＋问题：计数、存在性、比较与区域判断 |
-| FinMME | 真实金融图表＋问题、选项；单选、多选和数值题全保留 |
-| CODA-LM | 真实道路图像＋作者指令：场景理解、区域理解、驾驶建议；区域题保留作者红框图 |
+ShortFixed实测梯度357,940,224字节、两Adam moment715,880,448字节；较原OSFT源码计数均少21.342982%，但全部USV仍在，不能称最终模型轻量。其19阶段末释放训练局部引用后allocated约2.958–2.972GB，首末增加14.61MB；RSS后期仍上升。这些不是训练／推理峰或增长因果证明。[已有一次内存增长分析](summary/edge_deployment_20261019/shortfixed_memory_growth_20261022/v1/FINDINGS.md)
 
-原始发表、独立复用正文与限制见[六域多模态核验](data/MULTIMODAL_SIX_DOMAIN_AUDIT_20261016.md)。医学首发ISBI、遥感首发TGRS，不把后续顶会复用写成首发顶会。
+阶段图未来需分别画完整权重P_total(t)和可训练参数P_train(t)。固定结构画水平线，不编阶段增长曲线；模型权重存储、训练状态、运行峰值内存分别报告，没测的仍不填。
 
-## 原始数据 sample
+## 其它已完成的局部发现
 
-[完整问题、选项、答案和原图](data/FiveDomainCL/five_domain_native_cl_20261016_sparse/samples.md) · [机器审计](data/FiveDomainCL/five_domain_native_cl_20261016_sparse/partition_audit.json)。长答案在下表节选；旧样例不在本页展示。
+这些结果保留科研价值及适用边界，不转写成已完成主方法。历史诊断使用不同题集和输入协议；其中已见TEST的分析仅作解释，不用来筛新配置。
 
-| 数据集 | 原始问题 | 参考答案 | 原图 |
-|---|---|---|---|
-| [D1 · TextVQA](data/FiveDomainCL/five_domain_native_cl_20261016_sparse/samples.md#textvqa) | what is the brand of phone? | nokia | <img src="sample/five_domain_native_cl_20261016_sparse/TextVQA.jpg" width="180" alt="TextVQA原始图像"> |
-| [D2 · SLAKE](data/FiveDomainCL/five_domain_native_cl_20261016_sparse/samples.md#slake) | What modality is used to take this image? | MRI | <img src="sample/five_domain_native_cl_20261016_sparse/SLAKE.jpg" width="180" alt="SLAKE原始图像"> |
-| [D3 · RSVQA-LR](data/FiveDomainCL/five_domain_native_cl_20261016_sparse/samples.md#rsvqa-lr) | Is it a rural or an urban area | urban | <img src="sample/five_domain_native_cl_20261016_sparse/RSVQA-LR.png" width="180" alt="RSVQA-LR原始图像"> |
-| [D4 · FinMME](data/FiveDomainCL/five_domain_native_cl_20261016_sparse/samples.md#finmme) | Which loan category had the highest growth rate in 1Q23? | A | <img src="sample/five_domain_native_cl_20261016_sparse/FinMME.png" width="180" alt="FinMME原始图像"> |
-| [D5 · CODA-LM](data/FiveDomainCL/five_domain_native_cl_20261016_sparse/samples.md#coda-lm) | &lt;image&gt;<br>There is an image of traffic captured from the perspective of the ego car. Focus on objects influencing the ego car&#x27;s driving behavior: vehicles (cars, …（节选） | In the traffic image under observation, several road users and elements are noticeable:<br><br>1. Vehicles:<br>   - A green bus is directly occupying the lane in front o…（节选） | <img src="sample/five_domain_native_cl_20261016_sparse/CODA-LM.png" width="180" alt="CODA-LM原始图像"> |
+| 已有发现 | 数据与限制 | 证据 |
+| --- | --- | --- |
+| 适应与遗忘不能只看末态 | 同医学任务学完20.36，后续同域34.17、跨域18.63；增加更新医学29.26→51.96、遥感76→44，不能统一说“多训就好” | [研究报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md) |
+| 完整初始化继承在连续诊断有局部收益 | 温启动19阶段／155题AP31.025→35.025、医学15.841→25.339；另外四域未变，仍低于同协议Seq43.363 | [结果](summary/onevision_diagnostics_20261016/warm_start_20261018/first19_outcome/RESEARCH_FINDINGS.md) |
+| 输入相似不保证适配器答得好 | 同155题固定相似度22.39、学习相似度31.03、TRAIN回答质量选择36.70，均低同协议Seq43.36 | [路由诊断](summary/onevision_diagnostics_20261016/functional_router/PILOT_FINDINGS_20261018.md) |
+| 缓存调用点收益未稳定确证 | 同155题顺序43.363、缓存几何45.700、缓存质量42.860，域宏差区间含0；部分题NLL下降而F1下降 | [四格结果](summary/onevision_diagnostics_20261016/functional_state_cache_20261018/v1/first_four_view_outcome/RESEARCH_FINDINGS.md) |
+| 新TRAIN质量反馈没取得收益 | 新匹配／可学习距离均42.860；20锚只覆盖11／19任务，逐题最优相对最好固定状态空间仅.144pp | [五格结果](summary/onevision_diagnostics_20261016/answer_compatibility_20261018/v1/all_five_outcome/RESEARCH_FINDINGS.md) |
+| 相同前向功能不保证相同更新几何 | 保BA不变、A缩放4倍，三任务真实梯度下AdamW权重更新约4倍；作者RITE更新相同，没有对应最终F1提升结论 | [几何干预](summary/onevision_diagnostics_20261016/optimizer_geometry_20261019/v1/RESEARCH_FINDINGS.md) |
+| 知识记住不等于答题会用 | 16条专业事实可记住，但相关医学问答没有稳定改善 | [原报告](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md) |
+| 少量更新时部分保护项可能来不及起效 | PASs代码诊断中9个单步阶段一保护系数一直0；以当前参数为中心的EWC首步保护梯度0。未证明最终分数因果 | [保护预算诊断](summary/onevision_diagnostics_20261016/regularizer_budget_20261018/RESEARCH_FINDINGS.md) |
+| PAS保护机会不均 | 正式93步条件重建40步结构零、53步仅有正系数资格上界；不是实际有效保护见证，旧上游源码SHA有缺口，不是成绩因果 | [覆盖证据](summary/final_weight_reduction_20261023/pas_rs_coverage_v1/FINDINGS.md) |
+| 选择变化不等于选择器学了 | SMoLoRA代码检查两选择器无梯度、专家正常更新；固定选择器仍能随输入切换，没有质量因果结论 | [梯度检查](summary/onevision_diagnostics_20261016/smolora_gate_20261018/RESEARCH_FINDINGS.md) |
+| 名义更新范围不等于真实权重变化 | PaRSP部分o/down在名义mask并集外变化，占所测ΔW能量2.9344%；SpaRTA93步未到200步恢复周期 | [原证据](summary/edge_deployment_20261019/sealed_update_constraints_20261021/FINDINGS.md) |
+| 自然重排Kron不值得当前点继续投入 | 首层三个FFN矩阵、近同系数预算，K69自然布局权重残差0／3胜普通r200；仅离线优先级阴性，非F1结论 | [原证据](summary/final_weight_reduction_20261023/kron_layout_priority_v1/FINDINGS.md) |
 
-## 参数与资源记录
+文献／方法分类整理了29篇2024–2026正式会议工作，以及五数据集、19任务、来源与复用依据。[分类、数据表和历史基座核查](SUPPLEMENTARY_NOTES.md#文献分类与数据组成)保留完整索引。LoRA-FA、SVFT／SVFit、RandLoRA、HOFT、共享／低秩／动态压缩等已有技术可作工具；它们本身不是我们的实测贡献，也不因此禁止有意义探索。
 
-正式运行保存在`exp/two_backbone_native_cl_20261017_v2/runs/<backbone>/<condition>/<method>/<run_id>/`。SeqFT-LoRA保存全部19阶段checkpoint，其余方法按冻结策略保存最终checkpoint；研究各组的全部阶段pool/router/参数要求见各自协议。阶段边界恢复必须使用真实有效checkpoint，不拼接不兼容run；权重、模型、数据与私钥不入Git。
+## 当前正在做：阶段刷新机制对照
 
-`logs/events.jsonl`保存每次实际loss、LR、裁剪前后梯度、QA/token数及缓存信息；`validity/`保存正更新数与参数前后SHA；资源日志保留CPU RSS/PSS/USS、GPU allocated/reserved/NVML和峰值。区分`stage_training_end_with_optimizer`、释放优化器后的`stage_training_end_persistent`与评价窗口；不同PID前后占用不直接相减。方法状态/历史/临时副本与额外计算一并计费，不由参数量直接宣称显存优势。
+**问题：** OSFT能在有限更新下学得更好，是否部分来自阶段边界对已学权重的重新分解和保护参照刷新？这是学习功能识别，尚非紧凑新方法。
 
-[执行策略](exp/two_backbone_native_cl_20261017_v2/execution_policy.json) · [正式结果](summary/two_backbone_pct01_20261017/MAIN_TABLE.md) · [研究结果与边界](summary/onevision_diagnostics_20261016/RESEARCH_REPORT.md)。
+| 环节 | 固定安排 |
+| --- | --- |
+| 共同前缀 | fresh原OSFT：初态100 DEV→S1 327 FIT／21更新→当前20题；保存完整新S1状态和RNG |
+| Fixed | 从共同S1开始，后18阶段不重新分解；**低U／S／V仍训练**，原逐步保护与optimizer阶段reset保留 |
+| Refresh | 从完全相同S1状态和RNG开始，保持原18次阶段刷新；其它条件同Fixed |
+| 测什么 | 各题刚学完与全部学完的Answer F1；实际边界权重和高基projector变化；完整参数、梯度、优化器、保存与费用 |
+| 完整完成时的计划工作量 | 2099 FIT曝光／153更新／480新生成；两条逻辑轨迹各1213 FIT／19／87 |
+| 完成／退出 | 共同前缀3600秒，两分支各7200秒，总18000模型秒；首次真实启动后故障／中断／超时停，不补跑或追参 |
 
-最新机制证据：[恢复的医学专家就是顺序LoRA的已有功能](summary/onevision_diagnostics_20261016/warm_quality_20261018/calibration_audit/RESEARCH_FINDINGS.md)。T02—T11全部A/B精确桥接；TRAIN几何不变而功能质量改变。有界功能状态目前仅TRAIN筛查，无新F1。GPU1继续18条数据量/初始化控制；case00完整后包装器异常已保留，修复后的唯一调度为[queue_v4](summary/onevision_diagnostics_20261016/feature_identity_repair_20261018/queue_v4/README.md)，没有重训该结果。
+Refresh刚习得更高才支持该整包有净习得作用；若Fixed刚习得和末态均不低，按本点结果优先省掉刷新；混合就记权衡。这里的“整包”还含因子重平衡、舍入和保护参照更新，**不能把任何收益都叫子空间移动**；不能从未显著推出等效。
 
-新候选：[连续习得＋有界功能缓存](code/OneVision_StateCache/README.md)已完成四格诊断：缓存几何AP45.700对同设置顺序43.363；质量调用42.860。诊断域宏差95%区间均含0，未证明稳定、大幅或完整测试收益。两个完整21454确认仍保留并按最新指令后移；当前先完成五格初始化来源控制。
+共同前缀已完成，Fixed正在运行；尚未完成两臂比较，**没有可发布的新机制分数**。完成三段并唯一核验后才读质量、报告全部正负；不读partial DEV，不重旧评分／bootstrap，不自动1313／21454或填Ours。[冻结协议](summary/final_weight_reduction_20261024/osft_stage_refresh_mechanism_v1/PROTOCOL.json) · [准入](summary/final_weight_reduction_20261024/osft_stage_refresh_mechanism_v1/ADMISSION_REVIEW.json)
 
-研究硬件按最新授权采用[GPU0/1择空、我们最多占3卡](rules/022_research_gpu_flex_20261018.md)，实际唯一[flex_queue](summary/onevision_diagnostics_20261016/functional_state_cache_20261018/v1/flex_queue/README.md)保留所有科学条件/基线。当前两张研究候选卡均被他人占用，不能写成新方法GPU已启动。
+## 新会话接续
+
+1. 先读本README、[补充说明的交接段](SUPPLEMENTARY_NOTES.md#新会话运行交接)和[AGENTS顶部](AGENTS.md)，以最新人类目标为准。
+2. 当前仅跟进上述stage-refresh真实身份／完整证明。不要再等待已完成压缩点，也不要重启旧PAS、r200、稀疏或其它关闭入口。
+3. 有完整新结果后，回答“哪个学习功能有支持、哪些被排除、还剩哪些竞争解释”，再决定具体紧凑载体；不要把实验成功执行当方法成功，也不要因尚未解释全部就停止有区分力探索。
+4. 正式基线保持原运行；只有新sealed proof才更新正式表。禁止重复旧评分、配对、参数／谱／梯度审计或泛读填时间。
+
+项目权威仓库在NEW `/data1/liyapeng/program/LLMCL` 的Git main；本机为非Git镜像。模型、数据正文、图像、特征、checkpoint、密钥和作者源码均不入Git。详细运行身份、SHA、历史费用、故障和关闭分支见补充说明与原证据，不能从本文的历史快照推断永久存活。

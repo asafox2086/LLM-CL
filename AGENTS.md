@@ -1,3 +1,11 @@
+# 2026-10-24：人类要求已整理成果与新会话交接，以README和补充说明为入口
+
+- 用户明确“把所有成果写到README整理好，其它写补充说明，开新会话”。根README已按正式结果、机制证据、FIT探索、真实压缩负结果、完整参数量与当前研究重整；SUPPLEMENTARY_NOTES.md保存运行交接、故障/缺测、成本、文献与数据来源。README_HISTORY_20261024.md仅历史时间线，QA/图像样例不再复制，原README原字节私有留存；历史“当前/下一步”绝非当前队列。
+- 当前科学目标未实现：没有保质紧凑新框架，OSFT习得优势/ShortFixed点估计原因未解。正式8/16为最后已核验数量，不等于全部任务实时状态；主表原行、FOREVER、8组保存态权重两列原数值与发布marker完整保留。论文口径与探索DEV分开，不把已有负结果/工程准入称成功。
+- 最新交接观察2026-10-24 15:30:05UTC：唯一OLD stage-refresh unit active/running，boot5b259bd9...，controller3728445/start755358934、Fixed worker3731901/start755415692 UID1084/PGID各自同PID/GPU0实际匹配；共同prefix已COMPLETE且EXIT，Fixed STARTED，Refresh未STARTED，无VERIFIED/FAILURE，未读partial质量。详见osft_stage_refresh_mechanism_v1/HANDOFF_OBSERVED和Fixed_STARTED；原prefix3728466只是历史，后续仍看真实身份/proof，不永久live。
+- READYd276508a82e51855b3c7e4ac94f8fa3329167c7bec6cf190368c09f00271d4a5及五源/协议不变。原prefix3600/Fixed7200/Refresh7200累计18000秒从各自首次STARTED计，不因文档/新会话重置。完整计划2099FIT/153更新/480生成，不是已经全部发生；首次真实故障即停，不续CP/延时/版本/追参。研究唯一自动调度保留，换会话不取消授权，不启动另一份。
+- 下一实质工作是完成本学习功能对照并唯一核验，区分刚习得与保持、边界刷新整包净贡献；新结果后再决定紧凑框架需要什么功能。不能再轮流压其它矩阵、重旧score/bootstrap/梯度/计数/泛读或恢复旧关闭分支。稀疏统计修复人类例外仍未授权。必要实质主子沟通继续，不反复更正和盖章替代执行。
+
 # 2026-10-24：OSFT阶段刷新机制新对照已实际首次STARTED
 
 - 新osft_stage_refresh_mechanism_v1准入b061fe2145ad0cb71e014b76de66b4c080631e86的30白名单文件已推送精确镜像后，唯一OLD unit llmcl-onevision-osft-stage-refresh-mechanism-20261024.service首次激活。2026-10-24T15:19:57.182672+00:00实际controller3728445/start755358934、prefix worker3728466/start755358964/UID1084/隔离PGID同PID，boot5b259bd9-d0cb-4a1d-8b90-6e6107080488/GPU0，active/running且真实身份匹配；prefix已STARTED，两分支尚未STARTED，无COMPLETE/FAILURE/VERIFIED，未读partial质量。这些是快照，后续核真实身份与proof，不永久live或误等旧压缩点。
