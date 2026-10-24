@@ -1,0 +1,22 @@
+{
+  "unit": "llmcl-ffn-direct-ablation-20261025.service",
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit=llmcl-ffn-direct-ablation-20261025.service",
+    "--property=Restart=no",
+    "--property=KillMode=process",
+    "--property=RuntimeMaxSec=5400",
+    "--property=TimeoutStopSec=5",
+    "--setenv=LLMCL_ROOT=/data2/liyapeng_grp/program/LLMCL",
+    "--setenv=LLMCL_RUN=/tmp/llmcl-ffn-direct-1084-77c1fj_x",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "-u",
+    "/tmp/llmcl-ffn-direct-1084-77c1fj_x/worker.py",
+    "1"
+  ],
+  "unix": 1792860971.4187384,
+  "admission_commit": "95a96743c66694927e2c089fc6599de8b7fec570",
+  "ready_sha256": "c61d88028cf0ada9b14d5e477a956af57e72a3a009c4850b685c95f2b6ad4740",
+  "stderr": "Running as unit: llmcl-ffn-direct-ablation-20261025.service\n"
+}
