@@ -1,0 +1,30 @@
+{
+  "decision": "accept_single_finance_input_contract_consumer",
+  "consumer_sha256": "ca36ac34f1c580164782a1d5f145cffdb31ac61952a1127168ee16440638a5f4",
+  "question_sha256": "51b038cab76d93f295f26ba8fb7517a19657d498529146da5b3c48df1f72d82f",
+  "consumer_seconds": 120,
+  "remote_metadata_subprocess_seconds": 75,
+  "outer_supervision_seconds": 180,
+  "scope": "One read-only contract check of the fixed 89 TRAIN and 2233 TEST financial records, current raw Parquet id/question_text/options/answer projection on NEW, and nine proof-bound OLD prediction metadata files for the fixed three methods at S0/S16/S19.",
+  "findings": [
+    "Raw source comparisons preserve the original string/list answer construction and distinguish question, context, metadata options, selected answer and all references. Non-choice/unparseable input is not automatically treated as an error.",
+    "The strict input-only option parser matches the old parser. It is not used to parse generated answers or replace original scoring.",
+    "All parsed option contents and complete original label-plus-content spans are now checked against retained context; failed verbatim retention is an investigation signal, not automatic proof of semantic loss.",
+    "Original methods and proof hashes are pinned. OLD historical runner source SHA and input_batch AST are checked; OLD config SHA/method/backbone/manifest are validated there and returned rather than assuming old run configs exist on NEW.",
+    "SSH invocation correctly replaces python -c script with python - and sends a script embedding the JSON bundle through stdin; fixed data/code do not depend on shell escaping of a large -c argument.",
+    "Missing saved retrieval records, absent actual TRAIN prompt records and lack of historical full tokenized-input equality are explicit. Zero anomalies cannot be interpreted as complete input fidelity when evidence is missing.",
+    "Public output contains counts and hashes only; anomaly IDs/reasons are private. No generated answer text, old score calculation, 129-certificate recomputation or model request is included."
+  ],
+  "limitations": [
+    "The current raw four-column projection is an independent field comparison, not a newly verified historical whole-Parquet SHA chain.",
+    "Author label agreement and presence of a corresponding option do not establish semantic correctness of that gold answer.",
+    "Input-source reconstruction and saved retrieval indexes do not prove old tokenizer/chat-template input equality; no actual processor call is permitted.",
+    "TRAIN/TEST answer distributions are descriptive and cannot prove why a model chose A or B or justify TEST-based prompt, label, route, loss or sampling changes.",
+    "The 180-second independent supervision is an execution requirement outside the reviewed consumer. The consumer itself uses a 120-second alarm and 75-second SSH subprocess timeout.",
+    "No data consumer, SSH, raw Parquet reader, model, tensor, processor, QA generation, training, score or bootstrap was executed in this review."
+  ],
+  "no_model_admission": true,
+  "no_score_or_bootstrap": true,
+  "no_sparse_activation_or_repair": true,
+  "required_changes": []
+}
