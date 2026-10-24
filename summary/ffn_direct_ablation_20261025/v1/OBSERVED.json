@@ -1,6 +1,6 @@
 {
-  "unix": 1792861638.37104,
-  "service": "MainPID=3764332\nExecMainStatus=0\nActiveState=active\nSubState=running\n",
+  "unix": 1792861848.8075223,
+  "service": "MainPID=0\nExecMainStatus=0\nActiveState=inactive\nSubState=dead\n",
   "STARTED.json": {
     "unix": 1792860971.6305504,
     "identity": {
@@ -16,14 +16,14 @@
     "traceback": "Traceback (most recent call last):\n  File \"/tmp/llmcl-ffn-direct-1084-77c1fj_x/worker.py\", line 136, in <module>\n    try:main(int(sys.argv[1]))\n  File \"/tmp/llmcl-ffn-direct-1084-77c1fj_x/worker.py\", line 98, in main\n    del model,state,package;release();assert torch.cuda.memory_allocated()<1024**2\nAssertionError\n",
     "no_quality_claim": true
   },
-  "COMPLETE": false,
+  "COMPLETE": true,
   "VERIFIED": false,
   "actual_identity": null,
   "evaluation_phases": {
     "parent": {
       "STARTED": true,
-      "COMPLETE": false,
-      "EXIT": false,
+      "COMPLETE": true,
+      "EXIT": true,
       "FAILURE": false,
       "recorded_identity": {
         "pid": 3764333,
@@ -31,19 +31,22 @@
         "uid": 1084,
         "pgid": 3764333
       },
-      "actual_identity": {
-        "pid": 3764333,
-        "startticks": "755994800",
-        "uid": 1084,
-        "pgid": 3764333
-      },
-      "completed_DEV": 98
+      "actual_identity": null,
+      "completed_DEV": 100
     },
     "pruned": {
-      "STARTED": false,
-      "COMPLETE": false,
-      "EXIT": false,
-      "FAILURE": false
+      "STARTED": true,
+      "COMPLETE": true,
+      "EXIT": true,
+      "FAILURE": false,
+      "recorded_identity": {
+        "pid": 3764786,
+        "startticks": "756007641",
+        "uid": 1084,
+        "pgid": 3764786
+      },
+      "actual_identity": null,
+      "completed_DEV": 100
     }
   },
   "last_progress": {
@@ -51,5 +54,5 @@
     "completed_QA": 37,
     "forward_NLL_requests": 925
   },
-  "gpu": "3764333, GPU-3c72e4ce-0896-0b40-d610-be585d2bb51e, 3648 MiB\n\n"
+  "gpu": "\n"
 }

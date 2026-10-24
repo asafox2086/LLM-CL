@@ -8,6 +8,7 @@ def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def write(p,v):
  with Path(p).open('x',encoding='utf8') as f:json.dump(v,f,ensure_ascii=False,indent=2,allow_nan=False);f.write('\n')
 def main():
+ tick=time.monotonic()
  assert not (RUN/'VERIFIED.json').exists() and not (RUN/'VERIFY_STARTED.json').exists()
  ready=read(RUN/'READY.json');complete=read(RUN/'COMPLETE.json');started=read(RUN/'STARTED.json')
  env=dict(os.environ,XDG_RUNTIME_DIR=f'/run/user/{os.getuid()}',DBUS_SESSION_BUS_ADDRESS=f'unix:path=/run/user/{os.getuid()}/bus')
@@ -102,6 +103,7 @@ def main():
  differences={d:quality['pruned']['domains'][d]['F1']-quality['parent']['domains'][d]['F1'] for d in quality['parent']['domains']}
  passed=all(x>=0 for x in differences.values())
  result=dict(complete=True,source_COMPLETE_sha256=sha(RUN/'COMPLETE.json'),ready_sha256=sha(RUN/'READY.json'),quality=quality,domain_F1_pruned_minus_parent=differences,macro_F1_pruned_minus_parent=quality['pruned']['macro']-quality['parent']['macro'],all_domain_floor_passed=passed,decision='retain_for_independent_adaptation_review' if passed else 'close_fixed8_construction_quality_negative',selected=complete['selected'],whole_weight_saving_bytes=209190912,whole_weight_saving_fraction=104595456/893675552,memory=memory,model_RUN_seconds=complete.get('supervised_process_seconds',complete['seconds']),first_START_to_completion_seconds=complete['seconds'],repaired_execution=complete.get('repaired_execution',False),NLL_requests=1125,new_generations=210,new_scores=200,backwards=0,training_updates=0,TEST_QA=0,scorer_ast_sha256=score_ast,no_equivalence_significance_strongest_or_framework_success_claim=True)
+ result.update(verifier_sha256=sha(Path(__file__)),verification_seconds=time.monotonic()-tick)
  write(RUN/'VERIFIED.json',result)
  lines=['# 真实8-FFN删除完整结果','','| 领域 | 完整父F1 | 删除F1 | 删除−父pp |','| --- | ---: | ---: | ---: |']
  for d,x in differences.items():lines.append(f'| {d} | {quality["parent"]["domains"][d]["F1"]:.6f} | {quality["pruned"]["domains"][d]["F1"]:.6f} | {x:+.6f} |')
