@@ -1,4 +1,4 @@
-**2026-10-24当前状态：** 8组最终checkpoint的保存态权重两列已补齐。固定连接对照于03:48UTC首次开始初始化，正检查更少连接的起点能否承接原回答功能；仅通过固定检查后才比较保留连接冻结／可学习两流。当前没有新Answer F1或保质减重结果。[当前运行快照](summary/final_weight_reduction_20261024/sparse_connection_plasticity_launch_repair_v1/PHASE_OBSERVED.json)。金融输入合同排查和旧结果分析已结束，主表已有数值不变。
+**2026-10-24当前状态：** 8组最终checkpoint保存态权重两列已补齐。固定连接对照在首个剪后权重打包时发现非有限值，已按首次启动后停止规则关闭；没有初态功能门或Frozen／Plastic质量结果，不作稀疏质量阴性解释。[实际故障与解释边界](summary/final_weight_reduction_20261024/sparse_connection_plasticity_launch_repair_v1/INITIAL_FAILURE_FINDINGS.md)。当前无研究模型worker，旧质量与权重表数值不变。
 
 以下日期消息为历史记录，不能据其“正在运行”或“下一步”推断当前状态。
 

@@ -1,3 +1,12 @@
+# 2026-10-24：固定连接实际初始化数值失败，整个科学点关闭
+
+- sparse_connection_plasticity_launch_repair_v1的INITIAL_FAILURE_FINDINGS/INITIAL_FAILURE_SEAL/INITIAL_FAILURE_REVIEW及原phases/init FAILURE/EXIT、CONTROLLER_FAILURE/queue为最新终态。首次STARTED后实际第0块gate_proj剪后打包，finite(weight).all检查失败；作者唯一数值日志time0.58/error nan。已过每4保留2及删除位全零assert，所以至少一个保留槽非有限，但具体数量/坐标/NaN或Inf细分未存，不补猜。
+- 03:54:20.343689UTC实际unit failed/MainPID0/exit1，controller3525203与worker3525229均已退出；原boot5b259bd9...。canonical queue closed_failure，无完整block/CP0/checkpoint/INITIAL_FUNCTION/COMPLETE/INITIAL_VERIFIED/最终VERIFIED，Frozen/Plastic均未STARTED，0训练更新/DEV评分。不是初态NLL门阴性或稀疏F1阴性，更不是参数可删性、学习无用或新方法成功。当前无研究模型worker/另一项已准入待跑实验，下方运行状态均历史，不能继续等或恢复。
+- 原十二源/READY5a1ca3...完全不改；按首次STARTED后停止规则关闭整个固定点，不续CP/修跑/延长/改finite检查、精度、阻尼、校准、mask、LR或层，不自动新版本/另一模型，不再借启动前空白解析修复裁决。旧v1仍0模型永不激活；正式基线不改、不向他人GPU信号。
+- 一次定向静态解释已完成：实际校准forward hook处在外层CUDA FP16 autocast，作者inp.float后的H统计matmul没有禁autocast；官方PyTorch2.6规则支持该执行上下文缺口。小图FP32门没覆盖它及真实输入/维度。但H、matmul输出、每步W和转换前后统计缺测，不能认定它就是NaN根因。作者error nan在最终回写原dtype前打印，不全归因最后转换；不能据此重门/数值重演/精度修跑来制造进展。
+- 由到达位置和固定代码推定已执行34次回答NLL及2短生成（稠密兼容2+16诊断+第0块16校准），不是持久逐次counter。加载/上设备/预处理/缓存/一次剪枝均有费用，0优化不等于0工作。STARTED→FAILURE mtime30.415655124秒非完整RUN，6资源行非峰；小字节扫描写seal前.006742234秒另计，作者.58为子段不相加。seal f13b64367d1094abb71e2ee962cf3db31920861067dca63088167c73369ef77f已完成，不重复封存/权重hash/模型/QA/评分/bootstrap。
+- 本轮关闭是重要实施故障，不满足最终完整权重/原AnswerF1主目标。下一研究只能是具体、未重复、会改变判断的功能问题；未来新尝试必须独立假说/对照/完整成本/正负出口和停止规则审阅，本次不自动授权。已完成checkpoint两列、金融输入合同、回答profile及全部旧分支不重做；正式仅新sealed proof才更新联合表并保留已测权重列。健康或无可行动变化静默，不用已关闭worker等待/反复审计充当进展。
+
 # 2026-10-24：固定连接对照首次真实初始化已STARTED
 
 - 独立启动前解析修复已按增量准入发布2b618481ea13af05bf8da85a5ca8072699479dac、23白名单文件逐字节镜像；原v1从未创建服务/模型，永不激活。新report sparse_connection_plasticity_launch_repair_v1 的ACTIVATION/PHASE_OBSERVED与后续真实proof为当前入口，不再按旧“模型0尝试/无worker”描述当前状态。

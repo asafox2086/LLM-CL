@@ -1,0 +1,39 @@
+{
+  "decision": "accept_initial_numerical_failure_closure_only",
+  "findings_sha256": "dab992d05ca5213426dbe40826976b42196838e971a0161892c600652274b835",
+  "seal_sha256": "f13b64367d1094abb71e2ee962cf3db31920861067dca63088167c73369ef77f",
+  "ready_sha256": "5a1ca3e9a68c4ba4bf879ce7fc8d1000f65e5407815078ea2a25ffa98d0bfad9",
+  "files_sha256": {
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_launch_repair_v1/INITIAL_FAILURE_FINDINGS.md": "dab992d05ca5213426dbe40826976b42196838e971a0161892c600652274b835",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_launch_repair_v1/INITIAL_FAILURE_SEAL.json": "f13b64367d1094abb71e2ee962cf3db31920861067dca63088167c73369ef77f",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_launch_repair_v1/phases/init/STARTED.json": "4d2ebb8706211094cdaae8506270294c0529787662309a44ac54589b2e212cbf",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_launch_repair_v1/phases/init/FAILURE.json": "443b608676c8352829ede4cccb7e138c013812658e87e56d3ff1f0fadbb1be84",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_launch_repair_v1/phases/init/EXIT.json": "1e677e61a764acca407552c5ed34ba3d766c20dfddd6e75b7e4af18c19eaa994",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_launch_repair_v1/CONTROLLER_FAILURE.json": "5c3d4c41148a286172b0a1b1ea9557a41ac9ac75ec63205627b34f6be2399e95",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_launch_repair_v1/queue.json": "0da6157aa9781930f448d4237b9486ff29856100d8fbdd38bf13940ee27be0f6",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_launch_repair_v1/READY.json": "5a1ca3e9a68c4ba4bf879ce7fc8d1000f65e5407815078ea2a25ffa98d0bfad9"
+  },
+  "findings": [
+    "The observed init STARTED and actual wait-returned exit1 are bound to the same READY and worker. The sealed terminal observation and canonical closed_failure queue support closure, not a live or completed model.",
+    "The fixed block/projection order and sole author time/error pair support localization to block0 gate_proj after pruning, before physical packed-layer construction completed. The passed removed-slot-zero assertion and failed whole-weight finite check imply at least one retained slot was nonfinite.",
+    "Author internal error nan is printed before final W cast/writeback; pack finite checking occurs on the subsequently written model weight. The report distinguishes these facts and does not assign a unique first nonfinite operation.",
+    "The calibration-hook outer CUDA FP16 autocast context differs from the tiny CPU FP32 gate. Float32 H storage/input conversion alone is not an all-FP32 compute guarantee. This is a concrete coverage gap, not a demonstrated cause of the failure; no H/output-dtype/iteration/FP32W trace was saved.",
+    "The 34 teacher-forced NLL paths and two short generations are explicitly control-flow inference from the reached trace and fixed code, not a persistent per-call counter. Zero optimizer events/checkpoints/DEV predictions are not zero work or cost.",
+    "The 30.415655124-second STARTED-to-FAILURE file-mtime interval is not a completed RUN; the author time is a nested subinterval and six resource rows are not a measured peak.",
+    "Neither the initial log(2) function gate nor Frozen/Plastic quality was reached. Designed counts/bytes remain unmeasured final-compression claims; no sparse-quality, parameter-necessity or knowledge-causality conclusion is accepted.",
+    "The report preserves all frozen sources/READY/markers and closes the entire fixed point. It explicitly rules out finite-check relaxation, precision/damping/mask/LR rescue, service restart, continuation, automatic new version or another model."
+  ],
+  "limitations": [
+    "The review consumes existing sealed records and the final explanation only; previously completed code-order analysis is reused. No SSH, model, tensor, QA, consumer, CPU gate, scoring, bootstrap or new official-source investigation was performed.",
+    "Original raw weight validity, Hessian conditioning, exact matmul output dtype and first nonfinite location are not independently determined by these records.",
+    "The same coverage gap is now closed as a documented diagnostic; no repeated audit, tensor reenactment, compatibility probe or new model follows automatically.",
+    "Any genuinely different future research intervention needs its own functional hypothesis, distinguishing controls, complete cost and stop conditions; this review provides no such admission."
+  ],
+  "no_model_admission": true,
+  "no_retry": true,
+  "no_automatic_new_model_or_version": true,
+  "no_repeat_audit_of_same_gap": true,
+  "quality_missing": true,
+  "no_new_QA_tensor_score_bootstrap": true,
+  "required_changes": []
+}
