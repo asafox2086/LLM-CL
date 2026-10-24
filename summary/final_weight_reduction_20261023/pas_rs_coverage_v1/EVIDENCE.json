@@ -1,0 +1,274 @@
+{
+  "question": "Does local PASs RS have uniform execution opportunity across the 19 formal stages?",
+  "accepted_run": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PASs_MoE/training_20261017_161725",
+  "receipt_sha256": "3e023089428b53297ce26053398746487719d305904772ed3ada3057f1852b6b",
+  "proof_bound_artifacts": {
+    "config.json": {
+      "sha256": "79edcca96dd315260816932438b7c0ec57835f5761d2ec0b88d8ecdb5c837fb6",
+      "bytes": 4431
+    },
+    "runner_source/run.py": {
+      "sha256": "0e1f794ff1daf0694bdf960c3f89ccd4078764577db75271d8f78684282a39a9",
+      "bytes": 20702
+    },
+    "runner_source/pass_adapter.py": {
+      "sha256": "c8e23c85a93e97130d464b4b6d87110470035c5af37f9575fce705923c80c7c4",
+      "bytes": 6989
+    },
+    "logs/events.jsonl": {
+      "sha256": "f75c96f09fe7f52925b99a5f2abdd283db84cfd6f0c5bf89d0750ffba76b8445",
+      "bytes": 61519
+    }
+  },
+  "current_upstream_revision": "eb0d571173fcaa21db5f7231d63a64f0db7529c8",
+  "current_upstream_sha256": "95ff81926866e3a94b041a83fd67dfa0ec27087f58dba590ba3c8d6a50e27728",
+  "historical_upstream_SHA_bound_by_old_proof": false,
+  "interpretation": "Conditional reconstruction using proof-bound schedule/adapter and current manifest-matched learner; not 93 historical per-call witnesses.",
+  "warmup": "lambda_eff=lambda_stab*min(1,progress/0.3), progress=batch_start/task_size; this is a continuous ramp.",
+  "stages": [
+    {
+      "stage": 1,
+      "train_QA": 347,
+      "updates": 22,
+      "conditional_zero_updates": 22,
+      "positive_warmup_updates_upper": 0,
+      "conditional_zero_micro_calls": 347,
+      "positive_warmup_micro_calls_upper": 0
+    },
+    {
+      "stage": 2,
+      "train_QA": 11,
+      "updates": 1,
+      "conditional_zero_updates": 1,
+      "positive_warmup_updates_upper": 0,
+      "conditional_zero_micro_calls": 11,
+      "positive_warmup_micro_calls_upper": 0
+    },
+    {
+      "stage": 3,
+      "train_QA": 17,
+      "updates": 2,
+      "conditional_zero_updates": 1,
+      "positive_warmup_updates_upper": 1,
+      "conditional_zero_micro_calls": 16,
+      "positive_warmup_micro_calls_upper": 1
+    },
+    {
+      "stage": 4,
+      "train_QA": 26,
+      "updates": 2,
+      "conditional_zero_updates": 1,
+      "positive_warmup_updates_upper": 1,
+      "conditional_zero_micro_calls": 16,
+      "positive_warmup_micro_calls_upper": 10
+    },
+    {
+      "stage": 5,
+      "train_QA": 6,
+      "updates": 1,
+      "conditional_zero_updates": 1,
+      "positive_warmup_updates_upper": 0,
+      "conditional_zero_micro_calls": 6,
+      "positive_warmup_micro_calls_upper": 0
+    },
+    {
+      "stage": 6,
+      "train_QA": 14,
+      "updates": 1,
+      "conditional_zero_updates": 1,
+      "positive_warmup_updates_upper": 0,
+      "conditional_zero_micro_calls": 14,
+      "positive_warmup_micro_calls_upper": 0
+    },
+    {
+      "stage": 7,
+      "train_QA": 4,
+      "updates": 1,
+      "conditional_zero_updates": 1,
+      "positive_warmup_updates_upper": 0,
+      "conditional_zero_micro_calls": 4,
+      "positive_warmup_micro_calls_upper": 0
+    },
+    {
+      "stage": 8,
+      "train_QA": 5,
+      "updates": 1,
+      "conditional_zero_updates": 1,
+      "positive_warmup_updates_upper": 0,
+      "conditional_zero_micro_calls": 5,
+      "positive_warmup_micro_calls_upper": 0
+    },
+    {
+      "stage": 9,
+      "train_QA": 1,
+      "updates": 1,
+      "conditional_zero_updates": 1,
+      "positive_warmup_updates_upper": 0,
+      "conditional_zero_micro_calls": 1,
+      "positive_warmup_micro_calls_upper": 0
+    },
+    {
+      "stage": 10,
+      "train_QA": 3,
+      "updates": 1,
+      "conditional_zero_updates": 1,
+      "positive_warmup_updates_upper": 0,
+      "conditional_zero_micro_calls": 3,
+      "positive_warmup_micro_calls_upper": 0
+    },
+    {
+      "stage": 11,
+      "train_QA": 12,
+      "updates": 1,
+      "conditional_zero_updates": 1,
+      "positive_warmup_updates_upper": 0,
+      "conditional_zero_micro_calls": 12,
+      "positive_warmup_micro_calls_upper": 0
+    },
+    {
+      "stage": 12,
+      "train_QA": 6,
+      "updates": 1,
+      "conditional_zero_updates": 1,
+      "positive_warmup_updates_upper": 0,
+      "conditional_zero_micro_calls": 6,
+      "positive_warmup_micro_calls_upper": 0
+    },
+    {
+      "stage": 13,
+      "train_QA": 170,
+      "updates": 11,
+      "conditional_zero_updates": 1,
+      "positive_warmup_updates_upper": 10,
+      "conditional_zero_micro_calls": 16,
+      "positive_warmup_micro_calls_upper": 154
+    },
+    {
+      "stage": 14,
+      "train_QA": 171,
+      "updates": 11,
+      "conditional_zero_updates": 1,
+      "positive_warmup_updates_upper": 10,
+      "conditional_zero_micro_calls": 16,
+      "positive_warmup_micro_calls_upper": 155
+    },
+    {
+      "stage": 15,
+      "train_QA": 226,
+      "updates": 15,
+      "conditional_zero_updates": 1,
+      "positive_warmup_updates_upper": 14,
+      "conditional_zero_micro_calls": 16,
+      "positive_warmup_micro_calls_upper": 210
+    },
+    {
+      "stage": 16,
+      "train_QA": 89,
+      "updates": 6,
+      "conditional_zero_updates": 1,
+      "positive_warmup_updates_upper": 5,
+      "conditional_zero_micro_calls": 16,
+      "positive_warmup_micro_calls_upper": 73
+    },
+    {
+      "stage": 17,
+      "train_QA": 49,
+      "updates": 4,
+      "conditional_zero_updates": 1,
+      "positive_warmup_updates_upper": 3,
+      "conditional_zero_micro_calls": 16,
+      "positive_warmup_micro_calls_upper": 33
+    },
+    {
+      "stage": 18,
+      "train_QA": 107,
+      "updates": 7,
+      "conditional_zero_updates": 1,
+      "positive_warmup_updates_upper": 6,
+      "conditional_zero_micro_calls": 16,
+      "positive_warmup_micro_calls_upper": 91
+    },
+    {
+      "stage": 19,
+      "train_QA": 49,
+      "updates": 4,
+      "conditional_zero_updates": 1,
+      "positive_warmup_updates_upper": 3,
+      "conditional_zero_micro_calls": 16,
+      "positive_warmup_micro_calls_upper": 33
+    }
+  ],
+  "totals": {
+    "train_QA": 1313,
+    "updates": 93,
+    "conditional_zero_updates": 40,
+    "positive_warmup_updates_upper": 53,
+    "conditional_zero_micro_calls": 553,
+    "positive_warmup_micro_calls_upper": 760
+  },
+  "single_batch_stages": [
+    2,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "historical_log_ACTIVE_lines": [
+    {
+      "path": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PASs_MoE/training_20261017_161725/supervisor.log",
+      "line": 1385,
+      "text": "[MoE-LoRA CL] Stability regularization (post-backward) ACTIVE: lambda_stab=0.0001, eff=0.0001, total_cnt=43008, warmup_ratio=0.3, warmup_steps=0, random_importance=False."
+    },
+    {
+      "path": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PASs_MoE/training_20261017_161725/supervisor.log",
+      "line": 1432,
+      "text": "[MoE-LoRA CL] Stability regularization (post-backward) ACTIVE: lambda_stab=0.0001, eff=0.0001, total_cnt=43008, warmup_ratio=0.3, warmup_steps=0, random_importance=False."
+    },
+    {
+      "path": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PASs_MoE/training_20261017_161725/supervisor.log",
+      "line": 1726,
+      "text": "[MoE-LoRA CL] Stability regularization (post-backward) ACTIVE: lambda_stab=0.0001, eff=3.137e-05, total_cnt=43008, warmup_ratio=0.3, warmup_steps=0, random_importance=False."
+    },
+    {
+      "path": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PASs_MoE/training_20261017_161725/supervisor.log",
+      "line": 2033,
+      "text": "[MoE-LoRA CL] Stability regularization (post-backward) ACTIVE: lambda_stab=0.0001, eff=3.119e-05, total_cnt=43008, warmup_ratio=0.3, warmup_steps=0, random_importance=False."
+    },
+    {
+      "path": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PASs_MoE/training_20261017_161725/supervisor.log",
+      "line": 2393,
+      "text": "[MoE-LoRA CL] Stability regularization (post-backward) ACTIVE: lambda_stab=0.0001, eff=2.36e-05, total_cnt=43008, warmup_ratio=0.3, warmup_steps=0, random_importance=False."
+    },
+    {
+      "path": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PASs_MoE/training_20261017_161725/supervisor.log",
+      "line": 2721,
+      "text": "[MoE-LoRA CL] Stability regularization (post-backward) ACTIVE: lambda_stab=0.0001, eff=5.993e-05, total_cnt=43008, warmup_ratio=0.3, warmup_steps=0, random_importance=False."
+    },
+    {
+      "path": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PASs_MoE/training_20261017_161725/supervisor.log",
+      "line": 2865,
+      "text": "[MoE-LoRA CL] Stability regularization (post-backward) ACTIVE: lambda_stab=0.0001, eff=0.0001, total_cnt=43008, warmup_ratio=0.3, warmup_steps=0, random_importance=False."
+    },
+    {
+      "path": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PASs_MoE/training_20261017_161725/supervisor.log",
+      "line": 2952,
+      "text": "[MoE-LoRA CL] Stability regularization (post-backward) ACTIVE: lambda_stab=0.0001, eff=4.984e-05, total_cnt=43008, warmup_ratio=0.3, warmup_steps=0, random_importance=False."
+    },
+    {
+      "path": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PASs_MoE/training_20261017_161725/supervisor.log",
+      "line": 3042,
+      "text": "[MoE-LoRA CL] Stability regularization (post-backward) ACTIVE: lambda_stab=0.0001, eff=0.0001, total_cnt=43008, warmup_ratio=0.3, warmup_steps=0, random_importance=False."
+    }
+  ],
+  "historical_log_scope": "Selected current-read historical stdout lines; full stdout is not bound by the old accepted proof.",
+  "nonzero_regularizer_gradient_proved": false,
+  "RS_AnswerF1_causal_benefit_proved": false,
+  "new_model_runs": 0,
+  "new_QA": 0,
+  "new_scores": 0,
+  "new_tensor_reads": 0
+}

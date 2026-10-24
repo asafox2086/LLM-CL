@@ -1,0 +1,29 @@
+{
+  "decision": "accept_conditional_coverage_only_no_model_admission",
+  "files_sha256": {
+    "analysis/pas_rs_schedule_coverage_20261024.py": "8add9f7700c09e63eebecffcdc598996c8989ba56eff9fa4f77c726909f93009",
+    "summary/final_weight_reduction_20261023/pas_rs_coverage_v1/EVIDENCE.json": "0c2b46b11c5dcd98242362686458a734078ba150251966b8c39107a61c44d55d",
+    "summary/final_weight_reduction_20261023/pas_rs_coverage_v1/FINDINGS.md": "2409f30bfdd27b2f7cb4e836c7240c4476b99c915e324d04e4df4269d2e4b68b"
+  },
+  "AGENTS_top_sha256_at_review": "9c5d64d3ce04d709c8917a5003612f6d9aad229cc00f98d29fcf05ee45947f40",
+  "no_model_admission": true,
+  "scope": "Static review of the consumer and sealed EVIDENCE/FINDINGS, plus the new AGENTS top declaration; no consumer rerun or upstream/raw-log/proof revalidation.",
+  "findings": [
+    "Conditional schedule accounting is internally consistent: 40 zero-opportunity updates plus 53 positive-warmup update opportunities equals 93; 553 plus 760 micro-calls equals 1313.",
+    "Stage 1 contributes 22 updates and 347 micro-calls; subsequent first batches contribute 18 updates and 206 micro-calls. The nine single-batch stages are 2 and 5 through 12.",
+    "The remaining opportunity count is an upper bound, not a count of nonzero regularizer effects. A 0.3 progress warmup is a continuous ramp.",
+    "The evidence contains nine historical ACTIVE messages. Their reported chronological stage assignment and rounded effective coefficients are consistent with the nine later multi-batch stages; stage attribution consumes the reported historical context rather than an independent full-log reread.",
+    "The historical upstream-source SHA and complete historical stdout are not bound by the old accepted proof. The conditional reconstruction does not retroactively supply those chains.",
+    "ACTIVE-path evidence does not prove nonzero dA/dB, gradient magnitude, effective protection or Answer F1 causality. The finding concerns PAS coverage, not OSFT acquisition.",
+    "This is a distinct bounded execution-opportunity question, rather than a repeat of the prior usage, gauge or performance analyses. The consumer is to remain completed.",
+    "The updated resource scope permits available OLD GPUs and requires reserving at least one NEW physical GPU, while preserving other users and valid baselines. It grants no automatic model admission or recovery of closed branches."
+  ],
+  "limitations": [
+    "No historical tensor, optimizer, checkpoint or per-call regularizer witness was inspected; actual nonzero RS effect counts remain unknown.",
+    "No conclusion of RS uselessness, deletability, causal benefit, model-quality change or new framework is accepted.",
+    "The review accepts the source/receipt-based conditional accounting and final interpretation, not a new independent reconstruction from raw formal artifacts.",
+    "No new model, QA, tensor, score, bootstrap, CPU gate, GPU operation or resource probe was executed."
+  ],
+  "required_changes": [],
+  "document_sha256": "2409f30bfdd27b2f7cb4e836c7240c4476b99c915e324d04e4df4269d2e4b68b"
+}
