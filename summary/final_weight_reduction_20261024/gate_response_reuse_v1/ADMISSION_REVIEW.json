@@ -1,0 +1,88 @@
+{
+  "decision": "accept_single_fixed_gate_response_reuse_activation",
+  "model_admission": true,
+  "ready_sha256": "e0ed5ad2edb604bdb0c66c485b619bbc8378db40815784a7c8f76728aada6f0e",
+  "protocol_sha256": "8b21e1fffe8c63844a23b1c57c565da1a288ed8496724e3a971641d77aac153d",
+  "source_review_sha256": "a36af540d2701bdfda9ca2f606783ca2996f2ac40e0237c4fb0b76b8f6aa2443",
+  "necessity_review_sha256": "5929d56f6079e587a3af029e2f16094b7c4166a922b00c825820431b18ef4a16",
+  "cpu_gate_sha256": "4d01af6d6186c30ece0f24051fbf44ced33093ea14e86f4fd48330840adf44de",
+  "sources": {
+    "exp/gate_response_reuse_20261024/v1/core.py": "8cb5c525636e6a33011821115d6502607ac479dd95d41c1a272aa4cbcf3e652a",
+    "exp/gate_response_reuse_20261024/v1/common.py": "01aa791dd705650f6da2a318de03b0d3d42d0565f929012ba81e40eac6f34fe1",
+    "exp/gate_response_reuse_20261024/v1/worker.py": "698b57f0250d317a98a2a7a8687f0fcd0c58f58f69e94b426c6c5cf0aa89b0dd",
+    "exp/gate_response_reuse_20261024/v1/freeze.py": "5906ce8d2732a04ef650c9feb01724f6ef78666643fff81e86956de8a2f1d223",
+    "exp/gate_response_reuse_20261024/v1/dispatch.py": "e973049d6ce46e6086f4002cfbf2d1f38c6ff669d38b48969686c3144b2c38f9"
+  },
+  "files_sha256": {
+    "summary/final_weight_reduction_20261024/gate_response_reuse_v1/READY.json": "e0ed5ad2edb604bdb0c66c485b619bbc8378db40815784a7c8f76728aada6f0e",
+    "summary/final_weight_reduction_20261024/gate_response_reuse_v1/CPU_GATE.json": "4d01af6d6186c30ece0f24051fbf44ced33093ea14e86f4fd48330840adf44de",
+    "summary/final_weight_reduction_20261024/gate_response_reuse_v1/CPU_GATE_STARTED.json": "f44d299f2aab910ba00e51eb00f2a37c488b1e8772053f9f73bff82d154e0e5a",
+    "summary/final_weight_reduction_20261024/gate_response_reuse_v1/FREEZE_EXECUTION.json": "bd0b8578781c2294a62c706f8304919c942faa01ca1771d1ab7dae0ba7f9fe46",
+    "summary/final_weight_reduction_20261024/gate_response_reuse_v1/PROTOCOL.json": "8b21e1fffe8c63844a23b1c57c565da1a288ed8496724e3a971641d77aac153d",
+    "summary/final_weight_reduction_20261024/gate_response_reuse_v1/NECESSITY_REVIEW.json": "5929d56f6079e587a3af029e2f16094b7c4166a922b00c825820431b18ef4a16",
+    "summary/final_weight_reduction_20261024/gate_response_reuse_v1/SOURCE_REVIEW.json": "a36af540d2701bdfda9ca2f606783ca2996f2ac40e0237c4fb0b76b8f6aa2443",
+    "summary/final_weight_reduction_20261024/gate_response_reuse_v1/TRANSPORT.json": "3c3604059ff55dfe1ef73632a26de8f2f42b30f626f07b17fce882a7b0d618fc",
+    "summary/final_weight_reduction_20261024/gate_response_reuse_v1/freeze_stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "summary/final_weight_reduction_20261024/gate_response_reuse_v1/freeze_stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "exp/gate_response_reuse_20261024/v1/core.py": "8cb5c525636e6a33011821115d6502607ac479dd95d41c1a272aa4cbcf3e652a",
+    "exp/gate_response_reuse_20261024/v1/common.py": "01aa791dd705650f6da2a318de03b0d3d42d0565f929012ba81e40eac6f34fe1",
+    "exp/gate_response_reuse_20261024/v1/worker.py": "698b57f0250d317a98a2a7a8687f0fcd0c58f58f69e94b426c6c5cf0aa89b0dd",
+    "exp/gate_response_reuse_20261024/v1/freeze.py": "5906ce8d2732a04ef650c9feb01724f6ef78666643fff81e86956de8a2f1d223",
+    "exp/gate_response_reuse_20261024/v1/dispatch.py": "e973049d6ce46e6086f4002cfbf2d1f38c6ff669d38b48969686c3144b2c38f9"
+  },
+  "execution_binding": {
+    "host": "OLD",
+    "uid": 1084,
+    "boot_id": "5b259bd9-d0cb-4a1d-8b90-6e6107080488",
+    "interpreter": "/data2/liyapeng_grp/program/LLMCL/.runtime/conda-env/bin/python3.10",
+    "private_view": "/data2/liyapeng_grp/program/LLMCL/.deployment/gate_response_reuse_20261024_view",
+    "GPU_policy": "Select one genuinely free OLD physical GPU at the first successful init STARTED; retain exactly that card for Static and Reuse. Do not interrupt others or formal baselines.",
+    "phases": [
+      "init",
+      "Static",
+      "Reuse"
+    ],
+    "phase_model_seconds": {
+      "init": 1200,
+      "Static": 2400,
+      "Reuse": 2400
+    },
+    "total_model_seconds": 6000,
+    "scope": "One shared 48-QA lawful S1 teacher-state capture; independent fixed Static and Reuse construction/local fitting; complete package save/reload; 100 original DEV generations per arm and unique original token_f1 verification. Copied parent quality is conditional on every declared binding.",
+    "stop": "First model STARTED failure, interruption, nonfinite or timeout closes the whole point. No resume, extension, automatic repair/new version, rank/LR/data/cap search or subsequent CL.",
+    "preSTARTED_75": "Only a resource-change exit75 without a model STARTED is unattempted waiting.",
+    "activation_status": "This review permits the fixed activation; it does not claim activation or real-model execution has occurred."
+  },
+  "actual_CPU_evidence": {
+    "gate_passed": true,
+    "gate_seconds": 3.4298523692414165,
+    "supervised_seconds": 4.3209679294377565,
+    "supervised_returncode": 0,
+    "tiny_updates_per_arm": 4,
+    "gate_projection_called_once": true,
+    "original_up_absent_from_state": true,
+    "strict_full_Qwen_serialization_reload": true,
+    "CUDA_initialized": false,
+    "real_QA": 0,
+    "real_pretrained_model": 0,
+    "cost_note": "Gate and supervision overlap and are not added. Metadata/transport/review and historical costs are separate from actual model phase ceilings."
+  },
+  "findings": [
+    "Current READY matches the accepted five sources, actual protocol and necessity/source review hashes; transported source/reference/dependency maps agree with READY.",
+    "The original parent proof and reference files are bound by expected hashes. The fixed old complete proof supplies the copied F1 only; actual parent weight digest, input-source/config and per-ID evaluation-input bindings remain mandatory checks during model execution.",
+    "The current selection metadata contains exactly48 distinct known groups,32 fit followed by16 held feature-check groups. It is lawful current S1 FIT metadata, not evidence of full-model functionality.",
+    "The actual tiny artifact supports the required structural implementation, gradient path, one-call Gx reuse, physical absence of U and real serialized strict reconstruction, with CUDA uninitialized.",
+    "The first reported transport-wrapper syntax error preceded OLD code execution; no repeated synthetic gate or scientific source change is evidenced. The retained successful execution receipt reports returncode0 with no real-model/QA work.",
+    "Only actual compact layouts, complete reload invariance, matching prepared inputs and the predeclared full-domain Answer F1 gate can retain this carrier. Held-feature MSE alone cannot pass."
+  ],
+  "limitations": [
+    "Tiny CPU FP32 success does not validate actual 0.9B CUDA FP16 statistics/fitting, capture memory, numerical stability, time feasibility or Answer F1.",
+    "Reuse816706592 and Static816728096 complete coefficients remain design expectations. Static has21504 more coefficients; this is near-matched, not exact equality. Actual full weights, required buffers, aliases and package bytes must be reported.",
+    "A32-group local feature fit does not establish whole-model preservation: downstream inputs shift when all24 layers are replaced. The reloaded whole-model generation and the copied-parent input bindings remain decisive.",
+    "This is a compact-starting-function necessity point, not a cold-start causal test, demonstrated OSFT/PAS mechanism, confirmed subsequent plasticity, or novel framework.",
+    "Explored DEV and one seed cannot establish statistical stability/noninferiority/equivalence. Positive results permit only a separate subsequent method-design/adaptation review; negative results close this fixed point without rescue.",
+    "All old closed workers, checkpoints and pending human-exception branches remain closed.",
+    "The reviewer only consumed existing small proofs and checked current source hash bindings. No Torch import, synthetic rerun, model/QA call, score/bootstrap, new asset hash pass, SSH poll or activation was performed."
+  ],
+  "required_changes": []
+}

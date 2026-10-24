@@ -1,0 +1,45 @@
+{
+  "question": "Can an existing gate preactivation carry part of the up function, allowing the independent up matrix to be physically removed while retaining whole-model answering function?",
+  "basis": {
+    "observed": "The sealed role-retention test lost answering quality before its first update even when gate/down remained intact. Continuous q/v adaptation did not recover it.",
+    "hypothesis": "diag(d)Gx plus a small independent residual may retain useful up responses better than an equally costly independent low-rank up. Neither correspondence nor fidelity is established.",
+    "not_claimed": "Not all baselines cold-start; not an OSFT/PAS causal mechanism, a novel shared-factor principle, or an already successful framework."
+  },
+  "arms": {
+    "Static": {"up": "B200 A200 x", "final_weight_coefficients": 816728096},
+    "Reuse": {"up": "d elementwise (Gx) + B199 A199 x", "final_weight_coefficients": 816706592},
+    "common": "Original gate/down, attention, vision, embedding, projector and newline are retained/frozen. All 24 independent up matrices are deleted. Gx is actually computed once and reused. No original dense up or full SVD basis is saved in either final package.",
+    "budget_difference": "Static has 21504 more complete weight coefficients. No unused padding; comparison is near-matched within the Static upper budget, not exact equality."
+  },
+  "initialization": "Reuse d is rowwise dot(U,G)/sum(G squared), denominator clamped at 1e-12; ordinary FP32 SVD of U-diag(d)G supplies rank199. Static uses ordinary FP32 rank200 SVD of U. Sqrt factors. These are initializations, not evidence of functional relevance.",
+  "data": {
+    "source": "Original S1 FIT327QA/325 known groups from the frozen SPLIT, never original DEV or future FIT for fitting/statistics.",
+    "group_order": "SHA256('42:gate-response-group:'+group); representative min SHA256('42:gate-response-representative:'+id). First32 groups fit, next16 feature-check; one QA each.",
+    "capture": "One common teacher-forced original-parent decoder pass per48QA, original answer_loss target policy (512 answer tokens plus EOS), stopped by the last MLP capture hook before output head. No NLL calculated. Same up-to64 positions across all24 layers, lowest SHA256('42:gate-response-position:'+id+':'+position), sorted back to sequence order. No truncation of input/image to obtain samples.",
+    "features": "Sample original MLP input x and complete original block output h, FP16 CPU. At most264241152 tensor bytes (48*64*896*2 sides*2 bytes*24). Hard payload cap335544320 bytes checked before allocation. Real storage, metadata, RSS and process peaks separate.",
+    "fitting": "Original unadapted parent only; no formal1313 teacher, no old trained/compressed checkpoint, no future-task optimization. Both arms use exactly the same fixed sampled states and h targets.",
+    "evaluation": "Original100 already explored DEV per arm, 200 new generations. Copy existing verified parent score scalars only after parent state digest, runtime/input source hashes, exact IDs/refs and per-ID prepared input SHA bind. No parent rescore/generation; binding failure stops rather than substitutes a new reference. TEST0."
+  },
+  "fit": {
+    "epochs": 4, "batch_states": 128, "lr": 0.0001, "seed": 42,
+    "optimizer": "HostAdamW betas(.9,.999), eps1e-8, zero decay; fresh per layer; constant LR; no schedule/search.",
+    "loss": "MSE of complete block output after original gate and down, divided by frozen mean squared fit target energy clamped1e-12; each sampled state equally weighted. Held feature set before/after is observation only, no selection or early stopping.",
+    "precision": "Frozen parent FP16, trainable factors/d FP32 masters, outer CUDA FP16 autocast. Row scale is explicitly cast to gate output dtype so elementwise path stays FP16. GradScaler init1, clip1, nonfinite/skip fails. Final factors/d FP16; actual complete model saved, all fitting references dropped, strict whole graph reload before generation.",
+    "updates": "Per arm 24*4*ceil(number of fit states/128), at most1536 block optimizer updates. This is additional local fitting, not87 continual-learning steps or untrained compression. No full-model backward or q/v update."
+  },
+  "primary": {
+    "cost": "Actual complete Reuse weight coefficients <=816728096 and below893675552 parent; all mandatory weights/buffers and shared storage counted.",
+    "quality": "Reuse DEV five-domain macro strictly above fitted Static AND each of five domain point F1 at least the original unadapted parent. Local feature MSE alone never passes.",
+    "positive": "Retain this compact starting carrier for a subsequent finite-budget continual-adaptation necessity review. Not a complete framework, not superiority to trained strong baselines, no automatic1213/1313/21454 or Ours.",
+    "negative": "Close these fixed carrier/fitting conditions; no rank/LR/recovery/QA/cap search or old branch revival. A negative result does not refute every gate-reuse or shared model.",
+    "uncertainty": "DEV already explored, single training seed,20QA/domain89known groups; no noninferiority/equivalence/stability/significance claim, no newly held-out claim or new bootstrap."
+  },
+  "budget": {
+    "phases": {"init": 1200, "Static": 2400, "Reuse": 2400},
+    "total_model_seconds": 6000,
+    "scope": "Loading/base checks/common capture/SVD/fitting/save/reload/200generation/resources included; tiny admission, independent verification, transport and all history additional. Not a user-imposed or1%-defined budget and not equal total compute to baselines.",
+    "resources": "One genuinely free OLD card, same physical card across init/Static/Reuse. Respect others and formal baselines. Restart=no, KillMode=process, no enable.",
+    "stop": "Any first STARTED failure/interruption/nonfinite/timeout closes the entire fixed point; no resume/extension/automatic version. Only preSTARTED resource-change exit75 is unattempted waiting. Independent own-identity watchdog."
+  },
+  "proof": "Only after all COMPLETE and successful observed exits, unique original-score AST verification of both100 predictions, IDs/fullrefs/preparedinputs and parent bindings, SHA/physical layout/reload/state invariance, capture/sampling/disjoint groups, true fitting updates and costs. Never read partial quality or rerun old score/bootstrap. No QA text, images, model weights, checkpoints, keys or author source in Git."
+}

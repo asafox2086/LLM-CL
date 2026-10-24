@@ -1,0 +1,76 @@
+{
+  "decision": "accept_gate_response_reuse_source_for_single_tiny_gate_and_metadata_only",
+  "model_admission": false,
+  "no_model_admission": true,
+  "sources": {
+    "core.py": "8cb5c525636e6a33011821115d6502607ac479dd95d41c1a272aa4cbcf3e652a",
+    "common.py": "01aa791dd705650f6da2a318de03b0d3d42d0565f929012ba81e40eac6f34fe1",
+    "worker.py": "698b57f0250d317a98a2a7a8687f0fcd0c58f58f69e94b426c6c5cf0aa89b0dd",
+    "freeze.py": "5906ce8d2732a04ef650c9feb01724f6ef78666643fff81e86956de8a2f1d223",
+    "dispatch.py": "e973049d6ce46e6086f4002cfbf2d1f38c6ff669d38b48969686c3144b2c38f9"
+  },
+  "sources_sha256": {
+    "exp/gate_response_reuse_20261024/v1/core.py": "8cb5c525636e6a33011821115d6502607ac479dd95d41c1a272aa4cbcf3e652a",
+    "exp/gate_response_reuse_20261024/v1/common.py": "01aa791dd705650f6da2a318de03b0d3d42d0565f929012ba81e40eac6f34fe1",
+    "exp/gate_response_reuse_20261024/v1/worker.py": "698b57f0250d317a98a2a7a8687f0fcd0c58f58f69e94b426c6c5cf0aa89b0dd",
+    "exp/gate_response_reuse_20261024/v1/freeze.py": "5906ce8d2732a04ef650c9feb01724f6ef78666643fff81e86956de8a2f1d223",
+    "exp/gate_response_reuse_20261024/v1/dispatch.py": "e973049d6ce46e6086f4002cfbf2d1f38c6ff669d38b48969686c3144b2c38f9"
+  },
+  "protocol_sha256": "8b21e1fffe8c63844a23b1c57c565da1a288ed8496724e3a971641d77aac153d",
+  "necessity_review_sha256": "5929d56f6079e587a3af029e2f16094b7c4166a922b00c825820431b18ef4a16",
+  "parent_reference_expected_sha256": {
+    "parent_reference/VERIFIED.json": "da6715c564bfe96bdd0a3ef49bba2ebab01860d5b6a013aaaf634a2a35e3496f",
+    "parent_reference/init_COMPLETE.json": "c53b5c10669496aaac80b7570c4f2b7e011cc4886ac1b0b96fa19a17abf3e1f4",
+    "parent_reference/READY.json": "d920df2595bd174e1816a5ef1a37198a84731fd1c7827f034d1ed4d1f7845928",
+    "parent_reference/initializations.json": "d243070ba8f78d019909888706e5549a3dc02c710a90f5cf53dcd145717c4c18",
+    "parent_reference/parent.jsonl": "4a531d2aa088697eaa7d8bf42c76916d9e8480bf75987f72c90b99f5a85bd321"
+  },
+  "dependencies_read_sha256": {
+    "exp/two_backbone_native_cl_20261017_v2/methods.py": "e5bd8f51690b006274ed5adcfa4ef3b1a2c3b0f1d79476d948b71d1cfec41c5b",
+    "exp/two_backbone_native_cl_20261017_v2/runtime_utils.py": "4f5c4a34be046c29cfbcdaa4b2957faa907684872ba69083bdef53136a851240",
+    "exp/two_backbone_native_cl_20261017_v2/onevision_bridge.py": "f3b1dd38af3b58dbfa69073da698ea2bf39a3a11850fb1069a80e38d0e3669a9",
+    "exp/two_backbone_native_cl_20261017_v2/frozen_vision.py": "8211651e92d17019f6ce6cf9615df7f6b5fcaeecc765aec4acdf916c448a35bd",
+    "exp/two_backbone_native_cl_20261017_v2/host_adam.py": "5e733e6b87c12eb9331ff23e8919a142f1861a2beec82ec8b0361d878b9aec8c",
+    "exp/two_backbone_native_cl_20261017_v2/resource_monitor.py": "a161c8a82bf762622795f64210c95164fb905c6fa80572b35ae5ee3dd7146533",
+    "exp/two_backbone_native_cl_20261017_v2/retrieval.py": "7d7a9dd6cb223bf96cd9ab3499a4ddf69f8fbb60940d80db84582ad518f5c133"
+  },
+  "allowed_scope": "Exact-byte transport, one new tiny synthetic CPU gate and metadata freeze only. Actual pretrained model, QA capture, SVD/fitting on real weights, DEV generation and activation require a separate admission based on the resulting evidence.",
+  "findings": [
+    "Carrier retains only original gate/down and act_fn plus new thin left/right and optional row_scale parameters. No original up module is retained. The same single gate projection result is used by both the nonlinear gate and the Reuse value path.",
+    "Initialization is rowwise U/G regression with declared denominator clamp and FP32 residual SVD. Actual fitting now installs FP32 masters directly, freezes the overall model and enables only the current layer factors/d; it does not round to FP16 and then promote before fitting.",
+    "Selection uses the fixed original FIT IDs, known groups and deterministic representatives: first32 fit and next16 check. Capture follows the original answer_loss target policy, samples at most64 fixed positions, checks projected payload before CPU allocation, and interrupts after the last MLP hook before the output head.",
+    "Both arms load the same sealed sampled x/h and use the same 4-epoch/128-state/constant-LR normalized complete-block MSE. Held features are observations only. Durable per-update records support actual optimizer steps, finite parameters/gradients, coordinate counts and CPU moment bytes.",
+    "The final factors/d are cast to FP16. The complete package contains the actual compact state, and a freshly constructed factorized architecture strictly reloads it; layouts and full parameter/buffer digests must match before generation and remain unchanged during generation.",
+    "The copied parent is bound to the fixed existing VERIFIED, its COMPLETE, initialization digest, parent prediction SHA and old READY. Historical runtime/processor sources are checked, and every new evaluation input digest, ID/reference and generation cap must match the original parent record.",
+    "The unique verifier now uses original token_f1 for both new arms, consistent with copied parent F1. It runs only after all three COMPLETE/successful exits, requires fixed mandatory file sets, exact fitting schedules, physical layouts/package metadata, resource PID and terminal phase, and full 100-ID/5-domain coverage.",
+    "The controller and worker require a separate model-admission review bound to READY. The controller selects one genuinely free OLD GPU, retains it across phases, applies independent 1200/2400/2400 deadlines, and signals only identity-confirmed own isolated process groups.",
+    "The tiny source exercises one gate call, explicit carrier arithmetic, nonzero finite training gradients with frozen originals, four updates, absence of up keys, actual serialization and strict whole-Qwen reload. No real model or data was executed in this review."
+  ],
+  "resolved_findings": [
+    "Replaced accidental rougeL lookup with token_f1; no old score was modified or rerun.",
+    "Aligned worker initialization with the declared FP32-master path and the tiny gate.",
+    "Added exact required init/arm file sets, resource start/end/PID, fitting-summary/schedule and final checkpoint metadata validation.",
+    "Final package SHA is retained after the actual save and reused for COMPLETE generation rather than immediately hashing the same package again."
+  ],
+  "limitations": [
+    "This is source acceptance, not an executed CPU gate or model admission. No Torch import, module execution, QA, model, score or bootstrap was performed by this reviewer.",
+    "CPU FP32 gate success cannot validate actual CUDA FP16 numerical stability, large-model time/memory, or answering quality.",
+    "Complete coefficient counts remain expectations until real layouts are checked. Reuse is21504 coefficients smaller than Static; the comparison is near-matched, not exact-budget or isolated optimization causality.",
+    "Keeping G/down does not prove semantic correspondence or preservation of actual gates after upstream changes. Fit/check positions are correlated states, not additional independent images.",
+    "Local held-feature MSE cannot authorize continuing. The real reloaded whole-model F1 must satisfy Reuse>Static macro and the fixed five-domain unadapted-parent floor.",
+    "Input/digest binding failure stops rather than silently replacing or rescoring the parent reference. Do not restore old compressed checkpoints or trajectories.",
+    "One explored DEV seed is not a stability/equivalence/significance or novelty claim. A positive compact starting point would require a separate subsequent adaptation decision; first failure closes the present point without search."
+  ],
+  "required_changes": [],
+  "next_step": "Execute only the single reviewed tiny synthetic gate and metadata freeze on the exact transported bytes; return those artifacts for the separate actual-model admission.",
+  "previous_source_review_sha256": "bedbc376e75a563624ddb5d9717a53b0e4ba9e4b68e0f7dd900e0c93a3989cb8",
+  "incremental_review": {
+    "scope": "Only the four added all-case COMPLETE/EXIT preconditions at common.verify entry; removing those exact four lines reproduces the previously accepted common.py SHA.",
+    "previous_common_sha256": "6955a6cf0a9c69a09fa9161d3bcae0f5810433b42fc48acefa3b1eac18bfd8d4",
+    "current_common_sha256": "01aa791dd705650f6da2a318de03b0d3d42d0565f929012ba81e40eac6f34fe1",
+    "finding": "All three phases must have COMPLETE=true, subprocess returncode0 and identity_after=None before VERIFY_STARTED or any scoring. This strengthens the already accepted completion contract without changing score arithmetic, data, science or execution scope.",
+    "decision_unchanged": true,
+    "model_admission": false,
+    "execution_performed": false
+  }
+}

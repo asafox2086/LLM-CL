@@ -1,3 +1,11 @@
+# 2026-10-24：gate响应复用的独立紧凑起点对照已准入，尚未激活
+
+- gate_response_reuse_v1的PROTOCOL/NECESSITY_REVIEW/SOURCE_REVIEW/CPU_GATE/READY/ADMISSION_REVIEW为新独立点。旧FFN角色两流和其它分支保持关闭，不恢复旧CP/worker。当前新点是起点功能承接，非已经成功的新框架或冷启动因果。
+- 保留原G/D，Reuse物理删U，以d乘同一次Gx加r199残差替代；Static同样局部功能拟合的独立r200为必要对照，并非旧连续q/v条件救跑。完整设计816706592对816728096，Static多21504公开、不padding；Gx真复用，完整包不藏U。是否保质未知。
+- 原S1 FIT固定32组拟合/16组feature观察，共48QA各一次教师decoder捕获，只存至多64抽样位置x/h，载荷上限320MiB非进程内存限。每层4遍/128状态/固定1e-4拟合原G/D后的h，无未来FIT/正式teacher/旧训练CP。两完整图物理重载后各100原DEV生成；父100只按原VERIFIED/完整digest/源与逐ID输入SHA绑定复制既标量，不重评分或补跑。
+- 实际完整权重/预算/完整性过且Reuse宏高Static、五域点F1均不低未适应父才保留作后续适应必要性评审；局部MSE胜或击败崩坏对照不足，不称非劣/原创/胜强参照。无自动持续训练/1313/21454/Ours。
+- 只OLD一真正空卡，init1200/Static2400/Reuse2400秒累计6000模型秒，包含所有加载/捕获/SVD/拟合/保存重载/生成观察；准入/核验/运输/历史另计。首次STARTED后失败/超时/中断即固定点关，不续CP/延时/自动版本/rank/LR搜索。发布时尚未激活，以后看ACTIVATION/真实STARTED/proof，不将旧PID/资源状态当live。两机基线/他人资源保全，目标未实现。
+
 # 2026-10-24：同预算FFN角色保留两完整流程结束，质量阴性关闭固定点
 
 - ffn_role_retention_v1的VERIFIED/OUTCOME/INPUT_BINDING/RESULT_REVIEW/DECISION/RESULT_PUBLICATION为最新终态；VERIFIED da6715c564bfe96bdd0a3ef49bba2ebab01860d5b6a013aaaf634a2a35e3496f、OUTCOME3b69f6b64f8ad7164504b15b560ee9a9397bfc40071ff4f4f60b915758fcf328、输入核对793cd3a6a3ff3d743fbf6c92bf8d15dfc4e164833cb43a364997c1753e24db61、独立review22bab1827f74619f67e3edb74804d7a9b89fb2206d40c63dc43ffac6798e477c。五科学源/PROTOCOL/READY d920df25...原字节不改；唯一评分/核验及两个小消费者已完成，不重模型/评分/bootstrap/大CP hash。
