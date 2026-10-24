@@ -1,0 +1,78 @@
+{
+  "decision": "accept_sealed_literal_response_profile_only_no_model_admission",
+  "evidence_sha256": "a108efa50b356245372e015e688eaadfb7136de296d8609bd7f8674c733b2ae3",
+  "consumer_sha256": "c1cc328e185e36f01cc872dcd6ad5e7a95ae3125a3be9b3c5e5ac02bb491d2c5",
+  "question_sha256": "dd01ccf78cf4e503fca14d99299f2cb71d3ad946415b7b4589dfba724e76d564",
+  "execution_sha256": "846f9186b1d42b98fa7e5524efd0c1c6c4836116cd5bb6ce6589d5f991dcb0a8",
+  "reviewer_correction": {
+    "prior_claim": "The reviewer incorrectly read traffic modal_reference_set_count as 2123 and suggested a reference-contract anomaly.",
+    "correct_value": {
+      "SeqFT_LoRA": 1,
+      "OSFT": 1,
+      "PASs_MoE": 1
+    },
+    "conclusion": "The claimed anomaly is withdrawn. The evidence did not change. This reviewer error led to an unnecessary source-row investigation; no further parquet investigation is warranted by this count.",
+    "parent_reported_limited_check": "Parent reports six fixed traffic rows with distinct references and exact original TEST answers/answer/metadata agreement; this review does not independently reread those original rows."
+  },
+  "independently_read_nested_counts": {
+    "finance": {
+      "SeqFT_LoRA": {
+        "QA": 2233,
+        "existing_zero_F1": 1837,
+        "zero_F1_covered_by_any_flag": 290,
+        "modal_prediction_count": 615,
+        "modal_prediction_zero_F1": 483,
+        "modal_reference_set_count": 517
+      },
+      "OSFT": {
+        "QA": 2233,
+        "existing_zero_F1": 1673,
+        "zero_F1_covered_by_any_flag": 40,
+        "modal_prediction_count": 1079,
+        "modal_prediction_zero_F1": 819,
+        "modal_reference_set_count": 517
+      },
+      "PASs_MoE": {
+        "QA": 2233,
+        "existing_zero_F1": 1649,
+        "zero_F1_covered_by_any_flag": 12,
+        "modal_prediction_count": 1669,
+        "modal_prediction_zero_F1": 1185,
+        "modal_reference_set_count": 517
+      }
+    },
+    "PAS_T14_final": {
+      "QA": 2947,
+      "modal_prediction_count": 1298,
+      "modal_prediction_zero_F1": 1213,
+      "existing_zero_F1": 2337,
+      "zero_F1_covered_by_any_flag": 0
+    },
+    "PAS_traffic_at_generation_cap": {
+      "all": 203,
+      "zero_F1": 0,
+      "nonperfect_F1": 203
+    },
+    "bound_prediction_file_entries": 168
+  },
+  "findings": [
+    "PAS finance has 1669 modal normalized predictions among 2233 QA; 1185 of these are zero-F1. Its 1649 total zero-F1 rows have only 12 covered by the seven fixed literal detectors. OSFT corresponding counts are 1079/819 modal/zero, 1673 total zero and 40 covered.",
+    "Parent reports that the fixed modal raw responses are A for PAS finance and B for OSFT/Seq finance, and 1 for PAS T14. The aggregate evidence independently supports their counts, but these raw literals were not independently reread by this reviewer.",
+    "This localizes an important answer-selection/concentration failure beyond the tested empty/refusal/language/format flags. It does not identify whether prior bias, visual understanding, numerical reasoning, answer selection, training distribution or optimization caused it.",
+    "Geography zero-F1 rows are not covered by these seven detectors. This does not exclude other format or input problems, and short legitimate labels may naturally concentrate.",
+    "PAS traffic has 203 cap-equal outputs among 2123 and no original zero-F1 outputs; cap equality alone is not proven truncation, and nonzero lexical overlap is not certified semantic correctness.",
+    "No traffic reference-binding fault is established. All three actual modal_reference_set_count values are 1, not 2123.",
+    "The new counts describe existing sealed answers and their stage timing; they do not establish parameter-space causes, knowledge content, method novelty or a compact model success."
+  ],
+  "next_use": "Use the existing phase/task breakdown and fixed modal-answer examples to prioritize a specific answer-selection diagnostic; do not tune prompts, labels, routes, ranks or recipes on these TEST results. No new model or extended source scan is admitted by this review.",
+  "limitations": [
+    "Only the existing EVIDENCE, EXECUTION and reviewed source/question text were consumed; no original predictions, QA, model weights, tensors or parquet were reread for this result review.",
+    "No consumer, score, bootstrap, model, processor, generation, optimizer or GPU operation was executed.",
+    "Parent-reported fixed-example literals and six-row source checks remain attributed observations rather than independently reverified raw data.",
+    "Public table labels should state actual metric names and values or 未测; CPU/GPU execution conditions remain internal provenance and are not quality/deployment metrics."
+  ],
+  "no_model_admission": true,
+  "no_retry_or_sparse_activation": true,
+  "no_new_QA_tensor_score_bootstrap": true,
+  "required_changes": []
+}

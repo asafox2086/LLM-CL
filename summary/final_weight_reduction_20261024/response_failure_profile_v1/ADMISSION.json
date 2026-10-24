@@ -1,0 +1,38 @@
+{
+  "decision": "accept_single_sealed_response_profile_consumer",
+  "consumer_sha256": "c1cc328e185e36f01cc872dcd6ad5e7a95ae3125a3be9b3c5e5ac02bb491d2c5",
+  "question_sha256": "dd01ccf78cf4e503fca14d99299f2cb71d3ad946415b7b4589dfba724e76d564",
+  "methods": [
+    "SeqFT_LoRA",
+    "OSFT",
+    "PASs_MoE"
+  ],
+  "phases": [
+    "initial S0",
+    "each task acquired",
+    "final S19"
+  ],
+  "host": "OLD",
+  "consumer_seconds": 120,
+  "outer_supervision_seconds": 180,
+  "scope": "One standard-library consumption of the three pinned accepted proof bundles and their SHA-bound existing prediction rows; no model, processor, weights, new QA, rescoring or bootstrap.",
+  "findings": [
+    "The consumer pins the three accepted proof hashes and requires candidate method/backbone identity before reading prediction rows; each prediction SHA, count, ID/order, reference set and original generation cap is checked.",
+    "Existing token_f1 scalars are copied and aggregated; no score function is called. S0/acquired/final and all five domains are reported without selecting a successful subset.",
+    "The even-sample median now averages the two middle score-token lengths.",
+    "Seven fixed nonexclusive literal detectors, answer concentration and acquired-to-final timing have a new use on these complete formal runs; previous limited-cohort image/language/format audits are not rerun.",
+    "Public output excludes raw answer/reference text; fixed example selection is written only under OLD .deployment. Cached derived features do not replace the original file SHA check."
+  ],
+  "limitations": [
+    "Literal refusal/language/numeric/letter/diversity flags are incomplete descriptive detectors, not certified semantic errors or causes. Low coverage excludes only coverage by these seven rules, not the wider explanations.",
+    "Output token count equal to generation cap is not proof of truncation without saved EOS/terminal IDs.",
+    "Normalized modal-answer concentration and token-length statistics do not prove semantic collapse; phase alignment does not establish why a change happened.",
+    "This is post-hoc sealed TEST failure diagnosis, not permission to select parameters, prompts, modules, models or a new recipe using TEST.",
+    "The consumer has a 120-second SIGALRM on OLD; the requested 180-second outer process supervision remains an execution requirement, not an inspected implementation in this two-file review.",
+    "The fixed accepted proof hashes were supplied as established provenance; this review does not rerun the original verifier or rehash large model assets."
+  ],
+  "no_model_admission": true,
+  "no_new_QA_tensor_score_bootstrap": true,
+  "required_changes": [],
+  "review_operations": "Read only the question and consumer, inspect the three requested fixes, and hash these two local files with the standard library. Did not execute the consumer or import it."
+}
