@@ -1,0 +1,22 @@
+{
+  "unix": 1792859537.147756,
+  "unit": "llmcl-ffn-static-delete-20261025-asset-repair.service",
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit=llmcl-ffn-static-delete-20261025-asset-repair.service",
+    "--property=Restart=no",
+    "--property=KillMode=process",
+    "--property=RuntimeMaxSec=10661",
+    "--property=TimeoutStopSec=5",
+    "--working-directory=/data2/liyapeng_grp/program/LLMCL",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "-u",
+    "/data2/liyapeng_grp/program/LLMCL/exp/ffn_static_delete_20261025/v1/worker.py",
+    "1"
+  ],
+  "external_absolute_deadline_unix": 1792870198.6338136,
+  "remaining_seconds": 10661,
+  "ready_sha256": "d49ea5b47eb836ae571683abd28fe91f8746f8ab74f9f702ac84e7482fb89ac9",
+  "stderr": "Running as unit: llmcl-ffn-static-delete-20261025-asset-repair.service\n"
+}

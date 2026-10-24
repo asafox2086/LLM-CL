@@ -1,0 +1,24 @@
+{
+  "unix": 1792859961.0584927,
+  "unit": "llmcl-ffn-static-delete-20261025-count-storage.service",
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit=llmcl-ffn-static-delete-20261025-count-storage.service",
+    "--property=Restart=no",
+    "--property=KillMode=process",
+    "--property=RuntimeMaxSec=10237",
+    "--property=TimeoutStopSec=5",
+    "--setenv=LLMCL_ROOT=/data2/liyapeng_grp/program/LLMCL",
+    "--setenv=LLMCL_REPORT=/tmp/llmcl-ffn-static-delete-1084-hvo3pwbz/report",
+    "--setenv=LLMCL_WORK=/tmp/llmcl-ffn-static-delete-1084-hvo3pwbz/private",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "-u",
+    "/tmp/llmcl-ffn-static-delete-1084-hvo3pwbz/code/worker.py",
+    "1"
+  ],
+  "external_absolute_deadline_unix": 1792870198.6338136,
+  "remaining_seconds": 10237,
+  "stderr": "Running as unit: llmcl-ffn-static-delete-20261025-count-storage.service\n",
+  "scratch": "/tmp/llmcl-ffn-static-delete-1084-hvo3pwbz"
+}

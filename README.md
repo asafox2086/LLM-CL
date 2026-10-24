@@ -1,3 +1,11 @@
+# 2026-10-25后续：静态删除诊断已进入模型工作，旧刷新对照故障终止
+
+新诊断固定删除8/24个完整语言FFN，设计节省完整权重104595456系数／199.5MiB（11.704%），比较域最坏答案损失代理与BI定位，并把同一集合用于适应前后。实际仍待完整质量与内存数据，不能把设计值填入正式表。[协议、审查、两次模型前故障及显式修正](summary/ffn_static_delete_20261025/v1/README.md)保存全部记录。当前实查worker3758372/start755838143/UID1084/PGID3758372在OLD GPU1真实运行；输出使用独立/tmp盘，首次启动绝对截止不重置。这是时点状态，不能永久照抄。
+
+原OSFT阶段刷新对照已故障终止：北京时间2026-10-25 00:40左右实查unit failed/exit1，controller3728445、Refresh3744724均无；Refresh.log明确Errno122 Disk quota exceeded。prefix与Fixed已完整结束，Refresh无COMPLETE/EXIT/VERIFIED，三个故障收据.tmp均空，旧queue仍写running已失真。没有完整两臂质量，结果消费者未执行，不能发布刷新机制结论，不重启或读partial。[终态证据](summary/ffn_static_delete_20261025/v1/STAGE_REFRESH_TERMINAL_OBSERVED.json)。整盘剩余2.5TiB不等于账户可写：OLD账户已用701GiB／硬配额700GiB。本轮没有删除旧数据。
+
+正式已核验仍为8/16；新机Qwen基线保全。以下交接观察与“当前”描述按各自时间理解。
+
 # 2026-10-25新会话接手：已核查交接与两机状态
 
 人类已在新会话重新授权以1%数据下的各域Answer F1与端侧完整权重、GPU/内存优势为研究目标，并要求子agent评判。此前停止记录保留为历史；未恢复旧自动跟进、未重启已关闭实验。

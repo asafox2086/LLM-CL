@@ -1,0 +1,80 @@
+{
+  "unix": 1792859982.0007987,
+  "boot": "5b259bd9-d0cb-4a1d-8b90-6e6107080488",
+  "service": "MainPID=3758372\nExecMainStatus=0\nActiveState=active\nSubState=running\n",
+  "STARTED.json": {
+    "identity": {
+      "pid": 3758372,
+      "startticks": "755838143",
+      "uid": 1084,
+      "pgid": 3758372
+    },
+    "GPU": 1,
+    "unix": 1792859961.2819123,
+    "ready_sha256": "0bf1b30ec7f03070352d7e5cd3006e761c3533efcd2bc97dbb334d36d5cf4f38",
+    "inventory": {
+      "0": {
+        "uuid": "GPU-783c5d2c-a6f8-9594-472c-4ab9fe54d3b1",
+        "memory_MiB": 8,
+        "utilization": 0,
+        "owners": []
+      },
+      "1": {
+        "uuid": "GPU-3c72e4ce-0896-0b40-d610-be585d2bb51e",
+        "memory_MiB": 8,
+        "utilization": 0,
+        "owners": []
+      },
+      "2": {
+        "uuid": "GPU-25d3cb92-fa97-a722-f9cd-c012bad046a8",
+        "memory_MiB": 8,
+        "utilization": 0,
+        "owners": []
+      },
+      "3": {
+        "uuid": "GPU-fb9fc5ed-bf92-b947-d8c5-302296c4a447",
+        "memory_MiB": 8,
+        "utilization": 0,
+        "owners": []
+      }
+    }
+  },
+  "ACTIVATION.json": {
+    "unix": 1792859961.0584927,
+    "unit": "llmcl-ffn-static-delete-20261025-count-storage.service",
+    "command": [
+      "systemd-run",
+      "--user",
+      "--unit=llmcl-ffn-static-delete-20261025-count-storage.service",
+      "--property=Restart=no",
+      "--property=KillMode=process",
+      "--property=RuntimeMaxSec=10237",
+      "--property=TimeoutStopSec=5",
+      "--setenv=LLMCL_ROOT=/data2/liyapeng_grp/program/LLMCL",
+      "--setenv=LLMCL_REPORT=/tmp/llmcl-ffn-static-delete-1084-hvo3pwbz/report",
+      "--setenv=LLMCL_WORK=/tmp/llmcl-ffn-static-delete-1084-hvo3pwbz/private",
+      "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+      "-u",
+      "/tmp/llmcl-ffn-static-delete-1084-hvo3pwbz/code/worker.py",
+      "1"
+    ],
+    "external_absolute_deadline_unix": 1792870198.6338136,
+    "remaining_seconds": 10237,
+    "stderr": "Running as unit: llmcl-ffn-static-delete-20261025-count-storage.service\n",
+    "scratch": "/tmp/llmcl-ffn-static-delete-1084-hvo3pwbz"
+  },
+  "COMPLETE": false,
+  "actual_identity": {
+    "pid": 3758372,
+    "startticks": "755838143",
+    "uid": 1084,
+    "pgid": 3758372
+  },
+  "gpu": "3758372, GPU-3c72e4ce-0896-0b40-d610-be585d2bb51e, 1960 MiB\n\n",
+  "work_files": [
+    {
+      "name": "selection_ids.json",
+      "bytes": 3710
+    }
+  ]
+}

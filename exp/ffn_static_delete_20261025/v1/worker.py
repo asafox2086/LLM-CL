@@ -2,9 +2,9 @@
 from pathlib import Path
 import ast,collections,gc,hashlib,importlib.util,json,os,pickle,signal,subprocess,sys,time,traceback
 HERE=Path(__file__).resolve().parent
-ROOT=HERE.parents[2]
-REPORT=ROOT/'summary/ffn_static_delete_20261025/v1'
-WORK=HERE/'private'
+ROOT=Path(os.environ.get('LLMCL_ROOT',HERE.parents[2]))
+REPORT=Path(os.environ.get('LLMCL_REPORT',ROOT/'summary/ffn_static_delete_20261025/v1'))
+WORK=Path(os.environ.get('LLMCL_WORK',HERE/'private'))
 ASSET=ROOT/'.deployment/paired_image_support_20261024_view'
 PORT=ASSET/'exp/two_backbone_native_cl_20261017_v2'
 BASE=ASSET/'model/LLaVA-OneVision-Qwen2-0.5B-OV'
@@ -16,7 +16,7 @@ def write(p,v):
  with p.open('x',encoding='utf8') as f:json.dump(v,f,ensure_ascii=False,indent=2,allow_nan=False);f.write('\n')
 def main(gpu):
  ready=json.loads((REPORT/'READY.json').read_bytes())
- assert ready['admitted'] and all(sha(ROOT/n)==h for n,h in ready['sources'].items())
+ assert ready['admitted'] and all(sha(HERE/Path(n).name)==h for n,h in ready['sources'].items())
  assert sha(REPORT/'PROTOCOL.md')==ready['protocol_sha256']
  sys.path.insert(0,str(ASSET/'exp/paired_image_support_20261024/v1'))
  spec=importlib.util.spec_from_file_location('old_pair_common',ASSET/'exp/paired_image_support_20261024/v1/common.py')
@@ -40,7 +40,8 @@ def main(gpu):
  assert sha(study.REPORT/'SPLIT.json')==ready['split_sha256'] and split==json.loads((study.REPORT/'SPLIT.json').read_bytes())
  tasks={t['task']:t for t in manifest['tasks']}
  calibration=[(t,sorted(fit[k],key=lambda r:hashlib.sha256(('FFN-delete-20261025:'+r['id']).encode()).digest())[:2]) for k,t in tasks.items()]
- assert sum(len(rows) for _,rows in calibration)==38 and all(len(rows)==2 for _,rows in calibration)
+ assert sum(len(rows) for _,rows in calibration)==37 and all(len(rows)==min(2,len(fit[t['task']])) for t,rows in calibration)
+ assert {str(t['task']):[r['id'] for r in rows] for t,rows in calibration}==ready['calibration_ids']
  devrows=[(t,r) for k,t in tasks.items() for r in dev[k]];assert len(devrows)==100
  WORK.mkdir();write(WORK/'selection_ids.json',dict(calibration={str(t['task']):[r['id'] for r in rr] for t,rr in calibration},DEV=[r['id'] for _,r in devrows]))
  fv.LIMIT=0 # No feature cache in any condition, including matched GPU-memory workloads.
@@ -179,7 +180,7 @@ def main(gpu):
    results[key]={d:dict(F1=sum(x['F1'] for x in records if x['domain']==d)/20,NLL=sum(x['NLL'] for x in records if x['domain']==d)/20) for d in DOMAINS}
    fixed_memory[key]=fixed;del model;clear()
    assert torch.cuda.memory_allocated()<1024**2,'Unexpected retained graph after inference release'
- write(REPORT/'COMPLETE.json',dict(complete=True,identity=who,ready_sha256=sha(REPORT/'READY.json'),seconds=time.monotonic()-start,selection=selected,results=results,packages=packages,fixed_memory=fixed_memory,new_generations=new_generations,locator_backwards=38,training_updates=0,TEST_QA=0,not_framework_success=True,not_historical_S0_bitwise=True,files={p.name:sha(p) for p in WORK.glob('*.json')}))
+ write(REPORT/'COMPLETE.json',dict(complete=True,identity=who,ready_sha256=sha(REPORT/'READY.json'),seconds=time.monotonic()-start,selection=selected,results=results,packages=packages,fixed_memory=fixed_memory,new_generations=new_generations,locator_backwards=37,training_updates=0,TEST_QA=0,not_framework_success=True,not_historical_S0_bitwise=True,files={p.name:sha(p) for p in WORK.glob('*.json')}))
  signal.alarm(0)
 if __name__=='__main__':
  try:main(int(sys.argv[1]))
