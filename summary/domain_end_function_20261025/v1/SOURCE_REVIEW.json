@@ -1,0 +1,56 @@
+{
+  "accepted": true,
+  "reviewer": "baseline_review",
+  "scope": "Independent static review: one S19 zero-generation reconstruction control followed only on success by four fixed domain-end readouts. No actual restoration or model was executed by this review.",
+  "source_sha256": {
+    "worker.py": "51609a16199e9b7122fb19bbd09c36f9bd5cea27fa5ccc5a4ac7d891599613cb",
+    "controller.py": "47793d20b5788576ca1ce7434682cee0f602674de43a85dbb33d14c1aee247b7",
+    "snapshot_restore.py": "74afb8bc61a5f1015b89f3e16ee52308bfc9b077f79c0d5d0f8e4fcc0cd85137"
+  },
+  "inherited_helpers_must_match_sha256": {
+    "adaptation.py": "66d866a3a41e04df5c260ff84dd526c8084cc40f8f18caa7176e1c5d3e0cbc91",
+    "vision_interface.py": "90a9477a2ff821715c26b9af989db894e943d6f77062344fcfc09d1a200827e3",
+    "inherited_budget_core.py": "191a518a64e584e99f19007e6720019e9dc126c5b957839b716e95cef4cd9d91"
+  },
+  "protocol_sha256": "b8ef11d871e54d80b7c5a504cf9343195be269c7712e484e7a0da8207a1cdc6c",
+  "DOMAIN_MAP_projection_sha256": "de928466126553af79df4b5023c55951e8becd98630129dfb39822604dcd3151",
+  "prior_compact_VERIFIED_sha256": "24fe7263efa78dc6a95dfa3a413059dd39229dfce7f788da66d520e7e5d66a54",
+  "domain_boundaries": {
+    "natural": 1,
+    "medical": 11,
+    "geography": 15,
+    "finance": 16,
+    "traffic": 19
+  },
+  "boundary_evidence": "The local manifest projection agrees with the hash-bound original manifest, the sealed task/domain records and old domain audit. Worker and verifier independently recompute all boundaries from the actual manifest before accepting the new cohort.",
+  "checks": [
+    "Every phase starts a fresh original language base and installs only the fixed visual asset; the language digest matches the original unadapted base.",
+    "Each phase loads exactly one complete cumulative A/B snapshot; snapshot file SHA is checked after STARTED against the original train receipt. No addition of snapshots or folding on a previously folded base.",
+    "Snapshot helper checks all 96 canonical FP32 A/B keys, shapes, finiteness, 4399104 coordinates and 17596416 tensor bytes against the original stage adapter digest.",
+    "The immutable mask is defined by excluding fixed A/B names, preserving original frozen, visual and nonvisual-buffer digests before and after copying. A/B Parameter identity and pre-fold trainable names remain intact.",
+    "Worker explicitly binds STAGE_record.stage to the requested snapshot stage, then uses the original CPU FP32 fold and original FP16 storage.",
+    "The original adaptation/interface/BudgetQV bytes are reused; no repeated synthetic CPU gate is required. The actual S19 full digest/layout/visual/RoPE control is the sole new reconstruction control.",
+    "Controller completes control19 first and aborts on failure; every domain worker also checks its successful control digest before any generation.",
+    "Exactly the original 20 DEV per nontraffic domain, image SHA, prepared features/text, references and generation cap are checked. No historical peak selection or partial scoring.",
+    "All 5 phases share the selected OLD GPU and run serially, each with 180 seconds from its own STARTED, total 900 model seconds. No retries."
+  ],
+  "planned_requests": {
+    "control19_generations": 0,
+    "domain_end_generations": 80,
+    "new_scores": 80,
+    "training_updates": 0,
+    "backwards": 0,
+    "teacher_requests": 0,
+    "FIT_model_requests": 0,
+    "NLL_requests": 0,
+    "TEST_QA": 0
+  },
+  "limits": [
+    "Source acceptance is not proof that the real restoration control has passed; the S19 full-graph digest must match the already-sealed final graph before the 80 answers are attempted.",
+    "Only domain-end to S19 net changes are measured. Domain-end performance is not strictly just-acquired performance, particularly for multi-task medical/geography domains.",
+    "The full parent final score is a design target, not a matched-stage parent control. No unique forgetting/capacity/optimization cause or automatic training/bridge/rank rescue follows.",
+    "The old compact representation plus 87-update fixed point remains closed."
+  ],
+  "remote_access": false,
+  "new_model_or_gate_execution": false
+}
