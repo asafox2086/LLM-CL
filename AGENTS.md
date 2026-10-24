@@ -1,3 +1,9 @@
+# 2026-10-24：gate响应复用新对照已实际首次STARTED
+
+- gate_response_reuse_v1/ACTIVATION、PHASE_OBSERVED及init_STARTED为唯一新入口证据。2026-10-24T12:17:07UTC实际OLD controller3673028/start754263262、init worker3673048/start754263290、UID1084/隔离PGID同PID，boot5b259bd9...，GPU0；queue running/init，实际proc匹配，无COMPLETE/FAILURE/VERIFIED，未读partial质量。这是快照，以后核真实身份与proof，不永久live。
+- READY e0ed5ad2edb604bdb0c66c485b619bbc8378db40815784a7c8f76728aada6f0e冻结；准入c7051b0b...，发布dd15d41a的16白名单文件已推送逐字节镜像后才激活。init1200/Static2400/Reuse2400总6000模型秒首次预算已开始；同卡串行、首次故障即停、不恢复旧CP/延时/自动版本或CL。Restart=no/KillMode=process、不enable；激活前后实际其它GPU身份保全。
+- 唯一tiny门3.429852秒/监督4.320968秒重叠，不是质量或真实0.9B证明。运输wrapper嵌套换行解析失败发生OLD执行前、模型/门均0，修wrapper后38文件693780bytes成功；科学五源/READY未热改，门未重复。研究完整权重/原AnswerF1总目标未实现，旧cold-start并非所有基线共有，旧FFN角色/PAS/ShortFixed/稀疏等终态保留。
+
 # 2026-10-24：gate响应复用的独立紧凑起点对照已准入，尚未激活
 
 - gate_response_reuse_v1的PROTOCOL/NECESSITY_REVIEW/SOURCE_REVIEW/CPU_GATE/READY/ADMISSION_REVIEW为新独立点。旧FFN角色两流和其它分支保持关闭，不恢复旧CP/worker。当前新点是起点功能承接，非已经成功的新框架或冷启动因果。
