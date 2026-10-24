@@ -1,0 +1,58 @@
+{
+  "decision": "accept_single_four_state_diagnostic_activation",
+  "ready_sha256": "467ad42dfdcb755576962fd0acac2c622a075e7c7fef3dc7b6566c74351142c5",
+  "sources": {
+    "exp/paired_image_support_20261024/v1/common.py": "6e0897133f9cb1dbd2919a97360a6788d6229a805cba18928fb51d9c92ba51cb",
+    "exp/paired_image_support_20261024/v1/worker.py": "69567ffea0666100c4cf490b39be21c69c1e46763646ae1bcc497a81ab2d6912",
+    "exp/paired_image_support_20261024/v1/dispatch.py": "d3732a22dd8592b8e62f6359b51d749d1b5bd8733b01f946b629aaedd4a01583"
+  },
+  "files_sha256": {
+    "summary/final_weight_reduction_20261024/paired_image_support_diagnostic_v1/MODEL_READY.json": "467ad42dfdcb755576962fd0acac2c622a075e7c7fef3dc7b6566c74351142c5",
+    "summary/final_weight_reduction_20261024/paired_image_support_diagnostic_v1/MODEL_TRANSPORT.json": "b7f9d61b04266edd7e3037bf4c88a4eb674103c4cfe7e1be4a580357b8cdda9b",
+    "summary/final_weight_reduction_20261024/paired_image_support_diagnostic_v1/MODEL_FREEZE_EXECUTION.json": "b0c4b1d1117bd885e48dc161ff17c59fcdf9c7ab2ca4ccaa4b2b96afe1a5e178",
+    "summary/final_weight_reduction_20261024/paired_image_support_diagnostic_v1/MODEL_PROTOCOL.md": "88de9f5fc435821cb31e3959c80ea60dd5ae2f823a1916a6e81a379a5d476142",
+    "summary/final_weight_reduction_20261024/paired_image_support_diagnostic_v1/MODEL_NECESSITY_REVIEW.json": "9bb1769d426d4fae61fe378d3710585708982ebbce039d703f5137a8dbe88283",
+    "summary/final_weight_reduction_20261024/paired_image_support_diagnostic_v1/MODEL_SOURCE_REVIEW.json": "cb1e36c9ebe0417670f0ade095376593687d64660608c1839d692fa7c3f96d11",
+    "summary/final_weight_reduction_20261024/paired_image_support_diagnostic_v1/HOST_SELECTION_RECORD.json": "2d01f19a11b95dc5f4ac7d2ecd8962cb25afdfaa415962edb74824934da07182",
+    "summary/final_weight_reduction_20261024/paired_image_support_diagnostic_v1/PAIRING.json": "e55233a32679c12010bb10ed10fe14e269cd363cff375f870a3d0e9f751088e8",
+    "summary/final_weight_reduction_20261024/paired_image_support_diagnostic_v1/RESULT_REVIEW.json": "356e9e32d552e16f35896115a9e1ef16228145b4d62ce0f63c3605b801c0ff94"
+  },
+  "execution_host": "OLD",
+  "physical_GPU": 0,
+  "execution_root": "/data2/liyapeng_grp/program/LLMCL/.deployment/paired_image_support_20261024_view",
+  "execution_uid": 1084,
+  "states": [
+    "qv_before",
+    "qv_after",
+    "osft_before",
+    "osft_after"
+  ],
+  "NLL_requests_per_state": 122,
+  "NLL_requests_total": 488,
+  "state_seconds_cap": 1800,
+  "total_model_seconds_cap": 7200,
+  "scope": "Allow one serial fixed four-state inference-only diagnostic under this READY, using runtime owner checks on OLD physical GPU0. No training, generation, F1/bootstrap, compression run or other model is admitted.",
+  "checks": [
+    "Current three source hashes, protocol, necessity/source reviews and all READY evidence hashes agree.",
+    "Transport receipt reports 128 destination-matched files totaling 4986867201 bytes; its source/dependency/small-asset/CP maps reconcile with READY. Available local small dependencies were independently SHA-checked; no large payload was rehashed during review.",
+    "Each final checkpoint is bound to its accepted FIT-only case proof, stage19 metadata and transported byte count/SHA; original full proofs were consumed without re-verification or score reads.",
+    "Actual OLD metadata binds isolated execution root, UID1084, physical GPU0, Python interpreter, installed package-source hashes and versions. The freeze execution reports exit0 and no model requests.",
+    "The loss-AST digest reconciles with the specified tokenizer-only no-truncation change; frozen pairing and fixed five-domain equal summary remain intact."
+  ],
+  "limitations": [
+    "Metadata completion is not CUDA FP16, full-answer NLL, actual packed-layout, memory, runtime-budget or quality validation.",
+    "Base payload is a link to existing OLD weights; its expected SHA matches old READY, but the payload hash is intentionally deferred to each before-state worker inside the model budget. No claim of a new full-base verification is made here.",
+    "The original after graphs remain trained historical states evaluated through the current common OLD pipeline; reconstructed before states are not historical S0 bitwise reproductions.",
+    "Resource observations are snapshots. Dispatch and each worker must recheck physical-card ownership and availability, never evict other users or formal baselines.",
+    "The copied bytes and transport/freeze time are preparation costs, not a smaller model, inference-speed result or scientific mechanism finding."
+  ],
+  "mandatory_execution_boundaries": [
+    "All four states on this same OLD environment/card only; no host/device/back-end change to complete a partial result.",
+    "Validate actual donor provenance, caches, full targets, input/position/packed-layout and cross-state visual-feature digests. Any mismatch closes the whole fixed diagnostic; do not drop or replace pairs.",
+    "No extra warmup/calibration NLL calls. Each complete state has exactly122 and the complete diagnostic488, with original/wrong metrics and relative D reported together.",
+    "First actual STARTED followed by any failure, interruption, nonfinite, layout conflict or timeout closes the entire point. No rerun/resume/partial stitching or further numerical repair.",
+    "Read quality scalars only after all four states complete and exit; run only the frozen scalar verifier once. No automatic next model, compression choice, training or TEST tuning follows."
+  ],
+  "no_automatic_next_model": true,
+  "review_scope": "Consumed existing small metadata/receipts/proofs and source hashes; independently checked map consistency and the static loss AST only. No SSH, transport/freeze rerun, environment import, image/QA/prediction access, large-asset hash, model, score or bootstrap execution."
+}

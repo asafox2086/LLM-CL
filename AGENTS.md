@@ -1,3 +1,9 @@
+# 2026-10-24：四状态图文配对支持诊断已独立准入，全部使用OLD同一环境
+
+- 人类要求以可发表的紧凑新框架为中心。当前仍无已验证保质减重方法；本诊断只检验q/v与OSFT合法1213FIT轨迹相对当前重建起点的条件响应，不解释正式1313刚习得全部优势，不是新知识、参数因果或压缩收益。固定61QA/原图与错图/四状态共488NLL，0训练/生成/旧F1/新bootstrap；域内QA等权、总体五域等权，原图改善、错图变化和相对差中差D并列。
+- paired_image_support_diagnostic_v1的MODEL_PROTOCOL/MODEL_NECESSITY_REVIEW/MODEL_SOURCE_REVIEW/MODEL_READY/MODEL_ADMISSION_REVIEW为当前入口；exp/paired_image_support_20261024/v1三源冻结。全四状态OLD物理GPU0同环境、独立私有执行树，不混NEW结果；旧NEW静态方案/三源/审阅已保存NEW_HOST_STATIC历史，无旧NEW模型尝试。权威仍NEW main，OLD原源码/数据/模型/基线未覆盖；128文件约4.987GB逐SHA运输完成，旧base只读链接并在实际before加载内核原SHA。运输/元数据冻结不当科研收益。
+- 仅一次已准入实际诊断，独立systemd unit llmcl-onevision-paired-image-support-20261024.service；本条发布前尚未激活，以后看MODEL_ACTIVATION/实际proc/各state_STARTED与完整proof，不把历史状态当live。每状态STARTED至COMPLETE1800秒，总7200模型秒；首次STARTED后失败/中断/超时/布局冲突即关闭，不换回NEW补齐/重试/改配对。只有全部四态完整退出后唯一新标量verify；不读partial NLL。不自动训练或选压缩结构，所有旧失败/阴性分支不恢复。总目标未完成。
+
 # 2026-10-24：原图文配对支持诊断只完成覆盖检查，尚无模型机制结果
 
 - 人类重申论文型端侧新方法为判断中心：最终完整权重减少、原AnswerF1与功能替代证据为主，工程修通和统计不当创新。当前尚无已验证保质紧凑新框架。新paired_image_support_diagnostic_v1只完成一次原100DEV的固定同任务几何双射：61QA，医学13/4任务、遥感20/11组、交通18，自然6/金融4；事前覆盖投入门通过，不是语义、功效、质量或参数可删门。
