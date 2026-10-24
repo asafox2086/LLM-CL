@@ -1,0 +1,88 @@
+{
+  "unix": 1792858390.0865226,
+  "root": "/data2/liyapeng_grp/program/LLMCL",
+  "boot": "5b259bd9-d0cb-4a1d-8b90-6e6107080488",
+  "gpu": {
+    "returncode": 0,
+    "stdout": "0, GPU-783c5d2c-a6f8-9594-472c-4ab9fe54d3b1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB, 5032 MiB, 42 %\n1, GPU-3c72e4ce-0896-0b40-d610-be585d2bb51e, NVIDIA GeForce RTX 2080 Ti, 11264 MiB, 8 MiB, 0 %\n2, GPU-25d3cb92-fa97-a722-f9cd-c012bad046a8, NVIDIA GeForce RTX 2080 Ti, 11264 MiB, 8 MiB, 0 %\n3, GPU-fb9fc5ed-bf92-b947-d8c5-302296c4a447, NVIDIA GeForce RTX 2080 Ti, 11264 MiB, 8 MiB, 0 %\n\n",
+    "stderr": ""
+  },
+  "gpu_processes": {
+    "returncode": 0,
+    "stdout": "3744724, GPU-783c5d2c-a6f8-9594-472c-4ab9fe54d3b1, /data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python, 5024 MiB\n\n",
+    "stderr": ""
+  },
+  "units": {
+    "returncode": 0,
+    "stdout": "  UNIT                                                                        LOAD   ACTIVE SUB     DESCRIPTION                                                                                                                                                                                               \n  llmcl-onevision-osft-stage-refresh-mechanism-20261024.service               loaded active running /data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python /data2/liyapeng_grp/program/LLMCL/.deployment/osft_stage_refresh_mechanism_20261024_view/exp/osft_stage_refresh_mechanism_20261024/v1/dispatch.py\n  llmcl-onevision-shared-fullspan-carrier-20261024.service                    loaded failed failed  /data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python -u /data2/liyapeng_grp/program/LLMCL/.deployment/shared_fullspan_carrier_20261024_view/exp/shared_fullspan_carrier_20261024/v1/dispatch.py       \n  llmcl-onevision-sparse-connection-plasticity-launch-repair-20261024.service loaded failed failed  /data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python -u /data2/liyapeng_grp/program/LLMCL/exp/sparse_connection_plasticity_20261024/v1_launch_repair/dispatch.py                                      \n  llmcl-two-backbone-native.service                                           loaded active running Shared-framework OneVision one-percent baseline queue                                                                                                                                                     \n\nLOAD   = Reflects whether the unit definition was properly loaded.\nACTIVE = The high-level unit activation state, i.e. generalization of SUB.\nSUB    = The low-level unit activation state, values depend on unit type.\n\n4 loaded units listed.\nTo show all installed unit files use 'systemctl list-unit-files'.\n",
+    "stderr": ""
+  },
+  "processes": {
+    "returncode": 0,
+    "stdout": "    PID    PPID    PGID ELAPSED COMMAND\n 291576       1  291576 7467571 /lib/systemd/systemd --user\n 291577  291576  291576 7467571 (sd-pam)\n 291586  291576  291586 7467571 /usr/libexec/tracker-miner-fs\n 291594  291576  291594 7467571 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only\n 291625  291576  291625 7467571 /usr/libexec/gvfsd\n 291634  291576  291625 7467571 /usr/libexec/gvfsd-fuse /run/user/1084/gvfs -f -o big_writes\n 291642  291576  291642 7467571 /usr/libexec/gvfs-udisks2-volume-monitor\n 291662  291576  291662 7467571 /usr/libexec/gvfs-goa-volume-monitor\n 291668  291576  291594 7467571 /usr/libexec/goa-daemon\n 291692  291576  291594 7467571 /usr/libexec/goa-identity-service\n 291698  291576  291698 7467571 /usr/libexec/gvfs-afc-volume-monitor\n 291710  291576  291710 7467571 /usr/libexec/gvfs-gphoto2-volume-monitor\n 291732  291576  291732 7467571 /usr/libexec/gvfs-mtp-volume-monitor\n 291929       1  291929 7467570 /data2/liyapeng_grp/.vscode-server/code-1b6a188127eeaf9194f945eb6eb89a657e93c54c --cli-data-dir /data2/liyapeng_grp/.vscode-server/cli agent host\n 291976  291576  291976 7467570 /usr/libexec/gvfsd-metadata\n 800241  291576  800241  545699 /data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python -u /data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/pipeline.py\n1730963  291576 1730963 2014695 /usr/libexec/xdg-document-portal\n1730966  291576 1730966 2014695 /usr/libexec/xdg-permission-store\n1730983  291576 1730983 2014695 /usr/libexec/at-spi-bus-launcher\n1954811       1 1954811 1576129 SCREEN -dmS mihomo bash -lc cd /data2/liyapeng_grp/tools/mihomo && source script/common.sh && source script/clashctl.sh && clashctl on >/tmp/mihomo-start.log 2>&1; exec sleep 2147483647\n1954813 1954811 1954813 1576129 sleep 2147483647\n1954971 1954813 1954813 1576129 [mihomo] <defunct>\n3539474       1 3539185  895724 /data2/liyapeng_grp/tools/mihomo/bin/mihomo -d /data2/liyapeng_grp/tools/mihomo -f /data2/liyapeng_grp/tools/mihomo/runtime.yaml\n3539487       1 3539110  895724 /data2/liyapeng_grp/tools/mihomo/bin/mihomo -d /data2/liyapeng_grp/tools/mihomo -f /data2/liyapeng_grp/tools/mihomo/runtime.yaml\n3728445  291576 3728445    3221 /data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python /data2/liyapeng_grp/program/LLMCL/.deployment/osft_stage_refresh_mechanism_20261024_view/exp/osft_stage_refresh_mechanism_20261024/v1/dispatch.py\n3744724 3728445 3744724     612 /data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python /data2/liyapeng_grp/program/LLMCL/.deployment/osft_stage_refresh_mechanism_20261024_view/exp/osft_stage_refresh_mechanism_20261024/v1/worker.py Refresh 0\n3748591 3748533 3748533       0 sshd: liyapeng_grp@notty\n3748592 3748591 3748592       0 /data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python -\n3748624  800241  800241       0 nvidia-smi --id=1 --query-compute-apps=pid --format=csv,noheader,nounits\n3748625 3748592 3748592       0 ps -u 1084 -o pid,ppid,pgid,etimes,args\n4008111       1 4008111 6178175 /data2/liyapeng_grp/.vscode-server/code-a5b500951314efd502d07465bd138dfbd714a960 --cli-data-dir /data2/liyapeng_grp/.vscode-server/cli agent host\n4041926  291576  291594 6161141 /usr/bin/gnome-keyring-daemon --start --foreground --components=secrets\n4081764       1 4081764 3920983 /data2/liyapeng_grp/.conda/envs/MM/bin/tailscaled --tun=userspace-networking --socket=/data2/liyapeng_grp/.conda/envs/MM/var/tailscale/tailscaled.sock --state=/data2/liyapeng_grp/.conda/envs/MM/var/tailscale/tailscaled.state --statedir=/data2/liyapeng_grp/.conda/envs/MM/var/tailscale --socks5-server=127.0.0.1:1055 --encrypt-state=false\n",
+    "stderr": ""
+  },
+  "git": {
+    "returncode": 128,
+    "stdout": "",
+    "stderr": "fatal: not a git repository (or any parent up to mount point /)\nStopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"
+  },
+  "head": {
+    "returncode": 128,
+    "stdout": "",
+    "stderr": "fatal: not a git repository (or any parent up to mount point /)\nStopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"
+  },
+  "stage_refresh": [
+    {
+      "view": "/data2/liyapeng_grp/program/LLMCL/.deployment/osft_stage_refresh_mechanism_20261024_view",
+      "files": [
+        "queue.json",
+        "OUTCOME_CONSUMER_PREPARED.json",
+        "FREEZE_EXECUTION.json",
+        "ACTIVATION.json",
+        "prefix_STARTED.json",
+        "prefix.log",
+        "Refresh.log",
+        "Fixed_EXIT.json",
+        "prefix_COMPLETE.json",
+        "NECESSITY_REVIEW.json",
+        "Fixed_COMPLETE.json",
+        "PHASE_OBSERVED.json",
+        "PROTOCOL.json",
+        "freeze_stderr.log",
+        "SOURCE_REVIEW.json",
+        "HANDOFF_OBSERVED.json",
+        "Fixed.log",
+        "prefix_EXIT.json",
+        "CPU_COUNT_FIX_INTERVENTION.json",
+        "CPU_GATE.json",
+        "CPU_GATE_STARTED.json",
+        "Fixed_STARTED.json",
+        "Refresh_STARTED.json",
+        "TRANSPORT.json",
+        "freeze_stdout.log",
+        "controller.lock",
+        "READY.json",
+        "ADMISSION_REVIEW.json"
+      ],
+      "queue.json": {
+        "phase": "running",
+        "case": "Refresh",
+        "controller": {
+          "pid": 3728445,
+          "startticks": "755358934",
+          "uid": 1084,
+          "pgid": 3728445
+        },
+        "worker": {
+          "pid": 3744724,
+          "startticks": "755619861",
+          "uid": 1084,
+          "pgid": 3744724
+        },
+        "GPU": 0,
+        "TEST_QA": 0
+      }
+    }
+  ]
+}

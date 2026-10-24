@@ -1,0 +1,276 @@
+{
+  "unix": 1792858442.1053438,
+  "root": "/data1/liyapeng/program/LLMCL",
+  "states": {
+    "new3090_run_status.json": {
+      "experiment_id": "two_backbone_native_cl_20261017_v2",
+      "host": "new3090",
+      "jobs": {
+        "full:SeqFT_LoRA": {
+          "condition": "full",
+          "method": "SeqFT_LoRA",
+          "host": "new3090",
+          "status": "waiting"
+        },
+        "full:CL_MoE": {
+          "condition": "full",
+          "method": "CL_MoE",
+          "host": "new3090",
+          "status": "waiting"
+        },
+        "full:SMoLoRA": {
+          "condition": "full",
+          "method": "SMoLoRA",
+          "host": "new3090",
+          "status": "waiting"
+        },
+        "full:PASs_MoE": {
+          "condition": "full",
+          "method": "PASs_MoE",
+          "host": "new3090",
+          "status": "waiting"
+        },
+        "full:PaRSP": {
+          "condition": "full",
+          "method": "PaRSP",
+          "host": "new3090",
+          "status": "waiting"
+        },
+        "full:OSFT": {
+          "condition": "full",
+          "method": "OSFT",
+          "host": "new3090",
+          "status": "waiting"
+        },
+        "full:SpaRTA": {
+          "condition": "full",
+          "method": "SpaRTA",
+          "host": "new3090",
+          "status": "waiting"
+        },
+        "pct01:SeqFT_LoRA": {
+          "condition": "pct01",
+          "method": "SeqFT_LoRA",
+          "host": "new3090",
+          "status": "failed_repeated_resume",
+          "gpu": 2,
+          "run_dir": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209",
+          "completed_stage": 0,
+          "preflight_run": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/preflight_20261017_161023",
+          "active_stage": 19,
+          "dead_at_startup": true,
+          "resume_count": 4,
+          "failure_log": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209/supervisor.log",
+          "oom": false,
+          "storage_recovery": {
+            "audit": "summary/storage_recovery_20261018/AUDIT.json",
+            "previous_status": {
+              "condition": "pct01",
+              "method": "SeqFT_LoRA",
+              "host": "new3090",
+              "status": "failed_repeated_resume",
+              "pid": 317755,
+              "gpu": 3,
+              "run_dir": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209",
+              "completed_stage": 9,
+              "preflight_run": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/preflight_20261017_161023",
+              "active_stage": 10,
+              "dead_at_startup": true,
+              "resume_count": 4,
+              "failure_log": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209/supervisor.log",
+              "oom": false,
+              "error_tail": ": [Errno 28] No space left on device\n\nDuring handling of the above exception, another exception occurred:\n\nOSError: [Errno 28] No space left on device\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py\", line 342, in <module>\n    main()\n  File \"/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py\", line 325, in main\n    scores = evaluate(method, processor, [t for t in manifest['tasks'] if t['task'] in wanted], data, run, stage)\n  File \"/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runtime_utils.py\", line 155, in evaluate\n    with temporary.open('a',encoding='utf-8') as stream:\nOSError: [Errno 28] No space left on device\nTraceback (most recent call last):\n  File \"/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py\", line 342, in <module>\n    main()\n  File \"/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py\", line 152, in main\n    target.parent.mkdir(parents=True,exist_ok=True);shutil.move(str(p),str(target))\n  File \"/data1/liyapeng/program/LLMCL/.conda-env/lib/python3.10/pathlib.py\", line 1175, in mkdir\n    self._accessor.mkdir(self, mode)\nOSError: [Errno 28] No space left on device: '/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261017_161209/interrupted_evaluations/1792269025075780939'\n"
+            },
+            "source_and_split_unchanged": true
+          },
+          "pid": 180863
+        },
+        "pct01:CL_MoE": {
+          "condition": "pct01",
+          "method": "CL_MoE",
+          "host": "new3090",
+          "status": "training",
+          "boot_recovery_20261022_v3": {
+            "audit": "summary/edge_deployment_20261019/reboot_recovery_20261022/v3/RECOVERY.json",
+            "interrupted_run": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_113734",
+            "fresh_run_required": true,
+            "old_predictions_not_reused": true
+          },
+          "pid": 8260,
+          "gpu": 2,
+          "run_dir": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837",
+          "completed_stage": 0,
+          "preflight_run": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/preflight_20261022_162021",
+          "active_stage": 1
+        },
+        "pct01:SMoLoRA": {
+          "condition": "pct01",
+          "method": "SMoLoRA",
+          "host": "new3090",
+          "status": "training",
+          "boot_recovery_20261022_v3": {
+            "audit": "summary/edge_deployment_20261019/reboot_recovery_20261022/v3/RECOVERY.json",
+            "interrupted_run": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SMoLoRA/training_20261022_113719",
+            "fresh_run_required": true,
+            "old_predictions_not_reused": true
+          },
+          "pid": 8265,
+          "gpu": 3,
+          "run_dir": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SMoLoRA/training_20261022_162837",
+          "completed_stage": 0,
+          "preflight_run": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SMoLoRA/preflight_20261022_162021"
+        },
+        "pct01:PASs_MoE": {
+          "condition": "pct01",
+          "method": "PASs_MoE",
+          "host": "new3090",
+          "status": "ready_reload",
+          "boot_recovery_20261022_v2": {
+            "audit": "summary/edge_deployment_20261019/reboot_recovery_20261022/v2/RECOVERY.json",
+            "interrupted_run": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/PASs_MoE/training_20261022_013445",
+            "fresh_run_required": true,
+            "old_predictions_not_reused": true
+          },
+          "pid": 3147,
+          "gpu": 2,
+          "run_dir": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/PASs_MoE/preflight_20261022_153150",
+          "completed_stage": 0
+        },
+        "pct01:PaRSP": {
+          "condition": "pct01",
+          "method": "PaRSP",
+          "host": "new3090",
+          "status": "ready_reload",
+          "boot_recovery_20261022_v2": {
+            "audit": "summary/edge_deployment_20261019/reboot_recovery_20261022/v2/RECOVERY.json",
+            "interrupted_run": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/PaRSP/training_20261022_013445",
+            "fresh_run_required": true,
+            "old_predictions_not_reused": true
+          },
+          "pid": 3152,
+          "gpu": 3,
+          "run_dir": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/PaRSP/preflight_20261022_153150",
+          "completed_stage": 0
+        },
+        "pct01:OSFT": {
+          "condition": "pct01",
+          "method": "OSFT",
+          "host": "new3090",
+          "status": "waiting",
+          "gpu": 2,
+          "run_dir": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/OSFT/preflight_20261018_044943",
+          "completed_stage": 0,
+          "dead_at_startup": true,
+          "failure_log": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/OSFT/preflight_20261018_044943/supervisor.log",
+          "oom": false,
+          "storage_recovery": {
+            "audit": "summary/storage_recovery_20261018/AUDIT.json",
+            "previous_status": {
+              "condition": "pct01",
+              "method": "OSFT",
+              "host": "new3090",
+              "status": "failed_preflight",
+              "pid": 318353,
+              "gpu": 2,
+              "run_dir": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/OSFT/preflight_20261018_044943",
+              "completed_stage": 0,
+              "dead_at_startup": true,
+              "failure_log": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/OSFT/preflight_20261018_044943/supervisor.log",
+              "oom": false,
+              "error_tail": "5}\n{\"event\": \"osft_svd_init\", \"layer\": \"model.layers.25.mlp.up_proj\", \"done\": 181, \"total\": 196, \"unfreeze_rank_ratio\": 0.25}\n{\"event\": \"osft_svd_init\", \"layer\": \"model.layers.25.mlp.down_proj\", \"done\": 182, \"total\": 196, \"unfreeze_rank_ratio\": 0.25}\n{\"event\": \"osft_svd_init\", \"layer\": \"model.layers.26.self_attn.q_proj\", \"done\": 183, \"total\": 196, \"unfreeze_rank_ratio\": 0.25}\n{\"event\": \"osft_svd_init\", \"layer\": \"model.layers.26.self_attn.k_proj\", \"done\": 184, \"total\": 196, \"unfreeze_rank_ratio\": 0.25}\n{\"event\": \"osft_svd_init\", \"layer\": \"model.layers.26.self_attn.v_proj\", \"done\": 185, \"total\": 196, \"unfreeze_rank_ratio\": 0.25}\n{\"event\": \"osft_svd_init\", \"layer\": \"model.layers.26.self_attn.o_proj\", \"done\": 186, \"total\": 196, \"unfreeze_rank_ratio\": 0.25}\n{\"event\": \"osft_svd_init\", \"layer\": \"model.layers.26.mlp.gate_proj\", \"done\": 187, \"total\": 196, \"unfreeze_rank_ratio\": 0.25}\n{\"event\": \"osft_svd_init\", \"layer\": \"model.layers.26.mlp.up_proj\", \"done\": 188, \"total\": 196, \"unfreeze_rank_ratio\": 0.25}\n{\"event\": \"osft_svd_init\", \"layer\": \"model.layers.26.mlp.down_proj\", \"done\": 189, \"total\": 196, \"unfreeze_rank_ratio\": 0.25}\n{\"event\": \"osft_svd_init\", \"layer\": \"model.layers.27.self_attn.q_proj\", \"done\": 190, \"total\": 196, \"unfreeze_rank_ratio\": 0.25}\n{\"event\": \"osft_svd_init\", \"layer\": \"model.layers.27.self_attn.k_proj\", \"done\": 191, \"total\": 196, \"unfreeze_rank_ratio\": 0.25}\n{\"event\": \"osft_svd_init\", \"layer\": \"model.layers.27.self_attn.v_proj\", \"done\": 192, \"total\": 196, \"unfreeze"
+            },
+            "source_and_split_unchanged": true
+          }
+        },
+        "pct01:SpaRTA": {
+          "condition": "pct01",
+          "method": "SpaRTA",
+          "host": "new3090",
+          "status": "waiting",
+          "gpu": 3,
+          "run_dir": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SpaRTA/preflight_20261018_044943",
+          "completed_stage": 0,
+          "dead_at_startup": true,
+          "failure_log": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SpaRTA/preflight_20261018_044943/supervisor.log",
+          "oom": false,
+          "storage_recovery": {
+            "audit": "summary/storage_recovery_20261018/AUDIT.json",
+            "previous_status": {
+              "condition": "pct01",
+              "method": "SpaRTA",
+              "host": "new3090",
+              "status": "failed_preflight",
+              "pid": 318358,
+              "gpu": 3,
+              "run_dir": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SpaRTA/preflight_20261018_044943",
+              "completed_stage": 0,
+              "dead_at_startup": true,
+              "failure_log": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SpaRTA/preflight_20261018_044943/supervisor.log",
+              "oom": false,
+              "error_tail": "ource_id\": \"RSVQA-LR:36404\", \"image_count\": 1, \"loss\": 1.0488141775131226, \"gradient_l2_preclip\": 45.311119079589844}\n{\"event\": \"preflight\", \"task\": 14, \"dataset\": \"RSVQA-LR\", \"source_id\": \"RSVQA-LR:46874\", \"image_count\": 1, \"loss\": 0.9670926928520203, \"gradient_l2_preclip\": 18.00019073486328}\n{\"event\": \"preflight\", \"task\": 15, \"dataset\": \"RSVQA-LR\", \"source_id\": \"RSVQA-LR:38737\", \"image_count\": 1, \"loss\": 0.4383975863456726, \"gradient_l2_preclip\": 33.91139602661133}\n{\"event\": \"preflight\", \"task\": 16, \"dataset\": \"FinMME\", \"source_id\": \"FinMME:523\", \"image_count\": 1, \"loss\": 3.7163238525390625, \"gradient_l2_preclip\": 62.13514709472656}\n{\"event\": \"preflight\", \"task\": 17, \"dataset\": \"CODA-LM\", \"source_id\": \"CODA-LM:Train:Train_general_3203\", \"image_count\": 1, \"loss\": 1.6637771129608154, \"gradient_l2_preclip\": 4.541733264923096}\n{\"event\": \"preflight\", \"task\": 18, \"dataset\": \"CODA-LM\", \"source_id\": \"CODA-LM:Train:Train_regional_2968\", \"image_count\": 1, \"loss\": 2.5415029525756836, \"gradient_l2_preclip\": 8.043204307556152}\n{\"event\": \"preflight\", \"task\": 19, \"dataset\": \"CODA-LM\", \"source_id\": \"CODA-LM:Train:Train_suggestion_2723\", \"image_count\": 1, \"loss\": 1.910855770111084, \"gradient_l2_preclip\": 8.142281532287598}\nOSError: [Errno 28] No space left on device\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py\", line 342, in <module>\n    main()\n  Fi"
+            },
+            "source_and_split_unchanged": true
+          }
+        }
+      },
+      "updated_at": "2026-10-25T00:13:48.925279+08:00",
+      "reserved_gpus": [
+        0,
+        1
+      ],
+      "phase": "running_or_waiting",
+      "scope_revision": "20261018_remove_untrained_FV_ALER"
+    },
+    "hardware_queue.json": {
+      "phase": "waiting_Qwen_pct01_priority",
+      "pending": [
+        "pct01:CL_MoE",
+        "pct01:SMoLoRA",
+        "pct01:PASs_MoE",
+        "pct01:PaRSP",
+        "pct01:OSFT",
+        "pct01:SpaRTA"
+      ],
+      "actual_live_worker_pids": [
+        8260,
+        8265
+      ],
+      "no_GPU_allocated_by_coordinator": true
+    }
+  },
+  "pct01:CL_MoE": {
+    "run_status.json": {
+      "bytes": 73,
+      "mtime": 1792855162.095722,
+      "value": {
+        "status": "evaluation",
+        "completed_stage": 0,
+        "active_stage": 1
+      }
+    },
+    "supervisor.log": {
+      "bytes": 12877852,
+      "mtime": 1792858438.1773329,
+      "tail": "le` is set to `False`. However, `top_p` is set to `0.001` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.\n  warnings.warn(\n/data1/liyapeng/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:612: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `1` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.\n  warnings.warn(\n/data1/liyapeng/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:590: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.01` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.\n  warnings.warn(\n/data1/liyapeng/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:595: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.001` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.\n  warnings.warn(\n/data1/liyapeng/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:612: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `1` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.\n  warnings.warn(\n"
+    },
+    "proc_stat": "8260 (python) R 2497 8260 8260 0 -1 4194304 86109388 143838280 43 13 19986587 181423 33117 77494 20 0 68 0 60876 67757961216 812336 18446744073709551615 94337338683392 94337341163333 140731039403024 0 0 0 0 16781313 2 0 0 0 17 29 0 0 124746 0 0 94337342190416 94337342413888 94337356881920 140731039410985 140731039411278 140731039411278 140731039412163 0\n",
+    "io": "rchar: 7853720623\nwchar: 59677908\nsyscr: 4984053\nsyscw: 1116023\nread_bytes: 2712289280\nwrite_bytes: 142331904\ncancelled_write_bytes: 4096\n"
+  },
+  "pct01:SMoLoRA": {
+    "run_status.json": {
+      "bytes": 60,
+      "mtime": 1792657728.1192741,
+      "value": {
+        "status": "initial_evaluation",
+        "completed_stage": 0
+      }
+    },
+    "supervisor.log": {
+      "bytes": 13469783,
+      "mtime": 1792858299.3063912,
+      "tail": "le` is set to `False`. However, `top_p` is set to `0.001` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.\n  warnings.warn(\n/data1/liyapeng/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:612: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `1` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.\n  warnings.warn(\n/data1/liyapeng/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:590: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.01` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.\n  warnings.warn(\n/data1/liyapeng/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:595: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.001` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.\n  warnings.warn(\n/data1/liyapeng/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:612: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `1` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.\n  warnings.warn(\n"
+    },
+    "proc_stat": "8265 (python) R 2497 8265 8265 0 -1 4194304 86757865 143429114 12 8 20091626 208456 32279 75923 20 0 67 0 60882 70054543360 1202424 18446744073709551615 94142658437120 94142660917061 140728324602016 0 0 0 0 16781313 2 0 0 0 17 11 0 0 2799 0 0 94142661944144 94142662167616 94142672379904 140728324610855 140728324611150 140728324611150 140728324612035 0\n",
+    "io": "rchar: 5415294918\nwchar: 50767446\nsyscr: 4880964\nsyscw: 1109579\nread_bytes: 3670016\nwrite_bytes: 134213632\ncancelled_write_bytes: 4096\n"
+  }
+}
