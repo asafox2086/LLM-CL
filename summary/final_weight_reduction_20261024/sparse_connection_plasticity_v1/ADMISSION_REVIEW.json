@@ -1,0 +1,66 @@
+{
+  "decision": "accept_single_fixed_sparse_pilot_activation",
+  "ready_sha256": "1187516646544e93b6ef68ec8e2bf400d26f5eaae3ed0f06ec8d901273fbb0d4",
+  "protocol_sha256": "ffc5fca0acf329b06ed7b38fd21bfbf9f3898775de2bbe248c7ea659db88573f",
+  "source_review_sha256": "7d5509f8217c8a8aa3b55037db7187f41b33dc282ecd9ef24ddef7dbd00ac388",
+  "necessity_review_sha256": "d858e5ad9f8374c0868909f77085fe1cb1dcea89c0ea14c345a3644f6ddbfdc7",
+  "CPU_gate_sha256": "5c2fcbdcf9fd97ce4f8e3a8df55775c3708fad8ac79de8b0a1d02d77f27e054f",
+  "sources": {
+    "exp/sparse_connection_plasticity_20261024/v1/common.py": "ba6c3f070f16d429f49cb1f9c72b60bbd81fa5575d3f23faa1970d11ed385bc5",
+    "exp/sparse_connection_plasticity_20261024/v1/core.py": "741467a2dc17fd0562dc88db5c5ecc1db0a999541c74dc6d8f00a24abb65e978",
+    "exp/sparse_connection_plasticity_20261024/v1/cpu_gate.py": "3be543c054e1c34d16ead6df245d827616d3f3619ca13378b0b87cf683c6824e",
+    "exp/sparse_connection_plasticity_20261024/v1/dispatch.py": "41673868063117c7d9646b4434bdce85b781047b762d36e5a38082bf13a35c81",
+    "exp/sparse_connection_plasticity_20261024/v1/freeze.py": "9852e058f78812d0ee7180fe888837b27fe1bda976b37c97370643e07c85c8f3",
+    "exp/sparse_connection_plasticity_20261024/v1/generation.py": "02b81de5d312560944dc1c56feff9c38a62b3bd193900ecc8740996960728f95",
+    "exp/sparse_connection_plasticity_20261024/v1/initialize.py": "7088a98c350c55693fa994044ea869e027413cfa2625311add2ee1c397be46c1",
+    "exp/sparse_connection_plasticity_20261024/v1/pruning.py": "2998202454fbf87e32069a18ced5fb2e4313d2c1bf11fa33342cb98ecdbac16a",
+    "exp/sparse_connection_plasticity_20261024/v1/run.py": "3ef3549b4503876283f1a81ed891955256fb639097d43ec69baf55ff03685397",
+    "exp/sparse_connection_plasticity_20261024/v1/runtime.py": "e37330fbc8ea655e67032512b8558574963d619aedb0f085be9decfd9f08c44b",
+    "exp/sparse_connection_plasticity_20261024/v1/verify.py": "561d2547e94e2bc7e4f343019f5a78f2d8977bee3b9539aefb6bf4895cad85e9"
+  },
+  "transport_receipt_sha256": "d51ce2a4673533f4851416e573d14b6444c2e68d2036a9597cc7e90120ab14fd",
+  "CPU_observation_sha256": "cc9dc2c3b350f912eb957894c2c751635a16bca8db3fbcc6bc20fad86cca992b",
+  "review_scope": "Consume the completed CPU gate, exact mirrored READY/reviews, transport receipt and gate observation only; local small source/document SHA comparisons and JSON consistency checks, without rerunning freeze/gates, reading model weights or contacting OLD.",
+  "admitted_scope": {
+    "host": "OLD",
+    "same_single_physical_GPU_for_all_phases": true,
+    "allowed_physical_GPUs": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "order": [
+      "init",
+      "conditional Frozen",
+      "conditional Plastic"
+    ],
+    "init_seconds": 3600,
+    "each_case_seconds": 7200,
+    "aggregate_model_seconds": 18000,
+    "initialization": "Only current-S1 fixed calibration/diagnostic and existing compatibility paths; enter the two learning flows only after INITIAL_VERIFIED passes the fixed NLL investment gate.",
+    "learning": "Each admitted flow uses the frozen common CP0, fixed support, 1213 FIT/19 stages/87 updates and one final 100-DEV generation under its existing compatibility and complete-reload checks.",
+    "first_started_failure_interruption_or_timeout": "Close the entire fixed point; no restart, resume, extension, mask/LR search or automatic v2.",
+    "before_STARTED_resource_return_75": "Only the existing unattempted CPU wait is allowed.",
+    "no_automatic_full_confirmation": true
+  },
+  "findings": [
+    "All eleven local source hashes equal the source review, READY and OLD transport receipt; the nineteen pre-reviewed dependencies are preserved in READY and the transport receipt records their actual OLD match.",
+    "Protocol, necessity/source review and CPU_GATE evidence hashes agree with READY; decoded OLD observation bytes match the local gate/READY and bind the unique CPU_GATE_STARTED marker to the reviewed source review.",
+    "The actual unique gate passed in 4.1477467538788915 seconds with CUDA uninitialized and zero original QA or pretrained models. Each tiny flow performed four own and four independent-reference updates with four persistent witnesses.",
+    "The recorded gate covers original/observed SparseGPT equality, explicit support including zero slots, packed/dense masked gradient-weight-RNG agreement and complete tiny graph reload.",
+    "The original manifest, split, TRAIN-AST and full-weight expected SHA binding are retained. Full base-file content checking remains part of the already frozen actual init phase rather than an additional review-time reread.",
+    "Only one OLD card selected by the owner-aware guard may serve init and both flows. Other users and valid formal baselines must be preserved; no NEW card is used by this admitted pilot.",
+    "Initialization accounts for 420 teacher-forced requests plus four short compatibility generations; each learning flow includes its 38 NLL/38 short compatibility paths, saves/reload/observations/DEV within the original caps. Cache-path and native bypass counts are not total vision-tower compute counts.",
+    "The available terminal snapshot supports inactive/MainPID=0, alongside completed CPU_GATE/READY artifacts and the private log printing the READY SHA. After transient-unit unload, ExecMainStatus=0 and KillMode are default show fields, not persistent proof of the real exit status or a changed running configuration. User journal access was denied; no privilege escalation or gate rerun was performed."
+  ],
+  "limitations": [
+    "CPU training/math comparisons were FP32; the source also contains a final prescribed FP16-storage/CPU-reload fixture. This is not actual CUDA FP16, original image/processor, 0.9B quality or resource validation.",
+    "737323040 final value slots and 78446592 pattern bytes are still design/worker assertions, not measured actual VLM compression. Actual package bytes, registered buffers, reload and transient dense reconstruction costs must be reported after execution.",
+    "The log(2) NLL gate is an investment cutoff, not an Answer F1 tolerance or proof that the pretrained function was preserved.",
+    "The positive quality rule only permits future necessity assessment. It does not establish knowledge content, OSFT mechanism causality, general connection dispensability, stable superiority, novelty or achievement of the full research goal.",
+    "No source, protocol, READY, existing evidence or scientific condition was changed, and no processor/model/QA/tensor/score/bootstrap/gate/GPU operation occurred in this review.",
+    "Actual resource availability must be rechecked by the frozen guards at activation and each phase; old idle-card snapshots are not treated as permanent availability."
+  ],
+  "required_changes": []
+}
