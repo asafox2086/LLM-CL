@@ -1,0 +1,117 @@
+{
+  "sources": {
+    "controller.py": "4e7cfa0710839a64f4d215516a4f03126b7d4536a0e1a8dd7d0bf1ae4fa699c4",
+    "cpu_gate.py": "027f41379a11d682d68a4cf5a6fd3975f2d9da96dbd987d3b871f1cacd0e37b6",
+    "evidence.py": "5cb2d232d924da1bfe397ac0dce83d01cd00f0e5d09514d11dcea0700356ba6e",
+    "verify.py": "d757f00d9efa324b69e77501aa68d6ccfbeb393cbf750ff6e6d31292bb8377be",
+    "worker.py": "dc318c7622531a591f1ac45aee28865d1f220356c572b0e0479eb58909776cc3",
+    "PROTOCOL.md": "14f051bb454c2b4dba54f8defa293555de77d980986183bfd75541b1c5406d7a",
+    "vision_interface.py": "90a9477a2ff821715c26b9af989db894e943d6f77062344fcfc09d1a200827e3",
+    "IMPLEMENTATION_AMENDMENT.json": "14d84aaf58eb3d71479865b047ed3efbb92af567bf6206fcaec7f4754c48498c"
+  },
+  "prior_files": {
+    "prior_candidate_COMPLETE.json": "377d62baf60fc99f519b23071b143324c89d3888f2fbff45d25e96885b8f653a",
+    "prior_parent_predictions.json": "acfb9d23f82947e43889d2dcc8ea02fc619f8e8a11b10d5fe6df63cf81c874db",
+    "prior_VERIFIED.json": "976a93301901c112de1987f5314e082d4a18bf0ce67b0962179612befb8c3589",
+    "prior_READY.json": "3e279070eb6022d8aed422e3a0fcc7c68ef7926fd7936650268370e857a7943d",
+    "prior_parent_COMPLETE.json": "dc41a5ba229a57a59db3c517672f0f5bdc0e29dfa4118e7d48c339a80c2c8247",
+    "prior_candidate_predictions.json": "254136e9822109af19f1d9bd46fbf281b68768404bf92c779611e4311ff4e870",
+    "prior_fit_COMPLETE.json": "645db3d8732fa8d31e86f328d1231bca0e38b86fdf88841b42b3c2553133acc0"
+  },
+  "projection_sha256": "15e36a2809973a174084d4d4f12978ac0d1415ca288ce07b91e524d9bcdf742f",
+  "CPU_GATE": {
+    "complete": true,
+    "passed": true,
+    "header_ids": [
+      198,
+      1906,
+      1467,
+      320,
+      93495,
+      26,
+      1231,
+      6644,
+      17843,
+      5975,
+      982
+    ],
+    "tail_ids": [
+      198
+    ],
+    "seconds": 3.2201230796054006,
+    "synthetic_pair_rows": 20,
+    "token_pairs": 3,
+    "body_lengths": [
+      {
+        "correct": 1,
+        "donor": 11
+      },
+      {
+        "correct": 21,
+        "donor": 1
+      },
+      {
+        "correct": 0,
+        "donor": 0
+      }
+    ],
+    "image_placeholder_id": 151646,
+    "image_in_all_special_ids": false,
+    "CUDA_initialized": false,
+    "models": 0,
+    "real_QA": 0
+  },
+  "phase_budget_seconds": 900,
+  "total_model_budget_seconds": 1800,
+  "model_admitted": true,
+  "question": "Can an independently sourced lexical evidence channel support frozen compact visual answers?",
+  "no_prior_candidate_training_or_quality_status_changed": true,
+  "original_parent_started_unix": 1792867380.0053225,
+  "original_parent_deadline_unix": 1792868280.0053225,
+  "first_implementation_failure_receipt": {
+    "accepted": true,
+    "reviewers": [
+      "research_review",
+      "baseline_review"
+    ],
+    "explicit_deviation_from_first_failure_close_rule": true,
+    "reason": "Outcome-blind same-source Path precedence failure before any QA, no scientific condition changed.",
+    "Path_corrections": {
+      "verify.py": {
+        "Path_expressions_corrected": 4
+      },
+      "worker.py": {
+        "Path_expressions_corrected": 3
+      }
+    },
+    "original_parent_started_unix": 1792867380.0053225,
+    "original_parent_deadline_unix": 1792868280.0053225,
+    "first_model_loaded_but_QA": 0,
+    "first_NLL_requests": 0,
+    "first_generations": 0,
+    "first_scores": 0,
+    "first_STARTED_to_FAILURE_seconds": 21.770107984542847,
+    "first_STARTED_to_EXIT_seconds": 22.539669275283813,
+    "first_failure_sha256": "8556d666fef6975ddb4b3c3e309cef0f4509461adbb09285ab8cd79537df45c8",
+    "first_ready_sha256": "edebb207712c1e50f2aebd3e213794e801ea32ac0128d8eb6a16124968fabcb8",
+    "old_run": "/tmp/llmcl-lexical-evidence-1084-3hhr4jxf",
+    "unchanged_science": [
+      "model",
+      "OCR projection",
+      "prompt",
+      "donor",
+      "dtype",
+      "teacher",
+      "runtime",
+      "scoring",
+      "token CPU gate"
+    ],
+    "additional_control_changes": [
+      "parent alarm uses remainder of original absolute deadline",
+      "report new attempt duration and cumulative original budget elapsed separately",
+      "verifier checks original parent absolute completion deadline",
+      "independent unit name"
+    ],
+    "again_failure_closes": true
+  }
+}

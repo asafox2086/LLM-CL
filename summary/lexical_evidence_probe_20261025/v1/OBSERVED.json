@@ -1,0 +1,35 @@
+{
+  "unix": 1792867442.1098623,
+  "unit": "MainPID=0\nExecMainStatus=1\nActiveState=failed\nSubState=failed\n",
+  "unit_code": 0,
+  "proofs": {
+    "parent_STARTED.json": {
+      "unix": 1792867380.0053225,
+      "identity": {
+        "pid": 3784898,
+        "startticks": "756580011",
+        "uid": 1084,
+        "pgid": 3784898
+      },
+      "GPU": 1,
+      "boot": "5b259bd9-d0cb-4a1d-8b90-6e6107080488",
+      "ready_sha256": "edebb207712c1e50f2aebd3e213794e801ea32ac0128d8eb6a16124968fabcb8"
+    },
+    "parent_EXIT.json": {
+      "pid": 3784898,
+      "returncode": 1,
+      "unix": 1792867402.5449917
+    },
+    "parent_FAILURE.json": {
+      "unix": 1792867401.7754304,
+      "traceback": "Traceback (most recent call last):\n  File \"/tmp/llmcl-lexical-evidence-1084-3hhr4jxf/worker.py\", line 105, in <module>\n    try:main(case)\n  File \"/tmp/llmcl-lexical-evidence-1084-3hhr4jxf/worker.py\", line 55, in main\n    assert sorted({type(layer.self_attn).__name__ for layer in model.model.layers})==read(RUN/'prior_'+case+'_COMPLETE.json')['language_attention_classes']\nTypeError: unsupported operand type(s) for +: 'PosixPath' and 'str'\n"
+    }
+  },
+  "identities": {
+    "parent": {
+      "proc_exists": false
+    }
+  },
+  "all_exit": false,
+  "GPU1_processes": "\n"
+}

@@ -1,0 +1,73 @@
+--- v1/verify.py
++++ implementation_repair/verify.py
+@@ -16,7 +16,7 @@
+  assert sha(RUN/'prior_READY.json')==old['ready_sha256']
+  for n,h in prior_ready['runtime_files'].items():assert sha(ASSET/n)==h,n
+  env=dict(os.environ,XDG_RUNTIME_DIR=f'/run/user/{os.getuid()}',DBUS_SESSION_BUS_ADDRESS=f'unix:path=/run/user/{os.getuid()}/bus')
+- raw=subprocess.check_output(['systemctl','--user','show','llmcl-lexical-evidence-probe-20261025.service','-p','ActiveState','-p','MainPID','-p','ExecMainStatus'],env=env,text=True)
++ raw=subprocess.check_output(['systemctl','--user','show','llmcl-lexical-evidence-probe-implementation-20261025.service','-p','ActiveState','-p','MainPID','-p','ExecMainStatus'],env=env,text=True)
+  state=dict(x.split('=',1) for x in raw.splitlines());assert state['ActiveState']=='inactive' and state['MainPID']=='0' and state['ExecMainStatus']=='0'
+  tree=ast.parse((ASSET/'exp/two_backbone_native_cl_20261017_v2/runtime_utils.py').read_text());nodes=[n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name in ['tokens','score']];assert len(nodes)==2
+  scorer_ast=hashlib.sha256(ast.dump(ast.Module(body=nodes,type_ignores=[]),include_attributes=False).encode()).hexdigest();assert scorer_ast==old['scorer_ast_sha256']
+@@ -32,12 +32,13 @@
+   assert start['identity']==end['identity'] and exit['pid']==end['identity']['pid'] and exit['returncode']==0 and not (Path('/proc')/str(exit['pid'])).exists()
+   assert start['GPU']==1 and start['boot']==Path('/proc/sys/kernel/random/boot_id').read_text().strip() and start['identity']['uid']==os.getuid()
+   assert start['ready_sha256']==end['ready_sha256']==sha(RUN/'READY.json') and 0<end['seconds']<=900
++  if case=='parent':assert end['completed_unix']<=ready['original_parent_deadline_unix']
+   assert end['visual_requests']==20 and end['NLL_requests']==end['new_generations']==40 and end['backwards']==end['optimizer_updates']==0
+   for n,h in end['files'].items():assert sha(RUN/n)==h,n
+-  previous=read(RUN/'prior_'+case+'_COMPLETE.json');assert sha(RUN/'prior_'+case+'_COMPLETE.json')==old['source_complete_sha256'][case]
+-  assert sha(RUN/'prior_'+case+'_predictions.json')==previous['files'][case+'_predictions.json']
++  previous=read(RUN/('prior_'+case+'_COMPLETE.json'));assert sha(RUN/('prior_'+case+'_COMPLETE.json'))==old['source_complete_sha256'][case]
++  assert sha(RUN/('prior_'+case+'_predictions.json'))==previous['files'][case+'_predictions.json']
+   assert end['digest']==previous['digest'] and end['layout']==previous['layout'] and end['preserved_nonvision_buffers_digest']==previous['preserved_nonvision_buffers_digest']
+-  original={x['id']:x for x in read(RUN/'prior_'+case+'_predictions.json') if x['id'] in wanted};assert len(original)==20
++  original={x['id']:x for x in read(RUN/('prior_'+case+'_predictions.json')) if x['id'] in wanted};assert len(original)==20
+   values=[x for x in old['quality'][case]['per_id'] if x['id'] in wanted];assert len(values)==20 and all(x['domain']=='natural' for x in values)
+   anchors[case]=values;completions[case]=end;plans[case]=read(RUN/(case+'_INTERVENTION_PLAN.json'));plan=plans[case]
+   assert plan['donors']==donors and plan['groups']==group_by_id and set(plan['bodies'])==wanted
+@@ -78,6 +79,6 @@
+  gap0=quality['parent']['noOCR']['F1']-quality['candidate']['noOCR']['F1'];gap1=quality['parent']['correct']['F1']-quality['candidate']['correct']['F1']
+  gain={case:quality[case]['correct']['F1']-quality[case]['noOCR']['F1'] for case in quality};control={case:quality[case]['correct']['F1']-quality[case]['wrong']['F1'] for case in quality}
+  passed=gain['candidate']>0 and control['candidate']>0 and gap1<gap0
+- out=dict(complete=True,ready_sha256=sha(RUN/'READY.json'),prior_VERIFIED_sha256=sha(RUN/'prior_VERIFIED.json'),source_complete_sha256={c:sha(RUN/(c+'_COMPLETE.json')) for c in completions},quality=quality,correct_minus_noOCR=gain,correct_minus_wrong=control,correct_changes=changes,empty_OCR_control=empty_control,parent_minus_candidate_gap_noOCR=gap0,parent_minus_candidate_gap_correct=gap1,decision='consider_independent_real_lightweight_reading_feasibility' if passed else 'close_fixed_precomputed_OCR_evidence_channel',diagnostic_gate_passed=passed,only_partial_functional_evidence=True,no_deployment_OCR_cost_proof=True,old_candidate_quality_failure_unchanged=True,model_seconds={c:x['seconds'] for c,x in completions.items()},visual_requests=40,NLL_requests=80,new_generations=80,new_scores=80,backwards=0,optimizer_updates=0,scorer_ast_sha256=scorer_ast,verification_seconds=time.monotonic()-tick)
++ out=dict(complete=True,ready_sha256=sha(RUN/'READY.json'),prior_VERIFIED_sha256=sha(RUN/'prior_VERIFIED.json'),source_complete_sha256={c:sha(RUN/(c+'_COMPLETE.json')) for c in completions},quality=quality,correct_minus_noOCR=gain,correct_minus_wrong=control,correct_changes=changes,empty_OCR_control=empty_control,parent_minus_candidate_gap_noOCR=gap0,parent_minus_candidate_gap_correct=gap1,decision='consider_independent_real_lightweight_reading_feasibility' if passed else 'close_fixed_precomputed_OCR_evidence_channel',diagnostic_gate_passed=passed,only_partial_functional_evidence=True,no_deployment_OCR_cost_proof=True,old_candidate_quality_failure_unchanged=True,model_seconds={c:x['attempt_seconds'] for c,x in completions.items()},original_budget_elapsed_seconds={c:x['seconds'] for c,x in completions.items()},first_implementation_failure_receipt=ready['first_implementation_failure_receipt'],visual_requests=40,NLL_requests=80,new_generations=80,new_scores=80,backwards=0,optimizer_updates=0,scorer_ast_sha256=scorer_ast,verification_seconds=time.monotonic()-tick)
+  write('VERIFIED.json',out);print(json.dumps(dict(decision=out['decision'],F1={c:{a:v['F1'] for a,v in q.items()} for c,q in quality.items()},gain=gain,correct_minus_wrong=control,gap0=gap0,gap1=gap1,VERIFIED_sha256=sha(RUN/'VERIFIED.json'))))
+ if __name__=='__main__':main()
+--- v1/worker.py
++++ implementation_repair/worker.py
+@@ -18,7 +18,9 @@
+  tick=time.monotonic();who=ids.identity(os.getpid());assert who['pid']==who['pgid']
+  write(case+'_STARTED.json',dict(unix=time.time(),identity=who,GPU=1,boot=Path('/proc/sys/kernel/random/boot_id').read_text().strip(),ready_sha256=sha(RUN/'READY.json')))
+  def timeout(*args):raise TimeoutError('Fixed phase900s budget')
+- signal.signal(signal.SIGALRM,timeout);signal.alarm(900)
++ remaining=(ready['original_parent_deadline_unix']-time.time()) if case=='parent' else 900
++ assert remaining>0
++ signal.signal(signal.SIGALRM,timeout);signal.alarm(max(1,int(remaining)))
+  os.environ.update(CUDA_VISIBLE_DEVICES='1',OMP_NUM_THREADS='8',MKL_NUM_THREADS='8',TOKENIZERS_PARALLELISM='false')
+  import torch
+  from transformers import AutoProcessor,LlavaOnevisionConfig,LlavaOnevisionForConditionalGeneration
+@@ -52,11 +54,11 @@
+  assert model.visual.tower is model.core.vision_tower and model.visual.projector is model.core.multi_modal_projector
+  assert storage._measure(model.named_parameters(remove_duplicate=False))==storage.layout(model)['weights']
+  assert model.core.language_model.config._attn_implementation=='sdpa'
+- assert sorted({type(layer.self_attn).__name__ for layer in model.model.layers})==read(RUN/'prior_'+case+'_COMPLETE.json')['language_attention_classes']
++ assert sorted({type(layer.self_attn).__name__ for layer in model.model.layers})==read(RUN/('prior_'+case+'_COMPLETE.json'))['language_attention_classes']
+  buffer_digest=lambda:storage.digest({n:v for n,v in model.core.named_buffers() if not n.startswith(('vision_tower.','multi_modal_projector.'))})
+- buffers_before=buffer_digest();assert buffers_before==read(RUN/'prior_'+case+'_COMPLETE.json')['preserved_nonvision_buffers_digest']
++ buffers_before=buffer_digest();assert buffers_before==read(RUN/('prior_'+case+'_COMPLETE.json'))['preserved_nonvision_buffers_digest']
+  bridge.bind(model);fv.install(model);before=storage.digest(model);del p
+- previous={r['id']:r for r in read(RUN/'prior_'+case+'_predictions.json') if r['id'] in wanted};assert len(previous)==20
++ previous={r['id']:r for r in read(RUN/('prior_'+case+'_predictions.json')) if r['id'] in wanted};assert len(previous)==20
+  rows=[(t,row) for t in manifest['tasks'] for row in dev[t['task']] if row['id'] in wanted];assert len(rows)==20 and all(t['domain']=='natural' for t,row in rows)
+  captures={};visual_requests=0
+  def capture(module,args):
+@@ -99,7 +101,7 @@
+  assert all(p.grad is None and not p.requires_grad for p in model.parameters())
+  write(case+'_predictions.json',records)
+  import resource
+- write(case+'_COMPLETE.json',dict(identity=who,seconds=time.monotonic()-tick,ready_sha256=sha(RUN/'READY.json'),digest=before,layout=storage.layout(model),preserved_nonvision_buffers_digest=buffers_before,visual_requests=visual_requests,NLL_requests=40,new_generations=40,backwards=0,optimizer_updates=0,process_RSS_highwater_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024,whole_phase_GPU_peak_allocated=torch.cuda.max_memory_allocated(),files={n:sha(RUN/n) for n in [case+'_predictions.json',case+'_INTERVENTION_PLAN.json']}))
++ write(case+'_COMPLETE.json',dict(identity=who,seconds=(time.time()-ready['original_parent_started_unix']) if case=='parent' else time.monotonic()-tick,attempt_seconds=time.monotonic()-tick,completed_unix=time.time(),ready_sha256=sha(RUN/'READY.json'),digest=before,layout=storage.layout(model),preserved_nonvision_buffers_digest=buffers_before,visual_requests=visual_requests,NLL_requests=40,new_generations=40,backwards=0,optimizer_updates=0,process_RSS_highwater_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024,whole_phase_GPU_peak_allocated=torch.cuda.max_memory_allocated(),files={n:sha(RUN/n) for n in [case+'_predictions.json',case+'_INTERVENTION_PLAN.json']}))
+ if __name__=='__main__':
+  case=sys.argv[1];assert case in ['parent','candidate']
+  try:main(case)

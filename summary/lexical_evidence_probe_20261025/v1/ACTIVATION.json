@@ -1,0 +1,22 @@
+{
+  "unit": "llmcl-lexical-evidence-probe-20261025.service",
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit=llmcl-lexical-evidence-probe-20261025.service",
+    "--property=Restart=no",
+    "--property=KillMode=control-group",
+    "--property=RuntimeMaxSec=1900",
+    "--property=TimeoutStopSec=5",
+    "--setenv=LLMCL_ROOT=/data2/liyapeng_grp/program/LLMCL",
+    "--setenv=LLMCL_RUN=/tmp/llmcl-lexical-evidence-1084-3hhr4jxf",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "-u",
+    "/tmp/llmcl-lexical-evidence-1084-3hhr4jxf/controller.py"
+  ],
+  "unix": 1792867379.7020712,
+  "ready_sha256": "edebb207712c1e50f2aebd3e213794e801ea32ac0128d8eb6a16124968fabcb8",
+  "boot": "5b259bd9-d0cb-4a1d-8b90-6e6107080488",
+  "stderr": "Running as unit: llmcl-lexical-evidence-probe-20261025.service\n",
+  "GPU_processes_before": "\n"
+}
