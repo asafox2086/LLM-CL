@@ -1,0 +1,44 @@
+{
+  "decision": "accept_first_model_launch_snapshot_only",
+  "activation_sha256": "afb3b0fce0f3d12173be696f7c491102bca10200347878c49fadcf5f3bc18724",
+  "phase_observed_sha256": "c413a555c638c6911351367a6968de36cdb847c81321a002dae07faa7d13ef7c",
+  "ready_sha256": "5a1ca3e9a68c4ba4bf879ce7fc8d1000f65e5407815078ea2a25ffa98d0bfad9",
+  "admission_sha256": "9db4c680ae8110409ff2e279920f28ed3c5ae21afd9bcb6fc5fb86872a1146a5",
+  "observation_UTC": "2026-10-24T03:48:28.190913+00:00",
+  "host": "OLD",
+  "unit": "llmcl-onevision-sparse-connection-plasticity-launch-repair-20261024.service",
+  "controller_identity": {
+    "pid": 3525203,
+    "uid": 1084,
+    "startticks": "751210607",
+    "pgid": 3525203,
+    "boot_id": "5b259bd9-d0cb-4a1d-8b90-6e6107080488"
+  },
+  "init_worker_identity": {
+    "pid": 3525229,
+    "uid": 1084,
+    "startticks": "751210642",
+    "pgid": 3525229,
+    "boot_id": "5b259bd9-d0cb-4a1d-8b90-6e6107080488"
+  },
+  "physical_GPU": 0,
+  "findings": [
+    "The activation binds the exact accepted READY and ADMISSION. Its controller identity equals the later phase snapshot and queue owner.",
+    "The init STARTED PID/UID/startticks/PGID/boot identity exactly matches the separately observed current worker identity and the sole recorded GPU0 compute owner. The STARTED ready SHA and 3600-second init cap match admission.",
+    "At the stated snapshot, only init has STARTED. Frozen/Plastic have no markers, INITIAL_VERIFIED/VERIFIED and controller failure hashes are absent, and partial DEV was not read.",
+    "The new launch-repair unit is recorded loaded/active/running with Restart=no and KillMode=process; the activation command uses only the new independent dispatch entry. No old-v1 activation is reported.",
+    "The 03:48:28 snapshot records cards1/2/3 without compute owners, but that is not permanent availability or permission for another experiment.",
+    "This is the first actual STARTED of the scientific point. Any subsequent actual failure/interruption/timeout closes the point under the unchanged protocol; the pre-STARTED parser-repair exception cannot be reused to restart it."
+  ],
+  "limitations": [
+    "This review consumes only the two supplied small observations and hashes the existing READY/admission; it performs no SSH, hardware query, process poll, model, QA, tensor count, scoring or bootstrap.",
+    "Active-service ExecMainStatus=0 is not a completed-worker exit proof. These snapshots do not guarantee later liveness, health, completion or absence of faults.",
+    "An init STARTED and GPU allocation are not completed calibration/training, initial function-gate success, actual final compression, Answer F1 quality or research-goal achievement.",
+    "Only the already admitted init and conditional Frozen/Plastic flows are allowed, on the same OLD card with original 3600+7200+7200-second caps and initial function gate. No new experiment or full confirmation is admitted."
+  ],
+  "no_quality_or_final_compression_claim": true,
+  "no_new_experiment_admission": true,
+  "no_retry_after_STARTED": true,
+  "old_v1_must_not_activate": true,
+  "required_changes": []
+}

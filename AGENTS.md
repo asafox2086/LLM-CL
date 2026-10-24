@@ -1,3 +1,11 @@
+# 2026-10-24：固定连接对照首次真实初始化已STARTED
+
+- 独立启动前解析修复已按增量准入发布2b618481ea13af05bf8da85a5ca8072699479dac、23白名单文件逐字节镜像；原v1从未创建服务/模型，永不激活。新report sparse_connection_plasticity_launch_repair_v1 的ACTIVATION/PHASE_OBSERVED与后续真实proof为当前入口，不再按旧“模型0尝试/无worker”描述当前状态。
+- 实际STARTED时间2026-10-24T03:48:06.326562UTC，旧机boot5b259bd9-d0cb-4a1d-8b90-6e6107080488；03:48:28.190913UTC真实unit llmcl-onevision-sparse-connection-plasticity-launch-repair-20261024.service active/running，controller3525203/start751210607，init worker3525229/start751210642 UID1084，STARTED/proc身份相等。物理0仅该自身worker，1/2/3无owner；资源值只是瞬时，后续看实际/proc/markers，不永久live，不抢占/重启。Restart=no/KillMode=process，不enable。
+- 已跨过首次实际STARTED，原3600秒初始化预算起算，不能按等待/观察重置。原预处理/加载/校准/420回答NLL及4短生成/诊断/CP保存与观察都计入；失败、中断或超预算即关闭整个固定点，不能再次援用启动前修复裁决，不自动恢复/v2/改mask/LR。当前尚无初态COMPLETE/INITIAL_VERIFIED、两流训练或DEV质量，启动与实现修复不算科学收益。
+- 下一实质证据是固定初态功能门的完整证明；通过才同CP0进入Frozen/Plastic两流，否则按事前出口关闭。两流只检验较小载体保留连接可塑性的净价值，不证明OSFT/ShortFixed知识根因或金融答案故障来源，不称已形成新框架。完整权重/实际包/状态/原AnswerF1及全部费用按原协议记录；目前最终737323040值及模式码仍为设计断言，不当实测结果。
+- 冻结十二源/READY5a1ca3...及原科学条件不热改，原tiny门不重跑。已完成checkpoint两列、金融合同、旧profile/评分/配对/所有旧分支不重复；正式基线保全，有新sealed proof才更新联合表。小时跟进只在实质证据/重要故障/阶段完成通知，健康不变安静，不分钟巡检。科研总目标未实现。
+
 # 2026-10-24：固定连接对照仅修启动前空行解析，独立重新准入
 
 - 新 sparse_connection_plasticity_launch_repair_v1 的 REPAIR_SPEC/REPAIR_SOURCE_REVIEW/PARSER_REPAIR_CHECK/READY/ADMISSION_REVIEW 为准。原v1服务从未创建、无private/owner/STARTED、0模型尝试，故可按独立裁决修启动前故障；不把错误叫75资源等待，不恢复原入口。原十一源、READY118751...、CPU门与故障原字节保留。
