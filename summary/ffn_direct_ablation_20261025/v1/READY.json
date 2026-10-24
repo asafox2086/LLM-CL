@@ -1,0 +1,119 @@
+{
+  "admitted": true,
+  "worker_sha256": "1978d626854d2451c5b68e714f4fa72808ef400fb8a93c98edf4778208690240",
+  "protocol_sha256": "322bce94977d36fb1218be2e69372220633af30d55d180fe9eaacb95cd07c573",
+  "storage_helper_sha256": "032904b7fe92a0912e18c0e664750c35f4c6fa7bf15fae6fa9a5a350f7277ef8",
+  "split_sha256": "d8e2dd59767c53eb833988dda87b4330ac208d2c804e42e327725f09d38bcb9d",
+  "calibration_ids": {
+    "1": [
+      "TextVQA:22523",
+      "TextVQA:5799"
+    ],
+    "2": [
+      "SLAKE:663",
+      "SLAKE:187"
+    ],
+    "3": [
+      "SLAKE:1398",
+      "SLAKE:3975"
+    ],
+    "4": [
+      "SLAKE:9284",
+      "SLAKE:8432"
+    ],
+    "5": [
+      "SLAKE:7844",
+      "SLAKE:1695"
+    ],
+    "6": [
+      "SLAKE:7216",
+      "SLAKE:2501"
+    ],
+    "7": [
+      "SLAKE:2750",
+      "SLAKE:7756"
+    ],
+    "8": [
+      "SLAKE:1969",
+      "SLAKE:1165"
+    ],
+    "9": [
+      "SLAKE:1484"
+    ],
+    "10": [
+      "SLAKE:1892",
+      "SLAKE:7232"
+    ],
+    "11": [
+      "SLAKE:2286",
+      "SLAKE:7024"
+    ],
+    "12": [
+      "RSVQA-LR:68528",
+      "RSVQA-LR:74031"
+    ],
+    "13": [
+      "RSVQA-LR:4909",
+      "RSVQA-LR:6595"
+    ],
+    "14": [
+      "RSVQA-LR:8049",
+      "RSVQA-LR:8652"
+    ],
+    "15": [
+      "RSVQA-LR:39393",
+      "RSVQA-LR:37437"
+    ],
+    "16": [
+      "FinMME:5519",
+      "FinMME:10381"
+    ],
+    "17": [
+      "CODA-LM:Train:Train_general_3570",
+      "CODA-LM:Train:Train_general_1961"
+    ],
+    "18": [
+      "CODA-LM:Train:Train_regional_1261",
+      "CODA-LM:Train:Train_regional_7472"
+    ],
+    "19": [
+      "CODA-LM:Train:Train_suggestion_2382",
+      "CODA-LM:Train:Train_suggestion_2018"
+    ]
+  },
+  "parent": {
+    "bytes": 1787598858,
+    "sha256": "c21309c4eb39fa30af93476164f9406ca68d3ce191c8c41cc25049ded669e478",
+    "source_VERIFIED_sha256": "acaee0246525532d99318f3798fa0116abd968fa8476a9815284593473fecb56",
+    "source_COMPLETE_sha256": "5d8758ab4fdfd6a88a995586f7a7b641409871b60df46b0bf9736d13e22815bb",
+    "source_checkpoint": {
+      "path": "checkpoints/stage_19.pt",
+      "stage": 19,
+      "bytes": 1941445476,
+      "sha256": "119fb0e79a96f2e802c2655a26bec4cd812598650da2725d2f22e3fbef128019",
+      "seconds": 15.883374468998227,
+      "manifest_sha256": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+      "method": "BudgetMatchedQV",
+      "full_architecture_and_runtime": true,
+      "optimizer_saved": false
+    },
+    "merge": "CPU FP32 sum/product then common FP16 storage; not historical forward bitwise equivalence"
+  },
+  "review": {
+    "decision": "accept_one_stronger_parent_forward_ablation",
+    "science_reviewer": "research_review",
+    "code_reviewer": "baseline_review",
+    "basis": "Direct finite deletion effects on FIT; actual joint8-FFN graph must pass whole-answer F1. No source-gradient extrapolation.",
+    "nonblocking_fix": "Reset layer_index before each full request for unambiguous errors",
+    "limits": [
+      "single effects not additive",
+      "positive clipping and worst aggregation not isolated",
+      "wide parent is not strongest formal baseline",
+      "explored DEV, no equivalence or framework novelty claim"
+    ],
+    "worker_sha256": "1978d626854d2451c5b68e714f4fa72808ef400fb8a93c98edf4778208690240",
+    "protocol_sha256": "322bce94977d36fb1218be2e69372220633af30d55d180fe9eaacb95cd07c573",
+    "budget_seconds": 5400
+  },
+  "old_failed_point_not_modified": true
+}
