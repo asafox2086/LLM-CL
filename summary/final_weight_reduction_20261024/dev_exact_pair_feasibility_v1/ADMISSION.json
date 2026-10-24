@@ -1,0 +1,27 @@
+{
+  "decision": "accept_single_exact_DEV_pair_feasibility_only",
+  "consumer_sha256": "4b08d940f340fa34bc99c747df29f32b9682e1068def0cb9082a17566bc5d327",
+  "question_sha256": "35dd6040f887f517c628447e4e4786b3457ab6ce033fabdc7c55653f8664feb5",
+  "no_model_admission": true,
+  "single_metadata_execution_only": true,
+  "external_supervision_seconds_cap": 240,
+  "current_input_batch_source_sha256": "4f5c4a34be046c29cfbcdaa4b2957faa907684872ba69083bdef53136a851240",
+  "review_scope": "Static review of the consumer and QUESTION plus the current input_batch text-construction source only. The consumer was not imported or executed; no original QA, image, prediction, model or tensor was consumed during review.",
+  "findings": [
+    "The consumer binds original SPLIT and manifest hashes through the existing screen READY and execution policy, filters the TRAIN containers to the fixed 100 DEV IDs, and reads no TEST file or image payload.",
+    "The equality key contains task instruction, dataset, exact question, exact context and image count, within one task. Current input_batch builds text from instruction/context/question and adds image markers; it does not independently append metadata options.",
+    "Missing images or missing image-SHA entries, and incomplete/empty/non-string reference lists, are excluded and counted. Different known groups, disjoint image SHA sets and disjoint complete reference-string sets are required.",
+    "Combinations produce unique unordered pairs within each template group. Overlapping pairs and repeated use of a QA are retained as dependent candidates, not independent samples.",
+    "Public output contains candidate IDs, counts and hashes; original question/context/reference/metadata text is written only to the private candidate file."
+  ],
+  "limits": [
+    "Reference labels are used to construct candidates on already explored DEV; this is not an unlabeled selection or a new held-out evaluation.",
+    "Exact reference-string disjointness does not establish semantic mutual exclusion or that a reference would be invalid for the other input.",
+    "Different groups and disjoint image SHA values do not establish independent images or exclude unknown near-duplicates.",
+    "The check establishes equality only of the declared current prompt-building metadata fields, not historical tokenized prompts, retrieval outcomes, processor outputs or model inputs.",
+    "The TRAIN containers are read and their JSON rows parsed to select DEV IDs; no FIT-content analysis or TEST-file access is authorized.",
+    "The external helper must verify these exact source/question hashes and enforce the one-execution and 240-second limit; the consumer itself does not read this admission or implement a hard timeout.",
+    "No candidate permits automatic likelihood evaluation, training, repair, model admission, approximate-template relaxation, expanded data, edited questions or score-based pair selection."
+  ],
+  "action": "If no existing semantically clear pair is available, close this diagnostic. Nonempty candidates permit only bounded semantic review and a separate necessity decision, not model execution."
+}
