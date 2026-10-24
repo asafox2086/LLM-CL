@@ -1,3 +1,11 @@
+# 2026-10-24：共享载体在教师特征捕获超限，固定点关闭，未产生压缩质量结论
+
+- shared_fullspan_carrier_v1的FAILURE_RECEIPT/FAILURE_FINDINGS/FAILURE_REVIEW及原FAILURE/CONTROLLER_FAILURE/ACTUAL_EXIT为最新终态，覆盖下方运行快照。实际OLD unit failed/MainPID0/exit1，controller3587357及worker3587377已自然退出，queue closed_failure；无COMPLETE/VERIFY_STARTED/VERIFIED。当前无研究worker/其它已准入模型，不再等或恢复此入口。READY a4d918ab...及五源/协议不改，不扩大cache/换QA/续CP/延时/自动v2。
+- 在原父诊断记录65条后，教师逐层输入/输出capture触发事前8GiB tensor载荷上限；clone发生在assert之前，不能说实际内存最多8GiB，也不能由上限推恰好保存的有效载荷。cache_index未完成，已完成捕获QA数未持久化、inflight不按零。尚未到共享因子SVD/恢复/压缩包/紧凑模型诊断；0恢复更新，压缩质量缺测，不否定FiPS/共享小载体功能，也不称新方法失败或成功。
+- 父diagnostic.jsonl65条仅计数和封SHA，未读质量/重评分；parent.pt只stat保留、未重复大hash，最终完整layout与包成本证明缺失。STARTED→FAILURE mtime132.307459秒非完整RUN、实际退出观测133.798529秒重叠不加，26同PID资源行只是失败轨迹快照，不是完成模型/受控推理峰；此前门/运输/审阅费用保留。FAILURE_RECEIPT 8d4fdc9bced14f995ded383b6c388c3d3441ee081a433721d228979577923b82为唯一小文件故障receipt，不重做封存/CPU门/模型/评分。
+- OLD原TRANSPORT_RECEIPT仅接收字段，NEW权威版本另含NEW监督字段、两SHA不同已知且保留；故障receipt只报告OLD当前字节，不覆盖权威NEW receipt/READY/准入链。此差异不是本次cache根因。
+- 这次是实验工作量/资源估计失误，不算论文进展。主子agent共同裁决：现有OSFT/ShortFixed/LoRA的梯度/末态等不足以识别新的更新空间因果，禁止重几何/范数/同函数代数审计拼机制。论文目标仍未实现；需要真正功能承接与有区分力证据，不能接着换压缩工具或以工程修补维持活跃。旧分支全部封存、稀疏修复例外仍无授权，正式基线不改；仅新有效正式proof或具体未重复且会改变研究设计的问题再推进，不把科研困难标外部阻塞。
+
 # 2026-10-24：唯一共享载体检查实际首次STARTED，尚无完整质量
 
 - shared_fullspan_carrier_v1/ACTIVATION、STARTED、PHASE_OBSERVED记录当前唯一研究入口。2026-10-24T07:29:59.388472UTC实际OLD unit llmcl-onevision-shared-fullspan-carrier-20261024.service active/running，controller3587357/start752538710、worker3587377/start752538740/UID1084/隔离PGID同PID，GPU0、boot5b259bd9-d0cb-4a1d-8b90-6e6107080488；STARTED unix1792826967.2858713（07:29:27UTC附近）。这些仅时点身份，以后看真实proc/queue/proof，不照抄永久live。无COMPLETE/VERIFIED/FAILURE，未读partial质量。

@@ -1,0 +1,75 @@
+{
+  "decision": "accept_capture_resource_failure_closure_only",
+  "findings_sha256": "ac52c65deb487f55f7c5f13a5ea1778e92599cac2cee17ee067d7997d42470e2",
+  "failure_receipt_sha256": "8d4fdc9bced14f995ded383b6c388c3d3441ee081a433721d228979577923b82",
+  "ready_sha256": "a4d918ab5a02fbbcd4fd475e73d0f34e5a4e39d042fb687c601354a5974181a4",
+  "files_sha256": {
+    "summary/final_weight_reduction_20261024/shared_fullspan_carrier_v1/FAILURE_FINDINGS.md": "ac52c65deb487f55f7c5f13a5ea1778e92599cac2cee17ee067d7997d42470e2",
+    "summary/final_weight_reduction_20261024/shared_fullspan_carrier_v1/FAILURE_RECEIPT.json": "8d4fdc9bced14f995ded383b6c388c3d3441ee081a433721d228979577923b82",
+    "summary/final_weight_reduction_20261024/shared_fullspan_carrier_v1/FAILURE.json": "61abb34c775c7bab8684e20e91c60ca7aca7dac45433efc6b45ebac97b80c54d",
+    "summary/final_weight_reduction_20261024/shared_fullspan_carrier_v1/CONTROLLER_FAILURE.json": "e3850d8b52de770e77a0db9597b213f3826868f1620260de28558c4fc1ac3b9b",
+    "summary/final_weight_reduction_20261024/shared_fullspan_carrier_v1/ACTUAL_EXIT.json": "623e1d3182b451f1680574c7259a13af2b00e2e1e94d8e7f48d8a7d4427a1959",
+    "summary/final_weight_reduction_20261024/shared_fullspan_carrier_v1/STARTED.json": "5b4e8fe832f0559a04dff4d7917bec9e68bf37fdd581b532cedc2d48fde50376",
+    "summary/final_weight_reduction_20261024/shared_fullspan_carrier_v1/READY.json": "a4d918ab5a02fbbcd4fd475e73d0f34e5a4e39d042fb687c601354a5974181a4",
+    "summary/final_weight_reduction_20261024/shared_fullspan_carrier_v1/ADMISSION_REVIEW.json": "be605d21d39fca20374434ea6bb12c365f97d56edc7e30f199d8b9f3a72f488d",
+    "summary/final_weight_reduction_20261024/shared_fullspan_carrier_v1/PROTOCOL.md": "d139e4e509d93113ebf72c3d9d20ec0b31a30675bb613543d80ab742a853796a",
+    "summary/final_weight_reduction_20261024/shared_fullspan_carrier_v1/TRANSPORT_RECEIPT.json": "3ba91942607a91f8dbfbdece4a8ae70146c457d2b1b8f531647c1b0f21b4acdf",
+    "exp/shared_fullspan_carrier_20261024/v1/worker.py": "63d3a76966ed97513fa0a0230fc69bfc575a561bb2007068dce610e356f977f4"
+  },
+  "no_model_admission": true,
+  "no_retry": true,
+  "quality_missing": true,
+  "scope": "Closure interpretation against the fixed source/protocol and small failure evidence. The reviewer wrote the findings from those records; this is not a separate second-author validation or quality verification.",
+  "checks": [
+    "The hook failed during teacher capture before full_initialize/recover_group/pack_group. The whole fixed point closes under its first-STARTED stop rule.",
+    "STARTED, ACTUAL_EXIT and receipt identity/READY fields agree; actual subprocess returncode is 1 and identity_after is null. Controller/service absence is the receipt observation, not a new remote check.",
+    "The parent diagnostic file has 65 records per the receipt. The 65 NLL/generation requests are inferred from that count and source sequence; their values were not read. Capture completion count remains unknown.",
+    "The payload cap is checked after cloning and is not an exact RAM limit or memory peak. Mtime interval and exit upper bound have overlapping scopes. The 26 resource rows describe an incomplete failure trajectory.",
+    "The NEW authority transport file remains admission-bound. Removing its two explicit NEW supplementation fields reconstructs the OLD receiving-record SHA cited by the receipt; no prior receipt or READY was rewritten."
+  ],
+  "receipt_scoped_private_metadata": {
+    "exp/shared_fullspan_carrier_20261024/v1/private/parent.pt": {
+      "bytes": 1787757748,
+      "mtime_unix": 1792826997.194433
+    },
+    "exp/shared_fullspan_carrier_20261024/v1/private/parent_diagnostic.jsonl": {
+      "bytes": 44768,
+      "mtime_unix": 1792827053.3942032,
+      "sha256": "e2b9bcd09eee57348d391dbe82b15dda2c74395b906274049b470548f1edf1e5",
+      "nonempty_lines": 65
+    },
+    "exp/shared_fullspan_carrier_20261024/v1/private/resources.jsonl": {
+      "bytes": 12227,
+      "mtime_unix": 1792827097.86202,
+      "sha256": "b300f2311b448cb1c9954eef803c6c6ce02a4d62b2c01cef2d747717e7c7bfb7",
+      "nonempty_lines": 26
+    }
+  },
+  "OLD_receiving_transport_sha256": "9ac5db4d1fdb326fd4d8256dcaed985a3711a86f17c80cbce1db4c0a13986ede",
+  "NEW_authority_transport_sha256": "3ba91942607a91f8dbfbdece4a8ae70146c457d2b1b8f531647c1b0f21b4acdf",
+  "queue_evidence": {
+    "source": "Embedded observation in FAILURE_RECEIPT.json; no separate local queue file was read.",
+    "value": {
+      "phase": "closed_failure",
+      "worker": null,
+      "controller": null,
+      "TEST_QA": 0
+    }
+  },
+  "scientific_conclusion": "No compact model or new answer-quality result was produced. This acquisition path exceeded the fixed resource gate; representation/restoration/plasticity hypotheses were not tested to completion.",
+  "next_action": "close_fixed_point_preserve_evidence_no_automatic_model_or_old_geometry_audit",
+  "limitations": [
+    "No private prediction/NLL values, QA/images, resource raw rows or large package payload were read. Counts/stats/SHA remain receipt-scoped.",
+    "There is no completed compact package, compact diagnostic or original Answer F1 scoring result.",
+    "No newly identifiable compact-carrier learning-capacity choice follows from this failure or the already-completed geometry analyses."
+  ],
+  "review_actions": {
+    "small_evidence_and_frozen_source_only": true,
+    "ran_model_Torch_gate_score_bootstrap": false,
+    "read_partial_quality_or_predictions": false,
+    "rehash_large_package": false,
+    "new_remote_poll": false,
+    "modified_frozen_source_READY_or_prior_receipt": false,
+    "wrote_only_new_findings_and_review": true
+  }
+}
