@@ -1,0 +1,52 @@
+{
+  "decision": "accept_prelaunch_parser_repair_freeze_only",
+  "old_ready_sha256": "1187516646544e93b6ef68ec8e2bf400d26f5eaae3ed0f06ec8d901273fbb0d4",
+  "files_sha256": {
+    "exp/sparse_connection_plasticity_20261024/v1_launch_repair/common.py": "9ddbdd3e094c73f1f19716c6a21e91e9e745ee74de3fecc7169daa7856bd24b5",
+    "exp/sparse_connection_plasticity_20261024/v1_launch_repair/core.py": "741467a2dc17fd0562dc88db5c5ecc1db0a999541c74dc6d8f00a24abb65e978",
+    "exp/sparse_connection_plasticity_20261024/v1_launch_repair/cpu_gate.py": "3be543c054e1c34d16ead6df245d827616d3f3619ca13378b0b87cf683c6824e",
+    "exp/sparse_connection_plasticity_20261024/v1_launch_repair/dispatch.py": "41673868063117c7d9646b4434bdce85b781047b762d36e5a38082bf13a35c81",
+    "exp/sparse_connection_plasticity_20261024/v1_launch_repair/freeze.py": "9852e058f78812d0ee7180fe888837b27fe1bda976b37c97370643e07c85c8f3",
+    "exp/sparse_connection_plasticity_20261024/v1_launch_repair/generation.py": "02b81de5d312560944dc1c56feff9c38a62b3bd193900ecc8740996960728f95",
+    "exp/sparse_connection_plasticity_20261024/v1_launch_repair/initialize.py": "7088a98c350c55693fa994044ea869e027413cfa2625311add2ee1c397be46c1",
+    "exp/sparse_connection_plasticity_20261024/v1_launch_repair/pruning.py": "2998202454fbf87e32069a18ced5fb2e4313d2c1bf11fa33342cb98ecdbac16a",
+    "exp/sparse_connection_plasticity_20261024/v1_launch_repair/repair_freeze.py": "65ab8e0b7fadb7e9f79d92fc5fb610360bf7ed6a157df686d0fc4279a0dbc8f4",
+    "exp/sparse_connection_plasticity_20261024/v1_launch_repair/run.py": "3ef3549b4503876283f1a81ed891955256fb639097d43ec69baf55ff03685397",
+    "exp/sparse_connection_plasticity_20261024/v1_launch_repair/runtime.py": "e37330fbc8ea655e67032512b8558574963d619aedb0f085be9decfd9f08c44b",
+    "exp/sparse_connection_plasticity_20261024/v1_launch_repair/verify.py": "561d2547e94e2bc7e4f343019f5a78f2d8977bee3b9539aefb6bf4895cad85e9",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_launch_repair_v1/PROTOCOL.md": "ffc5fca0acf329b06ed7b38fd21bfbf9f3898775de2bbe248c7ea659db88573f",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_launch_repair_v1/REPAIR_SPEC.md": "87e6f787b3e99589a1cac9e4c34eb60a8ef8e2c900ea75dcfd6cc6daf6f21aa7",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_v1/READY.json": "1187516646544e93b6ef68ec8e2bf400d26f5eaae3ed0f06ec8d901273fbb0d4",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_v1/ADMISSION_REVIEW.json": "a95ac5a8a83dbf4afbf2fb0cd8f20721bbc88b171f081e1288e57f45981939df",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_v1/ACTIVATION_PRECHECK_FAILURE_OBSERVED.json": "6a8b16782759104b8fb9b1e471a3a4185acd20393635058ee6d05981d2c0e618",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_v1/CPU_GATE.json": "5c2fcbdcf9fd97ce4f8e3a8df55775c3708fad8ac79de8b0a1d02d77f27e054f",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_v1/CPU_GATE_STARTED.json": "aebd0be3fe47679cd974bd2a6c8fa45d30e6cca735e6533d955eff08838246c3",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_v1/SOURCE_REVIEW.json": "7d5509f8217c8a8aa3b55037db7187f41b33dc282ecd9ef24ddef7dbd00ac388",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_v1/NECESSITY_REVIEW.json": "d858e5ad9f8374c0868909f77085fe1cb1dcea89c0ea14c345a3644f6ddbfdc7",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_v1/PROTOCOL.md": "ffc5fca0acf329b06ed7b38fd21bfbf9f3898775de2bbe248c7ea659db88573f"
+  },
+  "transport_supervisor_sha256": "ab2395b6a4c4001063a54a38fcc987362ad9442948f0b6a896cc1aa641e9d920",
+  "scope": "One OLD standard-library repair_freeze invocation after exact transport; no original freeze/tiny gate, Torch, QA, actual hardware query, model activation or scientific condition change. A new READY requires a later independent incremental admission.",
+  "findings": [
+    "Ten inherited Python sources are byte-identical to v1. common.py differs only in REPORT/ASSETS operational paths and mechanical extraction of the inventory parsing tail with pure-whitespace filtering in its two line loops.",
+    "The original inventory command invocations, nonblank row conversions, process identity handling, owner accumulation, resource thresholds and rejection code remain unchanged. No command output is substituted for actual launch/resource admission.",
+    "repair_freeze statically validates old source bytes, common function AST inheritance and the extracted parsing-tail equivalence after removing exactly the two skip statements. It verifies old small dependency/evidence hashes, original CPU_GATE, original training AST and byte-identical scientific protocol.",
+    "The planned regression uses the sealed successful-query failure text, equivalent whitespace variants, eight malformed nonblank cases and the actual current process identity. These are parser fixtures, explicitly not current GPU availability observations.",
+    "Both old and new paths must have no private/owner/phase STARTED before the repair marker. The new report/work state is independent; old assets remain at their original SHA-bound path.",
+    "The new READY binds all twelve new sources, original READY/admission/failure, unchanged original gate and dependencies, and new protocol/spec/review/parser evidence. It states inheritance without a gate rerun, no scientific/model budget reset, old entry closure and new admission requirement.",
+    "The reviewed private supervisor transports exact bytes through NEW to OLD, refuses mismatched existing files, runs only repair_freeze with CUDA_VISIBLE_DEVICES empty under a 180-second subprocess limit, and collects four small records. It has no systemd or model activation path."
+  ],
+  "limitations": [
+    "This is a static source/diff review. No repair_freeze, regression, hardware query, SSH, transport, original CPU gate or model was executed by this reviewer.",
+    "Existing OLD dependency copies and current no-attempt/resource state are revalidated by the reviewed execution path; this review does not independently claim a new live OLD observation.",
+    "The inherited CPU gate validates the original mathematical implementation only; parser repair success cannot establish real VLM FP16 behavior, initial functional preservation, quality, compression or novelty.",
+    "Original 3600-second initialization, two 7200-second case caps, fixed first-stage function gate and first-STARTED failure closure remain unchanged. No retry/resume/extension or automatic alternate configuration is authorized.",
+    "Any new repair-freeze implementation failure must be retained and reviewed; it is not a model attempt or permission to rerun blindly."
+  ],
+  "allowed_next_action": "Transport the bound files and perform the single OLD stdlib repair_freeze only; then consume its new small evidence and READY in independent admission review.",
+  "no_model_admission": true,
+  "no_activation": true,
+  "original_CPU_gate_must_not_rerun": true,
+  "old_entry_must_not_activate": true,
+  "required_changes": []
+}

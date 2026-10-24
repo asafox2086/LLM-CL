@@ -1,0 +1,74 @@
+{
+  "decision": "accept_single_fixed_sparse_pilot_activation",
+  "ready_sha256": "5a1ca3e9a68c4ba4bf879ce7fc8d1000f65e5407815078ea2a25ffa98d0bfad9",
+  "original_ready_sha256": "1187516646544e93b6ef68ec8e2bf400d26f5eaae3ed0f06ec8d901273fbb0d4",
+  "repair_only_before_any_model_STARTED": true,
+  "files_sha256": {
+    "exp/sparse_connection_plasticity_20261024/v1_launch_repair/common.py": "9ddbdd3e094c73f1f19716c6a21e91e9e745ee74de3fecc7169daa7856bd24b5",
+    "exp/sparse_connection_plasticity_20261024/v1_launch_repair/core.py": "741467a2dc17fd0562dc88db5c5ecc1db0a999541c74dc6d8f00a24abb65e978",
+    "exp/sparse_connection_plasticity_20261024/v1_launch_repair/cpu_gate.py": "3be543c054e1c34d16ead6df245d827616d3f3619ca13378b0b87cf683c6824e",
+    "exp/sparse_connection_plasticity_20261024/v1_launch_repair/dispatch.py": "41673868063117c7d9646b4434bdce85b781047b762d36e5a38082bf13a35c81",
+    "exp/sparse_connection_plasticity_20261024/v1_launch_repair/freeze.py": "9852e058f78812d0ee7180fe888837b27fe1bda976b37c97370643e07c85c8f3",
+    "exp/sparse_connection_plasticity_20261024/v1_launch_repair/generation.py": "02b81de5d312560944dc1c56feff9c38a62b3bd193900ecc8740996960728f95",
+    "exp/sparse_connection_plasticity_20261024/v1_launch_repair/initialize.py": "7088a98c350c55693fa994044ea869e027413cfa2625311add2ee1c397be46c1",
+    "exp/sparse_connection_plasticity_20261024/v1_launch_repair/pruning.py": "2998202454fbf87e32069a18ced5fb2e4313d2c1bf11fa33342cb98ecdbac16a",
+    "exp/sparse_connection_plasticity_20261024/v1_launch_repair/repair_freeze.py": "65ab8e0b7fadb7e9f79d92fc5fb610360bf7ed6a157df686d0fc4279a0dbc8f4",
+    "exp/sparse_connection_plasticity_20261024/v1_launch_repair/run.py": "3ef3549b4503876283f1a81ed891955256fb639097d43ec69baf55ff03685397",
+    "exp/sparse_connection_plasticity_20261024/v1_launch_repair/runtime.py": "e37330fbc8ea655e67032512b8558574963d619aedb0f085be9decfd9f08c44b",
+    "exp/sparse_connection_plasticity_20261024/v1_launch_repair/verify.py": "561d2547e94e2bc7e4f343019f5a78f2d8977bee3b9539aefb6bf4895cad85e9",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_launch_repair_v1/PROTOCOL.md": "ffc5fca0acf329b06ed7b38fd21bfbf9f3898775de2bbe248c7ea659db88573f",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_launch_repair_v1/REPAIR_SPEC.md": "87e6f787b3e99589a1cac9e4c34eb60a8ef8e2c900ea75dcfd6cc6daf6f21aa7",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_launch_repair_v1/READY.json": "5a1ca3e9a68c4ba4bf879ce7fc8d1000f65e5407815078ea2a25ffa98d0bfad9",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_launch_repair_v1/PARSER_REPAIR_CHECK.json": "7e0f01b315272761c18da67d7e0153879b6cf538b6febd655fb04c4f2bf30f68",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_launch_repair_v1/REPAIR_FREEZE_STARTED.json": "a00edf9402cdcd49b921d8553232be88137a33f816e24c28a03259294a8ff40b",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_launch_repair_v1/REPAIR_FREEZE_EXECUTION.json": "68553f43bef2a93aaddbeeaa9b10dc610e8094c75ca45aae6b9e832769fb1c6c",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_launch_repair_v1/REPAIR_SOURCE_REVIEW.json": "d7cc676093aed6eae5df73bb50c71233e949f85b8534e8c8dd06dde29f104b6a",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_v1/READY.json": "1187516646544e93b6ef68ec8e2bf400d26f5eaae3ed0f06ec8d901273fbb0d4",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_v1/CPU_GATE.json": "5c2fcbdcf9fd97ce4f8e3a8df55775c3708fad8ac79de8b0a1d02d77f27e054f",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_v1/ADMISSION_REVIEW.json": "a95ac5a8a83dbf4afbf2fb0cd8f20721bbc88b171f081e1288e57f45981939df",
+    "summary/final_weight_reduction_20261024/sparse_connection_plasticity_v1/ACTIVATION_PRECHECK_FAILURE_OBSERVED.json": "6a8b16782759104b8fb9b1e471a3a4185acd20393635058ee6d05981d2c0e618"
+  },
+  "activation_wrapper_sha256": "c8184b79b63f195f8c8bbce322b19a716a36098a6894226394a6f997d089b1e5",
+  "scope": "Only the first actual model attempt of the original fixed sparse point through the independent launch-repair entry; no old-v1 activation, new scientific condition, gate rerun or budget reset.",
+  "admitted_scope": {
+    "host": "OLD",
+    "same_single_physical_GPU_for_all_phases": true,
+    "allowed_physical_GPUs": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "order": [
+      "init",
+      "conditional Frozen",
+      "conditional Plastic"
+    ],
+    "init_seconds": 3600,
+    "each_case_seconds": 7200,
+    "aggregate_model_seconds": 18000,
+    "initial_function_gate_required_before_training": true,
+    "first_STARTED_failure_interruption_or_timeout": "Close the whole fixed point. No retry, resume, extension, alternate mask/LR or automatic new version.",
+    "no_automatic_full_confirmation": true
+  },
+  "findings": [
+    "The new READY and four completed small records have consistent exact mirrored hashes. The repair STARTED binds the accepted source review, and the execution record returns zero with the new READY/parser-check hashes.",
+    "The passed parser check records the sealed original failure text, whitespace variants, eight malformed nonblank rejections and current process identity. It explicitly records no actual model attempts, no original QA, no Torch and no CPU-gate rerun.",
+    "All twelve new source hashes match READY. Ten inherited files and scientific function ASTs remain unchanged under the completed repair proof; original dependencies, base expectations, manifest/split/TRAIN AST, stage plan, numerical conditions and budgets are inherited exactly.",
+    "The original CPU gate is inherited at its original SHA, not reported as a newly executed gate. The fix is limited to parser blank-line handling and independent operational paths.",
+    "The reviewed activation wrapper requires both old/new entries to have no private/owner/STARTED, both service names to be not-found, the new admission/READY and original READY to match, then calls actual inventory and starts only the new CPU controller unit with Restart=no.",
+    "The actual controller/worker retain the original owner-aware resource guard and same-card phase checks; parser fixtures are never used as hardware availability evidence.",
+    "The wrapper must be checked locally against activation_wrapper_sha256 immediately before transport/execution, and OLD must receive the same bytes. It is intentionally bound separately from the public files map."
+  ],
+  "limitations": [
+    "No repair freeze, regression, hardware query, SSH, systemd action, Torch import, model, tensor, QA, scoring or bootstrap was executed by this reviewer.",
+    "Original host-specific dependency files were verified by the completed OLD freeze proof; this review checks inheritance and available mirrored small-file bindings rather than pretending Windows has the OLD runtime files.",
+    "The no-attempt observation is revalidated by the activation wrapper. Actual card availability must be obtained from the real queries at activation and each phase, not inferred from historical parser text.",
+    "Parser success and inherited tiny CPU checks do not establish actual VLM FP16 compatibility, initial quality, useful sparsity, memory speed benefits, novelty or the research objective.",
+    "Initial log(2) NLL cutoff is an investment gate only. Both admitted learning flows still require complete physical-layout, fixed-mask, optimizer, 19/87, final-reload and Answer F1 evidence under the unchanged protocol."
+  ],
+  "old_v1_must_not_activate": true,
+  "original_CPU_gate_must_not_rerun": true,
+  "no_fake_inventory": true,
+  "required_changes": []
+}

@@ -1,3 +1,12 @@
+# 2026-10-24：固定连接对照仅修启动前空行解析，独立重新准入
+
+- 新 sparse_connection_plasticity_launch_repair_v1 的 REPAIR_SPEC/REPAIR_SOURCE_REVIEW/PARSER_REPAIR_CHECK/READY/ADMISSION_REVIEW 为准。原v1服务从未创建、无private/owner/STARTED、0模型尝试，故可按独立裁决修启动前故障；不把错误叫75资源等待，不恢复原入口。原十一源、READY118751...、CPU门与故障原字节保留。
+- 新十二源中十源逐字节继承；common仅REPORT/ASSETS路径和真实inventory解析段的机械抽取，两个循环跳过纯空白行。原两条真实查询、非空字段/数字、PID身份/owner、资源阈值、拒绝与自有worker回收规则不变。独立REPORT/WORK/owner/service，私有作者/数据资产仍指原目录并核SHA，不入Git。
+- 唯一无Torch repair_freeze已在OLD自然返回0；原tiny门未重跑。真实故障文本、空白变体、8个非空畸形拒绝与当前进程身份回归通过，解析0.000761522秒仅子区间；运输/小证据核对/监督另计。它不是当前空卡观察，更不是模型/质量/压缩收益。CPU门4.147746754秒只按未变科学源码继承，不伪称新门通过。
+- 新READY5a1ca3e9a68c4ba4bf879ce7fc8d1000f65e5407815078ea2a25ffa98d0bfad9及五源/十二源全部冻结。独立增量准入接受同固定点首次OLD模型尝试，正式激活前须实际owner-aware资源检查并精确保全基线/他人。此条写时未激活、仍0模型尝试；以后以新ACTIVATION/实际proc/STARTED/proof为准，不照抄永久live。
+- 科学条件不变：SparseGPT工具得到共同更少连接起点，固定初态NLL投入门后Frozen只适应q/v，Plastic另学习同mask保留连接；测试后者净价值，不声称已解释OSFT/金融知识根因或形成新框架。原3600初始化+每流7200、累计18000秒不重置，首次STARTED后失败/中断/超预算关闭整个固定点，无续CP/延时/变体。只完整证明后消费结果，不读partialDEV、不重评分/配对；旧分支均不恢复。
+- 最终checkpoint权重两列已完成，金融合同排查已关闭，不重复它们作进展。主表原质量及权重值不改。最终完整权重与原AnswerF1主目标未实现；训练状态辅助，端侧仅科研背景。NEW留至少一卡、OLD可用空卡授权不变，不向他人/正式GPU进程信号。
+
 # 2026-10-24：金融标签—选项—上下文合同核对结束
 
 - 新finance_input_contract_v1的EVIDENCE dfa872c53511443f5873ebdcc2be23981c424219b1d7b06c02e255f6222ae8c4、FINDINGS与RESULT_REVIEW为准。唯一消费者已完成，worker925702/start15526588自然退出0；读取原89TRAIN/2233TEST、当前作者Parquet四列（不读图像载荷），以及3条正式方法金融S0/S16/S19已存metadata。分析4.270324秒、监督6.785698秒重叠不加，0新模型/生成/训练/评分/bootstrap。该排查结束，不重消费者、旧profile/格式证书/评分或追加同类计数。
