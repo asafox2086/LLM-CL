@@ -1,3 +1,9 @@
+# 2026-10-24：OSFT阶段刷新机制新对照已实际首次STARTED
+
+- 新osft_stage_refresh_mechanism_v1准入b061fe2145ad0cb71e014b76de66b4c080631e86的30白名单文件已推送精确镜像后，唯一OLD unit llmcl-onevision-osft-stage-refresh-mechanism-20261024.service首次激活。2026-10-24T15:19:57.182672+00:00实际controller3728445/start755358934、prefix worker3728466/start755358964/UID1084/隔离PGID同PID，boot5b259bd9-d0cb-4a1d-8b90-6e6107080488/GPU0，active/running且真实身份匹配；prefix已STARTED，两分支尚未STARTED，无COMPLETE/FAILURE/VERIFIED，未读partial质量。这些是快照，后续核真实身份与proof，不永久live或误等旧压缩点。
+- READYd276508a82e51855b3c7e4ac94f8fa3329167c7bec6cf190368c09f00271d4a5及五源/协议冻结，首次prefix3600秒已开始，后续同卡Fixed/Refresh各7200，总18000模型秒；首次真实模型故障/中断/超时关闭，不续CP/延时/自动版本。只本流，激活前后他人/基线身份保全，Restart=no/KillMode=process、不enable。
+- 此为解释OSFT有效学习功能的直接对照，而非另一压缩结果：共用真实新S1已学状态/RNG后，两组低U/S/V均继续训练，只有后续阶段是否原refactor不同；分开刚习得和末态，边界变化不自动证明子空间移动。实际2099FIT/153更新/480生成，0TEST/未来FIT优化/旧CP。当前没有此对照的新性能数据，更没有已保质紧凑新框架，总目标未实现。
+
 # 2026-10-24：OSFT阶段刷新机制新对照已准入，尚未激活
 
 - 人类追问不是要求继续无作为。上一只巡检无新研究的goal轮是no progress，不是资源阻塞；root/子agent已实质讨论纠正“每项机制实验必须立即删W0”的过严门。新问题直接决定框架是否需要阶段刷新学习参数化，不能只凭局部代码可行/完整对照立项，也不能用旧首步A梯度/每域清零故事冒充已识别基线原因。
