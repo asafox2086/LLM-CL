@@ -1,3 +1,10 @@
+# 2026-10-24：共享完整输入载体仅准入一次S1起点检查，尚非新框架
+
+- shared_fullspan_carrier_v1的PROTOCOL/NECESSITY_REVIEW/SOURCE_REVIEW/CPU_GATE/READY/ADMISSION_REVIEW为当前唯一新入口，exp/shared_fullspan_carrier_20261024/v1五源冻结。READY a4d918ab5a02fbbcd4fd475e73d0f34e5a4e39d042fb687c601354a5974181a4，独立准入be605d21d39fca20374434ea6bb12c365f97d56edc7e30f199d8b9f3a72f488d仅接受一次OLD任一空闲卡单流、STARTED起3600秒检查；发布时尚未激活，实际状态以后读ACTIVATION/STARTED/queue/proof，不把旧无工作或旧PID当live。
+- 人类要求始终回到可发表且最终完整权重更小、原AnswerF1尽量保留/提高的端侧研究方法。当前共享载体借用FiPS已知技术，只是必要起点检查，不是原创框架/OSFT机制或质量成果。小图8个synthetic更新2.810849秒通过、CUDA未初始化；运输118文件27910419bytes和元数据冻结是必要实施成本，不当科研收益，不重复门/运输/旧分析。
+- 仅72语言FFN、6相邻四层组，完整896维初始化后共享1152列，私有V固定75%稀疏；物理包只含共享U、保留值与位图，不暗存原dense/完整V。设计893675552→686942240权重、位图50429952bytes尚非实际结果；解包临时开销单列，不宣称更快/运行内存更小。只有实际完整计数及包均≤父80%、同S1 F1不降低且NLL不升高才保留载体进入后续必要性评审，不自动CL/U-V/DEV/TEST/其它压缩工具。
+- 只S1原FIT，65诊断组与32恢复组固定分离；完整父与实际物理包重载后各65生成和65NLL，另32教师capture/NLL计费。6组各40×32共7680恢复更新，不称87持续学习步或同计算预算。无未来FIT/DEV训练或正式teacher。首次STARTED故障/中断/超时即停，不续CP/延时/自动v2/搜配置。所有旧失败/阴性条件及稀疏统计修复待人类例外均未被本准入重开。
+
 # 2026-10-24：四状态图文配对诊断完整结束，未支持OSFT整体配对支持增幅更大
 
 - paired_image_support_diagnostic_v1的MODEL_VERIFIED/MODEL_OUTCOME/RESULT_FINDINGS/MODEL_RESULT_REVIEW/MODEL_DECISION为最新结果。61固定几何DEV、四态488NLL、0训练/生成/新F1/bootstrap，源/目标/实际输入与同view视觉特征绑定、各状态内参数及权重buffer前后不变、四态退出预算全过；原唯一verify与唯一结果消费者已完成，不重跑。宏q/v DeltaC .455118248/OSFT .441384426，D=−.013733822，事前第三方向未满足；本固定解释结案，不换置换/seed/扩样追方向，不自动新模型。

@@ -1,0 +1,73 @@
+{
+  "decision": "accept_single_fixed_carrier_design_and_independent_implementation_only",
+  "protocol_sha256": "d139e4e509d93113ebf72c3d9d20ec0b31a30675bb613543d80ab742a853796a",
+  "protocol_path": ".deployment/shared_fullspan_protocol_draft_20261024.md",
+  "no_model_admission": true,
+  "scope": [
+    "One fixed OneVision carrier construction: six adjacent four-layer groups, full 896-dimensional initialization, 1152 shared columns and final 75-percent sparse private factors.",
+    "Independent implementation and preparation of a necessary tiny admission check; complete source review remains required before that check. No actual model activation, continued-learning flow or U/V comparison is authorized by this review."
+  ],
+  "findings": [
+    {
+      "id": "purpose",
+      "assessment": "accept",
+      "detail": "The fixed question has action value: whether shared storage plus sparse private coefficients can produce a physically smaller starting carrier without loss on the prespecified S1 diagnostic. It is not a causal explanation of OSFT and not a new framework or FiPS invention."
+    },
+    {
+      "id": "initialization_and_function",
+      "assessment": "accept_conditional_design",
+      "detail": "Keeping all 896 SVD components and zero-padding the additional shared columns gives a real-arithmetic starting representation before sparsification. It does not assert bitwise original FP16 behavior, full-rank learned weights or preserved answer quality. Full SwiGLU recovery and actual packed-model diagnostics address different levels of this gap."
+    },
+    {
+      "id": "storage",
+      "assessment": "accept_design_not_measurement",
+      "detail": "The final representation includes shared U once, FP16 retained private values, actual bitmaps, all remaining base weights, weight buffers, persistent auxiliary state and package overhead. Neither dense private factors nor original FFN weights may remain in the final package. Both the coefficient and complete-package 80-percent gates are required. No RAM, latency or sparse-kernel gain is inferred."
+    },
+    {
+      "id": "data",
+      "assessment": "accept",
+      "detail": "The hash-selected 32 recovery groups and 65 diagnostic groups are disjoint and use only arrived S1 FIT representatives. No future task, original DEV or TEST input is used. Group disjointness is not image independence. Selection does not depend on losses or answers."
+    },
+    {
+      "id": "optimization",
+      "assessment": "accept_fixed_recipe",
+      "detail": "The proposal fixes 1280 joint four-layer updates per group, six group order, the normalized full-SwiGLU loss, optimizer and cosine conditions, monotone per-V magnitude pruning every 50 updates with a forced final mask at update 960, and no regrowth. It explicitly differs from a reproduction of the author defaults. Implementation must realize one joint group update rather than independent per-layer updates of a shared parameter."
+    },
+    {
+      "id": "resources_and_exposure",
+      "assessment": "accept_fixed_bounds",
+      "detail": "The 8-GiB tensor-cache payload cap is distinct from metadata and total process memory. All 7680 group updates and 30720 cached-layer exposures, 32 teacher capture/NLL forwards, 130 diagnostic NLL forwards and 130 generations remain charged. The single 3600-second interval includes construction, recovery, serialization, reload and diagnostics; no completion or speed is assumed."
+    },
+    {
+      "id": "stop_and_action",
+      "assessment": "accept",
+      "detail": "The packed reloaded carrier must pass complete integrity checks and both storage gates, then S1 Answer F1 must be no lower and mean gold NLL no higher than the same-pipeline parent. This is a conservative resource-selection rule, not a noninferiority proof. Any failure or unmet criterion closes this fixed point without continuation, configuration search or automatic next model."
+    }
+  ],
+  "nonblocking_text_scope_clarification": [
+    "The opening statement about not continuing from visual-deletion or per-layer-low-rank assumptions is accepted only as withdrawal of unsupported premises. The existing r200 and paired-image results do not rule out every visual compression or low-rank carrier."
+  ],
+  "limitations": [
+    "No source implementation, actual packed model, numerical admission result, memory/latency measurement, final weight reduction or new Answer F1 was inspected or produced.",
+    "S1 diagnostic success cannot establish preservation of five-domain or complete pretraining functions; these 65 groups are an explored investment-selection set.",
+    "Local teacher-input reconstruction does not guarantee serial whole-model responses. The final reloaded-model answer diagnostics are the specified test of that fixed construction, not a universal guarantee.",
+    "A passing carrier would only support later necessity review. It would not identify cross-layer interference, demonstrate an adaptive learning rule, establish novelty or satisfy the complete paper goal.",
+    "The 3600-second bound may terminate the construction before completion; that is an operational failure/closure rather than a completed scientific quality result."
+  ],
+  "required_changes_before_design_acceptance": [],
+  "source_review_targets_before_execution": [
+    "Joint ownership of U, independent group optimizer reset and exact sparse mask/gradient/parameter/moment enforcement.",
+    "Actual input/answer/token policy, image and split binding, cache storage accounting and independent diagnostic groups.",
+    "Finite numerical operations, durable update/mask evidence and exact accounting under the external deadline.",
+    "No original FFN or persistent dense V in the final serialized object; full physical reload, shared storage and remaining frozen-weight integrity.",
+    "Exactly one planned score pass, original generation/reference contract, no partial-quality-dependent actions or retry."
+  ],
+  "review_actions": {
+    "read_protocol_only": true,
+    "executed_model_or_tensor_operations": false,
+    "ran_QA_or_scoring": false,
+    "ran_CPU_gate": false,
+    "modified_protocol": false,
+    "created_review_only": true
+  }
+}

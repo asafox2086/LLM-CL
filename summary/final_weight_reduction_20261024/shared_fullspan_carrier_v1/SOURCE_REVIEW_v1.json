@@ -1,0 +1,71 @@
+{
+  "decision": "modify",
+  "no_model_admission": true,
+  "no_CPU_gate_admission_yet": true,
+  "protocol_sha256": "d139e4e509d93113ebf72c3d9d20ec0b31a30675bb613543d80ab742a853796a",
+  "necessity_review_sha256": "c074e187ad65b150ca30db8c8365ded800bead2fb81073fdc104e81a95c73bd5",
+  "sources": {
+    "exp/shared_fullspan_carrier_20261024/v1/core.py": "48cf94ab2e0b421b7454d81ae1b21d00efeca75b370cad6c9005c8239f9ac257",
+    "exp/shared_fullspan_carrier_20261024/v1/common.py": "e8845cfd3c6a560edbea914886d69fa9e59f4e377763db11efe4511b317c2d5f",
+    "exp/shared_fullspan_carrier_20261024/v1/worker.py": "63d3a76966ed97513fa0a0230fc69bfc575a561bb2007068dce610e356f977f4",
+    "exp/shared_fullspan_carrier_20261024/v1/freeze.py": "a60f5e97ebcd4678d917c29eae95be41607fa0c8dd52b7ce0ae16b5078c8bdba",
+    "exp/shared_fullspan_carrier_20261024/v1/dispatch.py": "64d303dc74161649dead288a45b56a55aeca8443b556b16640493c56f1ca8d32"
+  },
+  "source_read_scope": "Read the five shared local draft files as the proposed canonical sources. Remote byte equality is reported by the parent and was not independently checked in this review.",
+  "findings": [
+    {
+      "id": "R1",
+      "priority": "high",
+      "files": [
+        "common.py:40-69",
+        "freeze.py:69-82"
+      ],
+      "problem": "The data and inherited-base chain reseals current artifacts without asserting equality to the accepted historical screen/base identities. data() reads current manifest/SPLIT and hashes current images; it does not check the original screen READY manifest/split SHA or SPLIT.image_sha256. freeze() reads the current inherited MODEL_READY, but the inherited proof is not itself checked by ready() dependencies; the imported runtime_utils also executes PORT/methods.py, which is absent from dependencies.",
+      "required_change": "Before sealing, bind the accepted original screen READY and existing base proof, assert original manifest/SPLIT/base mapping equality, assert selected images equal the original SPLIT image hashes, and retain these evidence/dependency identities for ready(). Include the actual imported PORT/methods.py. Do not redefine or resplit data."
+    },
+    {
+      "id": "R2",
+      "priority": "high",
+      "files": [
+        "dispatch.py:43-63"
+      ],
+      "problem": "After Popen, identity/queue/STARTED assertions or file I/O failures can exit the controller without reclaiming its already-created worker. The top-level handler writes a closed queue but has no process cleanup. A worker can continue model work despite the reported closure.",
+      "required_change": "Put child identity capture, queue writes, marker checks and waiting inside an ownership-aware try/finally. Reclaim and wait only when the same UID/startticks/PGID are established for that own child. If ownership cannot be established, report needs_attention and do not signal or claim successful cleanup. Bound poll sleeps by remaining startup/model time."
+    },
+    {
+      "id": "R3",
+      "priority": "high",
+      "files": [
+        "common.py:89-143",
+        "worker.py:184-192",
+        "dispatch.py:68-70"
+      ],
+      "problem": "The independent verifier accepts only a self-reported subset of files and does not bind STARTED/ACTUAL_EXIT identity, boot, GPU and READY to the completion/resources. It neither requires the precise expected evidence set nor validates the resource PID/GPU/completion phase. Parent and compact package sizes are used in the gate without checking current file existence/stat size. The mask verification checks only the step-960 fraction and does not reconstruct the prescribed mask event schedule/counts.",
+      "required_change": "Require the exact planned small-file evidence set and SHA map; bind STARTED, COMPLETE, ACTUAL_EXIT and same-PID/GPU resource records and finished phase; independently check the existing package paths/stat sizes against recorded sizes without requiring another payload rehash in this review; reconstruct existing update/GMP event schedule and per-factor retained counts from the already-recorded journal. Include worker identity/boot in COMPLETE if needed. No additional QA or optimizer steps are required."
+    },
+    {
+      "id": "R4",
+      "priority": "medium",
+      "files": [
+        "freeze.py:47-64",
+        "core.py:112-120",
+        "core.py:189-197"
+      ],
+      "problem": "CPU_GATE declares mask_parameter_gradient_moments=True, but the tiny gate does not inspect/assert zero masked parameters, gradients and both moment tensors, or its final per-V keep counts. Calling enforce is an implementation path, not the claimed independent check. The FP16 basis conversion is also not explicitly checked for finite values after conversion.",
+      "required_change": "Within the existing synthetic updates, assert the masked parameter/gradient/moment invariants and exact final keep counts, then keep the existing physical-pack/reload test. Assert finite FP16 shared basis as well as packed values before saving. Do not add model/QA requests or repeat the gate."
+    }
+  ],
+  "positive_static_findings": [
+    "The gate/up transpose and down orientation are consistent with the proposed shared U/V representation.",
+    "Each group constructs one Basis object used by all twelve factors; optimizer parameters deduplicate that shared U and include twelve private values.",
+    "The recovery loss combines all four layer losses before a single optimizer step. The source uses the fixed 32-sample order, 1280 updates, fixed AdamW/cosine and the prescribed GMP boundary.",
+    "PackedFactor retains FP16 nonzero values and a bit-packed mask, expands only the current V in forward, and has no dense value parameter. Canonical MLP replacement reaches the bridge hidden native core through the same module identities.",
+    "The worker saves a compact model, clears the ACTIVE reference and reloads that physical graph before compact diagnostics; final registered weight/buffer digest and layout are compared.",
+    "The original score/tokens functions are extracted unchanged and only one planned score pass is present. Full answer-loss AST differs only in tokenizer truncation parameters."
+  ],
+  "limits": [
+    "This is a static source review with blockers, not acceptance to freeze, run the tiny gate, launch a worker or make a quality claim.",
+    "No Torch/module import, model, tensor computation, QA processing, scoring, optimizer step, CPU gate, remote command or READY creation was performed.",
+    "The earlier necessity acceptance remains limited to this fixed carrier question; all source fixes must retain its scientific recipe, exposure and stop rule."
+  ]
+}

@@ -1,0 +1,1253 @@
+{
+  "sources": {
+    "exp/shared_fullspan_carrier_20261024/v1/core.py": "31c35e1f405bf1d0053e4a434df2eb0a8fb42f563d898743684835ca434e7de6",
+    "exp/shared_fullspan_carrier_20261024/v1/common.py": "764b6d064c437963fa1d86b54ce04551548e55a717587e3de660699cdb6d024a",
+    "exp/shared_fullspan_carrier_20261024/v1/worker.py": "63d3a76966ed97513fa0a0230fc69bfc575a561bb2007068dce610e356f977f4",
+    "exp/shared_fullspan_carrier_20261024/v1/freeze.py": "a60f5e97ebcd4678d917c29eae95be41607fa0c8dd52b7ce0ae16b5078c8bdba",
+    "exp/shared_fullspan_carrier_20261024/v1/dispatch.py": "fbe6390c9e910ebbc004d438d59e573815cbf817e4913963ee608d42ee05f144"
+  },
+  "evidence": {
+    "summary/final_weight_reduction_20261024/shared_fullspan_carrier_v1/PROTOCOL.md": "d139e4e509d93113ebf72c3d9d20ec0b31a30675bb613543d80ab742a853796a",
+    "summary/final_weight_reduction_20261024/shared_fullspan_carrier_v1/NECESSITY_REVIEW.json": "c074e187ad65b150ca30db8c8365ded800bead2fb81073fdc104e81a95c73bd5",
+    "summary/final_weight_reduction_20261024/shared_fullspan_carrier_v1/SOURCE_REVIEW.json": "e03c44561f63f5e99d742cc9fdc805e7f5e162121b25152ce509fe321f17fb52",
+    "summary/final_weight_reduction_20261024/shared_fullspan_carrier_v1/CPU_GATE.json": "b2c634ae6e834f025817fa337ef4252a9c8b35702798a023b48507f3da6dedbf",
+    "summary/final_weight_reduction_20261024/paired_image_support_diagnostic_v1/MODEL_READY.json": "467ad42dfdcb755576962fd0acac2c622a075e7c7fef3dc7b6566c74351142c5",
+    "summary/edge_deployment_20261019/osft_increment_screen/v1/READY.json": "75b86e6272295b548c82cb73fd29dc60671e18b23314b625d46486232b0d1893",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/manifest.json": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T01_train.jsonl": "5732cd30e78ea2d808526c62312ed2d25e9541a07b3ba5ad2b19d4f0123217c8",
+    "summary/edge_deployment_20261019/osft_increment_screen/v1/SPLIT.json": "d8e2dd59767c53eb833988dda87b4330ac208d2c804e42e327725f09d38bcb9d"
+  },
+  "dependencies": {
+    "exp/two_backbone_native_cl_20261017_v2/runtime_utils.py": "4f5c4a34be046c29cfbcdaa4b2957faa907684872ba69083bdef53136a851240",
+    "exp/two_backbone_native_cl_20261017_v2/onevision_bridge.py": "f3b1dd38af3b58dbfa69073da698ea2bf39a3a11850fb1069a80e38d0e3669a9",
+    "exp/two_backbone_native_cl_20261017_v2/frozen_vision.py": "8211651e92d17019f6ce6cf9615df7f6b5fcaeecc765aec4acdf916c448a35bd",
+    "exp/two_backbone_native_cl_20261017_v2/retrieval.py": "7d7a9dd6cb223bf96cd9ab3499a4ddf69f8fbb60940d80db84582ad518f5c133",
+    "exp/two_backbone_native_cl_20261017_v2/resource_monitor.py": "a161c8a82bf762622795f64210c95164fb905c6fa80572b35ae5ee3dd7146533",
+    "exp/two_backbone_native_cl_20261017_v2/methods.py": "e5bd8f51690b006274ed5adcfa4ef3b1a2c3b0f1d79476d948b71d1cfec41c5b",
+    "exp/two_backbone_native_cl_20261017_v2/execution_policy.json": "f6d33cc939ff833ec7799d2d1ec4c238bb97d47d35488034d9174b36f07c2502"
+  },
+  "environment": {
+    "/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/torch/__init__.py": "5a190666c3853aa236c4d48ed64e2d4bbcd23bd32c21e64c0867646a6852e43f",
+    "/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/modeling_utils.py": "118bd75838e78b19a55accddcf0a913386d822e812c215d50da99c3d0e91d3da",
+    "/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/models/qwen2/modeling_qwen2.py": "4568d588b45dd28152d97c37300a5e227589bc70b9fef5224af29977ecf6abdc",
+    "/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/models/llava_onevision/modeling_llava_onevision.py": "9e7a4a8f12618a9b0a35696cd553b13f081c8a2de4ecf79c821a62cd21b19b16",
+    "/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/models/llava_onevision/processing_llava_onevision.py": "40c41450f3eb28e4c419e162dfdb9863dffb2e5178f54082ade4323d1364ac0d",
+    "/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/models/llava_onevision/image_processing_llava_onevision.py": "d8d259048f80945d1846eccddf2dd5f07a3978e483845b41272ba5dfafbe0d93",
+    "/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/models/siglip/modeling_siglip.py": "28ff4f412be8cb9c2398bd7bedd47685d1f9c806e6fa69e1761a6d7f3e7c2dcd"
+  },
+  "base_small_files": {
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/README.md": "830de4a95f6a5db4cbdd01ab1fee40d6d4f2fb4973774a06d8376d4ffd666e89",
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/preprocessor_config.json": "3644c108b9f0fa53e62ff422a9be6639642f0e64dab4a71f961c7911d4386384",
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/processor_config.json": "04e9899e93f2a412c94e153cab4081457c9a44defb3b2c0b9df673d42c42cdd0",
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/config.json": "839a4fba0bd6949f0db22d4f840935cb0318f6ac28b29c9ce1a5b15735a4a740",
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/generation_config.json": "89dc53229f50b59570b6852056dafeac8116c458f1a748bff491b6d4d24d3b51",
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/upstream_metadata.json": "37b8cbdbbb4ca9812ee8ab2ee7ab5c74f887269b35f2b5b7c202131b2b039a30",
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/tokenizer_config.json": "494a5592a446535be00acc531ccf7a53fd6c6c392c122d444c389160261572e0",
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/tokenizer.json": "3c0ce3213b50ff38d8aa1e91136a2d2cb142a3f569246170872e439cb2a29d15",
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/added_tokens.json": "33e0fb93dadacb864bd2f2e8441e147daa2baceb67f94d3ef5283b495572cea0",
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/chat_template.json": "2466d1704df30f0067f28d8e30e0190a1bf74e5b430942697af974d162a056bd",
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/video_preprocessor_config.json": "0ea9b672282b78353960b6069a521ed496a9f07c033e1e3362bff669234caa8d",
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/special_tokens_map.json": "f4f79e08d97f4d1c87f8d89264f525c8789da3b73b3bb55d1e12f692f41a7b1b",
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/download_integrity.json": "65f22a4c144cec22c666bf65dbd9262f4df4f681b055681d4ffb0d00bf24fb65"
+  },
+  "base_weights": {
+    "model/LLaVA-OneVision-Qwen2-0.5B-OV/model.safetensors": "07b3362c3412de79baf2379e44e5b0b2a8f4b965ebebd11d7b5b3eb4450fe96e"
+  },
+  "inherited_weight_proof_sha256": "467ad42dfdcb755576962fd0acac2c622a075e7c7fef3dc7b6566c74351142c5",
+  "full_loss_AST_sha256": "bbc33cc06878d18de965d51b63977f58644a62b5b436599b1ccbffa8a320d42d",
+  "data": {
+    "manifest_path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/manifest.json",
+    "manifest_sha256": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+    "split_sha256": "d8e2dd59767c53eb833988dda87b4330ac208d2c804e42e327725f09d38bcb9d",
+    "S1_train_path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T01_train.jsonl",
+    "S1_train_sha256": "5732cd30e78ea2d808526c62312ed2d25e9541a07b3ba5ad2b19d4f0123217c8",
+    "rows": [
+      {
+        "role": "diagnostic",
+        "group": "763fcaa3c247e0d6232f252f38f25264ad3f38553419231e8c2ea3efb848eb9c",
+        "id": "TextVQA:5965",
+        "QA_binding_sha256": "4e65b548ea863d6223d85b433c094c858e4d5761c320cf21b0f9d493492c8658",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/27/273a7bac339238c644e989f0a8231210b36c365dfc0243a5298ef50878151e9f.img",
+            "sha256": "273a7bac339238c644e989f0a8231210b36c365dfc0243a5298ef50878151e9f"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "1593351d5fc9736b6ed613a045efc0c618d46bd203af8a5a4268aae43d8145e2",
+        "id": "TextVQA:17036",
+        "QA_binding_sha256": "ec00dcd32b482614285a4b5ef08bda904069e272c274799188d1cd671d41d1eb",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/a3/a39d40829b2b07b3e3815c1e031321f2fb8c19024e44e11eb70318daca43a516.img",
+            "sha256": "a39d40829b2b07b3e3815c1e031321f2fb8c19024e44e11eb70318daca43a516"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "e512bffb32aba373eea895ea3e54a070efa15a4db00bad0594e2a2a487509319",
+        "id": "TextVQA:13225",
+        "QA_binding_sha256": "3f3162981d783dbe17ea9b0d5d923b78b5ec9c56f6fcf3e9ef1dd17745312fb7",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/56/563059a2f53d41377b7b455ec5bc2190f8eda93cb40ea106515845117a0946a9.img",
+            "sha256": "563059a2f53d41377b7b455ec5bc2190f8eda93cb40ea106515845117a0946a9"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "63e8a6570ba6df0bc913d2255fc010fc4b61fa92c1e7d3e91fe4f0ab0b5dfdc6",
+        "id": "TextVQA:23873",
+        "QA_binding_sha256": "b3ad753c4192245ece67f57bfe95f7162ef99d6434b38ca2f9967821461cdd62",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/49/495abd7ab58e4e907400619e7f4f3d6114a24c3772856c15ae7d3d4dfa9d2623.img",
+            "sha256": "495abd7ab58e4e907400619e7f4f3d6114a24c3772856c15ae7d3d4dfa9d2623"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "3340cb351e98901d05e39ab9237dd9b66dbebf78fc0763a003447016e621ec26",
+        "id": "TextVQA:28663",
+        "QA_binding_sha256": "74b090040036d9a064521c792aef1a236badaa6830ba919bc2d0b6ec3198811e",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/83/8339e0c68b7956e387d403a9c1d3c37fea9e0cb5d1b389c3179afc6d5a10376a.img",
+            "sha256": "8339e0c68b7956e387d403a9c1d3c37fea9e0cb5d1b389c3179afc6d5a10376a"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "4cbb8699603d1fb45466bfa2bb8d5530c48cd115c7e791304cfb7005bc53ec75",
+        "id": "TextVQA:14318",
+        "QA_binding_sha256": "67791edfdc635f9b0fe33a8cc547a3b4031114728a41121da38ab9783be50055",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/db/db96f70cd22960225e3394376f2c92505a5137e843173d66883cbed8fb5b6d3d.img",
+            "sha256": "db96f70cd22960225e3394376f2c92505a5137e843173d66883cbed8fb5b6d3d"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "73635ebf9fb3ec230a334202a2c9e599b890353a491f0b792f94047c5389fe86",
+        "id": "TextVQA:7588",
+        "QA_binding_sha256": "b8628ed5565e5b310a7f5c83ae8349223b35436e5c2f005ded926dd2a2c3efef",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/7c/7c70c5a9e832a8ceb1410ef76eb1b464bc50d8321f0dc4d2b3a2c02cf07ddd39.img",
+            "sha256": "7c70c5a9e832a8ceb1410ef76eb1b464bc50d8321f0dc4d2b3a2c02cf07ddd39"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "f857d820706da464bd3c9f28766d35df64359669e8f2efc878a36e2b6d78e4b7",
+        "id": "TextVQA:2454",
+        "QA_binding_sha256": "6697b8f08a60a58fa1c5ee7bcab09817ac35a034ac93bef506f5adeb17a68ac3",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/2e/2e7a4ccba3a72fc70ddf78a02c28bbd4951f9ac46744ff9478a6a13f2506405c.img",
+            "sha256": "2e7a4ccba3a72fc70ddf78a02c28bbd4951f9ac46744ff9478a6a13f2506405c"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "6115c1eae503df50a7d0cd62fab969e142f2111f4aea579311ab48e7e6243ceb",
+        "id": "TextVQA:31157",
+        "QA_binding_sha256": "11adc847a3ce1ec3a2a3a1ac01f79ca96b1cfe6a27c111bcb73a3248ba8b9d7d",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/77/77634459c84699412a430bf4c3c3b9be35ca69f1fdbd64ee4a291c33e520d40f.img",
+            "sha256": "77634459c84699412a430bf4c3c3b9be35ca69f1fdbd64ee4a291c33e520d40f"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "c62a6e0255475cdb8cd667cd5873cd716f76079a48c98a8c27ccdc25a1b280b7",
+        "id": "TextVQA:3749",
+        "QA_binding_sha256": "f9c978c379f0702e328e0a5d7c97c71849970c2ca01429842aeacfe9c7e433b6",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/41/41bda0d603613511a201f9c5ddc664cbf584cc3234504dfa90ed1559bf860789.img",
+            "sha256": "41bda0d603613511a201f9c5ddc664cbf584cc3234504dfa90ed1559bf860789"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "dc7a891ce4804d7d857de27690d155671ef95af32fb6e80f662adf2d8cf68779",
+        "id": "TextVQA:9224",
+        "QA_binding_sha256": "c285fa3296eea95c537e9fad7c7c81914fd9f71c4330c2115623b35581cf42fc",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/43/43a4c4cbdd5ba03b3cbadc5d1906ce1cba8d64a60abbae378ff013d54f5be285.img",
+            "sha256": "43a4c4cbdd5ba03b3cbadc5d1906ce1cba8d64a60abbae378ff013d54f5be285"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "bc38ad474bf3a0d0069ef440e12b572ef847625eed5d844886c3848b3e859c40",
+        "id": "TextVQA:31317",
+        "QA_binding_sha256": "9cf45c288d0fb463bfb0fe3952494cc051f30af00c1962f3a9353e1f785d0c00",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/f2/f2d33234c44f0fdc64fc40c7b965a9f351702285835403393221f94cc8fbd9a0.img",
+            "sha256": "f2d33234c44f0fdc64fc40c7b965a9f351702285835403393221f94cc8fbd9a0"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "26e1bee5059b164943ec8f2ee0e6a2cfd1f35196e17311c167a012131d793dbb",
+        "id": "TextVQA:17778",
+        "QA_binding_sha256": "d7830f6e68a8a148fe6d5a6c8b3723bf1522bbfb62b238122bd305df2a8378db",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/fb/fb5ac2541398331acaf3c7d8072e2a3e7d1c6a3f1ad83cb91e9b1173ddcf5331.img",
+            "sha256": "fb5ac2541398331acaf3c7d8072e2a3e7d1c6a3f1ad83cb91e9b1173ddcf5331"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "589532a852b807d7687d4e9bf5ff8c7b9a5aa6dd97b88da3aaa4ba08523820c2",
+        "id": "TextVQA:20803",
+        "QA_binding_sha256": "6ead42fb5bc5e05e0f9a1cb29a9a18767dd770d9775058ec9ae92e88c8793b0e",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/65/651fafb331ad6a11acfcedaed2d10e10d429367430f0689c26c722bfadddd784.img",
+            "sha256": "651fafb331ad6a11acfcedaed2d10e10d429367430f0689c26c722bfadddd784"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "b0bafddc61bbbb3b46049f71e029916effec3ad5ff31168eaebe0da927e6adeb",
+        "id": "TextVQA:17468",
+        "QA_binding_sha256": "85a2767d12f4d5f9afce491267a41469235faed74785a0ed60fb78cb34b31fb3",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/46/46fa71fb86656242f32c2b11556bab6f0db199352f50fde9f3d90543787f1dc4.img",
+            "sha256": "46fa71fb86656242f32c2b11556bab6f0db199352f50fde9f3d90543787f1dc4"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "d95807c8017a5c57d41235a34546c1a9bfa4b0fe347c0725529d500f4d15e2cd",
+        "id": "TextVQA:3504",
+        "QA_binding_sha256": "9e9c47f1f14c29a2634c7b4fff4743a86ae9a2d30144d14871d7c96759192d60",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/6d/6df65084e8225cf57e64986048bafdb73b99ecae8c8664a7c1fa7383d4d7eeed.img",
+            "sha256": "6df65084e8225cf57e64986048bafdb73b99ecae8c8664a7c1fa7383d4d7eeed"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "411dd49289c53ca798596827ccb7661614969e38fc00fa754f44628c59c5018d",
+        "id": "TextVQA:21962",
+        "QA_binding_sha256": "4f98db6f4c0c0a58497fa905dea88ab2351f23ea7082c5f3e3e805b8b76083b4",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/32/329012dfed7713c1c394489b6e13b3cf6ae3bbf5c29228ec2fef0f7012ed32bc.img",
+            "sha256": "329012dfed7713c1c394489b6e13b3cf6ae3bbf5c29228ec2fef0f7012ed32bc"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "b76cc50b5d9aa9163928a7a6bc67cf8412044758b3b866d0277100df0c8d3eb7",
+        "id": "TextVQA:27319",
+        "QA_binding_sha256": "4822e3b68b6cc489ac3b638aa631ea902ccfd5248fae5a5edafcff50a83c977c",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/d9/d962618931c29f4bd4ea296c4e7288ccbef7f93ea37cfd0c095d0fde3b2a9aff.img",
+            "sha256": "d962618931c29f4bd4ea296c4e7288ccbef7f93ea37cfd0c095d0fde3b2a9aff"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "f6d6fda390343c9d4fa961cfcb8aef97bea22b141fc13f8834cdc016bc4c032f",
+        "id": "TextVQA:6013",
+        "QA_binding_sha256": "b0aa9935a5cbc643177d954e18c55e48c7d73f3848fb4f105b2b5d14d4a4b43d",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/ec/ec00bb16ca0608c231f51196b9ed6b045699f9fdad293a00a596e6ec727d9686.img",
+            "sha256": "ec00bb16ca0608c231f51196b9ed6b045699f9fdad293a00a596e6ec727d9686"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "cc8067297369844e8f806074cdf45949b767c7468730c2a94aad7a3735a45b6b",
+        "id": "TextVQA:3660",
+        "QA_binding_sha256": "8f10830894ce0c19e5e9eaad651d9804edd2a1507b32e3bc52c031bfe961c8d5",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/21/21da7c763e963d47c774bb51136107e9fd105eabfebdd61b2f7e7c00ebd696a0.img",
+            "sha256": "21da7c763e963d47c774bb51136107e9fd105eabfebdd61b2f7e7c00ebd696a0"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "2ea73d4e2492028a38dc7657847e57ce03eeb48243e841d268a0782c95b82b80",
+        "id": "TextVQA:23901",
+        "QA_binding_sha256": "ab207dafc78068d9e70921a9a9e9cbf2527b5614f66862c52ac4bc3ee67ba1b9",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/62/62eefa27d5a906c7d8075dbc3592cd720bfe60b7a71aba13c61a90918e81e67a.img",
+            "sha256": "62eefa27d5a906c7d8075dbc3592cd720bfe60b7a71aba13c61a90918e81e67a"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "d0f12248c6da482c5296fef39ac2e62bc1508755708084742b2fe72aded7b83a",
+        "id": "TextVQA:12216",
+        "QA_binding_sha256": "e504cc00be5baf1cd13f9185e7d749b67e9ff4b9a3689756bfa602bd1ced4f6c",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/95/958d1bfa39dcf51ea7951a7a3a15a386418fdc7a36224acf817070c559ec2944.img",
+            "sha256": "958d1bfa39dcf51ea7951a7a3a15a386418fdc7a36224acf817070c559ec2944"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "bf4b738db39f0a12ac48a4baa0df4b39223ddc7cb9fcd385ee8389bacefd47f2",
+        "id": "TextVQA:30669",
+        "QA_binding_sha256": "8f8d0a074c65708aadb44ef1397f8b1ec974c7b142d89c2d370af3389fe10c2b",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/49/4966a3e53369235b2c8f6c3870be6e52c2e09cfb0c99a5cd6a9d620798ccbfed.img",
+            "sha256": "4966a3e53369235b2c8f6c3870be6e52c2e09cfb0c99a5cd6a9d620798ccbfed"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "de905affbafc96cd53cd0728eb796dd855c4c8809ff094b30a2f8c6efd75bb2c",
+        "id": "TextVQA:13927",
+        "QA_binding_sha256": "d6b2233440eb9090f3af38cca0d5587efc2ae79f7ab082b8bfc5bce3d6329f71",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/6d/6da544641289743847b9e0d6eacc36472f8d8e432c6e83c3936391d82d17df5f.img",
+            "sha256": "6da544641289743847b9e0d6eacc36472f8d8e432c6e83c3936391d82d17df5f"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "dde9c0c6e4591580fde4ffdc6a1810653a9418e12ba1f2e87a7381cda665af59",
+        "id": "TextVQA:9593",
+        "QA_binding_sha256": "894f88e4eae4fec6671e3e22c76ca67ca70419a97d4eb63eac872ab5d34c5dfb",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/0e/0ec72f10ecc1db68abd6cf8aab4cee7175a2f7cb493b7460644e074b59442eee.img",
+            "sha256": "0ec72f10ecc1db68abd6cf8aab4cee7175a2f7cb493b7460644e074b59442eee"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "a4889e1cbc5827700c15051efc60c0d027a88ab8d48815351d13fc3537317b6b",
+        "id": "TextVQA:14491",
+        "QA_binding_sha256": "cc7e32dae3d336a5b3bab702dbf54a83273404de47d7bf1b2143a4dea5184e05",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/31/3146c410e29f0db32926ccfbed9c805afd6ead47b4a8fcc19dbe62c97612e973.img",
+            "sha256": "3146c410e29f0db32926ccfbed9c805afd6ead47b4a8fcc19dbe62c97612e973"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "c552f29e1ccd8854394498034847568d6b19e7e3dae4a7d853304175ccc1e840",
+        "id": "TextVQA:5770",
+        "QA_binding_sha256": "232e2f817250387abbbf8b58b1d3e75acba8056b191873798ce3b51bb6abb7c2",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/16/1625b5fc276be23f35de1909d55dde3151668320d0fe91661df47895ae0f1e91.img",
+            "sha256": "1625b5fc276be23f35de1909d55dde3151668320d0fe91661df47895ae0f1e91"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "a673028d4fba7e85416a856bb52644ac985a784d86813dc1e369008ce28b1509",
+        "id": "TextVQA:5429",
+        "QA_binding_sha256": "0194a1559095206b8391ce3197b9363637ecc27c0d7f1d50dc4d2270b1413ab9",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/37/3759d6fceaf5e29d7626c16371dec11920c40bc5d1b63148ad8f2f79c1ea8973.img",
+            "sha256": "3759d6fceaf5e29d7626c16371dec11920c40bc5d1b63148ad8f2f79c1ea8973"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "adbf6afcc7bc28af3cf53809278083e4802fce2c21543531af10c2c0c58517ea",
+        "id": "TextVQA:18761",
+        "QA_binding_sha256": "2eebdaa1ccef0c39beebe70e525f8a8932b1181eaa52adc6fd799007ed42545d",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/82/8232257e2a368321f8b2849e91ea8bf0a10c37e6f306617293adab6af6814a97.img",
+            "sha256": "8232257e2a368321f8b2849e91ea8bf0a10c37e6f306617293adab6af6814a97"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "395cdf64b9f69a844b894dcb1fbbe8ee8a4e89daa92a181188aeea60887f32cb",
+        "id": "TextVQA:12738",
+        "QA_binding_sha256": "d26bcf79abb35d9966e2382409b842a35da1adf41b42f00bb4f93e14bded5d30",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/4d/4df74532023b80d5236e9b71bfdfdf6747d26aede68ec584249fe24e1ea35c6d.img",
+            "sha256": "4df74532023b80d5236e9b71bfdfdf6747d26aede68ec584249fe24e1ea35c6d"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "30642deb32ec916af6648923b5915165971fb72b1fa1bdbd920d9da71d4aff3c",
+        "id": "TextVQA:792",
+        "QA_binding_sha256": "ba8c032c074048447c78a55cb11e3daf3340fec4961feec0187dcdf6a31512b8",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/a1/a1d82953056b531719e3dd2d825ee1e7778a1d5a2b1de9342622c6c36f713ada.img",
+            "sha256": "a1d82953056b531719e3dd2d825ee1e7778a1d5a2b1de9342622c6c36f713ada"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "e4dd67d3f370e8b8b6a98bcc47c02f81ed00458411c5534d062d3ed6a3566bf8",
+        "id": "TextVQA:17016",
+        "QA_binding_sha256": "83debb19dc6265105d0b9a83f0c8b1614c0103e0c57f489ef614a023ada4950d",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/81/81624ce9eda7e05bae4f79dae5f8c6f9c203b033ab09a9ff85cb25559b52092f.img",
+            "sha256": "81624ce9eda7e05bae4f79dae5f8c6f9c203b033ab09a9ff85cb25559b52092f"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "2aa16b7faa16843fba06e57a37b0a64cee56e5e67cf2d54df6e42dade92d045c",
+        "id": "TextVQA:31291",
+        "QA_binding_sha256": "1a9947a45fbf5a6e269dfab7895a9c02d8846cfd2a58b2a83f5e8d30c9be1d3a",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/75/75d5a499001dd497f5843d792f470ad89588e987bc20a7771fc98d35a6a001a4.img",
+            "sha256": "75d5a499001dd497f5843d792f470ad89588e987bc20a7771fc98d35a6a001a4"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "cabd7ad95ccc4ef22fb53b2bdb29aaf6ad78d8c3942ee2f208eb57f2cd4a7a81",
+        "id": "TextVQA:26512",
+        "QA_binding_sha256": "858f5a10501e6c97074132622fff0f405778925e175faf734bf5603b8cfd66eb",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/96/96a4ec635fe528e78f141856633716503b6b69d15fac4901f9d8a3007da62683.img",
+            "sha256": "96a4ec635fe528e78f141856633716503b6b69d15fac4901f9d8a3007da62683"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "d3ce0d421ed9409e2b6f754793cdb937cb680e28903bc2a663524ed6667cebc3",
+        "id": "TextVQA:4527",
+        "QA_binding_sha256": "9e3347b30ed6320fdf8673ec307213a1b383ab2881a2c6a5558346873070f13f",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/30/30d2d9454b87ee9392c602b40d48e617a2f3ba77d977efae7c5f5b90459d1534.img",
+            "sha256": "30d2d9454b87ee9392c602b40d48e617a2f3ba77d977efae7c5f5b90459d1534"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "958422e34bbce459b94c98c7399ce58716e24acb8b475ebc87d2c90c838cee67",
+        "id": "TextVQA:2352",
+        "QA_binding_sha256": "90c0bb147dc5ecfef16d3ac42c09e6f1c02d842f498ad63c10a5a04a13e81a9d",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/9b/9b9846f01e5ff06e373c6b928ae0218977ebd1fd717bf5e7d12e36755263ec21.img",
+            "sha256": "9b9846f01e5ff06e373c6b928ae0218977ebd1fd717bf5e7d12e36755263ec21"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "c6e4df6b653ecb8892df892e05193818c7d09b1aa7194ad04708124cbdef93bd",
+        "id": "TextVQA:12260",
+        "QA_binding_sha256": "157f5c2d643af25eb9a05a43d9c264c76ac5cd2943012af8edc43fb921c7d4ae",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/69/696dbaf6b89913c2aa3d470ace9e9735443d74e5f284041af07e5a3d00c89a8a.img",
+            "sha256": "696dbaf6b89913c2aa3d470ace9e9735443d74e5f284041af07e5a3d00c89a8a"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "6909f32e85dfd8273ea97c8c74ff393cc9f1f2cc15a8aded14e0d2fadff7fe3c",
+        "id": "TextVQA:14028",
+        "QA_binding_sha256": "9738fb9dc5a66c4027164e6cf577e6ef1f6bbb2b5b89f49613c243d86d90b431",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/3b/3bedd310dad9be0daae2fee3008f4650223d838688d867565fab4e7be348492f.img",
+            "sha256": "3bedd310dad9be0daae2fee3008f4650223d838688d867565fab4e7be348492f"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "f50a6e5c951c13b88d1ec594842b68015173fc5d7cb87ca1e597e479656e1f8e",
+        "id": "TextVQA:7213",
+        "QA_binding_sha256": "0e4dd620aaaa742fadbe30698e46ed098aafa10676b7de4d727797ee3aeece95",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/cf/cfe1e724c3fb3db307a558b0ecdee5e1ef2a4daa6d6947ef1d49532d360a9beb.img",
+            "sha256": "cfe1e724c3fb3db307a558b0ecdee5e1ef2a4daa6d6947ef1d49532d360a9beb"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "850eb1c4b012d5c5c41ddedb739948604334243ca6da24f932766988462edfe7",
+        "id": "TextVQA:27363",
+        "QA_binding_sha256": "fd57a5d2f609aec3c9a9c499945bec2ca207a17552ad574a7fc42a007861244c",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/3a/3a52df7ade6266ccc9df196dbec035bee6ae09fe09c5afb3af2f320ae5fdd790.img",
+            "sha256": "3a52df7ade6266ccc9df196dbec035bee6ae09fe09c5afb3af2f320ae5fdd790"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "a2fc70d632d917d74e995f313a76fe20b11c313ead29487d2ddef61a8074c445",
+        "id": "TextVQA:26986",
+        "QA_binding_sha256": "4db389a0c5530f22a1b1fbaba9f98267afcfb9f14f221049f4534a7772bd1052",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/7e/7ed7aea27ba1a7c3be03e8ef90da24b63db9306ef8106db4205d63e017eb4811.img",
+            "sha256": "7ed7aea27ba1a7c3be03e8ef90da24b63db9306ef8106db4205d63e017eb4811"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "3eee5eb4aed43ca77537a7bdbc1bd8f78407cfaaabcaa0e07393d85e26f2b84a",
+        "id": "TextVQA:13029",
+        "QA_binding_sha256": "488e3d96d35bc3d9bc178330cf70eb983a7eb14b1aafbd8ef40128a07f5fb975",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/86/86ffa521e0f5e044cc2c4a8c32678c044b9242b88a163914fe303352bff13787.img",
+            "sha256": "86ffa521e0f5e044cc2c4a8c32678c044b9242b88a163914fe303352bff13787"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "cced8eb482d049998fd4d6ae9ad707c399dbac694f33a4564f7506f18cfea758",
+        "id": "TextVQA:12725",
+        "QA_binding_sha256": "ba329df4f05132670c4dc18de27daceca98342399f378fd25f1dd68e62e6048c",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/d3/d33d544135b5052c3799b6144b04e5681a2c3b2bde18f94e50080e729f004e5a.img",
+            "sha256": "d33d544135b5052c3799b6144b04e5681a2c3b2bde18f94e50080e729f004e5a"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "9f9f031d0d1e54c180b69ee4ececd1de45fa114ed9a06ec5a4c2cdbe8b3f871c",
+        "id": "TextVQA:10621",
+        "QA_binding_sha256": "334e5ea52a857bffebe1ba1738a76a2e3e89b2a80bacde587a9ff8b723fd421a",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/12/123063e1c92b13a5ce1af3613965b51032350f7b489224febad5ad3abf829986.img",
+            "sha256": "123063e1c92b13a5ce1af3613965b51032350f7b489224febad5ad3abf829986"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "12239de8b3e282afa487ef75663d61564caf355797ad9541aff6fcea4c004243",
+        "id": "TextVQA:17532",
+        "QA_binding_sha256": "c6ee3f675728413de496d3f8075e5447a2c3c50ee790d3a5a1011de3b26a1a4e",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/12/12ec89359de5e64e9e128d3a1dea377c48cdc626ff51f0ef6fc7aaaef64b91c5.img",
+            "sha256": "12ec89359de5e64e9e128d3a1dea377c48cdc626ff51f0ef6fc7aaaef64b91c5"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "9b2d1cd2618ccf172a78138603ae6547c50745bedd0d45ae0f6fb8d70f8945ed",
+        "id": "TextVQA:1009",
+        "QA_binding_sha256": "66ecb07582b160cc0e79a182a3bfe8143dd5e4348b89e208869b9f50e5942452",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/67/6794d6937d1f2210531ecb915b11f39766372b0fbac4a210dd41971460ddfcf2.img",
+            "sha256": "6794d6937d1f2210531ecb915b11f39766372b0fbac4a210dd41971460ddfcf2"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "64e8577b47dcf3a6d506a9ff0f0d4c9363c8f0ff604f4b6031c5976bad0f7164",
+        "id": "TextVQA:9547",
+        "QA_binding_sha256": "f4eb8670a78c5de50c4e1ea7e7afc6b4cdd05d36255ea1e3cf1909203729288b",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/1e/1ed241775d3362866c8f8eb453bb8212e552880bd3df8c906e5de7adafc2761a.img",
+            "sha256": "1ed241775d3362866c8f8eb453bb8212e552880bd3df8c906e5de7adafc2761a"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "6ed62c15b779e3570ed71022ad2d7b263581c6bd75001f228e6de2167e481a13",
+        "id": "TextVQA:1350",
+        "QA_binding_sha256": "6431e4bdab035a07cdfa2520258d3e7add8813407e09adec87c59546ffed2691",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/37/37fa60e36f9a24b58f76e919d61c017d8104ec79a513a1e7c957de69838bf551.img",
+            "sha256": "37fa60e36f9a24b58f76e919d61c017d8104ec79a513a1e7c957de69838bf551"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "d0835f63d026d77f5b75834530f5993fbffbd3405f772055b380b0eb6f5c889a",
+        "id": "TextVQA:17323",
+        "QA_binding_sha256": "e222f174c76397cbb28c6e90665367cbe02a83198032857e3cf16be86d0980f8",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/45/45bc251663461821652d2bcf7c0d8b2161aa4b820787c5a4b91c2b19d307466b.img",
+            "sha256": "45bc251663461821652d2bcf7c0d8b2161aa4b820787c5a4b91c2b19d307466b"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "c357ff2c119336ca5ca34aa16603725dcfc4121acb19b78ba32637c7b55527ea",
+        "id": "TextVQA:29179",
+        "QA_binding_sha256": "99d36deb74ed62747abfcd002f89b9df79d5638a03fdb6bdd325b3b90ad6e590",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/61/6124172a8eceabb04daeb9862817f53ca7614da73bc3cc3a4c37f11dde4b4bf1.img",
+            "sha256": "6124172a8eceabb04daeb9862817f53ca7614da73bc3cc3a4c37f11dde4b4bf1"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "64fe4d8d71c6c19eb29692abbd17fc3d647b9170317bb3b583214e6d25fe8c1d",
+        "id": "TextVQA:30444",
+        "QA_binding_sha256": "4bdf53d128f103595d27adb565c9b9f9d0faae0ff546ff912a36fe595f17c51e",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/1a/1af2459578797f8d41d673b351d050b2f7e6c5ced998aad311088d213e32a897.img",
+            "sha256": "1af2459578797f8d41d673b351d050b2f7e6c5ced998aad311088d213e32a897"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "6bd818cd462b0cc9608c4732797a59e6e454eb6bc759654fd73bea38fa15d4ce",
+        "id": "TextVQA:33260",
+        "QA_binding_sha256": "64d51a3ace0c04dd1f0637ecb39a1a3fc4aee016912d8902a52f9b0042ea67ba",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/0c/0cb5d9b223b45f226f2b6a45517478663ff02eaac5c4e590306f349bb01b4c97.img",
+            "sha256": "0cb5d9b223b45f226f2b6a45517478663ff02eaac5c4e590306f349bb01b4c97"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "775c72801edebd84b0c80da26afff1cf76b8371553b5d79370d53423c948cd8d",
+        "id": "TextVQA:23760",
+        "QA_binding_sha256": "32fab628305ab3612a1a441a5b91524c72c3e3bdf2fe6e01809768dfd81fa85e",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/2c/2c7bbdfde13dc20c0fc231bec48c134515af8f68a4650ae8bb246c2f82255f62.img",
+            "sha256": "2c7bbdfde13dc20c0fc231bec48c134515af8f68a4650ae8bb246c2f82255f62"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "3622cb2baa003b2b74a16a3b19a497b8f98d335400044b3799cabbf49876204c",
+        "id": "TextVQA:6289",
+        "QA_binding_sha256": "24b970d783cfe8b33b6803f91660a4cd1f0a926015c412e84440e5b2403f86b2",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/95/95b81c4ebecc65ac093281642e0ed904765b3acfc5b7d8e193663fc65b28f544.img",
+            "sha256": "95b81c4ebecc65ac093281642e0ed904765b3acfc5b7d8e193663fc65b28f544"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "32f4d2bdb16e0da91cd8398261d03d846d6e0dd9a8a44460fb784bf978a7eb80",
+        "id": "TextVQA:32836",
+        "QA_binding_sha256": "5356088a38760bad1a7b92191530c49b36654e15f0a2a68bf0709c0f59c80c74",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/8c/8cf9cb52e63acf87a8fd5de7fc930eb9541749797f58a6df812bcf588a1af75b.img",
+            "sha256": "8cf9cb52e63acf87a8fd5de7fc930eb9541749797f58a6df812bcf588a1af75b"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "6017edbcb4a9bfbb587f884817eba9c9d11cbca3a2d857982593845ec8848650",
+        "id": "TextVQA:26993",
+        "QA_binding_sha256": "a929ec34c76da59284e73571375aff7d3a91e5d9ce1392014679d9504b9ffe1b",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/c5/c565191c8b580bf1246329dce3f71d027b6a4848a928f7f576321a0decfad3cb.img",
+            "sha256": "c565191c8b580bf1246329dce3f71d027b6a4848a928f7f576321a0decfad3cb"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "c00d6005e2d73351c7754185be640e7f2897f4bc0ddf18270bafecffcb470d2c",
+        "id": "TextVQA:10102",
+        "QA_binding_sha256": "b9da3ff051de281f519abc6d51bd47c6043c6aad8c4fdb33ae61f8e6b08a6a30",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/30/30a24d57bd9fe3f043c67012b15ad931730f7c150e7bce780d4ac90774d0fa54.img",
+            "sha256": "30a24d57bd9fe3f043c67012b15ad931730f7c150e7bce780d4ac90774d0fa54"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "26726e5ddc4eee69066c2a79b688c27fbbef2914fcf3c49ad14df64a272c9e5c",
+        "id": "TextVQA:3561",
+        "QA_binding_sha256": "79c564d35408c746dd77e753e73ed82147d1f0cf86fe315783b2c13d20e22a56",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/04/047e07c3b073b521b61fb554ba9ea2cc35e5265e64092e97d9956606c628439c.img",
+            "sha256": "047e07c3b073b521b61fb554ba9ea2cc35e5265e64092e97d9956606c628439c"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "cde06d3c07153472d91c8263186cd4d1013acfee714316bef7bb4e6804f6533c",
+        "id": "TextVQA:8299",
+        "QA_binding_sha256": "4d2100e8d988da576519e6ea6c10a567551b2bf1e52d596a17acabaca505e7ba",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/6a/6aa4ebabb56421bccbf5a103536aaebc66cfd54febdbff355691647173033e90.img",
+            "sha256": "6aa4ebabb56421bccbf5a103536aaebc66cfd54febdbff355691647173033e90"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "9964e9841d36c6db052a637180a3b513584629fe67363b76157dfdd4127ea252",
+        "id": "TextVQA:10104",
+        "QA_binding_sha256": "eaec9419403aa10b9123bb1e856fc5e04f66b8b663c11fa6ca778e164d7ef3f2",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/29/2984fb9d6e1e7da0ddb6f6df843607d7b58dc8ec641c68e17a44213c6cbb1975.img",
+            "sha256": "2984fb9d6e1e7da0ddb6f6df843607d7b58dc8ec641c68e17a44213c6cbb1975"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "4d5d98b43d556b4445484b50e067acb04c0770326d1b8100153416e615e174b5",
+        "id": "TextVQA:20378",
+        "QA_binding_sha256": "4915825c24821d3ffe7e4efd0b5d53e71a3e641d4743037145f4b7027e38fd51",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/d9/d943e08de315a5ecbcdc28e0ca9f782f685c9e506d703469882fa6a503b5cd5c.img",
+            "sha256": "d943e08de315a5ecbcdc28e0ca9f782f685c9e506d703469882fa6a503b5cd5c"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "d804a8dd0eb4ef78e843a7675026a8ea2aa0d0a67936137e9b0fe84377bd0749",
+        "id": "TextVQA:19313",
+        "QA_binding_sha256": "de71d4f9d38c391e14a57fa13e8f8820cfe76db3d889012caed33d8cf109504f",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/83/8365787a0ead423821e13acecb22920c2b4137b9ca37cbd43a5a5b3c47f2bc8d.img",
+            "sha256": "8365787a0ead423821e13acecb22920c2b4137b9ca37cbd43a5a5b3c47f2bc8d"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "0765848f776f2cf2989b5684d84cc5272e08f91844d56a59e840fc488db5a505",
+        "id": "TextVQA:26027",
+        "QA_binding_sha256": "defcf7ef061a269905804905a0ae2b647ef4e205ace5bfbe390e1641732238e3",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/aa/aaa4cf12e21cdb822db1400a5fe56ef8205c6dd7391f86c2e64b85fc8cc745d1.img",
+            "sha256": "aaa4cf12e21cdb822db1400a5fe56ef8205c6dd7391f86c2e64b85fc8cc745d1"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "3e6e28af25635bec3c1be86cb09e01c2589f2a4dbfdf6bd59f0a11aee799990a",
+        "id": "TextVQA:34459",
+        "QA_binding_sha256": "80837f7819e8c2cfcf31d77dd2540131433514ad8031531a7dc713971b56fcbc",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/c4/c4748e4bae014af4876c0154431fbf2f7de4d27453c863b71ae3d545eb6a7bbb.img",
+            "sha256": "c4748e4bae014af4876c0154431fbf2f7de4d27453c863b71ae3d545eb6a7bbb"
+          }
+        ]
+      },
+      {
+        "role": "diagnostic",
+        "group": "9aa0d323ee37f1157c9c07c538ef60687b17a6938188e4f7c0edc40b9ce34909",
+        "id": "TextVQA:16858",
+        "QA_binding_sha256": "9e238b78554cea1a79b94e0d73cd19f2b58ebc7d6d70ec28349e229bcc1ad9e9",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/1e/1e7b9d7ab721120ac4ddf9c104e55dc4d4a2d80412a54111e1521f9f719ce3b3.img",
+            "sha256": "1e7b9d7ab721120ac4ddf9c104e55dc4d4a2d80412a54111e1521f9f719ce3b3"
+          }
+        ]
+      },
+      {
+        "role": "recovery",
+        "group": "ad098807e558e882b9eedf51461323c52a27947138dfb367b339d103ad103711",
+        "id": "TextVQA:7651",
+        "QA_binding_sha256": "b4b110f0009e770d448c8f9ed842e242675b31304e2861e63153261ea321b02d",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/e4/e462ce235556528214503357eaf81f3cb59f1809ab3cd6015214f49990a66e4d.img",
+            "sha256": "e462ce235556528214503357eaf81f3cb59f1809ab3cd6015214f49990a66e4d"
+          }
+        ]
+      },
+      {
+        "role": "recovery",
+        "group": "ef3cf54d553aa825842d4b5952db224be6cb17e4f458175fbe4b6650a02bc982",
+        "id": "TextVQA:8820",
+        "QA_binding_sha256": "9832ad286bc7440e088de36385aa63972563eca7a43bfa8a183eaa776df51df2",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/37/37c71580b3564a25c7f166bc45d4e57029e67c275138f5563bea3be95e726378.img",
+            "sha256": "37c71580b3564a25c7f166bc45d4e57029e67c275138f5563bea3be95e726378"
+          }
+        ]
+      },
+      {
+        "role": "recovery",
+        "group": "626e9319d1cae20c531794bf709335fd6838c13d6774ec23a01ffe71d657f315",
+        "id": "TextVQA:14662",
+        "QA_binding_sha256": "ead95531a1660704aed7d4896bfc511c996bc822a758f8f79ca195ae9f69de97",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/cb/cbf5f2e4edf62be9b9f1979b997ef2a5f13c67253db25548f5e7f2e0b9e70342.img",
+            "sha256": "cbf5f2e4edf62be9b9f1979b997ef2a5f13c67253db25548f5e7f2e0b9e70342"
+          }
+        ]
+      },
+      {
+        "role": "recovery",
+        "group": "34bbee0ffa9477abd12b4af37ea22189bb860639d0aa1f4608bcc162d38ae96b",
+        "id": "TextVQA:34044",
+        "QA_binding_sha256": "b82272dfc5fb08d651ccc25a985f71832b567a7b5d1428633ad16f765ec96a9f",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/7d/7d72e1a948c597d71452a7b31e84e56796341952c95d4b8439266122c5db59aa.img",
+            "sha256": "7d72e1a948c597d71452a7b31e84e56796341952c95d4b8439266122c5db59aa"
+          }
+        ]
+      },
+      {
+        "role": "recovery",
+        "group": "2ce1d0903c7126e11a8ef6fa3d211745bd3de7003635cba2ab52ed5ebc56df2c",
+        "id": "TextVQA:29327",
+        "QA_binding_sha256": "47c26483411fbbd9fecb6261feeb444ce925cf156b3616839b9f5ae1c5622789",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/76/762728dd4a8c877f6128afa3cd719e78875e8505a655c749273283b92f98c978.img",
+            "sha256": "762728dd4a8c877f6128afa3cd719e78875e8505a655c749273283b92f98c978"
+          }
+        ]
+      },
+      {
+        "role": "recovery",
+        "group": "832f4ebc8d5cb21b1ee8c5c358fe167def88fbbee7b280ae1b2f9959a5fd4894",
+        "id": "TextVQA:17240",
+        "QA_binding_sha256": "a027daed1db5abc8da13e77d191947be1794f5c68e062e9c718b1cf2d80b9c4f",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/d4/d4fbee8692052380c59132ab3e8020b20dd6f9f2b2d957e3c2455c8e032764f7.img",
+            "sha256": "d4fbee8692052380c59132ab3e8020b20dd6f9f2b2d957e3c2455c8e032764f7"
+          }
+        ]
+      },
+      {
+        "role": "recovery",
+        "group": "76b932ac61f2766de393ef6b992a2dff84539d0e71c939c00a91ba04cbd07a58",
+        "id": "TextVQA:24417",
+        "QA_binding_sha256": "116e6e370cff43f12de781df1b91e548ef4d9ece9263da03709c460979453484",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/a0/a00d31294c7ffd710fcae62ad682a2662bde406af3158b333a9abb48ee2c9201.img",
+            "sha256": "a00d31294c7ffd710fcae62ad682a2662bde406af3158b333a9abb48ee2c9201"
+          }
+        ]
+      },
+      {
+        "role": "recovery",
+        "group": "934167784d3844b41b27e5b864c3e6b83d8fe690c9a07da7a60a377c3feb4b0b",
+        "id": "TextVQA:13816",
+        "QA_binding_sha256": "0a7aaf715a043bfa0b98989f2079c005e0c28eec667f88aabba9121cc5182105",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/6e/6e8200ad766e58c54a4da0496a2ec75b3403dc08b9d37b57a3c97c33a7a379a8.img",
+            "sha256": "6e8200ad766e58c54a4da0496a2ec75b3403dc08b9d37b57a3c97c33a7a379a8"
+          }
+        ]
+      },
+      {
+        "role": "recovery",
+        "group": "4ab9cb413e730aae799f4a99b2f6be6c962a1a1b7002d5bc3b4c2360d9d5968e",
+        "id": "TextVQA:21415",
+        "QA_binding_sha256": "cc369083e65385ab2e807b3d4adc30f1a7d1e6ce973c065939570d0529d00b24",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/e5/e55c6af238c2d778b4a4d63ccd0901196f0a75996e568577708fdb2aa61cf1d8.img",
+            "sha256": "e55c6af238c2d778b4a4d63ccd0901196f0a75996e568577708fdb2aa61cf1d8"
+          }
+        ]
+      },
+      {
+        "role": "recovery",
+        "group": "d8ec9128165cad62751f86481ca6f1d4244ce8e7039dd05db6c1dcfe40a587bb",
+        "id": "TextVQA:34360",
+        "QA_binding_sha256": "06643659eddf35293981a36d23a1eb543cbd57ef9561dd335c64667c8581069b",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/22/22a4fef2a904f6e476dd2cfcc7eaa9e67e7488d8b860d13deca950c74409b711.img",
+            "sha256": "22a4fef2a904f6e476dd2cfcc7eaa9e67e7488d8b860d13deca950c74409b711"
+          }
+        ]
+      },
+      {
+        "role": "recovery",
+        "group": "89ac36fc62153915a01f2a27865171329bc01574e40469e990c704ae59ae1714",
+        "id": "TextVQA:15062",
+        "QA_binding_sha256": "967cd9f46e8839de1c5a0c87d1f02fe309dfa445838de3b937fd044b11539d68",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/0a/0aba3cd3741cce03871655c781835e9524139f17484bf28cd1dd20828db9a9a4.img",
+            "sha256": "0aba3cd3741cce03871655c781835e9524139f17484bf28cd1dd20828db9a9a4"
+          }
+        ]
+      },
+      {
+        "role": "recovery",
+        "group": "c807e3b0cca3bcd75984b8d89c8203d27a80a011be6f844c17b2784d8181188f",
+        "id": "TextVQA:7328",
+        "QA_binding_sha256": "71c04c2e5f3280d0ab5f9bdd932f2e0c69de30ffc8295782397e298329920311",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/b9/b9ddc40b5b6bce85939325c59c458723c3c42354cf6e2fdf28aab632e8531495.img",
+            "sha256": "b9ddc40b5b6bce85939325c59c458723c3c42354cf6e2fdf28aab632e8531495"
+          }
+        ]
+      },
+      {
+        "role": "recovery",
+        "group": "14ad0dd46604121bfa52dd60b90959b9b8b376b40e3bc777a6e92fd269be4de2",
+        "id": "TextVQA:21831",
+        "QA_binding_sha256": "36e2df97d8c83d4c8fa9093ddbdfe9d0fea4a41b0cc868e1d7032d4939402015",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/02/02f184b39317ae7f7a9d7961bcbe23090805c63c974d44a6b40a74c4f0c21065.img",
+            "sha256": "02f184b39317ae7f7a9d7961bcbe23090805c63c974d44a6b40a74c4f0c21065"
+          }
+        ]
+      },
+      {
+        "role": "recovery",
+        "group": "1d55ff44d58b4a2cce4b5f6c91a7cd819656177b76fffec5561a47743fd9808e",
+        "id": "TextVQA:32860",
+        "QA_binding_sha256": "0374a9a94488bcca5bfff15181c47f058a1e3a96b56c2a6c5266514d85f697d9",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/20/20bcb12191f2ca41281d76a1cead4d34b3e7249a025f2c488a697e91b36074b1.img",
+            "sha256": "20bcb12191f2ca41281d76a1cead4d34b3e7249a025f2c488a697e91b36074b1"
+          }
+        ]
+      },
+      {
+        "role": "recovery",
+        "group": "3788ae72109e413cd12593dac3925763e3ba018cec72a15506df7129ce5ca576",
+        "id": "TextVQA:33619",
+        "QA_binding_sha256": "d0be4350a5102373a960c2950ac03269fe77160a8d47ba143c3d02efd07fcfd7",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/f4/f4f1d2bc24c2633c51244bf8f3f17f995ac14f3d96785e5a19e872aec4ca5ff1.img",
+            "sha256": "f4f1d2bc24c2633c51244bf8f3f17f995ac14f3d96785e5a19e872aec4ca5ff1"
+          }
+        ]
+      },
+      {
+        "role": "recovery",
+        "group": "f9939adfba13abb23ba09c7afb7e6737d8fb6c9e7c2e0a5ef6ed0128c5830b1c",
+        "id": "TextVQA:31493",
+        "QA_binding_sha256": "a8ba1f676ff34862e5dbcd7ad1905acab3e78b052b439fb4cc5dc6ba1e98f78a",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/68/688e9eae8cf3a3dccffddeab4a862f03054302668c4b9f556fbd23581714777b.img",
+            "sha256": "688e9eae8cf3a3dccffddeab4a862f03054302668c4b9f556fbd23581714777b"
+          }
+        ]
+      },
+      {
+        "role": "recovery",
+        "group": "82c09b4cda7dc10d8af9815b02df6b4583149efa839ee7eab0277e70f731c6fd",
+        "id": "TextVQA:27026",
+        "QA_binding_sha256": "c8e8007fc6d29f6229c427b7b64682300388be63bc84029e9cbfadf13626e880",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/74/7484f740a2e51670a9f5f1f4fc6df92dafc7cdc97539b52c6951011adb0adde0.img",
+            "sha256": "7484f740a2e51670a9f5f1f4fc6df92dafc7cdc97539b52c6951011adb0adde0"
+          }
+        ]
+      },
+      {
+        "role": "recovery",
+        "group": "dd924e7257ab00ec8bb41938f60d3a021e4e3ae1c4ef3ea0f824894f6d1d4fbb",
+        "id": "TextVQA:10194",
+        "QA_binding_sha256": "a19c5e2a3fff327825ade32b6bbcb3dfbe8be3caaa8fb900ba85c6dd5ee531e9",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/51/51c45884ca005f1e73c15e19a3f60db8de2546ffa0dd5f9ede2cc80db92d7b8e.img",
+            "sha256": "51c45884ca005f1e73c15e19a3f60db8de2546ffa0dd5f9ede2cc80db92d7b8e"
+          }
+        ]
+      },
+      {
+        "role": "recovery",
+        "group": "3c06de8ded97505b22bf85d64be143e097aaae5b29d5c274167cd4b662a306f2",
+        "id": "TextVQA:3042",
+        "QA_binding_sha256": "abf03a399553d78c6cc91a76fe0135562746c336af8e28a67a56624d9e83bb84",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/0b/0ba8f76bfe2c7d77eeead8c361a1bc3dfabab3afd827db80059b4194406ff109.img",
+            "sha256": "0ba8f76bfe2c7d77eeead8c361a1bc3dfabab3afd827db80059b4194406ff109"
+          }
+        ]
+      },
+      {
+        "role": "recovery",
+        "group": "a596ed7af6a77be6ab81e7a028d8c25bed97ce2ab27328d3db976bb2004ba76e",
+        "id": "TextVQA:18210",
+        "QA_binding_sha256": "de732f84716862cffb66e2b701d99a6ef4e80ccb4e5a2de66069d9f3fcb8688c",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/16/16b729da58c3e43be40ee657aab3cd8363c5556e933c44462a2d89016311b76e.img",
+            "sha256": "16b729da58c3e43be40ee657aab3cd8363c5556e933c44462a2d89016311b76e"
+          }
+        ]
+      },
+      {
+        "role": "recovery",
+        "group": "f86db5d061d191e7e70daaa6203d6169283178f19dbacab76c0f0ab120d5c016",
+        "id": "TextVQA:5799",
+        "QA_binding_sha256": "997ba54202bdb6a6602d3be9b4d79697b16dad19cddedaaebfae2104ffed53b2",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/a5/a5184c53a76c8f4ca452f5fd6fcfcb39da8c28565a8b0fd98c91f2db7550aa78.img",
+            "sha256": "a5184c53a76c8f4ca452f5fd6fcfcb39da8c28565a8b0fd98c91f2db7550aa78"
+          }
+        ]
+      },
+      {
+        "role": "recovery",
+        "group": "4f8b6d28f55a2d046369402eae1089317aef0c9b29286e2c995140278d6f07dd",
+        "id": "TextVQA:31570",
+        "QA_binding_sha256": "77e49c070eb58f214915b038988cba2a9870d0b7a3ebbef7050aab35f689cca4",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/23/23b15acbaafdc66dcdaf12a23c38cc5cef7e81828856e8fd942f44054ec24430.img",
+            "sha256": "23b15acbaafdc66dcdaf12a23c38cc5cef7e81828856e8fd942f44054ec24430"
+          }
+        ]
+      },
+      {
+        "role": "recovery",
+        "group": "632502242dc11798ead8c05e4d3118365cb3c5a0d59a21f4c09744377cc32910",
+        "id": "TextVQA:14712",
+        "QA_binding_sha256": "08bebb86c8c300c5ac0c0ec9e1b24505f50d1d7e7e7654471482aae18a2b6c50",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/56/56625ba6e5c8499d4df5d02aac36f59fe9fbe31a6d0f168eff66b3f1d3ddb3bc.img",
+            "sha256": "56625ba6e5c8499d4df5d02aac36f59fe9fbe31a6d0f168eff66b3f1d3ddb3bc"
+          }
+        ]
+      },
+      {
+        "role": "recovery",
+        "group": "1463f0f71b39316f54e2418770a0e72516b4e4793e2952841c976c9ee2e3212b",
+        "id": "TextVQA:3",
+        "QA_binding_sha256": "995f6518e8d030211667612de75e8221e278de2e16526c421157046366593791",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/1c/1cef87d98d819cd5c17aafae73f0004f47f5bcde5c9b8af15ac1713167643fc8.img",
+            "sha256": "1cef87d98d819cd5c17aafae73f0004f47f5bcde5c9b8af15ac1713167643fc8"
+          }
+        ]
+      },
+      {
+        "role": "recovery",
+        "group": "65ec8a421e4817ba5410ef8750b47cfd6fce2c1ca8966b78e911656040eb2b46",
+        "id": "TextVQA:25246",
+        "QA_binding_sha256": "a54b7aa1400b90886c4a0d6916f80b5c5fa0e425367d03c135f519c4b3eadcb4",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/6e/6ea1d132098a2f740d34784342c8343ce41ffb91e5104b880b23b76237c2bbcd.img",
+            "sha256": "6ea1d132098a2f740d34784342c8343ce41ffb91e5104b880b23b76237c2bbcd"
+          }
+        ]
+      },
+      {
+        "role": "recovery",
+        "group": "8789b4bd313a4090196d135a143941e52c66036871a580868fb0f642898fede0",
+        "id": "TextVQA:24734",
+        "QA_binding_sha256": "39f9047b79c4ec4a685dee65c06974254473c37d3e7fb4ee76189c320f644f26",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/66/668dce4f12749bbf82ffbe3ae6ea36b38d6ea12ea712df9181537e2e023fb0e2.img",
+            "sha256": "668dce4f12749bbf82ffbe3ae6ea36b38d6ea12ea712df9181537e2e023fb0e2"
+          }
+        ]
+      },
+      {
+        "role": "recovery",
+        "group": "7ad3863fcc8280da2a6fea39f70b05230f3c20ca6d31142d683eb7454cd35633",
+        "id": "TextVQA:16898",
+        "QA_binding_sha256": "953b27c7bea967975eebfa49d16f9dbbeac351fb72760f4cc14bb946f1ede4b8",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/b7/b77a898f5c8e39283f2ffe2d19def3bc796b392ce956c6bc8ec184c79865a540.img",
+            "sha256": "b77a898f5c8e39283f2ffe2d19def3bc796b392ce956c6bc8ec184c79865a540"
+          }
+        ]
+      },
+      {
+        "role": "recovery",
+        "group": "132815877e63f5d889ef33a8dc9ab8cf1a3716c4f0978bb5ad6f0da61bb78748",
+        "id": "TextVQA:27254",
+        "QA_binding_sha256": "7322870a9e918081e8c18f239fa84f2ff7ef972f44c14a7f54a4a2e3224a47f3",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/bd/bd0035654912a8403124f6a87238e77ac16e6e0362b9116df0a68613afc792f9.img",
+            "sha256": "bd0035654912a8403124f6a87238e77ac16e6e0362b9116df0a68613afc792f9"
+          }
+        ]
+      },
+      {
+        "role": "recovery",
+        "group": "5793512bbb6bf7677a6cf99ecb1db83643d868dc500c93f9f735db4eddbfe806",
+        "id": "TextVQA:28190",
+        "QA_binding_sha256": "6a522c75f38d879544f65995aa153fe36e4bd8c2de99f812b00dc23e521bf0c6",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/62/6293f34b7db8ffafb2f053dba423a4408af8f2b5765eabb186c0beb3289e7234.img",
+            "sha256": "6293f34b7db8ffafb2f053dba423a4408af8f2b5765eabb186c0beb3289e7234"
+          }
+        ]
+      },
+      {
+        "role": "recovery",
+        "group": "57c53aeb43ae9427453d32c632763ad8c559844fb1c017182e8248f7f3ba6a42",
+        "id": "TextVQA:13117",
+        "QA_binding_sha256": "0038e934765b77b43d4eb11cb1ab008a2a1af5a11a9f3e7306eced07ce385852",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/5b/5b3334544802d7d8ab1f631fcd0f9c207070a9225fd1c3a44d2d149447a2b50c.img",
+            "sha256": "5b3334544802d7d8ab1f631fcd0f9c207070a9225fd1c3a44d2d149447a2b50c"
+          }
+        ]
+      },
+      {
+        "role": "recovery",
+        "group": "1121d7c08033e7ed96c34dde73f8d83c929f642c87e69760c4eaae07c9430d8c",
+        "id": "TextVQA:31775",
+        "QA_binding_sha256": "2c75c5e85b353110834eb23d24808a9453306757bad87159e9e5012a2b42b53a",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/8d/8d43c1c65652900725d28b389f43f4987eb1d32b3ca354113dd796f53ac97db9.img",
+            "sha256": "8d43c1c65652900725d28b389f43f4987eb1d32b3ca354113dd796f53ac97db9"
+          }
+        ]
+      },
+      {
+        "role": "recovery",
+        "group": "ae0ea95d353dea8b222de32f481e9ae50feba1596fcb46511b6895c6c6e45575",
+        "id": "TextVQA:17027",
+        "QA_binding_sha256": "c524a2e8927ccd11bae66b8eb7f77ed218eb0aad05605942c030c99302908302",
+        "images": [
+          {
+            "path": "data/TextVQA/native_images/2f/2fabc6dced6f40c2ca207fa6fc20b2e67990b1836f17abe4ac41a7d4bb6e8854.img",
+            "sha256": "2fabc6dced6f40c2ca207fa6fc20b2e67990b1836f17abe4ac41a7d4bb6e8854"
+          }
+        ]
+      }
+    ]
+  },
+  "interpreter": "/data2/liyapeng_grp/program/LLMCL/.runtime/conda-env/bin/python3.10",
+  "versions": {
+    "torch": "2.6.0+cu118",
+    "transformers": "4.46.3",
+    "tokenizers": "0.20.3",
+    "cloudpickle": "3.1.2"
+  },
+  "allowed_GPUs": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "execution_host": "OLD",
+  "execution_root": "/data2/liyapeng_grp/program/LLMCL/.deployment/shared_fullspan_carrier_20261024_view",
+  "budget_seconds": 3600,
+  "execution_uid": 1084,
+  "boot_id": "5b259bd9-d0cb-4a1d-8b90-6e6107080488",
+  "metadata_only": true,
+  "no_automatic_continual_training": true
+}

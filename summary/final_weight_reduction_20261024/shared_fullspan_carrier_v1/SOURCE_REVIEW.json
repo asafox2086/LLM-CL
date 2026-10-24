@@ -1,0 +1,85 @@
+{
+  "decision": "accept_fixed_carrier_sources_for_metadata_and_tiny_gate_only",
+  "protocol_sha256": "d139e4e509d93113ebf72c3d9d20ec0b31a30675bb613543d80ab742a853796a",
+  "necessity_review_sha256": "c074e187ad65b150ca30db8c8365ded800bead2fb81073fdc104e81a95c73bd5",
+  "sources": {
+    "exp/shared_fullspan_carrier_20261024/v1/core.py": "31c35e1f405bf1d0053e4a434df2eb0a8fb42f563d898743684835ca434e7de6",
+    "exp/shared_fullspan_carrier_20261024/v1/common.py": "764b6d064c437963fa1d86b54ce04551548e55a717587e3de660699cdb6d024a",
+    "exp/shared_fullspan_carrier_20261024/v1/worker.py": "63d3a76966ed97513fa0a0230fc69bfc575a561bb2007068dce610e356f977f4",
+    "exp/shared_fullspan_carrier_20261024/v1/freeze.py": "a60f5e97ebcd4678d917c29eae95be41607fa0c8dd52b7ce0ae16b5078c8bdba",
+    "exp/shared_fullspan_carrier_20261024/v1/dispatch.py": "fbe6390c9e910ebbc004d438d59e573815cbf817e4913963ee608d42ee05f144"
+  },
+  "dependencies_sha256": {
+    "exp/two_backbone_native_cl_20261017_v2/runtime_utils.py": "4f5c4a34be046c29cfbcdaa4b2957faa907684872ba69083bdef53136a851240",
+    "exp/two_backbone_native_cl_20261017_v2/onevision_bridge.py": "f3b1dd38af3b58dbfa69073da698ea2bf39a3a11850fb1069a80e38d0e3669a9",
+    "exp/two_backbone_native_cl_20261017_v2/frozen_vision.py": "8211651e92d17019f6ce6cf9615df7f6b5fcaeecc765aec4acdf916c448a35bd",
+    "exp/two_backbone_native_cl_20261017_v2/retrieval.py": "7d7a9dd6cb223bf96cd9ab3499a4ddf69f8fbb60940d80db84582ad518f5c133",
+    "exp/two_backbone_native_cl_20261017_v2/resource_monitor.py": "a161c8a82bf762622795f64210c95164fb905c6fa80572b35ae5ee3dd7146533",
+    "exp/two_backbone_native_cl_20261017_v2/methods.py": "e5bd8f51690b006274ed5adcfa4ef3b1a2c3b0f1d79476d948b71d1cfec41c5b",
+    "exp/two_backbone_native_cl_20261017_v2/execution_policy.json": "f6d33cc939ff833ec7799d2d1ec4c238bb97d47d35488034d9174b36f07c2502"
+  },
+  "previous_modify_review_sha256": "5f467cbb99f4d7f36024eeeed8c861b79f8d087bdff63d78a121d4c5e94d1c4f",
+  "previous_modify_review_archive": ".deployment/shared_fullspan_source_review_v1_20261024.json",
+  "inherited_evidence_sha256": {
+    "summary/edge_deployment_20261019/osft_increment_screen/v1/READY.json": "75b86e6272295b548c82cb73fd29dc60671e18b23314b625d46486232b0d1893",
+    "summary/final_weight_reduction_20261024/paired_image_support_diagnostic_v1/MODEL_READY.json": "467ad42dfdcb755576962fd0acac2c622a075e7c7fef3dc7b6566c74351142c5"
+  },
+  "source_read_scope": "The five final shared local drafts were statically reviewed. The parent reports the same bytes uploaded to NEW; remote publication/transport equality was not independently executed by this review. Canonical source paths above are the intended runtime locations.",
+  "no_model_admission": true,
+  "allowed_actions": [
+    "Metadata/data identity binding and exact source/dependency transport for this single fixed carrier.",
+    "Exactly one prescribed tiny synthetic CPU gate, followed by the specified Torch-free metadata freeze. No actual pretrained model construction or QA forward is authorized.",
+    "After actual CPU_GATE and READY exist, submit them for a separate model admission review; no automatic dispatch activation."
+  ],
+  "resolved_findings": [
+    {
+      "id": "R1",
+      "status": "resolved",
+      "detail": "The original manifest/SPLIT are fixed by accepted SHA; each selected image must match SPLIT.image_sha256. Freeze pins both historical proof objects, checks the base-weight mapping and inherited base-small-files, compares execution_policy to the inherited proof, and retains proof/data identities for ready() revalidation. Actual methods.py is included as a runtime dependency."
+    },
+    {
+      "id": "R2",
+      "status": "resolved",
+      "detail": "Child identity polling now occurs inside ownership-aware try/finally. A running child is signalled only if current UID/startticks/PGID equal the captured own child identity; otherwise NEEDS_ATTENTION is written. The model polling sleep is limited by remaining time. Actual exit evidence and first-STARTED closure remain required."
+    },
+    {
+      "id": "R3",
+      "status": "resolved",
+      "detail": "Verifier requires the exact five planned evidence files, their SHA, STARTED/READY/boot/end identity/exit binding, same PID/visible GPU resource records and all six packed-group phases. It checks physical package stat sizes, all 7680 step witnesses and the complete GMP event schedule, exact fractions and twelve per-event keep counts."
+    },
+    {
+      "id": "R4",
+      "status": "resolved",
+      "detail": "Within the existing eight synthetic updates, the audit asserts masked parameters/gradients/both moments are zero and final keep counts are exactly one quarter. No extra updates are added. The shared FP16 basis is checked finite after casting, alongside existing packed-value checks and physical shared-alias reload."
+    }
+  ],
+  "accepted_static_contracts": [
+    "Full short-axis SVD and zero extra shared columns supply a real-arithmetic initialization basis; no FP16 bitwise equivalence or preserved function is assumed.",
+    "One shared Basis per group participates in the single joint four-layer loss and optimizer update; the fixed 40-epoch/32-QA/GMP recipe is unchanged.",
+    "Final PackedFactor objects retain only nonzero FP16 values, bitmaps and shared bases. Original FFN modules are replaced in the public bridge and the same native-core graph. No dense Factor remains in the final registered graph.",
+    "Actual serialized compact-model reload precedes all compact diagnostics; complete registered weight/buffer digest and layout are checked before/after diagnostics, with unchanged non-FFN state.",
+    "The full-answer loss AST differs only in tokenizer truncation parameters; original greedy generation policy and references are used, and the sole verifier performs the one planned original score pass.",
+    "One 3600-second model interval includes construction, restoration, persistence, reload and diagnostics. Completion/integrity plus actual coefficient/package thresholds and the fixed S1 F1/NLL rule determine close versus further necessity review only."
+  ],
+  "activation_review_requirements": [
+    "Actual OLD transport, actual source/dependency identities, actual CPU_GATE and metadata READY remain to be inspected; this source review does not claim them completed.",
+    "Any later activation must bind the final READY and actual approved host/resource scope. The presence of dispatch.py is not authorization to invoke it."
+  ],
+  "limitations": [
+    "The CPU gate has not been executed by this reviewer and cannot certify actual CUDA FP16 numerics, original model compatibility or quality.",
+    "Storage coefficients and byte budgets remain design values until actual packed-model and package checks pass; temporary dense expansion and process memory are separately charged.",
+    "S1 diagnostic success is an investment rule on an explored first-task subset, not whole-pretraining/five-domain preservation, noninferiority, a continual-learning benefit or novelty.",
+    "This does not authorize U/V adaptation comparisons, full 19-stage training, additional configurations, retries after first STARTED failure or restoration of any closed prior branch."
+  ],
+  "remaining_blockers": [],
+  "review_actions": {
+    "static_source_and_AST_only": true,
+    "small_evidence_SHA_only": true,
+    "imported_Torch_or_study_modules": false,
+    "ran_gate_or_model": false,
+    "processed_QA_or_images": false,
+    "ran_scoring": false,
+    "created_READY": false,
+    "modified_scientific_sources_or_protocol": false
+  }
+}
