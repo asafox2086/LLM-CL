@@ -1,0 +1,61 @@
+{
+  "decision": "accept_functional_readout_source_for_single_tiny_gate_and_metadata_only",
+  "model_admission": false,
+  "no_model_admission": true,
+  "sources": {
+    "core.py": "9ea7b2d2777643d865962de7252d273955af4aa51609f7cbdb2e0439c838d581",
+    "common.py": "9b0a3aab2aff458904a00a36cac97571b415ece4320c79cde4095907a5c0a3f4",
+    "worker.py": "c6aac1e470bc0e52f7526944058e71995d9424ea6548919b1eb52ddb79ad0033",
+    "freeze.py": "1234729366d3ff863cac9d832f24e37c08c0f12b8511a9ac6c5461c25f83e692",
+    "dispatch.py": "1477d863b28a303ed8ec89b9a4636430bc975bb21981200cffb0187f5df3e6c8"
+  },
+  "sources_sha256": {
+    "exp/functional_readout_carrier_20261024/v1/core.py": "9ea7b2d2777643d865962de7252d273955af4aa51609f7cbdb2e0439c838d581",
+    "exp/functional_readout_carrier_20261024/v1/common.py": "9b0a3aab2aff458904a00a36cac97571b415ece4320c79cde4095907a5c0a3f4",
+    "exp/functional_readout_carrier_20261024/v1/worker.py": "c6aac1e470bc0e52f7526944058e71995d9424ea6548919b1eb52ddb79ad0033",
+    "exp/functional_readout_carrier_20261024/v1/freeze.py": "1234729366d3ff863cac9d832f24e37c08c0f12b8511a9ac6c5461c25f83e692",
+    "exp/functional_readout_carrier_20261024/v1/dispatch.py": "1477d863b28a303ed8ec89b9a4636430bc975bb21981200cffb0187f5df3e6c8"
+  },
+  "protocol_sha256": "0662c8d6b6d2e99d84414c9572e981a9b83d9882321fa3306ed2cc4ce0d5e54d",
+  "necessity_review_sha256": "6b09c7ae7d1bc8490dd84d289e676e6fc2fede9ac6800b86247e64cc124bec94",
+  "parent_reference_expected_sha256": {
+    "parent_reference/VERIFIED.json": "da6715c564bfe96bdd0a3ef49bba2ebab01860d5b6a013aaaf634a2a35e3496f",
+    "parent_reference/init_COMPLETE.json": "c53b5c10669496aaac80b7570c4f2b7e011cc4886ac1b0b96fa19a17abf3e1f4",
+    "parent_reference/READY.json": "d920df2595bd174e1816a5ef1a37198a84731fd1c7827f034d1ed4d1f7845928",
+    "parent_reference/initializations.json": "d243070ba8f78d019909888706e5549a3dc02c710a90f5cf53dcd145717c4c18",
+    "parent_reference/parent.jsonl": "4a531d2aa088697eaa7d8bf42c76916d9e8480bf75987f72c90b99f5a85bd321"
+  },
+  "dependencies_read_sha256": {
+    "exp/two_backbone_native_cl_20261017_v2/runtime_utils.py": "4f5c4a34be046c29cfbcdaa4b2957faa907684872ba69083bdef53136a851240",
+    "exp/two_backbone_native_cl_20261017_v2/onevision_bridge.py": "f3b1dd38af3b58dbfa69073da698ea2bf39a3a11850fb1069a80e38d0e3669a9",
+    "exp/two_backbone_native_cl_20261017_v2/frozen_vision.py": "8211651e92d17019f6ce6cf9615df7f6b5fcaeecc765aec4acdf916c448a35bd",
+    "exp/two_backbone_native_cl_20261017_v2/resource_monitor.py": "a161c8a82bf762622795f64210c95164fb905c6fa80572b35ae5ee3dd7146533",
+    "exp/two_backbone_native_cl_20261017_v2/methods.py": "e5bd8f51690b006274ed5adcfa4ef3b1a2c3b0f1d79476d948b71d1cfec41c5b",
+    "exp/two_backbone_native_cl_20261017_v2/retrieval.py": "7d7a9dd6cb223bf96cd9ab3499a4ddf69f8fbb60940d80db84582ad518f5c133"
+  },
+  "scope": "Exact-byte transport, the single necessary synthetic statistics/structure/serialization gate, and metadata freeze only. No real pretrained-model loading, actual QA capture, weight decomposition, DEV generation or activation is authorized here.",
+  "static_findings": [
+    "add_qa_moment computes uncentered CPU FP32 h.T@h divided by that QA position count and32 QAs, explicitly outside CPU autocast. It does not center h or mix diagnostic QAs into the statistic.",
+    "ResponseD symmetrizes the same moment, selects its top200 output directions, computes C=L.T@D and square-root balances the SVD of C with left=L@Uc. The stored factors represent the same projected D in real arithmetic. WeightD is the ordinary rank200 square-root-balanced SVD.",
+    "Capture is fixed to the accepted32 statistic and16 diagnostic S1 groups and original target packing. It samples the same at-most64 positions across24 down hooks. Only moments and bounded current samples are retained; no full feature cache or covariance inverse is used.",
+    "Both sets of factors are constructed after the32 moment QAs and before the16 diagnostic QAs. The latter perform exactly16*24*2 local readouts, with QA-equal error and target energy recorded separately. These are teacher-input diagnostics, not full-decoder errors.",
+    "Carrier retains original gate/up and act_fn but no original down module. Final whole-model state physically uses only two rank200 readout factors at each layer. The unchanged-parameter digest excludes only replaced down/factor weights and verifies all other parameters/buffers survive substitution and reload.",
+    "Each complete candidate is saved, main model references released, and a newly constructed factorized architecture strictly reloads the full state. Layout/digest and evaluation-before/after invariance are required, with all parameters frozen and no optimizer or backward path.",
+    "Copied parent scores are anchored to the fixed existing VERIFIED and parent files. Actual parent digest, inherited runtime/processor/config sources and every new per-ID prepared input/reference/cap/EOS are checked; old scores are never recomputed.",
+    "The unique verifier requires all three complete successful subprocess exits before starting, then exact mandatory phase files, capture/selection/position records, finite decomposition metadata, physical D absence, full counts/reload, resource PID/terminal phase and original token_f1 scoring of200 outputs.",
+    "Feasibility is each arm independently meeting every parent domain point floor, with actual complete counts/budgets/integrity. Selection is highest macro among feasible arms, exact tie WeightD. ResponseD need not win to preserve a useful WeightD carrier.",
+    "The controller and workers require a separate READY-bound actual-model admission, use the first selected genuinely free OLD GPU across phases, and apply1200/1800/1800 model-second deadlines with own UID/startticks/isolated-PGID reclamation only.",
+    "The synthetic source checks QA-equal accumulation with unequal position counts, the same projected-D factor identity, physical down absence, actual serialized strict whole-Qwen reload and unchanged parent/no gradients. No source execution occurred during this review."
+  ],
+  "limitations": [
+    "No confirmed CPU gate or actual-model result exists yet. The reviewer parsed/read source and hashed small files only; no Torch, model, QA, score, bootstrap or activation was executed.",
+    "A tiny CPU FP32 pass cannot certify actual CUDA FP16 numerical behavior, large-model timing/memory, whole-model answer fidelity, or subsequent continual readout plasticity.",
+    "Keeping G/U preserves their map only at a given layer input; earlier changed D outputs can alter later inputs. Local diagnostic errors cannot authorize a carrier without the actual whole-model F1 floor.",
+    "The77,070,336-byte moments cover only those tensors. Current samples, full parent, decompositions, factors, visual cache and other process allocations are additional; no inference-memory or speed claim follows.",
+    "The816728096 complete coefficients per arm remain expected until real layouts verify them. Include frozen base/vision/projector/word weights, required weight buffers and shared-storage deduplication, with ordinary buffers/container costs separately reported.",
+    "Known SVD and response-aware tools are legitimate carriers/controls; their prior existence does not reject this experiment. A successful carrier alone is not a new framework, a strong-trained-baseline victory, or permission to add continual training.",
+    "Explored DEV, one seed and20 QA/domain do not support statistical stability/noninferiority/equivalence. Two failures close the fixed down-only point without rotating matrices, changing rank/data/recovery or reopening old branches."
+  ],
+  "required_changes": [],
+  "next_step": "Run only the single reviewed tiny gate and metadata freeze on exact transported bytes, then return existing artifacts for the separate actual-model admission."
+}

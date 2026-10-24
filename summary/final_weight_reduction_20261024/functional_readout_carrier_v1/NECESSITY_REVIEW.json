@@ -1,0 +1,35 @@
+{
+  "decision": "accept_implementation_only",
+  "model_admission": false,
+  "no_model_admission": true,
+  "protocol_sha256": "0662c8d6b6d2e99d84414c9572e981a9b83d9882321fa3306ed2cc4ce0d5e54d",
+  "scope": "Independent implementation, subsequent source review, necessary exact-byte transport/metadata preparation and one synthetic admission check only. No real model activation, QA capture, decomposition of actual weights or DEV generation is authorized by this review.",
+  "findings": [
+    "The two-arm down-only comparison addresses a distinct functionality question: retain the original nonlinear G/U map at a fixed layer input, while reducing only the linear residual readout. Previous gate/up and three-matrix conditions do not directly answer it.",
+    "WeightD and ResponseD have the same rank and complete coefficient budget. ResponseD uses the uncentered output second moment and balances factors of the same projected D through its small matrix; it does not silently introduce mean compensation or a different matrix objective.",
+    "The protocol fixes equal QA weight and equal positions within each QA for moments. Diagnostic squared error and target energy use the stated QA-equal construction. The32 statistic groups and16 diagnostic groups are disjoint and fixed without content-based reselection.",
+    "CPU FP32 accumulation explicitly outside autocast, symmetrization/eigh and fixed CPU FP32 SVD are declared. The77,070,336-byte moments are tensor storage, not a whole-process memory cap. Full inputs remain untruncated for sampling; only the declared original answer target cap/EOS policy is used.",
+    "The original48 teacher decoder passes stop before the head. The experiment does not add local SGD, continual learning, future FIT, TEST or DEV-based statistic fitting. Both actual physical candidates must save/reload and generate the original100 DEV answers once.",
+    "Copied unadapted parent scores require the existing complete proof, parent state, source/config, actual prepared inputs and references to match. Parent quality is not rescored or substituted if binding fails.",
+    "Feasibility requires actual weight reduction, full integrity/budget checks and all five parent domain point floors. Selection is highest macro among feasible arms, exact tie WeightD. ResponseD need not beat WeightD for a genuinely usable known carrier to be retained.",
+    "The fixed1200+1800+1800 model-second bounds and first-STARTED stop rule apply to the whole point. Local reconstruction advantage cannot retain a failed-answering carrier, and two failures close the D-only point without another matrix/rank/recovery search.",
+    "Prior art appropriately supplies tools and comparison boundaries. Its existence is not an independent reason to reject this necessary carrier experiment, nor does this application alone establish a new framework."
+  ],
+  "required_source_checks": [
+    "Physically remove each original dense down projection from final graph/state; retain no hidden dense D, teacher, full SVD basis or statistics in the final package. Count all base/visual/word/projector weights, weight buffers and tied storage fairly.",
+    "Implement the fixed sampling/QA weighting and the projected-matrix factor formula exactly; keep accumulation/decomposition precision explicit and guard finite statistics/factors without precision or rank search.",
+    "Bind complete source/runtime/data/parent proofs before model execution; verify actual copied-parent input/reference equality and fail closed on mismatch.",
+    "Exercise the actual physical reconstruction and serialization path in a necessary tiny synthetic gate. Real candidate layouts, strict reload digests, generation invariance and sole original token_f1 scoring must be verified after all complete successful exits.",
+    "Preserve the single genuinely free OLD physical GPU across phases; use independent own-identity deadlines and do not treat preSTARTED waiting or a gate pass as a real-model result."
+  ],
+  "limitations": [
+    "Preserving G/U weights preserves the local nonlinear feature map only at the same input. Changed earlier down outputs can alter later-layer inputs and overall answering.",
+    "S1 output moments and held feature reconstruction do not establish all-domain fidelity or semantic knowledge retention; whole-model Answer F1 is the functionality decision.",
+    "An unadapted parent is a weak starting reference, not the strongest trained baseline. Passing its domain point floor is an investment screen, not statistical noninferiority or a successful trained compact method.",
+    "A usable carrier would permit only a separate later continuous-readout adaptation review. Future plasticity, forgetting behavior, OSFT/ShortFixed causal mechanisms and framework novelty remain unproved.",
+    "Explored100 DEV, one seed and20 QA per domain do not support significance, stability, equivalence or a new-holdout claim. Pretraining overlap remains unknown.",
+    "Actual complete coefficient counts/package sizes and large-model FP16 feasibility are not yet measured; no GPU/CPU/source acceptance may be used to fill missing quality or runtime metrics.",
+    "This review read only the actual protocol and used standard-library hashing/writing. It performed no Torch, synthetic gate, new QA, model, scoring, bootstrap or activation."
+  ],
+  "required_changes": []
+}

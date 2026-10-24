@@ -1,3 +1,11 @@
+# 2026-10-24：功能读出载体独立起点对照已准入，尚未激活
+
+- 最新人类明确：有先例不能独立否决探索；已有方法可作为工具，在本背景验证功能与成本，贡献由后续具体机制和证据决定。不能要求每个组件全新，也不因换背景自动称原创。functional_readout_carrier_v1已按这一要求完成具体实施/必要性与源码审阅，尚无新质量。
+- 新独立问题保全原G/U非线性特征生成器，只物理缩小24个D读出。WeightD普通r200，ResponseD按32合法S1 FIT QA等权未中心化输出二阶矩前200方向投影，再平衡同一投影后D的因子；全部FP16最终图。前层D变化仍改变后层输入，不称整网特征不变。
+- 同既选32组统计/16组检查、每QA至多64固定packed位置，流式CPU FP32统计24x896²=77070336bytes不是RAM上限；0训练/恢复/未来FIT，48教师decoder请求与两图各100已探索DEV全部计费。父分数只严格绑定原合法VERIFIED/digest/源/config/逐ID输入后复制，不重生成/评分。
+- 两载体设计完整816728096，最终无原D/统计/外部教师；是否保质未知。任一完整性/预算/实际权重过且五域点F1不低未适应父即可保留，符合者宏高优先，精确平局WeightD。不要求偏好的ResponseD获胜，已知工具能保质也可用。全负则关D-only固定点、不继续轮流压矩阵；通过仅进入单独连续读出适应必要性评审，不自动CL/1313/21454/Ours。
+- 只OLD真正空卡同卡串行，init1200/WeightD1800/ResponseD1800累计4800模型秒，包含加载/统计/分解/物理保存重载/生成观察；首次STARTED失败/中断/超时关闭，不救rank/LR/QA/恢复/时长/版本。原旧分支/待人类例外不恢复，正式基线保全，科研目标未实现。
+
 # 2026-10-24：gate响应复用两载体完整结束，保质失败关闭
 
 - gate_response_reuse_v1的VERIFIED/OUTCOME/DECISION/RESULT_REVIEW/RESULT_PUBLICATION为新终态；VERIFIED e2a417195c52bc5d06d42f5327e8fedbfe6e5aded3da49511e7a2c365db8e06f、OUTCOME6916532476d21aefe8f31054a29901d2385900db9cddbce47efc65985d20cd80、独立review d4f55565c7c6ccb15e27fe34d1bb81904e1c589f7aedc8c9651178c4e3453969。五科学源/协议/READY e0ed5ad2...冻结不改，唯一原token_f1核验与标量消费者均已执行，不重评分/bootstrap/门/大CP hash。

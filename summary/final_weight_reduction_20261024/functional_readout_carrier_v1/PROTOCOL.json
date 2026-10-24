@@ -1,0 +1,44 @@
+{
+  "question": "Can a smaller linear readout carry the original nonlinear FFN features well enough to preserve whole-model answers, before studying continual readout adaptation?",
+  "status": "independent fixed starting-function experiment; not a complete framework or OSFT causal explanation",
+  "evidence": [
+    "Previous fixed gate/up replacements lost answers before adaptation; local block fitting did not preserve the whole decoder.",
+    "No completed down-only compact carrier comparison was found in the existing protocols.",
+    "Keeping G/U preserves their nonlinear feature map at a given input. Earlier changed D outputs can still alter later-layer inputs."
+  ],
+  "human_direction": "Prior art supplies usable tools and comparison boundaries, and is not an independent rejection criterion. Established compression may supply a carrier for a new continual framework; neither using it in this setting nor renaming it establishes novelty.",
+  "arms": {
+    "WeightD": "Ordinary FP32 SVD of each original 896x4864 D; rank200 square-root-balanced factors, then FP16 storage.",
+    "ResponseD": "Top200 output directions L of uncentered S=mean_QA(mean_sampled_positions(h h^T)), h=D[SiLU(Gx)*Ux]. Project D'=L(L^T D). For C=L^T D=Uc diag(s) Vh, store (L Uc) sqrt(s), sqrt(s) Vh. This balances the same projected D, not a different approximation."
+  },
+  "invariant": "Only all24 language FFN down projections are physically replaced. Original G/U, attention, vision, projector, embeddings and other weights remain intact and frozen. No original dense D, complete SVD basis, teacher or statistics are required in the final weight package.",
+  "cost_point": {"parent_weights":893675552,"each_compact_weights":816728096,"rank":200,"not_ultralight_or_goal_achieved":true},
+  "data": {
+    "selection": "Exactly the prior gate-response fixed S1 FIT group-hash selection: 32 groups for moments, disjoint16 for local feature diagnosis, one representative QA/group. No content-based reselection.",
+    "positions": "At most64 packed positions per QA selected by the original fixed position hash, identical across24 layers and arms. Full original input is forwarded; no image/token truncation or role balancing.",
+    "weighting": "Each of32 moment QAs has equal weight; positions within a QA have equal weight. Diagnostic error and target energy are each averaged across positions and output coordinates per QA, then averaged over16 QAs; their ratio is reported per layer. No fitting on diagnosis/DEV.",
+    "teacher": "Unadapted original parent only; 32+16 new decoder passes stopped after final FFN, before head/NLL/generation. Original answer_loss packing includes its512-target/EOS policy. No future FIT, official TEST, trained1313 teacher or old trained checkpoint.",
+    "DEV": "Each of2 physical compact graphs generates once on the same100 already-explored DEV IDs. Parent scalars copied only from existing complete VERIFIED proof after state/config/source/per-ID prepared input/ref binding; no parent generation or rescoring."
+  },
+  "numerics": {
+    "parent_and_candidates": "Original FP16 base and outer CUDA FP16 autocast, eval; candidate factors stored FP16. No precision search.",
+    "statistics": "Stream selected parent h to CPU FP32; uncentered h.T@h with CPU autocast explicitly disabled, divide by sampled positions then32 QAs. Symmetrize before CPU FP32 eigh. Ordinary and small-matrix SVD both CPU FP32 with8 threads. Record actual finite statistics, spectrum and factor layouts.",
+    "limits": "24x896x896 FP32 moments use77070336 tensor bytes, plus bounded current samples and decomposition workspace. This is not a whole-process memory cap. No inverse or full z cache. Real FP16 whole-graph save/reload and answer evaluation determine functionality; real arithmetic formulas imply no bitwise fidelity."
+  },
+  "work": {"teacher_decoder_passes":48,"new_DEV_generations":200,"optimizer_updates":0,"continual_training":false,"TEST_QA":0,"local_candidate_readouts_per_diagnostic_QA":48},
+  "budget_seconds": {"init":1200,"WeightD":1800,"ResponseD":1800,"total":4800,"scope":"STARTED to COMPLETE includes loading, hashes, statistics, decompositions, local diagnostics, full saves/reloads, generation and observation; CPU admission, verification, transport and historical cost separate"},
+  "resource": "One genuinely free OLD GPU, all phases serial on that same card. Protect both formal baselines and other users. Restart=no, KillMode=process, no enable.",
+  "stop": "Any first-STARTED failure, nonfinite, interruption or budget overrun closes this fixed point. No checkpoint continuation, extension, automatic version, rank/LR/QA/recovery search. Only pre-STARTED pre-CUDA resource-change exit75 permits unattempted waiting.",
+  "proof": "Unique automatic verify only after all3 COMPLETE and successful actual EXIT. Require source/READY/state/input/CP SHA bindings;48 persisted complete capture rows with24 hooks,32 moment+16 diagnosis; finite statistics/factors; physical absence of down_proj.weight; complete counts/strict reload/digests;200 outputs and all original refs; same PID resources and actual single-card budgets. Original token_f1 AST scores the two new sets once. No bootstrap or old rescore.",
+  "decision": {
+    "feasible": "Integrity/budgets/actual full compact weight count pass and all five domain point F1 are >= their unadapted parent point F1. User has not specified allowed degradation; no equivalence/noninferiority claim.",
+    "selection": "If any feasible carrier exists, retain highest macro among feasible arms; exact tie WeightD. WeightD need not lose for a known useful tool to be retained. Publish both arms and all per-domain/per-ID outcomes.",
+    "positive": "Only a usable starting carrier for a separate finite-budget continuous readout adaptation necessity review. No automatic1213/1313/21454, Ours, novelty or strong-baseline victory. If only WeightD works, do not claim activation-aware selection caused success.",
+    "negative": "Neither arm preserves the parent floor: close this D-only rank200 point and stop rotating through further matrices. Local reconstruction advantage alone never qualifies."
+  },
+  "limits": "Explored DEV, one seed,20 QA/domain and89 known groups; pretraining overlap unknown. Unadapted parent is a weak functionality origin, not the strongest trained reference. No isolated cause of OSFT/ShortFixed gains, no proof of full continual learning or permanently unnecessary D weights.",
+  "prior_tools": [
+    "https://proceedings.iclr.cc/paper_files/paper/2025/file/3104e1ab39875cf54fe1eb4473e7c5a1-Paper-Conference.pdf",
+    "https://aclanthology.org/2026.acl-long.1977/"
+  ]
+}

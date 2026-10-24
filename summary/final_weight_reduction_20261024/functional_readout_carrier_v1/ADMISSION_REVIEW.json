@@ -1,0 +1,84 @@
+{
+  "decision": "accept_single_fixed_functional_readout_carrier_activation",
+  "model_admission": true,
+  "ready_sha256": "3f427a300c05b7def9fe34309e55615ef4fb05325e8f460f09549614eb53f141",
+  "protocol_sha256": "0662c8d6b6d2e99d84414c9572e981a9b83d9882321fa3306ed2cc4ce0d5e54d",
+  "source_review_sha256": "d6a3191b84e731d8636d0bd5c4a8dd9f3e9aa1a20f72e1f986df33c63d305349",
+  "necessity_review_sha256": "6b09c7ae7d1bc8490dd84d289e676e6fc2fede9ac6800b86247e64cc124bec94",
+  "sources": {
+    "core.py": "9ea7b2d2777643d865962de7252d273955af4aa51609f7cbdb2e0439c838d581",
+    "common.py": "9b0a3aab2aff458904a00a36cac97571b415ece4320c79cde4095907a5c0a3f4",
+    "worker.py": "c6aac1e470bc0e52f7526944058e71995d9424ea6548919b1eb52ddb79ad0033",
+    "freeze.py": "1234729366d3ff863cac9d832f24e37c08c0f12b8511a9ac6c5461c25f83e692",
+    "dispatch.py": "1477d863b28a303ed8ec89b9a4636430bc975bb21981200cffb0187f5df3e6c8"
+  },
+  "files_sha256": {
+    "summary/final_weight_reduction_20261024/functional_readout_carrier_v1/PROTOCOL.json": "0662c8d6b6d2e99d84414c9572e981a9b83d9882321fa3306ed2cc4ce0d5e54d",
+    "summary/final_weight_reduction_20261024/functional_readout_carrier_v1/NECESSITY_REVIEW.json": "6b09c7ae7d1bc8490dd84d289e676e6fc2fede9ac6800b86247e64cc124bec94",
+    "summary/final_weight_reduction_20261024/functional_readout_carrier_v1/SOURCE_REVIEW.json": "d6a3191b84e731d8636d0bd5c4a8dd9f3e9aa1a20f72e1f986df33c63d305349",
+    "summary/final_weight_reduction_20261024/functional_readout_carrier_v1/CPU_GATE_STARTED.json": "1229e42aac0eff665de0b52923e2474d09ab22588c40b1be1dfaf8921a62611b",
+    "summary/final_weight_reduction_20261024/functional_readout_carrier_v1/CPU_GATE.json": "c3b4c1b83442df919d80717fb1e0173116eb1c565e4fa9b10898d0005144e8c7",
+    "summary/final_weight_reduction_20261024/functional_readout_carrier_v1/READY.json": "3f427a300c05b7def9fe34309e55615ef4fb05325e8f460f09549614eb53f141",
+    "summary/final_weight_reduction_20261024/functional_readout_carrier_v1/FREEZE_EXECUTION.json": "9f6b55c0d768931a579bc2871688cb9f6324a2da6cd69b0030c005159754b5a8",
+    "summary/final_weight_reduction_20261024/functional_readout_carrier_v1/TRANSPORT.json": "14152165b9f506040559168ee5a397a033511493b35e750a63b7270f18cd5ecd",
+    "summary/final_weight_reduction_20261024/functional_readout_carrier_v1/freeze_stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "summary/final_weight_reduction_20261024/functional_readout_carrier_v1/freeze_stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "exp/functional_readout_carrier_20261024/v1/core.py": "9ea7b2d2777643d865962de7252d273955af4aa51609f7cbdb2e0439c838d581",
+    "exp/functional_readout_carrier_20261024/v1/common.py": "9b0a3aab2aff458904a00a36cac97571b415ece4320c79cde4095907a5c0a3f4",
+    "exp/functional_readout_carrier_20261024/v1/worker.py": "c6aac1e470bc0e52f7526944058e71995d9424ea6548919b1eb52ddb79ad0033",
+    "exp/functional_readout_carrier_20261024/v1/freeze.py": "1234729366d3ff863cac9d832f24e37c08c0f12b8511a9ac6c5461c25f83e692",
+    "exp/functional_readout_carrier_20261024/v1/dispatch.py": "1477d863b28a303ed8ec89b9a4636430bc975bb21981200cffb0187f5df3e6c8"
+  },
+  "scope": {
+    "host": "OLD only; independent functional_readout_carrier_20261024_view",
+    "uid": 1084,
+    "boot_id": "5b259bd9-d0cb-4a1d-8b90-6e6107080488",
+    "interpreter": "/data2/liyapeng_grp/program/LLMCL/.runtime/conda-env/bin/python3.10",
+    "phases": [
+      "init",
+      "WeightD",
+      "ResponseD"
+    ],
+    "same_physically_free_GPU_serial": true,
+    "STARTED_to_COMPLETE_seconds": {
+      "init": 1200,
+      "WeightD": 1800,
+      "ResponseD": 1800
+    },
+    "total_model_seconds_maximum": 4800,
+    "teacher_decoder_passes": 48,
+    "new_DEV_generations": 200,
+    "optimizer_updates": 0,
+    "TEST_QA": 0,
+    "parent_scores": "Copy only the existing bound unadapted parent proof; no parent regeneration or rescoring.",
+    "stop": "Any first-STARTED failure, interruption, nonfinite or budget breach closes the fixed point. No restart, resume, rank/data/LR/recovery search or automatic version. Exit75 permits only genuinely unattempted pre-STARTED/pre-CUDA resource waiting.",
+    "followup": "No automatic continual training, complete confirmation, 1313/21454 evaluation or new model."
+  },
+  "findings": [
+    "Current five source hashes, protocol, necessity and source reviews match READY and overlapping transport entries;39 transported files/696222 bytes are recorded, with zero model work in transport.",
+    "The existing CPU proof reports one passed tiny FP32 gate:2.5835294937714934 seconds, supervised3.3691900931298733 seconds with actual returncode0; no CUDA initialization or real QA/model. Both arms physically remove D and strict-reload a complete tiny Qwen graph.",
+    "The tiny statistics checks cover unequal sampled-position counts with QA-equal moments and balancing the same projected D. No optimizer update occurred or is part of this protocol.",
+    "READY binds the original manifest/SPLIT, inherited source and base small files, five parent-reference files, actual OLD interpreter/modeling sources and UID/boot. The reviewer checked local scientific and inherited small-source hashes; remote absolute package/data paths are consumed as existing frozen evidence, not independently reread here.",
+    "Empty captured freeze stdout/stderr and completed CPU_GATE/READY agree with the successful supervision record. CPU_GATE_STARTED is the synthetic admission marker, not a real-model STARTED.",
+    "This permits the first actual construction and whole-graph evaluation under the existing guards. It is a fixed down-only carrier feasibility comparison; known tools remain valid tools and this admission is not a framework or quality result."
+  ],
+  "decision_boundary": [
+    "Actual complete coefficient/byte/layout and strict-reload proof must establish the smaller final physical representation;816728096 coefficients remains a design expectation until measured.",
+    "An arm is retained only if all five original domain point F1 meet the bound unadapted-parent floor and integrity/budget/size conditions pass. Among feasible arms choose higher macro, exact tie WeightD. ResponseD need not win for a useful WeightD carrier to be retained.",
+    "Neither arm passing closes this D-only rank200 point without further matrix rotation. Local teacher-input reconstruction alone cannot pass the whole-model gate."
+  ],
+  "limitations": [
+    "Tiny CPU FP32 success does not certify real CUDA FP16 finite statistics/decompositions, timing, memory, generation, final weight storage or Answer F1. Those remain unmeasured.",
+    "No live GPU ownership is inferred from these files. Dispatcher and worker must use actual inventory and identity checks at activation/STARTED; all phases use the same genuinely free OLD card and protect other jobs.",
+    "Keeping original G/U preserves their map at a given input, while changed earlier D outputs can change later inputs. Sixteen-QA local readouts use teacher inputs and are not final-decoder trajectory errors.",
+    "The77,070,336 moment bytes are a tensor subtotal, not process/inference RAM. Transport, CPU admission and verification are separate costs; phase RUN and exit observations must not be double-counted.",
+    "The explored100DEV and weak unadapted parent floor do not establish equivalence, statistical stability, strong-baseline victory, continual adaptation or OSFT/ShortFixed causes. No novelty or completed lightweight framework is accepted."
+  ],
+  "required_changes": [],
+  "review_execution": {
+    "Torch_import": false,
+    "CPU_gate_rerun": false,
+    "model_QA_score_bootstrap_or_SSH": false,
+    "small_file_read_and_SHA_only": true
+  }
+}
