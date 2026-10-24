@@ -1,0 +1,28 @@
+{
+  "decision": "accept_conditional_endpoint_and_cost_contract_only",
+  "files_sha256": {
+    "summary/final_weight_reduction_20261024/tied_vocabulary_residual_contract_v1/FINDINGS.md": "c34c8f4590a076707830a88fa45c03cda8cbbe5c417a115365b2b6a51ca6c02d",
+    "summary/final_weight_reduction_20261024/tied_vocabulary_residual_contract_v1/SOURCE_EVIDENCE.json": "d18e5c25bb299679f99b14cdf6728793a7a75688a7372d26b74d07950a8a4bdc"
+  },
+  "document_sha256": "c34c8f4590a076707830a88fa45c03cda8cbbe5c417a115365b2b6a51ca6c02d",
+  "no_model_admission": true,
+  "scope": "Final interpretation and conditional algebra review only; read the two report files and the three pinned private upstream source texts and verified their recorded byte counts/SHA256. No author code, model, tensor, matrix test, weight header, QA, scoring or bootstrap was executed/read.",
+  "upstream_revision": "183cd92d8469bf3f1e979585a08dc382692bfbed",
+  "findings": [
+    "The pinned source supports head-weight cloning before final-normalization fusion, separate embedding/head rotation and slicing, stored shortcut matrices, and RMSN division by its saved mean_dim.",
+    "For column-orthonormal PL, the stated original-dimension RMS denominator makes the endpoint exactly equal in real arithmetic to lifting z by PL transpose and applying the original final RMSNorm gain and tied head, using the actual original epsilon.",
+    "Full-width orthogonal endpoint compatibility is conditional on consistent transformed internal/visual computation. For r less than d, endpoint closure does not show preservation of the original hidden state or whole-model function.",
+    "The omitted term PL transpose times diag(gamma) times (I minus P0 P0 transpose) times E transpose is correct for the specified projected-vocabulary/small-bridge construction; it can vanish under extra subspace conditions and is not asserted nonzero universally.",
+    "The Vd plus 2dr storage expression is conditional on retaining only E, P0 and fused C at the endpoints. It adds 2dr relative to the already tied original vocabulary, leaves the full-vocabulary output multiplication, and requires all other model/bridge state to be counted.",
+    "The report correctly distinguishes text-config tie true from outer-config false and existing one-key serialization evidence; vocab_size 152000 is the recorded configuration value, not the earlier guessed value. No runtime alias or actual epsilon verification is claimed."
+  ],
+  "limits": [
+    "The design rejection concerns unconditional single-projected-vocabulary accounting or unconditional small-gamma-bridge preservation without required compensation/subspace conditions; different boundary bases are not prohibited in general.",
+    "No FP16 bitwise equivalence, residual-width quality preservation, finite-step learnability, complete compact parameter budget or original algorithm is established.",
+    "Existing header/config provenance is consumed as recorded evidence; no weight header or model was reloaded to re-establish aliases.",
+    "The reported 2.160096-second acquisition interval is an upstream receipt value, not a measured review duration or total research cost.",
+    "This completed interface constraint does not authorize a model protocol, CPU gate, READY/service, closed sparse repair, or automatic follow-up analysis."
+  ],
+  "edits_required": false,
+  "closure": "Retain as a conditional interface/accounting tool. The endpoint question is complete; do not repeat its source inspection or algebra as further progress."
+}

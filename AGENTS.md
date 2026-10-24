@@ -1,3 +1,9 @@
+# 2026-10-24：残差缩宽的词表共享接口约束已核，不是新模型准入
+
+- tied_vocabulary_residual_contract_v1的FINDINGS/SOURCE_EVIDENCE/RESULT_REVIEW已完成一次指定官方revision183cd92...源码和原小config核对。现成SliceGPT流程复制head、融合末norm、首末独立旋转且存残差桥，不能把本骨干原共享词表默认算成缩宽后仍只有一份投影词表。text tie真、外层假、配置vocab_size152000/d896；本轮没有重读权重头或加载模型验证别名/epsilon。
+- 一份完整E加输入P0及输出C=PL^T diag(gamma)可闭合端点：列正交PL时用原d分母和原epsilon归一化，等于lift后原norm/head的精确实数输出；不保证FP逐值或整个缩宽decoder保真。条件成本Vd+2dr相对原已共享E增加2dr，并保留全词表输出乘法；其它残差桥/视觉接口/训练必需状态全计，不当压缩E或新方法。有限步可学性和保质缩宽仍未解，无新模型协议/READY/service。
+- 该源码/代数问题已结案，不重查/重计维持活跃。dev_exact_pair_feasibility_v1亦已be3b2faf发布结案：69候选只覆盖20交通QA，T18文本类别候选保留但整组模型草案未准入，不自动核图/裁标签/似然或扩大数据；不由此否定OSFT学知识。统计修复提案仍未获明确执行授权，旧科学源与失败入口不恢复。科研总目标未实现。
+
 # 2026-10-24：统计上下文修复只有人类决策提案，未授权执行
 
 - 新sparse_statistics_repair_decision_v1的PROPOSAL/UNAPPLIED_INITIALIZATION_PATCH/DECISION_REVIEW只供人类决定。原稀疏固定点依旧关闭，无新runtime源码、READY、模型准入、服务或worker；没有应用补丁/重门/张量测试/重演旧数值故障。提案发布不改变原停止条款。

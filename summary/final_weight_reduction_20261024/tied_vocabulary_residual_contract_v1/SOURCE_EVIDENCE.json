@@ -1,0 +1,77 @@
+{
+  "scope": "Pinned primary-source and endpoint construction check only; no model admission.",
+  "primary_source_receipt": {
+    "upstream": "microsoft/TransformerCompression",
+    "revision": "183cd92d8469bf3f1e979585a08dc382692bfbed",
+    "commit_api_sha256": "8cf27314228494ad14985090dd7c17f93bfdde771052633497bacc7e940a4449",
+    "files": {
+      "layernorm_fusion.py": {
+        "url": "https://raw.githubusercontent.com/microsoft/TransformerCompression/183cd92d8469bf3f1e979585a08dc382692bfbed/src/slicegpt/layernorm_fusion.py",
+        "sha256": "d70aa8a1e5df533c13f1c115b2b34d3f2efcac964b636a525b145bcdc5c0814e",
+        "bytes": 5676
+      },
+      "rotate.py": {
+        "url": "https://raw.githubusercontent.com/microsoft/TransformerCompression/183cd92d8469bf3f1e979585a08dc382692bfbed/src/slicegpt/rotate.py",
+        "sha256": "5bfe9dc5a4c77da1da9c2aa48fc7e96c45d387aa2dda787e8bbf5e23a1a0559a",
+        "bytes": 21480
+      },
+      "modules.py": {
+        "url": "https://raw.githubusercontent.com/microsoft/TransformerCompression/183cd92d8469bf3f1e979585a08dc382692bfbed/src/slicegpt/modules.py",
+        "sha256": "b072e505ba6b0ce4ebf2123a9ddadc63a0c42490244057c7ba7719dbdba3b29d",
+        "bytes": 1074
+      }
+    },
+    "seconds": 2.160096000006888,
+    "no_author_code_executed": true,
+    "no_model_or_tensor_read": true
+  },
+  "model_config": {
+    "config_path": "model/LLaVA-OneVision-Qwen2-0.5B-OV/config.json",
+    "config_sha256": "839a4fba0bd6949f0db22d4f840935cb0318f6ac28b29c9ce1a5b15735a4a740",
+    "text_config": {
+      "model_type": "qwen2",
+      "hidden_size": 896,
+      "intermediate_size": 4864,
+      "num_hidden_layers": 24,
+      "num_attention_heads": 14,
+      "num_key_value_heads": 2,
+      "vocab_size": 152000,
+      "tie_word_embeddings": true,
+      "rms_norm_eps": null
+    },
+    "outer_tie_word_embeddings": false,
+    "existing_component_evidence_sha256": "0fceb97bbae94d6ddec5717db24940a19758a088d1958c867697a264993bb963",
+    "no_weight_header_or_tensor_read": true,
+    "no_model_import_or_execution": true
+  },
+  "prior_header_record_sha256": "a00670903021e55dc32f5be94df1c3efd38c96cb1a8f9bf067aa864f51264723",
+  "prior_header_record": {
+    "scope": "Safetensors shape headers and config only; no tensor data/model/GPU/QA loaded; header snapshot hashes do not reverify full weights",
+    "model": "model/LLaVA-OneVision-Qwen2-0.5B-OV",
+    "serialized_tensor_elements": 893675552,
+    "dtype_elements": {
+      "F16": 893675552
+    },
+    "tensor_count": 716,
+    "headers": {
+      "model.safetensors": {
+        "header_sha256": "874dbcdff7fd946c2f1d74b0d46059e598b03bdc2b93853f65603360a984c5a5",
+        "header_bytes": 94568
+      }
+    },
+    "tie_word_embeddings": false,
+    "text_tie_word_embeddings": true,
+    "embedding_or_lmhead_keys": [
+      "language_model.model.embed_tokens.weight"
+    ],
+    "keys_not_weight_or_bias": [
+      "image_newline"
+    ]
+  },
+  "new_weight_header_reads": 0,
+  "new_models": 0,
+  "new_QA": 0,
+  "new_scores": 0,
+  "author_code_executed": false,
+  "residual_shrinking_quality_or_learnability_proven": false
+}
