@@ -1,0 +1,14 @@
+{
+  "accepted": true,
+  "reviewer": "baseline_review",
+  "reviewed": ["evidence.py", "worker.py", "controller.py", "verify.py", "cpu_gate.py", "PROTOCOL.md"],
+  "findings": [
+    "Token insertion preserves all original tokens and assistant suffix; correct/wrong differ only in a same-length body.",
+    "Complete correct OCR is retained, donor is independently fixed by known group/image IDs, special tokens rejected.",
+    "Old strict graph loading, digest/layout/buffer controls retained without repeating the old loading gate.",
+    "NoOCR uses only sealed old scores, 80 newly generated outputs are scored once with the original AST.",
+    "Two empty body items retain identical paired input/output with NLL tolerance and are separately reported.",
+    "Each of two independent OLD GPU1 phases is capped at 900 seconds; no new training or deployment claim."
+  ],
+  "gate_pending_at_review": true
+}
