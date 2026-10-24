@@ -1,3 +1,11 @@
+# 2026-10-24：共享输出B有直接先例，仅保留必要性工具、不准入主方法
+
+- response_contrast_contract_v1/SHARED_OUTPUT_REVIEW.md及同名JSON为本轮新的具体候选判断，不覆盖既有contrast/gauge/分组beta结果。定向原文ALoRA2509.25414v1§4.1已提出独立A+共享B+输入router；改用PAS的A能量打分不与作者逐项相同，也不因此构成原创组合。保留已有工具和“第二套B是否值得保存”的必要性问题，不把有先例等同禁止研究，不展开方法榜单。
+- 共享B本身不强制独立A能量相同，但不保证实际分工；若B(z1−z2)=0，路由变化仍不改变该输入输出。支路响应受共同输出空间限制，不能把独立双B任意无损压为共享B。B零起点只保实数父输出，不是首步已有有用路由、FP逐值或同优化；共享B使梯度/Adam状态汇合。未来RS必须定义共享Parameter引用与重要性合并，避免重复处罚；未确认任何实际回调bug，不推新保护理论。
+- 局部两专家增量2r(n+m)→2rn+rm，只少rm；完整W0仍保留，增量比例不等于整模下降，现成小载体规模属于作者。只少存B尚未闭合紧凑主载体的功能承接与最终权重目标。旧PAS源码仅存usage回调/模块/tau等，不含逐token路由差异；本轮不加载CP/I张量/QA补猜测，不用均值或频数推路由失效，不重复已完成input-dependence分析。
+- 主/子agent实质往返后关闭共享B作为新主框架或当前实施：不写运行源/CPU门，不矩阵筛选/新GPU，不恢复native基线/EQR/PAS或搜rank/LR。只记录未来最少同独立A初态/同能量路由、双B对共享B的参数绑定问题，尚无冻结协议/预算/准入。原生起点质量缺测不作得分资格门，预处理失败不是载体质量阴性。
+- 本轮0新模型/张量/QA/优化/GPU/评分/bootstrap，没有新F1或实际可删权重。上一轮只查正式索引属无进展，不能冒充已验证研究等待；当前研究无活跃worker，也不因困难标资源blocked。科研目标仍未实现，后续须解决较小主载体的起点功能、可学习选择/响应与历史影响，不能反复该先例/公式/记录维持活跃。
+
 # 2026-10-24：原生起点基线首次输入预处理失败，按冻结规则关闭
 
 - native_initial_answer_baseline_v1的FAILURE_FINDINGS/FAILURE_SEAL/FAILURE_REVIEW为最新终态。首次真实worker887285/start12737785于2026-10-23T19:41:27UTC STARTED，首题input_batch的processor resize失败；20:08:43UTC实际unit failed/MainPID0/exit1，canonical queue closed_failure，controller881459和worker均退出。无COMPLETE/VERIFY_STARTED/VERIFIED，空partial，未到generate，无AnswerF1。旧18:34/18:42/18:57及goal资源blocked均为历史，不再等或恢复该入口；当前无研究worker/其它已准入待运行实验。

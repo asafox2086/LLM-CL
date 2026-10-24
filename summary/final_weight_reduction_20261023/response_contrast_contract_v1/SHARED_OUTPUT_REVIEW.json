@@ -1,0 +1,32 @@
+{
+  "decision": "accept_prior_art_tool_only_no_model_admission",
+  "document": "summary/final_weight_reduction_20261023/response_contrast_contract_v1/SHARED_OUTPUT_REVIEW.md",
+  "document_sha256": "5c548beab72e218755e6a4353e54b03bf7b4cd195bf351a9fb85cd876d64b9e8",
+  "no_model_admission": true,
+  "no_new_model_QA_tensor_score": true,
+  "direct_prior": {
+    "name": "ALoRA",
+    "version": "arXiv:2509.25414v1",
+    "url": "https://arxiv.org/html/2509.25414v1#S4.SS1",
+    "scope": "Independent A factors with a shared B are direct prior art; the PAS A-energy router is a different routing choice, not a novelty certificate."
+  },
+  "scope": [
+    "Final text-only interpretation review of the named document; no new literature search, source inspection, numerical analysis, model, QA, tensor loading or scoring.",
+    "Accept the decision not to present shared B or shared B plus PAS energy routing as a new compact main framework, and not to implement or activate the present candidate.",
+    "Retain the narrower necessity question of whether a second B is worth preserving; prior art does not prohibit that research question."
+  ],
+  "findings": [
+    "Sharing B does not by itself force equal A-energy scores or uniform routing, and unequal scores do not establish useful response differences.",
+    "The incremental coefficient count changes from 2*r*(n+m) to 2*r*n+r*m; this does not remove any W0 coefficients or establish a reduction of the complete base model.",
+    "A zero B gives the common parent output in exact arithmetic, while shared-gradient accumulation and optimizer state differ from two independently trained B factors.",
+    "Any future minimal binding comparison must disclose coordinate and optimization differences and define shared-parameter historical-importance accounting before implementation.",
+    "Missing native starting quality is not a score-based admission gate and the prior preprocessing failure is not evidence of poor carrier quality."
+  ],
+  "limits": [
+    "The cited prior-art interpretation is consumed from this bounded discussion; no independent network re-verification was performed in this final review.",
+    "No empirical evidence of quality retention, expert specialization, historical protection, parameter avoidability or complete-model compression is accepted.",
+    "The shared-output-space restriction is a representation boundary, not a finite-budget learning or Answer F1 conclusion.",
+    "No old failed or completed branch is reopened, and no CPU gate, source implementation, model activation, rank/LR search or automatic follow-up experiment is authorized."
+  ],
+  "required_changes": []
+}
