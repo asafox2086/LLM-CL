@@ -1,0 +1,21 @@
+{
+  "unit": "llmcl-ffn-direct-eval-20261025.service",
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit=llmcl-ffn-direct-eval-20261025.service",
+    "--property=Restart=no",
+    "--property=KillMode=control-group",
+    "--property=RuntimeMaxSec=4856",
+    "--property=TimeoutStopSec=5",
+    "--setenv=LLMCL_ROOT=/data2/liyapeng_grp/program/LLMCL",
+    "--setenv=LLMCL_RUN=/tmp/llmcl-ffn-direct-1084-77c1fj_x",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "-u",
+    "/tmp/llmcl-ffn-direct-1084-77c1fj_x/evaluation_controller.py"
+  ],
+  "remaining_seconds": 4856,
+  "absolute_deadline_unix": 1792866371.6305504,
+  "unix": 1792861527.5895789,
+  "stderr": "Running as unit: llmcl-ffn-direct-eval-20261025.service\n"
+}
