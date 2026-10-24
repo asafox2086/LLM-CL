@@ -1,3 +1,12 @@
+# 2026-10-24：同预算FFN角色保留两完整流程结束，质量阴性关闭固定点
+
+- ffn_role_retention_v1的VERIFIED/OUTCOME/INPUT_BINDING/RESULT_REVIEW/DECISION/RESULT_PUBLICATION为最新终态；VERIFIED da6715c564bfe96bdd0a3ef49bba2ebab01860d5b6a013aaaf634a2a35e3496f、OUTCOME3b69f6b64f8ad7164504b15b560ee9a9397bfc40071ff4f4f60b915758fcf328、输入核对793cd3a6a3ff3d743fbf6c92bf8d15dfc4e164833cb43a364997c1753e24db61、独立review22bab1827f74619f67e3edb74804d7a9b89fb2206d40c63dc43ffac6798e477c。五科学源/PROTOCOL/READY d920df25...原字节不改；唯一评分/核验及两个小消费者已完成，不重模型/评分/bootstrap/大CP hash。
+- 两组各1213FIT/19阶段/87正LR更新，500新DEV生成完整接受，逐ID五套生成前prepared tensors SHA全同。父未适应宏16.1162684325；KeepGate初0.539925781→末5.196071155；KeepUp初0→末8.905753762。KeepGate末比KeepUp低3.709682606pp，18高21低61平；两者均远低既合法wideqv43.791987409。全部域与正负在README/OUTCOME公开，DEV已探索/单seed/每域20/89组，不称显著/稳定/等效/非劣。
+- 两最终完整权重均816728096系数/1633456192bytes，较893675552减少8.610222785%；另普通buffers9032bytes，最终包1633717050/1633717114bytes。仅保gate/down、只压up的这项全24层r200构造也在首次更新前破坏回答功能；连续q/v没有恢复，不能把损失只归后续遗忘、把保gate当充分承接或在低质量地板挑通用赢家。不否定所有低秩，不识别冷启动/OSFT机制或纯可学性；没有保质紧凑框架，完整目标未实现。
+- 每组训练坐标540672，真实grad2162688/CPU两moment4325376bytes；最终0trainable来自fold冻结，非未训练。模型RUN153.474025+1553.576060+1360.042974=3067.093059秒，退出观察和3071.368832秒重叠不加；500DEV/2426FIT/174更新、初末完整CP/19adapter/87grad历史及资源均计费。CPU门3.593072秒/监督4.411185秒重叠、运输/等待/SSH/唯一核验与消费者/历史费用另列；采样常驻/allocated/NVML不是受控推理峰或速度。
+- 2026-10-24T11:21:22UTC实际OLD unit inactive/MainPID0/exit0，queue complete_verified，3622183/3622204/3623321/3633455均无；当前无研究worker，不再等待/恢复此入口。启动ACTIVATION记录KillMode=process，终态show为control-group，两原时点都保留，不臆测运行期属性变化或发信号。观察连接reset后仅复核原句柄，未重启任何模型。
+- primary未通过，关闭这两个role/r200固定点，不加rank/LR/恢复、不自动1313/21454、不填Ours，不复活旧三矩阵r200/半宽/共享载体/PAS/ShortFixed。后续必须有具体且未重复的功能承接/有限预算适应问题，不能换分解工具填时间；人类仍授权有意义的新探索和实质主子讨论，当前没有另一项模型准入，科研困难不标外部blocked。正式基线保全；只有新完整科学证明/重要故障/阶段完成/人类决策通知，健康或无行动变化静默。
+
 # 2026-10-24：FFN角色保留对照已首次实际STARTED
 
 - ffn_role_retention_v1/ACTIVATION与PHASE_OBSERVED为实际新入口证据。冻结/准入1520d31c已推送18文件精确镜像后，唯一OLD unit llmcl-onevision-ffn-role-retention-20261024.service激活；unix1792834499.575实查controller3622183/start753287479、init worker3622204/start753287504/UID1084/PGID同PID，GPU0、boot5b259bd9...，实际proc与STARTED/queue一致，active/running。仅init已STARTED，未见COMPLETE/FAILURE/VERIFIED，未读partial质量；这是时点快照，后续以实际身份和proof为准。

@@ -1,9 +1,67 @@
-# Same-budget FFN role-retention exploration
+# 同预算保留门或响应分支的完整结果
 
-This fixed exploration compares keeping the original nonlinear gate versus keeping the original up projection. Only the other one is physically rank200, down and all other components stay intact. Both compact designs have816728096 weight coefficients (8.61% below893675552); actual model counts remain to be measured.
+两种固定结构都实际减少了8.61%的完整权重，但没有保住回答质量。压缩后的未训练起点已经接近零分，连续q/v适应没有恢复到本轮未适应父模型，更没有达到既有合法FIT参照。按事前规则关闭这两个role/rank200点，不加rank、学习率或恢复训练追分。
 
-Both conditions continuously retain the same q/v adaptation trajectory across19stages. This respects the earlier local cold-start evidence: preserve useful prior adaptation rather than creating a new zero-increment expert at every stage. It neither assumes every baseline cold-starts nor retests the already completed inheritance controls.
+## 问题与干预
 
-The necessary small synthetic structural check passed once, including four updates per tiny condition, physical replacement, ordinary folding and serialized strict reload. It is not a real-model or quality result. Scientific sources and protocol are frozen in READY. A separate model admission and actual activation are required; use subsequent ADMISSION_REVIEW, ACTIVATION, actual phase markers and VERIFIED for authoritative state, not this historical description.
+在相同完整权重预算下，保留原非线性gate是否比保留原线性up更有用？KeepGate仅将24个语言FFN的up物理替换为rank200；KeepUp仅将gate替换为rank200。两组均保留原down、视觉、注意力、词表和连接器，没有暗存dense残差。普通SVD及投影敏感性已有先例，本实验不是新框架主张。
 
-One parent initial row, two compact initial rows and two compact final rows will use the original100exploredDEV and AnswerF1, with no partial score consumption. Only a complete two-condition result can select a role allocation. Existing projection sensitivity and low-rank methods are prior art; this is not an already novel or effective framework. The full research objective remains unfinished.
+两组均用同一q/v-r8初值，连续沿用适配器权重，分别完成1213FIT、19阶段、87次有效更新。它不是每域重建LoRA的冷启动因果对照。压缩因子冻结，最终q/v公平折回完整模型，再严格重载并评测。
+
+## 原Answer F1
+
+下表均为同一100条已探索DEV、原全部参考、原任务生成上限与原评分。原父未适应态只表示本轮质量起点，不与已训练正式基线混用。
+
+| 状态 | 自然 | 医学 | 遥感 | 金融 | 交通 | 五域宏平均 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 原父模型 未适应 | 31.0564 | 4.8571 | 33.6667 | 5.0000 | 6.0011 | 16.1163 |
+| KeepGate 压缩后未训练 | 0.0787 | 0 | 0.2328 | 0.0681 | 2.3200 | 0.5399 |
+| KeepGate 训练后 | 0.2857 | 0 | 20.0000 | 0 | 5.6946 | 5.1961 |
+| KeepUp 压缩后未训练 | 0 | 0 | 0 | 0 | 0 | 0 |
+| KeepUp 训练后 | 5.0000 | 0 | 31.2058 | 5.2003 | 3.1226 | 8.9058 |
+| 既有宽q/v FIT参照 | 61.5000 | 44.5000 | 45.0000 | 30.0000 | 37.9599 | 43.7920 |
+
+宽q/v一行仅复制其既有封存评分，未重新评分或配对。它的训练坐标为4399104，本轮两组为540672；它是事前筛选锚，不能把跨配置差异全归于压缩角色。正式最强参照和本表DEV也不是同一评价口径。
+
+KeepGate初态相对父宏平均下降15.5763pp，KeepUp下降16.1163pp。训练后各恢复4.6561pp和8.9058pp；KeepGate末态比KeepUp低3.7097pp，逐题18高、21低、61平。前者只在交通高于后者，医学同为0，其余三域更低，不能声称优先保留gate获得整体质量优势。
+
+## 能说明什么
+
+五套评测逐ID的实际生成前prepared tensors摘要完全相同，源、权重和输入图像均有封存绑定。这次初态落差不只是“声明使用同一管线”的比较，也不由所记录的prepared输入变化解释。
+
+在本次全24层、单支rank200替换下，保留另一支和原down仍没有承接原回答功能；这项损失在首次任务更新之前已经发生。因此不能把最终低分只解释为后续遗忘，也不能以“连续继承LoRA”当作初始功能损坏已解决。
+
+初态函数不同，训练后的差异不能分解为纯粹可学性因果。保留gate矩阵也不等于实际门响应不变，因为上游输入会改变。本结果不证明gate、up或所有低秩表示普遍无用，不识别所有领域低分的唯一原因，更不提供可删除大块权重且保质的证据。
+
+DEV已被反复探索，单seed、每域20QA、89个已知组，T7/8/9/12没有DEV；不称新留出、显著、稳定、等效或非劣。没有使用TEST选择，也没有新bootstrap。
+
+## 完整权重与费用
+
+| 指标 | 原父模型 | KeepGate最终 | KeepUp最终 |
+| --- | ---: | ---: | ---: |
+| 完整权重系数 | 893675552 | 816728096 | 816728096 |
+| 权重字节 | 1787351104 | 1633456192 | 1633456192 |
+| 另列普通buffer字节 | 9032 | 9032 | 9032 |
+| 完整最终checkpoint字节 | 本轮未另存父包 | 1633717050 | 1633717114 |
+| 适应时训练坐标 | 0 | 540672 | 540672 |
+
+最终0可训练字段来自折叠和冻结，不表示未训练。完整模型保留全部视觉、语言、连接器和所需冻结权重，按共享存储去重；不把梯度或优化器当最终权重。每组实际梯度2162688bytes、两CPU moment4325376bytes，训练历史另计。
+
+模型RUN：init153.4740秒、KeepGate1553.5761秒、KeepUp1360.0430秒，合计3067.0931秒；退出观察上界之和3071.3688秒，与RUN重叠，不相加。恰500条DEV生成、两组共2426FIT训练曝光和174次更新。两个初态完整包各约1.634GB；每组19个阶段适配器包合计41545894bytes、87个梯度包190245162bytes均保留计费。
+
+唯一小图准入3.5931秒、其监督区间4.4112秒重叠；资产运输、实现、等待、SSH、独立核验和历史研究成本另列，不能将模型RUN之和称全部实验墙钟。唯一结果消费者0.0288秒，输入摘要核对时长见INPUT_BINDING。原核验和评分已执行一次，不重跑。
+
+同进程采样常驻内存最大值为KeepGate6.097GB、KeepUp6.035GB；框架累计allocated峰为2.467GB、2.468GB，NVML采样最大均4.268GB。它们覆盖加载、训练、保存与重载，不是受控推理内存、速度比较；权重减少也不能替代这些测量。
+
+## 行动与证据
+
+事前primary未通过，关闭这两个固定点；不自动全1313/21454、不填写Ours、不复活旧r200/半宽/PAS/ShortFixed或另开恢复训练。后续设计仍须同时说明更小载体怎样承接原回答功能、怎样允许有限预算内有用的新响应变化；不能只按分支名字保留一项，再把其余权重低秩化当作功能已保留。
+
+- [唯一完整核验](VERIFIED.json)
+- [只消费既有评分及成本](OUTCOME.json)
+- [五套逐题输入摘要对照](INPUT_BINDING.json)
+- [独立结果审阅](RESULT_REVIEW.json)
+- [实际结束观察](TERMINAL_OBSERVATION.json)
+- [冻结协议](PROTOCOL.md)
+
+当前没有保质紧凑主方法，科研总目标未实现。
