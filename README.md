@@ -63,6 +63,7 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 | **OSFT部分训练与保护机制是否可省？** | ShortFixed宏42.301329、原OSFT40.783801，梯度及Adam状态少21.34%；去逐步保护42.333991，但金融下降 | **局部支持简化训练状态，未证明最终模型更小。** 点估计不证明等效或保护无用；阶段刷新对照故障，质量缺测。[短侧](summary/edge_deployment_20261019/osft_short_factor_control_20261022/v2/FINDINGS.md) · [保护](summary/edge_deployment_20261019/osft_protection_control_20261022/v1/FINDINGS.md) |
 | **增加更新位置就能稳定胜强基线？** | all-r8先导41.952549；完整确认五域宏44.894423，低于正式OSFT、PAS | **本配方被否证。** 先导入选未转成正式优势，不按TEST追配置。[完整负结果](summary/edge_deployment_20261019/osft_increment_confirmation_20261022/v1/FINDINGS.md) |
 | **借原生FFN响应做轻量调制有净收益？** | 动态44.757603、固定44.681201；匹配宽q/v为45.085963，分别高0.328360／0.404762pp | **未支持新增调制的净质量收益。** 原生响应非退化并不等于有答题价值；宽q/v保留为容量对照，正式推进已关闭。[匹配结果](summary/native_response_selection_20261025/qv_control/FINDINGS.md) |
+| **加宽带来的收益能否算新增模块创新？** | 匹配GPU朴素r8宏38.775370，宽q/v45.085963；宽模型训练坐标约8.14倍 | **只能作为容量对照。** wide高6.310593pp不证明新模块有效，不覆盖旧实现r8的历史分数，也不是正式TEST优势。[完整对照](summary/plain_r8_gpu_control_20261025/v1/FINDINGS.md) |
 | **低损伤排名、低秩或局部拟合能直接承接回答功能？** | 联合删8个FFN：43.791987→19.620168；FFN低秩／功能拟合多组虽减重8.61%–25.83%，F1仍崩坏 | **这些固定替代方案保质失败。** 局部误差下降、单删低损伤都不足以证明完整图可删；不否定所有压缩。[删图](summary/ffn_direct_ablation_20261025/v1/FINDINGS.md) · [角色对照](summary/final_weight_reduction_20261024/ffn_role_retention_v1/README.md) · [读出](summary/final_weight_reduction_20261024/functional_readout_carrier_v1/README.md) |
 | **换更小预训练载体，就能同时保质且省显存？** | 小视觉接口宏38.966256<父43.791987；完整SmolVLM学习后37.991536，权重少43.21%，五窗GPU峰却高14.09%–57.43% | **本组质量／资源联合目标失败。** 参数少不能代替GPU峰实测，预训练完整也不保证功能承接。[视觉接口](summary/vision_interface_transfer_20261025/v1/FINDINGS.md) · [原生小模型](summary/native_prior_learning_20261025/compatibility/INTERPRETATION.md) |
 | **OSFT优势是图文配对利用整体更强？** | 61题四状态488次NLL，配对支持改善OSFT相对q/v差−0.013734 | **未支持预定解释。** 不能反推视觉无用或可以删视觉编码器。[证据](summary/final_weight_reduction_20261024/paired_image_support_diagnostic_v1/RESULT_FINDINGS.md) |
@@ -95,7 +96,7 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 
 固定q/v-r8 **540,672个训练参数**，门新增**0**参数；训练时另有540,672个冻结慢适配器系数及回放、teacher和head计算。设计最终只保留working并fold，完整图仍为893,675,552个系数，新增推理参数0；实际新方法计数和峰值待实验确认。相对保留专家库的强方法可能省内存，相对同样fold的朴素LoRA／OSFT不声称新的结构减重。
 
-直接移植原法、答案门和同接受数打乱门使用相同训练参数、回放与EMA；另有匹配GPU实现的朴素r8控制。后者已完成训练，尚无完整核验F1。门若未优于原法与打乱控制，就不支持这条新增规则。末层NLL只是整包约束的代理，不能保证参数更新或生成F1改善。[具体方案与边界](summary/answer_reliability_consolidation_20261025/v1/METHOD_PROPOSAL.md)。
+直接移植原法、答案门和同接受数打乱门使用相同训练参数、回放与EMA；另有匹配GPU实现的朴素r8控制。匹配GPU实现的朴素r8已完整核验，DEV五域宏为 **38.775370**；后续三臂相对它的差异仍包含回放／EMA，不能全归门。门若未优于原法与打乱控制，就不支持这条新增规则。末层NLL只是整包约束的代理，不能保证参数更新或生成F1改善。[具体方案与边界](summary/answer_reliability_consolidation_20261025/v1/METHOD_PROPOSAL.md)。
 
 ---
 

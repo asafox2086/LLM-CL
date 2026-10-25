@@ -1,0 +1,102 @@
+{
+  "status": "author_source_review_complete_pending_independent_review_and_parent_admission",
+  "created_UTC": "2026-10-25T10:02:24.875463+00:00",
+  "sources": {
+    "exp/plain_r8_gpu_control_20261025/v1/common.py": "8404ce5536ea24900ea456090e5307e35cfc1acf42e5e2e047c2bfed3b78337a",
+    "exp/plain_r8_gpu_control_20261025/v1/control_adaptation.py": "ac5231b686f5d6a3890b9248291e69492b2048c1f8931d0b9df43e399612f457",
+    "exp/plain_r8_gpu_control_20261025/v1/control_deployment.py": "212a02753177e692198f17e85bc2510297969f3b2b75f088cf88ccc5fbbf37fd",
+    "exp/plain_r8_gpu_control_20261025/v1/controller.py": "aba9f1bc4b60cb5f83ba4c8a71145ed728cbb0e3f8e95d6d0f05d114af8cffa3",
+    "exp/plain_r8_gpu_control_20261025/v1/readouts.py": "8d68817f330b9b26acbbdec55e344e066879896b4d73db3064dadc7f747acf3a",
+    "exp/plain_r8_gpu_control_20261025/v1/verify.py": "2425fe4606fb150b3b2da96fd1ea1856c839a6a0330440b83891ec0660e6c547",
+    "exp/plain_r8_gpu_control_20261025/v1/worker.py": "3391f14200c410da0085b30d606f6ce6607181ff6fbd1d3212bbef90491d64ec"
+  },
+  "protocol": {
+    "path": "summary/plain_r8_gpu_control_20261025/v1/PROTOCOL.md",
+    "sha256": "a4126f86b97c764886d8ea281b7df6b8a43b237073b679841571240397a986d5"
+  },
+  "purpose": "A fresh plain q/v-r8 GPU baseline needed to separate future same-rank CL adaptation from capacity and historical HostAdam/CPU-fold differences. Not Ours, not novelty, no revival of closed wide formal.",
+  "source_checks": {
+    "seven_sources_AST_parse": true,
+    "controller_byte_identical_to_sealed_QV": true,
+    "readouts_byte_identical_to_sealed_QV": true,
+    "GPU_math_function_AST_identical": true,
+    "GPU_fold_AST_identical_except_rank_admission_65_66_to_8": true,
+    "no_model_or_Torch_import_by_this_review": true
+  },
+  "fixed": {
+    "phase_GPUs": {
+      "train_qv": 0,
+      "eval_qv": 1
+    },
+    "phase_seconds": {
+      "train_qv": 3600,
+      "eval_qv": 600
+    },
+    "FIT_QA": 1213,
+    "stages": 19,
+    "updates": 87,
+    "seed": 42,
+    "qv_positions": 48,
+    "rank": 8,
+    "alpha": 32,
+    "scale": 4,
+    "dropout": 0.1,
+    "trainable_tensors": 96,
+    "coordinates": 540672,
+    "gradient_bytes": 2162688,
+    "GPU_AdamW_state_including_step_bytes": 4325760,
+    "new_generations": 105,
+    "new_scores": 100,
+    "TEST_QA": 0,
+    "NLL_requests": 0,
+    "initial_DEV_generations": 0,
+    "final_weight_coefficients": 893675552,
+    "final_weight_bytes": 1787351104,
+    "ordinary_buffer_bytes": 9032,
+    "deployment_added_coefficients": 0
+  },
+  "prior_QV_RUN": "/tmp/llmcl-response-qv-control-1084-nkmx9g5k",
+  "ASSET": "/tmp/llmcl-response-pair-1084-geic2vef/asset_view",
+  "new_READY_fields": {
+    "prior_qv_run": "/tmp/llmcl-response-qv-control-1084-nkmx9g5k",
+    "prior_pair_run": "/tmp/llmcl-response-pair-1084-geic2vef"
+  },
+  "new_prior_file_mapping_from_QV_RUN": {
+    "prior_qv_READY.json": "READY.json",
+    "prior_qv_VERIFIED.json": "VERIFIED.json",
+    "prior_qv_train_COMPLETE.json": "train_qv_COMPLETE.json",
+    "prior_qv_eval_COMPLETE.json": "eval_qv_COMPLETE.json",
+    "prior_qv_ADAPTER_INITIAL.json": "qv_ADAPTER_INITIAL.json",
+    "prior_qv_final_predictions.json": "qv_final_predictions.json"
+  },
+  "inherited_prior_files_from_QV_RUN": [
+    "calibration_COMPLETE.json",
+    "prior_pair_READY.json",
+    "prior_pair_VERIFIED.json",
+    "prior_train_dynamic_COMPLETE.json",
+    "prior_dynamic_ADAPTER_INITIAL.json",
+    "prior_static_ADAPTER_INITIAL.json",
+    "prior_dynamic_FIT_INPUTS.json",
+    "prior_dynamic_final_predictions.json",
+    "prior_static_final_predictions.json",
+    "prior_eval_dynamic_COMPLETE.json",
+    "prior_eval_static_COMPLETE.json"
+  ],
+  "initializer_reason": "BudgetQV constructs original r8, then copies the entire r8 A/B into a replacement rank8 layer inside fork_rng. Existing constructor asserts exact original prefix and RNG preservation; new worker records its own 48 A/B digests. Wide full A/B digests are never asserted equal to r8.",
+  "disclosures": [
+    "Author review is a source-only syntax and inheritance audit, not an independent scientific approval, a CPU neural gate, successful GPU runtime, or quality evidence.",
+    "The seven sources retain qv phase/file names for direct reuse; result quality key is plain_r8_final.",
+    "No CPU model tests, GPU runs, server calls, READY construction, transport, activation, baseline scheduler edits, README edits, goal/thread/automation creation, deletion, or process signal were performed.",
+    "Complete-package deployment helper retains unused optional response support inherited from sealed QV; actual worker passes default false and verifier requires response None and no response tensors.",
+    "Verifier copies historical sealed scalar quality; old prediction payloads are used only for exact input binding. Exactly 100 new scores after full complete/exit proof.",
+    "GPU fold comparison normalizes only the rank guard, preserving all arithmetic and precision; no knob search.",
+    "Former whole-wide initialization equality check was deliberately removed because rank differs. Actual original-r8 inheritance is established inside the frozen constructor rather than comparing incompatible full tensor hashes.",
+    "No model was attempted while authoring, so there are no runtime failures or quality outcomes to report."
+  ],
+  "interpretation_limits": [
+    "single seed;100 DEV already explored; not formal TEST",
+    "rank differs from old wide/dynamic/static: historical comparisons are capacity context only",
+    "the future same-rank CL intervention requires separate protocol, source review and admission",
+    "no rank/LR/QA/interpolation search, no automatic retries or extra model variants"
+  ]
+}

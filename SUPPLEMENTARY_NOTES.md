@@ -525,3 +525,12 @@ ShortFixed实测梯度357,940,224字节、两Adam moment715,880,448字节；较�
 
 
 </details>
+
+
+### 匹配GPU朴素r8：容量对照的锚已完成
+
+2026-10-25原两phase完整退出后唯一评分，100已探索DEV宏38.7753697307，五域60.6666667／48.3571429／30／20／34.8530391。wide45.0859628544较它高6.3105931237pp，但4,399,104对540,672是约8.136倍训练容量，不能归给调制；原匹配wide胜动态/固定的反证保留。此为新GPU实现r8参照，不覆盖历史39.870439，不声称完整TEST收益。原值和逐题正负均保存，0旧质量重评分。
+
+实际1213FIT／19阶段／87正LR更新，105新生成／100唯一F1／0TEST，96训练张量、梯度2162688bytes、GPU AdamW4325760bytes。完整fold模型893675552系数／1787351104权重bytes，普通buffers9032；最终完整重载通过。模型951.875543319秒，controller时间重叠不加；唯一核验12.578896171秒，归档46.309331444秒及实现/准入/运输另计。155个新产物逐SHA核对已私有存NEW，OLD scratch保留，无QA正文或checkpoint入Git。结果consumer仅汇总既有标量，0模型／0评分。
+
+[结果与全部域](summary/plain_r8_gpu_control_20261025/v1/FINDINGS.md) · [完整VERIFIED](summary/plain_r8_gpu_control_20261025/v1/VERIFIED.json) · [结果审阅](summary/plain_r8_gpu_control_20261025/v1/RESULT_REVIEW.json) · [归档收据](summary/plain_r8_gpu_control_20261025/v1/ARCHIVE_RECEIPT.json)。新方法借鉴I-LoRA，未围绕OSFT另开机制拆解；固定r8/无新增门参数的实际收益仍待三臂实验。与朴素对比训练GPU身份不同，回放和EMA整包曝光差不能归给门。
