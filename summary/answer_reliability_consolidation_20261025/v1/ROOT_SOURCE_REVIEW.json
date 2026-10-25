@@ -1,0 +1,37 @@
+{
+  "accepted": true,
+  "reviewer": "root",
+  "sources": {
+    "exp/answer_reliability_consolidation_20261025/v1/adaptation.py": "c6c8d8ab1e22a2da5219ae1417c2b463ad5fead306fb3e44528adca29c7f2dab",
+    "exp/answer_reliability_consolidation_20261025/v1/common.py": "968e9c1008db692254c62fa6c7a081403505a2c4a8dc6ddc9935f812267e3182",
+    "exp/answer_reliability_consolidation_20261025/v1/controller.py": "92798ca4526a255598427d3ef8dc058d50dce4c13a593c8f36ed9f169929cc89",
+    "exp/answer_reliability_consolidation_20261025/v1/deployment.py": "212a02753177e692198f17e85bc2510297969f3b2b75f088cf88ccc5fbbf37fd",
+    "exp/answer_reliability_consolidation_20261025/v1/loss_core.py": "3da5c9e7ab35b6fa0b03b058006495572e2c1ddda36dfe675105ab14c4b0e1df",
+    "exp/answer_reliability_consolidation_20261025/v1/readouts.py": "8d68817f330b9b26acbbdec55e344e066879896b4d73db3064dadc7f747acf3a",
+    "exp/answer_reliability_consolidation_20261025/v1/verify.py": "68802ceb7d4debb15b4047ade830c043f2ecf3cf1627454d8ddd319795800dee",
+    "exp/answer_reliability_consolidation_20261025/v1/worker.py": "1c4a0327b7330be1a47b637ccf63fef04c8bf678809e92f28ec0842d84bd20fe"
+  },
+  "protocol_sha256": "388c19f12ea036a8b5bb2192a6c8bd0b66f824b3b1cd0b2ff90ff820d324363c",
+  "independent_admission_sha256": "c0c79f256bc8df145656108b31deeb18057e70f4f430f4c9c6dd239ccf56ea92",
+  "core_cross_review_sha256": "183166bbaa37d8e945e34a891238160e1a00ad503c20a348579cbff84c5564a7",
+  "scientific_reason": [
+    "Fixed-r8 study borrows I-LoRA and tests a concrete answer-readout proxy, not more trainable capacity or another OSFT decomposition.",
+    "Existing task acquisition/positive transfer observations motivate examining unconditional constraints; they do not prove I-LoRA causes harm.",
+    "Original/gate/same-count reference-shuffle share base, r8, CE, replay, EMA, data, budget, train GPU2 and terminal GPU1 readouts; assignment Hamming must be nonzero to identify sample correspondence.",
+    "Whole-hidden target is gated by actual final-normalized max-target answer NLL, not slow NLL. This is a stochastic proxy, not a gradient/F1 guarantee.",
+    "Final working-only folded graph could avoid permanent expert-bank inference cost. There is no structural reduction versus fairly folded naive/OSFT; actual GPU peaks and final full package must be measured.",
+    "Naive baseline already measured38.77536973069947. Its contrast also contains replay/EMA and different training GPU; it cannot identify gate causality. No formal TEST claim."
+  ],
+  "implementation_checks": [
+    "Read all eight source files and inherited packing/bridge/training-hook interfaces; compile source only. No numerical model gate.",
+    "Readouts/deployment byte-identical and GPU math/fold AST-identical to sealed naive-r8.",
+    "540672 working coefficients/96 tensors;540672 frozen slow coefficients/2162688bytes; learned gate0. Complete folded graph design893675552 FP16 weights plus9032 ordinary buffer bytes.",
+    "Three train phases5400 each, three eval600 each, total18000 model seconds/outer18300; first model fault closes, no recovery or search.",
+    "Pre-READY prepare(processor) signature correction and teacher embedding flag detachment recorded by authors and cross reviewer; no model outputs influenced corrections.",
+    "Unique300 terminal F1 scores only after all six exits, copied old naive scalars without rescoring; final-only cannot identify acquisition versus forgetting."
+  ],
+  "new_model_runs": 0,
+  "new_scores": 0,
+  "CPU_neural_gates": 0,
+  "authorship": "Root authored metadata/orchestration and reviews; core/model source split between two child agents; baseline reviewer authored final verifier and disclosed it."
+}

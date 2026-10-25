@@ -1,0 +1,88 @@
+{
+  "status": "core_cross_review_accepted_after_pre_admission_interface_and_teacher_leaf_boundary_fixes",
+  "created_UTC": "2026-10-25T10:29:25.146507+00:00",
+  "reviewer": "plain_r8_control; worker/common/controller independently cross-reviewed against inherited original training AST; adaptation/loss_core authored here and separately cross-reviewed by research_review",
+  "scope": "Source-only implementation review. This is not READY, overall admission, activation, successful GPU execution, verified outcome, or quality evidence. Final verifier and parent metadata/asset binding remain separately required.",
+  "sources": {
+    "exp/answer_reliability_consolidation_20261025/v1/common.py": "968e9c1008db692254c62fa6c7a081403505a2c4a8dc6ddc9935f812267e3182",
+    "exp/answer_reliability_consolidation_20261025/v1/worker.py": "1c4a0327b7330be1a47b637ccf63fef04c8bf678809e92f28ec0842d84bd20fe",
+    "exp/answer_reliability_consolidation_20261025/v1/controller.py": "92798ca4526a255598427d3ef8dc058d50dce4c13a593c8f36ed9f169929cc89",
+    "exp/answer_reliability_consolidation_20261025/v1/adaptation.py": "c6c8d8ab1e22a2da5219ae1417c2b463ad5fead306fb3e44528adca29c7f2dab",
+    "exp/answer_reliability_consolidation_20261025/v1/loss_core.py": "3da5c9e7ab35b6fa0b03b058006495572e2c1ddda36dfe675105ab14c4b0e1df",
+    "exp/answer_reliability_consolidation_20261025/v1/deployment.py": "212a02753177e692198f17e85bc2510297969f3b2b75f088cf88ccc5fbbf37fd",
+    "exp/answer_reliability_consolidation_20261025/v1/readouts.py": "8d68817f330b9b26acbbdec55e344e066879896b4d73db3064dadc7f747acf3a"
+  },
+  "documents": {
+    "summary/answer_reliability_consolidation_20261025/v1/CURRENT_IDEA.md": "e4894b0c93dbc443985f2858cec8686a75a6f2f6f74cd88d9d199c0606774e59",
+    "summary/answer_reliability_consolidation_20261025/v1/METHOD_PROPOSAL.md": "4f66d7baab83c259fb1111c1fd857f7375fd6546fabfa4eccc4d30d15f9e2648",
+    "summary/answer_reliability_consolidation_20261025/v1/PROTOCOL_DRAFT.md": "7db1c076486778a3cd814e72730973c85a398e1d547a0a8a7d2a3cd7c4395784",
+    "summary/answer_reliability_consolidation_20261025/v1/PROTOCOL.md": "388c19f12ea036a8b5bb2192a6c8bd0b66f824b3b1cd0b2ff90ff820d324363c"
+  },
+  "official_reference": "https://raw.githubusercontent.com/which47/LLMCL/a9dae1230ca63f5ec347ae16496e69157a2c86be/method/ILORA.py",
+  "corrected_fatal_findings": [
+    {
+      "finding": "Original immutable run.py training AST calls method.prepare_update(processor); worker initially assigned ReplaySchedule.prepare(self) directly, which would raise TypeError at the first optimizer update before any current QA forward.",
+      "worker_before_sha256": "b195420cee8031b6dd0f0c39ddd39228a25ff912a165e67417b6060d966650e2",
+      "worker_after_sha256": "1c4a0327b7330be1a47b637ccf63fef04c8bf678809e92f28ec0842d84bd20fe",
+      "fix": "research_review changed signature to prepare(self,processor=None) and checks any supplied processor is ctx.processor. Original training AST unchanged; no recipe, data, learning or budget change.",
+      "timing": "Detected and fixed during source review before READY/freeze/model execution; no scientific result was observed and no model retried."
+    },
+    {
+      "finding": "enable_input_require_grads installs an embedding-output requires_grad_(True) hook; a no-grad returned input leaf can retain requires_grad=True, so requiring every raw slow hidden tensor to have a false flag was unnecessarily strict and potentially rejects text-only replay before detach.",
+      "loss_core_before_sha256": "5c3c2e64bdaebb4b85c7a7bed8e3e0d43f8fca80dfc156eed02a303f9bdc0995",
+      "loss_core_after_sha256": "3da5c9e7ab35b6fa0b03b058006495572e2c1ddda36dfe675105ab14c4b0e1df",
+      "fix": "Inside the existing MSE loop, stable=stable.detach() now precedes the flag assertion. Raw final tuple identity checks remain before the loop. The target already detached stable; all values, target max, NLL gate, loss arithmetic, teacher mode, dropout and random policy are unchanged.",
+      "timing": "Minimal source compatibility correction requested by root and independently agreed by research/baseline review before READY/freeze/first model execution;0 model runs and no additional audit gate."
+    }
+  ],
+  "checked_contracts": {
+    "AST_hooks": "begin_stage(stage) synchronizes EMA before training; prepare_update(processor) preselects update current/replay/reference masks; original scaler skip/nonfinite check precedes after_update(step,updates); after_update applies EMA once and seals update ledger; original end_stage(stage) precedes injected save_stage(stage). All hook signatures now match.",
+    "learning": "Original current-QA order, 19 stages,87 updates, accumulation denominator, optimizer reset/schedule/scaler/clip remain in unchanged AST. S1 current CE only; other micro loss is (currentCE+replayCE)/2 + already-masked MSE, with original minibatch division exactly once.",
+    "working_initialization": "make_plain is AST-identical to sealed plain-r8 except install_slow call; 48 A/B initialization/rank records compare directly against sealed naive r8, never against incompatible wide tensor hashes.",
+    "checkpoint_recomputation": "Working forward uses the original bound SeqLinear.forward. Teacher only changes per-layer route flags and no_grad; it never copies buffers into working Parameters. slow_mode finally restores all route flags before backward. Nonreentrant checkpoint recomputation therefore uses working route, preserved training/dropout mode and default checkpoint RNG preservation. No teacher graph is backpropagated.",
+    "EMA": "96 exact frozen FP32 buffers hold540672 coefficients/2162688bytes; optimizer contains only96 working A/B Parameters. Stage sync19 and successful optimizer EMA87 are checked. GPU no_grad EMA uses .25slow+.75working; no dense teacher copy or learned gate.",
+    "ordinary_buffers": "Worker resolves the96 slow buffer tensor identities to actual core-canonical names and excludes only those exact keys from ordinary buffer digest; it does not confuse Bridge model.layers keys with core language_model.model.layers keys. Ordinary9032bytes and frozen base remain checked; EMA change is separately recorded.",
+    "packing_and_target": "loss_core derives original rt.answer_loss AST with no template/retrieval/label packing rewrite; adds output_hidden_states and teacher-only early exit before discarded head. Original512 truncation plus EOS and prompt_length-1:-1 prediction slice retained. Tuple25 includes embeddings and24 decoder outputs; final entry identity-checked against post-finalnorm last_hidden_state.",
+    "MSE_and_mask": "Coordinate max of detached working/slow is detached. All25 equal-shaped [1,packed_length,896] entries use full effective packed positions (original packing attention mask allones), with equal layer means. This equals concatenated MSE. Strict target_answer_NLL<working_existingCE opens gate; target head gets no extra norm. Whole MSE mask applied once, no acceptance-count renormalization. Original/shuffle still compute the same diagnostics/head. Teacher tensor is explicitly detached at the loop boundary before the requires_grad assertion, accommodating the inherited input-embedding hook without altering numerical targets.",
+    "past_only_and_shuffle": "Task-end reservoir500 stores immutable FIT QA references only; no current task insertion before its training ends. Separate seeded insertion/draw RNGs do not consume model/dropout RNG. Gate blind training precedes original/shuffle; shuffle checks exact current/replay IDs and sealed reference SHA then permutes only current-step masks. All evaluations follow all training, so no generated quality influences masks.",
+    "final_graph": "Default working only; original GPU math/fold AST identical to sealed plain-r8. Replaced Linear modules remove A/B and slow buffers from full graph. Actual complete package and independent eval reload must show893675552 coefficients/1787351104bytes and9032 ordinary buffer bytes; no EMA/teacher/replay/gate stored.",
+    "controller_and_boundaries": "Three train phases on GPU2, then three eval phases GPU1; sequential isolated worker process groups, first fault closes with no auto retry/variant. Per-phase5400/600seconds sums18000; outer18300 includes supervisory margin. Other users/baselines are not eligible for controller signals.",
+    "readout_reuse": "readouts and deployment byte-identical to sealed plain-r8 copies; each eval five fixed32-token windows before100DEV generations,315 new generations total, no initial/stage/TEST/NLL quality requests."
+  },
+  "source_only_metadata_audit": {
+    "executed": "Extracted actual ReplaySchedule/order_rows/row_key AST; synthetic QA IDs with real frozen stage QA counts from summary/plain_r8_gpu_control_20261025/v1/READY.json; all read/write/hash helpers in memory. No Torch, model, actual QA answers, predictions, quality scoring or model output files.",
+    "each_arm": {
+      "current_QA": 1213,
+      "replay_QA": 886,
+      "updates": 87,
+      "final_reservoir_QA": 500,
+      "past_only": true
+    },
+    "cross_arm_replay_ID_order_equal": true,
+    "shuffle_accepted_count_equal_reference_at_every_update": true,
+    "limitation": "This checks source schedule/count/interface consistency only. It does not validate actual runtime data membership or generated quality; the final verifier must independently bind real FIT IDs and artifacts."
+  },
+  "numerical_and_memory_risks": [
+    "No GPU forward/backward was performed for this new method. Hidden-state return with nonreentrant checkpointing, CUDA numerical finiteness, runtime and peak allocation still require actual bounded execution and cannot be inferred from this source review.",
+    "Working current and replay graphs coexist until one micro backward;25 full-sequence hidden states, detached max targets and FP32 MSE conversions, plus frozen slow hidden outputs and target-head logits materially increase peak training allocation beyond plain r8. Frozen EMA itself is only2162688bytes and is not a bound on total overhead. No promise of fitting or faster training is made.",
+    "All masks still compute full working/slow/target-head diagnostics to match arithmetic; gate=0 does not eliminate teacher/hidden computation. Report actual training memory/time and do not market the rule as zero-cost.",
+    "Same training/dropout policy does not mean working and slow share an identical dropout realization. The NLL gate is a noisy same-forward proxy and cannot certify old knowledge, all-layer target quality, gradient improvement or F1.",
+    "Shuffle preserves per-update acceptance counts; size1 or all0/all1 reference vectors may have no sample-assignment change. Actual applied-vs-reference Hamming/degenerate counts must be reported from sealed scalar ledgers before interpreting a quality difference.",
+    "Naive baseline trained GPU0 while these three arms train GPU2. Mechanism comparison is among the three same-card arms; naive differences also contain ER/EMA exposure and hardware identity. Shared GPU1 final resource windows remain the comparable inference measurement.",
+    "First failure must remain a bounded implementation missing result, not a quality negative or a reason to silently add memory offload, precision, time or recipe variants. Final graph/resource/scores are unverified until all proof checks complete."
+  ],
+  "remaining_required_work": [
+    "Independent final verifier source and immutable prior/asset bindings",
+    "Parent overall source/protocol/metadata admission before any activation",
+    "Only after actual complete runs: unique scoring300newanswers, copied sealed naive scalar context, complete deployment and resource evidence; no historical rescoring"
+  ],
+  "no_models_or_quality": {
+    "model_runs": 0,
+    "CPU_neural_gates": 0,
+    "server_calls": 0,
+    "historical_quality_read_or_rescored": 0,
+    "README_or_SUPPLEMENTARY_edits": 0,
+    "activation_or_deployment": 0
+  },
+  "decision": "Accept the corrected core implementation at the final protocol/source snapshot for parent admission and verifier completion; no model execution or quality claim. Two pre-admission source fixes are disclosed."
+}
