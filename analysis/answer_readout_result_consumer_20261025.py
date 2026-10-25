@@ -63,13 +63,51 @@ def main():
     assert cv['preSTARTED_model_attempts'] == cv['new_retries_of_started_model_phases'] == 0
     assert cv['actual_model_phases'] == 6 and cv['old_scientific_sources_unchanged'] and cv['READY_unchanged']
     assert cv['absolute_original_deadline_preserved'] and cv['original_unit_failed_preserved']
+    assert cv['post_model_verifier_schema_repair'] and cv['old_continuation_unit_failed_preserved']
+    schema_path = report / 'POST_MODEL_SCHEMA_VERIFIED.json'
+    assert schema_path.is_file() and sha(schema_path) == cv['post_model_schema_VERIFIED_sha256']
+    schema = read(schema_path)
+    assert schema['complete'] and schema['VERIFIED_sha256'] == sha(required[0])
+    assert schema['prior_failed_verification_scores'] == 0
+    assert schema['first_scoring_execution_new_scores'] == 300 and schema['scoring_executions'] == 1
+    assert schema['new_models'] == schema['new_generations'] == 0
+    assert schema['old_eight_scientific_files_unchanged'] and schema['all_six_model_phases_preserved']
+    assert schema['absolute_original_deadline_preserved']
+    assert schema['original_verifier_sha256'] == '68802ceb7d4debb15b4047ade830c043f2ecf3cf1627454d8ddd319795800dee'
+    correction = schema['correction']
+    assert correction['old_assert'] == "assert x['phase'] == 'DEV_FINAL' and x['references'] == row['answers'] and x['generation_cap'] == task['max_new_tokens']"
+    assert correction['new_assert'] == "assert 'phase' not in x and x['references'] == row['answers'] and x['generation_cap'] == task['max_new_tokens']"
+    assert correction['changed_assert_line'] == 403 and correction['all_other_AST_nodes_unchanged']
+    assert all(len(correction[n]) == 64 for n in ('original_AST_sha256', 'corrected_AST_sha256'))
+    assert len(schema['old_units_failed_preserved']) == 2
+    assert all(x == dict(ActiveState='failed', MainPID='0', ExecMainStatus='1') for x in schema['old_units_failed_preserved'].values())
+    schema_permit = read(report / 'POST_MODEL_SCHEMA_PERMIT.json')
+    assert sha(report / 'POST_MODEL_SCHEMA_PERMIT.json') == schema['permit_sha256']
+    assert finite(schema['seconds']) and schema['seconds'] >= 0
+    assert schema['original_post_model_check_endpoint_interval_seconds'] == schema_permit['original_post_model_check_endpoint_interval_seconds']
+    assert schema['wrapper_sha256'] == schema_permit['wrapper_sha256'] == sha(ROOT / 'analysis/arc_post_model_schema_verification_20261025.py')
+    schema_started = read(report / 'POST_MODEL_SCHEMA_STARTED.json')
+    assert sha(report / 'POST_MODEL_SCHEMA_STARTED.json') == schema['STARTED_sha256']
+    assert schema_started['first_attempt_score_marker_absent'] and schema_started['previous_scores'] == 0
+    assert schema_started['correction'] == correction and schema_started['old_units_failed_preserved'] == schema['old_units_failed_preserved']
+    assert schema['original_failure_archive'] == 'post_model_verifier_schema_failure_20261025'
+    assert set(schema['original_failed_files']) == {'CONTINUATION_FAILURE.json', 'VERIFIER_EXIT.json'}
+    assert schema['original_failed_files'] == schema_permit['failed_files']
+    for name, expected in schema['original_failed_files'].items():
+        assert sha(report / schema['original_failure_archive'] / name) == expected
+    schema_failed_exit = read(report / schema['original_failure_archive'] / 'VERIFIER_EXIT.json')
+    assert schema_failed_exit['returncode'] == 1 and "KeyError: 'phase'" in schema_failed_exit['stderr']
     ready = read(report / 'READY.json'); rh = sha(report / 'READY.json')
+    assert len(ready['sources']) == 8 and ready['sources']['verify.py'] == schema['original_verifier_sha256']
+    assert schema_permit['ready_sha256'] == rh
     assert v['ready_sha256'] == rh and sha(report / 'PROTOCOL.md') == PROTOCOL_SHA
     assert sha(report / 'ALL_EXIT.json') == v['all_exit_sha256']
+    assert schema['all_exit_sha256'] == v['all_exit_sha256']
     permit = read(report / 'PRESTART_CONTINUATION_PERMIT.json')
     assert sha(report / 'PRESTART_CONTINUATION_PERMIT.json') == cv['permit_sha256']
     assert permit['ready_sha256'] == rh
     assert permit['absolute_wall_deadline'] == permit['first_ACTIVATION_unix'] + 18300
+    assert schema_permit['absolute_wall_deadline'] == permit['absolute_wall_deadline']
     model_end = read(report / 'CONTINUATION_MODEL_COMPLETE.json')
     assert sha(report / 'CONTINUATION_MODEL_COMPLETE.json') == cv['continuation_model_complete_sha256']
     assert model_end['all_exit_sha256'] == v['all_exit_sha256'] and model_end['source_and_READY_unchanged']
@@ -91,7 +129,10 @@ def main():
     inputs = {'VERIFIED.json': sha(required[0]), 'CONTINUATION_VERIFIED.json': sha(required[1]),
               'READY.json': rh, 'PROTOCOL.md': PROTOCOL_SHA,
               'PRESTART_CONTINUATION_PERMIT.json': cv['permit_sha256'],
-              'CONTINUATION_MODEL_COMPLETE.json': cv['continuation_model_complete_sha256']}
+              'CONTINUATION_MODEL_COMPLETE.json': cv['continuation_model_complete_sha256'],
+              'POST_MODEL_SCHEMA_VERIFIED.json': sha(schema_path),
+              'POST_MODEL_SCHEMA_PERMIT.json': schema['permit_sha256'],
+              'POST_MODEL_SCHEMA_STARTED.json': schema['STARTED_sha256']}
     phases, starts, exits = {}, {}, {}
     for phase in PHASES:
         complete = report / (phase + '_COMPLETE.json')
@@ -185,6 +226,9 @@ def main():
         original_absolute_deadline=permit['absolute_wall_deadline'], original_first_activation_unix=permit['first_ACTIVATION_unix'],
         original_deadline_preserved=True, original_attempt_archive_sha256=cv['original_preSTARTED_attempt_archive'],
         original_failure_guard_subcondition_unknown=True,
+        post_model_schema_repair_seconds=schema['seconds'],
+        original_post_model_check_endpoint_interval_seconds=schema['original_post_model_check_endpoint_interval_seconds'],
+        post_model_original_failed_files_sha256=schema['original_failed_files'],
         prior_naive_model_seconds_separate=v['prior_naive_model_seconds_separate'],
         note='Phase durations include load/hash/save/cleanup; are not pure CUDA compute. Queue/repair/failed-controller/verification intervals overlap controller elapsed and must not be added twice. The preSTARTED gap is not measured failed-worker runtime. Historical exploration and transfer/collection costs are separate, not zeroed.')
     outcome = dict(VERIFIED_sha256=inputs['VERIFIED.json'], CONTINUATION_VERIFIED_sha256=inputs['CONTINUATION_VERIFIED.json'],
@@ -197,6 +241,12 @@ def main():
             new_gate_overall_net_gain_not_claimed=not over_naive),
         observed_highest_macro_arms=observed_best, highest_macro_operational_recipes=operational_best,
         interpretation=statements, training_descriptive_statistics=training,
+        post_model_verifier_schema_repair=dict(receipt=schema,
+            original_verifier_and_source_reviews_missed_unserialized_phase_field=True,
+            all_original_scientific_files_predictions_and_checkpoints_unchanged=True,
+            repair_scope='External in-memory AST replacement of one nonexistent phase assertion; explicit absence replaces the false schema assumption. Original producer call chain, COMPLETE files, IDs/references/caps/input bindings and scoring remain checked.',
+            both_original_services_remain_failed=True, previous_failed_verification_scored_QA=0,
+            first_scoring_execution_scored_QA=300, new_model_or_generation_retries=0),
         parameter_and_checkpoint=dict(working_coordinates=v['training_coordinates'], working_parameter_tensors=v['trainable_parameter_tensors'],
             frozen_slow_coordinates=v['frozen_slow_coordinates'], frozen_slow_bytes=v['frozen_slow_bytes'],
             learned_gate_parameters=v['learned_gate_parameters'], gradient_bytes=v['gradient_bytes'],
@@ -253,6 +303,8 @@ def main():
         lines.append(f"| {phase} | {v['phase_seconds'][phase]:.6f} |")
     lines += ['', f"六phase和{v['model_phase_seconds']:.6f}秒；从原激活到模型完成{v['controller_seconds']:.6f}秒，续接核验完成累计{cv['total_elapsed_since_original_activation']:.6f}秒。后两者含重叠等待／维修，不能再与phase相加。原绝对截止{permit['absolute_wall_deadline']}保持，资源队列等待{model_end['queue_wait_seconds']:.6f}秒。", '',
         '原original调度在STARTED前因owner／memory／util组合资源guard拒绝，0模型QA；失败子条件及是否NVML滞后未知。旧日志／FAILURE／EXIT／controller失败按原字节SHA归档，gate完整训练未重做，只续接五个未模型启动phase。该过程不是无故障首试，也不是科学质量阴性。', '',
+        '六模型phase成功后，原验证器又因要求producer从未序列化的phase字段而失败；此前源码与交叉评审共同漏检了这一契约。失败发生在VERIFY_STARTED及任何评分之前，原两份失败文件按SHA保留，两个原服务均维持failed／exit1。外部wrapper仅在内存AST中把这一断言改为明确phase缺失，保留引用、帽、ID、文件及输入全链；八个冻结科学源、READY、生成、CP和阈值均未改，模型未重跑。随后原scorer首次且仅一次评分300条。', '',
+        f"此次后模型schema修复含核验耗时{schema['seconds']:.6f}秒；原模型完成至旧验证失败端点区间{schema['original_post_model_check_endpoint_interval_seconds']:.6f}秒另记。这些区间已包含在原激活至最终核验累计墙钟中，不能重复相加或把整个区间都当纯评分时间；仍遵守原绝对截止。", '',
         f"原唯一评分300条；本消费者新增模型0／评分0。训练共{v['current_QA']} current、{v['replay_QA']} replay曝光，{v['actual_training_decoder_requests']} decoder请求及{v['extra_target_head_calls']}额外target-head，{v['optimizer_updates']}更新；不是只有{v['FIT_backwards']}个有梯度QA。朴素锚及既往探索费用分列，不重复相加也不抹去。", '',
         '本报告不授权新实验，不回写事前问题、README或冻结源。', '',
         f"证据：VERIFIED SHA `{inputs['VERIFIED.json']}`；CONTINUATION_VERIFIED SHA `{inputs['CONTINUATION_VERIFIED.json']}`。", '']

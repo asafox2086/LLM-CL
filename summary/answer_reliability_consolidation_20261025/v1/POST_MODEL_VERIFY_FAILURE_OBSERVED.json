@@ -1,0 +1,80 @@
+{
+  "unix": 1792929848.4071188,
+  "files": {
+    "CONTINUATION_FAILURE.json": {
+      "sha256": "1a5fafcae7fa5ada3d3bfc48033134479199696d944429583bc64331df069f5d",
+      "value": {
+        "unix": 1792929785.778091,
+        "traceback": "Traceback (most recent call last):\n  File \"/tmp/llmcl-answer-readout-cl-1084-ft3em1z0/prestart_continuation.py\", line 115, in <module>\n    try:main()\n  File \"/tmp/llmcl-answer-readout-cl-1084-ft3em1z0/prestart_continuation.py\", line 100, in main\n    assert p.returncode==0 and (RUN/'VERIFIED.json').exists(),p.stderr\nAssertionError: Traceback (most recent call last):\n  File \"/tmp/llmcl-answer-readout-cl-1084-ft3em1z0/verify.py\", line 497, in <module>\n    main()\n  File \"/tmp/llmcl-answer-readout-cl-1084-ft3em1z0/verify.py\", line 403, in main\n    assert x['phase'] == 'DEV_FINAL' and x['references'] == row['answers'] and x['generation_cap'] == task['max_new_tokens']\nKeyError: 'phase'\n\n",
+        "no_retry": true
+      }
+    },
+    "VERIFIER_EXIT.json": {
+      "sha256": "995cbe03383e976138dcfa20d01d7742801461ff7f82351684f0e0c2618387f7",
+      "value": {
+        "returncode": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"/tmp/llmcl-answer-readout-cl-1084-ft3em1z0/verify.py\", line 497, in <module>\n    main()\n  File \"/tmp/llmcl-answer-readout-cl-1084-ft3em1z0/verify.py\", line 403, in main\n    assert x['phase'] == 'DEV_FINAL' and x['references'] == row['answers'] and x['generation_cap'] == task['max_new_tokens']\nKeyError: 'phase'\n",
+        "unix": 1792929785.7777238
+      }
+    },
+    "ALL_EXIT.json": {
+      "sha256": "5c25c8a1b668f2da48f41d1ab335abb35775193c05f2aac1985baecbc0eeca5a",
+      "value": {
+        "complete": true,
+        "ready_sha256": "e654eb6f0c0599ef76022711866ff5e5b7061d129c1cf7f57565eb2ff36ff2fe",
+        "controller_seconds": 5148.511217594147,
+        "source_COMPLETE_sha256": {
+          "train_gate": "538960ab05641f6accbb695068e0efdba2d4525c35d0099efe5b06ac63d4a2eb",
+          "train_original": "8911dc466b6cf2e3864bf09a1f8788845ff08cb2fd32a9c857283a0f1ac59de2",
+          "train_shuffle": "88a8b3d18149ab26ac96c980445a4b74b41c488d1db2c6f43769bc33f1e1e2d7",
+          "eval_gate": "7f2e35f85f4fb70dceccb99aefa91b0131a5d202677ff888797fc2df8368c8e0",
+          "eval_original": "837a45e41dc7ca9ba6bb89e8ebed102fc84c8dab5e67933361e090e78de36170",
+          "eval_shuffle": "41fcc928e3496fbe4fd2dcbbe47a42ef5932d742f1e698888f1c1b6c87f2d737"
+        },
+        "new_generations": 315,
+        "new_scores": 0,
+        "FIT_backwards": 3639,
+        "current_QA": 3639,
+        "replay_QA": 2658,
+        "optimizer_updates": 261,
+        "TEST_QA": 0,
+        "naive_training_repeated": false,
+        "preSTARTED_continuation": true,
+        "permit_sha256": "4eef490d7cdc4e1f8176ca000d83620f911b1b2eba3ffbbe41b35b07cb511847",
+        "original_preSTARTED_failure_receipt": "b2761f17fc3c828b52f8d50a2ace68db1ece4899a4c2a95fa7f2afcba12fcd2c",
+        "queue_wait_seconds": 11.735278557054698,
+        "original_first_activation_unix": 1792924602.5616567
+      }
+    },
+    "CONTINUATION_MODEL_COMPLETE.json": {
+      "sha256": "bba70f950578ad08436a2e7bf1ebd60a5bd35a0c71e7c1738614b571bc33c181",
+      "value": {
+        "unix": 1792929751.0823944,
+        "permit_sha256": "4eef490d7cdc4e1f8176ca000d83620f911b1b2eba3ffbbe41b35b07cb511847",
+        "all_exit_sha256": "5c25c8a1b668f2da48f41d1ab335abb35775193c05f2aac1985baecbc0eeca5a",
+        "archive": {
+          "train_original.log": "95be60f438e0a4dbae8e77f01679f50be403870f9f357caed6c5dc8a3cc4b971",
+          "train_original_EXIT.json": "090c7e8f7e877683894e570361c4f866a32bb19b91bc6bf9c07ad8ec1f928031",
+          "train_original_FAILURE.json": "288a0a1ab232ec8bd4ae035255e21284b709bb5a42abc8b7cd67fb5ee1db8ebc",
+          "CONTROLLER_FAILURE.json": "14407254ee921eb7bd28af310309bb452bf77db65162987fcbc00ee89d182613"
+        },
+        "original_gate_preserved": true,
+        "model_phase_count": 6,
+        "unstarted_model_phases_run": 5,
+        "first_activation_unix": 1792924602.5616567,
+        "absolute_wall_deadline": 1792942902.5616567,
+        "elapsed_since_first_activation": 5148.511217594147,
+        "queue_wait_seconds": 11.735278557054698,
+        "source_and_READY_unchanged": true,
+        "old_preSTARTED_model_QA": 0,
+        "new_quality_scores_so_far": 0
+      }
+    }
+  },
+  "VERIFIED_exists": false,
+  "CONTINUATION_VERIFIED_exists": false,
+  "no_prediction_or_mask_or_checkpoint_read": true,
+  "new_models": 0,
+  "new_scores": 0
+}

@@ -1,0 +1,63 @@
+{
+  "accepted": true,
+  "scope": "Source-only acceptance of one transparent post-model verifier-schema correction; no execution admission or quality conclusion. Read frozen verifier, producer readouts/Batcher/evaluation call chain, continuation and external wrapper. Ran only permitted --check-source; no RUN artifacts, prediction bodies, masks, model, scorer, checkpoint payloads or server accessed.",
+  "sources": {
+    "exp/answer_reliability_consolidation_20261025/v1/common.py": "968e9c1008db692254c62fa6c7a081403505a2c4a8dc6ddc9935f812267e3182",
+    "exp/answer_reliability_consolidation_20261025/v1/worker.py": "1c4a0327b7330be1a47b637ccf63fef04c8bf678809e92f28ec0842d84bd20fe",
+    "exp/answer_reliability_consolidation_20261025/v1/controller.py": "92798ca4526a255598427d3ef8dc058d50dce4c13a593c8f36ed9f169929cc89",
+    "exp/answer_reliability_consolidation_20261025/v1/readouts.py": "8d68817f330b9b26acbbdec55e344e066879896b4d73db3064dadc7f747acf3a",
+    "exp/answer_reliability_consolidation_20261025/v1/deployment.py": "212a02753177e692198f17e85bc2510297969f3b2b75f088cf88ccc5fbbf37fd",
+    "exp/answer_reliability_consolidation_20261025/v1/adaptation.py": "c6c8d8ab1e22a2da5219ae1417c2b463ad5fead306fb3e44528adca29c7f2dab",
+    "exp/answer_reliability_consolidation_20261025/v1/loss_core.py": "3da5c9e7ab35b6fa0b03b058006495572e2c1ddda36dfe675105ab14c4b0e1df",
+    "exp/answer_reliability_consolidation_20261025/v1/verify.py": "68802ceb7d4debb15b4047ade830c043f2ecf3cf1627454d8ddd319795800dee",
+    "analysis/arc_post_model_schema_verification_20261025.py": "71251e6963397c851642b20980a786c5411e8d61e9038475d4d18ad4f8364ea1",
+    "analysis/arc_prestart_continuation_20261025.py": "323871f3b3411fdadfcabbad2be822af67d13e71050a3362827fefe404a5ce74"
+  },
+  "protocol": {
+    "path": "summary/answer_reliability_consolidation_20261025/v1/PROTOCOL.md",
+    "sha256": "388c19f12ea036a8b5bb2192a6c8bd0b66f824b3b1cd0b2ff90ff820d324363c"
+  },
+  "confirmed_defect": {
+    "verifier_line": 403,
+    "field": "phase",
+    "producer": "Batcher stores phase only in its own records; returned details and evaluate_dev serialized binding have no phase.",
+    "classification": "Verifier field-contract error before VERIFY_STARTED/scorer, not a scientific quality negative.",
+    "prior_review_omission": "I authored producer/common/worker copies and cross-reviewed the verifier and post-consumer but missed this incompatible phase lookup. Prior acceptance did not detect this real defect; original reviews must remain unchanged."
+  },
+  "precise_repair": {
+    "old_assert": "assert x['phase'] == 'DEV_FINAL' and x['references'] == row['answers'] and x['generation_cap'] == task['max_new_tokens']",
+    "new_assert": "assert 'phase' not in x and x['references'] == row['answers'] and x['generation_cap'] == task['max_new_tokens']",
+    "all_other_AST_nodes_unchanged": true,
+    "source_check_python": "3.11.7 (tags/v3.11.7:fa7a6f2, Dec  4 2023, 19:24:49) [MSC v.1937 64 bit (AMD64)]",
+    "source_check_original_AST_sha256": "3a9c0b8b2aeb9039d54fb6ce550756fca0af25651dfab6dfca050db1de09deaa",
+    "source_check_corrected_AST_sha256": "b6679a0f974b972e509dadf4bb95974306e38f397174666041812d0165ab3bf5",
+    "note": "Root confirms AST hashes are local diagnostics only; no cross-Python hash gate is imposed. Source-byte SHA, unique-node replacement and same-process inverse full-tree equality are the identity checks. Local actual stdout, Python version and executable are preserved here.",
+    "source_check_executable": "C:\\Users\\22422\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+    "source_check_stdout": {
+      "old_assert": "assert x['phase'] == 'DEV_FINAL' and x['references'] == row['answers'] and x['generation_cap'] == task['max_new_tokens']",
+      "new_assert": "assert 'phase' not in x and x['references'] == row['answers'] and x['generation_cap'] == task['max_new_tokens']",
+      "changed_assert_line": 403,
+      "all_other_AST_nodes_unchanged": true,
+      "original_AST_sha256": "3a9c0b8b2aeb9039d54fb6ce550756fca0af25651dfab6dfca050db1de09deaa",
+      "corrected_AST_sha256": "b6679a0f974b972e509dadf4bb95974306e38f397174666041812d0165ab3bf5"
+    }
+  },
+  "remaining_field_audit": {
+    "prediction_resource_fields_after_line403": "All indexed producer keys and two-value returns are compatible on static inspection; no further same-kind absent-field lookup found.",
+    "prediction_phase_provenance": "No fabricated phase key/default. Provenance is limited to frozen eval worker resource-then-100DEV call chain, COMPLETE output SHA/105 generations/zero updates, final checkpoint reload binding, and full 100ID references/cap/raw/transport/prepared/shape checks. This is source/call-chain attribution, not per-record phase evidence."
+  },
+  "preservation_and_budget": [
+    "Wrapper checks frozen verify/READY/all READY sources before compiling corrected verifier in memory; does not write the eight scientific sources or model outputs.",
+    "Original failure files are moved only after permit SHA checks, then exact archive hashes are checked again. Prior preSTARTED failure archive is retained separately. Two original services must remain failed/MainPID0/exit1; no systemctl mutation is issued.",
+    "All six original COMPLETE hashes, zero prior scores and original exited PID/starttick identities are checked; no model launch or regeneration path exists.",
+    "VERIFY_STARTED and VERIFIED must be absent before the sole score subprocess; corrected verifier retains original scorer and exactly300 new score calls. A post-score failure cannot silently repeat scoring because VERIFY_STARTED remains.",
+    "Original first activation/absolute deadline must equal earlier continuation permit; scoring timeout uses remaining time and a post-check enforces the same deadline. No reset or extension.",
+    "POST_MODEL_SCHEMA_VERIFIED and expanded CONTINUATION_VERIFIED explicitly disclose both failed services, original schema failure, zero previous scoring, one scoring execution, zero new models and preserved original phase costs."
+  ],
+  "limits": [
+    "This review has not read actual permits, archives, service state or output data; runtime guards, not this source review, must establish their values.",
+    "Completed model phases and 0 prior scores are parent-reported until wrapper guard checks; no claim of successful repaired verification yet.",
+    "Post-consumer must retain this second post-model verifier failure and compatibility receipt in reporting; the old preSTARTED-only narrative is insufficient."
+  ],
+  "author_participation": "Reviewer authored common/worker/controller and readouts/deployment copies plus protocol. Baseline sibling authored frozen verifier. Reviewer did not author this external schema wrapper."
+}
