@@ -1,0 +1,5 @@
+# 唯一GenerationConfig标准加载对象恢复
+
+原87更新与19阶段、初100生成、完整CP/权重digest/所有buffers/fresh边界不重做。原native_eval首次STARTED+600秒为绝对deadline，parent未STARTED仍240秒，原whole5040不延。原FAILURE/EXIT/source保留。唯一差异是标准from_pretrained所得GenerationConfig公开to_dict必须逐值等于export，保留该标准对象而不以from_dict替换丢内部hash。若不等即失败，不追改。模型权重、数值、公开生成策略、输入、停止与随机seed不改。仅续尚未发生的native105和parent5生成，200评分仍只完整退出后一次。
+
+兼容worker是新隔离进程；原训练与初态proof保持原identity/READY，末态与资源新identity/READY。已完成初态/训练的只读文件硬链接，完整native和parent包同存储，无新训练/教师/CPU模型/额外QA。保留一次失败加载及全部修订时间，model_seconds按原首次STARTED到最后完成含等待/审阅，另列新执行phase。

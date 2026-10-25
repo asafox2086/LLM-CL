@@ -1,0 +1,41 @@
+{
+  "accepted": true,
+  "decision": "accept_one_GenerationConfig_standard_object_IO_repair_and_unperformed_readouts_only",
+  "reviewer": "research_review",
+  "reviewed_at_UTC": "2026-10-25T05:20:37.261600+00:00",
+  "sources_sha256": {
+    "runtime.py": "81069ee6bc5e4ce5698a0bc4042196538c5109bf9adb39e6318eb42992b8c7e9",
+    "adaptation.py": "7f6f1be1bac395a876621fe27dee5796342bdc49c4f78fe4ff4450e2428de8c8",
+    "deployment.py": "4c8fdd4f0488fc86a66081244041e7dffcc7d656db5f5a96663866f3dbb27555",
+    "worker.py": "4af9a6d3931fcc5c48271ed39eced3a98c3c5d3a184e2d0d9f6d25552930b34d",
+    "controller.py": "bc409478960b4a6557c39dd61ae61f5c18f0dca9f4f9d0d2d4b27fa4abea1286",
+    "verify.py": "af33a2f84d3a21c265827c469386da299b668ffb1b37621eb6cde00795736abc"
+  },
+  "original_sources_sha256": {
+    "runtime.py": "81069ee6bc5e4ce5698a0bc4042196538c5109bf9adb39e6318eb42992b8c7e9",
+    "adaptation.py": "7f6f1be1bac395a876621fe27dee5796342bdc49c4f78fe4ff4450e2428de8c8",
+    "deployment.py": "ded1bcc901290f14407b07fac69b6c725cb2c083dc07b9e44019dcb5c04e17f5",
+    "worker.py": "4b20bb82d9cc2b6e1dfc77b71d753f2d7193320fe963c16d19f2e4d337fe78dd",
+    "controller.py": "bc409478960b4a6557c39dd61ae61f5c18f0dca9f4f9d0d2d4b27fa4abea1286",
+    "verify.py": "020f700bad8d65ede77b72eaf545156c14afdd743b1383a02901af4fc7e1d191"
+  },
+  "PROTOCOL_sha256": "ee9559ac9027918f27c8cc1e2aedb24d0d8443ecbbc9e90de7dbc6b9b444ab64",
+  "authorship_disclosure": "Reviewer authored the unchanged runtime.py and adaptation.py; read-only review of deployment/worker/controller/verify. No source modified by this review.",
+  "scope": "Read-only deployment diff, continuation worker/controller, verifier diff, compatibility protocol and bound Transformers4.46.3 generation config/prepare source. AST/compile only; no torch/config/module/model/QA/scoring/GPU/remote execution.",
+  "checks": [
+    "Native load preserves the complete standard from_pretrained GenerationConfig object instead of replacing it with from_dict. Its public to_dict must equal the sealed export exactly and its standard internal hash sentinel must already exist; any inequality fails. No private marker is manually changed, and public config digest/state/layout/buffers remain mandatory.",
+    "Source confirms to_dict removes _original_object_hash, from_dict alone does not restore it, while standard loading initializes it. Sentinel participates in legacy config-change detection; retaining the genuine standard object avoids pretending it is irrelevant.",
+    "runtime/adaptation/controller are byte-identical. No training or initial generation is repeated; existing87 updates/1213 backwards, initial100 and complete folded CP are preserved under original hashes and identity/READY. Only native105 and parent5 previously unperformed generations are executed.",
+    "Continuation is a new isolated worker, not a hidden restart of old PID. Original failure/exit/source/READY are preserved and bound; verifier distinguishes original initial/train identity and READY from new evaluation identity and READY.",
+    "Native evaluation inherits the first native_eval STARTED+600 absolute deadline. Parent was not started and retains240 seconds. Original whole5040 includes failed loading, waiting, review and repair; worker checks remaining deadline and verifier checks absolute completion. No extension is accepted.",
+    "Native/parent resource input policy, greedy cap/EOS, same fixed raw IDs and32-token windows unchanged; new native final100 scored only together with old initial100 after all required phases complete. No partial-quality selection, new NLL, teacher, precision change or new operator check."
+  ],
+  "scientific_limits": [
+    "Before continuation the original run has actual completed initial100 and87-update training but no scored quality and no completed final response/resource window. Its implementation failure is not native-Q quality negative.",
+    "This source acceptance does not assert the standard-object equality guard has passed or repair will succeed. It does not authorize another repair, deadline extension, new quality condition, additional data or new experiment.",
+    "Historical parent quality target remains distinct from present resource-only parent loading; same-process context and cross-backbone implementation limitations remain."
+  ],
+  "blocking_issues_found": [],
+  "additional_checks_or_experiments_requested": [],
+  "not_quality_pass_or_goal_completion": true
+}
