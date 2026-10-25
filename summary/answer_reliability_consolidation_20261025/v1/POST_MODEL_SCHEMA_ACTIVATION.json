@@ -1,0 +1,22 @@
+{
+  "unix": 1792930365.2598438,
+  "unit": "llmcl-answer-readout-postmodel-schema-20261025.service",
+  "preregistration_commit": "d6b9ed8532f489fc690daf22e0c2cb434a113ed6",
+  "permit_sha256": "e9b1ccd1cd28803c90f9bc6d3f0cdccbb0c76c94a5ab633a3a1744e2695ac784",
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit=llmcl-answer-readout-postmodel-schema-20261025.service",
+    "--property=Restart=no",
+    "--property=KillMode=control-group",
+    "--property=RuntimeMaxSec=240",
+    "--setenv=LLMCL_ROOT=/data2/liyapeng_grp/program/LLMCL",
+    "--setenv=LLMCL_RUN=/tmp/llmcl-answer-readout-cl-1084-ft3em1z0",
+    "--setenv=LLMCL_ASSET=/tmp/llmcl-response-pair-1084-geic2vef/asset_view",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "-u",
+    "/tmp/llmcl-answer-readout-cl-1084-ft3em1z0/post_model_schema_verification.py"
+  ],
+  "new_models": 0,
+  "first_scoring_only": true
+}

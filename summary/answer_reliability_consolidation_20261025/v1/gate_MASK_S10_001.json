@@ -1,0 +1,91 @@
+{
+  "stage": 10,
+  "step": 1,
+  "global_update": 31,
+  "stage_updates": 1,
+  "current_QA": [
+    {
+      "task": 10,
+      "id": "SLAKE:1892",
+      "domain": "medical"
+    },
+    {
+      "task": 10,
+      "id": "SLAKE:7232",
+      "domain": "medical"
+    }
+  ],
+  "replay_QA": [
+    {
+      "task": 1,
+      "id": "TextVQA:2720",
+      "domain": "natural"
+    },
+    {
+      "task": 1,
+      "id": "TextVQA:11049",
+      "domain": "natural"
+    }
+  ],
+  "natural_gate": [
+    1,
+    0
+  ],
+  "applied_mask": [
+    1,
+    0
+  ],
+  "stats": [
+    {
+      "replay": true,
+      "arm": "gate",
+      "working_NLL": 0.6038631796836853,
+      "target_NLL": 0.6033504605293274,
+      "natural_gate": 1,
+      "applied_mask": 1.0,
+      "raw_MSE": 0.0003389561898075044,
+      "masked_MSE": 0.0003389561898075044,
+      "answer_tokens": 11,
+      "prompt_tokens": 3292,
+      "packed_tokens": 3303,
+      "hidden_states_count": 25,
+      "hidden_width": 896,
+      "all_packed_positions_effective": true,
+      "target_detached": true,
+      "teacher_same_training_mode": true,
+      "slow_decoder_forwards": 1,
+      "working_decoder_forwards": 1,
+      "extra_target_head_calls": 1,
+      "slow_answer_head_calls": 0,
+      "source_answer_loss_AST_sha256": "5fcad15d1780903808d6654204b7ff0cfb43679a33d8d6550dfb3770a0ecfe62"
+    },
+    {
+      "replay": true,
+      "arm": "gate",
+      "working_NLL": 0.015002944506704807,
+      "target_NLL": 0.015139871276915073,
+      "natural_gate": 0,
+      "applied_mask": 0.0,
+      "raw_MSE": 0.00021510139049496502,
+      "masked_MSE": 0.0,
+      "answer_tokens": 6,
+      "prompt_tokens": 3726,
+      "packed_tokens": 3732,
+      "hidden_states_count": 25,
+      "hidden_width": 896,
+      "all_packed_positions_effective": true,
+      "target_detached": true,
+      "teacher_same_training_mode": true,
+      "slow_decoder_forwards": 1,
+      "working_decoder_forwards": 1,
+      "extra_target_head_calls": 1,
+      "slow_answer_head_calls": 0,
+      "source_answer_loss_AST_sha256": "5fcad15d1780903808d6654204b7ff0cfb43679a33d8d6550dfb3770a0ecfe62"
+    }
+  ],
+  "EMA_updates": 31,
+  "accepted": 1,
+  "replay_count": 2,
+  "denominator": "all_replay_QA; unchanged current minibatch accumulation",
+  "reference_mask_sha256": null
+}

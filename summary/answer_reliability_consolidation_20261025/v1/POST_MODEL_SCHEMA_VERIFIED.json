@@ -1,0 +1,47 @@
+{
+  "complete": true,
+  "unix": 1792930400.8828585,
+  "VERIFIED_sha256": "84ed17f99ed21a01ffc6f7a5ba479ed3670c4ba34b54a0e2037a324a92876aa8",
+  "permit_sha256": "e9b1ccd1cd28803c90f9bc6d3f0cdccbb0c76c94a5ab633a3a1744e2695ac784",
+  "wrapper_sha256": "71251e6963397c851642b20980a786c5411e8d61e9038475d4d18ad4f8364ea1",
+  "STARTED_sha256": "1c381873ef85598c11096f2d33ca9fd4cd98e47a77ddc508be87450ef3ca74dc",
+  "original_verifier_sha256": "68802ceb7d4debb15b4047ade830c043f2ecf3cf1627454d8ddd319795800dee",
+  "correction": {
+    "old_assert": "assert x['phase'] == 'DEV_FINAL' and x['references'] == row['answers'] and x['generation_cap'] == task['max_new_tokens']",
+    "new_assert": "assert 'phase' not in x and x['references'] == row['answers'] and x['generation_cap'] == task['max_new_tokens']",
+    "changed_assert_line": 403,
+    "all_other_AST_nodes_unchanged": true,
+    "original_AST_sha256": "3a9c0b8b2aeb9039d54fb6ce550756fca0af25651dfab6dfca050db1de09deaa",
+    "corrected_AST_sha256": "b6679a0f974b972e509dadf4bb95974306e38f397174666041812d0165ab3bf5"
+  },
+  "original_failed_files": {
+    "CONTINUATION_FAILURE.json": "1a5fafcae7fa5ada3d3bfc48033134479199696d944429583bc64331df069f5d",
+    "VERIFIER_EXIT.json": "995cbe03383e976138dcfa20d01d7742801461ff7f82351684f0e0c2618387f7"
+  },
+  "original_failure_archive": "post_model_verifier_schema_failure_20261025",
+  "prior_failed_verification_scores": 0,
+  "first_scoring_execution_new_scores": 300,
+  "scoring_executions": 1,
+  "new_models": 0,
+  "new_generations": 0,
+  "old_eight_scientific_files_unchanged": true,
+  "all_six_model_phases_preserved": true,
+  "all_exit_sha256": "5c25c8a1b668f2da48f41d1ab335abb35775193c05f2aac1985baecbc0eeca5a",
+  "old_units_failed_preserved": {
+    "llmcl-answer-readout-cl-20261025.service": {
+      "MainPID": "0",
+      "ExecMainStatus": "1",
+      "ActiveState": "failed"
+    },
+    "llmcl-answer-readout-cl-prestart-continuation-20261025.service": {
+      "MainPID": "0",
+      "ExecMainStatus": "1",
+      "ActiveState": "failed"
+    }
+  },
+  "absolute_original_deadline_preserved": true,
+  "seconds": 35.327043670229614,
+  "total_elapsed_since_original_activation": 5798.322784900665,
+  "original_post_model_check_endpoint_interval_seconds": 34.695329427719116,
+  "phase_evidence": "Frozen eval worker call chain, hashed COMPLETE output files, IDs/refs/caps/raw/prepared binding; no serialized per-prediction phase field exists or is fabricated."
+}

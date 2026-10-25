@@ -604,3 +604,18 @@ unix1792926762.8731668新unit `llmcl-answer-readout-cl-prestart-continuation-202
 Qwen原sealed宏48.9723511766575与既有FORMAL_ANCHORS的48.972351176657504相差1ULP，原精度与旧锚分别记录，不改任何阈值；3位显示同为48.972。此为读者展示澄清，不是新科研质量结果。具体源路径、摘要、域全精度和展示值见FORMAL_MACRO_VALUES。
 
 [8组原宏来源](summary/edge_resource_comparison_20261025/v1/FORMAL_MACRO_VALUES.json) · [原17列保全核对](summary/edge_resource_comparison_20261025/v1/MACRO_DISPLAY_BINDING.json)。
+
+
+### 固定r8三臂完整结果：共同收益明确，新增门只有微小点差
+
+六个模型phase已完整退出，原300回答只评分一次。五域宏naive 38.775369730699、original 43.703262379384、gate 43.719890663435、shuffle 43.671936498450。门相对原法+0.016628284051pp、相对打乱+0.047954164985pp，4高2低94平／3高1低96平，所有差异在交通，80个其它域逐QA F1相同。425／886接受、shuffle对应Hamming392、59个step改变，事前非退化／同数／严格点方向满足，不改写成阴性，也不夸成显著、稳健、纯机理或正式优势。共同配方相对naive约+4.93pp，遥感+35、医学−10；只有终态不能区分习得与后续保持。完整stage／域NLL、原MSE／接受、逐题正负均在OUTCOME，描述性统计不冒充有效梯度。
+
+每臂working540672 FP32训练坐标，冻结EMA另540672，新增门0；梯度2162688bytes、GPU Adam4325760bytes。最终完整图各893675552个FP16系数／1787351104bytes、普通buffers9032，实际5窗baseline／allocated峰／reserved与朴素r8逐值相同。相对PAS／Qwen的已测原表示资源优势可保留，来源不是门；相对朴素和原法没有新推理减重。每臂1213current／886replay／2985decoder，三臂8955decoder／2658额外head／261更新／315生成／300新F1／0TEST。六phase总4564.060149965秒，模型完成累计5148.511217594秒，全部修复／核验完成累计5798.325146437秒；重叠成本不相加。
+
+原preSTARTED资源拒绝仍归档，两个旧服务最终failed/1均保留。其后六模型已成功，但原verify403索引了producer未保存的phase而在VERIFY_STARTED前KeyError，0评分；这是我们源码审查遗漏。独立review后于d6b9ed8事前公开一次外部AST修复，仅将该Assert替换成明确phase缺失、保全部refs/cap检查，逆变换恢复其它全部原AST；8科学py与6项冻结文档、READY、模型和生成未改，未写假phase。原错误两文件原字节另归档，新元数据核验服务成功，原评分公式与300次首次评分不变，修复收据和扩展CV明确披露两个失败服务及成本。原绝对截止未重置。Python3.11／3.12的整树AST dump哈希可不同，修复以原源字节及同进程逆变换为准，没有凭跨版本hash放宽科学检查。
+
+本地后置consumer另把READY14个绑定项（8py＋6文档）误当8个总项，读stats之前失败，0输出／评分；改为精确核8个py集合后唯一完成标量消费。收集器首次遇客户端重建ACTIVATION的CRLF与RUN原字节不同，两个JSON值严格相同；旧客户端字节单独保留，原位置保存RUN精确字节，receipt列双SHA，不改服务端记录或科学数据。此后只恢复文件取回，没有重模型或重评分。
+
+NEW私有归档732个新输出逐SHA通过，含所有完整CP、19阶段快照、生成和两故障archive；134.355476790秒，OLD原目录保留，权重／QA不入Git。独立结果review接受证据与限定；两位评判均认为微小门差不足直接确立为论文主创新，不设新的逐域floor或显著性硬门。保留已知共同配方与最高点候选，下一具体问题是已存状态中的习得／后续变化，尚无新点准入。
+
+[完整结果](summary/answer_reliability_consolidation_20261025/v1/FINDINGS.md) · [独立结果审核](summary/answer_reliability_consolidation_20261025/v1/RESULT_REVIEW.json) · [方法选择判断](summary/answer_reliability_consolidation_20261025/v1/DECISION_REVIEW.md) · [核验缺字段修复](summary/answer_reliability_consolidation_20261025/v1/POST_MODEL_SCHEMA_VERIFIED.json) · [私有归档](summary/answer_reliability_consolidation_20261025/v1/ARCHIVE_RECEIPT.json)。

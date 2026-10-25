@@ -98,7 +98,8 @@ def main():
     schema_failed_exit = read(report / schema['original_failure_archive'] / 'VERIFIER_EXIT.json')
     assert schema_failed_exit['returncode'] == 1 and "KeyError: 'phase'" in schema_failed_exit['stderr']
     ready = read(report / 'READY.json'); rh = sha(report / 'READY.json')
-    assert len(ready['sources']) == 8 and ready['sources']['verify.py'] == schema['original_verifier_sha256']
+    assert {n for n in ready['sources'] if n.endswith('.py')} == {'adaptation.py', 'common.py', 'controller.py', 'deployment.py', 'loss_core.py', 'readouts.py', 'verify.py', 'worker.py'}
+    assert ready['sources']['verify.py'] == schema['original_verifier_sha256']
     assert schema_permit['ready_sha256'] == rh
     assert v['ready_sha256'] == rh and sha(report / 'PROTOCOL.md') == PROTOCOL_SHA
     assert sha(report / 'ALL_EXIT.json') == v['all_exit_sha256']

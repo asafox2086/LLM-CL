@@ -1,0 +1,56 @@
+{
+  "stage": 18,
+  "step": 7,
+  "global_update": 84,
+  "stage_updates": 7,
+  "current_QA": [
+    {
+      "task": 18,
+      "id": "CODA-LM:Train:Train_regional_10025",
+      "domain": "traffic"
+    }
+  ],
+  "replay_QA": [
+    {
+      "task": 1,
+      "id": "TextVQA:15062",
+      "domain": "natural"
+    }
+  ],
+  "natural_gate": [
+    1
+  ],
+  "applied_mask": [
+    1
+  ],
+  "stats": [
+    {
+      "replay": true,
+      "arm": "original",
+      "working_NLL": 0.06677345931529999,
+      "target_NLL": 0.063407763838768,
+      "natural_gate": 1,
+      "applied_mask": 1.0,
+      "raw_MSE": 0.0016646876465529203,
+      "masked_MSE": 0.0016646876465529203,
+      "answer_tokens": 5,
+      "prompt_tokens": 5214,
+      "packed_tokens": 5219,
+      "hidden_states_count": 25,
+      "hidden_width": 896,
+      "all_packed_positions_effective": true,
+      "target_detached": true,
+      "teacher_same_training_mode": true,
+      "slow_decoder_forwards": 1,
+      "working_decoder_forwards": 1,
+      "extra_target_head_calls": 1,
+      "slow_answer_head_calls": 0,
+      "source_answer_loss_AST_sha256": "5fcad15d1780903808d6654204b7ff0cfb43679a33d8d6550dfb3770a0ecfe62"
+    }
+  ],
+  "EMA_updates": 84,
+  "accepted": 1,
+  "replay_count": 1,
+  "denominator": "all_replay_QA; unchanged current minibatch accumulation",
+  "reference_mask_sha256": null
+}

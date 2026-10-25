@@ -1,0 +1,28 @@
+{
+  "unix": 1792930365.580585,
+  "pid": 4018679,
+  "boot": "5b259bd9-d0cb-4a1d-8b90-6e6107080488",
+  "permit_sha256": "e9b1ccd1cd28803c90f9bc6d3f0cdccbb0c76c94a5ab633a3a1744e2695ac784",
+  "old_units_failed_preserved": {
+    "llmcl-answer-readout-cl-20261025.service": {
+      "MainPID": "0",
+      "ExecMainStatus": "1",
+      "ActiveState": "failed"
+    },
+    "llmcl-answer-readout-cl-prestart-continuation-20261025.service": {
+      "MainPID": "0",
+      "ExecMainStatus": "1",
+      "ActiveState": "failed"
+    }
+  },
+  "first_attempt_score_marker_absent": true,
+  "previous_scores": 0,
+  "correction": {
+    "old_assert": "assert x['phase'] == 'DEV_FINAL' and x['references'] == row['answers'] and x['generation_cap'] == task['max_new_tokens']",
+    "new_assert": "assert 'phase' not in x and x['references'] == row['answers'] and x['generation_cap'] == task['max_new_tokens']",
+    "changed_assert_line": 403,
+    "all_other_AST_nodes_unchanged": true,
+    "original_AST_sha256": "3a9c0b8b2aeb9039d54fb6ce550756fca0af25651dfab6dfca050db1de09deaa",
+    "corrected_AST_sha256": "b6679a0f974b972e509dadf4bb95974306e38f397174666041812d0165ab3bf5"
+  }
+}

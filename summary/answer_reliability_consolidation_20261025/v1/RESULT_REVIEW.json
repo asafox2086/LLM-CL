@@ -1,0 +1,151 @@
+{
+  "accepted": true,
+  "acceptance_scope": "Completed evidence, report consistency and limited scientific interpretation accepted; not a method-quality pass, formal-launch approval or user-goal completion.",
+  "evidence_sha256": {
+    "PROTOCOL.md": "388c19f12ea036a8b5bb2192a6c8bd0b66f824b3b1cd0b2ff90ff820d324363c",
+    "READY.json": "e654eb6f0c0599ef76022711866ff5e5b7061d129c1cf7f57565eb2ff36ff2fe",
+    "VERIFIED.json": "84ed17f99ed21a01ffc6f7a5ba479ed3670c4ba34b54a0e2037a324a92876aa8",
+    "OUTCOME.json": "6f6b87e206ff142f9dc27c28fd0e9dd990ff3c07c5bb66e389c6483618c8906b",
+    "FINDINGS.md": "3c160a36d4fe7c2c20a635c5bce626c109f17c2e9a17498e4d9a4f3bbaa6edde",
+    "ALL_EXIT.json": "5c25c8a1b668f2da48f41d1ab335abb35775193c05f2aac1985baecbc0eeca5a",
+    "CONTINUATION_VERIFIED.json": "1d8b0aaf71541c98304361ade6f627faf1e21ceadccaa1eb2357e357659e081c",
+    "POST_MODEL_SCHEMA_VERIFIED.json": "d48977c265597ce67ec8eab7ab0f7284466fa87d12e61e271ed04dfea551d954",
+    "COLLECTION_RECEIPT.json": "1b4701e4ea05aa54abf71575681e1b17b621e6f99aeb6cfde99be3d549512fae",
+    "POST_MODEL_SCHEMA_SOURCE_REVIEW.json": "e655a1d3b2e3b692fdee42370ac464f8f48053ec1638adbc414c7552aaa5cc79",
+    "train_gate_COMPLETE.json": "538960ab05641f6accbb695068e0efdba2d4525c35d0099efe5b06ac63d4a2eb",
+    "train_original_COMPLETE.json": "8911dc466b6cf2e3864bf09a1f8788845ff08cb2fd32a9c857283a0f1ac59de2",
+    "train_shuffle_COMPLETE.json": "88a8b3d18149ab26ac96c980445a4b74b41c488d1db2c6f43769bc33f1e1e2d7",
+    "eval_gate_COMPLETE.json": "7f2e35f85f4fb70dceccb99aefa91b0131a5d202677ff888797fc2df8368c8e0",
+    "eval_original_COMPLETE.json": "837a45e41dc7ca9ba6bb89e8ebed102fc84c8dab5e67933361e090e78de36170",
+    "eval_shuffle_COMPLETE.json": "41fcc928e3496fbe4fd2dcbbe47a42ef5932d742f1e698888f1c1b6c87f2d737"
+  },
+  "consumer_source": {
+    "path": "analysis/answer_readout_result_consumer_20261025.py",
+    "sha256": "09c9866680a312fbf672b3e767af509b9223eb00523102ee13ff1fd6e7ce48a2"
+  },
+  "review_scope": "Read completed summary protocol, VERIFIED/OUTCOME/FINDINGS and small COMPLETE/exit/collection/schema receipts; checked copied quality/comparisons/gate statistics, final receipts, inference windows, source-byte hashes and small-proof links. No model/server, scoring, bootstrap, checkpoint load or checkpoint payload hashing. Existing per-ID F1 scalars were grouped only to verify domain scope; no answer text or raw predictions were needed.",
+  "predefined_exit": {
+    "point_predicates_satisfied": true,
+    "gate_macro": 43.71989066343516,
+    "original_macro": 43.70326237938431,
+    "shuffle_macro": 43.67193649845011,
+    "naive_macro": 38.77536973069947,
+    "gate_minus_original_pp": 0.01662828405084582,
+    "gate_minus_shuffle_pp": 0.04795416498505034,
+    "gate_minus_naive_pp": 4.944520932735692,
+    "reference_acceptances": 425,
+    "replay_exposures": 886,
+    "shuffle_applied_acceptances": 425,
+    "reference_shuffle_Hamming_QA": 392,
+    "Hamming_steps": 59,
+    "reference_mixed_steps": 62,
+    "size1_replay_steps": 3,
+    "interpretation": "The frozen strict point-estimate direction and nondegeneracy/count-control conditions are met. This remains a very small observed effect, not significance, stability, robust equivalence rejection or a proven mechanism. No new per-domain non-decrease condition is applied."
+  },
+  "quality_limits": [
+    "Gate-original is +0.01662828405084582 macro pp:4 up/2 down/94 tied. Gate-shuffle is +0.04795416498505034 pp:3 up/1 down/96 tied. Every changed scalar is in traffic; all80 other-domain QA F1 values match both controls.",
+    "The approximately+4.944521pp gate-naive difference is largely the shared I-LoRA transplantation package: geography+35pp, medical-10pp, natural/finance0 and traffic-0.277395pp. Original already gains+4.927893pp over naive. ER/EMA and training-GPU differences prevent assigning that aggregate gain to the new gate.",
+    "The reference-shuffle changes sample correspondence and matches per-update acceptance counts, but different learned trajectories do not match loss magnitude/gradients. One fixed shuffle/seed is not a randomization significance test.",
+    "Actual max-target last-layer gold NLL is only a stochastic proxy for the whole25-hidden-state MSE. Passing the point criterion does not certify intermediate targets, useful gradient directions, visual grounding or teacher correctness.",
+    "Only terminal100 exploredDEV/20perdomain and one seed were evaluated. No acquisition-versus-forgetting conclusion, formalTEST result or strongest-baseline superiority follows; explored43.72 cannot be directly ranked against formal48.97 or46.62."
+  ],
+  "complete_endpoint_and_resources": {
+    "working_coordinates": 540672,
+    "working_tensor_count": 96,
+    "frozen_slow_coordinates_during_training": 540672,
+    "frozen_slow_bytes": 2162688,
+    "learned_gate_parameters": 0,
+    "gradient_bytes": 2162688,
+    "GPU_optimizer_state_bytes": 4325760,
+    "final_weights": {
+      "coefficients": 893675552,
+      "bytes": 1787351104
+    },
+    "final_ordinary_buffer_bytes": 9032,
+    "final_complete_CP_bytes": {
+      "gate": 1787623650,
+      "original": 1787626634,
+      "shuffle": 1787625888
+    },
+    "final_working_only_no_AB_EMA_memory_gate": true,
+    "all_three_and_naive_five_peak_allocated_bytes_equal": true,
+    "five_peak_allocated_bytes": [
+      2271321088,
+      2140254720,
+      1947183616,
+      2140249600,
+      2271311872
+    ],
+    "interpretation": "No final structural or inference-memory reduction is introduced by the gate relative to original I-LoRA or plain folded r8. All three retain the same complete shared OneVision graph and measured five peaks equal naive. Existing savings relative to larger strong baselines belong to the final shared graph under the recorded deployment/dtype conditions, not to gate selection. Five raw-input-matched32-token windows are not a wholeTEST distributional peak or an optimal-fold comparison."
+  },
+  "work_and_costs": {
+    "work_copied": {
+      "current_QA": 3639,
+      "replay_QA": 2658,
+      "FIT_backwards": 3639,
+      "actual_training_decoder_requests": 8955,
+      "extra_target_head_calls": 2658,
+      "optimizer_updates": 261,
+      "new_generations": 315,
+      "new_scores": 300,
+      "TEST_QA": 0,
+      "initial_DEV_generations": 0
+    },
+    "model_phase_seconds": 4564.0601499648765,
+    "original_activation_to_model_completion_seconds": 5148.511217594147,
+    "original_activation_to_continuation_verified_seconds": 5798.325146436691,
+    "unique_verification_seconds": 34.96964014135301,
+    "post_model_schema_wrapper_seconds_including_verification": 35.327043670229614,
+    "resource_queue_wait_seconds": 11.735278557054698,
+    "original_absolute_deadline": 1792942902.5616567,
+    "deadline_preserved": true,
+    "prior_naive_model_seconds_separate": 951.8755433186889,
+    "interpretation": "Phase time includes I/O/load/save/hash/cleanup, not pure CUDA compute. Controller/repair/wait/verification intervals overlap and must not be added twice. Current3639 backward calls incorporate replay objectives, not only3639 gradient-bearing QA. Actual8955 training decoder requests/2658 extra target-head calls, replay exposures/EMA buffers and historical costs remain charged."
+  },
+  "repair_chain": {
+    "preSTARTED_resource_refusal_model_QA": 0,
+    "preSTARTED_guard_subcondition_unknown": true,
+    "gate_phase_not_repeated": true,
+    "all_six_model_phases_successful_without_model_retry": true,
+    "original_two_services_failed_preserved": {
+      "llmcl-answer-readout-cl-20261025.service": {
+        "MainPID": "0",
+        "ExecMainStatus": "1",
+        "ActiveState": "failed"
+      },
+      "llmcl-answer-readout-cl-prestart-continuation-20261025.service": {
+        "MainPID": "0",
+        "ExecMainStatus": "1",
+        "ActiveState": "failed"
+      }
+    },
+    "post_model_original_failed_files": {
+      "CONTINUATION_FAILURE.json": "1a5fafcae7fa5ada3d3bfc48033134479199696d944429583bc64331df069f5d",
+      "VERIFIER_EXIT.json": "995cbe03383e976138dcfa20d01d7742801461ff7f82351684f0e0c2618387f7"
+    },
+    "original_schema_failure_scoring_QA": 0,
+    "single_actual_scoring_execution_QA": 300,
+    "one_AST_assert_only": {
+      "old_assert": "assert x['phase'] == 'DEV_FINAL' and x['references'] == row['answers'] and x['generation_cap'] == task['max_new_tokens']",
+      "new_assert": "assert 'phase' not in x and x['references'] == row['answers'] and x['generation_cap'] == task['max_new_tokens']",
+      "changed_assert_line": 403,
+      "all_other_AST_nodes_unchanged": true,
+      "original_AST_sha256": "3a9c0b8b2aeb9039d54fb6ce550756fca0af25651dfab6dfca050db1de09deaa",
+      "corrected_AST_sha256": "b6679a0f974b972e509dadf4bb95974306e38f397174666041812d0165ab3bf5"
+    },
+    "frozen_scientific_sources_and_READY_unchanged": true,
+    "reviewer_missed_contract": "My prior source/cross-review missed the missing phase producer field; the schema failure is an implementation/verifier defect, not method quality evidence. Frozen review/source bytes remain preserved.",
+    "consumer_metadata_fix": "READY contains14 entries:8Python sources+6documents. The consumer now checks the exact8.py set rather than total length8. This is a post-result metadata-assumption correction only, without changing scores, science sources or hypotheses; current OUTCOME is bound above.",
+    "limitations": "This review checks preserved receipts and hashes, not live service state. Per-WAIT hashes are consumer-recorded; producer sealed aggregate waits, so no claim of prebinding each WAIT is added."
+  },
+  "formal_progression_judgment": {
+    "recommend_direct_single_arm_main_method_formal_confirmation_now": false,
+    "reason": "The tiny, traffic-only gate edge meets the frozen exploratory predicate but is not strong enough evidence to make the added rule the central validated contribution. The useful+approximately4.93pp package gain is already present in the borrowed original and there is no gate-specific endpoint resource gain. This is an evidence-strength judgment, not a retrospective threshold change or a claim that the gate is false.",
+    "retain_as": "A narrowly positive, falsifiable exploratory candidate plus a complete useful transplantation/control result; retain every arm and exact effect size.",
+    "minimum_missing_evidence_for_a_gate_main_claim": "An independent unchanged-recipe confirmation retaining the matched original I-LoRA control is needed to establish whether the small gate advantage persists; a single gate-only formal score cannot identify the added rule. Any formal user-goal claim must also compare the chosen complete final graph with strongest formal quality and actual fair deployment resource evidence. This review does not authorize such execution, hyperparameter search or a new recovery branch.",
+    "no_new_hardfloor_or_significance_claim": true,
+    "user_joint_goal_completed": false
+  },
+  "report_assessment": "OUTCOME/FINDINGS preserve the positive direction, negative domain tradeoffs, equal deployment size/peaks and failures without a detected scalar contradiction. Keep the headline exact:+0.0166pp over original and+0.0480pp over count-control, rather than presenting+4.9445pp as the new gate contribution.",
+  "author_participation": "Reviewer authored common/worker/controller and readouts/deployment copies and protocol, cross-reviewed loss/verifier and external repair. This is disclosed scientific result review, not independent authorship of all experiment sources."
+}
