@@ -14,6 +14,10 @@
 
 ## 最新研究重点与刚习得观测
 
+2026-10-26人类进一步明确：设置一旦确定就不再更改；研究固定条件下的方法局限，不为救结果调整条件。已写入根README、AGENTS和[重点原话](summary/acquisition_readout_20261025/v1/HUMAN_RESEARCH_FOCUS.md)。两个正式主实验设置未改。
+
+一次共同TRAIN输入资格核对结束，主／子独立53项状态全同，45接受／原7排除／1隐含指代不确定，固定循环与范围封定，0模型／新评分／训练；[结果与全部边界](summary/train_answer_prior_20261025/OPTION_ELIGIBILITY_FINDINGS.md)。另一次[PIF定向阅读及独立评判](summary/train_answer_prior_20261025/PIF_READING.md)仅保留可借的训练约束，未据通用论文启动训练。两者均不是10%质量、位置根因或新方法成功；仍先解释固定比例正式结果。
+
 10%后续比较已固定为同骨干／同方法的训练前、刚习得与原始错答分层，见[比较口径](summary/train_answer_prior_20261025/ACQUISITION_COMPARISON_PLAN.md)。[功能诊断评判](summary/train_answer_prior_20261025/FUNCTION_DIAGNOSTIC_ASSESSMENT.md)优先等待完整正式证明；没有准入新的1%／10%训练fork，也没有执行位置干预。TRAIN标签偏斜与模型错误之间的因果尚未识别。
 
 FOREVER的独立10%目录已完成[纯元数据构建](summary/two_backbone_pct10_20261025/FOREVER_DYNAMIC_BUILD_OBSERVED.json)，BUILD_RECEIPT SHA ceaaf231a06be45997a7354af36695f304393d75309c550a29ea2a70a8513b5b：29个Python源中原公共文件逐字节复制，run仅修改条件／比例／主指标元数据，新增core／adapter和构建器；未改1%或正在运行的10%源。初审曾漏读原完整preflight入口，root发现`begin_stage1`后19单题诊断不推进core，已在模型前修正严格丢弃未推进调度器的衔接；另修观察hash对0维Adam step的读取，0模型／评分。独立[集成审阅](summary/two_backbone_pct10_20261025/FOREVER_DYNAMIC_INTEGRATION_REVIEW.md)与[唯一GPU检查要求](summary/two_backbone_pct10_20261025/GATE_REQUIREMENTS.md)保留更正和边界。两FOREVER仍待核验，未运输OLD或启动，不将构建／审阅称GPU通过或质量成果。
