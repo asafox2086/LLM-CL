@@ -1,11 +1,15 @@
 {
-  "unix": 1792915769.4969082,
-  "service": "MainPID=3960919\nExecMainStatus=0\nActiveState=active\nSubState=running\n",
+  "unix": 1792916684.5955727,
+  "service": "MainPID=0\nExecMainStatus=0\nActiveState=inactive\nSubState=dead\n",
   "phases": {
     "train_qv": {
       "started": true,
-      "complete": false,
-      "exit": null,
+      "complete": true,
+      "exit": {
+        "pid": 3960920,
+        "returncode": 0,
+        "unix": 1792916514.3154204
+      },
       "failure": null,
       "identity": {
         "pid": 3960920,
@@ -13,21 +17,34 @@
         "uid": 1084,
         "pgid": 3960920
       },
-      "identity_present": true,
+      "identity_present": false,
       "GPU": 0,
       "start_unix": 1792915661.1729753,
-      "gradient_files": 4,
-      "stage_complete_files": 0
+      "gradient_files": 87,
+      "stage_complete_files": 19
     },
     "eval_qv": {
-      "started": false,
-      "complete": false,
-      "exit": null,
+      "started": true,
+      "complete": true,
+      "exit": {
+        "pid": 3965272,
+        "returncode": 0,
+        "unix": 1792916617.0074937
+      },
       "failure": null,
+      "identity": {
+        "pid": 3965272,
+        "startticks": "761493469",
+        "uid": 1084,
+        "pgid": 3965272
+      },
+      "identity_present": false,
+      "GPU": 1,
+      "start_unix": 1792916514.6071594,
       "gradient_files": null,
       "stage_complete_files": null
     }
   },
-  "all_exit": false,
+  "all_exit": true,
   "verified": false
 }

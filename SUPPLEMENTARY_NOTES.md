@@ -36,6 +36,8 @@ OLD账户701GiB／硬配额700GiB，即使整盘2.5TiB空闲也不可继续写�
 
 2026-10-25匹配QV-only已实际首次STARTED：7科学源／协议与独立跨审先发布4d19822edef8f819079b97d733516b9df0cbdd9e，READY 5e6f239da2cc7e572704554770ea22dda18aeaab12a69e1f5cecbe40c9e93369；OLD /tmp/llmcl-response-qv-control-1084-nkmx9g5k。1792915769.496908快照unit active/running，controller3960919，train worker3960920/start761408126/UID1084/PGID同PID/GPU0实际身份匹配，已记录4次clip梯度见证，eval未STARTED，无COMPLETE/FAILURE/VERIFIED。这仅是时点观测，不永久live或冒充完整更新。首次train3600／eval600秒固定，原数据序／48AB初始化／GPUAdam／fold绑定原pair，0新初DEV，最终105生成／100唯一F1，全部完成后核验。最初复制脚本常量出现次数断言3误而实际2，0模型、未写common，修正即复制；原verify源码ROOT新实验路径不存在的假设在首次模型前改为绑定的旧冻结RUN，0模型、source正审后冻结。两处是必要实施修正，不当科学收益／CPU模型门。原两基线于1792914964.992831元数据实查仍为同PID8260/start60876与8265/start60882，CPUticks25923339／26014584，索引SHA41b80a...不变，无新增正式proof；8/16不变。
 
+2026-10-25匹配QV-only已结束并唯一核验：VERIFIED 1b0a8f8df3e4f1a4f3338a439398cd9c3197930002302dd8e8a72015fb9fa99c，两phase COMPLETE/EXIT0、ALL_EXIT与原身份gone已确认。探索宏45.085962854，动态／固定44.757602698／44.681200950仅承接旧分数，0重评；按总体标准现选QV，不再以响应调制作收益来源。完整权重893675552／1787351104bytes、buffers9032、CP1787622158bytes；GPU训练4399104坐标、梯度17596416bytes、两Adam35193216bytes另计。与原PAS同物理GPU1／同五窗QV peak低24.843322–26.806462%，原dtype权重bytes少23.956672%；仍是原混合dtype实现，不称同dtype最优／速度／正式F1胜。1213FIT／87更新／105生成／100唯一评分／0TEST；模型953.547774416秒、controller956.121209038秒重叠不加，核验13.770847608秒、归档45.653184157秒与实现／运输／审阅另计。155个新产物已完整归档NEW private_run，SHA核验，旧scratch保留，权重／原始QA不入Git。RESULT_REVIEW披露作者身份与复核范围，不冒称独立重跑。正式表及FOREVER／8组存储值原字节不变。
+
 下面为2026-10-24交接原记录，原“当前／活动／下一步”均按历史时点理解。
 
 ## 新会话运行交接（2026-10-24历史）
