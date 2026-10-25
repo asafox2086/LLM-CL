@@ -34,6 +34,8 @@ OLD账户701GiB／硬配额700GiB，即使整盘2.5TiB空闲也不可继续写�
 
 2026-10-25人类明确修订判据：“不用五领域都最强，总的稍微高一点就行。因为我们有个很显著的优势：内存占用小得多”。因此旧逐域hard floor不再适用，按总体宏保留动态候选进入必要比较；旧PAIR_VERIFIED／事前账本／旧关闭判决原字节保留。正式PAS原完整图GPU1五窗已独立exit0，VERIFIED／state与输入绑定通过，73.128928190模型秒、5×32新token、0F1／NLL／训练。动态峰低24.862500–26.798542%，完整系数少13.608393%，原dtype权重字节少23.956668%；保留原混合dtype／训练CPUhistory／非最优部署／五窗非全分布限制。准备时missing-proof路径修复与误hash整source map（含1次旧CP及TEST／预测文件SHA-only、无QA解析／质量读取）12.935504919秒均公开，不抹除或当科研收益。下一项为匹配GPUAdam／GPUfold的QV-only，已写独立部署／适应副本，尚未准入或模型启动；不重开旧worker，不根据TEST挑方案。[新决策](summary/native_response_selection_20261025/v1/CURRENT_DECISION.md)、[PAS全部资源证据](summary/strong_pas_resource_20261025/v1/FINDINGS.md)。
 
+2026-10-25匹配QV-only已实际首次STARTED：7科学源／协议与独立跨审先发布4d19822edef8f819079b97d733516b9df0cbdd9e，READY 5e6f239da2cc7e572704554770ea22dda18aeaab12a69e1f5cecbe40c9e93369；OLD /tmp/llmcl-response-qv-control-1084-nkmx9g5k。1792915769.496908快照unit active/running，controller3960919，train worker3960920/start761408126/UID1084/PGID同PID/GPU0实际身份匹配，已记录4次clip梯度见证，eval未STARTED，无COMPLETE/FAILURE/VERIFIED。这仅是时点观测，不永久live或冒充完整更新。首次train3600／eval600秒固定，原数据序／48AB初始化／GPUAdam／fold绑定原pair，0新初DEV，最终105生成／100唯一F1，全部完成后核验。最初复制脚本常量出现次数断言3误而实际2，0模型、未写common，修正即复制；原verify源码ROOT新实验路径不存在的假设在首次模型前改为绑定的旧冻结RUN，0模型、source正审后冻结。两处是必要实施修正，不当科学收益／CPU模型门。原两基线于1792914964.992831元数据实查仍为同PID8260/start60876与8265/start60882，CPUticks25923339／26014584，索引SHA41b80a...不变，无新增正式proof；8/16不变。
+
 下面为2026-10-24交接原记录，原“当前／活动／下一步”均按历史时点理解。
 
 ## 新会话运行交接（2026-10-24历史）
