@@ -549,3 +549,14 @@ ShortFixed实测梯度357,940,224字节、两Adam moment715,880,448字节；较�
 [正式协议](summary/answer_reliability_consolidation_20261025/v1/PROTOCOL.md) · [核心交叉审阅](summary/answer_reliability_consolidation_20261025/v1/CORE_CROSS_REVIEW.json) · [最终源码准入](summary/answer_reliability_consolidation_20261025/v1/ADMISSION_REVIEW.json) · [实际激活](summary/answer_reliability_consolidation_20261025/v1/ACTIVATION.json) · [时点观察](summary/answer_reliability_consolidation_20261025/v1/LATEST_METADATA_OBSERVATION.json)。
 
 同轮NEW基线实际进程/队列快照在BASELINES_BEFORE_ADMISSION：原CL-MoE/SMoLoRA PID8260/8265仍匹配且CPU ticks推进，主1221743 active/running，GPU1/2/3当时均有进程，GPU0不由我方分配；其它5项待空卡/原reload，FOREVER原队列保持。没有新增sealed正式证明，主表8/16、FOREVER和8组存储原值不改。
+
+
+### 全体最强Qwen基线的资源空白已补齐
+
+原formal Qwen SeqFT stage19直接重载、原混合dtype/后端/processor与generation对象，五条相同raw QA、物理GPU1、各32新token，峰4311.996–4954.604MiB；匹配LLaVA朴素r8逐窗低55.147769–58.803849%。模型68.625645367秒，唯一metadata verify0.012348259秒，5生成/160token、0F1/NLL/训练。完整2,210,075,136系数/4,422,329,344权重bytes、普通buffers7504，原CPU cache元数据不是RSS。该结果只证明原实现这五窗，主要跨骨干差异，不证明新门质量/结构创新或最优fold。
+
+按独立展示审阅，只将原Qwen Seq/PAS正式行GPU列从未测改4954.604†/2959.415†，列名注明固定五窗、脚注完整口径。全部18正式方法行的其它16列逐字符串相等，包含原F1/AP/FWT/BWT、8组保存态存储和FOREVER；不是将FIT模型峰移植进formal行，也未填Ours。主表整段字节随新真实指标合法改变，旧“整段不改”保护不再阻止补测；更新前后hash与逐列核对见ROOT_RESULT_BINDING。
+
+原CP已从NEW canonical私有运输至OLD/tmp，原件/OLD副本保留；仅模型原加载器全hash一次。运输40.240818748秒、准入0.228828288秒、实现/源码审阅/发布/结果复核另计；客户端准入字段KeyError发生于远程/模型之前，同提交push ref竞争核实远端已成功承接后才启动，细节均在FINDINGS。首次真实模型完整成功，无版本救跑或新精度/后端；ARC三臂在另一GPU继续，未更改。
+
+[全部窗口和解释](summary/strong_qwen_resource_20261025/v1/FINDINGS.md) · [完整核验](summary/strong_qwen_resource_20261025/v1/VERIFIED.json) · [结果审阅](summary/strong_qwen_resource_20261025/v1/RESULT_REVIEW.json)。

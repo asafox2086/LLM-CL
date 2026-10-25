@@ -1,0 +1,57 @@
+{
+  "unix": 1792925636.9481523,
+  "unit": "llmcl-strong-qwen-resource-20261025.service",
+  "physical_GPU": 1,
+  "virtual_GPU": 0,
+  "ready_sha256": "f6045619ef510c89a1d87983c038dbc6ad08fcf1216a3aa96ed39702e2c09f91",
+  "preregistration_commit": "4a921c0bde452d369c85580ccff2283b88376f32",
+  "cards_before": {
+    "0": {
+      "uuid": "GPU-783c5d2c-a6f8-9594-472c-4ab9fe54d3b1",
+      "memory_MiB": 8,
+      "utilization": 0,
+      "owners": []
+    },
+    "1": {
+      "uuid": "GPU-3c72e4ce-0896-0b40-d610-be585d2bb51e",
+      "memory_MiB": 8,
+      "utilization": 0,
+      "owners": []
+    },
+    "2": {
+      "uuid": "GPU-25d3cb92-fa97-a722-f9cd-c012bad046a8",
+      "memory_MiB": 4902,
+      "utilization": 85,
+      "owners": [
+        {
+          "pid": 3992422,
+          "startticks": "762302299",
+          "uid": 1084,
+          "pgid": 3992422
+        }
+      ]
+    },
+    "3": {
+      "uuid": "GPU-fb9fc5ed-bf92-b947-d8c5-302296c4a447",
+      "memory_MiB": 8,
+      "utilization": 0,
+      "owners": []
+    }
+  },
+  "boot": "5b259bd9-d0cb-4a1d-8b90-6e6107080488",
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit=llmcl-strong-qwen-resource-20261025.service",
+    "--property=Restart=no",
+    "--property=KillMode=control-group",
+    "--property=RuntimeMaxSec=690",
+    "--property=TimeoutStopSec=5",
+    "--setenv=LLMCL_ROOT=/data2/liyapeng_grp/program/LLMCL",
+    "--setenv=LLMCL_RUN=/tmp/llmcl-qwen-seq-resource-1084-ehpe_9r7",
+    "--setenv=LLMCL_ASSET=/tmp/llmcl-response-pair-1084-geic2vef/asset_view",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "-u",
+    "/tmp/llmcl-qwen-seq-resource-1084-ehpe_9r7/controller.py"
+  ]
+}
