@@ -1,0 +1,53 @@
+{
+  "reviewer": "research_review",
+  "accepted": true,
+  "acceptance_meaning": "The complete scientific result and INTERPRETATION are consistent with the sealed evidence; this is not candidate quality approval, a causal interaction finding, or a successful framework.",
+  "source_VERIFIED_sha256": "49907c489c35c8371bd5a8e5e75a24bea001a68c074d190efb202f940faaddde",
+  "source_INTERPRETATION_sha256": "6723b616970d4522f05e57f0a18ffad7dc85e8c5bfb16c68d2bfda5f70dd3e84",
+  "scope": {
+    "read": ["VERIFIED.json", "INTERPRETATION.md"],
+    "checks": "Compared the sealed macro/domain F1, domain-end and final differences, scalar per-ID change directions, quality decision, complete weight/package accounting, five resource windows, process cost and interpretation boundaries. Existing source and hardware-boundary reviews supplied context; this review did not repeat their execution.",
+    "not_performed": ["model inference or training", "rescoring any prediction", "rerunning the verifier", "server access", "large checkpoint hashing or loading", "inspection of private answer text", "new statistical testing"],
+    "independence_limit": "The reviewer authored the compact worker and allocation helper earlier. This is a scientific interpretation review, not an independent reproduction of their model execution."
+  },
+  "quality_gate_passed": false,
+  "fixed_decision": "close_fixed_compact_all_r8_recipe",
+  "key_observations": {
+    "compact_all_macro_F1": 39.26204179647755,
+    "compact_wide_macro_F1": 37.46719637362002,
+    "full_wide_macro_F1": 43.79198740853657,
+    "new_folded_full_all_macro_F1": 42.0337668527632,
+    "compact_all_parent_floor_failures": ["natural", "medical", "finance", "traffic"],
+    "domain_end_to_final": {"natural": [32.5, 37.5], "medical": [33.5, 30.0], "geography": [60.0, 65.0], "finance": [20.0, 26.0]},
+    "new_generations": 285,
+    "new_F1_scores": 280,
+    "FIT_QA": 1213,
+    "optimizer_updates": 87,
+    "new_NLL_or_TEST_requests": 0
+  },
+  "supported_interpretation": [
+    "On the same OLD compact carrier, the fixed equal-coordinate allocation bundle has mixed effects: final geography, finance and traffic improve over compact-wide, while natural and medical decline. The macro gain does not preserve the full parent's five domain targets.",
+    "Geography's domain-end gain over wide is 20 points, while its final gain is 5 points; a retention-only account of the final advantage is insufficient. These are domain-end observations, not pure acquisition effects.",
+    "Finance starts lower at its domain end under all-r8 but ends higher than wide, showing why final gains cannot be assigned solely to better domain-end function. Natural, geography and finance have subsequent net benefits; medical has a net decline.",
+    "No measured domain reaches its full-parent final target at its own domain boundary and later falls below it. Geography reaches and retains the target; the other measured domain-end deficits remain relevant. Medical's identical domain-end means include one higher and one lower per-ID score, so they do not establish function equality.",
+    "The result rejects sufficiency of this fixed seven-location r8 recipe for preserving answering function on this fixed compact visual carrier. It does not reject all update allocation, low-rank adaptation, compact representations or continual learning."
+  ],
+  "hardware_and_causal_boundary": "Full-vision historical training used NEW RTX3090, whereas the compact arms used OLD RTX2080Ti; historical software and numerical flags are incompletely recorded. Reevaluation and CPU FP32 folding on OLD do not remove training-device confounding. Four-cell differences and their differences are descriptive for those historical recipe/device combinations, not pure representation-by-allocation effects. Neither device causation nor cancellation of unknown allocation-by-device effects is established. The allocation intervention also changes rank distribution, initialization, optimization paths and computation, not just position or FFN access.",
+  "resource_boundary": {
+    "complete_parent_coefficients": 893675552,
+    "complete_compact_coefficients": 581213056,
+    "compact_logical_FP16_weight_bytes": 1162426112,
+    "actual_compact_package_bytes": 1434984515,
+    "actual_compact_package_sha256": "bc39e014b710739a8fe60cf35499927094ebd64a1cc146a9ac96b0a02c3c4d4f",
+    "all_five_matched_GPU_allocated_peaks_lower": true,
+    "interpretation": "Resource savings are real for the verified complete graph, package and five fixed 32-token windows, but quality still fails. Savings come from the compact visual carrier; redistributing training coordinates does not further shrink final weights. Logical weight storage and serialized package size remain distinct. No CPU-memory, latency, throughput or whole-distribution advantage is established."
+  },
+  "publication_boundaries_accepted": [
+    "Old unmerged all-r8 F1 and the formal full-data confirmation negative result are preserved; new folded generations do not overwrite or rescore them.",
+    "All domains and observed net losses are retained. Single-seed, repeatedly explored 20-QA domain cohorts do not establish significance, equivalence, generalization or formal strongest-baseline superiority.",
+    "The fixed recipe closes without rank/position/LR search, extra steps, bridge rescue or automatic formal confirmation. No unique interface, capacity, optimization, visual-recognition or forgetting cause is inferred.",
+    "Historical training, visual bridge fitting, teacher requests, external pretraining and current extraction/evaluation costs remain charged. This result is useful design evidence, not completion of the research goal."
+  ],
+  "required_INTERPRETATION_corrections": [],
+  "formal_research_goal_achieved": false
+}
