@@ -1,0 +1,17 @@
+# 全体最强已完成Qwen基线：一次原图资源测量
+
+本点只补齐已sealed Qwen SeqFT-LoRA的GPU资源参照，与正在运行的三臂方法质量无关。原正式21454 TEST、五域宏48.972351和checkpoint不改，不生成/评分新F1、不训练或选择新方法。本协议与源码尚非READY或启动证明。
+
+原完整stage19为Qwen2-VL-2B-Instruct SeqFT-LoRA，NEW canonical run为`exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2`。合法完成proof为`completion_observer_seven_20261018/completed/2a0b6d43f89c3cec6cb9.json`，CP4562999772bytes、SHAd3df6622f2de818e3b5cb5209c106cc2bc827ae87a65841af823032dcd3d2f85；config SHA9db372397a602a25499fe83c74871fab9696bdadf5442352867a55277a2ccea1。只运输这份可信完整图及原config/latest/runner来源，不导出新部署包、不读取预训练模型重新构图，不把未核来源的同名checkpoint替换进来。
+
+固定OLD真正空闲物理GPU1，环境`CUDA_VISIBLE_DEVICES=1`令其成为原checkpoint的虚拟cuda0。原checkpoints.load进行一次完整CP SHA与直接torch.load，保CPU/CUDA原位置及原processor；不map全部CPU缓存到GPU。保原FP16基座、112个FP32 A/B（56个q/v-r8、1089536坐标）、scale4/dropout.1和原SDPA，不合并/改精度/换后端或适配kernel。该图完整2210075136系数/4422329344权重bytes，普通buffers7504bytes；原CPU133183696bytes是保存元数据口径，不是RSS或推理权重。
+
+原CPU视觉LRU仅清空并禁用，使用与现有候选一致的GPU视觉准备，保持原模型视觉算术。Qwen原pixel_values是二维patch矩阵，不能以ndim2直接当已提特征；只有二维末维等于原hidden_size1536才是已提特征。视觉提取、模型生成全GPU，CPU仅图像读取/原processor、序列化和摘要。原state、注册buffer、56处r8结构及generation公开配置前后核验；原generation对象保留，内部对象hash变化单列，不私改公开配置。
+
+唯一测量为原每域hash最小的五个资源QA、相同顺序、各恰32新token；与sealed plain-r8/PAS的物理GPU1一致，窗口含输入准备、原视觉与greedy生成。raw ID、图像SHA/尺寸、上下文检索、指令/问题和公共401408像素预算严格相同；Qwen使用自身原processor/template/EOS/pad。跨骨干prepared张量、prompt/视觉token数可以不同，逐项记录而不强等。各窗empty_cache、同步、reset_peak、baseline/peak allocated/reserved，五窗顺序不按输出或峰值更换。无100DEV预热、NLL、latency或新评分。
+
+worker首次STARTED起600秒含CP哈希/重载、完整摘要、五次生成及退出证明；独立运输/准入/唯一metadata verifier成本另列。Restart=no、不enable，首次故障/超时关闭本资源测量，保原失败与成本，不换dtype/backend/fold/输入或追加时间救跑，不影响任何基线或方法GPU2工作。实际调度前必须再次确认GPU1空闲及原三臂尚未占用其eval槽，不对其worker发信号。
+
+READY接口：ROOT/RUN/ASSET环境；sources绑定worker/verify/根controller，runtime_files为ROOT相对或绝对原科学源，environment绝对源码；prior_files至少含formal_Qwen_COMPLETE.json、prior_naive_READY.json、prior_naive_VERIFIED.json、prior_naive_eval_COMPLETE.json、prior_naive_memory.json。original_run指OLD完整CP运输目录，checkpoint_sha256/bytes/config_sha256/checkpoint_metadata_sha256绑定原件；naive_run指已sealed plain-r8 RUN；manifest_sha256、split_sha256、storage_helper_sha256、identity_helper_sha256、GPU_uuid明确绑定。原ROOT数据与ASSET副本首次图像SHA都核。controller由root提供，只隔离启动一次worker、记录EXIT并在成功后唯一运行verify。
+
+此结果补全最强质量参照的实际资源空白，不能替代新方法正式质量。原Qwen为未fold的FP16基座/FP32r8实现，候选为已fold图；这里只报告原实现、同卡五窗，不声称同dtype最优部署/全输入峰或全部差异来自架构。参数/保存bytes/完整CP/CPU缓存/运行峰分列，四卡评价吞吐不混为端侧成本。即便所有窗口更低，也仍需新方法正式总体F1胜全体最强，才可能接近用户联合目标；本点0新F1不提前宣布成功。

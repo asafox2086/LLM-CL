@@ -1,0 +1,36 @@
+{
+  "accepted": true,
+  "meaning": "Scientific necessity and source-contract review accepted; no model execution or resource outcome is certified.",
+  "sources": {
+    "exp/strong_qwen_resource_20261025/v1/worker.py": "bc6d6ea557968df70f408ad9cc98521f93731915e1b32ad1d13a97584434df2f",
+    "exp/strong_qwen_resource_20261025/v1/verify.py": "1f2a4ddbee195111b54240978a5e9415e8638d1b616e039dd3f874b3a248e4c5",
+    "exp/strong_qwen_resource_20261025/v1/controller.py": "eeb77d2c530fc656781d67946cd65e5132e8e819f8963c4dd5df3b1d70341183"
+  },
+  "protocol": {
+    "path": "summary/strong_qwen_resource_20261025/v1/PROTOCOL.md",
+    "sha256": "269c76019d11c87c3463feb52abc4091eaf439620d230ed565a3e629c93eede0"
+  },
+  "necessity": "The strongest completed quality anchor is Qwen SeqFT. Measuring its original graph on the same five fixed raw-input windows fills a real resource-comparison gap regardless of the separate ARC outcome. This is a baseline measurement, not a new compression method.",
+  "review_scope": [
+    "Read all three sources and protocol, plus the inherited checkpoint loader, SeqLinear, input preparation, frozen-vision transport and reused readout paths. AST/compile only; no module/model execution.",
+    "Original trusted full graph is restored once by checkpoints.load with sealed checkpoint/config/source binding; original CPU/CUDA tags are retained through physicalGPU1 mapped to virtualCUDA0. No from_pretrained reconstruction, fold, dtype conversion of weights, new backend or generation-config replacement is introduced.",
+    "56 native q/v-r8 modules,112 FP32 A/B tensors,1089536 adapter coordinates and original FP16 base are explicitly checked. Original mixed layout is2210075136 coefficients/4422329344 weightbytes plus7504 registered-bufferbytes.",
+    "The GPU visual-preparation branch distinguishes a2D hidden1536 feature matrix from a2D raw patch matrix by its last dimension. Native raw patches of width1176 enter the original extractor, rather than the ndim-only shortcut used for OneVision. Features are prepared on GPU with no visual LRU retention.",
+    "Original processor/template/EOS/pad and generation objects are retained. The same five hash-selected raw QA contracts, image SHA/dimensions, context retrieval and401408 area policy are bound to the existing OneVision resource proof. Native prepared tensors are allowed to differ.",
+    "Peak windows reset/synchronize/empty-cache before input and visual preparation and fixed greedy32-token generation. There is no DEV prewarm, NLL, F1, backward or optimizer step. The controller launches one isolated worker, records its exit, and then runs metadata verification once.",
+    "The worker identity/UUID,600-second model alarm, original state/registered-buffer/adapter-structure and public generation invariants are checked; this measurement neither modifies nor schedules ARC GPU2 work."
+  ],
+  "limits": [
+    "Original unfolded FP16-base/FP32-adapter graph is a real implementation reference, not an equally folded or optimally deployed precision-matched bound.",
+    "Native processors, tokenization, visual grids and prepared matrices differ legitimately across backbones; only raw input contracts are matched.",
+    "Five fixed32-token allocated/reserved-memory windows do not establish full-distribution worst-case memory, latency or throughput.",
+    "Checkpoint-container bytes, complete weight bytes, CPU checkpoint/cache metadata and actual GPU peaks are separate quantities; CPU metadata bytes are not RSS.",
+    "Original formal training may have seen these DEV inputs. No quality is measured or selected here; resource evidence cannot establish new-method F1 superiority.",
+    "A smaller OneVision graph or lower measured peak would not by itself be a structural innovation or completion of the joint F1/resource goal."
+  ],
+  "authorship_disclosure": "Reviewer authored the separate ARC common/worker/controller and protocol, and previously helped implement the inherited plain readout/deployment pipeline. Reviewer did not author these Qwen resource worker/verify/controller sources and did not execute a model or scorer for this review.",
+  "new_model_requests": 0,
+  "new_scores": 0,
+  "new_remote_access": false,
+  "new_checkpoint_hashes": 0
+}
