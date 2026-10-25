@@ -1,3 +1,11 @@
+# 2026-10-25：人类明确授权第二主表，训练10%并使用完整测试
+
+- 人类已明确确认新增10% TRAIN＋完整TEST，其他设置沿用1%正式协议；不是10% TEST，也不是100% full。1%原表、冻结科学源与现有基线队列保持，不能复用1%分数填10%表或从其已学权重继续。
+- 已实际freeze：13105 TRAIN／21454 TEST／19任务／单轮828次主任务更新，seed42；manifest SHA `02ef86674c22a9dbf7f0d406398615437f8406cff364415e14d54f5fdb5bfcb7`，pct01逐task嵌套、TEST原文件及选中TRAIN字节不改。正式入口见summary/two_backbone_pct10_20261025/PROTOCOL.md与MAIN_TABLE.md；PROTOCOL_DRAFT仅保留历史。
+- 当前文档时点仅清单／独立runner／OLD RAM workspace准备完成，待首次启动，不写训练已跑或完成。计划OLD四卡14个非BF16组合；两SMoLoRA待NEW原生BF16空卡，NEW0保留，既有1%与他人worker身份保全。实际状态以后以ACTIVATION／PID／phase proof更新。
+- OLD使用RAM tmpfs，不能称耐久checkpoint存储。SeqFT保留19CP、其他native保最终S19、FOREVER原rolling；NEW归档全量小证据及各run latest／final，不冒称所有阶段CP已耐久归档。实际参数／dtype／完整权重与GPU资源独立测量，无数值就留空。
+- 科研仍只研究新习得原因，不开展遗忘／保持方向；最终总体F1和完整参数／GPU评估目标保持。不启动optimizer-carry试点，不恢复旧关闭分支或自动化。该新授权只覆盖新增10%主实验准备与明确调度，旧历史规则不覆盖它，旧记录仍保留。
+
 # 2026-10-25：人类最新明确只研究新习得，不研究遗忘
 
 - 人类原话：“记下来，以后只要考虑新习得就行，不考虑遗忘了”。后续科研只围绕现有方法为何没有学好新任务、1%数据下如何提高新习得展开；不再设计抗遗忘、保持、历史保护或以此为目标的分支。此要求优先于下方旧交接中的后续保持/刷新设想。旧自动化继续暂停，已关闭实验不复活。

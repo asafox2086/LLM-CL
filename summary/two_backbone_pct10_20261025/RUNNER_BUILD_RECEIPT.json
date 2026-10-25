@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "unix": 1792937086.935348,
+  "builder_sha256": "7b016102ecc96711167202293f413ce5677d01755453b8b8dd5eafe13525a270",
+  "root": "/data1/liyapeng/program/LLMCL",
+  "source_root": "/data1/liyapeng/program/LLMCL",
+  "manifest": "data/FiveDomainCL/five_domain_native_cl_pct10_20261025/pct10/manifest.json",
+  "manifest_sha256": "02ef86674c22a9dbf7f0d406398615437f8406cff364415e14d54f5fdb5bfcb7",
+  "split_lock_sha256": "c4c9b97858ad12d5a83d603f4c3fd90e9353ed9fbabb20b9bf5b362c1d8b7667",
+  "conditions": [
+    "pct10"
+  ],
+  "train_fraction": 0.1,
+  "test_fraction": 1.0,
+  "test_QA": 21454,
+  "train_QA": 13105,
+  "runners": [
+    {
+      "source": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2",
+      "target": "/data1/liyapeng/program/LLMCL/exp/two_backbone_pct10_native_20261025",
+      "source_py_sha256": {
+        "aler_adapter.py": "4a4c58024727e5e5d01254a6b90b721e873ee6ea9f74d59308da6aa424217635",
+        "checkpoint_probe.py": "71b38fb9f202fa2fa012e76a883e23322f68ef938c9f8ef9fac78d01886eb23f",
+        "checkpoints.py": "06c53eab2c6810901f5206edbfb1df9defabdc747b1856ace0afa31e74b37a78",
+        "clmoe_adapter.py": "33946eddfc6424638ded0675ded68860273859c2f71993a6a60bd22556341be9",
+        "freeze_splits.py": "5b4d58451ef3bcdb9fc033c0c9bc15b72ddc36877a64ca22d50f12e9e301510a",
+        "frozen_vision.py": "8211651e92d17019f6ce6cf9615df7f6b5fcaeecc765aec4acdf916c448a35bd",
+        "fv_adapter.py": "85473b19726249703f645a30142b6cfb046a37f798430ca1a255e48213641fab",
+        "host_adam.py": "5e733e6b87c12eb9331ff23e8919a142f1861a2beec82ec8b0361d878b9aec8c",
+        "hyper_adapter.py": "518574b8c3d1c46400d240cc984f0d1c83cb01d96a7d1e2bf788bea4d4610976",
+        "methods.py": "e5bd8f51690b006274ed5adcfa4ef3b1a2c3b0f1d79476d948b71d1cfec41c5b",
+        "native_auxiliary.py": "17f3345fb8d4b4cb3367de2a0b914b34bf69251ecc7f141ba1c7179006599682",
+        "onevision_bridge.py": "f3b1dd38af3b58dbfa69073da698ea2bf39a3a11850fb1069a80e38d0e3669a9",
+        "osft_adapter.py": "60b05f3b59f3878e65ee9543657b54a5aa5da13c14e139123e1c3591f3007b34",
+        "parsp_adapter.py": "d1ebe1831e6d089d434bdde34b59db64eff17dc74d8d77f9ca4f080a51da8366",
+        "pass_adapter.py": "c8e23c85a93e97130d464b4b6d87110470035c5af37f9575fce705923c80c7c4",
+        "pipeline.py": "a05c27c773dc69369cbef90f89a77c6224d1f5a5d1716c1f8576ac3ff823be17",
+        "prepare_native.py": "200affb091e040e4f4492fb92389b9f1b54a3e71b33683e7de322ca6dd74cb4f",
+        "replay_adapter.py": "da07cfd8e44183ab3e29f1ab51ecbec0f6e7877ac6335efcf179158afff8d141",
+        "resource_monitor.py": "a161c8a82bf762622795f64210c95164fb905c6fa80572b35ae5ee3dd7146533",
+        "retrieval.py": "7d7a9dd6cb223bf96cd9ab3499a4ddf69f8fbb60940d80db84582ad518f5c133",
+        "run.py": "0e1f794ff1daf0694bdf960c3f89ccd4078764577db75271d8f78684282a39a9",
+        "runtime_utils.py": "4f5c4a34be046c29cfbcdaa4b2957faa907684872ba69083bdef53136a851240",
+        "sparse_results.py": "07a7808beff8bc3330e92dc5b0fb5443401486846db764c912a5a0f57558fa3f",
+        "sparta_adapter.py": "8a00505b40663e5a233ddceb34e295d9b7b73d55f0679ac3d2b93318e77d7a44",
+        "training_validity.py": "0ec302d2fa4e8bb1a87b41c861c3aea78bf473e3df805b87d4dd450d21a2f735"
+      },
+      "source_policy_sha256": "c20aed19536e23c9d077963509803698daa78c17f80a57391db99fb44269d595",
+      "destination_sha256": {
+        "aler_adapter.py": "4a4c58024727e5e5d01254a6b90b721e873ee6ea9f74d59308da6aa424217635",
+        "checkpoint_probe.py": "71b38fb9f202fa2fa012e76a883e23322f68ef938c9f8ef9fac78d01886eb23f",
+        "checkpoints.py": "06c53eab2c6810901f5206edbfb1df9defabdc747b1856ace0afa31e74b37a78",
+        "clmoe_adapter.py": "33946eddfc6424638ded0675ded68860273859c2f71993a6a60bd22556341be9",
+        "freeze_splits.py": "5b4d58451ef3bcdb9fc033c0c9bc15b72ddc36877a64ca22d50f12e9e301510a",
+        "frozen_vision.py": "8211651e92d17019f6ce6cf9615df7f6b5fcaeecc765aec4acdf916c448a35bd",
+        "fv_adapter.py": "85473b19726249703f645a30142b6cfb046a37f798430ca1a255e48213641fab",
+        "host_adam.py": "5e733e6b87c12eb9331ff23e8919a142f1861a2beec82ec8b0361d878b9aec8c",
+        "hyper_adapter.py": "518574b8c3d1c46400d240cc984f0d1c83cb01d96a7d1e2bf788bea4d4610976",
+        "methods.py": "e5bd8f51690b006274ed5adcfa4ef3b1a2c3b0f1d79476d948b71d1cfec41c5b",
+        "native_auxiliary.py": "17f3345fb8d4b4cb3367de2a0b914b34bf69251ecc7f141ba1c7179006599682",
+        "onevision_bridge.py": "f3b1dd38af3b58dbfa69073da698ea2bf39a3a11850fb1069a80e38d0e3669a9",
+        "osft_adapter.py": "60b05f3b59f3878e65ee9543657b54a5aa5da13c14e139123e1c3591f3007b34",
+        "parsp_adapter.py": "d1ebe1831e6d089d434bdde34b59db64eff17dc74d8d77f9ca4f080a51da8366",
+        "pass_adapter.py": "c8e23c85a93e97130d464b4b6d87110470035c5af37f9575fce705923c80c7c4",
+        "pipeline.py": "a05c27c773dc69369cbef90f89a77c6224d1f5a5d1716c1f8576ac3ff823be17",
+        "prepare_native.py": "200affb091e040e4f4492fb92389b9f1b54a3e71b33683e7de322ca6dd74cb4f",
+        "replay_adapter.py": "da07cfd8e44183ab3e29f1ab51ecbec0f6e7877ac6335efcf179158afff8d141",
+        "resource_monitor.py": "a161c8a82bf762622795f64210c95164fb905c6fa80572b35ae5ee3dd7146533",
+        "retrieval.py": "7d7a9dd6cb223bf96cd9ab3499a4ddf69f8fbb60940d80db84582ad518f5c133",
+        "run.py": "ffbfe1ce3ecfc3cfa9747e3073ea7d21a5a540c7bcd83d48c4837240770bceb2",
+        "runtime_utils.py": "4f5c4a34be046c29cfbcdaa4b2957faa907684872ba69083bdef53136a851240",
+        "sparse_results.py": "07a7808beff8bc3330e92dc5b0fb5443401486846db764c912a5a0f57558fa3f",
+        "sparta_adapter.py": "8a00505b40663e5a233ddceb34e295d9b7b73d55f0679ac3d2b93318e77d7a44",
+        "training_validity.py": "0ec302d2fa4e8bb1a87b41c861c3aea78bf473e3df805b87d4dd450d21a2f735",
+        "execution_policy.json": "8dd765f08e586b3fee00274d5122a9ccf87b9327843bdfe602340884ddf3487b"
+      },
+      "changed_py": [
+        "run.py"
+      ],
+      "run_diff": {
+        "edits": [
+          {
+            "before": "ap.add_argument('--condition', choices=['full', 'pct01'], required=True)",
+            "after": "ap.add_argument('--condition', choices=['pct10'], required=True)",
+            "changed": true
+          },
+          {
+            "before": "'train_fraction': 1.0 if args.condition == 'full' else .01",
+            "after": "'train_fraction': policy['conditions'][args.condition]['train_fraction']",
+            "changed": true
+          },
+          {
+            "before": "'primary_score': 'rougeL'",
+            "after": "'primary_score': 'token_f1'",
+            "changed": true
+          }
+        ],
+        "exact_inverse_bytes_equal": true,
+        "training_and_method_math_unchanged": true,
+        "scoring_function_unchanged": true
+      },
+      "all_other_py_byte_identical": true,
+      "methods": [
+        "SeqFT_LoRA",
+        "CL_MoE",
+        "SMoLoRA",
+        "PASs_MoE",
+        "PaRSP",
+        "OSFT",
+        "SpaRTA"
+      ],
+      "methods_ROOT_unmodified_and_resolves_to_output_root": true
+    },
+    {
+      "source": "/data1/liyapeng/program/LLMCL/exp/two_backbone_forever_20261019_v3",
+      "target": "/data1/liyapeng/program/LLMCL/exp/two_backbone_pct10_forever_20261025",
+      "source_py_sha256": {
+        "aler_adapter.py": "4a4c58024727e5e5d01254a6b90b721e873ee6ea9f74d59308da6aa424217635",
+        "checkpoint_probe.py": "71b38fb9f202fa2fa012e76a883e23322f68ef938c9f8ef9fac78d01886eb23f",
+        "checkpoints.py": "06c53eab2c6810901f5206edbfb1df9defabdc747b1856ace0afa31e74b37a78",
+        "clmoe_adapter.py": "33946eddfc6424638ded0675ded68860273859c2f71993a6a60bd22556341be9",
+        "forever_adapter.py": "a9fd1fc2750117b94dfc712392ef616dca9cdb586b738e0b28ec5408097f710d",
+        "freeze_splits.py": "5b4d58451ef3bcdb9fc033c0c9bc15b72ddc36877a64ca22d50f12e9e301510a",
+        "frozen_vision.py": "8211651e92d17019f6ce6cf9615df7f6b5fcaeecc765aec4acdf916c448a35bd",
+        "fv_adapter.py": "85473b19726249703f645a30142b6cfb046a37f798430ca1a255e48213641fab",
+        "host_adam.py": "5e733e6b87c12eb9331ff23e8919a142f1861a2beec82ec8b0361d878b9aec8c",
+        "hyper_adapter.py": "518574b8c3d1c46400d240cc984f0d1c83cb01d96a7d1e2bf788bea4d4610976",
+        "methods.py": "eeb1b74641e4176501b71fd4ddd49c9c310ebd6c7274f0d2eaa3b59b6ca19ba1",
+        "native_auxiliary.py": "17f3345fb8d4b4cb3367de2a0b914b34bf69251ecc7f141ba1c7179006599682",
+        "onevision_bridge.py": "f3b1dd38af3b58dbfa69073da698ea2bf39a3a11850fb1069a80e38d0e3669a9",
+        "osft_adapter.py": "60b05f3b59f3878e65ee9543657b54a5aa5da13c14e139123e1c3591f3007b34",
+        "parsp_adapter.py": "d1ebe1831e6d089d434bdde34b59db64eff17dc74d8d77f9ca4f080a51da8366",
+        "pass_adapter.py": "c8e23c85a93e97130d464b4b6d87110470035c5af37f9575fce705923c80c7c4",
+        "pipeline.py": "a05c27c773dc69369cbef90f89a77c6224d1f5a5d1716c1f8576ac3ff823be17",
+        "prepare_native.py": "200affb091e040e4f4492fb92389b9f1b54a3e71b33683e7de322ca6dd74cb4f",
+        "replay_adapter.py": "da07cfd8e44183ab3e29f1ab51ecbec0f6e7877ac6335efcf179158afff8d141",
+        "resource_monitor.py": "a161c8a82bf762622795f64210c95164fb905c6fa80572b35ae5ee3dd7146533",
+        "retrieval.py": "7d7a9dd6cb223bf96cd9ab3499a4ddf69f8fbb60940d80db84582ad518f5c133",
+        "rolling_io.py": "950888ce767a8f7a6146fc119a7edc51186a0c605e0caf700999f9bad7a97691",
+        "run.py": "ebc68f61f35d7a54c2021f332769f50cc763cd60dc98051f663d676df2a11116",
+        "runtime_utils.py": "4f5c4a34be046c29cfbcdaa4b2957faa907684872ba69083bdef53136a851240",
+        "sparse_results.py": "07a7808beff8bc3330e92dc5b0fb5443401486846db764c912a5a0f57558fa3f",
+        "sparta_adapter.py": "8a00505b40663e5a233ddceb34e295d9b7b73d55f0679ac3d2b93318e77d7a44",
+        "training_validity.py": "0ec302d2fa4e8bb1a87b41c861c3aea78bf473e3df805b87d4dd450d21a2f735"
+      },
+      "source_policy_sha256": "dae543fc24359ceb16511cb27bca794e27fd6697dd915d1c0bffca766b9c0baf",
+      "destination_sha256": {
+        "aler_adapter.py": "4a4c58024727e5e5d01254a6b90b721e873ee6ea9f74d59308da6aa424217635",
+        "checkpoint_probe.py": "71b38fb9f202fa2fa012e76a883e23322f68ef938c9f8ef9fac78d01886eb23f",
+        "checkpoints.py": "06c53eab2c6810901f5206edbfb1df9defabdc747b1856ace0afa31e74b37a78",
+        "clmoe_adapter.py": "33946eddfc6424638ded0675ded68860273859c2f71993a6a60bd22556341be9",
+        "forever_adapter.py": "502b988538569258c82f6bca953a0cf922509d3e70c27a8c44ded1a16fe2e2a2",
+        "freeze_splits.py": "5b4d58451ef3bcdb9fc033c0c9bc15b72ddc36877a64ca22d50f12e9e301510a",
+        "frozen_vision.py": "8211651e92d17019f6ce6cf9615df7f6b5fcaeecc765aec4acdf916c448a35bd",
+        "fv_adapter.py": "85473b19726249703f645a30142b6cfb046a37f798430ca1a255e48213641fab",
+        "host_adam.py": "5e733e6b87c12eb9331ff23e8919a142f1861a2beec82ec8b0361d878b9aec8c",
+        "hyper_adapter.py": "518574b8c3d1c46400d240cc984f0d1c83cb01d96a7d1e2bf788bea4d4610976",
+        "methods.py": "eeb1b74641e4176501b71fd4ddd49c9c310ebd6c7274f0d2eaa3b59b6ca19ba1",
+        "native_auxiliary.py": "17f3345fb8d4b4cb3367de2a0b914b34bf69251ecc7f141ba1c7179006599682",
+        "onevision_bridge.py": "f3b1dd38af3b58dbfa69073da698ea2bf39a3a11850fb1069a80e38d0e3669a9",
+        "osft_adapter.py": "60b05f3b59f3878e65ee9543657b54a5aa5da13c14e139123e1c3591f3007b34",
+        "parsp_adapter.py": "d1ebe1831e6d089d434bdde34b59db64eff17dc74d8d77f9ca4f080a51da8366",
+        "pass_adapter.py": "c8e23c85a93e97130d464b4b6d87110470035c5af37f9575fce705923c80c7c4",
+        "pipeline.py": "a05c27c773dc69369cbef90f89a77c6224d1f5a5d1716c1f8576ac3ff823be17",
+        "prepare_native.py": "200affb091e040e4f4492fb92389b9f1b54a3e71b33683e7de322ca6dd74cb4f",
+        "replay_adapter.py": "da07cfd8e44183ab3e29f1ab51ecbec0f6e7877ac6335efcf179158afff8d141",
+        "resource_monitor.py": "a161c8a82bf762622795f64210c95164fb905c6fa80572b35ae5ee3dd7146533",
+        "retrieval.py": "7d7a9dd6cb223bf96cd9ab3499a4ddf69f8fbb60940d80db84582ad518f5c133",
+        "rolling_io.py": "950888ce767a8f7a6146fc119a7edc51186a0c605e0caf700999f9bad7a97691",
+        "run.py": "dc5d14d024ea286010fb2cca071cf588b2851f39f788a36bff71d4b273def576",
+        "runtime_utils.py": "4f5c4a34be046c29cfbcdaa4b2957faa907684872ba69083bdef53136a851240",
+        "sparse_results.py": "07a7808beff8bc3330e92dc5b0fb5443401486846db764c912a5a0f57558fa3f",
+        "sparta_adapter.py": "8a00505b40663e5a233ddceb34e295d9b7b73d55f0679ac3d2b93318e77d7a44",
+        "training_validity.py": "0ec302d2fa4e8bb1a87b41c861c3aea78bf473e3df805b87d4dd450d21a2f735",
+        "execution_policy.json": "a179f1f1f66543e46ea215e6a387e08258f2dc5531710c9832117827ba5595ca"
+      },
+      "changed_py": [
+        "forever_adapter.py",
+        "run.py"
+      ],
+      "run_diff": {
+        "edits": [
+          {
+            "before": "ap.add_argument('--condition', choices=['pct01'], required=True)",
+            "after": "ap.add_argument('--condition', choices=['pct10'], required=True)",
+            "changed": true
+          },
+          {
+            "before": "'train_fraction': 1.0 if args.condition == 'full' else .01",
+            "after": "'train_fraction': policy['conditions'][args.condition]['train_fraction']",
+            "changed": true
+          },
+          {
+            "before": "'primary_score': 'token_f1'",
+            "after": "'primary_score': 'token_f1'",
+            "changed": false
+          }
+        ],
+        "exact_inverse_bytes_equal": true,
+        "training_and_method_math_unchanged": true,
+        "scoring_function_unchanged": true
+      },
+      "all_other_py_byte_identical": true,
+      "methods": [
+        "FOREVER"
+      ],
+      "methods_ROOT_unmodified_and_resolves_to_output_root": true,
+      "additional_py_diffs": {
+        "forever_adapter.py": {
+          "edits": [
+            {
+              "before": "assert len(self.train_tasks) == 19 and sum(map(len, self.train_tasks)) == 1313",
+              "after": "assert len(self.train_tasks) == 19 and sum(map(len, self.train_tasks)) == sum(t['files']['train']['count'] for t in manifest['tasks'])",
+              "changed": true
+            },
+            {
+              "before": "assert len(self.task_by_id) == 1313",
+              "after": "assert len(self.task_by_id) == sum(t['files']['train']['count'] for t in manifest['tasks'])",
+              "changed": true
+            }
+          ],
+          "exact_inverse_bytes_equal": true,
+          "scope": "Two training-cardinality assertions only",
+          "training_and_method_math_unchanged": true,
+          "replay_and_sampling_unchanged": true
+        }
+      },
+      "byte_identical_py": [
+        "aler_adapter.py",
+        "checkpoint_probe.py",
+        "checkpoints.py",
+        "clmoe_adapter.py",
+        "freeze_splits.py",
+        "frozen_vision.py",
+        "fv_adapter.py",
+        "host_adam.py",
+        "hyper_adapter.py",
+        "methods.py",
+        "native_auxiliary.py",
+        "onevision_bridge.py",
+        "osft_adapter.py",
+        "parsp_adapter.py",
+        "pass_adapter.py",
+        "pipeline.py",
+        "prepare_native.py",
+        "replay_adapter.py",
+        "resource_monitor.py",
+        "retrieval.py",
+        "rolling_io.py",
+        "runtime_utils.py",
+        "sparse_results.py",
+        "sparta_adapter.py",
+        "training_validity.py"
+      ]
+    }
+  ],
+  "old_gpu_ids": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "new_gpu_ids": [
+    1,
+    2,
+    3
+  ],
+  "new_reserved_gpu_ids": [
+    0
+  ],
+  "no_model_import": true,
+  "new_models": 0,
+  "new_scores": 0,
+  "jobs_launched": 0,
+  "original_sources_modified": false,
+  "prestart_guard_amendment": {
+    "new_models": 0,
+    "new_scores": 0,
+    "builder_sha256": "d622dc94539a15d4a7f58e38750fd192dddf28c98e91eb17c62ef91cd51c393c",
+    "initial_receipt_sha256": "b549b055460af4d919a294c0074d0a96b83db7028f218d49e787ca75d37fbdfe",
+    "original_forever_source_unchanged": true,
+    "scope": "Two manifest-cardinality assertions only; first clone never launched"
+  }
+}
