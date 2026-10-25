@@ -1,0 +1,37 @@
+# 正式强PAS：原完整图的五个GPU资源窗口
+
+状态：待独立源审及READY绑定，非激活指令。补足强基线的部署资源证据，不提出新方法，不读取本轮pair质量决定是否测量。旧PAS可移植部署包工程被人类停止，本点不恢复其导出、设备迁移或CPU功能门。
+
+## 固定来源与问题
+
+正式OneVision/PASs-MoE已完整核验，而README中的推理GPU峰仍未测。只问原方法真实完整末态在与本轮pair相同物理GPU、相同原图和原模板、五个固定32-token请求中占用多少GPU内存。无Answer F1、NLL、训练、方法选择或延迟比较。
+
+原运行 `exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PASs_MoE/training_20261017_161725`，完整末态 `checkpoints/stage_19.pt`，3051292733bytes，权威SHA `583ab5d02e187fbd6a54bd4a05a019e33101deb8af2d9533795253140721441a`。原config SHA `79edcca96dd315260816932438b7c0ec57835f5761d2ec0b88d8ecdb5c837fb6`；manifest SHA `36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777`。封存正式证明为 `summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/completed/88902345d5cf6fe545e3.json`，SHA `a17c1000dfff6816644d3e86170fe255d6c3225eebfa911d4c0834fcabb0dc9f`。原checkpoint/config/proof不改。
+
+## 唯一恢复路线
+
+新进程仅暴露物理GPU1：`CUDA_VISIBLE_DEVICES=1`，原保存的虚拟cuda:0保持虚拟cuda:0。调用原 `checkpoints.load`，使用其一次完整checkpoint SHA和原 `torch.load` placement，不使用map_location把CPU历史强行放GPU。不新建PAS、语言模型或部署包，不半精度化整图、不合并动态专家、不重设tau/掩码/router，不替换HostedLinear前向。
+
+原封存对象元数据只出现cuda:0和cpu：GPU2350449480bytes，其中全部注册内容2350446792bytes，额外2688bytes为原未注册统计；CPU692318288bytes含保护历史和视觉缓存。此为保存内容分类，不能冒充实际RSS或显存峰。保留原learner、回调和训练历史对象及其原CPU位置；eval前向不启用训练记录。只有原视觉CPU特征cache清空并使用与pair相同的GPU特征transport，避免遗留cache命中或CPU往返差别。原视觉/decoder计算、原混合dtype不改。
+
+原checkpoint中的FP16基座1787351104bytes；必需FP32增量563086656bytes含1344bytes的168个专家掩码。故实际Parameter存储2350436416bytes／1034446880系数，普通buffer10376bytes，其中1344bytes掩码是必要权重状态，9032bytes为位置/RoPE等派生buffer。必要权重连掩码2350437760bytes，不能把1344掩码漏掉或重复计入Parameter。
+
+原完整pickle保留GenerationConfig对象；不from_dict、不新构配置。记录公开值和内部hash哨兵前后，公开值必须不变；内部hash可能与进程/框架加载有关，不将私有整数相同当质量证据。
+
+## 启动前提和600秒
+
+只有原pair的四phase都实际exit0、COMPLETE与原PAIR_READY／ALL_EXIT哈希一致、原PID/startticks身份均不再存活、原unit自然inactive成功，以及物理GPU1实际无owner时，才可首次启动。本点不占NEW卡、不影响仍在运行的pair或正式基线。不能因为某个pair结果好坏而改变该测量决定。
+
+STARTED后固定600秒包含原CP全SHA、完整加载、原状态观察/摘要、数据准备、五窗和前后完整state/buffer摘要及完成记录。无额外CPU模型门。首次故障/超时保留成本与证据，不自动重启或新版本。controller/activation由独立主agent负责，只有真实exit0后消费小资源proof，不以COMPLETE替代实际退出。
+
+READY字段合同：`sources`绑定worker.py和本协议；`pair_run/pair_ready_sha256/pair_all_exit_sha256`绑定已完成pair；`pair_sources`精确绑定paired_common.py和paired_readouts.py；`formal_proof`与`checkpoint_metadata`各含path/sha256；`original_run/checkpoint_sha256/checkpoint_bytes/config_sha256/manifest_sha256/split_sha256`绑定原来源；`runtime_files`按ROOT相对路径或绝对路径绑定原源码，`environment`绑定实际环境文件，`identity_helper_sha256/storage_helper_sha256`绑定既有小工具。文件path若为相对路径均相对ROOT。不得将模型大文件放runtime_files导致另一次无意全hash。
+
+## 五个请求与证明
+
+原100 DEV中每域按ID SHA取最小的固定一个，与pair五窗相同顺序。每题恰32个新token，共5次真实生成／160token；0新F1／0评分／0NLL／0更新。未保存文本回答，不将正式PAS在原1313训练中见过这些题变为学生teacher或选择信号。资源输入与pair原memory收据逐ID核raw/prepared/transport摘要、形状及token长度；不读pair回答或质量。
+
+每个窗口从fresh完整重载之后按固定顺序测baseline allocated、peak allocated/reserved，含实际原图处理与生成，无额外100题预热，无latency采样。两边均使用物理GPU1，报告实际UUID及虚拟编号。五个请求不代表全分布或各长度上界。
+
+开始/结束绑定全部核心state和所有named buffers；保留168层原active_adapter、r/alpha/scaling、tau、router/tie、mask、合并/禁用/记录标志、dropout和回调存在性，前后相同。原模型外自然产生的统计不误称学习权重，实际GPU常驻仍由窗口计入。原源码/config/正式proof、真实布局和版本独立记录。
+
+这只是**原保存dtype、未另作常规部署转换**的强PAS图测量。不能直接称最优公平部署、端侧方法胜利或速度优势；若未来对其它方法做常规fold，PAS也须获得同等适用机会，同时保全部必需动态专家。无论pair质量如何，本资源证据都可补足基线描述，但不重算正式F1或更改原主表质量行。
