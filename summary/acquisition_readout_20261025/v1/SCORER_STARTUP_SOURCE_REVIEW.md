@@ -1,0 +1,15 @@
+# 后模型评分入口：独立源码审阅
+
+**接受这一显式、单次metadata入口修复。** 它不授权重跑模型、生成或重复评分。未执行wrapper main、原verifier/main、scorer、模型或服务器操作；只审源码、小证明并运行纯AST变换函数。
+
+审阅wrapper：`analysis/acquisition_post_model_startup_repair_20261025.py`，SHA `735a77e4277c7bd69efef62d9a40e090727a0a7329f8d6918f071937c1c86cdd`。原verify SHA仍 `f5951d82919691dcf4ad195529e91d075f8702af418642920c0a69b57ca45f2f`，原源与READY不改。
+
+实际调用独立提取的纯corrected_tree函数检查原verify文本：仅第16行ROOT赋值从会提前求值失败的`Path(os.environ.get(...parents[3]))`改为`Path(os.environ['LLMCL_ROOT'])`；inverse AST精确恢复原树，其余节点不变。原/修复AST摘要分别为`bb45e057abbacd2ac34c882f6247051fbc99c3f6603841c734f0eaa4a662e3a8`、`01ce6ebfb3b0cf26b76d415fdcf8b14b32a5aa161fcf8e60749f98227cf61ada`。这里要求环境变量真实存在，不引入另一科研ROOT、数据或评分口径。
+
+已收齐原模型证据：worker EXIT0，模型阶段983.880617194秒；两S19各12个非device完整语义receipt字段精确同父末态，20份重构证明SHA同COMPLETE，原法/Naive各40输入与生成、每域20，状态不变。原始verifier在模块ROOT赋值处IndexError，main/VERIFY_STARTED/评分均未到，因此之前0分已算；这些事实不等于本修复已实际运行。
+
+wrapper启动前绑定自身/原verify/READY/source SHA、原activation+2100绝对截止、COMPLETE全部输出SHA和worker身份退出。仅将本新RUN的CONTROLLER_FAILURE及VERIFIER_EXIT按原SHA移入`post_model_startup_failure_20261025`，不覆盖原字节，原unit必须保持failed/MainPID0/exit1。不是构造一个假装从无失败的新模型结果。
+
+子进程只在内存执行单赋值修复后的原verify，且要求尚无VERIFY_STARTED/VERIFIED；原完整输入/来源/状态核验和80个新Answer F1评分逻辑不变。成功后再次核80模型输出、科学源/READY、旧unit状态和绝对截止，并把旧故障归档SHA、新VERIFIED及单AST修复写进独立REPAIR_VERIFIED。没有模型调用或新生成路径，没有自动重试。
+
+接受范围仅此已证明0评分的启动缺陷。若后续核验再失败，记录真实失败，不据质量改scorer/断言、重生成或绕过预算；不能在修复receipt出现前宣布80分已接受，也不能把旧failed controller写成成功。原有资源/算法结论仍待这次唯一原评分完成后按实际结果判断。
