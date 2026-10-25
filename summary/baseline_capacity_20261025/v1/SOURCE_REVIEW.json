@@ -1,0 +1,22 @@
+{
+  "accepted": true,
+  "source_sha256": "c775274d0ccd3f0e342f224ee3a16923f5f826dd1237d2fd1565052fee9575d8",
+  "path": "analysis/baseline_pct01_capacity_20261025.py",
+  "reviewer": "baseline_review",
+  "authorship_disclosure": "Reviewer authored this wrapper; this is a static self-review for root's independent inspection, not an execution result.",
+  "scope": "CPU dispatcher only; unchanged native pipeline launch/idle/write/sources functions. No v2/FRAME scientific Python changed.",
+  "checks": [
+    "Default invocation watches; --once is read-only queue metadata and launches nothing.",
+    "Both lane locks and the old hardware-queue lock prevent simultaneous native dispatchers.",
+    "Existing live workers are adopted using matching entry/run-dir, UID, PID/startticks and saved identity; no process signals.",
+    "Only pct01 is eligible; sealed eight and FOREVER are excluded, full jobs remain historical and are never dispatched.",
+    "GPU0 is never assigned; slots1/2/3 require original ownerless/utilization/free-memory idle guard. Busy third-party GPUs do not prevent CPU adoption.",
+    "Existing preflight/reload proof source and manifest bindings are checked; an already-completed reload advances without loading its deleted temporary checkpoint again.",
+    "Original method dtype, graph, optimizer, data and supervisor log paths remain owned by the inherited launch function."
+  ],
+  "limitations": [
+    "Root must separately stop only the two checked CPU units and record the device-only execution_policy JSON amendment before default watch.",
+    "No model, remote command, GPU call, queue mutation or process signal was executed by this review. Standard-library AST/compile only.",
+    "FOREVER remains an independent original GPU2 waiter; the added OneVision lane avoids its GPU2 opportunity once Qwen has no pending admissions."
+  ]
+}
