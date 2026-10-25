@@ -1,0 +1,52 @@
+{
+  "unix": 1792922672.7952666,
+  "unit": "llmcl-plain-r8-gpu-control-20261025.service",
+  "phase_GPUs": {
+    "train_qv": 0,
+    "eval_qv": 1
+  },
+  "ready_sha256": "74815accb4dea83cedadef2a994f8162ccfb1502c84589b36b657b55ac8cfd7f",
+  "preregistration_commit": "7fbf015a263fe5458ecf92a40eb43e27e9b91f2a",
+  "cards_before": {
+    "0": {
+      "uuid": "GPU-783c5d2c-a6f8-9594-472c-4ab9fe54d3b1",
+      "memory_MiB": 8,
+      "utilization": 0,
+      "owners": []
+    },
+    "1": {
+      "uuid": "GPU-3c72e4ce-0896-0b40-d610-be585d2bb51e",
+      "memory_MiB": 8,
+      "utilization": 0,
+      "owners": []
+    },
+    "2": {
+      "uuid": "GPU-25d3cb92-fa97-a722-f9cd-c012bad046a8",
+      "memory_MiB": 8,
+      "utilization": 0,
+      "owners": []
+    },
+    "3": {
+      "uuid": "GPU-fb9fc5ed-bf92-b947-d8c5-302296c4a447",
+      "memory_MiB": 8,
+      "utilization": 0,
+      "owners": []
+    }
+  },
+  "boot": "5b259bd9-d0cb-4a1d-8b90-6e6107080488",
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit=llmcl-plain-r8-gpu-control-20261025.service",
+    "--property=Restart=no",
+    "--property=KillMode=control-group",
+    "--property=RuntimeMaxSec=4300",
+    "--property=TimeoutStopSec=5",
+    "--setenv=LLMCL_ROOT=/data2/liyapeng_grp/program/LLMCL",
+    "--setenv=LLMCL_RUN=/tmp/llmcl-plain-r8-gpu-1084-mlzh5u5e",
+    "--setenv=LLMCL_ASSET=/tmp/llmcl-response-pair-1084-geic2vef/asset_view",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "-u",
+    "/tmp/llmcl-plain-r8-gpu-1084-mlzh5u5e/controller.py"
+  ]
+}
