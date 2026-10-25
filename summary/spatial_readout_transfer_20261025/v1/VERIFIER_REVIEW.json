@@ -1,0 +1,47 @@
+{
+  "accepted": true,
+  "acceptance_meaning": "Cross-source static verifier/implementation review found no remaining fatal blocker for the one fixed W-versus-WPi spatial-readout pair. This is not activation, successful execution, quality/resource evidence or research-goal completion.",
+  "reviewer": "baseline_review",
+  "reviewed_utc": "2026-10-25T06:02:25.547566+00:00",
+  "source_sha256": {
+    "adaptation.py": "9e5d5e080d9db8ed051308cbedd324aac2d1685e63426b4d2a69ce1089d84de5",
+    "alignment.py": "f59f5da624d5de021a0dc9f32f672c986d98e728442ab497e1035435a29c76cb",
+    "interface.py": "041e1f5e9718d4267486b29a2e328f10cfcd2fd38213c4fe1cbe5ba74cbb77a8",
+    "deployment.py": "e7766b6c10a06c3991c26c94dab602238adaa87ae48b357f29cc237327afc09a",
+    "readouts.py": "8d68817f330b9b26acbbdec55e344e066879896b4d73db3064dadc7f747acf3a",
+    "common.py": "9e8f0be6a75a0dd5f5ca245ccc7a95aa2a1946ae90a1b8ac8fd0e113e0f4126d",
+    "worker.py": "ff4ddb1ccc8713ac81f458314e789350741481a037d94afebdb80f28f56b7817",
+    "controller.py": "fc1f254d4e072c2fa700b3c827edb7aa688647c8b49f1e940a03d7f188fdf188",
+    "verify.py": "b4ef9477df66560dc7175cffed9b9663a7632db8474c0e89690a4bfc20ea195e"
+  },
+  "protocol_sha256": "3fa041e20ed2d9b5625b69596e42d2bd8b1dcfd3368af89990e878b8e022a5c5",
+  "authorship_disclosure": {
+    "authored": [
+      "interface.py"
+    ],
+    "independence_scope": "Independently reviewed root common/worker/deployment/readouts/controller/verifier and science alignment/adaptation. Authored interface is disclosed and is not independently certified by its author; root/science separately reviewed it."
+  },
+  "resolved_interface_issues": [
+    "fit stream removes duplicate tiles from hook metadata before alignment constructs canonical tile/row fields.",
+    "deployment.finish compares the actual bare receipt fields against before, preserving strict assertions while allowing load_complete extra proof flags.",
+    "Context.bind skips repeated frozen_vision.install when the parent reference loader has already installed it."
+  ],
+  "reviewed_contracts": [
+    "The fixed full12288-column permutation preserves W shape/spectrum/row norms. Both arms consume the exact same325 S1 raw/teacher pairs:293 fit plus32 held;325 teacher vision/projector and325 small-tower requests,0 teacher decoder or answer supervision. GPUFP64 QA-equal centered ridge, adaptive-average27to8 teacher target, GPUFP32 compose to one FP16 readout, fixed rows/group bindings.",
+    "Original384 crop pixels/count/order and configuration384/14 remain intact; official scale4 shuffle produces64x12288. Instance pack uses8x8 lattice with original AnyRes384 selection/unpad/max9/basecrop/newline and actual image-placeholder lengths. Neither large tower nor unfolded W/map remains in the complete graph.",
+    "Each fresh original language base is compiled, exported, independently self-contained meta-reloaded with alias-aware GPU assignment, all buffers, default original_inv_freq rebinding, tied language weights and PackedSpatial/newline rebinding before initial100 generation and training. Generation public dictionaries and framework sentinel preconditions are fixed.",
+    "Both arms use original TargetLoRA all-r8:168 modules336 FP32 A/B tensors4399104 coordinates, same initialization; original1213FIT/19-stage/87-update AST and GPUAdamW stage reset. Temporary optimizer holder survives only until stage receipt, then pops. GPU two-moment bytes35192832 plus336 float32 step scalars1344 gives35194176 total.",
+    "Frozen graph/buffer digests, finite gradient receipts, changed adapters,19 stage artifacts and original validity/events/order hashes bind real training. Final GPUFP32 fold disables autocast/TF32 and removes adapters. Initial and final use the actual compiled graph, not assumed FP16 associativity.",
+    "Six isolated processes: fit, two independently placed training phases, then native/permuted/parent resource evaluation serially on one actual GPU. STARTED/COMPLETE/EXIT identities, GPU mappings, budgets1800/3600/3600/600/600/240 and successful-phase total10440 are checked; no quality-dependent scheduling.",
+    "Final compact phases each fresh reload then5 fixed32-token windows before100DEV; parent fresh same-card5 windows only. Shared GPU-only uncached visual transport retains FP16 arithmetic and raw input policy. Cross-arm raw/text transport is matched; parent shares raw IDs/images/context/cap, not compact prepared tensors.",
+    "Totals415 new generations,400 new answer scores,2426FIT backwards and174 updates. Verifier checks all workers have exited successfully before a single scoring pass; parent100 quality is copied through prior sealed proofs without rescoring. Actual layouts/checkpoint sizes/aliases/buffers and resource gates remain required at execution.",
+    "Both arms must meet all five historical parent-domain point floors plus smaller actual complete weights/package and all5 same-card allocated peaks lower; either arm may win, exact tie Native. Both failing closes the fixed pair, not all interfaces."
+  ],
+  "limitations": [
+    "Pure patch-space or joint-pretraining causality is not identified; permutation changes patch-channel correspondence. Same8grid geometry is common to both arms; it does not isolate its own effect.",
+    "Historical43.79 is an explored1213FIT/100DEV target, not formalAP or strongest formal baseline. Historical39.26 and other previous backend/fold/transport recipes are not strict single-variable controls.",
+    "Expected591534976 coefficients/1183069952FP16bytes are a design contract pending actual complete-graph proof; fewer decoder tokens do not guarantee lower whole-model peak.",
+    "No model, Torch/CPU/GPU probe, QA, remote action, scoring or large-checkpoint hash was executed by this review. Standard-library AST/source/protocol hashes only."
+  ],
+  "source_changes_by_this_final_review": []
+}
