@@ -81,6 +81,8 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 
 五域列及五域宏／AP19为最终成绩；新习得两列来自各task训练结束的对角格，按任务等权或域内QA加权再五域等权，均可由原74格得到，不是同一时点的域末模型。BWT仅为继承的描述量，不作优化目标。完整参数、权重／CP与GPU峰须逐组合实测后填写。
 
+核心检验是：扩大训练后，刚学完金融任务时的集中错答是否减少、正确率是否同步提高。10%沿用单轮，数据量和更新预算同时增加；改善只能说明本学习配置缓解了问题，不能单独证明样本量是唯一原因。当前尚无10%质量结论。[比较口径](summary/train_answer_prior_20261025/ACQUISITION_COMPARISON_PLAN.md)
+
 [10%正式协议与冻结证据](summary/two_backbone_pct10_20261025/PROTOCOL.md) · [10%独立主表](summary/two_backbone_pct10_20261025/MAIN_TABLE.md)
 
 <!-- PCT10_MAIN_TABLE_END -->

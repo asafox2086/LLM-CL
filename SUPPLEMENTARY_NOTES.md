@@ -14,6 +14,10 @@
 
 ## 最新研究重点与刚习得观测
 
+10%后续比较已固定为同骨干／同方法的训练前、刚习得与原始错答分层，见[比较口径](summary/train_answer_prior_20261025/ACQUISITION_COMPARISON_PLAN.md)。[功能诊断评判](summary/train_answer_prior_20261025/FUNCTION_DIAGNOSTIC_ASSESSMENT.md)优先等待完整正式证明；没有准入新的1%／10%训练fork，也没有执行位置干预。TRAIN标签偏斜与模型错误之间的因果尚未识别。
+
+FOREVER的独立10%目录已完成[纯元数据构建](summary/two_backbone_pct10_20261025/FOREVER_DYNAMIC_BUILD_OBSERVED.json)，BUILD_RECEIPT SHA ceaaf231a06be45997a7354af36695f304393d75309c550a29ea2a70a8513b5b：29个Python源中原公共文件逐字节复制，run仅修改条件／比例／主指标元数据，新增core／adapter和构建器；未改1%或正在运行的10%源。初审曾漏读原完整preflight入口，root发现`begin_stage1`后19单题诊断不推进core，已在模型前修正严格丢弃未推进调度器的衔接；另修观察hash对0维Adam step的读取，0模型／评分。独立[集成审阅](summary/two_backbone_pct10_20261025/FOREVER_DYNAMIC_INTEGRATION_REVIEW.md)与[唯一GPU检查要求](summary/two_backbone_pct10_20261025/GATE_REQUIREMENTS.md)保留更正和边界。两FOREVER仍待核验，未运输OLD或启动，不将构建／审阅称GPU通过或质量成果。
+
 人类最新明确“以后只要考虑新习得就行，不考虑遗忘了”，已写入根AGENTS.md与[研究重点记录](summary/acquisition_readout_20261025/v1/HUMAN_RESEARCH_FOCUS.md)。后续只检验现有方法为什么没有学好新任务及改善新习得的机制，不继续保持／抗遗忘／历史保护。正式五域最终F1、完整参数及GPU指标仍报告，不把工程实现或少数据计数当原因结论。
 
 新的80条已有快照读出已完整核验：原共同配方与朴素r8的医学刚习得均36.857143、遥感均65，40条逐ID F1全同；共同配方的终态收益在这两个域没有对应新习得提升。两S19全状态重构及20阶段视图、80生成／唯一80评分、0训练／NLL／TEST完整；983.880617模型秒。verifier ROOT入口的真实0评分故障保留，独立单AST修复不动源／READY／回答，原unit仍failed；1542.919735原激活累计秒内完成。全部正负、范围、修复成本与[独立评判见完整结论](summary/acquisition_readout_20261025/v1/FINDINGS.md)。原预测和22新输出已完整转存NEW private，父包不再重复hash；无新的正式TEST结果，8/16及原表不变。

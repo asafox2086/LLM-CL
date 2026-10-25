@@ -1,0 +1,146 @@
+{
+  "experiment_id": "two_backbone_pct10_forever_dynamic_20261025",
+  "training_enabled": true,
+  "seed": 42,
+  "epochs": 1,
+  "validation_enabled": false,
+  "methods": [
+    "FOREVER"
+  ],
+  "selected_sources": [
+    "TextVQA",
+    "SLAKE",
+    "RSVQA-LR",
+    "FinMME",
+    "CODA-LM"
+  ],
+  "removed_dataset": "AQUA",
+  "evaluation": "initial all; intermediate current+next; final all; no historical-peak ForgetRate",
+  "checkpoint_all_stages_methods": [
+    "SeqFT_LoRA"
+  ],
+  "save_final_parameters": true,
+  "checkpoint_other_methods": "rolling latest committed stage and final",
+  "conditions": {
+    "pct10": {
+      "train_fraction": 0.1,
+      "test_fraction": 1.0,
+      "ready": true,
+      "allowed_gpus": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "manifest": "data/FiveDomainCL/five_domain_native_cl_pct10_20261025/pct10/manifest.json",
+      "manifest_sha256": "02ef86674c22a9dbf7f0d406398615437f8406cff364415e14d54f5fdb5bfcb7"
+    }
+  },
+  "hosts": {
+    "old_pct10_onevision": {
+      "backbone": "onevision",
+      "reserved_gpus": [],
+      "conditions": {
+        "pct10": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "minimum_free_mib": 8500
+    },
+    "old_pct10_qwen": {
+      "backbone": "qwen",
+      "reserved_gpus": [],
+      "conditions": {
+        "pct10": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "minimum_free_mib": 8500
+    },
+    "new_pct10_onevision": {
+      "backbone": "onevision",
+      "reserved_gpus": [
+        0
+      ],
+      "conditions": {
+        "pct10": [
+          1,
+          2,
+          3
+        ]
+      },
+      "minimum_free_mib": 16000
+    },
+    "new_pct10_qwen": {
+      "backbone": "qwen",
+      "reserved_gpus": [
+        0
+      ],
+      "conditions": {
+        "pct10": [
+          1,
+          2,
+          3
+        ]
+      },
+      "minimum_free_mib": 16000
+    }
+  },
+  "ownership": {
+    "old_pct10_onevision": [
+      "pct10:FOREVER"
+    ],
+    "old_pct10_qwen": [
+      "pct10:FOREVER"
+    ],
+    "new_pct10_onevision": [
+      "pct10:FOREVER"
+    ],
+    "new_pct10_qwen": [
+      "pct10:FOREVER"
+    ]
+  },
+  "task_count": 19,
+  "framework_version": "shared-v2-uniform-input-and-cache",
+  "backbone_comparison": "all controlled protocol/code identical; native model/tokenizer/processor only",
+  "shared_loss_scale_init": 1,
+  "image_processing": "identical RGB/bicubic aspect-preserving global401408pixel input cap for both; sourceimages never overwritten; thennativeprocessor",
+  "source_dataset_id": "five_domain_native_cl_20261016_sparse",
+  "shared_image_area_cap": 401408,
+  "shared_visual_cache": "per-model/run CPU LRU128MiB; samecachelogic/dtype; no crossmethod diskcache",
+  "full_label_exclusion": {
+    "id": "SLAKE:1622",
+    "count": 1,
+    "effective_train": 131018,
+    "user_authorized": true
+  },
+  "scope_revision_20261018": {
+    "removed_before_formal_training": [
+      "ALER",
+      "FV_guided_Training"
+    ],
+    "pending_not_admitted": [
+      "FOREVER"
+    ],
+    "reason": "User removes two untrained regularizers; requests a published replay comparator",
+    "details": "summary/two_backbone_pct01_20261017/BASELINES.md",
+    "removed_published_comparison_control_by_user": "ER_LoRA",
+    "ER_history_preserved": true
+  },
+  "dynamic_runner_scope": {
+    "status": "WIP build only; not admission or activation",
+    "primary_score": "token_f1",
+    "main_protocol": "shared task-level optimizer/cosine/order",
+    "author_current_HF_phase_restarts_reproduced": false,
+    "dynamic_over24_actual_GPU_validation": "pending",
+    "original_sources_modified": false,
+    "standalone_pipeline_main_not_invoked": true,
+    "upstream_revision": "bbeb549a21e59d9490f20a2b02099ee766a67f48"
+  }
+}

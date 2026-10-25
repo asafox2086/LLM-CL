@@ -8,7 +8,7 @@
 - 原`analysis/forever_multimodal_core_20261019.py` SHA：`2d9d5be87d81df80eab6ddf0095ce399c9a73d9c8c29909a5022d2364fdeeed8`。新core启动时核其字节，继承其已固定作者selector、DriftRecorderCallback、ReplayTrainer loss和强度公式，不修改旧文件。
 - 原`analysis/forever_multimodal_replay_v2_20261019.py` SHA：`8024931496a032ea666e44376d79614d7c223b17c73ff11a8074494f87cd3683`。新adapter继续调用这一实际HF回放与AMP清理，不改变两epoch／5warmup／正则损失。
 - 原v3`forever_adapter.py` SHA：`a9fd1fc2750117b94dfc712392ef616dca9cdb586b738e0b28ec5408097f710d`。
-- 本次新`core.py` SHA：`7dcbadf1a7793cf32b13cbf08e2697a4d5588d5062841c5055eb82ed0d70202b`；新`forever_adapter.py` SHA：`47e074f9882e5ad14e8d3adcc89aae4e8ed03a0ee169550cfacc5856cf9dd044`。如后续审查修源，须更新此身份记录，不称本版本已冻结。
+- 本次新`core.py` SHA：`7dcbadf1a7793cf32b13cbf08e2697a4d5588d5062841c5055eb82ed0d70202b`；新`forever_adapter.py` SHA：`68a911e46c1e6db9d8da8125e9243f6480032e98bbbdc1f8cd9e49db9c5327cb`。如后续审查修源，须更新此身份记录，不称本版本已冻结。
 
 ## 实际状态机
 
@@ -47,6 +47,12 @@ HF Trainer初始化会调用`set_seed(42)`，重置Python／NumPy／Torch／CUDA
 
 ## 预检合同与尚未完成的证据
 
-新`preflight_replay`按真实S2全部107题原hash顺序，以batch16／micro1执行7次实际current更新及原cosine/GradScaler，之后才阶段末真实回放；不再one-step后伪传updates=7。其输出完整记录107个ID、7个梯度/LR及实际调度摘要。它仍是disposable预检，不是合法S1→S2科学轨迹。
+集成源码审查发现并在GPU运行前修正一个确定入口错误：原run先`begin_stage(1)`，再做19个各task首题的公共诊断，而该循环不调用`after_update`；原stage1 core尚在，新预检原来的`core is None`断言会恒失败。现在只允许丢弃严格满足stage1、step/tau均0、尚未校准、无历史／活跃或已完成回放／终态的这个disposable调度器，记录`FOREVER_COMMON_PREFLIGHT_DISCARD.json`。公共诊断真实改变的权重保留，明确它不是已经训练完成的S1前缀；19题实际发生的证明由原外层preflight记录绑定，不凭此处的来源合同冒充实际完成记录。
 
-S2只有7步，故该预检**不能证明24步后动态分支已在GPU执行**，输出明确保留pending标记。后续有空卡时还需按独立授权验证可达动态触发、回放后继续主训练、真实主更新计数/LR/参数ID及完整checkpoint/reload；不沿用旧1%的零触发proof作为新调度准入。这些验证本次均未运行，不自动新建任何模型门。
+root接受将原S2七步预检直接替换为**唯一T13派生25步检查**，不先做7步再叠一个门。保留原完整`self.train_tasks`、manifest及`task_by_id`不变，只向新core传临时19task view：原T1–T12分别按`SHA256(42:task:ID)`取首1，T13取前385，未来task为空；原selector实际选择过去12题中的memory，不按答案人为选择。view ID及摘要单列保存；公共loss仍经原全量ID→task映射读取原问题、图像、答案和指令。
+
+预检以原optimizer／cosine／GradScaler／batch16、micro1执行真实25个current更新，首次24步自然校准后须实际完成至少一个dynamic replay，再完成正LR的第25步，最后`end_stage(13)`执行实际final replay并释放core。没有修改tau／threshold／beta；若自然覆盖不成立，门不通过，不通过改输入补跑。25个梯度／LR、385个current ID、动态→current25→final次序、真实memory与各replay曝光／额外unwrap NLL全记录。
+
+仅在此预检里临时观察每次dynamic前后的外层optimizer／scheduler／scaler对象和state、Parameter对象／storage／requires_grad、gradient-checkpoint标志，要求不变；允许权重被回放更新，也不保存恢复整个replay RNG。这是检查合同而非已经获得GPU证据，正式方法没有新增该观察hook。当前更新完成后像原协议一样释放外部optimizer，再执行final回放。
+
+原run保持字节不变，因此其随后固定的**T19首TRAIN probe**、完整checkpoint保存、独立reload／有限backward仍由原框架执行，不能称T13 probe。它们与原19个公共QA、385 current、实际每次2M replay训练和每次2个unwrap NLL均计费；门receipt只是先记录后续尾部费用仍须外层proof闭合，不宣称尚未运行的尾部完成。没有伪造前12个正式stage events或提交rolling checkpoint。本门不是科学训练轨迹或效果，0TEST／生成／F1；上述全部GPU及完整CP／reload验证当前均未运行，不沿用旧1%零触发proof准入。

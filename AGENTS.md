@@ -4,6 +4,7 @@
 - 新TRAIN-only审计已唯一完成，AUDIT SHA48f2c8294e8f6f08ae2d5be94257dc98afaa85dd505c0019320f20eb1662cb01，医学／金融188及1871题、0TEST／模型／评分。金融单选1%A22/B18/C7/D6，10%A189/B163/C99/D76；偏斜减弱但仍存在，不能据此认定塌缩原因或预测10%模型。异常和分母全保留，独立review接受；不重跑审计。结果与后续对齐见summary/train_answer_prior_20261025。
 - OLD原四个10%正式worker仍实际身份匹配，当前初始完整评价，无10%已完成质量；新核验CPU4063535先发布dc01df1后激活，0候选／0评分，等待完整native真实exit0。828为optimizer调用，按原warmup公式正LR822／合法零LR首步6；只修新核验assert，原科学源不改。两FOREVER仍defer，新dynamic core／adapter仅WIP，未经GPU验证不运输启动。
 - 等函数LoRA尺度/RITE和训练前后记账均发现旧研究已经覆盖，不重复建实验／重算旧分数／自动恢复关闭分支；现有方法质量和更小完整权重联合目标仍未实现。新结果后才更新主表，不把描述统计或实现当新方法成功。
+- 10%FOREVER独立目录现已纯元数据构建完成，BUILD_RECEIPT ceaaf231a06be45997a7354af36695f304393d75309c550a29ea2a70a8513b5b；adapter68a911e4／core7dcbadf1／builderb503c2e9，0模型／评分／OLD运输。原run入口遗留stage1 core的致命前提在模型前修复，初审遗漏如实保留，独立集成review不等于GPU通过。唯一派生T13 385QA／25更新门须实际动态回放→current25→final→原T19 probe／完整CP／独立reload，每骨干2400秒，未执行／未自动排队；两FOREVER保持defer。金融位置干预／新训练fork仅评判，优先先有完整正式10%结果，不自动执行或新建split。
 
 # 2026-10-25：人类明确授权第二主表，训练10%并使用完整测试
 
