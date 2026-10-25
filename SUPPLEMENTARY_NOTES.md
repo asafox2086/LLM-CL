@@ -24,6 +24,8 @@ OLD账户701GiB／硬配额700GiB，即使整盘2.5TiB空闲也不可继续写�
 
 2026-10-25原生紧凑Q完整终态：初34.230333→37.991536<43.791987，完整权重−43.214033%，GPU五窗峰却全部更高；关闭固定点。仅配置标准加载对象恢复，保原失败、87更新不重做、原deadline不延；210生成／200唯一评分／0TEST，原起点到完成2176.544260秒含修订等待。完整CP已存NEW private并逐字节绑定，OLD源保留；两研究单位已退出。[全部证据与分项费用](summary/native_prior_learning_20261025/compatibility/INTERPRETATION.md)。
 
+2026-10-25预训练空间读出对应pair首次真实fit失败：首组raw／teacher的FP16合同不成立，实际dtype未留存，不臆测具体类型或算子。已实际处理首FIT视觉，0新回答／评分／反向／优化器更新；后五阶段未STARTED，unit failed／原worker已退出。STARTED→EXIT15.663594秒仅重叠墙钟代理；准入4.483917秒、准备／运输／实现／审阅另计。原错误／协议／READY保留，非纯I/O例外，不加cast／改autocast救跑。本次质量缺测、非读出科学阴性；[证据与费用](summary/spatial_readout_transfer_20261025/v1/FAILURE_FINDINGS.md)。
+
 下面为2026-10-24交接原记录，原“当前／活动／下一步”均按历史时点理解。
 
 ## 新会话运行交接（2026-10-24历史）
