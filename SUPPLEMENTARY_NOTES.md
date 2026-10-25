@@ -534,3 +534,18 @@ ShortFixed实测梯度357,940,224字节、两Adam moment715,880,448字节；较�
 实际1213FIT／19阶段／87正LR更新，105新生成／100唯一F1／0TEST，96训练张量、梯度2162688bytes、GPU AdamW4325760bytes。完整fold模型893675552系数／1787351104权重bytes，普通buffers9032；最终完整重载通过。模型951.875543319秒，controller时间重叠不加；唯一核验12.578896171秒，归档46.309331444秒及实现/准入/运输另计。155个新产物逐SHA核对已私有存NEW，OLD scratch保留，无QA正文或checkpoint入Git。结果consumer仅汇总既有标量，0模型／0评分。
 
 [结果与全部域](summary/plain_r8_gpu_control_20261025/v1/FINDINGS.md) · [完整VERIFIED](summary/plain_r8_gpu_control_20261025/v1/VERIFIED.json) · [结果审阅](summary/plain_r8_gpu_control_20261025/v1/RESULT_REVIEW.json) · [归档收据](summary/plain_r8_gpu_control_20261025/v1/ARCHIVE_RECEIPT.json)。新方法借鉴I-LoRA，未围绕OSFT另开机制拆解；固定r8/无新增门参数的实际收益仍待三臂实验。与朴素对比训练GPU身份不同，回放和EMA整包曝光差不能归给门。
+
+
+### 答案读出门：三臂固定实验首次启动
+
+2026-10-25预注册提交aa100a7fb40779833ee9f46428e107983ac074e3先于激活。READY e654eb6f0c0599ef76022711866ff5e5b7061d129c1cf7f57565eb2ff36ff2fe；原8科学源、正式协议、核心交叉／root／最终准入审阅均绑定后，才在OLD `/tmp/llmcl-answer-readout-cl-1084-ft3em1z0` 启动 `llmcl-answer-readout-cl-20261025.service`。unix1792924605.145713快照unit active/running，gate worker3992422/start762302299/UID1084/PGID同PID、GPU2身份真实匹配；其余phase尚未STARTED。只是时点快照，无完整质量结果、无永久live声明。
+
+顺序gate/original/shuffle在同GPU2训练，各5400秒；随后同GPU1逐臂评价各600秒；总18000模型秒、外层18300，从各首次STARTED累计，不重置。每臂1213 current FIT／886 past-only replay／87更新，三臂8955次训练decoder请求、2658次额外target-head、3639次组合loss backward；最终315生成／300唯一新评分／0TEST，全部六phase完整成功后才消费质量。冻结slow540672 FP32系数/2162688bytes，working540672训练坐标，新门0参数；最终只导出working常规GPU fold，完整893675552 FP16系数设计待实际证实。不能把小EMA成本称完整训练内存上限。
+
+这是借I-LoRA检验固定参数预算下的选择性约束，不再把OSFT机制当主方法前提。只胜原法而未胜同数shuffle，不能支持样本对应选择；shuffle实际Hamming为0时也不识别selection。仅末态DEV不能区分习得/保持，模型失败记实施缺测；没有正式胜最强或科研目标完成。原Naive旧标量复制，无重评分；相对Naive的整包差还含回放/EMA及训练GPU身份差异。
+
+源码交叉审阅在READY前修了两处真实接口风险：prepare_update原调用带processor，补形参并校身份；teacher输入embedding hook可在no_grad内留下leaf requires_grad标记，先detach再检查，保目标数值/门/dropout不变。原源码SHA与修正后SHA及作者均在CORE_CROSS_REVIEW记录，0真实模型/旧质量影响；不包装成首审无错。元数据准入0.274581533秒，0模型请求；实现/审阅/运输另计。首模型故障/超时关闭，不默默重跑、延长、改rank/LR/gamma/memory/门阈值或精度。
+
+[正式协议](summary/answer_reliability_consolidation_20261025/v1/PROTOCOL.md) · [核心交叉审阅](summary/answer_reliability_consolidation_20261025/v1/CORE_CROSS_REVIEW.json) · [最终源码准入](summary/answer_reliability_consolidation_20261025/v1/ADMISSION_REVIEW.json) · [实际激活](summary/answer_reliability_consolidation_20261025/v1/ACTIVATION.json) · [时点观察](summary/answer_reliability_consolidation_20261025/v1/LATEST_METADATA_OBSERVATION.json)。
+
+同轮NEW基线实际进程/队列快照在BASELINES_BEFORE_ADMISSION：原CL-MoE/SMoLoRA PID8260/8265仍匹配且CPU ticks推进，主1221743 active/running，GPU1/2/3当时均有进程，GPU0不由我方分配；其它5项待空卡/原reload，FOREVER原队列保持。没有新增sealed正式证明，主表8/16、FOREVER和8组存储原值不改。
