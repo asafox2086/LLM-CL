@@ -40,6 +40,8 @@ OLD账户701GiB／硬配额700GiB，即使整盘2.5TiB空闲也不可继续写�
 
 2026-10-25基线容量调度已执行：旧主CPU2497/start10169与hardware2496/start10168的KillMode=process／无ExecStop、独立GPU8260/start60876与8265/start60882均实查后，只停两个CPU coordinator。新主1221743/start26017836统一接管两lane，原GPU身份与CPUticks前后同一且继续增长；无GPU信号、不重启训练。只将v2策略两NEW host设备分配改reserved[0]／pct01[1,2,3]／full[]，全部25科学py SHA原样；FOREVER冻结frame及队列不动。旧hardware已disable避免回到全Qwen屏障及自动full尾段；新主Restart=no、原KillMode=process。发布838da45aa274d5958c752f4f5c636ec752d9aaf5。1792917321.335583新机快照：GPU0为UID1020占用，GPU1三个UID1024，GPU2/3两原基线及UID1024共享；wrapper真实active/running、pending五项，不能谎称全基线已同时满载。1792917330.575376旧机四卡ownerless；七OneVision原结果已sealed仅缺必须原生BF16的新机SMo，不能在2080Ti强改FP16救跑。新机CL实际completed16/active17，SMo初态评价仍前进；保原supervisor路径及ready_reload原门，未重复preflight。新sealed proof后再提取新增组合完整权重/必需状态/原dtype字节/容器文件及训练坐标，保留原8组不重复大hash；此为必要调度实施，不当科研方法收益。
 
+2026-10-25人类新增明确“不能简单扩容”、同时鼓励已有多领域CL机制的具体场景适配。宽QV formal源/协议及静态ADMISSION_REVIEW在新指令前刚备妥，但无READY、未调用metadata准入/激活，0formal训练/TEST生成/评分；独立DIRECTION_CLOSED覆盖其计划，不改原源/草案/审阅或已完成QV结果。仅只读资产检查（原数据完整、旧view缺TESTmeta）及本地8锚标量汇总；Qwen宏由原五域均值重聚合48.972351176657504，与原proof宏差约1ULP，不是新QA评分。wide新增4399104、比朴素540672多3858432，fold后均0新增，不能包装方法创新。GPU模型未启动、未终止任何训练；基线统一调度继续。正式9/19阶段仅一更新，FIT10/19，不能混为正式多数；特定冷专家问题不推广为所有共享基线。新研究转向已有CL功能承接的具体适配，候选不自动准入，完整目标仍未实现。
+
 下面为2026-10-24交接原记录，原“当前／活动／下一步”均按历史时点理解。
 
 ## 新会话运行交接（2026-10-24历史）
