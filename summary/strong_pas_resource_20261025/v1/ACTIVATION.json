@@ -1,0 +1,50 @@
+{
+  "unix": 1792914032.7896097,
+  "unit": "llmcl-strong-pas-resource-20261025.service",
+  "physical_GPU": 1,
+  "virtual_GPU": 0,
+  "ready_sha256": "c091e1b0043519ea14f036d31624a151701198e5dd6e5239e0e3d3df408b36a5",
+  "preregistration_commit": "41939acb29614ea78d23ffc530c1b273ec441f2c",
+  "cards_before": {
+    "0": {
+      "uuid": "GPU-783c5d2c-a6f8-9594-472c-4ab9fe54d3b1",
+      "memory_MiB": 8,
+      "utilization": 0,
+      "owners": []
+    },
+    "1": {
+      "uuid": "GPU-3c72e4ce-0896-0b40-d610-be585d2bb51e",
+      "memory_MiB": 8,
+      "utilization": 0,
+      "owners": []
+    },
+    "2": {
+      "uuid": "GPU-25d3cb92-fa97-a722-f9cd-c012bad046a8",
+      "memory_MiB": 8,
+      "utilization": 0,
+      "owners": []
+    },
+    "3": {
+      "uuid": "GPU-fb9fc5ed-bf92-b947-d8c5-302296c4a447",
+      "memory_MiB": 8,
+      "utilization": 0,
+      "owners": []
+    }
+  },
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit=llmcl-strong-pas-resource-20261025.service",
+    "--property=Restart=no",
+    "--property=KillMode=control-group",
+    "--property=RuntimeMaxSec=630",
+    "--property=TimeoutStopSec=5",
+    "--setenv=CUDA_VISIBLE_DEVICES=1",
+    "--setenv=LLMCL_ROOT=/data2/liyapeng_grp/program/LLMCL",
+    "--setenv=LLMCL_RUN=/tmp/llmcl-strong-pas-resource-1084-30up0n_o",
+    "--setenv=LLMCL_ASSET=/tmp/llmcl-response-pair-1084-geic2vef/asset_view",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "-u",
+    "/tmp/llmcl-strong-pas-resource-1084-30up0n_o/controller.py"
+  ]
+}

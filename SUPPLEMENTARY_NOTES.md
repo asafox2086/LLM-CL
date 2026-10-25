@@ -32,6 +32,8 @@ OLD账户701GiB／硬配额700GiB，即使整盘2.5TiB空闲也不可继续写�
 
 2026-10-25原生响应pair完整终态：唯一VERIFIED 482d531edc4ab26455986b2f722204b9ac350368f3ef71bdd70da8de85beca76，四phase实际exit0、unit inactive/MainPID0，原四worker身份均无；不再等待或恢复此入口。动态宏44.757602698／固定44.681200950，医学和金融均低旧各域底线，按事前协议关闭。两图base+24β，最终893675576系数、普通buffer242504bytes；实际五窗峰约1857–2166MiB，两图接近但没有测强基线胜利。完整模型秒2507.544632246、controller墙钟1436.842244530重叠不加；唯一核验25.930428430、标量consumer0.625、归档97.583366430秒另计，32QA校准31.973244172秒及历史成本保留。NEW private_paired已核314个新产物字节SHA，包括初末完整图和19阶段adapter；OLD源保留。原事前问题账本不改，新正负／逐题／β轨迹与缺测解释均在新[完整结果](summary/native_response_selection_20261025/v1/PAIRED_FINDINGS.md)。结果评审纠正动态β上界不能称已测βd，文案修正0模型／0评分，不重新消费质量。两活基线元数据见[时点记录](summary/native_response_selection_20261025/v1/BASELINE_METADATA_OBSERVATION_DURING_PAIR.json)，无新增正式proof，8/16及原主表全部保留。
 
+2026-10-25人类明确修订判据：“不用五领域都最强，总的稍微高一点就行。因为我们有个很显著的优势：内存占用小得多”。因此旧逐域hard floor不再适用，按总体宏保留动态候选进入必要比较；旧PAIR_VERIFIED／事前账本／旧关闭判决原字节保留。正式PAS原完整图GPU1五窗已独立exit0，VERIFIED／state与输入绑定通过，73.128928190模型秒、5×32新token、0F1／NLL／训练。动态峰低24.862500–26.798542%，完整系数少13.608393%，原dtype权重字节少23.956668%；保留原混合dtype／训练CPUhistory／非最优部署／五窗非全分布限制。准备时missing-proof路径修复与误hash整source map（含1次旧CP及TEST／预测文件SHA-only、无QA解析／质量读取）12.935504919秒均公开，不抹除或当科研收益。下一项为匹配GPUAdam／GPUfold的QV-only，已写独立部署／适应副本，尚未准入或模型启动；不重开旧worker，不根据TEST挑方案。[新决策](summary/native_response_selection_20261025/v1/CURRENT_DECISION.md)、[PAS全部资源证据](summary/strong_pas_resource_20261025/v1/FINDINGS.md)。
+
 下面为2026-10-24交接原记录，原“当前／活动／下一步”均按历史时点理解。
 
 ## 新会话运行交接（2026-10-24历史）

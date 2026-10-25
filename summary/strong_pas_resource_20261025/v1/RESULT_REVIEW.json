@@ -1,0 +1,73 @@
+{
+  "accepted": true,
+  "scope": "Read-only scientific review of the completed original PAS five-window deployment measurement; acceptance of evidence, not method quality or optimized deployment superiority.",
+  "bindings": {
+    "summary/strong_pas_resource_20261025/v1/VERIFIED.json": "c987ec2ac68980944a1ebdc515fab08a792667f923d142f6f8489d3725753d08",
+    "summary/strong_pas_resource_20261025/v1/COMPLETE.json": "a48a8daa2adc17ecbcf576ff0257f1a9fbf7cc24b0a2fb3078751dbcb6085139",
+    "summary/strong_pas_resource_20261025/v1/memory.json": "45bb9f4ca6d233b139f3c6a9b0255d29eee07e160b085fcef487bad8a3d8d7cd",
+    "summary/strong_pas_resource_20261025/v1/READY.json": "c091e1b0043519ea14f036d31624a151701198e5dd6e5239e0e3d3df408b36a5",
+    "summary/strong_pas_resource_20261025/v1/EXIT.json": "cfb85799c0009410a2aa6bf7facdf5a8c50262a62c6fb783386f5e5b9f29c480",
+    "summary/strong_pas_resource_20261025/v1/PREACTIVATION_RUNTIME_FILTER.json": "feaf079c31f09bbcd4e9782e47dca471ef99344cee1222c997c15580e7423e25"
+  },
+  "paired_comparison_review": {
+    "path": "summary/native_response_selection_20261025/v1/HUMAN_CRITERION_REVIEW.json",
+    "sha256": "91340a6d4c8aaa7de94f722f72a97c92b63e20e6be3ddcd156d757a3fbc4fa7a"
+  },
+  "findings": {
+    "actual_successful_exit": true,
+    "seconds": 73.12892819009721,
+    "physical_GPU": 1,
+    "five_same_prepared_inputs_each_32_tokens": true,
+    "new_scores": 0,
+    "new_NLL": 0,
+    "new_training": 0,
+    "state_and_buffers_unchanged": true,
+    "PAS_complete_weight_coefficients": 1034446880,
+    "PAS_complete_weight_bytes": 2350436416,
+    "measured_peak_comparison": [
+      {
+        "domain": "natural",
+        "PAS_peak_allocated_bytes": 3103171584,
+        "dynamic_peak_allocated_bytes": 2271566848,
+        "dynamic_reduction_percent": 26.798541862389005
+      },
+      {
+        "domain": "medical",
+        "PAS_peak_allocated_bytes": 2909733376,
+        "dynamic_peak_allocated_bytes": 2140500480,
+        "dynamic_reduction_percent": 26.436542342496743
+      },
+      {
+        "domain": "geography",
+        "PAS_peak_allocated_bytes": 2611419136,
+        "dynamic_peak_allocated_bytes": 1947429376,
+        "dynamic_reduction_percent": 25.426395588762354
+      },
+      {
+        "domain": "finance",
+        "PAS_peak_allocated_bytes": 2867997184,
+        "dynamic_peak_allocated_bytes": 2140495360,
+        "dynamic_reduction_percent": 25.366197291217425
+      },
+      {
+        "domain": "traffic",
+        "PAS_peak_allocated_bytes": 3022102528,
+        "dynamic_peak_allocated_bytes": 2270732288,
+        "dynamic_reduction_percent": 24.862499966116307
+      }
+    ]
+  },
+  "supported": "The retained dynamic candidate used 24.8625–26.7985% less peak GPU allocated memory than the original complete PAS implementation on these same-card fixed windows.",
+  "limitations": [
+    "Actual original PAS implementation retains its mixed dtypes, mandatory masks, CPU training-history objects and tiny GPU statistics. This is not an equal-dtype, optimally folded PAS comparison.",
+    "Five fixed fresh 32-token windows demonstrate these measured allocated peaks, not the worst peak over all inputs, latency, energy, or total host memory.",
+    "This resource-only pass does not improve or newly validate PAS F1, and use of its formal checkpoint for resources is not permission to use it as a FIT-only teacher or quality-selection control.",
+    "PAS preparation mistakenly hashed an overbroad historical source map once; the preserved preactivation record reports 12.935504918918014 seconds, no QA parsing, quality consumption or model requests. This is cost, not scientific progress.",
+    "No speed advantage is established because this run did not measure latency.",
+    "Parameter-byte counts, required masks, ordinary buffers, saved checkpoint bytes, host metadata and runtime peak memory are distinct quantities; none substitutes for another.",
+    "The new resource evidence neither changes formal PAS quality nor establishes the candidate aggregate F1 exceeds the strongest baseline."
+  ],
+  "preparation_disclosure": "The preactivation overbroad hash map and its cost are retained in PREACTIVATION_RUNTIME_FILTER.json; the runtime source and scientific protocol were not modified by that filtering.",
+  "review_execution": "Local JSON reading, small evidence-file SHA binding and arithmetic on verified GPU peak scalars only. No model, remote access, QA parsing, scoring, large checkpoint hash, or source modification.",
+  "reviewer": "/root/research_review"
+}
