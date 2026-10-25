@@ -1,0 +1,23 @@
+{
+  "unix": 1792926577.0401506,
+  "unit": "llmcl-answer-readout-cl-prestart-continuation-20261025.service",
+  "original_failed_service": "MainPID=0\nExecMainStatus=1\nActiveState=failed\n",
+  "absolute_wall_deadline": 1792942902.5616567,
+  "permit_sha256": "4eef490d7cdc4e1f8176ca000d83620f911b1b2eba3ffbbe41b35b07cb511847",
+  "preregistration_commit": "753d8288ebd2df6bf77f44041926d78e91717421",
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit=llmcl-answer-readout-cl-prestart-continuation-20261025.service",
+    "--property=Restart=no",
+    "--property=KillMode=control-group",
+    "--property=RuntimeMaxSec=16325",
+    "--property=TimeoutStopSec=5",
+    "--setenv=LLMCL_ROOT=/data2/liyapeng_grp/program/LLMCL",
+    "--setenv=LLMCL_RUN=/tmp/llmcl-answer-readout-cl-1084-ft3em1z0",
+    "--setenv=LLMCL_ASSET=/tmp/llmcl-response-pair-1084-geic2vef/asset_view",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "-u",
+    "/tmp/llmcl-answer-readout-cl-1084-ft3em1z0/prestart_continuation.py"
+  ]
+}

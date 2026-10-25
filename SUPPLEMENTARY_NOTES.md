@@ -560,3 +560,14 @@ ShortFixed实测梯度357,940,224字节、两Adam moment715,880,448字节；较�
 原CP已从NEW canonical私有运输至OLD/tmp，原件/OLD副本保留；仅模型原加载器全hash一次。运输40.240818748秒、准入0.228828288秒、实现/源码审阅/发布/结果复核另计；客户端准入字段KeyError发生于远程/模型之前，同提交push ref竞争核实远端已成功承接后才启动，细节均在FINDINGS。首次真实模型完整成功，无版本救跑或新精度/后端；ARC三臂在另一GPU继续，未更改。
 
 [全部窗口和解释](summary/strong_qwen_resource_20261025/v1/FINDINGS.md) · [完整核验](summary/strong_qwen_resource_20261025/v1/VERIFIED.json) · [结果审阅](summary/strong_qwen_resource_20261025/v1/RESULT_REVIEW.json)。
+
+
+### 固定r8三臂的模型前资源拒绝与限定续接
+
+gate已完整19阶段／87更新、1408.252424500模型秒、EXIT0；下一original的3999463在Context组合GPU资源断言被拒，未到STARTED/Torch/CUDA/数据/模型，0QA。原拒绝未记录具体子条件，当前空卡不能追认原因为NVML残留或他人占用。两agent按源/trace/身份判断这是模型前准入，非方法阴性；原科学协议的首模型故障关闭规则不应被扩大成因排队直接放弃。
+
+已公开事前补正753d8288ebd2df6bf77f44041926d78e91717421：原4失败文件按原字节SHA/路径映射保留于独立attempt目录，旧unit仍failed；8科学源/READY/参数/数据/随机顺序不改，gate不重训。外部stdlib监督仅续接五个未模型启动阶段，原空卡谓词连续两次相隔2秒满足后才启动，等待/维修仍计入原绝对截止2026-10-25T15:41:42.561657+00:00，不延长。最终续接receipt将原失败和实际六phase／原一次300分核验连起来，不能伪装无故障。
+
+unix1792926762.8731668新unit `llmcl-answer-readout-cl-prestart-continuation-20261025.service` active/running，original worker4001502/start762499983在GPU2身份匹配，已11梯度见证；这是时点证据而非完整F1。新Qwen资源probe已退出，GPU1释放，不影响其余eval顺序。NEW基线同轮实际仍运行两条，其它原队列待空卡。主表只补既成功的原formal资源值，不读本三臂partial质量。
+
+[具体续接与唯一消费者](summary/answer_reliability_consolidation_20261025/v1/CONTINUATION_HANDOFF.md) · [原故障实查](summary/answer_reliability_consolidation_20261025/v1/PRESTART_FAILURE_OBSERVED.json) · [独立源码审阅](summary/answer_reliability_consolidation_20261025/v1/PRESTART_CONTINUATION_REVIEW.json) · [准许范围与原预算](summary/answer_reliability_consolidation_20261025/v1/PRESTART_CONTINUATION_PERMIT.json)。

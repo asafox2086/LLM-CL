@@ -1,11 +1,18 @@
 {
-  "unix": 1792924605.145713,
-  "service": "MainPID=3992421\nExecMainStatus=0\nActiveState=active\nSubState=running\n",
+  "unix": 1792926762.8731668,
+  "service": "MainPID=4001425\nExecMainStatus=0\nActiveState=active\nSubState=running\n",
+  "observed_unit": "llmcl-answer-readout-cl-prestart-continuation-20261025.service",
+  "preSTARTED_continuation": true,
+  "original_preSTARTED_failure_preserved": true,
   "phases": {
     "train_gate": {
       "started": true,
-      "complete": false,
-      "exit": null,
+      "complete": true,
+      "exit": {
+        "pid": 3992422,
+        "returncode": 0,
+        "unix": 1792926012.1138082
+      },
       "failure": null,
       "identity": {
         "pid": 3992422,
@@ -13,18 +20,27 @@
         "uid": 1084,
         "pgid": 3992422
       },
-      "identity_present": true,
+      "identity_present": false,
       "GPU": 2,
       "start_unix": 1792924602.872121,
-      "gradient_files": 0,
-      "stage_complete_files": 0
+      "gradient_files": 87,
+      "stage_complete_files": 19
     },
     "train_original": {
-      "started": false,
+      "started": true,
       "complete": false,
       "exit": null,
       "failure": null,
-      "gradient_files": 0,
+      "identity": {
+        "pid": 4001502,
+        "startticks": "762499983",
+        "uid": 1084,
+        "pgid": 4001502
+      },
+      "identity_present": true,
+      "GPU": 2,
+      "start_unix": 1792926579.746108,
+      "gradient_files": 11,
       "stage_complete_files": 0
     },
     "train_shuffle": {
