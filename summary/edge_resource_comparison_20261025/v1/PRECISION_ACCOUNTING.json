@@ -1,0 +1,49 @@
+{
+  "source_proofs": {
+    "summary/strong_pas_resource_20261025/v1/COMPLETE.json": "a48a8daa2adc17ecbcf576ff0257f1a9fbf7cc24b0a2fb3078751dbcb6085139",
+    "summary/strong_qwen_resource_20261025/v1/COMPLETE.json": "3dfaaf0c035e8e53bfc742fb7acf63520ffa8c8894d250b8653eb72f97e42b48",
+    "summary/strong_pas_resource_20261025/v1/VERIFIED.json": "c987ec2ac68980944a1ebdc515fab08a792667f923d142f6f8489d3725753d08",
+    "summary/strong_qwen_resource_20261025/v1/VERIFIED.json": "dd97300219ecbfaeb5052c571c68a4fd61fc3dd8455ab24eff5aa8627ca05e7c"
+  },
+  "source_code": {
+    "path": "CoIN/peft/tuners/coinmoelora.py",
+    "sha256": "75d46bcd7850ec3c03d13968f1e4180098d62a1da7ab905df6f9fa1d054a4b6a",
+    "observed": "gate_router=a input follows A dtype; score uses same dtype; masked_fill uses -1e9. No converted model was attempted."
+  },
+  "folded_LLaVA": {
+    "coefficients": 893675552,
+    "bytes": 1787351104
+  },
+  "fixed_representations": {
+    "PAS": {
+      "original_neural_coefficients": 1034446880,
+      "original_neural_bytes": 2350436416,
+      "hypothetical_two_byte_neural_payload": 2068893760,
+      "persistent_precision_premium_bytes": 281542656,
+      "persistent_precision_premium_MiB": 268.5,
+      "equivalent_FP32_coefficient_count_if_other_weights_FP16": 140771328,
+      "hypothetical_two_byte_excess_over_LLaVA_neural_bytes": 281542656
+    },
+    "Qwen_SeqLoRA": {
+      "original_neural_coefficients": 2210075136,
+      "original_neural_bytes": 4422329344,
+      "hypothetical_two_byte_neural_payload": 4420150272,
+      "persistent_precision_premium_bytes": 2179072,
+      "persistent_precision_premium_MiB": 2.078125,
+      "equivalent_FP32_coefficient_count_if_other_weights_FP16": 1089536,
+      "hypothetical_two_byte_excess_over_LLaVA_neural_bytes": 2632799168
+    }
+  },
+  "PAS_required_masks_bytes_separate": 1344,
+  "hypothetical_Qwen_folded_FP16_base": {
+    "coefficients": 2208985600,
+    "bytes": 4417971200
+  },
+  "conditions": "Two-byte neural payload preserves every neural coefficient, without pruning/sharing/reencoding. Required masks and ordinary buffers are separate. This is a conditional storage accounting, not a model conversion or universal deployment lower bound.",
+  "limitations": "No measured common-dtype GPU peak or quality. Precision premium must not be subtracted from observed GPU peaks. Existing five-window peaks remain original-dtype implementation measurements.",
+  "action": "No additional model or cast-only PAS probe. Await full ARC quality before deciding any further experiment.",
+  "new_models": 0,
+  "new_QA": 0,
+  "new_scores": 0,
+  "checkpoint_payload_bytes_read": 0
+}

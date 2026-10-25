@@ -584,3 +584,14 @@ unix1792926762.8731668新unit `llmcl-answer-readout-cl-prestart-continuation-202
 三臂训练仍由原固定监督推进，本次不读partial质量、不修改科学源／READY／预算、不新增模型分支。后置消费者只完成源码审核和准备，必须两份完整VERIFIED绑定后才运行，0新评分。实际结果出来后按原协议正负全记。
 
 [资源图与精确数据](summary/edge_resource_comparison_20261025/v1/FINDINGS.md) · [独立图审](summary/edge_resource_comparison_20261025/v1/FIGURE_REVIEW.json) · [定向先例](summary/answer_reliability_consolidation_20261025/v1/RELATED_WORK_SCOPE.md) · [论文方向评判](summary/answer_reliability_consolidation_20261025/v1/PAPER_STORY_REVIEW.md) · [后置脚本源码审阅](summary/answer_reliability_consolidation_20261025/v1/POST_CONSUMER_SOURCE_REVIEW.json) · [本轮基线实查](summary/answer_reliability_consolidation_20261025/v1/BASELINES_DURING_RESOURCE_FIGURE.json)。
+
+
+### 参数量优势与dtype影响的分离；低更新替代思路不盲开
+
+对已sealed PAS／Qwen完整布局作精确整数账本：PAS比LLaVA单图额外140,771,328个神经系数，原为FP32；将它们仅在纸面统一按2bytes计，原增加量约537MiB中268.5MiB来自精度溢价，另一268.5MiB来自额外系数（336个FP32 mask另1,344bytes）。这是固定表示、每系数至少2bytes且不重编码的条件账本，不是转换成功、GPU峰下界或精度无损。Qwen原FP32 A/B只1,089,536系数，条件精度溢价2.078125MiB；fold为原FP16基座的纸面载荷仍4,417,971,200bytes，相对LLaVA差异主要来自骨干。不能把精度溢价从实测GPU峰相减。root用sealed COMPLETE／VERIFIED及原代码SHA独立核算，0模型／QA／评分，无CP载荷读取。
+
+源核查还显示PAS原a路由随专家A.dtype计算，且masked_fill使用−1e9；HostedLinear禁autocast。原FP16副本不是经证实的无改forward合法参照。当前不追加halfcast／数值路由改写，现约25%GPU优势限定原实现／dtype；若后续研究要作独立于精度的更强主张，必须另有实际证据，不能由纸面乘法作保证。这项分析不会挽救质量阴性或替代ARC自身测量。
+
+等待当前完整结果时另核一次“少更新能否靠已知梯度初始化提高固定r8习得”。只查LoRA-GA一个原法，历史函数补偿／固定SVD系数不等于真实task梯度对齐，因此不编造已被直接证伪；但现87更新／wide增益也没有识别随机子空间为根因。仅S1的梯度先验有早域偏置，逐stage fold再重初始化则改变累计可表达更新集合，不能借同训练坐标数冒充同适应容量。该工具当前不立项，不启动新协议、源码或GPU点；由已有三臂完整回答先决定是否有必要，不用泛读或梯度计数代替证据。旧RITE最终负结果本地未找到对应完整proof，明确未确认，不恢复旧分支。
+
+[精确载荷账本](summary/edge_resource_comparison_20261025/v1/PRECISION_ACCOUNTING.json) · [独立精度口径评判](summary/edge_resource_comparison_20261025/v1/PRECISION_FAIRNESS_REVIEW.md) · [低更新替代思路核查](summary/answer_reliability_consolidation_20261025/v1/LOW_UPDATE_ALTERNATIVE_REVIEW.md)。最新基线实查仍为CL-MoE完成16阶段／第17阶段评价与SMoLoRA原初评，实际身份存在；没有新增完整sealed组合，不增主表完成数。

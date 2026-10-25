@@ -89,7 +89,7 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 
 保存dtype与表示不同，**存储增加不等于新增参数量**；普通LoRA与OSFT常规fold后都可回原稠密形状，不能拿OSFT未折叠保存态制造独占减重优势。[完整统计口径](summary/final_weight_reduction_20261024/checkpoint_weight_storage_v1/FINDINGS.md)。
 
-**GPU实测成立的范围：** 已完成宽q/v对原完整PAS的同卡、同五题、各32新token测量。宽q/v最终893,675,552个系数，比PAS少**13.61%**；原dtype权重字节少**23.96%**；五窗口GPU峰 **1857–2166 MiB**，PAS为 **2490–2959 MiB**，逐窗低**24.84%–26.81%**。包含原FP32专家／FP16基座的dtype差异，仅是这五窗的原实现比较；未证明同dtype最优部署或全输入峰。[实测证据](summary/native_response_selection_20261025/qv_control/RESOURCE_COMPARISON.json)。
+**GPU实测成立的范围：** 已完成宽q/v对原完整PAS的同卡、同五题、各32新token测量。宽q/v最终893,675,552个系数，比PAS少**13.61%**；原dtype权重字节少**23.96%**；五窗口GPU峰 **1857–2166 MiB**，PAS为 **2490–2959 MiB**，逐窗低**24.84%–26.81%**。包含原FP32专家／FP16基座的dtype差异，仅是这五窗的原实现比较；未证明同dtype最优部署或全输入峰。[实测证据](summary/native_response_selection_20261025/qv_control/RESOURCE_COMPARISON.json) · [参数与dtype影响拆分](summary/edge_resource_comparison_20261025/v1/PRECISION_FAIRNESS_REVIEW.md)。
 
 **全体最强基线的资源锚也已补齐：** 原Qwen顺序LoRA完整图在同卡／同五条原始QA／32-token窗实测为4312–4955 MiB；匹配LLaVA朴素r8为1857–2166 MiB，逐窗少55.15%–58.80%。完整系数较Qwen少59.56%，主要来自骨干与表示差异，不能称新增门的结构贡献。Qwen保原FP16基座＋FP32 LoRA、未fold；各自原生输入展开不同，非最优部署或全分布峰。[完整证据](summary/strong_qwen_resource_20261025/v1/FINDINGS.md) · [三组资源对照图](summary/edge_resource_comparison_20261025/v1/FINDINGS.md)。
 
