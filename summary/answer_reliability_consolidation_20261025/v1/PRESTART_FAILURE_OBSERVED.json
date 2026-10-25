@@ -1,0 +1,138 @@
+{
+  "unix": 1792926146.0895581,
+  "service": "MainPID=0\nExecMainStatus=1\nActiveState=failed\nSubState=failed\n",
+  "ready_sha256": "e654eb6f0c0599ef76022711866ff5e5b7061d129c1cf7f57565eb2ff36ff2fe",
+  "current_cards": {
+    "0": {
+      "uuid": "GPU-783c5d2c-a6f8-9594-472c-4ab9fe54d3b1",
+      "memory_MiB": 8,
+      "utilization": 0,
+      "owners": []
+    },
+    "1": {
+      "uuid": "GPU-3c72e4ce-0896-0b40-d610-be585d2bb51e",
+      "memory_MiB": 8,
+      "utilization": 0,
+      "owners": []
+    },
+    "2": {
+      "uuid": "GPU-25d3cb92-fa97-a722-f9cd-c012bad046a8",
+      "memory_MiB": 8,
+      "utilization": 0,
+      "owners": []
+    },
+    "3": {
+      "uuid": "GPU-fb9fc5ed-bf92-b947-d8c5-302296c4a447",
+      "memory_MiB": 8,
+      "utilization": 0,
+      "owners": []
+    }
+  },
+  "proof": {
+    "train_gate_STARTED.json": {
+      "sha256": "9e33958e2fbfd1a55283fbca2f3740739c416b83db6877a5ad956ad157ce7c75",
+      "data": {
+        "unix": 1792924602.872121,
+        "identity": {
+          "pid": 3992422,
+          "startticks": "762302299",
+          "uid": 1084,
+          "pgid": 3992422
+        },
+        "GPU": 2,
+        "ready_sha256": "e654eb6f0c0599ef76022711866ff5e5b7061d129c1cf7f57565eb2ff36ff2fe",
+        "limit": 5400,
+        "boot": "5b259bd9-d0cb-4a1d-8b90-6e6107080488"
+      }
+    },
+    "train_gate_COMPLETE.json": {
+      "sha256": "538960ab05641f6accbb695068e0efdba2d4525c35d0099efe5b06ac63d4a2eb",
+      "data": {
+        "identity": {
+          "pid": 3992422,
+          "startticks": "762302299",
+          "uid": 1084,
+          "pgid": 3992422
+        },
+        "seconds": 1408.2524244999513,
+        "new_generations": 0,
+        "FIT_backwards": 1213,
+        "optimizer_updates": 87,
+        "checkpoint": {
+          "bytes": 1787623650,
+          "sha256": "799ae10a9df02c583540ce3512e86934966d0564ec2a168b112fb3df5c183251",
+          "digest": "94408ca37d1017e48f42fadf0b2d7b3a644a256f6fdcda411d239fc775c7bdba",
+          "layout": {
+            "weights": {
+              "coefficients": 893675552,
+              "bytes": 1787351104
+            },
+            "ordinary_buffers": {
+              "coefficients": 1529,
+              "bytes": 9032
+            },
+            "trainable": 0
+          }
+        }
+      }
+    },
+    "train_gate_EXIT.json": {
+      "sha256": "737db2adffd8a81cdf85be578a0e1dbf09ea80673374698a6587ee5dd8625842",
+      "data": {
+        "pid": 3992422,
+        "returncode": 0,
+        "unix": 1792926012.1138082
+      }
+    },
+    "train_original_EXIT.json": {
+      "sha256": "090c7e8f7e877683894e570361c4f866a32bb19b91bc6bf9c07ad8ec1f928031",
+      "data": {
+        "pid": 3999463,
+        "returncode": 1,
+        "unix": 1792926012.4292455
+      }
+    },
+    "train_original_FAILURE.json": {
+      "sha256": "288a0a1ab232ec8bd4ae035255e21284b709bb5a42abc8b7cd67fb5ee1db8ebc",
+      "data": {
+        "unix": 1792926012.4073806,
+        "traceback": "Traceback (most recent call last):\n  File \"/tmp/llmcl-answer-readout-cl-1084-ft3em1z0/worker.py\", line 297, in <module>\n    ctx=Context(phase)\n  File \"/tmp/llmcl-answer-readout-cl-1084-ft3em1z0/common.py\", line 28, in __init__\n    card=ids.inventory()[self.gpu];assert not card['owners'] and card['memory_MiB']<500 and card['utilization']<10\nAssertionError\n",
+        "no_quality_claim": true
+      }
+    },
+    "CONTROLLER_FAILURE.json": {
+      "sha256": "14407254ee921eb7bd28af310309bb452bf77db65162987fcbc00ee89d182613",
+      "data": {
+        "unix": 1792926012.429561,
+        "controller_seconds": 1409.8064343621954,
+        "traceback": "Traceback (most recent call last):\n  File \"/tmp/llmcl-answer-readout-cl-1084-ft3em1z0/controller.py\", line 41, in <module>\n    for phase in phases:launch(phase,ready['phase_GPUs'][phase],deadline)\n  File \"/tmp/llmcl-answer-readout-cl-1084-ft3em1z0/controller.py\", line 31, in launch\n    assert code==0 and (RUN/(phase+'_COMPLETE.json')).exists()\nAssertionError\n",
+        "no_quality_claim": true
+      }
+    }
+  },
+  "started": {
+    "train_gate_STARTED.json": {
+      "sha256": "9e33958e2fbfd1a55283fbca2f3740739c416b83db6877a5ad956ad157ce7c75",
+      "identity": {
+        "pid": 3992422,
+        "startticks": "762302299",
+        "uid": 1084,
+        "pgid": 3992422
+      }
+    }
+  },
+  "verified": false,
+  "all_exit": false,
+  "partial_quality_read": false,
+  "failed_phase_pre_started": true,
+  "model_sources": {
+    "adaptation.py": "c6c8d8ab1e22a2da5219ae1417c2b463ad5fead306fb3e44528adca29c7f2dab",
+    "common.py": "968e9c1008db692254c62fa6c7a081403505a2c4a8dc6ddc9935f812267e3182",
+    "controller.py": "92798ca4526a255598427d3ef8dc058d50dce4c13a593c8f36ed9f169929cc89",
+    "deployment.py": "212a02753177e692198f17e85bc2510297969f3b2b75f088cf88ccc5fbbf37fd",
+    "loss_core.py": "3da5c9e7ab35b6fa0b03b058006495572e2c1ddda36dfe675105ab14c4b0e1df",
+    "readouts.py": "8d68817f330b9b26acbbdec55e344e066879896b4d73db3064dadc7f747acf3a",
+    "verify.py": "68802ceb7d4debb15b4047ade830c043f2ecf3cf1627454d8ddd319795800dee",
+    "worker.py": "1c4a0327b7330be1a47b637ccf63fef04c8bf678809e92f28ec0842d84bd20fe"
+  }
+}
