@@ -1,0 +1,499 @@
+{
+  "purpose": "Reader-facing formal main-table macro column preparation; no new scientific result.",
+  "recommend_add_macro_column": true,
+  "recommended_header": "Five-domain macro F1 ↑",
+  "recommended_location": "Immediately before AP; rename or annotate AP as AP19 (19-task equal-weight mean).",
+  "definition": "First take the existing final QA-mean Answer F1 inside each full domain; then give the five domain means equal weight. This differs from 19-native-task-equal-weight AP and from pooling all21454 QA.",
+  "source_policy": "All displayed values originate from full-precision sealed scalar proofs, never from README rounded numbers. Prefer source_sealed_macro for exact-copy reporting; reaggregation and historical anchors are separately recorded.",
+  "formal_setting": {
+    "training_percent": 1,
+    "TRAIN_QA": 1313,
+    "stages": 19,
+    "TEST_QA": 21454,
+    "seed": 42,
+    "score": "Answer F1 (0-100)"
+  },
+  "input_index": {
+    "path": "summary/native_response_selection_20261025/formal_confirmation/FORMAL_ANCHORS.json",
+    "sha256": "4a89b63240721722f0728e6d6b99a0a048c129269388bcbddcb4af43d2fc235b"
+  },
+  "domain_order": [
+    "natural",
+    "medical",
+    "geography",
+    "finance",
+    "traffic"
+  ],
+  "rows": [
+    {
+      "anchor_key": "Qwen_SeqFT_LoRA",
+      "backbone": "qwen",
+      "method": "SeqFT_LoRA",
+      "source_proof": "summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/completed/2a0b6d43f89c3cec6cb9.json",
+      "source_proof_sha256": "ff979a21b171372834940e3b68bdcaa84c7db4cdf9eaccb8939fa4b3c84bd59a",
+      "nested_field": null,
+      "domains_fullprecision": {
+        "natural": {
+          "F1": 86.31201304251312,
+          "QA": 5000
+        },
+        "medical": {
+          "F1": 47.6543050829364,
+          "QA": 2094
+        },
+        "geography": {
+          "F1": 51.10955617752899,
+          "QA": 10004
+        },
+        "finance": {
+          "F1": 26.575526762429092,
+          "QA": 2233
+        },
+        "traffic": {
+          "F1": 33.2103548178799,
+          "QA": 2123
+        }
+      },
+      "domain_source_fields": {
+        "natural": "domains.natural.F1",
+        "medical": "domains.medical.F1",
+        "geography": "domains.geography.F1",
+        "finance": "domains.finance.F1",
+        "traffic": "domains.traffic.F1"
+      },
+      "source_sealed_macro": 48.9723511766575,
+      "source_macro_field": "domain_macro_final",
+      "equal_weight_macro_reaggregated_in_declared_domain_order": 48.9723511766575,
+      "reaggregated_minus_sealed_macro": 0.0,
+      "historical_FORMAL_ANCHORS_macro": 48.972351176657504,
+      "historical_anchor_minus_sealed_macro": 7.105427357601002e-15,
+      "display_macro_3dp": "48.972",
+      "display_domains_3dp": {
+        "natural": "86.312",
+        "medical": "47.654",
+        "geography": "51.110",
+        "finance": "26.576",
+        "traffic": "33.210"
+      },
+      "AP19_exact_copy": 47.812159352619155,
+      "AP19_source_field": "aggregate.AP",
+      "display_AP19_3dp": "47.812",
+      "final_QA_exact_copy": 21454,
+      "original_run_metadata_only": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2",
+      "missing": false
+    },
+    {
+      "anchor_key": "SeqFT_LoRA",
+      "backbone": "onevision",
+      "method": "SeqFT_LoRA",
+      "source_proof": "summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/completed/b463d0e9fdfecc9eb456.json",
+      "source_proof_sha256": "c0c010f18db89b088cd3ac13b92e79a76c560c13ee9f9960f0e5e2ddc8e88c69",
+      "nested_field": null,
+      "domains_fullprecision": {
+        "natural": {
+          "F1": 75.6318044684319,
+          "QA": 5000
+        },
+        "medical": {
+          "F1": 40.75767924168686,
+          "QA": 2094
+        },
+        "geography": {
+          "F1": 46.71131547381047,
+          "QA": 10004
+        },
+        "finance": {
+          "F1": 15.890773082166865,
+          "QA": 2233
+        },
+        "traffic": {
+          "F1": 31.937969468850667,
+          "QA": 2123
+        }
+      },
+      "domain_source_fields": {
+        "natural": "domains.natural.F1",
+        "medical": "domains.medical.F1",
+        "geography": "domains.geography.F1",
+        "finance": "domains.finance.F1",
+        "traffic": "domains.traffic.F1"
+      },
+      "source_sealed_macro": 42.18590834698935,
+      "source_macro_field": "domain_macro_final",
+      "equal_weight_macro_reaggregated_in_declared_domain_order": 42.18590834698935,
+      "reaggregated_minus_sealed_macro": 0.0,
+      "historical_FORMAL_ANCHORS_macro": 42.18590834698935,
+      "historical_anchor_minus_sealed_macro": 0.0,
+      "display_macro_3dp": "42.186",
+      "display_domains_3dp": {
+        "natural": "75.632",
+        "medical": "40.758",
+        "geography": "46.711",
+        "finance": "15.891",
+        "traffic": "31.938"
+      },
+      "AP19_exact_copy": 40.28615194242285,
+      "AP19_source_field": "aggregate.AP",
+      "display_AP19_3dp": "40.286",
+      "final_QA_exact_copy": 21454,
+      "original_run_metadata_only": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154",
+      "missing": false
+    },
+    {
+      "anchor_key": "FOREVER",
+      "backbone": "onevision",
+      "method": "FOREVER",
+      "source_proof": "summary/two_backbone_pct01_20261017/forever_multimodal_20261019/v3/formal_verification/dependency_restore_v1/onevision_COMPLETE.json",
+      "source_proof_sha256": "e6e1e8f9ecfe15bcd362640884ee18666b394bff7683a73f9e10fa2afd975e1e",
+      "nested_field": "shared_V2_proof",
+      "domains_fullprecision": {
+        "natural": {
+          "F1": 64.48583280715819,
+          "QA": 5000
+        },
+        "medical": {
+          "F1": 46.10262346757375,
+          "QA": 2094
+        },
+        "geography": {
+          "F1": 50.569772091163536,
+          "QA": 10004
+        },
+        "finance": {
+          "F1": 9.622704881325571,
+          "QA": 2233
+        },
+        "traffic": {
+          "F1": 33.369890706406665,
+          "QA": 2123
+        }
+      },
+      "domain_source_fields": {
+        "natural": "shared_V2_proof.domains.natural.F1",
+        "medical": "shared_V2_proof.domains.medical.F1",
+        "geography": "shared_V2_proof.domains.geography.F1",
+        "finance": "shared_V2_proof.domains.finance.F1",
+        "traffic": "shared_V2_proof.domains.traffic.F1"
+      },
+      "source_sealed_macro": 40.83016479072554,
+      "source_macro_field": "shared_V2_proof.domain_macro_final",
+      "equal_weight_macro_reaggregated_in_declared_domain_order": 40.83016479072554,
+      "reaggregated_minus_sealed_macro": 0.0,
+      "historical_FORMAL_ANCHORS_macro": 40.83016479072554,
+      "historical_anchor_minus_sealed_macro": 0.0,
+      "display_macro_3dp": "40.830",
+      "display_domains_3dp": {
+        "natural": "64.486",
+        "medical": "46.103",
+        "geography": "50.570",
+        "finance": "9.623",
+        "traffic": "33.370"
+      },
+      "AP19_exact_copy": 45.24542742424783,
+      "AP19_source_field": "shared_V2_proof.aggregate.AP",
+      "display_AP19_3dp": "45.245",
+      "final_QA_exact_copy": 21454,
+      "original_run_metadata_only": "exp/two_backbone_forever_20261019_v3/runs/onevision/pct01/FOREVER/training_20261019_115435",
+      "missing": false
+    },
+    {
+      "anchor_key": "CL_MoE",
+      "backbone": "onevision",
+      "method": "CL_MoE",
+      "source_proof": "summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/completed/adc8088c131265b0715b.json",
+      "source_proof_sha256": "f8352dadac808c284cd4c8f8bb2b128237a3e28bf1f0b41aa2f4a0826a20f9a6",
+      "nested_field": null,
+      "domains_fullprecision": {
+        "natural": {
+          "F1": 74.6572639549994,
+          "QA": 5000
+        },
+        "medical": {
+          "F1": 41.139423727242274,
+          "QA": 2094
+        },
+        "geography": {
+          "F1": 50.0499800079968,
+          "QA": 10004
+        },
+        "finance": {
+          "F1": 14.91388713820015,
+          "QA": 2233
+        },
+        "traffic": {
+          "F1": 33.10954224896627,
+          "QA": 2123
+        }
+      },
+      "domain_source_fields": {
+        "natural": "domains.natural.F1",
+        "medical": "domains.medical.F1",
+        "geography": "domains.geography.F1",
+        "finance": "domains.finance.F1",
+        "traffic": "domains.traffic.F1"
+      },
+      "source_sealed_macro": 42.77401941548098,
+      "source_macro_field": "domain_macro_final",
+      "equal_weight_macro_reaggregated_in_declared_domain_order": 42.77401941548098,
+      "reaggregated_minus_sealed_macro": 0.0,
+      "historical_FORMAL_ANCHORS_macro": 42.77401941548098,
+      "historical_anchor_minus_sealed_macro": 0.0,
+      "display_macro_3dp": "42.774",
+      "display_domains_3dp": {
+        "natural": "74.657",
+        "medical": "41.139",
+        "geography": "50.050",
+        "finance": "14.914",
+        "traffic": "33.110"
+      },
+      "AP19_exact_copy": 42.287529857509725,
+      "AP19_source_field": "aggregate.AP",
+      "display_AP19_3dp": "42.288",
+      "final_QA_exact_copy": 21454,
+      "original_run_metadata_only": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/CL_MoE/training_20261017_161424",
+      "missing": false
+    },
+    {
+      "anchor_key": "PASs_MoE",
+      "backbone": "onevision",
+      "method": "PASs_MoE",
+      "source_proof": "summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/completed/88902345d5cf6fe545e3.json",
+      "source_proof_sha256": "a17c1000dfff6816644d3e86170fe255d6c3225eebfa911d4c0834fcabb0dc9f",
+      "nested_field": null,
+      "domains_fullprecision": {
+        "natural": {
+          "F1": 70.69669151505542,
+          "QA": 5000
+        },
+        "medical": {
+          "F1": 44.20167545468118,
+          "QA": 2094
+        },
+        "geography": {
+          "F1": 55.73770491803279,
+          "QA": 10004
+        },
+        "finance": {
+          "F1": 25.223205725465,
+          "QA": 2233
+        },
+        "traffic": {
+          "F1": 37.24060436255713,
+          "QA": 2123
+        }
+      },
+      "domain_source_fields": {
+        "natural": "domains.natural.F1",
+        "medical": "domains.medical.F1",
+        "geography": "domains.geography.F1",
+        "finance": "domains.finance.F1",
+        "traffic": "domains.traffic.F1"
+      },
+      "source_sealed_macro": 46.619976395158304,
+      "source_macro_field": "domain_macro_final",
+      "equal_weight_macro_reaggregated_in_declared_domain_order": 46.619976395158304,
+      "reaggregated_minus_sealed_macro": 0.0,
+      "historical_FORMAL_ANCHORS_macro": 46.619976395158304,
+      "historical_anchor_minus_sealed_macro": 0.0,
+      "display_macro_3dp": "46.620",
+      "display_domains_3dp": {
+        "natural": "70.697",
+        "medical": "44.202",
+        "geography": "55.738",
+        "finance": "25.223",
+        "traffic": "37.241"
+      },
+      "AP19_exact_copy": 46.40616871326078,
+      "AP19_source_field": "aggregate.AP",
+      "display_AP19_3dp": "46.406",
+      "final_QA_exact_copy": 21454,
+      "original_run_metadata_only": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PASs_MoE/training_20261017_161725",
+      "missing": false
+    },
+    {
+      "anchor_key": "PaRSP",
+      "backbone": "onevision",
+      "method": "PaRSP",
+      "source_proof": "summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/completed/4448534f8895647f6409.json",
+      "source_proof_sha256": "0bcaf164ae433d7f123bef9804fa743d29606c1f53394aa12fc069efb170ffc0",
+      "nested_field": null,
+      "domains_fullprecision": {
+        "natural": {
+          "F1": 73.34602202441532,
+          "QA": 5000
+        },
+        "medical": {
+          "F1": 38.74347501758914,
+          "QA": 2094
+        },
+        "geography": {
+          "F1": 54.088364654138346,
+          "QA": 10004
+        },
+        "finance": {
+          "F1": 20.60850678053704,
+          "QA": 2233
+        },
+        "traffic": {
+          "F1": 32.65498610778443,
+          "QA": 2123
+        }
+      },
+      "domain_source_fields": {
+        "natural": "domains.natural.F1",
+        "medical": "domains.medical.F1",
+        "geography": "domains.geography.F1",
+        "finance": "domains.finance.F1",
+        "traffic": "domains.traffic.F1"
+      },
+      "source_sealed_macro": 43.88827091689286,
+      "source_macro_field": "domain_macro_final",
+      "equal_weight_macro_reaggregated_in_declared_domain_order": 43.88827091689286,
+      "reaggregated_minus_sealed_macro": 0.0,
+      "historical_FORMAL_ANCHORS_macro": 43.88827091689286,
+      "historical_anchor_minus_sealed_macro": 0.0,
+      "display_macro_3dp": "43.888",
+      "display_domains_3dp": {
+        "natural": "73.346",
+        "medical": "38.743",
+        "geography": "54.088",
+        "finance": "20.609",
+        "traffic": "32.655"
+      },
+      "AP19_exact_copy": 40.390067668460595,
+      "AP19_source_field": "aggregate.AP",
+      "display_AP19_3dp": "40.390",
+      "final_QA_exact_copy": 21454,
+      "original_run_metadata_only": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PaRSP/training_20261018_040230",
+      "missing": false
+    },
+    {
+      "anchor_key": "OSFT",
+      "backbone": "onevision",
+      "method": "OSFT",
+      "source_proof": "summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/completed/5193ee4c6861655d85e8.json",
+      "source_proof_sha256": "f8612d49ff55bcd3678365cbd193bd7dc2315c570e522a4a9edc095eddc52a5d",
+      "nested_field": null,
+      "domains_fullprecision": {
+        "natural": {
+          "F1": 73.90668242541788,
+          "QA": 5000
+        },
+        "medical": {
+          "F1": 43.89408925018375,
+          "QA": 2094
+        },
+        "geography": {
+          "F1": 51.7093162734906,
+          "QA": 10004
+        },
+        "finance": {
+          "F1": 23.981576965682596,
+          "QA": 2233
+        },
+        "traffic": {
+          "F1": 36.195526136928116,
+          "QA": 2123
+        }
+      },
+      "domain_source_fields": {
+        "natural": "domains.natural.F1",
+        "medical": "domains.medical.F1",
+        "geography": "domains.geography.F1",
+        "finance": "domains.finance.F1",
+        "traffic": "domains.traffic.F1"
+      },
+      "source_sealed_macro": 45.93743821034059,
+      "source_macro_field": "domain_macro_final",
+      "equal_weight_macro_reaggregated_in_declared_domain_order": 45.93743821034059,
+      "reaggregated_minus_sealed_macro": 0.0,
+      "historical_FORMAL_ANCHORS_macro": 45.93743821034059,
+      "historical_anchor_minus_sealed_macro": 0.0,
+      "display_macro_3dp": "45.937",
+      "display_domains_3dp": {
+        "natural": "73.907",
+        "medical": "43.894",
+        "geography": "51.709",
+        "finance": "23.982",
+        "traffic": "36.196"
+      },
+      "AP19_exact_copy": 46.35669274628726,
+      "AP19_source_field": "aggregate.AP",
+      "display_AP19_3dp": "46.357",
+      "final_QA_exact_copy": 21454,
+      "original_run_metadata_only": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/OSFT/training_20261018_044103",
+      "missing": false
+    },
+    {
+      "anchor_key": "SpaRTA",
+      "backbone": "onevision",
+      "method": "SpaRTA",
+      "source_proof": "summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/completed/5bd7c416e2d1d0306fbf.json",
+      "source_proof_sha256": "1dad44a4fa63c93dab47fe233a9bbeb7547f6eb9629e2f98c1af60b702b50b34",
+      "nested_field": null,
+      "domains_fullprecision": {
+        "natural": {
+          "F1": 73.5958283872991,
+          "QA": 5000
+        },
+        "medical": {
+          "F1": 40.9208069871455,
+          "QA": 2094
+        },
+        "geography": {
+          "F1": 45.94162335065974,
+          "QA": 10004
+        },
+        "finance": {
+          "F1": 21.32848462630932,
+          "QA": 2233
+        },
+        "traffic": {
+          "F1": 34.51981189630383,
+          "QA": 2123
+        }
+      },
+      "domain_source_fields": {
+        "natural": "domains.natural.F1",
+        "medical": "domains.medical.F1",
+        "geography": "domains.geography.F1",
+        "finance": "domains.finance.F1",
+        "traffic": "domains.traffic.F1"
+      },
+      "source_sealed_macro": 43.261311049543494,
+      "source_macro_field": "domain_macro_final",
+      "equal_weight_macro_reaggregated_in_declared_domain_order": 43.261311049543494,
+      "reaggregated_minus_sealed_macro": 0.0,
+      "historical_FORMAL_ANCHORS_macro": 43.261311049543494,
+      "historical_anchor_minus_sealed_macro": 0.0,
+      "display_macro_3dp": "43.261",
+      "display_domains_3dp": {
+        "natural": "73.596",
+        "medical": "40.921",
+        "geography": "45.942",
+        "finance": "21.328",
+        "traffic": "34.520"
+      },
+      "AP19_exact_copy": 41.82886879625912,
+      "AP19_source_field": "aggregate.AP",
+      "display_AP19_3dp": "41.829",
+      "final_QA_exact_copy": 21454,
+      "original_run_metadata_only": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SpaRTA/training_20261018_173800",
+      "missing": false
+    }
+  ],
+  "missing_combinations": [],
+  "unverified_main_table_rows": "Keep blank; do not infer zero or copy another method/backbone.",
+  "floating_point_note": "Qwen source domain_macro_final48.9723511766575 and the existing FORMAL_ANCHORS value48.972351176657504 differ by7.105427357601002e-15(1ULP); both display48.972 at3decimals. This file copies the original sealed macro and separately records the declared-order scalar reaggregation and historical anchor; no threshold or scientific source is changed.",
+  "scope": {
+    "new_models": 0,
+    "new_QA_scores": 0,
+    "prediction_files_read": 0,
+    "bootstrap_calls": 0,
+    "checkpoint_payloads_read": 0,
+    "server_access": false,
+    "ARC_partial_read": false,
+    "README_modified": false
+  },
+  "recommendation": "Add an explicit five-domain macro F1 column for all8 verified rows. Keep all five domains, AP19/FWT/BWT, FOREVER and original storage columns; this is an additive display clarification, not replacement of AP or new ranking criteria."
+}

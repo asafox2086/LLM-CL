@@ -595,3 +595,12 @@ unix1792926762.8731668新unit `llmcl-answer-readout-cl-prestart-continuation-202
 等待当前完整结果时另核一次“少更新能否靠已知梯度初始化提高固定r8习得”。只查LoRA-GA一个原法，历史函数补偿／固定SVD系数不等于真实task梯度对齐，因此不编造已被直接证伪；但现87更新／wide增益也没有识别随机子空间为根因。仅S1的梯度先验有早域偏置，逐stage fold再重初始化则改变累计可表达更新集合，不能借同训练坐标数冒充同适应容量。该工具当前不立项，不启动新协议、源码或GPU点；由已有三臂完整回答先决定是否有必要，不用泛读或梯度计数代替证据。旧RITE最终负结果本地未找到对应完整proof，明确未确认，不恢复旧分支。
 
 [精确载荷账本](summary/edge_resource_comparison_20261025/v1/PRECISION_ACCOUNTING.json) · [独立精度口径评判](summary/edge_resource_comparison_20261025/v1/PRECISION_FAIRNESS_REVIEW.md) · [低更新替代思路核查](summary/answer_reliability_consolidation_20261025/v1/LOW_UPDATE_ALTERNATIVE_REVIEW.md)。最新基线实查仍为CL-MoE完成16阶段／第17阶段评价与SMoLoRA原初评，实际身份存在；没有新增完整sealed组合，不增主表完成数。
+
+
+### 主表补显五域宏，保留AP19与全部原结果
+
+独立核查8份正式sealed全精度标量后，在最外层README主表AP前新增“五域宏F1”，原AP列标注AP19。五域宏是5个完整域内QA均分等权，AP19是19个原生任务等权，不互换，也不把21454题直接池化。8个值从原proof的domain_macro_final逐值复制，FOREVER读取合法shared_V2_proof；未完成10行继续空白。全部18方法行原17列逐字符串保持，含FOREVER、域F1、AP/FWT/BWT、8组存储、现有GPU和未测项。没有新评分、预测读取或完整组合完成，Ours仍空。
+
+Qwen原sealed宏48.9723511766575与既有FORMAL_ANCHORS的48.972351176657504相差1ULP，原精度与旧锚分别记录，不改任何阈值；3位显示同为48.972。此为读者展示澄清，不是新科研质量结果。具体源路径、摘要、域全精度和展示值见FORMAL_MACRO_VALUES。
+
+[8组原宏来源](summary/edge_resource_comparison_20261025/v1/FORMAL_MACRO_VALUES.json) · [原17列保全核对](summary/edge_resource_comparison_20261025/v1/MACRO_DISPLAY_BINDING.json)。
