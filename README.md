@@ -58,32 +58,34 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 
 训练10%已冻结为**13105 QA**，完整TEST仍为**21454 QA**；seed42、一轮、19任务，主任务共828次更新，其余沿用1%正式设置。OLD四卡两骨干SeqFT-LoRA与PASs-MoE均已通过preflight及reload（return0），进入**正式运行：初始评价（S0）**；其余8个native组合OLD排队，两FOREVER待10%动态回放适配核验、两SMoLoRA待NEW。本表没有10%成绩或资源测量，空白不是0分，也不复制1%结果。
 
-| 方法／Backbone | 类型 | TextVQA 自然／通用 | SLAKE 医学 | RSVQA-LR 遥感 | FinMME 金融 | CODA-LM 交通 | 最终五域宏F1 ↑ | 最终AP19 ↑ | 新习得五域宏F1 ↑ | 新习得AP19 ↑ | FWT | BWT（描述） | 完整参数量（系数） | 完整权重存储 MiB | 最终CP MiB | 固定五窗GPU峰 MiB | 状态 |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| **Qwen2-VL-2B-Instruct** | | | | | | | | | | | | | | | | | |
-| SeqFT-LoRA | 朴素顺序微调 | | | | | | | | | | | | | | | | 正式运行：初始评价 |
-| FOREVER | 回放（多模态适配） | | | | | | | | | | | | | | | | 待10%动态回放适配核验 |
-| CL-MoE | 架构 | | | | | | | | | | | | | | | | OLD排队 |
-| SMoLoRA | 架构 | | | | | | | | | | | | | | | | 已freeze，待NEW原生BF16空卡 |
-| PASs-MoE | 架构／正则 | | | | | | | | | | | | | | | | 正式运行：初始评价 |
-| PaRSP | 正则 | | | | | | | | | | | | | | | | OLD排队 |
-| OSFT | 正则 | | | | | | | | | | | | | | | | OLD排队 |
-| SpaRTA | 正则 | | | | | | | | | | | | | | | | OLD排队 |
-| Ours | 尚无正式自研方法 | | | | | | | | | | | | | | | | 空，不自动运行探索配方 |
-| **LLaVA-OneVision-Qwen2-0.5B-OV** | | | | | | | | | | | | | | | | | |
-| SeqFT-LoRA | 朴素顺序微调 | | | | | | | | | | | | | | | | 正式运行：初始评价 |
-| FOREVER | 回放（多模态适配） | | | | | | | | | | | | | | | | 待10%动态回放适配核验 |
-| CL-MoE | 架构 | | | | | | | | | | | | | | | | OLD排队 |
-| SMoLoRA | 架构 | | | | | | | | | | | | | | | | 已freeze，待NEW原生BF16空卡 |
-| PASs-MoE | 架构／正则 | | | | | | | | | | | | | | | | 正式运行：初始评价 |
-| PaRSP | 正则 | | | | | | | | | | | | | | | | OLD排队 |
-| OSFT | 正则 | | | | | | | | | | | | | | | | OLD排队 |
-| SpaRTA | 正则 | | | | | | | | | | | | | | | | OLD排队 |
-| Ours | 尚无正式自研方法 | | | | | | | | | | | | | | | | 空，不自动运行探索配方 |
+| 方法／Backbone | 类型 | 发表会议／年份 | TextVQA<br>自然／通用 | SLAKE<br>医学 | RSVQA-LR<br>遥感 | FinMME<br>金融 | CODA-LM<br>交通 | 五域宏 F1 ↑ | AP19 ↑ | FWT ↑ | BWT ↑ | 最终权重存储<br>保存态 MiB ↓ | 相对原基座增加<br>MiB ↓ | 固定五窗GPU峰值†<br>MiB ↓ | 首词延迟<br>s ↓ | 生成速度<br>tok/s ↑ | 常驻适配器<br>数量 ↓ | 完整参数量<br>系数 | 最终CP<br>MiB | 新习得五域宏F1 ↑ | 新习得AP19 ↑ | 状态 |
+| --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| **Qwen2-VL-2B-Instruct** |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| SeqFT-LoRA | 朴素顺序微调 | 标准对照（无独立发表年份） |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 正式运行：初始评价 |
+| FOREVER | 回放 | [ACL 2026](https://aclanthology.org/2026.acl-long.1144/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 待10%动态回放适配核验 |
+| CL-MoE | 架构 | [CVPR 2025](https://openaccess.thecvf.com/content/CVPR2025/html/Huai_CL-MoE_Enhancing_Multimodal_Large_Language_Model_with_Dual_Momentum_Mixture-of-Experts_CVPR_2025_paper.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | OLD排队 |
+| SMoLoRA | 架构 | [ICCV 2025](https://openaccess.thecvf.com/content/ICCV2025/html/Wang_SMoLoRA_Exploring_and_Defying_Dual_Catastrophic_Forgetting_in_Continual_Visual_ICCV_2025_paper.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 已freeze，待NEW原生BF16空卡 |
+| PASs-MoE | 架构（兼正则） | [ACL 2026](https://aclanthology.org/2026.acl-long.1474/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 正式运行：初始评价 |
+| PaRSP | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.1244/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | OLD排队 |
+| OSFT | 正则化 | [ICLR 2026](https://proceedings.iclr.cc/paper_files/paper/2026/hash/22620cccae29bbb3f18d226ea0320ff5-Abstract-Conference.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | OLD排队 |
+| SpaRTA | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.334/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | OLD排队 |
+| Ours | 自研方法 | 未发表 |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 空，不自动运行探索配方 |
+| **LLaVA-OneVision-Qwen2-0.5B-OV** |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| SeqFT-LoRA | 朴素顺序微调 | 标准对照（无独立发表年份） |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 正式运行：初始评价 |
+| FOREVER | 回放 | [ACL 2026](https://aclanthology.org/2026.acl-long.1144/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 待10%动态回放适配核验 |
+| CL-MoE | 架构 | [CVPR 2025](https://openaccess.thecvf.com/content/CVPR2025/html/Huai_CL-MoE_Enhancing_Multimodal_Large_Language_Model_with_Dual_Momentum_Mixture-of-Experts_CVPR_2025_paper.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | OLD排队 |
+| SMoLoRA | 架构 | [ICCV 2025](https://openaccess.thecvf.com/content/ICCV2025/html/Wang_SMoLoRA_Exploring_and_Defying_Dual_Catastrophic_Forgetting_in_Continual_Visual_ICCV_2025_paper.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 已freeze，待NEW原生BF16空卡 |
+| PASs-MoE | 架构（兼正则） | [ACL 2026](https://aclanthology.org/2026.acl-long.1474/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 正式运行：初始评价 |
+| PaRSP | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.1244/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | OLD排队 |
+| OSFT | 正则化 | [ICLR 2026](https://proceedings.iclr.cc/paper_files/paper/2026/hash/22620cccae29bbb3f18d226ea0320ff5-Abstract-Conference.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | OLD排队 |
+| SpaRTA | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.334/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | OLD排队 |
+| Ours | 自研方法 | 未发表 |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 空，不自动运行探索配方 |
 
 五域列及五域宏／AP19为最终成绩；新习得两列来自各task训练结束的对角格，按任务等权或域内QA加权再五域等权，均可由原74格得到，不是同一时点的域末模型。BWT仅为继承的描述量，不作优化目标。完整参数、权重／CP与GPU峰须逐组合实测后填写。
 
-核心检验是：扩大训练后，刚学完金融任务时的集中错答是否减少、正确率是否同步提高。10%沿用单轮，数据量和更新预算同时增加；改善只能说明本学习配置缓解了问题，不能单独证明样本量是唯一原因。当前尚无10%质量结论。[比较口径](summary/train_answer_prior_20261025/ACQUISITION_COMPARISON_PLAN.md)
+第二主表完整覆盖两个backbone各八类基线，共16组；主要报告与1%相同的五域最终F1、宏F1／AP19、FWT／BWT及全部资源指标，另保留完整参数量与CP大小。每组S19完整模型权重、必要方法状态、processor／config及来源记录均须耐久留存；不是只记录参数量或保存LoRA。[最终模型留存](summary/two_backbone_pct10_20261025/FINAL_MODEL_RETENTION.md)
+
+刚习得及金融集中错答是补充分析。10%沿用单轮，数据量和更新预算同时增加；改善只能说明本学习配置缓解了问题，不能单独证明样本量是唯一原因。当前尚无10%质量结论。[比较口径](summary/train_answer_prior_20261025/ACQUISITION_COMPARISON_PLAN.md)
 
 [10%正式协议与冻结证据](summary/two_backbone_pct10_20261025/PROTOCOL.md) · [10%独立主表](summary/two_backbone_pct10_20261025/MAIN_TABLE.md)
 
