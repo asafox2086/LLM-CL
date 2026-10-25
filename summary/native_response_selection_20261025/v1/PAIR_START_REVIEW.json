@@ -1,0 +1,96 @@
+{
+  "accepted": true,
+  "meaning": "The supplied local proofs consistently establish an actual paired start at the observation time; no quality or completed-learning claim.",
+  "reviewer": "baseline_review",
+  "review_scope": "Read-only local proof and frozen-source comparison; no remote poll, model execution, scoring or partial-quality access.",
+  "proof_sha256": {
+    "PAIR_READY.json": "14c9d38e11608d5582f9fe401606e28e4a6c0480ce33f86c5af26fa14e171444",
+    "PAIR_ACTIVATION.json": "041a889580ce36934cb095df06bec18f459f5f864561d1ebe9506d197f73705c",
+    "PAIR_LATEST_METADATA_OBSERVATION.json": "8767d69cbf795e3cabc0473602b8fcfabca2d3b7e9b2eded0a3941766cb973bd",
+    "PAIR_PREREG_PUBLICATION.json": "fba22de33507f9136df39080a94cb89f70e168e61858069fd78fb7988ab8c02a"
+  },
+  "preregistration_commit": "223c4f89f8ee408f46ba4d95b2a26d3f64677487",
+  "all_twelve_READY_source_bindings_match": true,
+  "frozen_sources_match": {
+    "response.py": true,
+    "paired_common.py": true,
+    "paired_readouts.py": true,
+    "paired_adaptation.py": true,
+    "paired_deployment.py": true,
+    "paired_worker.py": true,
+    "paired_controller.py": true,
+    "paired_verify.py": true,
+    "PAIRED_PROTOCOL.md": true,
+    "PROBLEM_METHOD_EVIDENCE.md": true,
+    "PAIRED_NECESSITY_REVIEW.json": true,
+    "PAIRED_IMPLEMENTATION_REVIEW.json": true
+  },
+  "problem_method_evidence_sha256": "8eb457c45e9740592fdcb3865df8b45dd4985d523d636fb6b3ceeaeeeab509ed",
+  "observation": {
+    "unix": 1792911986.427816,
+    "unit": "llmcl-native-response-selection-paired-20261025.service",
+    "service_state": "active/running",
+    "controller_pid_reported_by_service": 3945071,
+    "phases": {
+      "train_dynamic": {
+        "pid": 3945072,
+        "startticks": "761038816",
+        "uid": 1084,
+        "pgid": 3945072,
+        "GPU": 0,
+        "STARTED": 1792911968.0940123,
+        "identity_present": true,
+        "COMPLETE": false,
+        "FAILURE": null,
+        "EXIT": null,
+        "original_limit_seconds": 3600,
+        "original_deadline_unix": 1792915568.0940123
+      },
+      "train_static": {
+        "pid": 3945073,
+        "startticks": "761038817",
+        "uid": 1084,
+        "pgid": 3945073,
+        "GPU": 1,
+        "STARTED": 1792911968.0723262,
+        "identity_present": true,
+        "COMPLETE": false,
+        "FAILURE": null,
+        "EXIT": null,
+        "original_limit_seconds": 3600,
+        "original_deadline_unix": 1792915568.0723262
+      },
+      "eval_dynamic": {
+        "STARTED": false,
+        "COMPLETE": false,
+        "FAILURE": null
+      },
+      "eval_static": {
+        "STARTED": false,
+        "COMPLETE": false,
+        "FAILURE": null
+      }
+    },
+    "ALL_EXIT": false,
+    "VERIFIED": false
+  },
+  "consistency": [
+    "READY SHA matches activation; activation names the published preregistration commit and precedes both original STARTED times.",
+    "Reported training PID/startticks/UID/isolated PGID identities and GPUs match the declared two-arm schedule.",
+    "READY phase budgets remain train3600/eval600 per arm, totaling8400 model seconds; this review does not reset or extend a clock.",
+    "All eight model/runtime sources, the fixed protocol, problem-method evidence and both preregistration reviews match the frozen READY hashes."
+  ],
+  "limits": [
+    "This is a saved point-in-time observation, not a permanent live-status assertion or an independent new server inspection.",
+    "Active ExecMainStatus=0 is not proof of eventual service success. No COMPLETE, actual final exit or new quality was available in this snapshot.",
+    "Gradient-file counts are null in the supplied observation; training-update/QA progress is therefore not inferred.",
+    "Later quality and costs require a separate result record after the complete evidence chain. Frozen PROBLEM_METHOD_EVIDENCE remains unchanged."
+  ],
+  "authorship_disclosure": {
+    "authored_sources": [
+      "response.py",
+      "paired_deployment.py"
+    ],
+    "proof_sources_authored_by_reviewer": false
+  }
+}
