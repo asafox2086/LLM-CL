@@ -1,3 +1,10 @@
+# 2026-10-25：人类要求用10%检验同类新习得问题是否只是数据太少
+
+- 最新人类明确“可以看看10%会不会也这样，有可能是数据太少”。继续运行已冻结10%TRAIN＋完整TEST，比较同方法／同骨干各task学习前与刚习得，不开遗忘分支；同时更多数据和更新，不能称纯数据量因果。
+- 新TRAIN-only审计已唯一完成，AUDIT SHA48f2c8294e8f6f08ae2d5be94257dc98afaa85dd505c0019320f20eb1662cb01，医学／金融188及1871题、0TEST／模型／评分。金融单选1%A22/B18/C7/D6，10%A189/B163/C99/D76；偏斜减弱但仍存在，不能据此认定塌缩原因或预测10%模型。异常和分母全保留，独立review接受；不重跑审计。结果与后续对齐见summary/train_answer_prior_20261025。
+- OLD原四个10%正式worker仍实际身份匹配，当前初始完整评价，无10%已完成质量；新核验CPU4063535先发布dc01df1后激活，0候选／0评分，等待完整native真实exit0。828为optimizer调用，按原warmup公式正LR822／合法零LR首步6；只修新核验assert，原科学源不改。两FOREVER仍defer，新dynamic core／adapter仅WIP，未经GPU验证不运输启动。
+- 等函数LoRA尺度/RITE和训练前后记账均发现旧研究已经覆盖，不重复建实验／重算旧分数／自动恢复关闭分支；现有方法质量和更小完整权重联合目标仍未实现。新结果后才更新主表，不把描述统计或实现当新方法成功。
+
 # 2026-10-25：人类明确授权第二主表，训练10%并使用完整测试
 
 - 更新快照（unix1792938818.253909）：OLD新CPU controller4049826／UID1084已接管4044638，0 GPU信号；四组SeqFT／PAS均通过preflight与reload（return0），处于正式training phase的initial_evaluation／S0，0完整正式结果。两FOREVER改为waiting_forever_pct10_scheduler_review：旧core要求main_updates≤24，旧预检S2固定1更新，不兼容10%的S1 217更新／S2 7更新，尚未启动任何FOREVER模型；不得删guard假跑。其余8个native OLD排队、两SMoLoRA待NEW。OneVision PAS原reload worker4049282在unix1792938739.866已自然exit0，早于交接，未被中断；原三源／冻结PROTOCOL／READY不改。证据见CONTROLLER_HANDOFF.json、LATEST_OLD_OBSERVATION.json及FOREVER_COMPATIBILITY_FINDING.md；下方首次预检快照保留为历史。

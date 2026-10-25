@@ -635,3 +635,15 @@ Qwen原sealed宏48.9723511766575与既有FORMAL_ANCHORS的48.972351176657504相�
 NEW私有归档732个新输出逐SHA通过，含所有完整CP、19阶段快照、生成和两故障archive；134.355476790秒，OLD原目录保留，权重／QA不入Git。独立结果review接受证据与限定；两位评判均认为微小门差不足直接确立为论文主创新，不设新的逐域floor或显著性硬门。保留已知共同配方与最高点候选，下一具体问题是已存状态中的习得／后续变化，尚无新点准入。
 
 [完整结果](summary/answer_reliability_consolidation_20261025/v1/FINDINGS.md) · [独立结果审核](summary/answer_reliability_consolidation_20261025/v1/RESULT_REVIEW.json) · [方法选择判断](summary/answer_reliability_consolidation_20261025/v1/DECISION_REVIEW.md) · [核验缺字段修复](summary/answer_reliability_consolidation_20261025/v1/POST_MODEL_SCHEMA_VERIFIED.json) · [私有归档](summary/answer_reliability_consolidation_20261025/v1/ARCHIVE_RECEIPT.json)。
+
+## 1%与10%的新习得／监督先验比较（2026-10-25）
+
+人类进一步要求“可以看看10%会不会也这样，有可能是数据太少”。四个10%正式run仍在OLD执行初始完整评价，尚无当前任务刚习得质量，不能用TRAIN计数代替模型结论。后续比较同方法／同骨干的task训练前、刚习得与增量；金融同时看单／多选／数值F1和集中错答。单轮更多数据也增加更新预算，不称纯数据量因果干预。
+
+已唯一完成TRAIN-only审计：1%医学99＋金融89、10%医学984＋金融887，0TEST、模型、生成、更新或评分。金融单选A/B/C/D由22/18/7/6变为189/163/99/76，标签偏斜减弱但没有消失。计数不证明监督偏斜导致错误；保留全部异常及完整分母，没有新数据排除／改答案。实际审计0.412201秒，外层0.421534秒与其重叠不加。独立审阅接受该描述边界。
+
+[结果解释](summary/train_answer_prior_20261025/INTERPRETATION.md) · [封存汇总](summary/train_answer_prior_20261025/AUDIT.json) · [独立审阅](summary/train_answer_prior_20261025/RESULT_REVIEW.md) · [跨比例功能对齐](summary/train_answer_prior_20261025/ACQUISITION_COMPARISON_PLAN.md)。
+
+10%完整结果核验器已先发布后启动，默认实机discover为0候选／0评分；OLD CPU4063535仅等待完整native run真实exit0后进行一次原评分核验，不运行模型或修改Markdown。原单轮公式实际828次optimizer调用=822次正LR＋6次合法warmup零LR首步，修正的是新核验器继承的1%过严断言，未改训练。FOREVER完整动态调度两源仅WIP，尚未GPU验证、未运输／激活，两组合继续defer。旧1%CL与SMo实际PID身份仍匹配，新服务器GPU0不由本队列分配。
+
+[10%核验源码审阅](summary/two_backbone_pct10_20261025/completion_observer_native/SOURCE_REVIEW.md) · [实际0候选入口与激活](summary/two_backbone_pct10_20261025/completion_observer_native/ACTIVATION.json) · [FOREVER WIP边界](exp/two_backbone_pct10_forever_dynamic_20261025/IMPLEMENTATION_NOTES.md)。

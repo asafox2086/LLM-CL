@@ -1,0 +1,149 @@
+{
+  "unix": 1792940821.2007184,
+  "original_pct01_state": {
+    "unix": 1792940807.2596414,
+    "CPU_pid": 1221743,
+    "active": {
+      "new3090:pct01:CL_MoE": {
+        "pid": 8260,
+        "startticks": "60876",
+        "uid": 1004,
+        "pgid": 8260
+      },
+      "new3090:pct01:SMoLoRA": {
+        "pid": 8265,
+        "startticks": "60882",
+        "uid": 1004,
+        "pgid": 8265
+      }
+    },
+    "reserved_GPU_not_assigned": 0,
+    "pct01_only": true,
+    "FOREVER_untouched": true,
+    "pending": [
+      {
+        "host": "new3090",
+        "key": "pct01:PASs_MoE",
+        "status": "ready_reload"
+      },
+      {
+        "host": "new3090",
+        "key": "pct01:PaRSP",
+        "status": "ready_reload"
+      },
+      {
+        "host": "new3090_onevision",
+        "key": "pct01:SMoLoRA",
+        "status": "waiting"
+      },
+      {
+        "host": "new3090",
+        "key": "pct01:OSFT",
+        "status": "waiting"
+      },
+      {
+        "host": "new3090",
+        "key": "pct01:SpaRTA",
+        "status": "waiting"
+      }
+    ],
+    "no_GPU_signals": true
+  },
+  "original_pct01_actual": {
+    "new3090:pct01:CL_MoE": {
+      "recorded": {
+        "pid": 8260,
+        "startticks": "60876",
+        "uid": 1004,
+        "pgid": 8260
+      },
+      "observed": {
+        "pid": 8260,
+        "startticks": "60876",
+        "uid": 1004,
+        "pgid": 8260
+      },
+      "matches": true,
+      "state": "R"
+    },
+    "new3090:pct01:SMoLoRA": {
+      "recorded": {
+        "pid": 8265,
+        "startticks": "60882",
+        "uid": 1004,
+        "pgid": 8265
+      },
+      "observed": {
+        "pid": 8265,
+        "startticks": "60882",
+        "uid": 1004,
+        "pgid": 8265
+      },
+      "matches": true,
+      "state": "R"
+    }
+  },
+  "GPU": "0, NVIDIA GeForce RTX 3090, GPU-0fc921a0-8588-6976-7e2c-172705ab6980, 6324, 44\n1, NVIDIA GeForce RTX 3090, GPU-3f5b86c8-feeb-110c-c68c-e04716c0f84c, 11712, 98\n2, NVIDIA GeForce RTX 3090, GPU-01bbc8c7-11be-9e3c-b786-7c075e675e0a, 12372, 99\n3, NVIDIA GeForce RTX 3090, GPU-fb856f23-d2d1-87af-54d4-f805742da76f, 16306, 94\n",
+  "archive": {
+    "unix": 1792940701.7062871,
+    "seconds": 0.9370092680328526,
+    "copied": [],
+    "skipped": [],
+    "metadata_snapshots": [
+      {
+        "path": "exp/two_backbone_pct10_native_20261025/runs",
+        "returncode": 0,
+        "stderr": ""
+      },
+      {
+        "path": "summary/two_backbone_pct10_20261025",
+        "returncode": 0,
+        "stderr": ""
+      }
+    ],
+    "free_bytes": 112461451264,
+    "old_checkpoint_retention_untouched": true,
+    "only_latest_checkpoint_per_run_is_durable": true,
+    "metadata_is_live_snapshot_not_result_verification": true
+  },
+  "archive_error": null,
+  "native_pct10_verifier": {
+    "pid": 4063535,
+    "unix": 1792940689.6451015,
+    "host": "old2080",
+    "verified_native_pairs": 0,
+    "required_native_pairs": 14,
+    "models_started": 0,
+    "Markdown_tables_written": false,
+    "FOREVER_excluded_pending_independent_verification": true
+  },
+  "native_pct10_verified_index": {
+    "CPU_only": true,
+    "collector_sha256": "2b2a3202fa049c911324081aacb31d0e7c7508b1020a2727893f1f85ab15c376",
+    "base_collector_sha256": "d7aac920f738c6ee8fde9a636560f2d2d6ee7ea1ba9de9e030e6548b4b4cad0a",
+    "condition": "pct10",
+    "manifest_sha256": "02ef86674c22a9dbf7f0d406398615437f8406cff364415e14d54f5fdb5bfcb7",
+    "verified_method_backbone_pairs": 0,
+    "optimizer_calls_per_complete_run": 828,
+    "positive_lr_updates_per_complete_run": 822,
+    "zero_lr_initial_updates_per_complete_run": 6,
+    "required_native_pairs": 14,
+    "total_planned_pairs_including_FOREVER": 16,
+    "methods_in_scope": [
+      "SeqFT_LoRA",
+      "CL_MoE",
+      "SMoLoRA",
+      "PASs_MoE",
+      "PaRSP",
+      "OSFT",
+      "SpaRTA"
+    ],
+    "FOREVER_in_scope": false,
+    "TEST_best_run_selection": false,
+    "primary_AP19_unchanged": true,
+    "Markdown_tables_written": false,
+    "models_started": 0,
+    "missing_results_are_not_zero": true,
+    "methods": []
+  }
+}
