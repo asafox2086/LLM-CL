@@ -6,7 +6,9 @@
 
 人类已明确授权10% TRAIN＋完整TEST；实际冻结13105 TRAIN／21454 TEST／19任务／828次主任务更新，其余沿用1%设置。[正式协议](summary/two_backbone_pct10_20261025/PROTOCOL.md)与[独立主表](summary/two_backbone_pct10_20261025/MAIN_TABLE.md)保留采样、runner及参数／资源口径。
 
-事前发布453f93a93a21d8042d27f472d2c1a1f6438d6901后，[ACTIVATION](summary/two_backbone_pct10_20261025/ACTIVATION.json)与[实际快照](summary/two_backbone_pct10_20261025/LATEST_OLD_OBSERVATION.json)记录OLD controller4044638／UID1084 active/running；GPU0 OneVision Seq4044680、GPU1 Qwen Seq4044721、GPU2 OneVision PAS4044746、GPU3 Qwen PAS4044767身份匹配，均为preflight initial_evaluation。其余10个非BF16组合OLD排队、两SMoLoRA待NEW，0完整10%正式结果；预检尚未过关，不称正式training通过或已得到F1。
+事前发布453f93a93a21d8042d27f472d2c1a1f6438d6901后已[首次激活](summary/two_backbone_pct10_20261025/ACTIVATION.json)。最新[实际快照](summary/two_backbone_pct10_20261025/LATEST_OLD_OBSERVATION.json)为unix1792938818.253909：OLD新controller4049826／UID1084 active/running，四组SeqFT／PAS均通过preflight及reload（return0），正式training phase处于initial_evaluation／S0，四卡利用率50–69%。其余8个native组合OLD排队、两SMoLoRA待NEW；0完整10%正式结果，不把初始评价当训练完成或新F1。
+
+[控制器交接](summary/two_backbone_pct10_20261025/CONTROLLER_HANDOFF.json)仅替换CPU调度4044638→4049826，0 GPU信号；OneVision PAS原reload worker4049282已在unix1792938739.866自然exit0，早于交接，没有被中断，原三源与冻结PROTOCOL／READY不改。[FOREVER兼容发现](summary/two_backbone_pct10_20261025/FOREVER_COMPATIBILITY_FINDING.md)覆盖原初期14组合计划：两组明确等待10%动态回放适配核验，尚未启动FOREVER模型。旧core限制main_updates≤24而S1需217次，旧S2预检固定1次而当前需7次；不能仅删断言或复制1%零动态触发证明。
 
 [NEW归档collector](summary/two_backbone_pct10_20261025/ARCHIVE_ACTIVATION.json) PID1318977 active，已收第一轮小证据，尚无CP。OLD RAM tmpfs不是耐久存储；NEW归档全量小证据及各run latest／final，不代表全部SeqFT 19阶段CP均已耐久保存。OLD原保留策略不变：SeqFT保19CP，其他native保S19，FOREVER原rolling；不以collector存活或一次同步代替具体CP归档证明。
 

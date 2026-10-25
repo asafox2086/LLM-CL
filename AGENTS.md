@@ -1,5 +1,7 @@
 # 2026-10-25：人类明确授权第二主表，训练10%并使用完整测试
 
+- 更新快照（unix1792938818.253909）：OLD新CPU controller4049826／UID1084已接管4044638，0 GPU信号；四组SeqFT／PAS均通过preflight与reload（return0），处于正式training phase的initial_evaluation／S0，0完整正式结果。两FOREVER改为waiting_forever_pct10_scheduler_review：旧core要求main_updates≤24，旧预检S2固定1更新，不兼容10%的S1 217更新／S2 7更新，尚未启动任何FOREVER模型；不得删guard假跑。其余8个native OLD排队、两SMoLoRA待NEW。OneVision PAS原reload worker4049282在unix1792938739.866已自然exit0，早于交接，未被中断；原三源／冻结PROTOCOL／READY不改。证据见CONTROLLER_HANDOFF.json、LATEST_OLD_OBSERVATION.json及FOREVER_COMPATIBILITY_FINDING.md；下方首次预检快照保留为历史。
+
 - 最新实际启动快照（2026-10-25，unix1792938318.7140753）：事前发布453f93a93a21d8042d27f472d2c1a1f6438d6901后，OLD controller4044638／UID1084 active/running；GPU0 OneVision Seq4044680、GPU1 Qwen Seq4044721、GPU2 OneVision PAS4044746、GPU3 Qwen PAS4044767身份均匹配，处于preflight initial_evaluation，0完整正式结果。其余10个非BF16组合OLD排队，两SMoLoRA待NEW；NEW collector1318977 active，仅第一轮小证据已收、无CP。下方“待首次启动”为激活前记录；不将预检启动写成正式training通过。见summary/two_backbone_pct10_20261025/ACTIVATION.json、LATEST_OLD_OBSERVATION.json与ARCHIVE_ACTIVATION.json。
 
 - 人类已明确确认新增10% TRAIN＋完整TEST，其他设置沿用1%正式协议；不是10% TEST，也不是100% full。1%原表、冻结科学源与现有基线队列保持，不能复用1%分数填10%表或从其已学权重继续。
