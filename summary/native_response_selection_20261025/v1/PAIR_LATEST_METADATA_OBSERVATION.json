@@ -1,11 +1,15 @@
 {
-  "unix": 1792911986.427816,
-  "service": "MainPID=3945071\nExecMainStatus=0\nActiveState=active\nSubState=running\n",
+  "unix": 1792913413.494403,
+  "service": "MainPID=0\nExecMainStatus=0\nActiveState=inactive\nSubState=dead\n",
   "phases": {
     "train_dynamic": {
       "started": true,
-      "complete": false,
-      "exit": null,
+      "complete": true,
+      "exit": {
+        "pid": 3945072,
+        "returncode": 0,
+        "unix": 1792913132.3159478
+      },
       "failure": null,
       "identity": {
         "pid": 3945072,
@@ -13,15 +17,20 @@
         "uid": 1084,
         "pgid": 3945072
       },
-      "identity_present": true,
+      "identity_present": false,
       "GPU": 0,
       "start_unix": 1792911968.0940123,
-      "gradient_files": null
+      "gradient_files": 87,
+      "stage_complete_files": 19
     },
     "train_static": {
       "started": true,
-      "complete": false,
-      "exit": null,
+      "complete": true,
+      "exit": {
+        "pid": 3945073,
+        "returncode": 0,
+        "unix": 1792913132.3165526
+      },
       "failure": null,
       "identity": {
         "pid": 3945073,
@@ -29,26 +38,55 @@
         "uid": 1084,
         "pgid": 3945073
       },
-      "identity_present": true,
+      "identity_present": false,
       "GPU": 1,
       "start_unix": 1792911968.0723262,
-      "gradient_files": null
+      "gradient_files": 87,
+      "stage_complete_files": 19
     },
     "eval_dynamic": {
-      "started": false,
-      "complete": false,
-      "exit": null,
+      "started": true,
+      "complete": true,
+      "exit": {
+        "pid": 3952488,
+        "returncode": 0,
+        "unix": 1792913271.994458
+      },
       "failure": null,
-      "gradient_files": null
+      "identity": {
+        "pid": 3952488,
+        "startticks": "761155269",
+        "uid": 1084,
+        "pgid": 3952488
+      },
+      "identity_present": false,
+      "GPU": 1,
+      "start_unix": 1792913132.5754373,
+      "gradient_files": null,
+      "stage_complete_files": null
     },
     "eval_static": {
-      "started": false,
-      "complete": false,
-      "exit": null,
+      "started": true,
+      "complete": true,
+      "exit": {
+        "pid": 3953053,
+        "returncode": 0,
+        "unix": 1792913404.6364882
+      },
       "failure": null,
-      "gradient_files": null
+      "identity": {
+        "pid": 3953053,
+        "startticks": "761169236",
+        "uid": 1084,
+        "pgid": 3953053
+      },
+      "identity_present": false,
+      "GPU": 1,
+      "start_unix": 1792913272.2695513,
+      "gradient_files": null,
+      "stage_complete_files": null
     }
   },
-  "all_exit": false,
+  "all_exit": true,
   "verified": false
 }

@@ -30,6 +30,8 @@ OLD账户701GiB／硬配额700GiB，即使整盘2.5TiB空闲也不可继续写�
 
 2026-10-25原生响应动态／固定pair首次启动：8源与协议及事前问题账本先发布223c4f89f8ee408f46ba4d95b2a26d3f64677487，PAIR_READY 14c9d38e11608d5582f9fe401606e28e4a6c0480ce33f86c5af26fa14e171444；OLD /tmp/llmcl-response-pair-1084-geic2vef。1792911986.427816快照unit active/running，controller3945071，dynamic3945072/start761038816/UID1084/隔离PGID同PID/GPU0与static3945073/start761038817/GPU1均实际身份匹配；两臂首次STARTED1792911968.094／1792911968.072。每臂3600秒训练含初100盲生成，最终同卡串行各600秒含5资源窗与100盲生成；总8400模型秒。计划2426反向／174更新／410生成／400唯一F1，0TEST；尚未全部发生。首次故障不恢复／延时／搜配置；四phase完整成功退出后才唯一核验质量。证据账本原字节冻结，新增支持／反证与逐域结果另写结果文件，不事后倒推问题或把动态胜静态当已胜普通QV。完整权重与同卡峰待测，未证明强参照优势；[事前账本](summary/native_response_selection_20261025/v1/PROBLEM_METHOD_EVIDENCE.md)、[启动](summary/native_response_selection_20261025/v1/PAIR_ACTIVATION.json)、[时点元数据](summary/native_response_selection_20261025/v1/PAIR_LATEST_METADATA_OBSERVATION.json)。
 
+2026-10-25原生响应pair完整终态：唯一VERIFIED 482d531edc4ab26455986b2f722204b9ac350368f3ef71bdd70da8de85beca76，四phase实际exit0、unit inactive/MainPID0，原四worker身份均无；不再等待或恢复此入口。动态宏44.757602698／固定44.681200950，医学和金融均低旧各域底线，按事前协议关闭。两图base+24β，最终893675576系数、普通buffer242504bytes；实际五窗峰约1857–2166MiB，两图接近但没有测强基线胜利。完整模型秒2507.544632246、controller墙钟1436.842244530重叠不加；唯一核验25.930428430、标量consumer0.625、归档97.583366430秒另计，32QA校准31.973244172秒及历史成本保留。NEW private_paired已核314个新产物字节SHA，包括初末完整图和19阶段adapter；OLD源保留。原事前问题账本不改，新正负／逐题／β轨迹与缺测解释均在新[完整结果](summary/native_response_selection_20261025/v1/PAIRED_FINDINGS.md)。结果评审纠正动态β上界不能称已测βd，文案修正0模型／0评分，不重新消费质量。两活基线元数据见[时点记录](summary/native_response_selection_20261025/v1/BASELINE_METADATA_OBSERVATION_DURING_PAIR.json)，无新增正式proof，8/16及原主表全部保留。
+
 下面为2026-10-24交接原记录，原“当前／活动／下一步”均按历史时点理解。
 
 ## 新会话运行交接（2026-10-24历史）

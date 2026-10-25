@@ -1,0 +1,192 @@
+{
+  "accepted": true,
+  "meaning": "Complete evidence and fixed negative selection decision are scientifically usable; neither candidate passes the predefined quality floor.",
+  "reviewer": "research_review",
+  "authorship_disclosure": "Reviewer authored paired_verify.py and protocol draft, cross-reviewed other sources and interpreted the fixed diagnostic; not an independent experiment or rescoring.",
+  "evidence_sha256": {
+    "PAIR_VERIFIED.json": "482d531edc4ab26455986b2f722204b9ac350368f3ef71bdd70da8de85beca76",
+    "PAIR_OUTCOME.json": "d5aca6fcc466e6772d2e55efc363871f99a0d3a836725b320ed3a6495dbfe00e",
+    "PAIRED_FINDINGS.md": "a1295fae3426520c2407ab0fb9e8c8f9429a2e25822cc32d304ae1015b1c07c0",
+    "PAIR_BETA_TRAJECTORY.csv": "129ae9154d0212110706f5da16949b207b326dced563f3c0252913611ed7813e",
+    "PAIR_PER_ID_COMPARISON.csv": "11c19c34bb0073811e78585143e64c628980e1882b1568c59fc3a4801e5ad22e",
+    "PAIR_RESULT_LABEL_CORRECTION.json": "ab476a1f94720a95cef8fa2140fd847fcbfa37082cc33664cb9b9b8615265580",
+    "PROBLEM_METHOD_EVIDENCE.md": "8eb457c45e9740592fdcb3865df8b45dd4985d523d636fb6b3ceeaeeeab509ed",
+    "PAIR_READY.json": "14c9d38e11608d5582f9fe401606e28e4a6c0480ce33f86c5af26fa14e171444"
+  },
+  "review_scope": "Read complete sealed proof/scalars, revised findings/outcome, stage-beta artifact format and per-ID scalar comparisons. No raw QA/answer-body analysis, no F1 recomputation, no checkpoint deserialization or old large-weight hashing.",
+  "observed": {
+    "quality": {
+      "historical_wide": {
+        "macro": 43.79198740853657,
+        "domains": {
+          "natural": 61.5,
+          "medical": 44.5,
+          "geography": 45.0,
+          "finance": 30.0,
+          "traffic": 37.959937042682874
+        }
+      },
+      "dynamic_initial": {
+        "macro": 16.116268432502135,
+        "domains": {
+          "natural": 31.056388056388055,
+          "medical": 4.857142857142857,
+          "geography": 33.666666666666664,
+          "finance": 5.0,
+          "traffic": 6.001144582313097
+        }
+      },
+      "dynamic_final": {
+        "macro": 44.75760269784193,
+        "domains": {
+          "natural": 62.5,
+          "medical": 42.83333333333333,
+          "geography": 55.0,
+          "finance": 25.0,
+          "traffic": 38.45468015587637
+        }
+      },
+      "static_initial": {
+        "macro": 16.116268432502135,
+        "domains": {
+          "natural": 31.056388056388055,
+          "medical": 4.857142857142857,
+          "geography": 33.666666666666664,
+          "finance": 5.0,
+          "traffic": 6.001144582313097
+        }
+      },
+      "static_final": {
+        "macro": 44.68120094961681,
+        "domains": {
+          "natural": 62.5,
+          "medical": 42.83333333333333,
+          "geography": 55.0,
+          "finance": 25.0,
+          "traffic": 38.072671414750715
+        }
+      }
+    },
+    "paired_domain_macro_difference": {
+      "macro_dynamic_minus_static": 0.07640174822512336,
+      "domains": {
+        "natural": 0.0,
+        "medical": 0.0,
+        "geography": 0.0,
+        "finance": 0.0,
+        "traffic": 0.3820087411256523
+      }
+    },
+    "per_ID_F1_wins": {
+      "dynamic": 3,
+      "static": 1,
+      "ties": 96
+    },
+    "all_domain_floor": {
+      "dynamic": false,
+      "static": false
+    },
+    "decision": "close_fixed_response_selection_pair",
+    "retained_arm": null,
+    "beta_parameter_observations": {
+      "dynamic": {
+        "nonzero_layers": 24,
+        "min": -0.0016393914120271802,
+        "max": 0.001320212846621871,
+        "max_abs": 0.0016393914120271802,
+        "compiled_min": -0.0016393914120271802,
+        "compiled_max": 0.001320212846621871,
+        "compiled_max_abs": 0.0016393914120271802
+      },
+      "static": {
+        "nonzero_layers": 24,
+        "min": -0.00088004011195153,
+        "max": 0.001366416341625154,
+        "max_abs": 0.001366416341625154,
+        "compiled_min": -4.151688335696235e-05,
+        "compiled_max": 7.056667527649552e-05,
+        "compiled_max_abs": 7.056667527649552e-05
+      }
+    },
+    "beta_observation_limits": {
+      "dynamic_saved_scalar_is_beta_not_measured_beta_times_d": true,
+      "dynamic_actual_coefficient_unmeasured": true,
+      "dynamic_abs_beta_is_abs_beta_d_upper_bound": true,
+      "static_saved_scalar_is_effective_gamma": true
+    },
+    "final_layout": {
+      "dynamic": {
+        "weights": {
+          "coefficients": 893675576,
+          "bytes": 1787351200
+        },
+        "ordinary_buffers": {
+          "coefficients": 118265,
+          "bytes": 242504
+        },
+        "trainable": 0
+      },
+      "static": {
+        "weights": {
+          "coefficients": 893675576,
+          "bytes": 1787351200
+        },
+        "ordinary_buffers": {
+          "coefficients": 118265,
+          "bytes": 242504
+        },
+        "trainable": 0
+      }
+    },
+    "final_complete_package_bytes": {
+      "dynamic": 1787879792,
+      "static": 1787878998
+    },
+    "phase_seconds": {
+      "train_dynamic": 1163.236195081845,
+      "train_static": 1074.5536119965836,
+      "eval_dynamic": 138.39403987955302,
+      "eval_static": 131.3607852878049
+    },
+    "model_phase_seconds": 2507.5446322457865,
+    "parallel_controller_seconds_not_additive": 1436.8422445300967,
+    "historical_calibration_seconds_separate": 31.973244171589613,
+    "FIT_backwards": 2426,
+    "optimizer_updates": 174,
+    "new_generations": 410,
+    "new_scores": 400,
+    "TEST_QA": 0,
+    "extra_diagnostic_NLL": 0
+  },
+  "conclusions_supported": [
+    "Both recipes complete actual learning and self-contained final evaluation. They preserve the full pretrained graph plus24FP32 scalars, with exact common initial output tokens. This is a real functional result, not implementation missingness.",
+    "Dynamic44.75760 andstatic44.68120 exceed the historical macro43.79199 but both medical42.83333<44.5 andfinance25<30. Macro improvement does not satisfy the prespecified each-domain floor; fixed-pair closure is correct.",
+    "The direct dynamic/static difference is onlytraffic+0.38201 andmacro+0.07640, with3higher/1lower/96tied F1. Tied F1 does not imply identical strings or semantic equivalence; no statistical or general equivalence claim is supported.",
+    "All24beta parameters changed fromzero and are nonzero in each final recipe; stage values and static effective-coefficient compilation are observed. Small beta is a legitimate limitation, not a basis for retroactive LR/amplitude changes.",
+    "Final graphs have893675576coefficients/1787351200weightbytes and242504ordinarybufferbytes. This adds24coefficients to the complete base and does not structurally compress folded OSFT/densewide.",
+    "The five same-card windows measure actual candidate memory. Equal selected peaks in four domains and the smalltrafficdifference do not establish zero dynamic overhead or a strong-reference memory advantage.",
+    "Extra signed-Down work is real. Theoretical104595456additionalMAC/token is one-third of the three FFN matrix projections, not measured end-to-end speed or a full-model FLOPs percentage.",
+    "Revised findings separate observed dynamic beta from its unmeasured beta*d coefficient; the reported dynamic max_abs is only a coefficient upper bound. Static gamma is the actual stored coefficient."
+  ],
+  "not_identified": [
+    "Without matched QV-only, either macro increase over the old historicalwide cannot be assigned to the modulation module; shared QV learning and historical optimizer/fold/hardware differences remain.",
+    "Neither near-tied answer results nor small beta proves all dynamic selection useless, insufficient capacity uniquely causal, equivalence, or absent forward effects. Final learned gates/contrast magnitudes and beta-specific gradient measurements were not obtained.",
+    "Finite120gradient-object receipts and aggregate event norms do not locate nonzero beta gradients or prove a causal semantic gate. Observed beta change is actual parameter adaptation, not proof of useful routing or replaced PAS RW/RS.",
+    "No matched formal PAS/foldedOSFT deployment comparison or formal21454quality/continual-stage result was performed. No complete endpoint research goal or Ours claim follows.",
+    "Initial S1 nondegenerate scores cannot be reused as measuredS19 response statistics, and positive method performance could not validate every problem explanation anyway."
+  ],
+  "action": "Keep this fixed parity/relative-energy/24beta/wide-budget pair closed under its predefined exit. Preserve all gains, failed domains, actual parameter and memory observations, labels and costs. Do not rescue group/rank/LR/beta scale/data/steps or revive other closed branches.",
+  "label_correction": {
+    "accepted": true,
+    "reason": "Dynamic beta is observed, dynamic beta*d was not measured; static gamma is observed. Revised column now states static|gamma| maximum / dynamic|beta*d| upper bound.",
+    "VERIFIED_unchanged": true,
+    "no_model_or_scoring_reexecution": true
+  },
+  "actions": {
+    "new_model_execution": false,
+    "new_scoring_or_bootstrap": false,
+    "new_remote_operations": false,
+    "old_large_weight_hash": false,
+    "source_protocol_READY_modified": false
+  }
+}
