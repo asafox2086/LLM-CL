@@ -1,0 +1,120 @@
+{
+  "accepted": true,
+  "decision": "accept_scientific_negative_qualification_result_not_quality_pass",
+  "reviewer": "research_review",
+  "reviewed_at_UTC": "2026-10-25T05:31:17.430408+00:00",
+  "bindings": {
+    "VERIFIED_sha256": "54edb1c4e988a727032a9c5c67453f0b6b4f9a867908d97a1c315b8e43066ace",
+    "FINDINGS_sha256": "a362841cd23aa3258e5a6fcc890d27d850372b5f98de24b49d2bad54fbacb0ab",
+    "original_READY_sha256": "957b28d7cadc49135e51b12a7e4ff36a3998edca272cbf2f724c49b4ed631ffb",
+    "compatibility_READY_sha256": "16a1740f002759001e8c8b1daa8aaf79dc663927cc4f5639bfd59e3ecf0f800f",
+    "original_FAILURE_sha256": "5600c8b91fa02109f86d8d837ca751cf50d93bcab4f5e062b8aba25406c62039",
+    "original_EXIT_sha256": "eddf1cee1dbcdf94a3565663c9220b55b3ed89ba78018c97c8658c37efa8b489",
+    "original_STARTED_sha256": "c4942c0578ec1c83dc1dcb84a559cd911643ff293d13dfbb49bdd444288c751d",
+    "original_native_eval_STARTED_sha256": "169545f81a5e5aff2fb7f426783f4cffd7b8bc3766f87d3923dbc397914d1c2e",
+    "compatibility_PROTOCOL_sha256": "ee9559ac9027918f27c8cc1e2aedb24d0d8443ecbbc9e90de7dbc6b9b444ab64",
+    "COMPLETE_sha256": "b7aa8bdb7d73c3443dc695d64f49af1ba08686c5246ecdfe9b281c4394308a66",
+    "EXIT_sha256": "694867e0fd8478ad02d28dbc9125e8df1b35e60c30d7a2d4587424e0d7960219"
+  },
+  "scope_and_authorship": [
+    "Read existing VERIFIED/FINDINGS and small original/compatibility READY, failure, start/complete/exit and resource metadata. Checked their hashes and simple deadline/cost arithmetic. No re-scoring, bootstrap, original private answer text, large checkpoint loading/hashing, model/QA/GPU or server access.",
+    "Reviewer authored runtime.py/adaptation.py and previously reviewed the generation-config compatibility amendment. This is an independent interpretation/result-chain review, not independent authorship of those modules or a fresh execution of their verifier."
+  ],
+  "observed_quality": {
+    "parent": {
+      "macro": 43.79198740853657,
+      "domains": {
+        "natural": 61.5,
+        "medical": 44.5,
+        "geography": 45.0,
+        "finance": 30.0,
+        "traffic": 37.959937042682874
+      }
+    },
+    "initial": {
+      "macro": 34.23033344518276,
+      "domains": {
+        "natural": 92.5,
+        "medical": 12.5,
+        "geography": 40.0,
+        "finance": 10.0,
+        "traffic": 16.151667225913812
+      }
+    },
+    "final": {
+      "macro": 37.99153557705424,
+      "domains": {
+        "natural": 95.0,
+        "medical": 21.8859649122807,
+        "geography": 45.0,
+        "finance": 10.0,
+        "traffic": 18.071712972990497
+      }
+    }
+  },
+  "scientific_judgment": [
+    "Native Q improves macro34.2303334452 to37.9915355771, but remains below historical fullwide43.7919874085. Natural95 exceeds61.5 and geography45 equals45; medical21.8859649123, finance10 and traffic18.071712973 remain below44.5/30/37.959937043. The all-domain floor fails.",
+    "Natural initial92.5 already exceeds the historical target. Final95 is not evidence that87 updates created the full advantage or that a newly invented method supplied it. The source model pretraining/coupling/input/tokenizer effects are not separated.",
+    "Every final domain mean is at least its initial mean, including unchanged finance. These endpoint means do not support explaining the present gap solely by net loss of initial ability; they do not exclude individual forgetting, within-domain changes, weak acquisition, optimization or absent knowledge.",
+    "The complete static graph is genuinely507482304FP16 coefficients/1014964608 weight bytes, with4224 ordinary-buffer bytes, package1015142664bytes and no adapter/optimizer/teacher. Relative to893675552 coefficients this is43.2140330051% fewer complete coefficients; this structural saving is real but does not imply the full deployment criterion passes.",
+    "All five newly matched same-card allocated peaks are higher: native2598429184/3073988608/3073988608/3074055680/2597943808 versus parent2277051392/2145716736/1952567296/2145711616/2277042176bytes. The GPU-memory criterion fails in every measured window, despite a lower native baseline allocation.",
+    "Native832/1088 decoder visual tokens and parent1485-5157 cannot be used to predict or claim a lower whole-model peak. Native input contains13/17 actual512x512 views. Patch activations, attention implementation, connector, language geometry, allocator/workspace and scheduling coexist; this experiment does not isolate eager attention, vision, tile count or any other unique peak cause.",
+    "These are five fixed32-token windows in the same CUDA process context after verified payload release, not independent cold-process measurements or a full-distribution memory/latency result. Historical43.79 is a sealed quality target; current parent-resource loading did not re-prove that F1 or all historical nonpersistent buffers.",
+    "Closing this fixed native FP16-Q recipe is consistent with protocol. It does not establish universal native-model incapacity, pure capacity causality, failure of all compact learning, a BF16 comparison, formal strongest-baseline superiority or significant/non-inferior performance."
+  ],
+  "failure_and_continuation": {
+    "original_failure": "GenerationConfig.from_dict restored public configuration but omitted framework _original_object_hash; native evaluation stopped before a completed resource window or final response. Original initial100/1213FIT/19stages/87updates and physical CP were retained, not retrained.",
+    "repair": "One explicitly reviewed continuation preserves standard-loader GenerationConfig only if its public to_dict exactly matches the export and its standard hash sentinel exists. Public config, stop/input policy and model tensors were unchanged; no private marker was manually altered.",
+    "original_identity": {
+      "pid": 3904107,
+      "startticks": "760216208",
+      "uid": 1084,
+      "pgid": 3904107
+    },
+    "continuation_identity": {
+      "pid": 3914294,
+      "startticks": "760411592",
+      "uid": 1084,
+      "pgid": 3914294
+    },
+    "native_eval_absolute_deadline": 1792905920.1717799,
+    "native_eval_completed_unix_from_receipt": 1792905897.6207352,
+    "native_eval_deadline_margin_seconds": 22.551044733263552,
+    "parent_first_started_unix": 1792905897.621794,
+    "parent_budget_seconds": 240,
+    "parent_actual_seconds": 24.108175130560994,
+    "whole_budget_seconds": 5040,
+    "first_start_to_actual_exit_seconds": 2177.521575450897,
+    "old_and_new_READY_and_identity_distinguished": true,
+    "initial100_not_repeated": true,
+    "no_quality_consumed_before_complete": true
+  },
+  "cost": {
+    "first_START_to_COMPLETE_including_failure_repair_and_wait_seconds": 2176.544260106981,
+    "successful_phase_seconds": {
+      "initial": 161.8114030137658,
+      "train": 1413.1694416962564,
+      "native_eval": 197.5965649774298,
+      "parent_resource": 24.108175130560994
+    },
+    "successful_phase_sum_seconds": 1796.685584818013,
+    "overlap_warning": "Do not add phase sum to whole2176.544260106981; whole already includes successful phases plus failed load/review/repair/wait. Exit observation overlaps. Historical assets/implementation and earlier failed native attempts remain separate costs.",
+    "FIT_forwards_and_backwards": 1213,
+    "optimizer_updates": 87,
+    "new_generations": 210,
+    "unique_new_scores": 200,
+    "new_teacher_requests": 0,
+    "new_extra_diagnostic_NLL": 0,
+    "TEST_QA": 0,
+    "verification_seconds": 1.7049112599343061,
+    "process_RSS_highwater_bytes": 5272371200,
+    "RSS_not_CPU_advantage": true
+  },
+  "next_question_assessment": {
+    "new_model_experiment_accepted": false,
+    "bounded_source_question": "Before proposing any replacement interface, distinguish the existing native learned spatial connector contract from the old stitched pointwise interface. Native source applies scale4 pixel-shuffle and pretrained projection after the same small vision family; the old stitched source resizes32x32 features to27x27 and fits a768-to896 affine. Native crops/normalization/masks, token geometry, language prior and pretraining also differ. The current cross-model F1 gap does not identify the connector or affine as its cause.",
+    "design_constraint": "Only a concrete single terminal graph that retains the required visual/answer functions and has plausible full weight plus actual peak savings could justify a later controlled interface question. Do not infer that a larger/new bridge will solve it, combine both full models with uncounted weights, or reopen the failed fixed maps by name.",
+    "current_action": "No sufficiently identified new model intervention follows from these complementary domain means alone. Preserve the qualified negative result; source comparison may sharpen a new functional hypothesis, but no decoder-token/precision/crop/backend sweep or additional NLL is requested."
+  },
+  "required_result_text_corrections": []
+}

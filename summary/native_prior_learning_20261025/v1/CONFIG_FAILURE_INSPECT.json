@@ -1,0 +1,38 @@
+{
+  "unix": 1792905453.873559,
+  "chunks": {
+    "generation/configuration_utils.py": [
+      {
+        "line": 45,
+        "source": "    logging,\n)\n\n\nif TYPE_CHECKING:\n    from ..modeling_utils import PreTrainedModel\n\n\nlogger = logging.get_logger(__name__)\nMETADATA_FIELDS = (\"_from_model_config\", \"_commit_hash\", \"_original_object_hash\", \"transformers_version\")\nNEEDS_CACHE_CONFIG = {}\nNEED_SETUP_CACHE_CLASSES_MAPPING = {}\nQUANT_BACKEND_CLASSES_MAPPING = {}\nALL_CACHE_IMPLEMENTATIONS = []\n\nif is_torch_available():\n    from ..cache_utils import (\n        HQQQuantizedCache,\n        HybridCache,\n        MambaCache,\n        OffloadedStaticCache,"
+      },
+      {
+        "line": 1055,
+        "source": "            )\n\n        if is_local:\n            logger.info(f\"loading configuration file {resolved_config_file}\")\n        else:\n            logger.info(f\"loading configuration file {configuration_file} from cache at {resolved_config_file}\")\n\n        if kwargs.get(\"return_unused_kwargs\") is True:\n            config, unused_kwargs = cls.from_dict(config_dict, **kwargs)\n            config._original_object_hash = hash(config)  # Hash to detect whether the instance was modified\n            return config, unused_kwargs\n        else:\n            config = cls.from_dict(config_dict, **kwargs)\n            config._original_object_hash = hash(config)  # Hash to detect whether the instance was modified\n            return config\n\n    @classmethod\n    def _dict_from_json_file(cls, json_file: Union[str, os.PathLike]):\n        with open(json_file, \"r\", encoding=\"utf-8\") as reader:\n            text = reader.read()\n        return json.loads(text)"
+      },
+      {
+        "line": 1059,
+        "source": "        else:\n            logger.info(f\"loading configuration file {configuration_file} from cache at {resolved_config_file}\")\n\n        if kwargs.get(\"return_unused_kwargs\") is True:\n            config, unused_kwargs = cls.from_dict(config_dict, **kwargs)\n            config._original_object_hash = hash(config)  # Hash to detect whether the instance was modified\n            return config, unused_kwargs\n        else:\n            config = cls.from_dict(config_dict, **kwargs)\n            config._original_object_hash = hash(config)  # Hash to detect whether the instance was modified\n            return config\n\n    @classmethod\n    def _dict_from_json_file(cls, json_file: Union[str, os.PathLike]):\n        with open(json_file, \"r\", encoding=\"utf-8\") as reader:\n            text = reader.read()\n        return json.loads(text)\n\n    @classmethod\n    def from_dict(cls, config_dict: Dict[str, Any], **kwargs) -> \"GenerationConfig\":\n        \"\"\""
+      },
+      {
+        "line": 1149,
+        "source": "\n        Returns:\n            `Dict[str, Any]`: Dictionary of all the attributes that make up this configuration instance.\n        \"\"\"\n        output = copy.deepcopy(self.__dict__)\n\n        # Fields to ignore at serialization time\n        if \"_commit_hash\" in output:\n            del output[\"_commit_hash\"]\n        if \"_original_object_hash\" in output:\n            del output[\"_original_object_hash\"]\n\n        # Transformers version when serializing this file\n        output[\"transformers_version\"] = __version__\n\n        self.dict_torch_dtype_to_str(output)\n        return output\n\n    def to_json_string(self, use_diff: bool = True, ignore_metadata: bool = False) -> str:\n        \"\"\"\n        Serializes this instance to a JSON string."
+      },
+      {
+        "line": 1150,
+        "source": "        Returns:\n            `Dict[str, Any]`: Dictionary of all the attributes that make up this configuration instance.\n        \"\"\"\n        output = copy.deepcopy(self.__dict__)\n\n        # Fields to ignore at serialization time\n        if \"_commit_hash\" in output:\n            del output[\"_commit_hash\"]\n        if \"_original_object_hash\" in output:\n            del output[\"_original_object_hash\"]\n\n        # Transformers version when serializing this file\n        output[\"transformers_version\"] = __version__\n\n        self.dict_torch_dtype_to_str(output)\n        return output\n\n    def to_json_string(self, use_diff: bool = True, ignore_metadata: bool = False) -> str:\n        \"\"\"\n        Serializes this instance to a JSON string.\n"
+      },
+      {
+        "line": 1257,
+        "source": "        # If any `output_...` flag is set to `True`, we ensure `return_dict_in_generate` is set to `True`.\n        if generation_config.return_dict_in_generate is False:\n            if any(\n                getattr(generation_config, extra_output_flag, False)\n                for extra_output_flag in generation_config.extra_output_flags\n            ):\n                generation_config.return_dict_in_generate = True\n\n        # Hash to detect whether the instance was modified\n        generation_config._original_object_hash = hash(generation_config)\n        return generation_config\n\n    def update(self, **kwargs):\n        \"\"\"\n        Updates attributes of this class instance with attributes from `kwargs` if they match existing attributes,\n        returning all the unused kwargs.\n\n        Args:\n            kwargs (`Dict[str, Any]`):\n                Dictionary of attributes to tentatively update this class.\n"
+      }
+    ],
+    "generation/utils.py": [
+      {
+        "line": 1488,
+        "source": "            # the following conditions must be met\n            # 1) the generation config must have been created from the model config (`_from_model_config` field);\n            # 2) the generation config must have seen no modification since its creation (the hash is the same);\n            # 3) there are non-default generation parameters in the model config.\n            # 4) the user must have set new generation parameters in the model config.\n            # NOTE: `torch.compile` can't compile `hash`, this legacy support is disabled with compilation.\n            if (\n                not is_torchdynamo_compiling()\n                and self.generation_config._from_model_config  # 1)\n                and self.generation_config._original_object_hash == hash(self.generation_config)  # 2)\n                and len(self.config._get_non_default_generation_parameters()) > 0  # 3)\n            ):\n                new_generation_config = GenerationConfig.from_model_config(self.config)\n                if new_generation_config != self.generation_config:  # 4)\n                    warnings.warn(\n                        \"You have modified the pretrained model configuration to control generation. This is a\"\n                        \" deprecated strategy to control generation and will be removed in v5.\"\n                        \" Please use and modify the model generation configuration (see\"\n                        \" https://huggingface.co/docs/transformers/generation_strategies#default-text-generation-configuration )\",\n                        UserWarning,\n                    )"
+      }
+    ]
+  },
+  "checkpoint_bytes": 1015142664
+}

@@ -1,0 +1,110 @@
+{
+  "accepted": true,
+  "acceptance_meaning": "Public scalar/proof and bound-source evidence is internally consistent and usable. The fixed native FP16 Q qualification failed both the quality and matched GPU-peak gates; acceptance is not a quality pass.",
+  "reviewer": "baseline_review",
+  "reviewed_utc": "2026-10-25T05:29:30.724889+00:00",
+  "VERIFIED_sha256": "54edb1c4e988a727032a9c5c67453f0b6b4f9a867908d97a1c315b8e43066ace",
+  "source_COMPLETE_sha256": "b7aa8bdb7d73c3443dc695d64f49af1ba08686c5246ecdfe9b281c4394308a66",
+  "ready_sha256": "16a1740f002759001e8c8b1daa8aaf79dc663927cc4f5639bfd59e3ecf0f800f",
+  "original_ready_sha256": "957b28d7cadc49135e51b12a7e4ff36a3998edca272cbf2f724c49b4ed631ffb",
+  "archive_receipt_sha256": "2cbc41baf4b085e4d238d5919b569475f6678107f15099c33480c10c0e574650",
+  "compatibility_verifier_review_sha256": "d06d0622bc59ee2849acff825d68de92481d1b673d9bbf1f6f560013d97b482d",
+  "source_sha256": {
+    "adaptation.py": "7f6f1be1bac395a876621fe27dee5796342bdc49c4f78fe4ff4450e2428de8c8",
+    "controller.py": "bc409478960b4a6557c39dd61ae61f5c18f0dca9f4f9d0d2d4b27fa4abea1286",
+    "deployment.py": "4c8fdd4f0488fc86a66081244041e7dffcc7d656db5f5a96663866f3dbb27555",
+    "runtime.py": "81069ee6bc5e4ce5698a0bc4042196538c5109bf9adb39e6318eb42992b8c7e9",
+    "verify.py": "af33a2f84d3a21c265827c469386da299b668ffb1b37621eb6cde00795736abc",
+    "worker.py": "4af9a6d3931fcc5c48271ed39eced3a98c3c5d3a184e2d0d9f6d25552930b34d",
+    "PROTOCOL.md": "ee9559ac9027918f27c8cc1e2aedb24d0d8443ecbbc9e90de7dbc6b9b444ab64",
+    "SOURCE_REVIEW.json": "db11dcf221067a8711895c474fb5b123524deb5a6db13fc877f9af320e85bb26",
+    "VERIFIER_REVIEW.json": "d06d0622bc59ee2849acff825d68de92481d1b673d9bbf1f6f560013d97b482d",
+    "NECESSITY_REVIEW.json": "c11699e66ed1e9839ce3dd6956104b91944ef1d92b634c43967e03bc4abae3b6"
+  },
+  "review_scope": "Read existing complete public VERIFIED/scalars and small identity/phase/failure/budget/verification/archive proofs; compared their bindings and scalar arithmetic. Did not rerun the verifier or token scoring and did not reacquire/recheck private QA or full checkpoint content.",
+  "quality": {
+    "parent": {
+      "macro": 43.79198740853657,
+      "domains": {
+        "natural": 61.5,
+        "medical": 44.5,
+        "geography": 45.0,
+        "finance": 30.0,
+        "traffic": 37.959937042682874
+      }
+    },
+    "initial": {
+      "macro": 34.23033344518276,
+      "domains": {
+        "natural": 92.5,
+        "medical": 12.5,
+        "geography": 40.0,
+        "finance": 10.0,
+        "traffic": 16.151667225913812
+      }
+    },
+    "final": {
+      "macro": 37.99153557705424,
+      "domains": {
+        "natural": 95.0,
+        "medical": 21.8859649122807,
+        "geography": 45.0,
+        "finance": 10.0,
+        "traffic": 18.071712972990497
+      }
+    }
+  },
+  "weights": {
+    "coefficients": 507482304,
+    "logical_FP16_bytes": 1014964608,
+    "reduction_vs_full_parent_percent": 43.21403300512354,
+    "actual_package_bytes": 1015142664,
+    "checkpoint_digest_from_sealed_proof": "a40830d417dc29bdde9c1d5937eccb223a36cb34c144c53594fb5ff60e2180cb",
+    "checkpoint_sha256_from_export_proof_only": "4700baa0fae16bfe4397d6a311192970e62ae0f48ddcb4518ee685e7e67f8bdd"
+  },
+  "GPU_window_peak_delta_MiB": {
+    "natural": 306.48974609375,
+    "medical": 885.26904296875,
+    "geography": 1069.470703125,
+    "finance": 885.337890625,
+    "traffic": 306.03564453125
+  },
+  "identity_and_count_findings": [
+    "Original PID3904107/start760216208 completed initial100 and19 stages/1213 FIT backwards/87 updates once, then failed before first postreload generation. Original exit1 and GenerationConfig failure remain preserved.",
+    "Continuation PID3914294/start760411592 uses the same boot and GPU1, completed native105 plus parent5 with exit0. Old/new phase identities and READY hashes remain distinct and bound. No retraining or initial regeneration occurred.",
+    "Unique verifier exit0 occurs after model exit and records exactly200 new scores; parent100 scores are reused. Total210 generations includes original initial100, continuation native105 and parent5.",
+    "The latest inactive/PID-absent/GPU-empty observation predates VERIFIED (its verified=false is a snapshot); the later successful verifier process and complete VERIFIED establish final verification, not an extra scoring run."
+  ],
+  "budget": {
+    "phase_seconds": {
+      "initial": 161.8114030137658,
+      "train": 1413.1694416962564,
+      "native_eval": 197.5965649774298,
+      "parent_resource": 24.108175130560994
+    },
+    "whole_seconds_including_failure_repair_wait": 2176.544260106981,
+    "successful_phase_seconds_sum": 1796.685584818013,
+    "native_eval_original_absolute_deadline": 1792905920.1717799,
+    "native_eval_end_from_start_plus_seconds": 1792905897.6207352,
+    "deadline_margin_seconds": 22.551044702529907,
+    "first_start_to_observed_exit_seconds": 2177.521575450897,
+    "total_bound_seconds": 5040,
+    "archive_seconds_separate": 13.001079919020412
+  },
+  "interpretation": [
+    "The physical model and serialized package are smaller, but all five measured allocated-memory peaks are higher by306.04 to1069.47MiB, and medical/finance/traffic final F1 remain below the exploratory parent floors. Close this fixed native FP16 Q recipe.",
+    "Natural92.5 before local adaptation and95 after means most of that domain advantage already resides in the author pretrained prior. Medical improves9.38596 points but does not reach the parent; finance has no net endpoint gain; geography reaches the parent floor. This is not a pure forgetting or capacity diagnosis.",
+    "Native vision eager versus parent vision SDPA, different language/tokenizer/processor and pretrained history remain confounded. Fewer weights and fewer decoder visual tokens do not establish lower whole-model execution peak. No speed or CPU-memory advantage is inferred.",
+    "Natural95 versus the earlier stitched natural37.5 shows that the small vision asset is compatible with strong TextVQA function in its native whole model; it does not isolate the affine interface as the failure cause or authorize reopening that fixed bridge.",
+    "An interface research question would need a fixed-prior comparison that distinguishes a deployable single-graph functional alternative. Keeping both complete models for routing would reintroduce full-weight cost. Current observations alone do not justify another bridge/algorithm rescue, image shrinkage, kernel or precision experiment.",
+    "Historical parent43.79 remains an explored100DEV reference, not the formal strongest baseline or a new quality result for this run parent-resource graph. No formal1313/21454 run is automatically admitted."
+  ],
+  "authorship_disclosure": "Reviewer authored original deployment.py; this is an evidence interpretation audit, not independent recertification of that helper.",
+  "new_execution": {
+    "models": 0,
+    "QA_generations": 0,
+    "scores": 0,
+    "remote_queries": 0,
+    "large_checkpoint_hashes": 0
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "unix": 1792905385.5400364,
+  "service": "MainPID=0\nExecMainStatus=1\nActiveState=failed\nSubState=failed\n",
+  "phases": {
+    "initial": {
+      "started": true,
+      "complete": true,
+      "elapsed": 1640.3623316287994
+    },
+    "train": {
+      "started": true,
+      "complete": true,
+      "elapsed": 1478.550375699997
+    },
+    "native_eval": {
+      "started": true,
+      "complete": false,
+      "elapsed": 65.37853145599365
+    },
+    "parent_resource": {
+      "started": false,
+      "complete": false,
+      "elapsed": null
+    }
+  },
+  "identity": {
+    "pid": 3904107,
+    "startticks": "760216208",
+    "uid": 1084,
+    "pgid": 3904107
+  },
+  "identity_present": false,
+  "complete": false,
+  "verified": false,
+  "exit": {
+    "pid": 3904107,
+    "returncode": 1,
+    "unix": 1792905327.5068307
+  },
+  "failure": {
+    "unix": 1792905326.5484333,
+    "traceback": "Traceback (most recent call last):\n  File \"/tmp/llmcl-native-prior-1084-hjojg4s7/worker.py\", line 189, in <module>\n    try:main()\n  File \"/tmp/llmcl-native-prior-1084-hjojg4s7/worker.py\", line 155, in main\n    mem,mp=deployment.resource_windows(model,processor,rows,storage,batch_provider=native_batch,generation_policy=stop)\n  File \"/tmp/llmcl-native-prior-1084-hjojg4s7/deployment.py\", line 324, in resource_windows\n    tokens = _generate(model, batch, 32, generation_policy, True)\n  File \"/tmp/llmcl-native-prior-1084-hjojg4s7/deployment.py\", line 268, in _generate\n    output = model.generate(**payload, **options)\n  File \"/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/torch/utils/_contextlib.py\", line 116, in decorate_context\n    return func(*args, **kwargs)\n  File \"/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/generation/utils.py\", line 1971, in generate\n    generation_config, model_kwargs = self._prepare_generation_config(generation_config, **kwargs)\n  File \"/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/generation/utils.py\", line 1488, in _prepare_generation_config\n    and self.generation_config._original_object_hash == hash(self.generation_config)  # 2)\nAttributeError: 'GenerationConfig' object has no attribute '_original_object_hash'\n",
+    "no_quality_claim": true
+  },
+  "grad_receipts": 87,
+  "stages": 19,
+  "GPU_processes": "\n"
+}
