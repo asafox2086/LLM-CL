@@ -571,3 +571,16 @@ gate已完整19阶段／87更新、1408.252424500模型秒、EXIT0；下一origi
 unix1792926762.8731668新unit `llmcl-answer-readout-cl-prestart-continuation-20261025.service` active/running，original worker4001502/start762499983在GPU2身份匹配，已11梯度见证；这是时点证据而非完整F1。新Qwen资源probe已退出，GPU1释放，不影响其余eval顺序。NEW基线同轮实际仍运行两条，其它原队列待空卡。主表只补既成功的原formal资源值，不读本三臂partial质量。
 
 [具体续接与唯一消费者](summary/answer_reliability_consolidation_20261025/v1/CONTINUATION_HANDOFF.md) · [原故障实查](summary/answer_reliability_consolidation_20261025/v1/PRESTART_FAILURE_OBSERVED.json) · [独立源码审阅](summary/answer_reliability_consolidation_20261025/v1/PRESTART_CONTINUATION_REVIEW.json) · [准许范围与原预算](summary/answer_reliability_consolidation_20261025/v1/PRESTART_CONTINUATION_PERMIT.json)。
+
+
+### 固定五窗资源图与答案门先例核查
+
+从三份既有sealed proof消费15个GPU标量，完成朴素LLaVA-r8、原LLaVA-PAS、原Qwen-SeqLoRA的300DPI PNG／矢量PDF。逐一核验原proof、附属memory／COMPLETE摘要、相同物理GPU／boot、五个raw输入及32新token。同LLaVA prepared输入相同；跨骨干保留各自原生展开，不误要求tensor相同。图明确fold／原dtype、每域单QA、非全TEST峰；不将朴素图冒充ARC实测或Ours成果。沿用项目grouped_bar样式；CPU仅制图和已记录标量，新增模型／QA／评分均0。root与独立子agent均实际查看PNG，15值和图注复核通过。主表所有原行与参数／存储／GPU单元格保持原字节，新增读者图入口。
+
+定向阅读发现LSSD（EMNLP2022）已有样本相对教师表现开关，DA-KD（ICML2025）已有teacher/student gold CE比值指标，ACL2021已有随机50%同量控制；不声称一般gate、gold-loss选择或随机同数思想原创。LSSD以token概率算术均值评分，不能说等同本文平均NLL严格比较。当前具体适配只对实际max-hidden目标的末层读出作整包MSE准入代理；不能从代理NLL改善推出正确梯度或自由生成收益。已有方法允许借鉴，先例不独立否决本实验，但贡献须由完整效果建立。
+
+独立论文方向评判：可以研究固定小容量的有效学习；最终内存优势须拆清骨干、专家表示与dtype，不归新增门。若门不能胜原法及实际改变对应的同接受数打乱，不保留为新增规则；更好的已知方法可如实选择。仅100反复探索DEV，尚未证明正式胜最强。同轮基线实查NEW主监督和CL-MoE／SMoLoRA真实身份仍在，GPU1为他人作业，5项原队列等待，不以无新sealed结果伪造完成度。
+
+三臂训练仍由原固定监督推进，本次不读partial质量、不修改科学源／READY／预算、不新增模型分支。后置消费者只完成源码审核和准备，必须两份完整VERIFIED绑定后才运行，0新评分。实际结果出来后按原协议正负全记。
+
+[资源图与精确数据](summary/edge_resource_comparison_20261025/v1/FINDINGS.md) · [独立图审](summary/edge_resource_comparison_20261025/v1/FIGURE_REVIEW.json) · [定向先例](summary/answer_reliability_consolidation_20261025/v1/RELATED_WORK_SCOPE.md) · [论文方向评判](summary/answer_reliability_consolidation_20261025/v1/PAPER_STORY_REVIEW.md) · [后置脚本源码审阅](summary/answer_reliability_consolidation_20261025/v1/POST_CONSUMER_SOURCE_REVIEW.json) · [本轮基线实查](summary/answer_reliability_consolidation_20261025/v1/BASELINES_DURING_RESOURCE_FIGURE.json)。

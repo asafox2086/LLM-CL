@@ -1,0 +1,143 @@
+{
+  "source_proofs": {
+    "summary/plain_r8_gpu_control_20261025/v1/VERIFIED.json": "3b172989a57817cb99dbc4f70649efa0193ca5ee94ba6f5d80c1b274f5e3bc66",
+    "summary/strong_pas_resource_20261025/v1/VERIFIED.json": "c987ec2ac68980944a1ebdc515fab08a792667f923d142f6f8489d3725753d08",
+    "summary/strong_qwen_resource_20261025/v1/VERIFIED.json": "dd97300219ecbfaeb5052c571c68a4fd61fc3dd8455ab24eff5aa8627ca05e7c"
+  },
+  "extra_bindings": {
+    "summary/strong_pas_resource_20261025/v1/memory.json": "45bb9f4ca6d233b139f3c6a9b0255d29eee07e160b085fcef487bad8a3d8d7cd",
+    "summary/strong_qwen_resource_20261025/v1/memory.json": "1dc1a5826cec81f782cb657355d3c442277482c5309b7de3cfd3a3cd110c3e38",
+    "summary/plain_r8_gpu_control_20261025/v1/eval_qv_STARTED.json": "ad4e7e52cb61bb6470d259a9deb20633de649220e6255c013d4742ade13f69ff",
+    "summary/plain_r8_gpu_control_20261025/v1/eval_qv_COMPLETE.json": "8e573d9c0de0b093ab202b19f2cd2dc9fdcaabf5d756b5bf7d2f5a05f2bd0b82"
+  },
+  "physical_GPU": 1,
+  "GPU_uuid": "GPU-3c72e4ce-0896-0b40-d610-be585d2bb51e",
+  "metric": "torch.cuda.max_memory_allocated",
+  "unit": "MiB (1048576 bytes)",
+  "domain_order": [
+    "natural",
+    "medical",
+    "geography",
+    "finance",
+    "traffic"
+  ],
+  "dataset_labels": [
+    "TextVQA",
+    "SLAKE",
+    "RSVQA-LR",
+    "FinMME",
+    "CODA-LM"
+  ],
+  "raw_IDs": [
+    "TextVQA:20156",
+    "SLAKE:6846",
+    "RSVQA-LR:60602",
+    "FinMME:4244",
+    "CODA-LM:Train:Train_regional_4337"
+  ],
+  "raw_input_sha256": [
+    "ae1607d364b17be7a65aba59688078449264bf718969994df0ae31f7dcbfc7bc",
+    "6859cd8dc70ba08885a3894a717fb1455d823f7623473a3d76bdeb77b87efb7e",
+    "e4ba8eb5e1c3077c99035f955d1cbb98fad472c915c2bcfbe83008e4d6c9dd5b",
+    "982ba1ebe20cc2a42429785ad751e88751452d1048d790df1f4d4ae583d55044",
+    "2216076adc7f0643bb126e6c1012c095255e70d41e5b1536afdb53c3f19e69c5"
+  ],
+  "new_tokens_each": 32,
+  "samples_per_dataset": 1,
+  "repeated_runs": 1,
+  "series": [
+    {
+      "label": "LLaVA plain-r8 (folded)",
+      "color": "#4F81BD",
+      "peak_MiB": [
+        2166.1005859375,
+        2041.10595703125,
+        1856.97900390625,
+        2041.10107421875,
+        2166.091796875
+      ],
+      "visual_tokens": [
+        5157,
+        3699,
+        1485,
+        3369,
+        4501
+      ],
+      "prompt_tokens": [
+        5184,
+        3733,
+        1526,
+        3441,
+        4546
+      ]
+    },
+    {
+      "label": "LLaVA PAS (original)",
+      "color": "#9BBB59",
+      "peak_MiB": [
+        2959.4150390625,
+        2774.93798828125,
+        2490.443359375,
+        2735.13525390625,
+        2882.1015625
+      ],
+      "visual_tokens": [
+        5157,
+        3699,
+        1485,
+        3369,
+        4501
+      ],
+      "prompt_tokens": [
+        5184,
+        3733,
+        1526,
+        3441,
+        4546
+      ]
+    },
+    {
+      "label": "Qwen SeqLoRA (original)",
+      "color": "#C0504D",
+      "peak_MiB": [
+        4890.84716796875,
+        4954.603515625,
+        4311.99609375,
+        4550.7236328125,
+        4905.7646484375
+      ],
+      "visual_tokens": [
+        504,
+        529,
+        81,
+        340,
+        510
+      ],
+      "prompt_tokens": [
+        544,
+        576,
+        135,
+        425,
+        568
+      ]
+    }
+  ],
+  "naive_reduction_vs_PAS_percent": [
+    26.80646150180782,
+    26.444988477184793,
+    25.43580656368446,
+    25.374766337288012,
+    24.84332179480576
+  ],
+  "naive_reduction_vs_Qwen_percent": [
+    55.71113732353412,
+    58.80384877227105,
+    56.9345852006258,
+    55.14776903827752,
+    55.84599033781805
+  ],
+  "interpretation": "Original implementation comparison on five fixed raw-QA windows, including input preparation. Native expanded inputs differ across backbones. Plain-r8 is folded FP16; PAS and Qwen preserve their original mixed-dtype, unfolded representations. Not optimal deployment, full-distribution peak, a domain average, a new quality result, or evidence that ARC succeeds.",
+  "template": "analysis/omnimed_20261009/plot_templates/grouped_bar_template.py",
+  "style": "analysis/omnimed_20261009/plot_templates/style.py",
+  "style_sha256": "41de93cb7d3e742622f492a9a214a0d21e4727bc658897abac8f95e06acf403f"
+}
