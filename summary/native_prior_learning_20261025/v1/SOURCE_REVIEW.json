@@ -1,0 +1,49 @@
+{
+  "accepted": true,
+  "decision": "accept_fixed_native_Q_source_implementation_only",
+  "reviewer": "research_review",
+  "reviewed_at_UTC": "2026-10-25T04:48:07.827621+00:00",
+  "sources_sha256": {
+    "runtime.py": "81069ee6bc5e4ce5698a0bc4042196538c5109bf9adb39e6318eb42992b8c7e9",
+    "adaptation.py": "7f6f1be1bac395a876621fe27dee5796342bdc49c4f78fe4ff4450e2428de8c8",
+    "deployment.py": "ded1bcc901290f14407b07fac69b6c725cb2c083dc07b9e44019dcb5c04e17f5",
+    "worker.py": "4b20bb82d9cc2b6e1dfc77b71d753f2d7193320fe963c16d19f2e4d337fe78dd",
+    "controller.py": "bc409478960b4a6557c39dd61ae61f5c18f0dca9f4f9d0d2d4b27fa4abea1286",
+    "verify.py": "020f700bad8d65ede77b72eaf545156c14afdd743b1383a02901af4fc7e1d191"
+  },
+  "PROTOCOL_sha256": "12df6a84c0be47b902c74cc036868e0031f23a30916f5e6ce437c8f6f4d086b1",
+  "ENVIRONMENT_sha256": "ddbe693e0254c8c4465a510a54f13a3f8f0bed68122386713856644f06ebaecd",
+  "authorship_disclosure": {
+    "runtime.py": "Written by this reviewer; self-reviewed source only.",
+    "adaptation.py": "Written by this reviewer; self-reviewed source only.",
+    "other_four_sources": "Read-only independent cross-source review; no edits by this reviewer."
+  },
+  "actual_review_scope": [
+    "Read six new sources, fixed protocol, native asset processor/config metadata, original native-v2 runtime/core, original SeqLinear, original study.training_ast and original run.py training/validity/resource monitor.",
+    "Read actual Idefics3 processor/resize/model implementation plus PreTrainedModel input-gradient hooks and LlamaModel.get_input_embeddings. Nine local Transformer source files match every SHA in the frozen environment metadata; no package execution was performed.",
+    "AST parse/compile only for six new sources. No torch/model/processor/QA execution, scoring, synthetic operator check, CPU model probe, GPU or server access by this review."
+  ],
+  "corrected_before_freeze": [
+    "Original training AST deletes optimizer before appended stage-save callback. Factory now retains one temporary current optimizer; save_stage pops it for the GPU-state receipt, without editing the training AST.",
+    "Arbitrary allocated-memory-below1MiB gates removed. Weak references track old model/parameters/buffers/optimizer state release; remaining allocator bytes are recorded without a zero-allocation threshold.",
+    "Resource monitor thread must terminate before sealing its output files. Cleanup and boundary observations remain inside their corresponding fixed phase budgets.",
+    "Removed runtime legacy tensor_hash alias named prepared_sha256. Legacy prepared_input_SHA256 remains separately named; deployment computes its own storage.digest prepared_sha256 and verifier compares only initial/final native prepared inputs."
+  ],
+  "checks": {
+    "purpose_and_revision": "Explicitly reopens the never-executed old Q control role under one new fixed FP16/GPUAdamW condition, retaining all old failure records. E/R, model/precision/backend searches remain closed. Native compactness and prior competence belong to the original authors.",
+    "native_input_contract": "Original instructions/questions/images/context retrieval and401408 area limit, then native chat/processor. Private copy of only this processor-instance resize function globals changes omitted helper upper bound to2048 while retaining original resize bytecode/PIL pixel operations and512 tiles. Official512/16/scale4 geometry and processor_config64 are checked; old default169 may only be restored to bound64.",
+    "native_target_contract": "Native assistant prefix and unique terminator resolved from template/generation policy. Keep first512 answer-body tokens then append native assistant EOS, including EOS in per-QA CE. Full8192 context and original generation cap are not silently shortened.",
+    "qv_and_GPU_math": "Original SeqLinear,32 text layers/64 q-v modules/128 FP32 A-B Parameters/819200 coordinates; frozen native vision/connector/base/head. Outer FP16 autocast is disclosed rather than implying FP32 adapter compute. GPU FP32 product/add fold disables autocast/TF32 and produces FP16 with no retained A/B.",
+    "gradient_hook": "Bound PreTrainedModel enable/disable_input_require_grads APIs exist on inner LlamaModel; its get_input_embeddings returns embed_tokens. Worker uses only text-model hook and non-reentrant checkpointing, avoiding native Idefics3 vision input-gradient hooks. No CPU activation offload.",
+    "training": "Original AST and per-stage FIT ordering,1213 QA forwards/backwards,19 stages/87 positive-LR updates, original warmup/cosine/clip1. GPU AdamW wd0/betas(.9,.999)/eps1e-8/capturable with per-stage reset is an explicit implementation change from old HostAdamW. Finite128-parameter gradients and changed stage parameters/finite GPU optimizer states are measured in actual training.",
+    "trajectory_and_scoring": "Initial100 is unscored during execution and never branches training; train0DEV; strict new folded package reload then native5 windows plus final100; parent only5 windows. Entire worker exits before one original200-answer scoring pass. No TEST, extra diagnostic NLL, teacher, quality-based early stop or new operator gate.",
+    "physical_deployment": "Complete507482304 coefficient/1014964608 FP16-byte native graph, complete export with observed aliases/config/generation/buffers, strict same-standard-loader reload; adapter/optimizer/teacher absent from deployment. Native nonpersistent buffer consistency is checked within the same loader.",
+    "resource_comparison": "Same OLD GPU/process CUDA context, fresh model reloads after old payload weak-reference release. Five hash-min IDs/common raw-input contracts and32 new tokens match; native prepared tensors and tokenizer lengths legitimately differ. Allocated/reserved peaks and inputs are recorded; not independent cold-process or equal-FLOP comparisons.",
+    "quality_and_resource_references": "43.791987 parent quality is the historical sealed target; current parent5-window load preserves sealed persistent state and same-loader buffers without re-proving all historical nonpersistent buffers or new parent F1. Protocol explicitly separates this historical quality target from present resource observation.",
+    "exit": "Only final all-domain parent floors plus physically smaller complete weights/package and five lower same-card peaks retain a carrier/learning baseline. Failure or mixed point comparisons do not establish native incapacity, pure capacity causality, significance, a new method or a completed paper goal."
+  },
+  "operator_gate_judgment": "No new numerical operator requires another synthetic gate. Existing native forward, original SeqLinear, standard GPU AdamW and previously used GPU FP32 fold are used. Source-level input compatibility contracts are explicit; actual complete initial forward and actual first FIT gradient are the intended real numerical/interface evidence. They have not yet passed by this review.",
+  "blocking_issues_found": [],
+  "additional_checks_or_experiments_requested": [],
+  "not_model_admission_or_quality_pass": true
+}

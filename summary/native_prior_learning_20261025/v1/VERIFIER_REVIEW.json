@@ -1,0 +1,41 @@
+{
+  "accepted": true,
+  "acceptance_meaning": "Static independent review of worker/verifier and runtime/adaptation interfaces found no remaining fatal blocker for the fixed native FP16 qualification. Not model activation, successful execution, quality proof or scientific goal completion.",
+  "reviewer": "baseline_review",
+  "reviewed_utc": "2026-10-25T04:47:29.027608+00:00",
+  "source_sha256": {
+    "worker.py": "4b20bb82d9cc2b6e1dfc77b71d753f2d7193320fe963c16d19f2e4d337fe78dd",
+    "verify.py": "020f700bad8d65ede77b72eaf545156c14afdd743b1383a02901af4fc7e1d191",
+    "deployment.py": "ded1bcc901290f14407b07fac69b6c725cb2c083dc07b9e44019dcb5c04e17f5",
+    "runtime.py": "81069ee6bc5e4ce5698a0bc4042196538c5109bf9adb39e6318eb42992b8c7e9",
+    "adaptation.py": "7f6f1be1bac395a876621fe27dee5796342bdc49c4f78fe4ff4450e2428de8c8",
+    "controller.py": "bc409478960b4a6557c39dd61ae61f5c18f0dca9f4f9d0d2d4b27fa4abea1286"
+  },
+  "protocol_sha256": "12df6a84c0be47b902c74cc036868e0031f23a30916f5e6ce437c8f6f4d086b1",
+  "authorship_disclosure": {
+    "authored": [
+      "deployment.py"
+    ],
+    "independence_scope": "Independently reviewed root worker/controller/verify and science runtime/adaptation. This review does not independently certify its own deployment implementation; root and science reviewed that helper separately."
+  },
+  "resolved_blockers": [
+    "Original training AST deletes optimizer before appended save_stage. The factory now holds exactly one temporary optimizer reference; save_stage pops it, records actual GPU states and retains only weak references after returning. No original training AST arithmetic was modified.",
+    "Removed arbitrary less-than-1MiB allocator gate. Both fresh-model boundaries now assert weak-reference death for prior models/parameters/buffers and optimizer payloads, recording residual allocation rather than classifying CUDA workspaces as retained model weights.",
+    "ResourceMonitor.finish is followed by an assertion that its thread is dead before training file hashes are sealed; cleanup/boundary checks are charged inside their phase budgets."
+  ],
+  "reviewed_contracts": [
+    "One isolated worker, fixed initial/train/native_eval/parent_resource ordering and 600/3600/600/240 phase alarms, total5040; no initial-quality-dependent branch.",
+    "Initial100 plus final100 generations; original1213 FIT deterministic order through original training AST,19 stage resets and87 positive-LR updates;128 FP32 A/B tensors819200 coordinates, finite GPU gradients and GPU AdamW receipts. No DEV optimization or new TEST access.",
+    "Native complete FP16 deployment uses standard GPU pretrained loading and strict saved-state override from the same loading path, all-buffer invariants, observed aliases and physically folded adapters. No CPU model execution.",
+    "Native raw-contract metadata agrees with parent callback and verifier reconstruction: image hashes/shapes, instruction, original question/context, retrieved context/indexes and common area policy. Prepared tensors are required equal only across initial/final native readouts.",
+    "Fresh native final graph runs five fixed32-token windows before100 DEV; fresh parent graph runs the same five raw IDs/policy/windows on the same selected card. Single CUDA context and possible workspace retention are explicitly disclosed; not independent cold-process measurements.",
+    "One complete worker exit0 and all phase/file proofs precede the only200-answer scoring pass. New generation count210; original parent Answer F1 scalars are copied through their sealed prior chain without rescoring.",
+    "Retain gate requires every parent-domain point floor, smaller actual complete package and all five same-card allocated peaks lower. This does not certify joint-prior causality, formal strongest-baseline success, novelty, significance or a completed compact CL framework."
+  ],
+  "limits": [
+    "Historical43.79 parent quality and this run parent-resource graph are separately identified: no new parent quality generation is claimed.",
+    "Native vision eager versus parent vision SDPA, tokenizer/processor/prior differences and the fixed FP16/GPUAdamW recipe are implementation conditions; resource differences are not pure architecture causal effects.",
+    "No CPU/GPU probe, model/QA execution, remote action, quality reading, rescoring or large-checkpoint hash was performed for this review. Only source/small-protocol reads and standard-library AST/hash checks."
+  ],
+  "source_changes_by_review": []
+}
