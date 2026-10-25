@@ -1,0 +1,81 @@
+{
+  "accepted": true,
+  "reviewer": "baseline_review",
+  "authorship_disclosure": "Reviewer authored the dispatcher. This review checks local deployment proofs and policy/source bytes; root independently inspected and deployed the dispatcher.",
+  "scope": "Local deployment receipt, before/after policy, NEW_AFTER and OLD_AFTER metadata plus static wrapper inspection. No server revisit, model, QA, scoring, checkpoint read/hash, signal or deployment action.",
+  "commit": "838da45aa274d5958c752f4f5c636ec752d9aaf5",
+  "receipt_sha256": "7bf3bc090fdcdd29cd0c80bc3cee5a877c78ce0364d3f5bcd98ef399da03ab88",
+  "proof_sha256": {
+    "DEPLOYMENT_STARTED.json": "2e1e1e33480fc95b1f82be214e355c64af81f5f6398d83299d8be55a74dac824",
+    "NEW_AFTER.json": "3df99f8df3f1de01ee0258af89cf5ee6b3b440e91ba1747bc9455d18a4e0b5be",
+    "OLD_AFTER.json": "2dba71ecb821721bfc27a33ae0821cd4bd80d71e2dca3c56059ba82aec3b58b2",
+    "SOURCE_REVIEW.json": "bd3adfa9c2d878a14bb984299b80fa1d275097cfb253b8cd28d54c5252582439"
+  },
+  "source_sha256": "c775274d0ccd3f0e342f224ee3a16923f5f826dd1237d2fd1565052fee9575d8",
+  "policy_sha256_after": "c20aed19536e23c9d077963509803698daa78c17f80a57391db99fb44269d595",
+  "policy_check": "Exactly the two NEW host slot declarations changed: reserved [0], pct01 [1,2,3], full []. All other policy values match the before snapshot.",
+  "CPU_coordinator": {
+    "pid": 1221743,
+    "startticks": "26017836",
+    "active_running": true,
+    "old_hardware_coordinator_inactive": true
+  },
+  "preserved_workers": [
+    {
+      "pid": 8260,
+      "startticks": "60876",
+      "uid": 1004,
+      "pgid": 8260,
+      "deployment_CPU_tick_delta": 729,
+      "through_after_snapshot_CPU_tick_delta": 4214
+    },
+    {
+      "pid": 8265,
+      "startticks": "60882",
+      "uid": 1004,
+      "pgid": 8265,
+      "deployment_CPU_tick_delta": 722,
+      "through_after_snapshot_CPU_tick_delta": 4150
+    }
+  ],
+  "observed_active_count": 2,
+  "pending": [
+    {
+      "host": "new3090",
+      "key": "pct01:PASs_MoE",
+      "status": "ready_reload"
+    },
+    {
+      "host": "new3090",
+      "key": "pct01:PaRSP",
+      "status": "ready_reload"
+    },
+    {
+      "host": "new3090_onevision",
+      "key": "pct01:SMoLoRA",
+      "status": "waiting"
+    },
+    {
+      "host": "new3090",
+      "key": "pct01:OSFT",
+      "status": "waiting"
+    },
+    {
+      "host": "new3090",
+      "key": "pct01:SpaRTA",
+      "status": "waiting"
+    }
+  ],
+  "conclusions": [
+    "CPU dispatcher replacement and adoption are evidenced; both original GPU identities survived and CPU ticks increased. No new baseline completion is established by this review.",
+    "Currently two managed baselines are active, not all methods simultaneously running. The remaining eligible slot awaits an ownerless GPU with sufficient memory and low utilization; all four NEW GPUs have owners in this snapshot.",
+    "GPU0 is excluded from our assignments; it is occupied by another user, not globally free. Existing GPU2/3 workers coexist with other users and are not interrupted.",
+    "The wrapper excludes the sealed eight, all full-condition jobs and FOREVER. Frozen scientific Python remains unchanged according to the deployment pre/post digest check; only the wrapper and device-policy JSON were deployed.",
+    "OLD four GPUs are empty in the recorded snapshot. Its remaining OneVision SMoLoRA is queued for native BF16 on NEW; empty OLD hardware alone does not authorize dtype adaptation, sealed reruns or full-condition work."
+  ],
+  "limitations": [
+    "Snapshot evidence does not guarantee future progress or successful completion. Queue lifecycle labels are not optimizer-update proof; SMoLoRA remains at recorded initial evaluation despite increasing CPU ticks.",
+    "Existing eight completed parameter/storage statistics remain authoritative. Unfinished methods gain no fabricated final parameter numbers or results.",
+    "Acceptance means deployment evidence is usable; it is not a scientific quality result or evidence that every method is currently running."
+  ]
+}

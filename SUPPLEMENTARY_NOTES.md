@@ -38,6 +38,8 @@ OLD账户701GiB／硬配额700GiB，即使整盘2.5TiB空闲也不可继续写�
 
 2026-10-25匹配QV-only已结束并唯一核验：VERIFIED 1b0a8f8df3e4f1a4f3338a439398cd9c3197930002302dd8e8a72015fb9fa99c，两phase COMPLETE/EXIT0、ALL_EXIT与原身份gone已确认。探索宏45.085962854，动态／固定44.757602698／44.681200950仅承接旧分数，0重评；按总体标准现选QV，不再以响应调制作收益来源。完整权重893675552／1787351104bytes、buffers9032、CP1787622158bytes；GPU训练4399104坐标、梯度17596416bytes、两Adam35193216bytes另计。与原PAS同物理GPU1／同五窗QV peak低24.843322–26.806462%，原dtype权重bytes少23.956672%；仍是原混合dtype实现，不称同dtype最优／速度／正式F1胜。1213FIT／87更新／105生成／100唯一评分／0TEST；模型953.547774416秒、controller956.121209038秒重叠不加，核验13.770847608秒、归档45.653184157秒与实现／运输／审阅另计。155个新产物已完整归档NEW private_run，SHA核验，旧scratch保留，权重／原始QA不入Git。RESULT_REVIEW披露作者身份与复核范围，不冒称独立重跑。正式表及FOREVER／8组存储值原字节不变。
 
+2026-10-25基线容量调度已执行：旧主CPU2497/start10169与hardware2496/start10168的KillMode=process／无ExecStop、独立GPU8260/start60876与8265/start60882均实查后，只停两个CPU coordinator。新主1221743/start26017836统一接管两lane，原GPU身份与CPUticks前后同一且继续增长；无GPU信号、不重启训练。只将v2策略两NEW host设备分配改reserved[0]／pct01[1,2,3]／full[]，全部25科学py SHA原样；FOREVER冻结frame及队列不动。旧hardware已disable避免回到全Qwen屏障及自动full尾段；新主Restart=no、原KillMode=process。发布838da45aa274d5958c752f4f5c636ec752d9aaf5。1792917321.335583新机快照：GPU0为UID1020占用，GPU1三个UID1024，GPU2/3两原基线及UID1024共享；wrapper真实active/running、pending五项，不能谎称全基线已同时满载。1792917330.575376旧机四卡ownerless；七OneVision原结果已sealed仅缺必须原生BF16的新机SMo，不能在2080Ti强改FP16救跑。新机CL实际completed16/active17，SMo初态评价仍前进；保原supervisor路径及ready_reload原门，未重复preflight。新sealed proof后再提取新增组合完整权重/必需状态/原dtype字节/容器文件及训练坐标，保留原8组不重复大hash；此为必要调度实施，不当科研方法收益。
+
 下面为2026-10-24交接原记录，原“当前／活动／下一步”均按历史时点理解。
 
 ## 新会话运行交接（2026-10-24历史）

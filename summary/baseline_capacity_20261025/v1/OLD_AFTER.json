@@ -1,0 +1,241 @@
+{
+  "unix": 1792917330.5753756,
+  "root": "/data2/liyapeng_grp/program/LLMCL",
+  "boot": "5b259bd9-d0cb-4a1d-8b90-6e6107080488",
+  "gpu_cards_csv": "0, NVIDIA GeForce RTX 2080 Ti, GPU-783c5d2c-a6f8-9594-472c-4ab9fe54d3b1, 11264, 8, 0\n1, NVIDIA GeForce RTX 2080 Ti, GPU-3c72e4ce-0896-0b40-d610-be585d2bb51e, 11264, 8, 0\n2, NVIDIA GeForce RTX 2080 Ti, GPU-25d3cb92-fa97-a722-f9cd-c012bad046a8, 11264, 8, 0\n3, NVIDIA GeForce RTX 2080 Ti, GPU-fb9fc5ed-bf92-b947-d8c5-302296c4a447, 11264, 8, 0\n\n",
+  "gpu_owners_csv": "\n",
+  "owners": {},
+  "project_processes": [],
+  "states": {
+    "old2080_run_status.json": {
+      "updated_at": "2026-10-25T00:35:23.263471+08:00",
+      "phase": "running_or_waiting",
+      "jobs": {
+        "pct01:SeqFT_LoRA": {
+          "host": "old2080",
+          "status": "completed",
+          "pid": 339855,
+          "gpu": 0,
+          "run_dir": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154",
+          "completed_stage": 19,
+          "active_stage": 19,
+          "preflight_run": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/preflight_20261017_161023",
+          "actual": null,
+          "files": {
+            "run_status.json": {
+              "bytes": 145,
+              "mtime": 1792269492.1458874
+            },
+            "supervisor.log": {
+              "bytes": 435143,
+              "mtime": 1792269472.3819764
+            },
+            "config.json": {
+              "bytes": 4432,
+              "mtime": 1792224726.24851
+            },
+            "checkpoints/latest.json": {
+              "bytes": 373,
+              "mtime": 1792269490.3898952
+            }
+          },
+          "actual_run_status": {
+            "status": "completed",
+            "completed_stage": 19,
+            "final_checkpoint": "checkpoints/stage_19.pt",
+            "final_parameter_file_bytes": 1926007972
+          }
+        },
+        "pct01:CL_MoE": {
+          "host": "old2080",
+          "status": "completed",
+          "pid": 341019,
+          "gpu": 2,
+          "run_dir": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/CL_MoE/training_20261017_161424",
+          "completed_stage": 19,
+          "active_stage": 19,
+          "preflight_run": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/CL_MoE/preflight_20261017_161023",
+          "actual": null,
+          "files": {
+            "run_status.json": {
+              "bytes": 145,
+              "mtime": 1792517193.6812253
+            },
+            "supervisor.log": {
+              "bytes": 435374,
+              "mtime": 1792517166.7094076
+            },
+            "config.json": {
+              "bytes": 4429,
+              "mtime": 1792224877.630871
+            },
+            "checkpoints/latest.json": {
+              "bytes": 370,
+              "mtime": 1792517190.4812467
+            }
+          },
+          "actual_run_status": {
+            "status": "completed",
+            "completed_stage": 19,
+            "final_checkpoint": "checkpoints/stage_19.pt",
+            "final_parameter_file_bytes": 2100250526
+          }
+        },
+        "pct01:SMoLoRA": {
+          "host": "old2080",
+          "status": "waiting_native_BF16_on_newGPU3",
+          "pid": null,
+          "gpu": null,
+          "run_dir": null,
+          "completed_stage": 0,
+          "active_stage": null,
+          "preflight_run": null,
+          "actual": null
+        },
+        "pct01:PASs_MoE": {
+          "host": "old2080",
+          "status": "completed",
+          "pid": 342152,
+          "gpu": 3,
+          "run_dir": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PASs_MoE/training_20261017_161725",
+          "completed_stage": 19,
+          "active_stage": 19,
+          "preflight_run": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PASs_MoE/preflight_20261017_161023",
+          "actual": null,
+          "files": {
+            "run_status.json": {
+              "bytes": 145,
+              "mtime": 1792566943.3609488
+            },
+            "supervisor.log": {
+              "bytes": 441150,
+              "mtime": 1792566893.035109
+            },
+            "config.json": {
+              "bytes": 4431,
+              "mtime": 1792225062.2221203
+            },
+            "checkpoints/latest.json": {
+              "bytes": 371,
+              "mtime": 1792566932.776579
+            }
+          },
+          "actual_run_status": {
+            "status": "completed",
+            "completed_stage": 19,
+            "final_checkpoint": "checkpoints/stage_19.pt",
+            "final_parameter_file_bytes": 3051292733
+          }
+        },
+        "pct01:PaRSP": {
+          "host": "old2080",
+          "status": "completed",
+          "pid": 560900,
+          "gpu": 1,
+          "run_dir": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PaRSP/training_20261018_040230",
+          "completed_stage": 19,
+          "active_stage": 19,
+          "preflight_run": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PaRSP/preflight_20261018_040015",
+          "actual": null,
+          "files": {
+            "run_status.json": {
+              "bytes": 145,
+              "mtime": 1792316139.4424343
+            },
+            "supervisor.log": {
+              "bytes": 690304,
+              "mtime": 1792316078.8227968
+            },
+            "config.json": {
+              "bytes": 4428,
+              "mtime": 1792267362.589405
+            },
+            "checkpoints/latest.json": {
+              "bytes": 368,
+              "mtime": 1792316137.4104462
+            }
+          },
+          "actual_run_status": {
+            "status": "completed",
+            "completed_stage": 19,
+            "final_checkpoint": "checkpoints/stage_19.pt",
+            "final_parameter_file_bytes": 5985469342
+          }
+        },
+        "pct01:OSFT": {
+          "host": "old2080",
+          "status": "completed",
+          "pid": 572431,
+          "gpu": 0,
+          "run_dir": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/OSFT/training_20261018_044103",
+          "completed_stage": 19,
+          "active_stage": 19,
+          "preflight_run": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/OSFT/preflight_20261018_043818",
+          "actual": null,
+          "files": {
+            "run_status.json": {
+              "bytes": 145,
+              "mtime": 1792328527.688432
+            },
+            "supervisor.log": {
+              "bytes": 658502,
+              "mtime": 1792328496.312588
+            },
+            "config.json": {
+              "bytes": 4427,
+              "mtime": 1792269684.8452091
+            },
+            "checkpoints/latest.json": {
+              "bytes": 368,
+              "mtime": 1792328525.504443
+            }
+          },
+          "actual_run_status": {
+            "status": "completed",
+            "completed_stage": 19,
+            "final_checkpoint": "checkpoints/stage_19.pt",
+            "final_parameter_file_bytes": 3028589237
+          }
+        },
+        "pct01:SpaRTA": {
+          "host": "old2080",
+          "status": "completed",
+          "pid": 826894,
+          "gpu": 1,
+          "run_dir": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SpaRTA/training_20261018_173800",
+          "completed_stage": 19,
+          "active_stage": 19,
+          "preflight_run": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SpaRTA/preflight_20261018_173544",
+          "actual": null,
+          "files": {
+            "run_status.json": {
+              "bytes": 145,
+              "mtime": 1792404287.2130246
+            },
+            "supervisor.log": {
+              "bytes": 435189,
+              "mtime": 1792404265.4014056
+            },
+            "config.json": {
+              "bytes": 4429,
+              "mtime": 1792316295.3895357
+            },
+            "checkpoints/latest.json": {
+              "bytes": 370,
+              "mtime": 1792404284.8650658
+            }
+          },
+          "actual_run_status": {
+            "status": "completed",
+            "completed_stage": 19,
+            "final_checkpoint": "checkpoints/stage_19.pt",
+            "final_parameter_file_bytes": 2007664585
+          }
+        }
+      }
+    }
+  },
+  "disk_free_bytes": 2725912375296,
+  "no_prediction_or_weight_payload_read": true,
+  "no_signals_or_mutations": true
+}
