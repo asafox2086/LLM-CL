@@ -1,0 +1,50 @@
+{
+  "unix": 1792909874.217016,
+  "unit": "llmcl-native-response-selection-diagnostic-20261025.service",
+  "GPU": 1,
+  "ready_sha256": "3bfa1d6823142216c7162648530c85bee47ca68c30a0a35e677bed6f6f86ff4e",
+  "preregistration_commit": "9fce39b5fc1713b959d2c62b0b7b653b23a9dfe0",
+  "cards_before": {
+    "0": {
+      "uuid": "GPU-783c5d2c-a6f8-9594-472c-4ab9fe54d3b1",
+      "memory_MiB": 8,
+      "utilization": 0,
+      "owners": []
+    },
+    "1": {
+      "uuid": "GPU-3c72e4ce-0896-0b40-d610-be585d2bb51e",
+      "memory_MiB": 8,
+      "utilization": 0,
+      "owners": []
+    },
+    "2": {
+      "uuid": "GPU-25d3cb92-fa97-a722-f9cd-c012bad046a8",
+      "memory_MiB": 8,
+      "utilization": 0,
+      "owners": []
+    },
+    "3": {
+      "uuid": "GPU-fb9fc5ed-bf92-b947-d8c5-302296c4a447",
+      "memory_MiB": 8,
+      "utilization": 0,
+      "owners": []
+    }
+  },
+  "boot": "5b259bd9-d0cb-4a1d-8b90-6e6107080488",
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit=llmcl-native-response-selection-diagnostic-20261025.service",
+    "--property=Restart=no",
+    "--property=KillMode=control-group",
+    "--property=RuntimeMaxSec=660",
+    "--property=TimeoutStopSec=5",
+    "--setenv=LLMCL_ROOT=/data2/liyapeng_grp/program/LLMCL",
+    "--setenv=LLMCL_RUN=/tmp/llmcl-native-response-1084-02shefcq",
+    "--setenv=LLMCL_ASSET=/tmp/llmcl-spatial-readout-1084-cxpvl1_k/asset_view",
+    "--setenv=LLMCL_GPU=1",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "-u",
+    "/tmp/llmcl-native-response-1084-02shefcq/controller.py"
+  ]
+}

@@ -26,6 +26,8 @@ OLD账户701GiB／硬配额700GiB，即使整盘2.5TiB空闲也不可继续写�
 
 2026-10-25预训练空间读出对应pair首次真实fit失败：首组raw／teacher的FP16合同不成立，实际dtype未留存，不臆测具体类型或算子。已实际处理首FIT视觉，0新回答／评分／反向／优化器更新；后五阶段未STARTED，unit failed／原worker已退出。STARTED→EXIT15.663594秒仅重叠墙钟代理；准入4.483917秒、准备／运输／实现／审阅另计。原错误／协议／READY保留，非纯I/O例外，不加cast／改autocast救跑。本次质量缺测、非读出科学阴性；[证据与费用](summary/spatial_readout_transfer_20261025/v1/FAILURE_FINDINGS.md)。
 
+2026-10-25原生响应选择诊断完整exit0：32组仅S1 FIT、32原answer_loss decoder前向及768抽样Down，全24层d非恒定且d*h_diff非零，RMS0.012322–0.090742。31.973244模型秒／准入5.810416秒，0反向／更新／生成／F1／TEST；诊断峰2173.629MiB非受控部署比较。原893675552系数和全部注册buffers不变，旧失败点未恢复。规则033没有要求候选必须小于未适应base；公平fold后的OSFT权重不可用原保存态放大差异。下一问题为同显式表示的动态／静态净作用，训练尚未准入或启动；[证据、全部24层与先例边界](summary/native_response_selection_20261025/v1/DIAGNOSTIC_FINDINGS.md)。
+
 下面为2026-10-24交接原记录，原“当前／活动／下一步”均按历史时点理解。
 
 ## 新会话运行交接（2026-10-24历史）
