@@ -1,0 +1,56 @@
+{
+  "accepted": true,
+  "acceptance_meaning": "Static source/verifier review found no fatal implementation or study-design blocker for the fixed CE versus normalized CE+KL pair. This is not model activation, a quality result, or scientific goal completion.",
+  "reviewer": "baseline_review",
+  "reviewed_utc": "2026-10-25T03:59:23.025514+00:00",
+  "source_sha256": {
+    "worker.py": "52cb83b6d79f26e49b6a128d9aec1e90d58b5d1a0cff143eb42d6669a4f76141",
+    "verify.py": "a88eae0bb87b32f5c33e045d2883f017d0dea0923fc4580df163bfc33a71dc0a",
+    "controller.py": "5bd62bc489686c5bf3e4a824eeb4684076f3975b33a03bf9a1efe44e2bd0356b",
+    "training.py": "24cd673848673c0a7620a1552153e3b8ec4e7de5e6f1c7cdf79d15a01d9aa7c3",
+    "deployment.py": "1ae851ea35f210366da886a346f6ad4a7203136406462bc46d813ec14a718bca"
+  },
+  "verifier_sha256": "a88eae0bb87b32f5c33e045d2883f017d0dea0923fc4580df163bfc33a71dc0a",
+  "PROTOCOL_sha256": "aae3da3fffd7b477e83885b91d92afae1da4bcf6c2033641aa4aa6816c0d0b55",
+  "scope": "Independent local static review of worker, verifier, controller, protocol and production training interfaces/math. No private prediction payload/weight loading, server access, real QA, operator execution or scoring.",
+  "authorship_disclosure": {
+    "authored_sources": [
+      "deployment.py"
+    ],
+    "deployment_independence": "This reviewer authored deployment.py; its integration was reviewed here, but this is not an independent certification of that file. Parent/science review remains separate."
+  },
+  "checks": [
+    "Four fixed serial processes CE_train, KD_train, CE_eval, KD_eval; observed exit0 and missing identities required before unique scoring; original phase ceilings sum3900 seconds.",
+    "Fixed original8 removed FFNs and original pruned digest/layout are strictloaded before any new learning; same initial adapter/frozen/buffer receipts across arms.",
+    "Memory bottom32 per domain is reconstructed from original FIT only, 160 uniqueQA, original hash order round-robin twice, 320 individual student backwards and20 positive-LR optimizer updates per arm.",
+    "Remaining144 original TargetLoRA modules,288FP32 A/B tensors,3293184 coordinates; only adapters train, actual final adapter digest must differ while frozen tensors/buffers remain unchanged.",
+    "Normalized KD objective=(CE+KL)/2, T1; vocab-sum/token-mean then equal-QA/batch16; teacher targets are detached ordinary GPU tensors, no inference tensor saved into autograd.",
+    "Teacher160 finalnorm shifted-answer-prefix captures with EOS, cloned hidden storage bounded147087360bytes;320 head recomputations are separate from student budget and CE has no teacher requests.",
+    "Student GPU1 and teacher GPU0 are explicit distinct device contracts; no global single-card mask is introduced by deployment helpers. Worker checks both required physical inventory entries before its STARTED.",
+    "GPU FP32 fold disables autocast and TF32;144 adapters physically removed; pure complete final graph789080096coeff/1578160192FP16bytes, embedding/head tie and visual/core aliases retained.",
+    "New exports keep only state/configuration, preserve CPU serialization aliases, hash each new file once; fresh native GPU strictreload checks actual complete tensor digest/layout and all buffers including FP32RoPE, not repeated big-file hashes.",
+    "Each independent eval generates100 original DEV then5 original hash-min windows of exactly32newtokens, matching the old direct-ablation order and complete input_sha256.",
+    "Old parent/pruned100 scores are copied from bound original sealed proof and input hashes; only200newanswers are scored once,210totalnewgenerationrequests,0TEST or extra diagnosticNLL.",
+    "Worker/verifier receipts and fields agree: teacher cache, true adapter change, frozen state, finite QA/update logs, rank/fold math, complete reload/buffers, five resource windows and all four exits.",
+    "CE priority is fixed if it passes all parent-domain/resource criteria; KD retained only if CE fails, KD passes and KD macro is higher. No intermediate outcome selects a phase or retry."
+  ],
+  "scientific_boundaries": [
+    "This explicitly adds post-stream recovery to the same previously damaged function under the narrow declared exception; it does not erase the old direct-delete/joint-NLL negative results.",
+    "The joint-NLL remainder is not a unique input-drift/coupling cause or automatic justification for KD.",
+    "A positive comparison supports this fixed supervision package, not generic teacher necessity, pure CL acquisition/forgetting, an original distillation method or the overall paper objective.",
+    "Only the final complete smaller graph and five controlled allocated-memory windows count as deployment gains; training/teacher/constructor peaks and CPU phase RSS remain separate.",
+    "Single seed and explored20DEV/domain support fixed-point design evidence only, not significance, equivalence, fresh holdout gains or strongest formal-baseline superiority."
+  ],
+  "critical_findings": [],
+  "source_modifications_by_this_review": [],
+  "validation": {
+    "AST_compile_only": true,
+    "model_executions": 0,
+    "GPU_operator_executions": 0,
+    "CPU_model_probes": 0,
+    "new_scores": 0,
+    "remote_queries": 0,
+    "large_checkpoint_reads_or_hashes": 0
+  },
+  "execution_admission_is_separate": true
+}

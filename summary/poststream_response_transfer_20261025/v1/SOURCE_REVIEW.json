@@ -1,0 +1,54 @@
+{
+  "accepted": true,
+  "meaning": "Source implementation review accepted; no model admission, quality result, or goal-completion claim.",
+  "reviewer": "research_review",
+  "authorship_disclosure": {
+    "training.py": "Written by this reviewer; self-reviewed implementation and AST/compile only. worker/deployment/controller/verify are read-only cross-source reviews."
+  },
+  "reviewed_at_UTC": "2026-10-25T03:59:10.126185+00:00",
+  "sources_sha256": {
+    "training.py": "24cd673848673c0a7620a1552153e3b8ec4e7de5e6f1c7cdf79d15a01d9aa7c3",
+    "worker.py": "52cb83b6d79f26e49b6a128d9aec1e90d58b5d1a0cff143eb42d6669a4f76141",
+    "deployment.py": "1ae851ea35f210366da886a346f6ad4a7203136406462bc46d813ec14a718bca",
+    "controller.py": "5bd62bc489686c5bf3e4a824eeb4684076f3975b33a03bf9a1efe44e2bd0356b",
+    "verify.py": "a88eae0bb87b32f5c33e045d2883f017d0dea0923fc4580df163bfc33a71dc0a"
+  },
+  "PROTOCOL_sha256": "aae3da3fffd7b477e83885b91d92afae1da4bcf6c2033641aa4aa6816c0d0b55",
+  "scope": {
+    "read_only_sources": [
+      "training.py",
+      "worker.py",
+      "deployment.py",
+      "controller.py",
+      "verify.py",
+      "PROTOCOL.md",
+      "exp/osft_increment_screen_20261019/v1/study.py: TargetLoRA",
+      "exp/two_backbone_native_cl_20261017_v2/methods.py: SeqLinear",
+      "exp/two_backbone_native_cl_20261017_v2/runtime_utils.py: input_batch and answer_loss",
+      "exp/two_backbone_native_cl_20261017_v2/onevision_bridge.py",
+      "exp/ffn_static_delete_20261025/v1/core.py"
+    ],
+    "local_validation": "AST parse and compile without execution for five sources; no torch import, operator execution, real QA, scoring, model, CUDA, or server access by this review.",
+    "not_reviewed_as_results": "The separately authorized single GPU operator check and all real phases have not been executed or consumed by this reviewer."
+  },
+  "checks": {
+    "same_damaged_function_and_fixed_recovery_pair": "Both arms strictly reload the same fixed eight-FFN-deleted graph and train original native SeqLinear on the same 144 remaining modules / 288 FP32 A/B Parameters / 3293184 coordinates.",
+    "shared_memory_and_student_budget": "160 FIT QA selected by predetermined per-domain bottom32 rule; same domain round-robin twice, 320 per-QA backwards / 20 positive-LR AdamW updates. No DEV/TEST optimization or response-based data selection.",
+    "teacher_positions_and_targets": "Teacher no_grad/eval caches only cloned post-final-norm hidden at prompt_length-1:-1, predicting the same gold tokens truncated to512 plus EOS. Head values are bound equal to the frozen student head. Prefix160 and head320 calls are separately charged.",
+    "loss": "CE mean over each answer including EOS; KL teacher||student sums vocabulary then means answer tokens. KD=(CE+KL)/2 at T1; per-QA losses accumulated equally /16. Native SeqLinear FP32 storage under outer FP16 autocast is accurately disclosed.",
+    "paired_initialization_and_RNG": "Fresh same-pruned reload and native constructor; paired seed reset after teacher/cache construction; verifier compares actual initial adapter/frozen/buffer digests. Student optimizer shape/order/recipe shared; teacher computation is additional.",
+    "GPU_contract": "Actual explicit CUDA devices, no single-card masking assumption; model construction/forward/backward/AdamW/fold use GPU. CPU copies are hashing/serialization/input metadata. Fold GPU FP32 with autocast/TF32 disabled, output FP16; no claim of historical CPU-fold bitwise equivalence.",
+    "physical_deployment": "Physically absent fixed eight FFNs; no A/B, teacher, optimizer, or cache in new static package. Tied embedding/head aliases, complete789080096 coefficients, strict static reload, complete digest and nonpersistent-buffer invariants are checked.",
+    "evaluation_and_cost": "Independent final evaluation processes generate100 original DEV then five fixed32-token matching windows as the old reference. Whole-training phase peaks and matched inference-window peaks are separately recorded. Both arms finish before one200-answer score; historical anchors copied only under bound prior proofs.",
+    "fixed_exit": "Four cases run without outcome-dependent retry/branch. CE preferred if its full parent floors/resources pass; KD requires all floors/resources plus macro above CE. Merely recovering above damaged19.62 is insufficient."
+  },
+  "scientific_limits": [
+    "This explicitly adds post-stream recovery to the same damaged function under a disclosed narrow revision; a new process does not make it non-recovery.",
+    "The comparison identifies this fixed teacher-soft-target objective package under the specified extra memory/20 updates, not a unique explanation of deletion interactions or general necessity of distillation.",
+    "Historical parent training, deletion selection, teacher/cache/head calls, recovery, physical export/reload and evaluation costs remain separately accountable. Equal student updates do not imply equal total computation.",
+    "Maximum structural weight saving is11.704% and historical matched inference saving about193-200MiB; even a passing component would not establish the complete online CL framework or paper target.",
+    "Explored DEV, one seed and20 QA per domain support point comparisons only; no significance, non-inferiority, or universal impossibility conclusion."
+  ],
+  "blocking_issues_found": [],
+  "additional_tests_or_experiments_requested": []
+}
