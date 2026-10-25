@@ -1,0 +1,21 @@
+{
+  "unix": 1792934921.7335055,
+  "unit": "llmcl-acquisition-readout-root-repair-20261025.service",
+  "publication_commit": "58a0ba38c1255e8ba3e0cc614307857815a54d7c",
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit=llmcl-acquisition-readout-root-repair-20261025.service",
+    "--property=Restart=no",
+    "--property=RuntimeMaxSec=180",
+    "--property=KillMode=control-group",
+    "--setenv=LLMCL_ROOT=/data2/liyapeng_grp/program/LLMCL",
+    "--setenv=LLMCL_RUN=/tmp/llmcl-acquisition-readout-1084-c14xk52k",
+    "--setenv=LLMCL_ASSET=/tmp/llmcl-response-pair-1084-geic2vef/asset_view",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "-u",
+    "/tmp/llmcl-acquisition-readout-1084-c14xk52k/post_model_startup_repair.py"
+  ],
+  "absolute_original_deadline": 1792935479.4215996,
+  "new_model_requests": 0
+}
