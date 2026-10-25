@@ -1,0 +1,60 @@
+{
+  "accepted": true,
+  "reviewer": "/root/baseline_review",
+  "review_type": "Independent differential source admission against the completed matched GPU wide-QV control. Metadata READY, actual empty-card admission and deployment remain root responsibilities.",
+  "authorship_disclosure": "Reviewer authored inherited wide-QV adaptation/deployment and its verifier; reviewer did not author this plain-r8 source bundle. This is independent review of the r8-specific changes and cross-file contracts, with inherited-source authorship disclosed.",
+  "sources": {
+    "exp/plain_r8_gpu_control_20261025/v1/common.py": "8404ce5536ea24900ea456090e5307e35cfc1acf42e5e2e047c2bfed3b78337a",
+    "exp/plain_r8_gpu_control_20261025/v1/worker.py": "3391f14200c410da0085b30d606f6ce6607181ff6fbd1d3212bbef90491d64ec",
+    "exp/plain_r8_gpu_control_20261025/v1/control_adaptation.py": "ac5231b686f5d6a3890b9248291e69492b2048c1f8931d0b9df43e399612f457",
+    "exp/plain_r8_gpu_control_20261025/v1/control_deployment.py": "212a02753177e692198f17e85bc2510297969f3b2b75f088cf88ccc5fbbf37fd",
+    "exp/plain_r8_gpu_control_20261025/v1/readouts.py": "8d68817f330b9b26acbbdec55e344e066879896b4d73db3064dadc7f747acf3a",
+    "exp/plain_r8_gpu_control_20261025/v1/controller.py": "aba9f1bc4b60cb5f83ba4c8a71145ed728cbb0e3f8e95d6d0f05d114af8cffa3",
+    "exp/plain_r8_gpu_control_20261025/v1/verify.py": "2425fe4606fb150b3b2da96fd1ea1856c839a6a0330440b83891ec0660e6c547"
+  },
+  "protocol_path": "summary/plain_r8_gpu_control_20261025/v1/PROTOCOL.md",
+  "protocol_sha256": "a4126f86b97c764886d8ea281b7df6b8a43b237073b679841571240397a986d5",
+  "checks": [
+    "All7 current sources AST parse only; no imports, main execution or model work. Readouts and controller byte-identical to prior QV; GPU numerical policy unchanged; fold AST identical after only rank guard65/66 to8.",
+    "BudgetQV uses the same48q/v locations with rank8,alpha32,scale4,dropout.1. Constructor copies the complete original r8 A/B prefix; rank8 initialization is recorded without falsely equating full matrices to wider A/B hashes.",
+    "Exactly540672 FP32 coordinates/96trainable tensors;2162688gradient bytes;GPU AdamW two moments4325376 plus96FP32steps384 equals4325760bytes. No teacher, response module, replay or increased rank.",
+    "Inherited original1213FIT/19stages/87positive updates, training AST/data/order/inputs and reset42 policy remain matched. No initial/intermediate DEV, TEST, extra NLL or recovery.",
+    "Initial complete export then self-contained meta strictreload; final48GPU FP32 merges under disabled autocast/TF32 return plain base graph. Final893675552coefficients/1787351104weightbytes/9032ordinary buffers; aliases and FP32RoPE preserved, no finalAB/optimizer/teacher/externalbase.",
+    "Independent eval on physicalGPU1 after GPU0train EXIT0, fresh complete graph reload, five matched32-token windows before100DEV.105generations,100unique original AnswerF1 scores after complete source/data/identity/exit/file checks; old scores copied only.",
+    "Prior pair/wide provenance, source paths, old prediction input bindings and manifest/SPLIT chain retained. Old wide results are capacity context, not equal-rank mechanism gains or evidence of new method.",
+    "First actual failure closes fixed point with original costs, no CP continuation/config change/extended deadline/automatic retry. Baseline necessity does not automatically authorize I-LoRA candidate or formal TEST."
+  ],
+  "fixed_counts": {
+    "rank": 8,
+    "modules": 48,
+    "trainable_parameter_tensors": 96,
+    "coordinates": 540672,
+    "gradient_bytes": 2162688,
+    "GPU_optimizer_state_bytes": 4325760,
+    "FIT_backwards": 1213,
+    "optimizer_updates": 87,
+    "new_generations": 105,
+    "new_scores": 100,
+    "TEST_QA": 0,
+    "initial_DEV_generations": 0
+  },
+  "budget": {
+    "train_qv": 3600,
+    "eval_qv": 600,
+    "total_model_seconds": 4200
+  },
+  "limitations": [
+    "Explored100DEV/single seed; no significance, strongest-baseline win or algorithm-innovation claim.",
+    "Historical HostAdam r8 differences cannot be assigned to a CL mechanism; this control establishes the GPU-matched anchor.",
+    "Five windows are actual fixed-input measurements, not all-distribution worst-case memory or speed. Parameter count, dtype bytes, checkpoint bytes and window memory must remain separate."
+  ],
+  "execution_scope": {
+    "local_static_diff_AST_metadata_only": true,
+    "models": 0,
+    "remote_operations": 0,
+    "CPU_model_gates": 0,
+    "new_scores": 0,
+    "QA_predictions_read": 0,
+    "checkpoint_loads_or_hashes": 0
+  }
+}
