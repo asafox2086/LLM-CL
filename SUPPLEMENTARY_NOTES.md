@@ -2,6 +2,14 @@
 
 更新：2026-10-25。主结论与所有成果摘要集中在[README](README.md)。这里保存研究口径、原始来源、已关闭分支、实现故障和费用边界。本文不是新的实验或质量结果；原[README历史归档](README_HISTORY_20261024.md)保留时间线（不复制QA／图像样例，原件私有保留），历史的“下一步／正在运行”不是当前授权队列。
 
+## 10%第二主表：实际启动与归档边界
+
+人类已明确授权10% TRAIN＋完整TEST；实际冻结13105 TRAIN／21454 TEST／19任务／828次主任务更新，其余沿用1%设置。[正式协议](summary/two_backbone_pct10_20261025/PROTOCOL.md)与[独立主表](summary/two_backbone_pct10_20261025/MAIN_TABLE.md)保留采样、runner及参数／资源口径。
+
+事前发布453f93a93a21d8042d27f472d2c1a1f6438d6901后，[ACTIVATION](summary/two_backbone_pct10_20261025/ACTIVATION.json)与[实际快照](summary/two_backbone_pct10_20261025/LATEST_OLD_OBSERVATION.json)记录OLD controller4044638／UID1084 active/running；GPU0 OneVision Seq4044680、GPU1 Qwen Seq4044721、GPU2 OneVision PAS4044746、GPU3 Qwen PAS4044767身份匹配，均为preflight initial_evaluation。其余10个非BF16组合OLD排队、两SMoLoRA待NEW，0完整10%正式结果；预检尚未过关，不称正式training通过或已得到F1。
+
+[NEW归档collector](summary/two_backbone_pct10_20261025/ARCHIVE_ACTIVATION.json) PID1318977 active，已收第一轮小证据，尚无CP。OLD RAM tmpfs不是耐久存储；NEW归档全量小证据及各run latest／final，不代表全部SeqFT 19阶段CP均已耐久保存。OLD原保留策略不变：SeqFT保19CP，其他native保S19，FOREVER原rolling；不以collector存活或一次同步代替具体CP归档证明。
+
 ## 最新研究重点与刚习得观测
 
 人类最新明确“以后只要考虑新习得就行，不考虑遗忘了”，已写入根AGENTS.md与[研究重点记录](summary/acquisition_readout_20261025/v1/HUMAN_RESEARCH_FOCUS.md)。后续只检验现有方法为什么没有学好新任务及改善新习得的机制，不继续保持／抗遗忘／历史保护。正式五域最终F1、完整参数及GPU指标仍报告，不把工程实现或少数据计数当原因结论。

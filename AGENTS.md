@@ -1,5 +1,7 @@
 # 2026-10-25：人类明确授权第二主表，训练10%并使用完整测试
 
+- 最新实际启动快照（2026-10-25，unix1792938318.7140753）：事前发布453f93a93a21d8042d27f472d2c1a1f6438d6901后，OLD controller4044638／UID1084 active/running；GPU0 OneVision Seq4044680、GPU1 Qwen Seq4044721、GPU2 OneVision PAS4044746、GPU3 Qwen PAS4044767身份均匹配，处于preflight initial_evaluation，0完整正式结果。其余10个非BF16组合OLD排队，两SMoLoRA待NEW；NEW collector1318977 active，仅第一轮小证据已收、无CP。下方“待首次启动”为激活前记录；不将预检启动写成正式training通过。见summary/two_backbone_pct10_20261025/ACTIVATION.json、LATEST_OLD_OBSERVATION.json与ARCHIVE_ACTIVATION.json。
+
 - 人类已明确确认新增10% TRAIN＋完整TEST，其他设置沿用1%正式协议；不是10% TEST，也不是100% full。1%原表、冻结科学源与现有基线队列保持，不能复用1%分数填10%表或从其已学权重继续。
 - 已实际freeze：13105 TRAIN／21454 TEST／19任务／单轮828次主任务更新，seed42；manifest SHA `02ef86674c22a9dbf7f0d406398615437f8406cff364415e14d54f5fdb5bfcb7`，pct01逐task嵌套、TEST原文件及选中TRAIN字节不改。正式入口见summary/two_backbone_pct10_20261025/PROTOCOL.md与MAIN_TABLE.md；PROTOCOL_DRAFT仅保留历史。
 - 当前文档时点仅清单／独立runner／OLD RAM workspace准备完成，待首次启动，不写训练已跑或完成。计划OLD四卡14个非BF16组合；两SMoLoRA待NEW原生BF16空卡，NEW0保留，既有1%与他人worker身份保全。实际状态以后以ACTIVATION／PID／phase proof更新。

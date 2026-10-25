@@ -1,0 +1,34 @@
+{
+  "unix": 1792938267.932785,
+  "root": "/dev/shm/llmcl-pct10-1084-zu7e3hb_",
+  "unit": "llmcl-pct10-baselines-old-20261025.service",
+  "preregistered_commit": "453f93a93a21d8042d27f472d2c1a1f6438d6901",
+  "manifest_sha256": "02ef86674c22a9dbf7f0d406398615437f8406cff364415e14d54f5fdb5bfcb7",
+  "ready_sha256": "54c700e5d436333011ee6dea1e09a11b20ad4cf0cf01def4d35ebbbb3ebd754b",
+  "controller": {
+    "pid": 4044638,
+    "startticks": "763668829",
+    "uid": 1084,
+    "pgid": 4044638
+  },
+  "boot": "5b259bd9-d0cb-4a1d-8b90-6e6107080488",
+  "GPU_before": "0, NVIDIA GeForce RTX 2080 Ti, GPU-783c5d2c-a6f8-9594-472c-4ab9fe54d3b1, 11264, 8, 0\n1, NVIDIA GeForce RTX 2080 Ti, GPU-3c72e4ce-0896-0b40-d610-be585d2bb51e, 11264, 8, 0\n2, NVIDIA GeForce RTX 2080 Ti, GPU-25d3cb92-fa97-a722-f9cd-c012bad046a8, 11264, 8, 0\n3, NVIDIA GeForce RTX 2080 Ti, GPU-fb9fc5ed-bf92-b947-d8c5-302296c4a447, 11264, 8, 0",
+  "unit_show": "Restart=no\nMainPID=4044638\nKillMode=process\nActiveState=active\nSubState=running",
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit=llmcl-pct10-baselines-old-20261025.service",
+    "--property=Restart=no",
+    "--property=KillMode=process",
+    "--property=WorkingDirectory=/dev/shm/llmcl-pct10-1084-zu7e3hb_",
+    "--setenv=LLMCL_ROOT=/dev/shm/llmcl-pct10-1084-zu7e3hb_",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "-u",
+    "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_20261025/dispatch.py",
+    "--machine",
+    "old"
+  ],
+  "launch_stdout": "",
+  "new_gpu_0_untouched": true,
+  "scratch_is_durable": false
+}
