@@ -1,0 +1,45 @@
+{
+  "accepted": true,
+  "reviewer": "research_review",
+  "sources": {
+    "exp/native_response_selection_20261025/v1/diagnostic.py": "8be52b7b54666780c4517513bc483392f5dfa036753730e559df9fa8fd835126",
+    "exp/native_response_selection_20261025/v1/controller.py": "9ed538676d2d9731bbc06213ca7b2d7118acf82996dd975b9814c9abaf4ffbf4"
+  },
+  "protocol": {
+    "path": "summary/native_response_selection_20261025/v1/DIAGNOSTIC_PROTOCOL.md",
+    "sha256": "29d3a73f7e5bf341fae42e5d03e1fc075f7a3bed3588c9b1f8cc70f70f722c1b"
+  },
+  "scope": "Static review of one32-S1-QA GPU score/response nondegeneracy diagnostic; not training admission or evidence of useful selection.",
+  "authorship_disclosure": "Reviewer authored DESIGN_REVIEW.md and proposed the d min/max and weighted-contrast conditions. Did not author diagnostic.py or controller.py and made no source changes during this review.",
+  "source_findings": [
+    "GPU standard pretrained loading of original complete OneVision, original processor/answer_loss and fixed FIT-only S1 group selection. No candidate LoRA/beta or forward-return replacement.",
+    "GPU-only no-cache visual preparation preserves the original visual arithmetic; all original parameters remain frozen CUDA tensors, state/all registered buffers checked unchanged.",
+    "Answer tokenizer truncation512 then EOS matches native answer_loss. Selected positions span prompt_length-1 through total_length-2, at most64, including the actual EOS prediction position.",
+    "Gate hook reads actual gate outputs and forms FP32 relative group-energy statistics. Down hook reads actual phi/h and performs an explicitly charged additional sampled FP16-autocast signed Down; hooks return None and do not replace original forward outputs.",
+    "Each QA contributes its within-QA sampled-position mean, then32-QA equal aggregation. Per-QA/layer actual gate/phi/h/contrast dtypes, actual sampled positions and raw tensor/image digests are recorded.",
+    "Original layout893675552coefficients/1787351104bytes, complete state/all buffers before-after and no gradients are checked. Diagnostic peak is whole diagnostic allocation including loading/capture; no controlled deployment-memory comparison.",
+    "32 actual native language_NLL requests and32 visual requests plus768 sampled Down calls are accounted; NLL is checked finite rather than used for model choice. No external teacher, gradients, optimizer, DEV, TEST, generation or F1.",
+    "Controller isolates worker PGID, waits natural exit and records worker PID/return code; diagnostic600-second firstSTARTED budget includes loading/forward/statistics/digests."
+  ],
+  "resolved_scientific_implementation_items": [
+    "Exact constancy on observed FP32 d values uses global sampled min/max. Moment-difference variance is descriptive only, preventing tiny positive roundoff from qualifying an actually constant gate.",
+    "Every layer must have positive RMS(d), contrast second moment and weighted-contrast second moment. Separately nonzero score/contrast is not sufficient to establish an observed nonzero beta correction direction."
+  ],
+  "fatal_findings_remaining": [],
+  "interpretation_limits": [
+    "Passing only establishes observed nonconstant score and nonzero correction directions on these32 sampled S1 QA prediction positions. It does not establish nonzero loss gradient, useful routing, semantic group specialization, adaptation capacity, quality retention or deletable experts.",
+    "Any failed layer closes this preregistered24-layer diagnostic conservatively; it is not a mathematical impossibility statement about all other layers, future inputs, groups or native-response methods.",
+    "RMS matches S1 gate second moment only, not mean/sign/distribution, correlation with h_diff or losses, future-domain scale or the effective optimizer/answer change.",
+    "Extra sampled Down has a smaller GEMM shape than a future full-sequence branch; observed sample contrasts are not exact full-candidate FP16 equivalence or a peak estimate.",
+    "No automatic candidate implementation/training or previously closed branch revival follows from the eligible-for-separate-design-review label."
+  ],
+  "actions": {
+    "AST_parse_compile_only": 2,
+    "new_model_execution": 0,
+    "new_QA_or_NLL_requests": 0,
+    "new_scoring": 0,
+    "GPU_or_CPU_model_gate": 0,
+    "remote": 0,
+    "source_protocol_modified": false
+  }
+}
