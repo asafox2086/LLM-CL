@@ -1,0 +1,65 @@
+{
+  "accepted": true,
+  "reviewer": "baseline_review",
+  "scope": "One static cross-source implementation and verifier review; acceptance is source-level and is neither activation authorization nor a quality/deployment result.",
+  "authorship_disclosure": {
+    "authored": [
+      "response.py",
+      "paired_deployment.py"
+    ],
+    "other_sources_independently_reviewed": [
+      "paired_common.py",
+      "paired_readouts.py",
+      "paired_adaptation.py",
+      "paired_worker.py",
+      "paired_controller.py",
+      "paired_verify.py"
+    ]
+  },
+  "sources": {
+    "response.py": "ea6be2450d37d8343fba2eb5e9632743fc6f7a2e74f9d3747729deb343778f59",
+    "paired_common.py": "3820dbe30ba352e4949145f234dded02a8dff355f496a599dbfcc1a3f7bd8f68",
+    "paired_readouts.py": "8d68817f330b9b26acbbdec55e344e066879896b4d73db3064dadc7f747acf3a",
+    "paired_adaptation.py": "7d0b9874b0e0bec64e259ec10316423560e3dfb891e1d60c19da56cf040bc1f5",
+    "paired_deployment.py": "06b07103b5fd339bcafb9f62db5f2697e189df2b3b0d9b8a07c76101ed89fbac",
+    "paired_worker.py": "0db19732107595033315810ce276cdcb6132c75131a9b21b36477a508a68ab23",
+    "paired_controller.py": "7803d4db8f93d9ded9b8a6c9ee8d62d5a4c4b9255bc235cf1f859eb0838afcf3",
+    "paired_verify.py": "1c563ad85db33dc5e181325243e63752dfcb0e005928b0fca06d63d217e8610d"
+  },
+  "protocol": {
+    "path": "summary/native_response_selection_20261025/v1/PAIRED_PROTOCOL.md",
+    "sha256": "d1f69e54686faf523571a65daf541adcd65ac1aedeab0c0a8c02dea8a6beb30e"
+  },
+  "verification_performed": {
+    "static_source_read": true,
+    "stdlib_AST_parse_eight_sources": true,
+    "model_execution": false,
+    "torch_import": false,
+    "remote_access": false,
+    "CPU_or_GPU_probe": false,
+    "new_QA_or_scoring": false,
+    "checkpoint_deserialization": false
+  },
+  "fatal_findings": [],
+  "implementation_findings": [
+    "Initial response graph is frozen before export; each arm strictly reloads its own complete mixed-dtype package from a meta graph before its 100 initial DEV generations.",
+    "Original BudgetQV initialization freezes parameters, after which make_wide explicitly restores all 24 FP32 beta flags and asserts the exact 96 A/B plus 24 beta mask: 120 tensors, 4399128 coordinates and 17596512 gradient bytes.",
+    "The original stage-loop AST retains its GradScaler, stage-reset schedule, accumulation and 87-update recipe. The temporary optimizer holder supports stage receipts after the AST deletes its optimizer name; each saved optimizer payload is checked on GPU.",
+    "Both arms retain the explicit signed-Down branch. Q/V merging uses GPU FP32 with autocast and TF32 disabled; static gamma absorbs the calibration once, removes the 24 calibration buffers and binds the effective coefficient digest before complete export.",
+    "Complete state and all named buffers preserve exact aliases for I/O. Reload restores mixed parameter dtypes, explicit buffers, default original_inv_freq aliases, tied language weights and the registered bridge newline alias before receipt comparison.",
+    "Final evaluation runs in separate fresh processes, with five fixed 32-token resource windows before 100 final DEV generations. Both final evaluations use the same declared GPU and bind raw input, transport, shapes and generation lengths.",
+    "Controller and verifier agree on four phase limits totaling 8400 model seconds, 2426 FIT backwards, 174 updates, 410 generated requests and exactly 400 new Answer-F1 scoring calls after all successful exits.",
+    "Verifier checks original worker PID/startticks no longer present, source/runtime/prior/file receipts, deterministic FIT orders, exactly 19 stage receipts and adapter files, 87 events and gradient receipts, full package/reload receipts, scalar compilation, initial arm output-token agreement and post-evaluation state/buffer invariance before creating VERIFY_STARTED. New scores use the sealed historical per-ID order without recomputing historical scores."
+  ],
+  "interpretation_limits": [
+    "initial_invariant proves state and registered buffers unchanged across initial readout. It is not a separate actual base-model forward/output equivalence check. Finite beta-zero path preservation is supported by the response arithmetic; the verifier additionally compares both arms' actual initial token outputs.",
+    "Static S1 RMS calibration matches gate amplitude only; it does not match response or gradient magnitude, sign, covariance or future-domain statistics. The pair identifies the declared complete interventions, not a uniquely isolated causal effect of input dependence.",
+    "Historical wide-QV quality is copied from sealed proof as an exploratory per-domain screening floor. There is no matched QV-only arm, no new strong-PAS resource measurement and no formal superiority result in this implementation.",
+    "Final parameter design is 893675552 FP16 base coefficients plus 24 FP32 scalars, giving 893675576 coefficients and 1787351200 bytes. The 233472-byte sign buffers and initial-static 96-byte calibration buffers are counted separately. No reduction versus plain folded wide-QV/OSFT is claimed.",
+    "Single-seed, repeatedly explored 100-DEV results must report all five domains and cannot establish significance, equivalence or noninferiority."
+  ],
+  "cost_disclosure": [
+    "The completed 32-NLL calibration diagnostic and 768 sampled extra Down calls are historical shared costs, separate from these phase budgets.",
+    "Complete initial/final checkpoints are hashed by export and again by phase file receipts; verifier also checks the recorded file chain. This implementation is not described as hashing each checkpoint only once. All phase work remains inside the unchanged limits."
+  ]
+}
