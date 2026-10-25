@@ -1,0 +1,43 @@
+{
+  "accepted": true,
+  "acceptance_meaning": "One bounded implementation amendment is scientifically interpretable; static review found no fatal blocker. This is source review, not activation or a quality result.",
+  "reviewer": "baseline_review",
+  "reviewed_utc": "2026-10-25T04:13:11.676325+00:00",
+  "source_sha256": {
+    "deployment.py": "33e265f2e0303787f396913ce085358cdd6264e056118fa53c36a9ba2a4d5941",
+    "worker.py": "98ad6515b8cf5691b31290b9c81017d3f33a5000da3d82093a99bd4e4360e90e",
+    "verify.py": "886135f2141d3722d297beb0d7a6d5c5b08a34747acf089c52f9a053a3f34bec",
+    "training.py": "24cd673848673c0a7620a1552153e3b8ec4e7de5e6f1c7cdf79d15a01d9aa7c3",
+    "controller.py": "5bd62bc489686c5bf3e4a824eeb4684076f3975b33a03bf9a1efe44e2bd0356b"
+  },
+  "original_source_sha256": {
+    "deployment.py": "1ae851ea35f210366da886a346f6ad4a7203136406462bc46d813ec14a718bca",
+    "worker.py": "52cb83b6d79f26e49b6a128d9aec1e90d58b5d1a0cff143eb42d6669a4f76141",
+    "verify.py": "a88eae0bb87b32f5c33e045d2883f017d0dea0923fc4580df163bfc33a71dc0a",
+    "training.py": "24cd673848673c0a7620a1552153e3b8ec4e7de5e6f1c7cdf79d15a01d9aa7c3",
+    "controller.py": "5bd62bc489686c5bf3e4a824eeb4684076f3975b33a03bf9a1efe44e2bd0356b"
+  },
+  "supporting_files_sha256": {
+    "FIRST_ATTEMPT.json": "4b5ca2608e932e222b7b77d7d1fddf7422d1efc041e44a31de0ada9f965fb292",
+    "FIRST_MODEL_METADATA.json": "c71b544ff9f271a03978abd26897eb7440f0532b0205f64b51d19206b25b1703"
+  },
+  "original_protocol_sha256": "aae3da3fffd7b477e83885b91d92afae1da4bcf6c2033641aa4aa6816c0d0b55",
+  "scope": [
+    "Compared all differences in deployment.py, worker.py and verify.py to preserved v1; training.py and controller.py are byte-identical.",
+    "Standard low-memory GPU from_pretrained base-weight I/O replaces discarded GPU random initialization. Physical deletion and strict sealed-state override preserve complete tensor digest/layout, aliases and SDPA. Receipt accurately discloses base-weight I/O.",
+    "Before adapter construction, both corrected arms compare all buffers including FP32 nonpersistent RoPE, frozen graph, functional configuration (excluding only _name_or_path) and generation configuration to the preserved first CE initialization/metadata; adapter initialization now follows a fresh seed42 reset. Existing pre-training reset is retained.",
+    "Original CE is excluded from the valid comparison; no old learned checkpoint is used for new training. Fixed data, deletion, adapter coordinates, optimizer, loss and update count remain unchanged.",
+    "Original first CE/KD absolute deadlines are used for alarm remaining time and verified against actual exits; earlier costs are included within the cumulative 3900-model-second bound. Repair waiting reduces remaining old phase time.",
+    "FIRST_ATTEMPT records prior CE320 QA/20 updates and KD0 QA/0 teacher requests, zero new quality; successful corrected pair would total960 backwards/60 updates including the discarded arm."
+  ],
+  "required_frozen_inputs": [
+    "Bind FIRST_ATTEMPT.json, FIRST_MODEL_METADATA.json and first_CE_INITIALIZATION.json in the new READY prior_files, alongside preserved first-attempt provenance. Their values define the amendment; this review does not authorize mutable replacement."
+  ],
+  "limitations": [
+    "Acceptance explicitly amends the protocol authored first-failure/no-automatic-version rule once; it does not erase the original failure or claim the prior protocol was followed unchanged.",
+    "Review discloses authorship of original deployment.py; this is not independent certification of that entire helper. Root and research_review independently reviewed the original deployment source.",
+    "No model, QA, CUDA operator, server action, rescoring or checkpoint rehash was executed by this review; standard-library AST and small-file comparisons only."
+  ],
+  "no_source_edits_by_review": true,
+  "no_operator_gate_repeated": true
+}
