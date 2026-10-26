@@ -1,0 +1,202 @@
+{
+  "CPU_only": true,
+  "collector_sha256": "2b2a3202fa049c911324081aacb31d0e7c7508b1020a2727893f1f85ab15c376",
+  "base_collector_sha256": "d7aac920f738c6ee8fde9a636560f2d2d6ee7ea1ba9de9e030e6548b4b4cad0a",
+  "condition": "pct10",
+  "manifest_sha256": "02ef86674c22a9dbf7f0d406398615437f8406cff364415e14d54f5fdb5bfcb7",
+  "verified_method_backbone_pairs": 2,
+  "optimizer_calls_per_complete_run": 828,
+  "positive_lr_updates_per_complete_run": 822,
+  "zero_lr_initial_updates_per_complete_run": 6,
+  "required_native_pairs": 14,
+  "total_planned_pairs_including_FOREVER": 16,
+  "methods_in_scope": [
+    "SeqFT_LoRA",
+    "CL_MoE",
+    "SMoLoRA",
+    "PASs_MoE",
+    "PaRSP",
+    "OSFT",
+    "SpaRTA"
+  ],
+  "FOREVER_in_scope": false,
+  "TEST_best_run_selection": false,
+  "primary_AP19_unchanged": true,
+  "Markdown_tables_written": false,
+  "models_started": 0,
+  "missing_results_are_not_zero": true,
+  "methods": [
+    {
+      "backbone": "onevision",
+      "method": "SeqFT_LoRA",
+      "proof_file": "summary/two_backbone_pct10_20261025/completion_observer_native/completed/5d039de56ea15c2f32fc.json",
+      "proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99",
+      "aggregate": {
+        "AP": 45.87361150223714,
+        "FWT": 21.15575627501342,
+        "BWT": -2.9329650981743023
+      },
+      "domains": {
+        "natural": {
+          "F1": 73.06863441460523,
+          "QA": 5000
+        },
+        "medical": {
+          "F1": 45.29379452740851,
+          "QA": 2094
+        },
+        "geography": {
+          "F1": 57.157137145141945,
+          "QA": 10004
+        },
+        "finance": {
+          "F1": 24.602230904252302,
+          "QA": 2233
+        },
+        "traffic": {
+          "F1": 37.188750302110506,
+          "QA": 2123
+        }
+      },
+      "domain_macro_final": 47.462109458703694,
+      "acquired": {
+        "AP19": 48.652210016297,
+        "domain_macro_F1": 49.99642045929166,
+        "domains": {
+          "natural": {
+            "F1": 76.62745893692967,
+            "QA": 5000
+          },
+          "medical": {
+            "F1": 49.11592318325843,
+            "QA": 2094
+          },
+          "geography": {
+            "F1": 61.18552578968413,
+            "QA": 10004
+          },
+          "finance": {
+            "F1": 25.414240931482304,
+            "QA": 2233
+          },
+          "traffic": {
+            "F1": 37.63895345510379,
+            "QA": 2123
+          }
+        },
+        "native19": [
+          76.62745893692967,
+          68.66959064327484,
+          37.558095238095206,
+          60.59829059829065,
+          54.56989247311827,
+          55.8582842666444,
+          52.80898876404494,
+          27.729885057471268,
+          26.78571428571429,
+          53.692307692307686,
+          24.411120298760753,
+          68.0,
+          83.8917089678511,
+          25.110281642348152,
+          70.81459270364817,
+          25.414240931482304,
+          36.67913801294758,
+          38.49394748050515,
+          36.678452316208556
+        ],
+        "multiple_task_specific_model_times": true,
+        "new_model_requests": 0,
+        "additional_scoring": 0
+      },
+      "checkpoint_sha256": "801ce3d059deb0e9e786147fcb03a983784194c4b13ce98c3767e68b93b8b618",
+      "checkpoint_bytes": 1926008036
+    },
+    {
+      "backbone": "qwen",
+      "method": "SeqFT_LoRA",
+      "proof_file": "summary/two_backbone_pct10_20261025/completion_observer_native/completed/dca76f5e9c3b31a8fc93.json",
+      "proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081",
+      "aggregate": {
+        "AP": 48.6342485491077,
+        "FWT": 14.864222366029326,
+        "BWT": -5.218222703579913
+      },
+      "domains": {
+        "natural": {
+          "F1": 83.82499567099576,
+          "QA": 5000
+        },
+        "medical": {
+          "F1": 45.391624735655625,
+          "QA": 2094
+        },
+        "geography": {
+          "F1": 63.84446221511396,
+          "QA": 10004
+        },
+        "finance": {
+          "F1": 33.087027914614126,
+          "QA": 2233
+        },
+        "traffic": {
+          "F1": 38.12022281894702,
+          "QA": 2123
+        }
+      },
+      "domain_macro_final": 52.8536666710653,
+      "acquired": {
+        "AP19": 53.577827952499206,
+        "domain_macro_F1": 56.48111741466759,
+        "domains": {
+          "natural": {
+            "F1": 86.48322575596809,
+            "QA": 5000
+          },
+          "medical": {
+            "F1": 56.346081145921005,
+            "QA": 2094
+          },
+          "geography": {
+            "F1": 67.56297481007597,
+            "QA": 10004
+          },
+          "finance": {
+            "F1": 33.54978354978355,
+            "QA": 2233
+          },
+          "traffic": {
+            "F1": 38.46352181158933,
+            "QA": 2123
+          }
+        },
+        "native19": [
+          86.48322575596809,
+          74.5833333333333,
+          45.91984506721345,
+          67.14097867944027,
+          54.83870967741935,
+          57.62627972054269,
+          56.17977528089887,
+          45.40914066776136,
+          9.722222222222221,
+          63.94871794871794,
+          39.17868608612323,
+          74.0,
+          83.18104906937394,
+          25.110281642348152,
+          87.13143428285856,
+          33.54978354978355,
+          36.74168034391117,
+          39.59939446109827,
+          37.63419330847043
+        ],
+        "multiple_task_specific_model_times": true,
+        "new_model_requests": 0,
+        "additional_scoring": 0
+      },
+      "checkpoint_sha256": "0b657653a0f438169d0ec00380209a6a282921fc938274b5dfb407c757ac7927",
+      "checkpoint_bytes": 4562998300
+    }
+  ]
+}

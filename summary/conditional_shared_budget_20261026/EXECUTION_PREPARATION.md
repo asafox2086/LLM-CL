@@ -1,5 +1,9 @@
 # 执行准备与实际状态
 
+最新实际状态：先发布0f721f4521c3349e1ab5ec861283eef9bc19e6cb，再完成[执行源运输](EXECUTION_PREPARED.json)及[原CPU分配器接管](ACTIVATION.json)。unix1793012474.7688046新CPU609661/start771089493/UID1084、unit llmcl-pct10-baselines-conditional-old-20261026.service为active/running；原四GPU及wrapper在停旧CPU前、新CPU接管前后身份全同，0GPU信号。原position已complete/released，记录未改；conditional slot=null，尚未模型STARTED。新三臂现已接原分配器等待下一真空卡，不再只是未接入源码。下文准备过程为历史。
+
+执行源首次运输生成器因换行转义在远端Python解析时失败，0语句执行/0模型；改为chr(10)后原五源和协议逐字通过，未改任何科学源或运行设置。交接前已核元数据接口；该核对不等于GPU或质量通过。
+
 上一轮为进展：三臂科学源码及独立评判已发布为b034c088f5f5f2773ce1c03b444a82168f17e98b，不是模型结果。本轮继续把固定实验推进到执行，未扩大研究问题。
 
 实际进程快照unix1793003377：OLD coordinator342620/start768961721匹配，四个基线worker4046298、4049854、4048289、236681均同原身份存活并占四卡；原position slot=null、无STARTED。NEW两原1%worker8260/8265身份匹配，GPU0仍按原约定保留，10%完整核验仍1/16。该快照不是永久状态。

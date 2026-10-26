@@ -1,5 +1,9 @@
 # 2026-10-26：设置确定后固定，研究方法在条件下的局限
 
+- 最新完整结果10%为2/16：Qwen SeqFT宏52.853667/AP48.634249，完整2210075136系数、4217.461914MiB、增4.15625MiB，最终CP已NEW pin；SECOND_COMPLETE_ROW/FINDINGS与原proof为准，GPU未测。位置360已原唯一verify完成并耐久归档；S16内容变化32/37与31/40，共同33中28→24；S15有效各2、阶段共同2/1、全8共同0，不作学习前后因果或正确性推断。见POSITION_FINDINGS/ARCHIVE_RECEIPT及独立RESULT_REVIEW；不重跑。原1%主表不变。
+
+- 固定预算三臂已实际接原分配器：发布0f721f45后，unix1793012474.7688046新CPU609661/start771089493/UID1084、conditional unit active/running，原四GPU/wrapper停旧CPU前后均保全、0GPU信号；position已complete/released而非仍等待，conditional slot=null/尚未STARTED。科学root独立/dev/shm/llmcl-conditional-1084-20261026，原分配器root不改；五源与协议见EXECUTION_PREPARED，ACTIVATION为实据。首次旧summary子树symlink配额失败和生成器解析失败均在模型前，无科学源修改；新结果须独立6phase终态后唯一900评分，不重复position原verify。tmpfs不是耐久归档，完成后显式转存。
+
 - 人类允许清理临时文件，但明确禁止删除任何主表相关记录：原始答案、指标、配置、日志、核验、最终完整参数及其来源均保留。本次仅清理OLD工作区中有对应源码、同UID且快照身份未变的197个__pycache__/*.pyc，共1364966bytes；0主表记录删除、0模型信号。私有清理收据见.deployment/cache_cleanup_receipt_old_20261026.json。不得把“临时”泛化到主表run目录或checkpoint。
 
 - 最新“继续，探索需要高效”：conditional_shared_budget首轮已收敛Shared/Uniform/A-response-soft，同q/v-r8共540672坐标，shared4/private2×2、scale4、一次dropout响应、无额外LM前向。原Hard双质心被成本/依据评判拒绝，非模型负结果。独立新adaptation/worker准备中，1213FIT/100DEV/87更新，逐taskbefore/acquired各100、终态100+五资源窗；Shared/Uniform真实fold后评测，Soft显式全图strict reload。未排队/STARTED/新质量，不据此填Ours；不重跑医学审计、旧分支或修改活动分配器。权威summary/conditional_shared_budget_20261026/PROTOCOL.md。医学完整证据已push bc72a12fd71c720979b9a218e217972caa5ea8e2。

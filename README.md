@@ -8,7 +8,7 @@
 
 **设置确定后固定。** 沿用既定数据、训练、生成与评分条件，研究方法在这些条件下的新习得能力、失败和适用边界，不为改善结果反复调整设置。
 
-**当前结论：尚未得到同时满足质量与资源目标的自研方法，Ours 暂空。** 已有1%完整正式结果8组；10%首组LLaVA／SeqFT-LoRA已完整核验，五域宏47.462，最终完整模型已耐久保存；其余基线继续运行／排队。单图LoRA相对PAS与Qwen的固定窗口显存差异已实测，新方法质量仍待验证。
+**当前结论：尚未得到同时满足质量与资源目标的自研方法，Ours 暂空。** 已有1%完整正式结果8组；10%已有双骨干SeqFT-LoRA共2组完整核验，LLaVA／Qwen五域宏分别47.462／52.854，两组最终完整模型已耐久保存；其余基线继续运行／排队。单图LoRA相对PAS与Qwen的固定窗口显存差异已实测，新方法质量仍待验证。
 
 本文只保留主表、探索命题和结论。[补充说明](SUPPLEMENTARY_NOTES.md#探索过程与证据索引)保存完整探索过程、正负证据、故障、成本及运行交接。
 
@@ -58,12 +58,12 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 <!-- PCT10_MAIN_TABLE_BEGIN -->
 ## 第二主表：双骨干10%训练／完整测试
 
-训练10%已冻结为**13105 QA**，完整TEST仍为**21454 QA**；seed42、一轮、19任务，主任务共828次优化器调用，其余沿用1%正式设置。**1/16组完整核验：LLaVA／SeqFT-LoRA。** OLD四卡继续推进Qwen SeqFT、双骨干PASs-MoE及LLaVA CL-MoE；其余组合排队／待既定方法核验。空白不是0分，不复制1%结果或估计未测资源。
+训练10%已冻结为**13105 QA**，完整TEST仍为**21454 QA**；seed42、一轮、19任务，主任务共828次优化器调用，其余沿用1%正式设置。**2/16组完整核验：双骨干SeqFT-LoRA。** 最新快照OLD四卡推进双骨干PASs-MoE及LLaVA CL-MoE、OSFT；其余组合排队／待既定方法核验。空白不是0分，不复制1%结果或估计未测资源。
 
 | 方法／Backbone | 类型 | 发表会议／年份 | TextVQA<br>自然／通用 | SLAKE<br>医学 | RSVQA-LR<br>遥感 | FinMME<br>金融 | CODA-LM<br>交通 | 五域宏 F1 ↑ | AP19 ↑ | FWT ↑ | BWT ↑ | 最终权重存储<br>保存态 MiB ↓ | 相对原基座增加<br>MiB ↓ | 固定五窗GPU峰值†<br>MiB ↓ | 首词延迟<br>s ↓ | 生成速度<br>tok/s ↑ | 常驻适配器<br>数量 ↓ | 完整参数量<br>系数 | 最终CP<br>MiB | 新习得五域宏F1 ↑ | 新习得AP19 ↑ | 状态 |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
 | **Qwen2-VL-2B-Instruct** |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| SeqFT-LoRA | 朴素顺序微调 | 标准对照（无独立发表年份） |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 正式运行 |
+| SeqFT-LoRA | 朴素顺序微调 | 标准对照（无独立发表年份） | 83.825 | 45.392 | 63.844 | 33.087 | 38.120 | 52.854 | 48.634 | 14.864 | -5.218 | 4217.462 | 4.156 | 未测 | 未测 | 未测 | 未测 | 2210075136 | 4351.614 | 56.481 | 53.578 | 完整核验通过；最终模型已存 |
 | FOREVER | 回放 | [ACL 2026](https://aclanthology.org/2026.acl-long.1144/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | OLD排队，待动态回放GPU预检 |
 | CL-MoE | 架构 | [CVPR 2025](https://openaccess.thecvf.com/content/CVPR2025/html/Huai_CL-MoE_Enhancing_Multimodal_Large_Language_Model_with_Dual_Momentum_Mixture-of-Experts_CVPR_2025_paper.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | OLD排队 |
 | SMoLoRA | 架构 | [ICCV 2025](https://openaccess.thecvf.com/content/ICCV2025/html/Wang_SMoLoRA_Exploring_and_Defying_Dual_Catastrophic_Forgetting_in_Continual_Visual_ICCV_2025_paper.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 已freeze，待NEW原生BF16空卡 |
@@ -79,7 +79,7 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 | SMoLoRA | 架构 | [ICCV 2025](https://openaccess.thecvf.com/content/ICCV2025/html/Wang_SMoLoRA_Exploring_and_Defying_Dual_Catastrophic_Forgetting_in_Continual_Visual_ICCV_2025_paper.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 已freeze，待NEW原生BF16空卡 |
 | PASs-MoE | 架构（兼正则） | [ACL 2026](https://aclanthology.org/2026.acl-long.1474/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 正式运行 |
 | PaRSP | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.1244/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | OLD排队 |
-| OSFT | 正则化 | [ICLR 2026](https://proceedings.iclr.cc/paper_files/paper/2026/hash/22620cccae29bbb3f18d226ea0320ff5-Abstract-Conference.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | OLD排队 |
+| OSFT | 正则化 | [ICLR 2026](https://proceedings.iclr.cc/paper_files/paper/2026/hash/22620cccae29bbb3f18d226ea0320ff5-Abstract-Conference.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 正式运行 |
 | SpaRTA | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.334/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | OLD排队 |
 | Ours | 自研方法 | 未发表 |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 空，不自动运行探索配方 |
 
@@ -87,7 +87,9 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 
 第二主表完整覆盖两个backbone各八类基线，共16组；主要报告与1%相同的五域最终F1、宏F1／AP19、FWT／BWT及全部资源指标，另保留完整参数量与CP大小。每组S19完整模型权重、必要方法状态、processor／config及来源记录均须耐久留存；不是只记录参数量或保存LoRA。[最终模型留存](summary/two_backbone_pct10_20261025/FINAL_MODEL_RETENTION.md)
 
-刚习得及金融集中错答是补充分析。同骨干SeqFT的最终五域宏从1%的42.186升至10%的47.462，四域提高、自然域下降；金融刚习得F1从16.405升至25.414，单选回答却更集中。**集中不能替代新习得判断；不同题型的学习效果也不同。** 数据量、更新预算及先前课程共同变化，不能单独归因样本量。[首组完整证据](summary/two_backbone_pct10_20261025/FIRST_COMPLETE_FINDINGS.md) · [分题型观测与结论](summary/train_answer_prior_20261025/PCT01_PCT10_RESPONSE_FINDINGS.md)
+刚习得及金融集中错答是补充分析。LLaVA SeqFT的最终五域宏从1%的42.186升至10%的47.462，四域提高、自然域下降；金融刚习得F1从16.405升至25.414，单选回答却更集中。**集中不能替代新习得判断；不同题型的学习效果也不同。** 数据量、更新预算及先前课程共同变化，不能单独归因样本量。[首组完整证据](summary/two_backbone_pct10_20261025/FIRST_COMPLETE_FINDINGS.md) · [分题型观测与结论](summary/train_answer_prior_20261025/PCT01_PCT10_RESPONSE_FINDINGS.md)
+
+Qwen SeqFT最终五域宏由1%的48.972升至10%的52.854，遥感、金融、交通提高，自然和医学下降；完整参数仍为2,210,075,136，保存态权重4217.462 MiB，新增训练参数1,089,536。更多训练改善总体成绩，但没有均匀改善所有域；尚不能将效果归因于纯数据量。10% GPU资源仍待实测。[第二组完整证据](summary/two_backbone_pct10_20261025/SECOND_COMPLETE_FINDINGS.md)
 
 [10%正式协议与冻结证据](summary/two_backbone_pct10_20261025/PROTOCOL.md) · [10%独立主表](summary/two_backbone_pct10_20261025/MAIN_TABLE.md)
 
@@ -121,7 +123,7 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 | **10%是否普遍提高各任务刚习得，而不只是金融？** | 同LLaVA／SeqFT的19/19任务刚习得F1均更高；五域刚习得宏42.026→49.996。阶段内增量13高6低，10%医学Position／Plane自身阶段分别下降4.859／0.718pp | **同容量的更充分学习配置广泛提高刚习得水平，但当前任务更新并非都更有效。** 不把1%低分普遍认定为容量上限；前课程、数据与更新共同改变，非纯数据因果。[全19任务、参数空间与解释](summary/train_answer_prior_20261025/ALL_TASK_ACQUISITION_FINDINGS.md) |
 | **两个医学任务的阶段降分都意味着内容退化吗？** | 全491题配对、208项回答变化经双agent盲读。Plane原F1−0.718pp而EXACT+0.862pp；Position的未知含义变化承载77.75%总失分量 | **不能统一归因。** Plane有明确表述效应，Position主因未识别；不据此选择统一格式／知识模块，EXACT也非语义正确率。[完整正负与未知](summary/train_answer_prior_20261025/MEDICAL_PAIRED_FINDINGS.md) |
 
-**当前待验证命题：小预算能否承接条件适应？** PAS／CL-MoE的多套专家有持久参数成本，但高分尚未被归因于分工本身。首轮固定540,672个适应坐标，比较共享r8、4/2/2固定均匀权重、同银行输入相关权重；没有额外模型前向。整题聚类方案因额外前向成本及缺乏种子依据被设计评判否决，尚非实验负结果。新三臂代码已准备，**未运行、无新F1或显存结果**。[固定问题与对照](summary/conditional_shared_budget_20261026/PROTOCOL.md)
+**当前待验证命题：小预算能否承接条件适应？** PAS／CL-MoE的多套专家有持久参数成本，但高分尚未被归因于分工本身。首轮固定540,672个适应坐标，比较共享r8、4/2/2固定均匀权重、同银行输入相关权重；没有额外模型前向。整题聚类方案因额外前向成本及缺乏种子依据被设计评判否决，尚非实验负结果。新三臂已接入原空卡分配器，**尚未STARTED，无新F1或显存结果**。[固定问题与对照](summary/conditional_shared_budget_20261026/PROTOCOL.md)
 
 ## 参数量与已测GPU优势
 
@@ -158,7 +160,7 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 
 **后续只研究新习得：** 依人类最新要求，不再设计遗忘／保持／历史保护实验。现有方法为什么学不好仍需训练前到刚学完的功能获得及匹配干预来解释；少样本／少更新的计数本身不能充当原因。当前没有已确证的新学习机制或正式确认，Ours仍空。
 
-**下一项有限功能问题已进入空卡队列：** 同一候选内容换位置后，刚学完的模型是否仍选同一个内容？固定45条共同TRAIN、一个循环，比较1%／10%的金融训练前和刚学完状态，共360次生成；这区分规范化集中与内容—位置脆弱，决定是否保留固定LoRA容量的绑定约束工具。原基线自然释放一张卡后自动同卡执行，当前尚无模型结果；不把稳定选错称正确，也不据此自动训练PIF。[具体问题与正负决策](summary/train_answer_prior_20261025/POSITION_DIAGNOSTIC_DECISION_REVIEW.md) · [固定协议](summary/train_answer_prior_20261025/POSITION_DIAGNOSTIC_PROTOCOL.md) · [实际接入](summary/train_answer_prior_20261025/POSITION_QUEUE_ACTIVATION.json)
+**位置诊断已完成：换选项位置后，所选内容常发生变化，10%也未消除这一现象。** 固定45条共同TRAIN、一次循环，在金融刚学完状态，1%有32/37、10%有31/40条有效配对改变所选内容；两比例共同有效的33题中为28→24。训练前有效配对各仅2题，无法据此判定金融训练如何改变位置敏感性。稳定选择也可能选错；这不是正确率或所有金融错误的统一原因，不自动推出PIF训练方案。[完整结果与边界](summary/train_answer_prior_20261025/POSITION_FINDINGS.md)
 
 ---
 

@@ -1,0 +1,174 @@
+{
+  "backbone": "qwen",
+  "method": "SeqFT_LoRA",
+  "condition": "pct10",
+  "proof_file": "summary/two_backbone_pct10_20261025/second_complete_sources/dca76f5e9c3b31a8fc93.json",
+  "proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081",
+  "checkpoint_sha256": "0b657653a0f438169d0ec00380209a6a282921fc938274b5dfb407c757ac7927",
+  "manifest_sha256": "02ef86674c22a9dbf7f0d406398615437f8406cff364415e14d54f5fdb5bfcb7",
+  "domains": {
+    "natural": {
+      "F1": 83.82499567099576,
+      "QA": 5000
+    },
+    "medical": {
+      "F1": 45.391624735655625,
+      "QA": 2094
+    },
+    "geography": {
+      "F1": 63.84446221511396,
+      "QA": 10004
+    },
+    "finance": {
+      "F1": 33.087027914614126,
+      "QA": 2233
+    },
+    "traffic": {
+      "F1": 38.12022281894702,
+      "QA": 2123
+    }
+  },
+  "domain_macro_final": 52.8536666710653,
+  "aggregate": {
+    "AP": 48.6342485491077,
+    "FWT": 14.864222366029326,
+    "BWT": -5.218222703579913
+  },
+  "acquired": {
+    "AP19": 53.577827952499206,
+    "domain_macro_F1": 56.48111741466759,
+    "domains": {
+      "natural": {
+        "F1": 86.48322575596809,
+        "QA": 5000
+      },
+      "medical": {
+        "F1": 56.346081145921005,
+        "QA": 2094
+      },
+      "geography": {
+        "F1": 67.56297481007597,
+        "QA": 10004
+      },
+      "finance": {
+        "F1": 33.54978354978355,
+        "QA": 2233
+      },
+      "traffic": {
+        "F1": 38.46352181158933,
+        "QA": 2123
+      }
+    },
+    "native19": [
+      86.48322575596809,
+      74.5833333333333,
+      45.91984506721345,
+      67.14097867944027,
+      54.83870967741935,
+      57.62627972054269,
+      56.17977528089887,
+      45.40914066776136,
+      9.722222222222221,
+      63.94871794871794,
+      39.17868608612323,
+      74.0,
+      83.18104906937394,
+      25.110281642348152,
+      87.13143428285856,
+      33.54978354978355,
+      36.74168034391117,
+      39.59939446109827,
+      37.63419330847043
+    ],
+    "multiple_task_specific_model_times": true,
+    "new_model_requests": 0,
+    "additional_scoring": 0
+  },
+  "train_QA": 13105,
+  "final_QA": 21454,
+  "rescored_cells": 74,
+  "originally_scored_QA": 80316,
+  "positive_finite_training_stages": 19,
+  "current_optimizer_updates": 828,
+  "current_positive_lr_updates": 822,
+  "current_zero_lr_updates": 6,
+  "complete_parameter_coefficients": 2210075136,
+  "trainable_adapter_coefficients": 1089536,
+  "final_required_saved_weight_bytes": 4422329344,
+  "final_required_saved_weight_MiB": 4217.4619140625,
+  "original_base_weight_bytes": 4417971200,
+  "incremental_weight_bytes": 4358144,
+  "incremental_weight_MiB": 4.15625,
+  "checkpoint_bytes": 4562998300,
+  "checkpoint_MiB": 4351.614284515381,
+  "saved_dtype_bytes": {
+    "FloatStorage": 4358144,
+    "HalfStorage": 4417971200
+  },
+  "excluded_rebuildable_registered_buffer_bytes": 7504,
+  "excluded_model_unregistered_storage_categories": {
+    "original_inv_freq": 29,
+    "visual_feature_cache": 85
+  },
+  "unclassified_model_storage_count": 0,
+  "private_layout_file": "summary/two_backbone_pct10_20261025/second_complete_sources/SAVED_GRAPH_METADATA.json",
+  "private_layout_sha256": "8c680abc30961af6a5fe35c1552e803c6a4a493530976a0f4601ba3dfccea373",
+  "metadata_reader_sha256": "62bb56da7130270210f752e684d381bdadac0c667bf5b514085f550bad31a3dd",
+  "metadata_reader_seconds": 0.8689728410099633,
+  "metadata_reused": false,
+  "source_proofs": {
+    "VERIFIED_INDEX": {
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_pct10_20261025/private_old_archive/summary/two_backbone_pct10_20261025/completion_observer_native/VERIFIED_INDEX.json",
+      "sha256": "909fbe3be92eec29f712c9dc8a63b0ce0184d8345d4f43eb737704937537b263",
+      "bytes": 5685,
+      "local_path": "summary/two_backbone_pct10_20261025/second_complete_sources/VERIFIED_INDEX.json"
+    },
+    "VERIFIED": {
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_pct10_20261025/private_old_archive/summary/two_backbone_pct10_20261025/completion_observer_native/completed/dca76f5e9c3b31a8fc93.json",
+      "sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081",
+      "bytes": 78397,
+      "local_path": "summary/two_backbone_pct10_20261025/second_complete_sources/dca76f5e9c3b31a8fc93.json"
+    },
+    "COMPLETE": {
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_pct10_20261025/private_old_archive/summary/two_backbone_pct10_20261025/completion_observer_native/completed/dca76f5e9c3b31a8fc93.COMPLETE.json",
+      "sha256": "3287e2e398ba64d1c75e516b6346170b79b1778fe56058d4177474fe5c9b3873",
+      "bytes": 686,
+      "local_path": "summary/two_backbone_pct10_20261025/second_complete_sources/COMPLETE.json"
+    },
+    "FINAL_MODEL_INDEX": {
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_pct10_20261025/private_old_archive/FINAL_MODEL_INDEX.json",
+      "sha256": "b613e589932072cad5221e7565eb540fc2f93fe60ea639c4808f50025700aa0b",
+      "bytes": 5960,
+      "local_path": "summary/two_backbone_pct10_20261025/second_complete_sources/FINAL_MODEL_INDEX.json"
+    },
+    "FINAL_MODEL_RETAINED": {
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_pct10_20261025/private_old_archive/final_models/qwen/SeqFT_LoRA/training_20261025_222614/FINAL_MODEL_RETAINED.json",
+      "sha256": "112850f46563ac38edee3788d7f72b38dcff7b83576cf37a8a9e23c8055cc30a",
+      "bytes": 1486,
+      "local_path": "summary/two_backbone_pct10_20261025/second_complete_sources/FINAL_MODEL_RETAINED.json"
+    },
+    "SAVED_GRAPH_METADATA": {
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_pct10_20261025/private_old_archive/final_models/qwen/SeqFT_LoRA/training_20261025_222614/SAVED_GRAPH_METADATA.json",
+      "sha256": "8c680abc30961af6a5fe35c1552e803c6a4a493530976a0f4601ba3dfccea373",
+      "bytes": 466615,
+      "local_path": "summary/two_backbone_pct10_20261025/second_complete_sources/SAVED_GRAPH_METADATA.json"
+    }
+  },
+  "durable_checkpoint": "final_models/qwen/SeqFT_LoRA/training_20261025_222614/stage_19.pt",
+  "durability_SHA_basis": "existing archive transfer SHA",
+  "actual_GPU_five_window_peak_MiB": null,
+  "TTFT_seconds": null,
+  "tokens_per_second": null,
+  "resident_adapter_count": null,
+  "new_models": 0,
+  "new_generations": 0,
+  "new_scores": 0,
+  "weight_payload_read": false,
+  "checkpoint_payload_rehashed": false,
+  "original_base_footprint_proof": "summary/edge_deployment_20261019/component_footprint/v1/COMPLETE.json",
+  "original_base_footprint_proof_sha256": "0fceb97bbae94d6ddec5717db24940a19758a088d1958c867697a264993bb963",
+  "original_unique_verification_seconds": 18.98011866491288,
+  "fetch_local_total_seconds": 2.797000000020489,
+  "scalar_consumer_seconds": 0.0629999999946449,
+  "consumer_source_sha256": "cef48fbc673bb7427904892c4b759e5632d2cbc82a425412f3736660e39cdc5c"
+}

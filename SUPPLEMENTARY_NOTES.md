@@ -1,5 +1,7 @@
 # 补充说明：证据索引、实验历史与新会话交接
 
+2026-10-26最新：10%双骨干SeqFT均完整核验，总2/16，Qwen宏52.853667、完整参数2210075136，两组最终模型已耐久保存；[第二组证据](summary/two_backbone_pct10_20261025/SECOND_COMPLETE_FINDINGS.md)。[位置诊断](summary/train_answer_prior_20261025/POSITION_FINDINGS.md)已结束、唯一核验并归档，不能由有限训练前有效样本推断学习导致位置敏感性变化。固定预算三臂已[接入原分配器](summary/conditional_shared_budget_20261026/ACTIVATION.json)，尚未STARTED；下文较早的1/16及等待位置诊断描述均为历史快照。临时清理仅197个可重建pyc/1364966bytes，主表记录完整保留。
+
 更新：2026-10-25。主结论与所有成果摘要集中在[README](README.md)。这里保存研究口径、原始来源、已关闭分支、实现故障和费用边界。本文不是新的实验或质量结果；原[README历史归档](README_HISTORY_20261024.md)保留时间线（不复制QA／图像样例，原件私有保留），历史的“下一步／正在运行”不是当前授权队列。
 
 ## 10%第二主表：实际启动与归档边界
