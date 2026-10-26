@@ -29,6 +29,8 @@
 2026-10-26后续功能问题经research_review接受：45条原资格共同TRAIN、固定循环、四个已完成S15／S16状态，360新生成将检验内容选择对位置重排是否稳定。四个真实完整CP已只读stat确认存在，尚未载入；最长原context308，不触发原6000检索。没有新的split／训练／评分，worker及实际绑定待完成，不把准备当结果。[必要性与正负决策](summary/train_answer_prior_20261025/POSITION_DIAGNOSTIC_DECISION_REVIEW.md) · [具体协议](summary/train_answer_prior_20261025/POSITION_DIAGNOSTIC_PROTOCOL.md)。
 
 实施现已备妥：原完整图恢复／90原生成的独立worker、45张图片实际SHA及两池共同对象、固定45视图严格逆变换、完整调用绑定均形成；源码及真实producer经root与baseline_review核对，0模型／生成／评分。尚未协调GPU执行或自动排队，没有功能结果／新训练准入。原metadata.options多余假设在首次执行前删除；root漏看run连续赋值造成的错误身份建议也在首次执行前撤回，原正确断言保留。[实施与全部费用边界](summary/train_answer_prior_20261025/POSITION_IMPLEMENTATION.md)。
+
+实际运输／输入合同阶段另暴露两处元数据错误：Windows Path写Linux路径在任何写入／worker导入前被拒；修为POSIX后，stdlib真实输入检查发现45ID摘要编码应沿原compact JSON而非默认带空格JSON。两次都没有worker.main／STARTED／Torch／权重，原字节及失败全留存；一行编码修正经作者确认，不改变ID或科学条件。最终worker6dc74f36／binding4c49f6e5在OLD完成0.058247秒真实输入绑定，45题／两根90图身份与可逆视图全部通过，0模型／生成／评分／CP读取。没有GPU准入／排队或质量结论，见[全部修正和收据](summary/train_answer_prior_20261025/POSITION_IMPLEMENTATION.md#真实输入绑定的两处模型前修正)。
 2026-10-26首个完整10%结果后的同ID金融比较已唯一完成：2233题=1307单选＋546多选＋380数值，S15／S16／S19六套原预测全部绑定两条正式proof；复制13398条已有分数，0模型／生成／训练／新评分／权重读取。金融刚习得F1为16.405→25.414，但单选回答不同值174→9、原满分331→495、原零分966→812，撤回“集中本身就说明习得失败”的推断。10%多选仍286条严格单字母且原F1全零，数值S15→S16为8.640→6.974；本固定配方的题型习得不均匀，不据此识别统一位置偏置或PIF有效。完整子进程1.357466秒，内部1.048091秒重叠不加；源码执行前相对路径围栏修正、正负、来源及独立review均见[完整观测与设计影响](summary/train_answer_prior_20261025/PCT01_PCT10_RESPONSE_FINDINGS.md)。没有据TEST分析新增训练方案或修改设置，两个完整主表及最终模型留存任务不缩减。
 
 2026-10-26人类进一步明确：设置一旦确定就不再更改；研究固定条件下的方法局限，不为救结果调整条件。已写入根README、AGENTS和[重点原话](summary/acquisition_readout_20261025/v1/HUMAN_RESEARCH_FOCUS.md)。两个正式主实验设置未改。

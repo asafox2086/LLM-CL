@@ -140,7 +140,7 @@ def inputs(binding, ledger):
     assert decision['counts'] == {'accepted':45, 'excluded_fixed':7, 'uncertain':1}
     ids = decision['accepted_id_hashes']
     assert len(ids) == len(set(ids)) == 45
-    assert digest(json.dumps(ids).encode()) == decision['accepted_ids_sha256']
+    assert digest(canonical(ids)) == decision['accepted_ids_sha256']
     receipt = json.loads(bound(binding['inputs_receipt'], ledger))
     assert binding['inputs_receipt']['sha256'] == decision['evidence_sha256']['OPTION_ELIGIBILITY_INPUTS.json']
     assert receipt['private_pack_sha256'] == binding['masked_pack']['sha256'] == PACK_SHA
