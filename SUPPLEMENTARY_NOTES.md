@@ -1,5 +1,7 @@
 # 补充说明：证据索引、实验历史与新会话交接
 
+[PAS正式全19任务新习得补充](summary/conditional_shared_budget_20261026/PAS_ACQUISITION_FINDINGS.md)：一次派生原38个封存aggregate，五域宏48.349对Seq42.026；完整保留15高4低及阶段增量反向例。不是新训练、重新评分或路由因果识别，原主表不改。
+
 [小预算条件适应的论文主张评判](summary/conditional_shared_budget_20261026/PAPER_CLAIM_REVIEW_20261026.md)：补充SMoRA／CoMoL直接先例，分解预计23.86%保存态差，明确soft相对普通LoRA无权重节省；保留冻结三臂作为功能资格检验，未新增模型或更改设置。
 
 [位置训练工具的适配评判](summary/train_answer_prior_20261025/POSITION_TRAINING_TOOL_REVIEW_20261026.md)记录单视图增强、PA-GRPO和Set-LLM的机制边界；仅候选选择，未新增实验或模型结果。

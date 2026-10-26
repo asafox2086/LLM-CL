@@ -125,6 +125,8 @@ Qwen SeqFT最终五域宏由1%的48.972升至10%的52.854，遥感、金融、�
 
 **跨骨干的新结论：更多数据／更新提高总体新习得，但局部失败不固定在同一题型。** Qwen刚习得五域宏46.985→56.481，19任务中17提高、2下降（Quantity、Shape）；10%时Shape阶段仍下降1.111。LLaVA在10%中下降的Position／Plane，Qwen却分别提高3.425／7.447。因此不支持“这两类医学任务统一学不会”或一个共同根因；能保留的是固定配置下学习收益不均匀。两比例同时改变数据、更新与课程，Qwen历史训练硬件也不同，不能作纯数据因果。[Qwen完整对照](summary/train_answer_prior_20261025/QWEN_ACQUISITION_FINDINGS.md) · [LLaVA完整对照](summary/train_answer_prior_20261025/ALL_TASK_ACQUISITION_FINDINGS.md)
 
+**PAS的优势包含跨域新习得，但不能归因于路由。** 正式1%全19任务补齐后，PAS刚习得五域宏48.349，普通LoRA为42.026；医学／遥感／金融／交通更高，自然更低，任务15高4低。但交通T18／T19刚习得更高、阶段增量反而更小：继承起点不同，不能把终点高分统一称为本阶段学得更多。[完整观测与局限](summary/conditional_shared_budget_20261026/PAS_ACQUISITION_FINDINGS.md)
+
 **当前待验证命题：同样的小预算，条件适应是否比普通LoRA值得？** 固定540,672个适应坐标，比较共享r8、4/2/2固定均匀权重、同银行输入相关权重。SMoRA／CoMoL已有紧凑条件专家先例，本轮是受限机制的功能检验；尚未证明PAS高分来自分工，也没有识别共同失败根因。
 
 soft设计相对原PAS保存态少约23.86%字节，其中约一半来自系数减少、一半来自FP32开销减少；它与普通未折叠r8一样大，比折叠r8多2.0625 MiB。**若没有值得保留的新习得或回答收益，普通LoRA已提供主要内存优势，应放弃条件模块。** GPU优势须实测。三臂已接入原分配器，最近核验尚未STARTED，无新F1或显存结果。[固定对照](summary/conditional_shared_budget_20261026/PROTOCOL.md) · [先例、成本分解与去留标准](summary/conditional_shared_budget_20261026/PAPER_CLAIM_REVIEW_20261026.md)
