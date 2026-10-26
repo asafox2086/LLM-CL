@@ -1,7 +1,7 @@
 {
-  "unix": 1792944405.4224355,
+  "unix": 1792983382.6856303,
   "root": "/dev/shm/llmcl-pct10-1084-zu7e3hb_",
-  "queue_updated": 1792944394.6499033,
+  "queue_updated": 1792983379.813021,
   "controller": {
     "pid": 4049826,
     "startticks": "763716835",
@@ -11,49 +11,38 @@
   },
   "jobs": {
     "onevision:SeqFT_LoRA": {
-      "status": "training",
+      "status": "completed_unverified",
       "phase": "training",
       "gpu": 0,
       "pid": 4046095,
       "run_dir": "exp/two_backbone_pct10_native_20261025/runs/onevision/pct10/SeqFT_LoRA/training_20261025_222559",
       "last_exit": {
-        "unix": 1792938346.1510713,
+        "unix": 1792979689.8620126,
         "returncode": 0,
         "worker": {
-          "pid": 4045860,
-          "startticks": "763674949",
+          "pid": 4046095,
+          "startticks": "763677971",
           "uid": 1084,
-          "pgid": 4045860
+          "pgid": 4046095
         },
         "wrapper": {
-          "pid": 4045841,
-          "startticks": "763674919",
+          "pid": 4046082,
+          "startticks": "763677951",
           "uid": 1084,
-          "pgid": 4045841
+          "pgid": 4046082
         },
-        "phase": "reload",
-        "run_dir": "exp/two_backbone_pct10_native_20261025/runs/onevision/pct10/SeqFT_LoRA/preflight_20261025_222428"
+        "phase": "training",
+        "run_dir": "exp/two_backbone_pct10_native_20261025/runs/onevision/pct10/SeqFT_LoRA/training_20261025_222559"
       },
-      "worker_observed": {
-        "pid": 4046095,
-        "startticks": "763677971",
-        "uid": 1084,
-        "pgid": 4046095,
-        "state": "R"
-      },
+      "completed_stage": 19,
+      "worker_observed": null,
       "worker_recorded": {
         "pid": 4046095,
         "startticks": "763677971",
         "uid": 1084,
         "pgid": 4046095
       },
-      "wrapper_observed": {
-        "pid": 4046082,
-        "startticks": "763677951",
-        "uid": 1084,
-        "pgid": 4046082,
-        "state": "S"
-      },
+      "wrapper_observed": null,
       "wrapper_recorded": {
         "pid": 4046082,
         "startticks": "763677951",
@@ -61,8 +50,10 @@
         "pgid": 4046082
       },
       "run_status": {
-        "status": "initial_evaluation",
-        "completed_stage": 0
+        "status": "completed",
+        "completed_stage": 19,
+        "final_checkpoint": "checkpoints/stage_19.pt",
+        "final_parameter_file_bytes": 1926008036
       }
     },
     "qwen:SeqFT_LoRA": {
@@ -116,8 +107,9 @@
         "pgid": 4046285
       },
       "run_status": {
-        "status": "initial_evaluation",
-        "completed_stage": 0
+        "status": "evaluation",
+        "completed_stage": 16,
+        "active_stage": 17
       }
     },
     "onevision:PASs_MoE": {
@@ -149,7 +141,7 @@
         "startticks": "763716871",
         "uid": 1084,
         "pgid": 4049854,
-        "state": "R"
+        "state": "S"
       },
       "worker_recorded": {
         "pid": 4049854,
@@ -171,8 +163,9 @@
         "pgid": 4049841
       },
       "run_status": {
-        "status": "initial_evaluation",
-        "completed_stage": 0
+        "status": "training",
+        "completed_stage": 0,
+        "active_stage": 1
       }
     },
     "qwen:PASs_MoE": {
@@ -231,7 +224,59 @@
       }
     },
     "onevision:CL_MoE": {
-      "status": "waiting"
+      "status": "training",
+      "phase": "training",
+      "gpu": 0,
+      "pid": 236681,
+      "run_dir": "exp/two_backbone_pct10_native_20261025/runs/onevision/pct10/CL_MoE/training_20261026_095900",
+      "last_exit": {
+        "unix": 1792979933.1251917,
+        "returncode": 0,
+        "worker": {
+          "pid": 236444,
+          "startticks": "767833113",
+          "uid": 1084,
+          "pgid": 236444
+        },
+        "wrapper": {
+          "pid": 236431,
+          "startticks": "767833095",
+          "uid": 1084,
+          "pgid": 236431
+        },
+        "phase": "reload",
+        "run_dir": "exp/two_backbone_pct10_native_20261025/runs/onevision/pct10/CL_MoE/preflight_20261026_095500"
+      },
+      "worker_observed": {
+        "pid": 236681,
+        "startticks": "767836133",
+        "uid": 1084,
+        "pgid": 236681,
+        "state": "R"
+      },
+      "worker_recorded": {
+        "pid": 236681,
+        "startticks": "767836133",
+        "uid": 1084,
+        "pgid": 236681
+      },
+      "wrapper_observed": {
+        "pid": 236668,
+        "startticks": "767836113",
+        "uid": 1084,
+        "pgid": 236668,
+        "state": "S"
+      },
+      "wrapper_recorded": {
+        "pid": 236668,
+        "startticks": "767836113",
+        "uid": 1084,
+        "pgid": 236668
+      },
+      "run_status": {
+        "status": "initial_evaluation",
+        "completed_stage": 0
+      }
     },
     "qwen:CL_MoE": {
       "status": "waiting"
@@ -267,8 +312,8 @@
       "status": "waiting_native_bf16_on_new"
     }
   },
-  "GPU": "0, NVIDIA GeForce RTX 2080 Ti, GPU-783c5d2c-a6f8-9594-472c-4ab9fe54d3b1, 2902, 66\n1, NVIDIA GeForce RTX 2080 Ti, GPU-3c72e4ce-0896-0b40-d610-be585d2bb51e, 6556, 25\n2, NVIDIA GeForce RTX 2080 Ti, GPU-25d3cb92-fa97-a722-f9cd-c012bad046a8, 4280, 64\n3, NVIDIA GeForce RTX 2080 Ti, GPU-fb9fc5ed-bf92-b947-d8c5-302296c4a447, 7882, 27\n\n",
-  "owners": "4046095, GPU-783c5d2c-a6f8-9594-472c-4ab9fe54d3b1, 2894\n4046298, GPU-3c72e4ce-0896-0b40-d610-be585d2bb51e, 6548\n4049854, GPU-25d3cb92-fa97-a722-f9cd-c012bad046a8, 4272\n4048289, GPU-fb9fc5ed-bf92-b947-d8c5-302296c4a447, 7874\n\n",
+  "GPU": "0, NVIDIA GeForce RTX 2080 Ti, GPU-783c5d2c-a6f8-9594-472c-4ab9fe54d3b1, 3442, 47\n1, NVIDIA GeForce RTX 2080 Ti, GPU-3c72e4ce-0896-0b40-d610-be585d2bb51e, 5994, 27\n2, NVIDIA GeForce RTX 2080 Ti, GPU-25d3cb92-fa97-a722-f9cd-c012bad046a8, 4618, 91\n3, NVIDIA GeForce RTX 2080 Ti, GPU-fb9fc5ed-bf92-b947-d8c5-302296c4a447, 7920, 18\n\n",
+  "owners": "236681, GPU-783c5d2c-a6f8-9594-472c-4ab9fe54d3b1, 3434\n4046298, GPU-3c72e4ce-0896-0b40-d610-be585d2bb51e, 5986\n4049854, GPU-25d3cb92-fa97-a722-f9cd-c012bad046a8, 4448\n4048289, GPU-fb9fc5ed-bf92-b947-d8c5-302296c4a447, 7912\n\n",
   "unit": "MainPID=4049826\nExecMainStatus=0\nActiveState=active\nSubState=running\n",
-  "shm_free": 202051289088
+  "shm_free": 92182556672
 }

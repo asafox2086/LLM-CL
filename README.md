@@ -6,7 +6,7 @@
 
 **设置确定后固定。** 沿用既定数据、训练、生成与评分条件，研究方法在这些条件下的新习得能力、失败和适用边界，不为改善结果反复调整设置。
 
-**当前结论：尚未得到同时满足质量与资源目标的自研方法，Ours 暂空。** 已有1%完整正式结果8组；10%四组已通过GPU预检与重载核验，正式运行处于初始评价，尚无完整正式结果；单图LoRA相对PAS与Qwen的固定窗口显存差异已实测，新方法质量仍待验证。
+**当前结论：尚未得到同时满足质量与资源目标的自研方法，Ours 暂空。** 已有1%完整正式结果8组；10%首组LLaVA／SeqFT-LoRA已完整核验，五域宏47.462，最终完整模型已耐久保存；其余基线继续运行／排队。单图LoRA相对PAS与Qwen的固定窗口显存差异已实测，新方法质量仍待验证。
 
 本文只保留主表、探索命题和结论。[补充说明](SUPPLEMENTARY_NOTES.md#探索过程与证据索引)保存完整探索过程、正负证据、故障、成本及运行交接。
 
@@ -56,26 +56,26 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 <!-- PCT10_MAIN_TABLE_BEGIN -->
 ## 第二主表：双骨干10%训练／完整测试
 
-训练10%已冻结为**13105 QA**，完整TEST仍为**21454 QA**；seed42、一轮、19任务，主任务共828次更新，其余沿用1%正式设置。OLD四卡两骨干SeqFT-LoRA与PASs-MoE均已通过preflight及reload（return0），进入**正式运行：初始评价（S0）**；其余8个native组合OLD排队，两FOREVER待10%动态回放适配核验、两SMoLoRA待NEW。本表没有10%成绩或资源测量，空白不是0分，也不复制1%结果。
+训练10%已冻结为**13105 QA**，完整TEST仍为**21454 QA**；seed42、一轮、19任务，主任务共828次优化器调用，其余沿用1%正式设置。**1/16组完整核验：LLaVA／SeqFT-LoRA。** OLD四卡继续推进Qwen SeqFT、双骨干PASs-MoE及LLaVA CL-MoE；其余组合排队／待既定方法核验。空白不是0分，不复制1%结果或估计未测资源。
 
 | 方法／Backbone | 类型 | 发表会议／年份 | TextVQA<br>自然／通用 | SLAKE<br>医学 | RSVQA-LR<br>遥感 | FinMME<br>金融 | CODA-LM<br>交通 | 五域宏 F1 ↑ | AP19 ↑ | FWT ↑ | BWT ↑ | 最终权重存储<br>保存态 MiB ↓ | 相对原基座增加<br>MiB ↓ | 固定五窗GPU峰值†<br>MiB ↓ | 首词延迟<br>s ↓ | 生成速度<br>tok/s ↑ | 常驻适配器<br>数量 ↓ | 完整参数量<br>系数 | 最终CP<br>MiB | 新习得五域宏F1 ↑ | 新习得AP19 ↑ | 状态 |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
 | **Qwen2-VL-2B-Instruct** |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| SeqFT-LoRA | 朴素顺序微调 | 标准对照（无独立发表年份） |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 正式运行：初始评价 |
+| SeqFT-LoRA | 朴素顺序微调 | 标准对照（无独立发表年份） |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 正式运行 |
 | FOREVER | 回放 | [ACL 2026](https://aclanthology.org/2026.acl-long.1144/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 待10%动态回放适配核验 |
 | CL-MoE | 架构 | [CVPR 2025](https://openaccess.thecvf.com/content/CVPR2025/html/Huai_CL-MoE_Enhancing_Multimodal_Large_Language_Model_with_Dual_Momentum_Mixture-of-Experts_CVPR_2025_paper.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | OLD排队 |
 | SMoLoRA | 架构 | [ICCV 2025](https://openaccess.thecvf.com/content/ICCV2025/html/Wang_SMoLoRA_Exploring_and_Defying_Dual_Catastrophic_Forgetting_in_Continual_Visual_ICCV_2025_paper.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 已freeze，待NEW原生BF16空卡 |
-| PASs-MoE | 架构（兼正则） | [ACL 2026](https://aclanthology.org/2026.acl-long.1474/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 正式运行：初始评价 |
+| PASs-MoE | 架构（兼正则） | [ACL 2026](https://aclanthology.org/2026.acl-long.1474/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 正式运行 |
 | PaRSP | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.1244/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | OLD排队 |
 | OSFT | 正则化 | [ICLR 2026](https://proceedings.iclr.cc/paper_files/paper/2026/hash/22620cccae29bbb3f18d226ea0320ff5-Abstract-Conference.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | OLD排队 |
 | SpaRTA | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.334/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | OLD排队 |
 | Ours | 自研方法 | 未发表 |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 空，不自动运行探索配方 |
 | **LLaVA-OneVision-Qwen2-0.5B-OV** |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| SeqFT-LoRA | 朴素顺序微调 | 标准对照（无独立发表年份） |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 正式运行：初始评价 |
+| SeqFT-LoRA | 朴素顺序微调 | 标准对照（无独立发表年份） | 73.069 | 45.294 | 57.157 | 24.602 | 37.189 | 47.462 | 45.874 | 21.156 | -2.933 | 1706.613 | 2.062 | 未测 | 未测 | 未测 | 未测 | 894216224 | 1836.784 | 49.996 | 48.652 | 完整核验通过；最终模型已存 |
 | FOREVER | 回放 | [ACL 2026](https://aclanthology.org/2026.acl-long.1144/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 待10%动态回放适配核验 |
-| CL-MoE | 架构 | [CVPR 2025](https://openaccess.thecvf.com/content/CVPR2025/html/Huai_CL-MoE_Enhancing_Multimodal_Large_Language_Model_with_Dual_Momentum_Mixture-of-Experts_CVPR_2025_paper.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | OLD排队 |
+| CL-MoE | 架构 | [CVPR 2025](https://openaccess.thecvf.com/content/CVPR2025/html/Huai_CL-MoE_Enhancing_Multimodal_Large_Language_Model_with_Dual_Momentum_Mixture-of-Experts_CVPR_2025_paper.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 正式运行 |
 | SMoLoRA | 架构 | [ICCV 2025](https://openaccess.thecvf.com/content/ICCV2025/html/Wang_SMoLoRA_Exploring_and_Defying_Dual_Catastrophic_Forgetting_in_Continual_Visual_ICCV_2025_paper.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 已freeze，待NEW原生BF16空卡 |
-| PASs-MoE | 架构（兼正则） | [ACL 2026](https://aclanthology.org/2026.acl-long.1474/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 正式运行：初始评价 |
+| PASs-MoE | 架构（兼正则） | [ACL 2026](https://aclanthology.org/2026.acl-long.1474/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 正式运行 |
 | PaRSP | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.1244/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | OLD排队 |
 | OSFT | 正则化 | [ICLR 2026](https://proceedings.iclr.cc/paper_files/paper/2026/hash/22620cccae29bbb3f18d226ea0320ff5-Abstract-Conference.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | OLD排队 |
 | SpaRTA | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.334/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | OLD排队 |
@@ -85,7 +85,7 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 
 第二主表完整覆盖两个backbone各八类基线，共16组；主要报告与1%相同的五域最终F1、宏F1／AP19、FWT／BWT及全部资源指标，另保留完整参数量与CP大小。每组S19完整模型权重、必要方法状态、processor／config及来源记录均须耐久留存；不是只记录参数量或保存LoRA。[最终模型留存](summary/two_backbone_pct10_20261025/FINAL_MODEL_RETENTION.md)
 
-刚习得及金融集中错答是补充分析。10%沿用单轮，数据量和更新预算同时增加；改善只能说明本学习配置缓解了问题，不能单独证明样本量是唯一原因。当前尚无10%质量结论。[比较口径](summary/train_answer_prior_20261025/ACQUISITION_COMPARISON_PLAN.md)
+刚习得及金融集中错答是补充分析。同骨干SeqFT的最终五域宏从1%的42.186升至10%的47.462，四域提高、自然域下降；这支持增加数据与单轮更新预算在本固定配方下改善总体成绩，不能单独证明样本量是唯一原因，也尚未证明集中错答已经消失。[首组完整证据](summary/two_backbone_pct10_20261025/FIRST_COMPLETE_FINDINGS.md) · [比较口径](summary/train_answer_prior_20261025/ACQUISITION_COMPARISON_PLAN.md)
 
 [10%正式协议与冻结证据](summary/two_backbone_pct10_20261025/PROTOCOL.md) · [10%独立主表](summary/two_backbone_pct10_20261025/MAIN_TABLE.md)
 

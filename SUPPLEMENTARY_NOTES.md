@@ -4,6 +4,10 @@
 
 ## 10%第二主表：实际启动与归档边界
 
+2026-10-26更新：人类明确第二主表需两个backbone全部8类基线、与1%同样全部指标并保留最终模型；两处主表已补齐23列。首组LLaVA SeqFT已完整核验，五域宏47.462／AP45.874，真实参数／保存态存储已填；NEW最终pin保存完整CP，当前1/16。完整正负、原唯一评分／元数据费用与[首组证据](summary/two_backbone_pct10_20261025/FIRST_COMPLETE_FINDINGS.md)保留，1%原表不改。
+
+最终模型留存包装经plain_r8_control源码／AST审阅接受后先发布b3056c64再实际启动NEW CPU服务；只替换旧归档CPU，0模型／新评分／GPU信号。混合cgroup路径检查首次失败在任何停止／启动前，修wrapper查实际mount后已成功启动；即时观察断言失败，未持久化具体false子条件，不臆测原因。之后只读同unit/PID1538724/start32618866实际active及无错误16组index／1组已存，补事实收据，不重启。见[归档规则与实际状态](summary/two_backbone_pct10_20261025/FINAL_MODEL_RETENTION.md)。下方0结果／旧collector PID均保留为历史快照。
+
 人类已明确授权10% TRAIN＋完整TEST；实际冻结13105 TRAIN／21454 TEST／19任务／828次主任务更新，其余沿用1%设置。[正式协议](summary/two_backbone_pct10_20261025/PROTOCOL.md)与[独立主表](summary/two_backbone_pct10_20261025/MAIN_TABLE.md)保留采样、runner及参数／资源口径。
 
 事前发布453f93a93a21d8042d27f472d2c1a1f6438d6901后已[首次激活](summary/two_backbone_pct10_20261025/ACTIVATION.json)。最新[实际快照](summary/two_backbone_pct10_20261025/LATEST_OLD_OBSERVATION.json)为unix1792938818.253909：OLD新controller4049826／UID1084 active/running，四组SeqFT／PAS均通过preflight及reload（return0），正式training phase处于initial_evaluation／S0，四卡利用率50–69%。其余8个native组合OLD排队、两SMoLoRA待NEW；0完整10%正式结果，不把初始评价当训练完成或新F1。
