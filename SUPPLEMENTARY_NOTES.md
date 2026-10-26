@@ -26,6 +26,8 @@
 
 ## 最新研究重点与刚习得观测
 
+既定360位置读出已准备实际单次执行接入：只在原空卡分配器第一次发现真空卡时占一个slot，四态串行／各1200秒，其他GPU仍原基线；不另起争卡allocator。源和现有输入合同不改，控制／释放与一次完整消费者代码经独立审阅，未运行模型或实际消费者；准入不冒称功能结果。接续前发现source_dir定位、子phase admission继承、last_attempted_worker退出核查，以及消费者startticks类型／每phase proof ledger范围，均在任何执行前更正，不改变科学条件。见[执行接口、预算与全部边界](summary/train_answer_prior_20261025/POSITION_EXECUTION.md)。
+
 2026-10-26后续功能问题经research_review接受：45条原资格共同TRAIN、固定循环、四个已完成S15／S16状态，360新生成将检验内容选择对位置重排是否稳定。四个真实完整CP已只读stat确认存在，尚未载入；最长原context308，不触发原6000检索。没有新的split／训练／评分，worker及实际绑定待完成，不把准备当结果。[必要性与正负决策](summary/train_answer_prior_20261025/POSITION_DIAGNOSTIC_DECISION_REVIEW.md) · [具体协议](summary/train_answer_prior_20261025/POSITION_DIAGNOSTIC_PROTOCOL.md)。
 
 实施现已备妥：原完整图恢复／90原生成的独立worker、45张图片实际SHA及两池共同对象、固定45视图严格逆变换、完整调用绑定均形成；源码及真实producer经root与baseline_review核对，0模型／生成／评分。尚未协调GPU执行或自动排队，没有功能结果／新训练准入。原metadata.options多余假设在首次执行前删除；root漏看run连续赋值造成的错误身份建议也在首次执行前撤回，原正确断言保留。[实施与全部费用边界](summary/train_answer_prior_20261025/POSITION_IMPLEMENTATION.md)。
