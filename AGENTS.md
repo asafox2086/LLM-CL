@@ -1,5 +1,7 @@
 # 2026-10-26：设置确定后固定，研究方法在条件下的局限
 
+2026-10-26新增Qwen原19任务派生已唯一完成，QWEN_ACQUISITION/FINDINGS为准：刚习得17高2低（Quantity/Shape），五域宏46.984723→56.481117；10%唯一负阶段Shape−1.111111，Position/Plane正3.425348/7.447318，不复现LLaVA对应负值。不能推共同题型根因或纯数据因果（Qwen两比例硬件亦不同）；0新模型/评分/QA/CP。Qwen10%CL预检已exit1，首损失/梯度有限性联合断言失败、0成功optimizer step，不能分辨哪项非有限；保留失败，不救设置或重跑。三臂分配器609661正确user unit真实active/running，slot仍无；此前observer误用本地旧unit不是实际服务停止。
+
 - 最新完整结果10%为2/16：Qwen SeqFT宏52.853667/AP48.634249，完整2210075136系数、4217.461914MiB、增4.15625MiB，最终CP已NEW pin；SECOND_COMPLETE_ROW/FINDINGS与原proof为准，GPU未测。位置360已原唯一verify完成并耐久归档；S16内容变化32/37与31/40，共同33中28→24；S15有效各2、阶段共同2/1、全8共同0，不作学习前后因果或正确性推断。见POSITION_FINDINGS/ARCHIVE_RECEIPT及独立RESULT_REVIEW；不重跑。原1%主表不变。
 
 - 固定预算三臂已实际接原分配器：发布0f721f45后，unix1793012474.7688046新CPU609661/start771089493/UID1084、conditional unit active/running，原四GPU/wrapper停旧CPU前后均保全、0GPU信号；position已complete/released而非仍等待，conditional slot=null/尚未STARTED。科学root独立/dev/shm/llmcl-conditional-1084-20261026，原分配器root不改；五源与协议见EXECUTION_PREPARED，ACTIVATION为实据。首次旧summary子树symlink配额失败和生成器解析失败均在模型前，无科学源修改；新结果须独立6phase终态后唯一900评分，不重复position原verify。tmpfs不是耐久归档，完成后显式转存。

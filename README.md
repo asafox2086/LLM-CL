@@ -65,7 +65,7 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 | **Qwen2-VL-2B-Instruct** |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | SeqFT-LoRA | 朴素顺序微调 | 标准对照（无独立发表年份） | 83.825 | 45.392 | 63.844 | 33.087 | 38.120 | 52.854 | 48.634 | 14.864 | -5.218 | 4217.462 | 4.156 | 未测 | 未测 | 未测 | 未测 | 2210075136 | 4351.614 | 56.481 | 53.578 | 完整核验通过；最终模型已存 |
 | FOREVER | 回放 | [ACL 2026](https://aclanthology.org/2026.acl-long.1144/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | OLD排队，待动态回放GPU预检 |
-| CL-MoE | 架构 | [CVPR 2025](https://openaccess.thecvf.com/content/CVPR2025/html/Huai_CL-MoE_Enhancing_Multimodal_Large_Language_Model_with_Dual_Momentum_Mixture-of-Experts_CVPR_2025_paper.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | OLD排队 |
+| CL-MoE | 架构 | [CVPR 2025](https://openaccess.thecvf.com/content/CVPR2025/html/Huai_CL-MoE_Enhancing_Multimodal_Large_Language_Model_with_Dual_Momentum_Mixture-of-Experts_CVPR_2025_paper.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 预检失败：损失／梯度有限性检查未通过 |
 | SMoLoRA | 架构 | [ICCV 2025](https://openaccess.thecvf.com/content/ICCV2025/html/Wang_SMoLoRA_Exploring_and_Defying_Dual_Catastrophic_Forgetting_in_Continual_Visual_ICCV_2025_paper.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 已freeze，待NEW原生BF16空卡 |
 | PASs-MoE | 架构（兼正则） | [ACL 2026](https://aclanthology.org/2026.acl-long.1474/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 正式运行 |
 | PaRSP | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.1244/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | OLD排队 |
@@ -123,7 +123,9 @@ Qwen SeqFT最终五域宏由1%的48.972升至10%的52.854，遥感、金融、�
 | **10%是否普遍提高各任务刚习得，而不只是金融？** | 同LLaVA／SeqFT的19/19任务刚习得F1均更高；五域刚习得宏42.026→49.996。阶段内增量13高6低，10%医学Position／Plane自身阶段分别下降4.859／0.718pp | **同容量的更充分学习配置广泛提高刚习得水平，但当前任务更新并非都更有效。** 不把1%低分普遍认定为容量上限；前课程、数据与更新共同改变，非纯数据因果。[全19任务、参数空间与解释](summary/train_answer_prior_20261025/ALL_TASK_ACQUISITION_FINDINGS.md) |
 | **两个医学任务的阶段降分都意味着内容退化吗？** | 全491题配对、208项回答变化经双agent盲读。Plane原F1−0.718pp而EXACT+0.862pp；Position的未知含义变化承载77.75%总失分量 | **不能统一归因。** Plane有明确表述效应，Position主因未识别；不据此选择统一格式／知识模块，EXACT也非语义正确率。[完整正负与未知](summary/train_answer_prior_20261025/MEDICAL_PAIRED_FINDINGS.md) |
 
-**当前待验证命题：小预算能否承接条件适应？** PAS／CL-MoE的多套专家有持久参数成本，但高分尚未被归因于分工本身。首轮固定540,672个适应坐标，比较共享r8、4/2/2固定均匀权重、同银行输入相关权重；没有额外模型前向。整题聚类方案因额外前向成本及缺乏种子依据被设计评判否决，尚非实验负结果。新三臂已接入原空卡分配器，**尚未STARTED，无新F1或显存结果**。[固定问题与对照](summary/conditional_shared_budget_20261026/PROTOCOL.md)
+**跨骨干的新结论：更多数据／更新提高总体新习得，但局部失败不固定在同一题型。** Qwen刚习得五域宏46.985→56.481，19任务中17提高、2下降（Quantity、Shape）；10%时Shape阶段仍下降1.111。LLaVA在10%中下降的Position／Plane，Qwen却分别提高3.425／7.447。因此不支持“这两类医学任务统一学不会”或一个共同根因；能保留的是固定配置下学习收益不均匀。两比例同时改变数据、更新与课程，Qwen历史训练硬件也不同，不能作纯数据因果。[Qwen完整对照](summary/train_answer_prior_20261025/QWEN_ACQUISITION_FINDINGS.md) · [LLaVA完整对照](summary/train_answer_prior_20261025/ALL_TASK_ACQUISITION_FINDINGS.md)
+
+**当前待验证命题：小预算能否承接条件适应？** PAS／CL-MoE的多套专家有持久参数成本，但高分尚未被归因于分工本身。首轮固定540,672个适应坐标，比较共享r8、4/2/2固定均匀权重、同银行输入相关权重；没有额外模型前向。若最终完整包符合设计，保存态权重相对原PAS预计减少23.86%，而非按适应参数倍数宣称整模内存下降；GPU优势仍须实测。整题聚类方案因额外前向成本及缺乏种子依据被设计评判否决，尚非实验负结果。新三臂已接入原空卡分配器，**尚未STARTED，无新F1或显存结果**。[固定问题与对照](summary/conditional_shared_budget_20261026/PROTOCOL.md)
 
 ## 参数量与已测GPU优势
 

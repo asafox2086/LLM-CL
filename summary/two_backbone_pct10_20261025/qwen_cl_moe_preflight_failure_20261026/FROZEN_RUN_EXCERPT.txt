@@ -1,0 +1,43 @@
+164:     if args.preflight_only:
+165:         monitor.snapshot('training_before', model=model)
+166:         # Test the same gradient and resource paths on a real new-task image and a text QA.
+167:         method.begin_stage(1)
+168:         optimizer = make_optimizer(method)
+169:         scaler = torch.amp.GradScaler('cuda', init_scale=1, enabled=args.method!='SMoLoRA')
+170:         preflight_cases=[]
+171:         native_forward_cases=[]
+172:         for tid in range(1,len(manifest['tasks'])+1):
+173:             if args.method=='ER_LoRA':method.begin_stage(tid)
+174:             method.set_instruction(tid)
+175:             row = data[tid, 'train'][0]
+176:             if backbone=='onevision':
+177:                 native_forward_cases.append(onevision_bridge.forward_gate(row, manifest['tasks'][tid-1], processor))
+178:             batch, _ = input_batch(row, manifest['tasks'][tid-1], processor, model.device)
+179:             prepare(batch, row, model, method.vision_original)
+180:             if hasattr(method, 'prepare_row'):
+181:                 method.prepare_row(row, batch)
+182:             optimizer.zero_grad(set_to_none=True)
+183:             if hasattr(method, 'prepare_update'):
+184:                 method.prepare_update(processor)
+185:             if hasattr(method, 'recording'):
+186:                 method.recording(True)
+187:             with activation_storage(method), torch.autocast('cuda', dtype=model.dtype):
+188:                 loss, _ = method.training_loss(batch, row, processor) if hasattr(method, 'training_loss') else answer_loss(model, batch, row['answer'], processor)
+189:                 if hasattr(method, 'extra_loss'):
+190:                     loss = loss + method.extra_loss()
+191:             if hasattr(method, 'recording'):
+192:                 method.recording(False)
+193:             scaler.scale(loss).backward()
+194:             if hasattr(method, 'post_backward'):
+195:                 method.post_backward(scaler.get_scale(), .5)
+196:             scaler.unscale_(optimizer)
+197:             grad = torch.nn.utils.clip_grad_norm_([p for p in model.parameters() if p.requires_grad], 1.)
+198:             assert torch.isfinite(loss) and torch.isfinite(grad)
+199:             scaler.step(optimizer)
+200:             scaler.update()
+201:             case={'event':'preflight','task':tid,'dataset':row['dataset'],'source_id':row['id'],
+202:                   'image_count':len(row['images']),'loss':float(loss.detach()),'gradient_l2_preclip':float(grad)}
+203:             preflight_cases.append(case)
+204:             print(json.dumps(case),flush=True)
+205:         optimizer.zero_grad(set_to_none=True)
+206:         del optimizer, scaler, batch, loss

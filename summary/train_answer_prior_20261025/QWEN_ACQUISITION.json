@@ -1,0 +1,1805 @@
+{
+  "status": "COMPLETE_SEALED_AGGREGATE_DERIVATION",
+  "output_json_name": "QWEN_ACQUISITION.json",
+  "backbone": "qwen",
+  "method": "SeqFT_LoRA",
+  "conditions": {
+    "pct01": {
+      "TRAIN_QA": 1313,
+      "single_epoch_optimizer_calls": 93,
+      "domains": {
+        "natural": {
+          "TEST_QA": 5000,
+          "tasks": [
+            1
+          ],
+          "before_F1": 77.9802366745228,
+          "acquired_F1": 86.0498981483982,
+          "acquisition_change_pp": 8.0696614738754,
+          "multiple_task_specific_model_times": true
+        },
+        "medical": {
+          "TEST_QA": 2094,
+          "tasks": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "before_F1": 35.46835383612618,
+          "acquired_F1": 40.43201805819057,
+          "acquisition_change_pp": 4.963664222064395,
+          "multiple_task_specific_model_times": true
+        },
+        "geography": {
+          "TEST_QA": 10004,
+          "tasks": [
+            12,
+            13,
+            14,
+            15
+          ],
+          "before_F1": 42.74290283886445,
+          "acquired_F1": 52.08250033320005,
+          "acquisition_change_pp": 9.3395974943356,
+          "multiple_task_specific_model_times": true
+        },
+        "finance": {
+          "TEST_QA": 2233,
+          "tasks": [
+            16
+          ],
+          "before_F1": 8.785542632385445,
+          "acquired_F1": 24.00656814449917,
+          "acquisition_change_pp": 15.221025512113725,
+          "multiple_task_specific_model_times": true
+        },
+        "traffic": {
+          "TEST_QA": 2123,
+          "tasks": [
+            17,
+            18,
+            19
+          ],
+          "before_F1": 23.615693604688104,
+          "acquired_F1": 32.35263134150588,
+          "acquisition_change_pp": 8.736937736817772,
+          "multiple_task_specific_model_times": true
+        }
+      },
+      "AP19": {
+        "before_F1": 37.2846742568295,
+        "acquired_F1": 43.62979921722415,
+        "acquisition_change_pp": 6.3451249603946565
+      },
+      "domain_macro": {
+        "before_F1": 37.7185459173174,
+        "acquired_F1": 46.98472320515877,
+        "acquisition_change_pp": 9.266177287841373
+      }
+    },
+    "pct10": {
+      "TRAIN_QA": 13105,
+      "single_epoch_optimizer_calls": 828,
+      "domains": {
+        "natural": {
+          "TEST_QA": 5000,
+          "tasks": [
+            1
+          ],
+          "before_F1": 77.92643586009812,
+          "acquired_F1": 86.48322575596809,
+          "acquisition_change_pp": 8.556789895869969,
+          "multiple_task_specific_model_times": true
+        },
+        "medical": {
+          "TEST_QA": 2094,
+          "tasks": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "before_F1": 44.29883625514653,
+          "acquired_F1": 56.346081145921005,
+          "acquisition_change_pp": 12.047244890774472,
+          "multiple_task_specific_model_times": true
+        },
+        "geography": {
+          "TEST_QA": 10004,
+          "tasks": [
+            12,
+            13,
+            14,
+            15
+          ],
+          "before_F1": 34.29628148740504,
+          "acquired_F1": 67.56297481007597,
+          "acquisition_change_pp": 33.26669332267093,
+          "multiple_task_specific_model_times": true
+        },
+        "finance": {
+          "TEST_QA": 2233,
+          "tasks": [
+            16
+          ],
+          "before_F1": 5.813992612022169,
+          "acquired_F1": 33.54978354978355,
+          "acquisition_change_pp": 27.73579093776138,
+          "multiple_task_specific_model_times": true
+        },
+        "traffic": {
+          "TEST_QA": 2123,
+          "tasks": [
+            17,
+            18,
+            19
+          ],
+          "before_F1": 24.442374468172723,
+          "acquired_F1": 38.46352181158933,
+          "acquisition_change_pp": 14.021147343416608,
+          "multiple_task_specific_model_times": true
+        }
+      },
+      "AP19": {
+        "before_F1": 38.771298884541636,
+        "acquired_F1": 53.577827952499206,
+        "acquisition_change_pp": 14.80652906795757
+      },
+      "domain_macro": {
+        "before_F1": 37.355584136568915,
+        "acquired_F1": 56.48111741466759,
+        "acquisition_change_pp": 19.125533278098672
+      }
+    }
+  },
+  "tasks": [
+    {
+      "task": 1,
+      "task_id": "T01",
+      "domain": "natural",
+      "native_label_field": null,
+      "native_label": null,
+      "TEST_QA": 5000,
+      "TEST_identity": {
+        "sha256": "14705cad19879bbe9397add2d6871d6892146aee4be3885030700382307cd3bb",
+        "count": 5000,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T01_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T01_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 347,
+        "single_epoch_optimizer_calls": 22,
+        "before_stage": 0,
+        "acquired_stage": 1,
+        "before_F1": 77.9802366745228,
+        "acquired_F1": 86.0498981483982,
+        "acquisition_change_pp": 8.0696614738754,
+        "before_cell_source": {
+          "F1": 77.9802366745228,
+          "QA": 5000,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "83d8cee7ffebd008b65bd91d08ccc0f8cfd24d9b32a88c1d89cc057263b01609"
+        },
+        "acquired_cell_source": {
+          "F1": 86.0498981483982,
+          "QA": 5000,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "284d2bc684cdfa9c0964c9eab3c77d346ad73af301c1e7b86da6dfa673b4e578"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 3461,
+        "single_epoch_optimizer_calls": 217,
+        "before_stage": 0,
+        "acquired_stage": 1,
+        "before_F1": 77.92643586009812,
+        "acquired_F1": 86.48322575596809,
+        "acquisition_change_pp": 8.556789895869969,
+        "before_cell_source": {
+          "F1": 77.92643586009812,
+          "QA": 5000,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        },
+        "acquired_cell_source": {
+          "F1": 86.48322575596809,
+          "QA": 5000,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 0.4333276075698933,
+      "pct10_minus_pct01_acquisition_change_pp": 0.4871284219945693
+    },
+    {
+      "task": 2,
+      "task_id": "T02",
+      "domain": "medical",
+      "native_label_field": "content_type",
+      "native_label": "Modality",
+      "TEST_QA": 228,
+      "TEST_identity": {
+        "sha256": "c319026d6857ee31722732ce54fd0348e189f0f8aaa574522fdb6623ca3bc572",
+        "count": 228,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T02_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T02_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 11,
+        "single_epoch_optimizer_calls": 1,
+        "before_stage": 1,
+        "acquired_stage": 2,
+        "before_F1": 34.221679340731875,
+        "acquired_F1": 40.31353258673206,
+        "acquisition_change_pp": 6.091853246000184,
+        "before_cell_source": {
+          "F1": 34.221679340731875,
+          "QA": 228,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "45fff8e49ea7f7b5491885ec1f0a3abf69d0bb690005337f840cab54625e73e8"
+        },
+        "acquired_cell_source": {
+          "F1": 40.31353258673206,
+          "QA": 228,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "9d13a7cc6488b061462bb8fd42baef282b148324f3008bcd47eb20f353a9163b"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 107,
+        "single_epoch_optimizer_calls": 7,
+        "before_stage": 1,
+        "acquired_stage": 2,
+        "before_F1": 51.15441405572979,
+        "acquired_F1": 74.5833333333333,
+        "acquisition_change_pp": 23.428919277603512,
+        "before_cell_source": {
+          "F1": 51.15441405572979,
+          "QA": 228,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        },
+        "acquired_cell_source": {
+          "F1": 74.5833333333333,
+          "QA": 228,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 34.26980074660124,
+      "pct10_minus_pct01_acquisition_change_pp": 17.337066031603328
+    },
+    {
+      "task": 3,
+      "task_id": "T03",
+      "domain": "medical",
+      "native_label_field": "content_type",
+      "native_label": "Position",
+      "TEST_QA": 375,
+      "TEST_identity": {
+        "sha256": "809a68a36926ba0dab02597b9e4492bcebc2ec394f17103413e13a0e3e072d0b",
+        "count": 375,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T03_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T03_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 17,
+        "single_epoch_optimizer_calls": 2,
+        "before_stage": 2,
+        "acquired_stage": 3,
+        "before_F1": 23.41582373770034,
+        "acquired_F1": 31.380305996131757,
+        "acquisition_change_pp": 7.964482258431417,
+        "before_cell_source": {
+          "F1": 23.41582373770034,
+          "QA": 375,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "affde2c74e05d2873a374c894d29bec98f7be4c50c085f0ebd369b5a50078f9c"
+        },
+        "acquired_cell_source": {
+          "F1": 31.380305996131757,
+          "QA": 375,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "3a5e82b40305a83a002f650f86d1bdf9b8d7f6ffb7c75e56745988320987c4e1"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 170,
+        "single_epoch_optimizer_calls": 11,
+        "before_stage": 2,
+        "acquired_stage": 3,
+        "before_F1": 42.49449704891961,
+        "acquired_F1": 45.91984506721345,
+        "acquisition_change_pp": 3.425348018293839,
+        "before_cell_source": {
+          "F1": 42.49449704891961,
+          "QA": 375,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        },
+        "acquired_cell_source": {
+          "F1": 45.91984506721345,
+          "QA": 375,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 14.539539071081695,
+      "pct10_minus_pct01_acquisition_change_pp": -4.539134240137578
+    },
+    {
+      "task": 4,
+      "task_id": "T04",
+      "domain": "medical",
+      "native_label_field": "content_type",
+      "native_label": "Organ",
+      "TEST_QA": 507,
+      "TEST_identity": {
+        "sha256": "e5046123567a5d9efe80aae17ed0b141e6261bf80c775f523791ef9022492ba2",
+        "count": 507,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T04_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T04_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 26,
+        "single_epoch_optimizer_calls": 2,
+        "before_stage": 3,
+        "acquired_stage": 4,
+        "before_F1": 38.695277019328564,
+        "acquired_F1": 45.2095391427101,
+        "acquisition_change_pp": 6.514262123381535,
+        "before_cell_source": {
+          "F1": 38.695277019328564,
+          "QA": 507,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "d8fe24f2efa7dc9ccf62ef099541a8260c061c656538a69a18625cab8e20dac4"
+        },
+        "acquired_cell_source": {
+          "F1": 45.2095391427101,
+          "QA": 507,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "bf39ca73365ea2a45ed335abf91152194cfca1d81874217054af1ec665c6123c"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 254,
+        "single_epoch_optimizer_calls": 16,
+        "before_stage": 3,
+        "acquired_stage": 4,
+        "before_F1": 42.705926552080435,
+        "acquired_F1": 67.14097867944027,
+        "acquisition_change_pp": 24.435052127359832,
+        "before_cell_source": {
+          "F1": 42.705926552080435,
+          "QA": 507,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        },
+        "acquired_cell_source": {
+          "F1": 67.14097867944027,
+          "QA": 507,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 21.931439536730167,
+      "pct10_minus_pct01_acquisition_change_pp": 17.920790003978297
+    },
+    {
+      "task": 5,
+      "task_id": "T05",
+      "domain": "medical",
+      "native_label_field": "content_type",
+      "native_label": "Size",
+      "TEST_QA": 124,
+      "TEST_identity": {
+        "sha256": "7e13f0e2db2a9fb4f66249f152c23c336a566c1e5ccf30c929c2c04710be6264",
+        "count": 124,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T05_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T05_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 6,
+        "single_epoch_optimizer_calls": 1,
+        "before_stage": 4,
+        "acquired_stage": 5,
+        "before_F1": 36.74928566057595,
+        "acquired_F1": 48.381779510811754,
+        "acquisition_change_pp": 11.632493850235804,
+        "before_cell_source": {
+          "F1": 36.74928566057595,
+          "QA": 124,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "ac5ba279611005cc6e5d3b606e1eea7a8ba4402fbda0927e9bdcd2770d3210b7"
+        },
+        "acquired_cell_source": {
+          "F1": 48.381779510811754,
+          "QA": 124,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "d3db6b1eea5e57d3199811ea02d926a3a64d560f0513b62659b1eef6b6cb3573"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 65,
+        "single_epoch_optimizer_calls": 5,
+        "before_stage": 4,
+        "acquired_stage": 5,
+        "before_F1": 54.435483870967744,
+        "acquired_F1": 54.83870967741935,
+        "acquisition_change_pp": 0.40322580645160855,
+        "before_cell_source": {
+          "F1": 54.435483870967744,
+          "QA": 124,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        },
+        "acquired_cell_source": {
+          "F1": 54.83870967741935,
+          "QA": 124,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 6.456930166607599,
+      "pct10_minus_pct01_acquisition_change_pp": -11.229268043784195
+    },
+    {
+      "task": 6,
+      "task_id": "T06",
+      "domain": "medical",
+      "native_label_field": "content_type",
+      "native_label": "Abnormality",
+      "TEST_QA": 311,
+      "TEST_identity": {
+        "sha256": "18f04db0a28b6b0abd9b0f3f5ad7d030151085c47b88213d043752eacad98877",
+        "count": 311,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T06_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T06_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 14,
+        "single_epoch_optimizer_calls": 1,
+        "before_stage": 5,
+        "acquired_stage": 6,
+        "before_F1": 43.99977205643946,
+        "acquired_F1": 46.48821938295617,
+        "acquisition_change_pp": 2.488447326516706,
+        "before_cell_source": {
+          "F1": 43.99977205643946,
+          "QA": 311,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "e20856fd5bf76a5999dc33d1ec15839d007a2d6a5f4b203db26d7bdaf282d57a"
+        },
+        "acquired_cell_source": {
+          "F1": 46.48821938295617,
+          "QA": 311,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "2bae5ee10e637af77b35d1d8016bf6bc253f4428cfc44947f11b0821eec4ea8d"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 141,
+        "single_epoch_optimizer_calls": 9,
+        "before_stage": 5,
+        "acquired_stage": 6,
+        "before_F1": 54.3474429521137,
+        "acquired_F1": 57.62627972054269,
+        "acquisition_change_pp": 3.278836768428988,
+        "before_cell_source": {
+          "F1": 54.3474429521137,
+          "QA": 311,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        },
+        "acquired_cell_source": {
+          "F1": 57.62627972054269,
+          "QA": 311,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 11.138060337586523,
+      "pct10_minus_pct01_acquisition_change_pp": 0.7903894419122821
+    },
+    {
+      "task": 7,
+      "task_id": "T07",
+      "domain": "medical",
+      "native_label_field": "content_type",
+      "native_label": "Quantity",
+      "TEST_QA": 89,
+      "TEST_identity": {
+        "sha256": "e424c1d3905db42165ad9f525f033045af1e8605e6b1e5848bba82573e54e221",
+        "count": 89,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T07_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T07_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 4,
+        "single_epoch_optimizer_calls": 1,
+        "before_stage": 6,
+        "acquired_stage": 7,
+        "before_F1": 61.79775280898876,
+        "acquired_F1": 59.550561797752806,
+        "acquisition_change_pp": -2.247191011235955,
+        "before_cell_source": {
+          "F1": 61.79775280898876,
+          "QA": 89,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "7c1a7f9393ef415b8c3133aa1c77fef8abb1a1d4cfba786bd76437f15202304d"
+        },
+        "acquired_cell_source": {
+          "F1": 59.550561797752806,
+          "QA": 89,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "1f5cccd9018b940a787830f9454a9eb40163025f45c3ca443be261b8a5c93e94"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 44,
+        "single_epoch_optimizer_calls": 3,
+        "before_stage": 6,
+        "acquired_stage": 7,
+        "before_F1": 47.19101123595506,
+        "acquired_F1": 56.17977528089887,
+        "acquisition_change_pp": 8.988764044943814,
+        "before_cell_source": {
+          "F1": 47.19101123595506,
+          "QA": 89,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        },
+        "acquired_cell_source": {
+          "F1": 56.17977528089887,
+          "QA": 89,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": -3.370786516853933,
+      "pct10_minus_pct01_acquisition_change_pp": 11.235955056179769
+    },
+    {
+      "task": 8,
+      "task_id": "T08",
+      "domain": "medical",
+      "native_label_field": "content_type",
+      "native_label": "Plane",
+      "TEST_QA": 116,
+      "TEST_identity": {
+        "sha256": "2c3d5bc145141ac44d4a18722169bb421f47d41f1558d04d6da9a3dd365f8a86",
+        "count": 116,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T08_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T08_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 5,
+        "single_epoch_optimizer_calls": 1,
+        "before_stage": 7,
+        "acquired_stage": 8,
+        "before_F1": 38.70689655172413,
+        "acquired_F1": 40.33011767925561,
+        "acquisition_change_pp": 1.6232211275314796,
+        "before_cell_source": {
+          "F1": 38.70689655172413,
+          "QA": 116,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "44905bb12d7f3169d69b50e4ed44eb94c25924e4507dfad83d9632e614967e09"
+        },
+        "acquired_cell_source": {
+          "F1": 40.33011767925561,
+          "QA": 116,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "183e9c8452a085f8517f2e29547e20fd14e55a71beed313df71210a1aa613e06"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 51,
+        "single_epoch_optimizer_calls": 4,
+        "before_stage": 7,
+        "acquired_stage": 8,
+        "before_F1": 37.96182266009851,
+        "acquired_F1": 45.40914066776136,
+        "acquisition_change_pp": 7.447318007662851,
+        "before_cell_source": {
+          "F1": 37.96182266009851,
+          "QA": 116,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        },
+        "acquired_cell_source": {
+          "F1": 45.40914066776136,
+          "QA": 116,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 5.079022988505756,
+      "pct10_minus_pct01_acquisition_change_pp": 5.824096880131371
+    },
+    {
+      "task": 9,
+      "task_id": "T09",
+      "domain": "medical",
+      "native_label_field": "content_type",
+      "native_label": "Shape",
+      "TEST_QA": 12,
+      "TEST_identity": {
+        "sha256": "3f554ff6047a98566520a39bc9d89ecf0bcf00a29e2e2d1f76bfb2b63097be95",
+        "count": 12,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T09_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T09_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 1,
+        "single_epoch_optimizer_calls": 1,
+        "before_stage": 8,
+        "acquired_stage": 9,
+        "before_F1": 20.833333333333332,
+        "acquired_F1": 20.833333333333332,
+        "acquisition_change_pp": 0.0,
+        "before_cell_source": {
+          "F1": 20.833333333333332,
+          "QA": 12,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "294d4e8819f0a03a366b6183c93fe903d3d2bb1407de643be2a828c9fd70e69d"
+        },
+        "acquired_cell_source": {
+          "F1": 20.833333333333332,
+          "QA": 12,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "294d4e8819f0a03a366b6183c93fe903d3d2bb1407de643be2a828c9fd70e69d"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 8,
+        "single_epoch_optimizer_calls": 1,
+        "before_stage": 8,
+        "acquired_stage": 9,
+        "before_F1": 10.833333333333334,
+        "acquired_F1": 9.722222222222221,
+        "acquisition_change_pp": -1.1111111111111125,
+        "before_cell_source": {
+          "F1": 10.833333333333334,
+          "QA": 12,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        },
+        "acquired_cell_source": {
+          "F1": 9.722222222222221,
+          "QA": 12,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": -11.11111111111111,
+      "pct10_minus_pct01_acquisition_change_pp": -1.1111111111111125
+    },
+    {
+      "task": 10,
+      "task_id": "T10",
+      "domain": "medical",
+      "native_label_field": "content_type",
+      "native_label": "Color",
+      "TEST_QA": 65,
+      "TEST_identity": {
+        "sha256": "f6c9fcfd7c3b385eb82829ebb478a7db522eecc4a53c33ded2ab8f82ff57e328",
+        "count": 65,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T10_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T10_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 3,
+        "single_epoch_optimizer_calls": 1,
+        "before_stage": 9,
+        "acquired_stage": 10,
+        "before_F1": 47.41025641025641,
+        "acquired_F1": 55.1025641025641,
+        "acquisition_change_pp": 7.692307692307693,
+        "before_cell_source": {
+          "F1": 47.41025641025641,
+          "QA": 65,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "5d3cb564534b20c6fb0bd7f45c8f4bb13150911fe91b551df16afcda7042360c"
+        },
+        "acquired_cell_source": {
+          "F1": 55.1025641025641,
+          "QA": 65,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "fc944b52b9f352c12d9baba39520ddfe680a2b75bd826665a7e4ddbf5ee3671f"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 27,
+        "single_epoch_optimizer_calls": 2,
+        "before_stage": 9,
+        "acquired_stage": 10,
+        "before_F1": 49.33333333333333,
+        "acquired_F1": 63.94871794871794,
+        "acquisition_change_pp": 14.615384615384613,
+        "before_cell_source": {
+          "F1": 49.33333333333333,
+          "QA": 65,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        },
+        "acquired_cell_source": {
+          "F1": 63.94871794871794,
+          "QA": 65,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 8.84615384615384,
+      "pct10_minus_pct01_acquisition_change_pp": 6.92307692307692
+    },
+    {
+      "task": 11,
+      "task_id": "T11",
+      "domain": "medical",
+      "native_label_field": "content_type",
+      "native_label": "KG",
+      "TEST_QA": 267,
+      "TEST_identity": {
+        "sha256": "48e7b5e4177a001612d6640f6df92cc3621362792dffb0ad762476e562b6b21b",
+        "count": 267,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T11_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T11_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 12,
+        "single_epoch_optimizer_calls": 1,
+        "before_stage": 10,
+        "acquired_stage": 11,
+        "before_F1": 24.367953163271096,
+        "acquired_F1": 24.408884214503328,
+        "acquisition_change_pp": 0.0409310512322314,
+        "before_cell_source": {
+          "F1": 24.367953163271096,
+          "QA": 267,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "30e735cea3ddb8b05cde992b58e1b9781bf70c77d9abe6f977137114a00738a6"
+        },
+        "acquired_cell_source": {
+          "F1": 24.408884214503328,
+          "QA": 267,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "383ffca0d803c1abb3e9d424662ead2aff2800f49de0b00ba4e4f7b26ec00b44"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 117,
+        "single_epoch_optimizer_calls": 8,
+        "before_stage": 10,
+        "acquired_stage": 11,
+        "before_F1": 29.658886535488147,
+        "acquired_F1": 39.17868608612323,
+        "acquisition_change_pp": 9.519799550635081,
+        "before_cell_source": {
+          "F1": 29.658886535488147,
+          "QA": 267,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        },
+        "acquired_cell_source": {
+          "F1": 39.17868608612323,
+          "QA": 267,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 14.7698018716199,
+      "pct10_minus_pct01_acquisition_change_pp": 9.47886849940285
+    },
+    {
+      "task": 12,
+      "task_id": "T12",
+      "domain": "geography",
+      "native_label_field": "question_type",
+      "native_label": "rural_urban",
+      "TEST_QA": 100,
+      "TEST_identity": {
+        "sha256": "7948cf70e4996ec38532ff680638b8c81710d6e02cceb9589c58cb6403284013",
+        "count": 100,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T12_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T12_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 6,
+        "single_epoch_optimizer_calls": 1,
+        "before_stage": 11,
+        "acquired_stage": 12,
+        "before_F1": 61.0,
+        "acquired_F1": 61.0,
+        "acquisition_change_pp": 0.0,
+        "before_cell_source": {
+          "F1": 61.0,
+          "QA": 100,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "4c92a2afc42c39aa692db8660c8e9503b17aa13ba46c3e1f0ec9717ea4323f7b"
+        },
+        "acquired_cell_source": {
+          "F1": 61.0,
+          "QA": 100,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "4c92a2afc42c39aa692db8660c8e9503b17aa13ba46c3e1f0ec9717ea4323f7b"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 57,
+        "single_epoch_optimizer_calls": 4,
+        "before_stage": 11,
+        "acquired_stage": 12,
+        "before_F1": 66.0,
+        "acquired_F1": 74.0,
+        "acquisition_change_pp": 8.0,
+        "before_cell_source": {
+          "F1": 66.0,
+          "QA": 100,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        },
+        "acquired_cell_source": {
+          "F1": 74.0,
+          "QA": 100,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 13.0,
+      "pct10_minus_pct01_acquisition_change_pp": 8.0
+    },
+    {
+      "task": 13,
+      "task_id": "T13",
+      "domain": "geography",
+      "native_label_field": "question_type",
+      "native_label": "presence",
+      "TEST_QA": 2955,
+      "TEST_identity": {
+        "sha256": "4ca421c2594f1d2a36b749d42526706cc6caca9af05f9908b85d08cf7c9218b4",
+        "count": 2955,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T13_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T13_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 170,
+        "single_epoch_optimizer_calls": 11,
+        "before_stage": 12,
+        "acquired_stage": 13,
+        "before_F1": 43.722504230118446,
+        "acquired_F1": 66.42978003384094,
+        "acquisition_change_pp": 22.707275803722496,
+        "before_cell_source": {
+          "F1": 43.722504230118446,
+          "QA": 2955,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "832bb9d0fa1277f172e28065e0afb66602b30c8db873e0eb9f3389b1839a938f"
+        },
+        "acquired_cell_source": {
+          "F1": 66.42978003384094,
+          "QA": 2955,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "d986d10a7bfac1215c5f3b042b9ca3487c738f9cd07ee7ab661f1f013f3bb334"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 1701,
+        "single_epoch_optimizer_calls": 107,
+        "before_stage": 12,
+        "acquired_stage": 13,
+        "before_F1": 35.26226734348562,
+        "acquired_F1": 83.18104906937394,
+        "acquisition_change_pp": 47.91878172588832,
+        "before_cell_source": {
+          "F1": 35.26226734348562,
+          "QA": 2955,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        },
+        "acquired_cell_source": {
+          "F1": 83.18104906937394,
+          "QA": 2955,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 16.751269035533,
+      "pct10_minus_pct01_acquisition_change_pp": 25.211505922165827
+    },
+    {
+      "task": 14,
+      "task_id": "T14",
+      "domain": "geography",
+      "native_label_field": "question_type",
+      "native_label": "count",
+      "TEST_QA": 2947,
+      "TEST_identity": {
+        "sha256": "ff46c370c5b0a545c770e702e7fef159e79f4188c4a657356ca988da4b57866d",
+        "count": 2947,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T14_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T14_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 171,
+        "single_epoch_optimizer_calls": 11,
+        "before_stage": 13,
+        "acquired_stage": 14,
+        "before_F1": 17.848659653885306,
+        "acquired_F1": 15.043547110055425,
+        "acquisition_change_pp": -2.805112543829882,
+        "before_cell_source": {
+          "F1": 17.848659653885306,
+          "QA": 2947,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "8ba709891274cf35c1b5482818c4c2af3133b32dfbbac8f411a8be88dce3adbf"
+        },
+        "acquired_cell_source": {
+          "F1": 15.043547110055425,
+          "QA": 2947,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "17007c88b3d70a417e7ba6872fbad898720adb1a61ad144f32deff22f26d5bf7"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 1709,
+        "single_epoch_optimizer_calls": 107,
+        "before_stage": 13,
+        "acquired_stage": 14,
+        "before_F1": 18.32371903630811,
+        "acquired_F1": 25.110281642348152,
+        "acquisition_change_pp": 6.786562606040043,
+        "before_cell_source": {
+          "F1": 18.32371903630811,
+          "QA": 2947,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        },
+        "acquired_cell_source": {
+          "F1": 25.110281642348152,
+          "QA": 2947,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 10.066734532292728,
+      "pct10_minus_pct01_acquisition_change_pp": 9.591675149869925
+    },
+    {
+      "task": 15,
+      "task_id": "T15",
+      "domain": "geography",
+      "native_label_field": "question_type",
+      "native_label": "comp",
+      "TEST_QA": 4002,
+      "TEST_identity": {
+        "sha256": "6ae35bde45e33788bcd31c99dc9f80a1d9236bd6062a807fd989e2c1fbe426cc",
+        "count": 4002,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T15_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T15_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 226,
+        "single_epoch_optimizer_calls": 15,
+        "before_stage": 14,
+        "acquired_stage": 15,
+        "before_F1": 59.895052473763116,
+        "acquired_F1": 68.54072963518242,
+        "acquisition_change_pp": 8.6456771614193,
+        "before_cell_source": {
+          "F1": 59.895052473763116,
+          "QA": 4002,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "69fdb6716132fe211248f05b9e8e083f9d4d2c464cb6df2d94309a0853aec6bf"
+        },
+        "acquired_cell_source": {
+          "F1": 68.54072963518242,
+          "QA": 4002,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "267237d7297f66c6bb1f470670ce729005fe4b275c4dac519515baf2916b6576"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 2256,
+        "single_epoch_optimizer_calls": 141,
+        "before_stage": 14,
+        "acquired_stage": 15,
+        "before_F1": 44.55272363818091,
+        "acquired_F1": 87.13143428285856,
+        "acquisition_change_pp": 42.578710644677656,
+        "before_cell_source": {
+          "F1": 44.55272363818091,
+          "QA": 4002,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        },
+        "acquired_cell_source": {
+          "F1": 87.13143428285856,
+          "QA": 4002,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 18.590704647676148,
+      "pct10_minus_pct01_acquisition_change_pp": 33.933033483258356
+    },
+    {
+      "task": 16,
+      "task_id": "T16",
+      "domain": "finance",
+      "native_label_field": null,
+      "native_label": null,
+      "TEST_QA": 2233,
+      "TEST_identity": {
+        "sha256": "162ba8ad340a9fb898a3a942b3e720e581f23dddfacb70c289f3bd935d869206",
+        "count": 2233,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T16_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T16_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 89,
+        "single_epoch_optimizer_calls": 6,
+        "before_stage": 15,
+        "acquired_stage": 16,
+        "before_F1": 8.785542632385445,
+        "acquired_F1": 24.00656814449917,
+        "acquisition_change_pp": 15.221025512113725,
+        "before_cell_source": {
+          "F1": 8.785542632385445,
+          "QA": 2233,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "f1d5c0dd4d2565a80a6fa4e9e84b087a1d32a3a8b593b179515be4f9d0da4603"
+        },
+        "acquired_cell_source": {
+          "F1": 24.00656814449917,
+          "QA": 2233,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "bed46b3b0c67cc45631b685cafe982f976651ebd78850c3072bdca2acbe90131"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 887,
+        "single_epoch_optimizer_calls": 56,
+        "before_stage": 15,
+        "acquired_stage": 16,
+        "before_F1": 5.813992612022169,
+        "acquired_F1": 33.54978354978355,
+        "acquisition_change_pp": 27.73579093776138,
+        "before_cell_source": {
+          "F1": 5.813992612022169,
+          "QA": 2233,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        },
+        "acquired_cell_source": {
+          "F1": 33.54978354978355,
+          "QA": 2233,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 9.543215405284379,
+      "pct10_minus_pct01_acquisition_change_pp": 12.514765425647655
+    },
+    {
+      "task": 17,
+      "task_id": "T17",
+      "domain": "traffic",
+      "native_label_field": "question_type",
+      "native_label": "general",
+      "TEST_QA": 500,
+      "TEST_identity": {
+        "sha256": "f5a8de804f54aba60315eff839f05a0401ff96427920c0cd3112affcc19362e8",
+        "count": 500,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T17_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T17_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 49,
+        "single_epoch_optimizer_calls": 4,
+        "before_stage": 16,
+        "acquired_stage": 17,
+        "before_F1": 12.279397247519281,
+        "acquired_F1": 32.707401386701626,
+        "acquisition_change_pp": 20.428004139182345,
+        "before_cell_source": {
+          "F1": 12.279397247519281,
+          "QA": 500,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "c8947ca8ce09c7ca171dbc4a2a0d063bddf532cd793d9b22ba3ba72687aa5137"
+        },
+        "acquired_cell_source": {
+          "F1": 32.707401386701626,
+          "QA": 500,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "0989d22c48ea9ae779d622a01387c247b7d5e8bd1cd361ec342867f7c4e0a8f7"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 489,
+        "single_epoch_optimizer_calls": 31,
+        "before_stage": 16,
+        "acquired_stage": 17,
+        "before_F1": 10.628032219125018,
+        "acquired_F1": 36.74168034391117,
+        "acquisition_change_pp": 26.113648124786152,
+        "before_cell_source": {
+          "F1": 10.628032219125018,
+          "QA": 500,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        },
+        "acquired_cell_source": {
+          "F1": 36.74168034391117,
+          "QA": 500,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 4.034278957209544,
+      "pct10_minus_pct01_acquisition_change_pp": 5.685643985603807
+    },
+    {
+      "task": 18,
+      "task_id": "T18",
+      "domain": "traffic",
+      "native_label_field": "question_type",
+      "native_label": "regional",
+      "TEST_QA": 1123,
+      "TEST_identity": {
+        "sha256": "48e1bf7b181cf1a5d4c7b9be03e1fa11fe2e26b37ca2f4c8a4f4498ef20c403d",
+        "count": 1123,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T18_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T18_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 107,
+        "single_epoch_optimizer_calls": 7,
+        "before_stage": 17,
+        "acquired_stage": 18,
+        "before_F1": 25.115128340907287,
+        "acquired_F1": 33.2844689947851,
+        "acquisition_change_pp": 8.169340653877814,
+        "before_cell_source": {
+          "F1": 25.115128340907287,
+          "QA": 1123,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "8df646eab4eb16f65e5da63d199f9ea842b130743cf65204d592ff632c1095be"
+        },
+        "acquired_cell_source": {
+          "F1": 33.2844689947851,
+          "QA": 1123,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "8e8c0119bab8ed2d8d0f496b35b81560cd713eb0fa1443f231235d516e15652d"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 1073,
+        "single_epoch_optimizer_calls": 68,
+        "before_stage": 17,
+        "acquired_stage": 18,
+        "before_F1": 28.188549962828972,
+        "acquired_F1": 39.59939446109827,
+        "acquisition_change_pp": 11.410844498269299,
+        "before_cell_source": {
+          "F1": 28.188549962828972,
+          "QA": 1123,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        },
+        "acquired_cell_source": {
+          "F1": 39.59939446109827,
+          "QA": 1123,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 6.31492546631317,
+      "pct10_minus_pct01_acquisition_change_pp": 3.2415038443914845
+    },
+    {
+      "task": 19,
+      "task_id": "T19",
+      "domain": "traffic",
+      "native_label_field": "question_type",
+      "native_label": "suggestion",
+      "TEST_QA": 500,
+      "TEST_identity": {
+        "sha256": "4af47721d341958f26e54744330927a14b5e5f5b8d84489607623b741eddbe2b",
+        "count": 500,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T19_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T19_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 49,
+        "single_epoch_optimizer_calls": 4,
+        "before_stage": 18,
+        "acquired_stage": 19,
+        "before_F1": 31.584259544308654,
+        "acquired_F1": 29.904953927044986,
+        "acquisition_change_pp": -1.679305617263669,
+        "before_cell_source": {
+          "F1": 31.584259544308654,
+          "QA": 500,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "71ce5436a23d8f97c325c6fa4e16e7fce22f94a99381af4b2aae754006541a36"
+        },
+        "acquired_cell_source": {
+          "F1": 29.904953927044986,
+          "QA": 500,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "25ab7de2f8adea145bfd8e0f271345460a00669be73e2890fb781a69cc5fed67"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 488,
+        "single_epoch_optimizer_calls": 31,
+        "before_stage": 18,
+        "acquired_stage": 19,
+        "before_F1": 29.842806556222484,
+        "acquired_F1": 37.63419330847043,
+        "acquisition_change_pp": 7.791386752247945,
+        "before_cell_source": {
+          "F1": 29.842806556222484,
+          "QA": 500,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        },
+        "acquired_cell_source": {
+          "F1": 37.63419330847043,
+          "QA": 500,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 7.729239381425444,
+      "pct10_minus_pct01_acquisition_change_pp": 9.470692369511614
+    }
+  ],
+  "cross_ratio_task_counts": {
+    "acquired": {
+      "higher": 17,
+      "lower": 2,
+      "tie": 0,
+      "denominator": 19
+    },
+    "change": {
+      "higher": 16,
+      "lower": 3,
+      "tie": 0,
+      "denominator": 19
+    }
+  },
+  "source_sha256": {
+    "bundle": {
+      "path": "D:\\锦\\大学\\科研\\LLMCL\\.deployment\\private_qwen_acquisition_bundle_20261026.json",
+      "sha256": "f90ffdbcc870d6e70d34ef61ab61acd1b45f0b07b1c05587afa850bbf05532fb",
+      "bytes": 280101
+    },
+    "cells01_bundle": {
+      "path": "D:\\锦\\大学\\科研\\LLMCL\\.deployment\\private_qwen_acquisition_cells_pct01_20261026.json",
+      "sha256": "2a0380fd52a4e5be7573b813ae55a2d418281bf854cc6cfa0fddc261d3d96392",
+      "bytes": 139126
+    },
+    "pct01.formal_proof": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/completed/2a0b6d43f89c3cec6cb9.json",
+      "path": "/data1/liyapeng/program/LLMCL/summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/completed/2a0b6d43f89c3cec6cb9.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/completed/2a0b6d43f89c3cec6cb9.json",
+      "sha256": "ff979a21b171372834940e3b68bdcaa84c7db4cdf9eaccb8939fa4b3c84bd59a",
+      "bytes": 69752
+    },
+    "pct01.config": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/config.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/config.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/config.json",
+      "sha256": "9db372397a602a25499fe83c74871fab9696bdadf5442352867a55277a2ccea1",
+      "bytes": 4411
+    },
+    "pct01.manifest": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/manifest.json",
+      "path": "/data1/liyapeng/program/LLMCL/data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/manifest.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/manifest.json",
+      "sha256": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+      "bytes": 22662
+    },
+    "pct01.metrics": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/metrics_by_score.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/metrics_by_score.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/metrics_by_score.json",
+      "sha256": "8f452899e6ba30bb93891faabde92cadfe44b6142eca7eae9f8f133b51b4d034",
+      "bytes": 681
+    },
+    "pct10.formal_proof": {
+      "root": "/data1/liyapeng/program/LLMCL/exp/two_backbone_pct10_20261025/private_old_archive",
+      "relative": "summary/two_backbone_pct10_20261025/completion_observer_native/completed/dca76f5e9c3b31a8fc93.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_pct10_20261025/private_old_archive/summary/two_backbone_pct10_20261025/completion_observer_native/completed/dca76f5e9c3b31a8fc93.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_pct10_20261025/private_old_archive/summary/two_backbone_pct10_20261025/completion_observer_native/completed/dca76f5e9c3b31a8fc93.json",
+      "sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081",
+      "bytes": 78397
+    },
+    "pct10.config": {
+      "root": "/data1/liyapeng/program/LLMCL/exp/two_backbone_pct10_20261025/private_old_archive",
+      "relative": "exp/two_backbone_pct10_native_20261025/runs/qwen/pct10/SeqFT_LoRA/training_20261025_222614/config.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_pct10_20261025/private_old_archive/exp/two_backbone_pct10_native_20261025/runs/qwen/pct10/SeqFT_LoRA/training_20261025_222614/config.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_pct10_20261025/private_old_archive/exp/two_backbone_pct10_native_20261025/runs/qwen/pct10/SeqFT_LoRA/training_20261025_222614/config.json",
+      "sha256": "03312f0511147a9eb3aa88c20c51daf0bc67b482a5e83168e2c2998b5444aadf",
+      "bytes": 4445
+    },
+    "pct10.manifest": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "data/FiveDomainCL/five_domain_native_cl_pct10_20261025/pct10/manifest.json",
+      "path": "/data1/liyapeng/program/LLMCL/data/FiveDomainCL/five_domain_native_cl_pct10_20261025/pct10/manifest.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/data/FiveDomainCL/five_domain_native_cl_pct10_20261025/pct10/manifest.json",
+      "sha256": "02ef86674c22a9dbf7f0d406398615437f8406cff364415e14d54f5fdb5bfcb7",
+      "bytes": 23425
+    },
+    "pct10.metrics": {
+      "root": "/data1/liyapeng/program/LLMCL/exp/two_backbone_pct10_20261025/private_old_archive",
+      "relative": "exp/two_backbone_pct10_native_20261025/runs/qwen/pct10/SeqFT_LoRA/training_20261025_222614/metrics_by_score.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_pct10_20261025/private_old_archive/exp/two_backbone_pct10_native_20261025/runs/qwen/pct10/SeqFT_LoRA/training_20261025_222614/metrics_by_score.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_pct10_20261025/private_old_archive/exp/two_backbone_pct10_native_20261025/runs/qwen/pct10/SeqFT_LoRA/training_20261025_222614/metrics_by_score.json",
+      "sha256": "b4a53229fdc9a628a79ea2144c9e6b844f068b15dfc0b8884edcdfb5314a6c35",
+      "bytes": 685
+    },
+    "pct01.cell.1.before": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_00/T01_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_00/T01_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_00/T01_test_predictions.scores.json",
+      "sha256": "83d8cee7ffebd008b65bd91d08ccc0f8cfd24d9b32a88c1d89cc057263b01609",
+      "bytes": 137
+    },
+    "pct01.cell.1.acquired": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_01/T01_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_01/T01_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_01/T01_test_predictions.scores.json",
+      "sha256": "284d2bc684cdfa9c0964c9eab3c77d346ad73af301c1e7b86da6dfa673b4e578",
+      "bytes": 137
+    },
+    "pct01.cell.2.before": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_01/T02_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_01/T02_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_01/T02_test_predictions.scores.json",
+      "sha256": "45fff8e49ea7f7b5491885ec1f0a3abf69d0bb690005337f840cab54625e73e8",
+      "bytes": 150
+    },
+    "pct01.cell.2.acquired": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_02/T02_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_02/T02_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_02/T02_test_predictions.scores.json",
+      "sha256": "9d13a7cc6488b061462bb8fd42baef282b148324f3008bcd47eb20f353a9163b",
+      "bytes": 147
+    },
+    "pct01.cell.3.before": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_02/T03_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_02/T03_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_02/T03_test_predictions.scores.json",
+      "sha256": "affde2c74e05d2873a374c894d29bec98f7be4c50c085f0ebd369b5a50078f9c",
+      "bytes": 135
+    },
+    "pct01.cell.3.acquired": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_03/T03_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_03/T03_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_03/T03_test_predictions.scores.json",
+      "sha256": "3a5e82b40305a83a002f650f86d1bdf9b8d7f6ffb7c75e56745988320987c4e1",
+      "bytes": 136
+    },
+    "pct01.cell.4.before": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_03/T04_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_03/T04_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_03/T04_test_predictions.scores.json",
+      "sha256": "d8fe24f2efa7dc9ccf62ef099541a8260c061c656538a69a18625cab8e20dac4",
+      "bytes": 150
+    },
+    "pct01.cell.4.acquired": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_04/T04_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_04/T04_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_04/T04_test_predictions.scores.json",
+      "sha256": "bf39ca73365ea2a45ed335abf91152194cfca1d81874217054af1ec665c6123c",
+      "bytes": 146
+    },
+    "pct01.cell.5.before": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_04/T05_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_04/T05_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_04/T05_test_predictions.scores.json",
+      "sha256": "ac5ba279611005cc6e5d3b606e1eea7a8ba4402fbda0927e9bdcd2770d3210b7",
+      "bytes": 148
+    },
+    "pct01.cell.5.acquired": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_05/T05_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_05/T05_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_05/T05_test_predictions.scores.json",
+      "sha256": "d3db6b1eea5e57d3199811ea02d926a3a64d560f0513b62659b1eef6b6cb3573",
+      "bytes": 149
+    },
+    "pct01.cell.6.before": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_05/T06_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_05/T06_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_05/T06_test_predictions.scores.json",
+      "sha256": "e20856fd5bf76a5999dc33d1ec15839d007a2d6a5f4b203db26d7bdaf282d57a",
+      "bytes": 148
+    },
+    "pct01.cell.6.acquired": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_06/T06_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_06/T06_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_06/T06_test_predictions.scores.json",
+      "sha256": "2bae5ee10e637af77b35d1d8016bf6bc253f4428cfc44947f11b0821eec4ea8d",
+      "bytes": 148
+    },
+    "pct01.cell.7.before": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_06/T07_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_06/T07_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_06/T07_test_predictions.scores.json",
+      "sha256": "7c1a7f9393ef415b8c3133aa1c77fef8abb1a1d4cfba786bd76437f15202304d",
+      "bytes": 146
+    },
+    "pct01.cell.7.acquired": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_07/T07_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_07/T07_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_07/T07_test_predictions.scores.json",
+      "sha256": "1f5cccd9018b940a787830f9454a9eb40163025f45c3ca443be261b8a5c93e94",
+      "bytes": 149
+    },
+    "pct01.cell.8.before": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_07/T08_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_07/T08_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_07/T08_test_predictions.scores.json",
+      "sha256": "44905bb12d7f3169d69b50e4ed44eb94c25924e4507dfad83d9632e614967e09",
+      "bytes": 148
+    },
+    "pct01.cell.8.acquired": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_08/T08_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_08/T08_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_08/T08_test_predictions.scores.json",
+      "sha256": "183e9c8452a085f8517f2e29547e20fd14e55a71beed313df71210a1aa613e06",
+      "bytes": 134
+    },
+    "pct01.cell.9.before": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_08/T09_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_08/T09_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_08/T09_test_predictions.scores.json",
+      "sha256": "294d4e8819f0a03a366b6183c93fe903d3d2bb1407de643be2a828c9fd70e69d",
+      "bytes": 148
+    },
+    "pct01.cell.9.acquired": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_09/T09_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_09/T09_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_09/T09_test_predictions.scores.json",
+      "sha256": "294d4e8819f0a03a366b6183c93fe903d3d2bb1407de643be2a828c9fd70e69d",
+      "bytes": 148
+    },
+    "pct01.cell.10.before": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_09/T10_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_09/T10_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_09/T10_test_predictions.scores.json",
+      "sha256": "5d3cb564534b20c6fb0bd7f45c8f4bb13150911fe91b551df16afcda7042360c",
+      "bytes": 146
+    },
+    "pct01.cell.10.acquired": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_10/T10_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_10/T10_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_10/T10_test_predictions.scores.json",
+      "sha256": "fc944b52b9f352c12d9baba39520ddfe680a2b75bd826665a7e4ddbf5ee3671f",
+      "bytes": 144
+    },
+    "pct01.cell.11.before": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_10/T11_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_10/T11_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_10/T11_test_predictions.scores.json",
+      "sha256": "30e735cea3ddb8b05cde992b58e1b9781bf70c77d9abe6f977137114a00738a6",
+      "bytes": 149
+    },
+    "pct01.cell.11.acquired": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_11/T11_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_11/T11_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_11/T11_test_predictions.scores.json",
+      "sha256": "383ffca0d803c1abb3e9d424662ead2aff2800f49de0b00ba4e4f7b26ec00b44",
+      "bytes": 150
+    },
+    "pct01.cell.12.before": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_11/T12_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_11/T12_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_11/T12_test_predictions.scores.json",
+      "sha256": "4c92a2afc42c39aa692db8660c8e9503b17aa13ba46c3e1f0ec9717ea4323f7b",
+      "bytes": 108
+    },
+    "pct01.cell.12.acquired": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_12/T12_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_12/T12_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_12/T12_test_predictions.scores.json",
+      "sha256": "4c92a2afc42c39aa692db8660c8e9503b17aa13ba46c3e1f0ec9717ea4323f7b",
+      "bytes": 108
+    },
+    "pct01.cell.13.before": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_12/T13_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_12/T13_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_12/T13_test_predictions.scores.json",
+      "sha256": "832bb9d0fa1277f172e28065e0afb66602b30c8db873e0eb9f3389b1839a938f",
+      "bytes": 153
+    },
+    "pct01.cell.13.acquired": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_13/T13_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_13/T13_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_13/T13_test_predictions.scores.json",
+      "sha256": "d986d10a7bfac1215c5f3b042b9ca3487c738f9cd07ee7ab661f1f013f3bb334",
+      "bytes": 150
+    },
+    "pct01.cell.14.before": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_13/T14_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_13/T14_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_13/T14_test_predictions.scores.json",
+      "sha256": "8ba709891274cf35c1b5482818c4c2af3133b32dfbbac8f411a8be88dce3adbf",
+      "bytes": 152
+    },
+    "pct01.cell.14.acquired": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_14/T14_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_14/T14_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_14/T14_test_predictions.scores.json",
+      "sha256": "17007c88b3d70a417e7ba6872fbad898720adb1a61ad144f32deff22f26d5bf7",
+      "bytes": 151
+    },
+    "pct01.cell.15.before": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_14/T15_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_14/T15_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_14/T15_test_predictions.scores.json",
+      "sha256": "69fdb6716132fe211248f05b9e8e083f9d4d2c464cb6df2d94309a0853aec6bf",
+      "bytes": 153
+    },
+    "pct01.cell.15.acquired": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_15/T15_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_15/T15_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_15/T15_test_predictions.scores.json",
+      "sha256": "267237d7297f66c6bb1f470670ce729005fe4b275c4dac519515baf2916b6576",
+      "bytes": 150
+    },
+    "pct01.cell.16.before": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_15/T16_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_15/T16_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_15/T16_test_predictions.scores.json",
+      "sha256": "f1d5c0dd4d2565a80a6fa4e9e84b087a1d32a3a8b593b179515be4f9d0da4603",
+      "bytes": 149
+    },
+    "pct01.cell.16.acquired": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_16/T16_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_16/T16_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_16/T16_test_predictions.scores.json",
+      "sha256": "bed46b3b0c67cc45631b685cafe982f976651ebd78850c3072bdca2acbe90131",
+      "bytes": 149
+    },
+    "pct01.cell.17.before": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_16/T17_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_16/T17_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_16/T17_test_predictions.scores.json",
+      "sha256": "c8947ca8ce09c7ca171dbc4a2a0d063bddf532cd793d9b22ba3ba72687aa5137",
+      "bytes": 133
+    },
+    "pct01.cell.17.acquired": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_17/T17_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_17/T17_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_17/T17_test_predictions.scores.json",
+      "sha256": "0989d22c48ea9ae779d622a01387c247b7d5e8bd1cd361ec342867f7c4e0a8f7",
+      "bytes": 133
+    },
+    "pct01.cell.18.before": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_17/T18_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_17/T18_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_17/T18_test_predictions.scores.json",
+      "sha256": "8df646eab4eb16f65e5da63d199f9ea842b130743cf65204d592ff632c1095be",
+      "bytes": 135
+    },
+    "pct01.cell.18.acquired": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_18/T18_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_18/T18_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_18/T18_test_predictions.scores.json",
+      "sha256": "8e8c0119bab8ed2d8d0f496b35b81560cd713eb0fa1443f231235d516e15652d",
+      "bytes": 132
+    },
+    "pct01.cell.19.before": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_18/T19_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_18/T19_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_18/T19_test_predictions.scores.json",
+      "sha256": "71ce5436a23d8f97c325c6fa4e16e7fce22f94a99381af4b2aae754006541a36",
+      "bytes": 133
+    },
+    "pct01.cell.19.acquired": {
+      "root": "/data1/liyapeng/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_19/T19_test_predictions.scores.json",
+      "path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_19/T19_test_predictions.scores.json",
+      "resolved_path": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_19/T19_test_predictions.scores.json",
+      "sha256": "25ab7de2f8adea145bfd8e0f271345460a00669be73e2890fb781a69cc5fed67",
+      "bytes": 134
+    },
+    "consumer_source": {
+      "path": "D:\\锦\\大学\\科研\\LLMCL\\analysis\\qwen_task_acquisition_pct01_pct10_20261026.py",
+      "sha256": "c27130107ac769d1dd600df10605c8ade609cb27433c806545b4735fbee20058",
+      "bytes": 23639
+    }
+  },
+  "formal_proof_sha256": {
+    "pct01": "ff979a21b171372834940e3b68bdcaa84c7db4cdf9eaccb8939fa4b3c84bd59a",
+    "pct10": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081"
+  },
+  "training_hosts": {
+    "pct01": "new3090",
+    "pct10": "old2080"
+  },
+  "derivation_template_sha256": "4405e907daa3a683e4cf4ea96912d7e75b85cf094d462a6013bf20111edc2fa4",
+  "parameterization": {
+    "source_methods_sha256": "e5bd8f51690b006274ed5adcfa4ef3b1a2c3b0f1d79476d948b71d1cfec41c5b",
+    "rank": 8,
+    "alpha": 32,
+    "dropout": 0.1,
+    "targets": [
+      "q_proj",
+      "v_proj"
+    ],
+    "adapter_parameter_dtype": "torch.float32",
+    "rank_and_targets_source": "Pinned methods.py, not fields in the run configs",
+    "same_parameterization_function_class": true,
+    "same_learned_numeric_U_V_subspace_not_established": true,
+    "previously_reported_trainable_coordinates_each": 1089536,
+    "previously_reported_complete_coefficients_each": 2210075136,
+    "count_scope": "Prior published measurements supplied by root; no tensor layout or weight payload read by this consumer"
+  },
+  "budget_source": "Original manifest TRAIN counts, one epoch, batch16/micro1; ceil counts optimizer calls, not all-positive LR claims",
+  "weights": {
+    "domain_within": "Original TEST QA counts",
+    "domain_macro": "Equal five domains",
+    "AP19": "Equal 19 tasks"
+  },
+  "limits": [
+    "Descriptive after completed runs, not blind preregistration.",
+    "Pre/acquired domain aggregates use multiple task-specific model times, not one joint model state.",
+    "More data changes updates, schedule and prior curriculum; differences are not pure data-size causality.",
+    "Qwen pct01 trained on NEW3090 and pct10 on OLD2080Ti; hardware/numerics are additional confounds.",
+    "A larger change from a lower starting score does not itself imply better acquired performance.",
+    "Qwen/SeqFT only, not both backbones or all methods; no new algorithm or method selection.",
+    "No retention/forgetting analysis, bootstrap, geometry/norm audit, or memory/quality advantage claim."
+  ],
+  "activity": {
+    "new_scores": 0,
+    "new_generations": 0,
+    "new_training": 0,
+    "model_or_checkpoint_payload_reads": 0,
+    "QA_or_prediction_rows_read": 0,
+    "embedded_payload_paths_opened": 0,
+    "new_bootstraps": 0,
+    "original_pct01_aggregate_score_JSONs_decoded": 38,
+    "pct10_verified_cells_inherited": 74
+  },
+  "elapsed": {
+    "started_unix": 1793013654.705431,
+    "prepared_UTC": "2026-10-26T11:20:54.730891+00:00",
+    "wall_seconds_before_output_write": 0.030999999988125637,
+    "CPU_seconds_before_output_write": 0.015625
+  }
+}

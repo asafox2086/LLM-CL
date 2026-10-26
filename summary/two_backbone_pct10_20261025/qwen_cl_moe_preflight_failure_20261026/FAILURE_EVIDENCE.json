@@ -1,0 +1,95 @@
+{
+  "schema": "pct10-qwen-CL-preflight-failure-evidence-v1",
+  "observation_unix": 1793013600.48126,
+  "source_root": "/dev/shm/llmcl-pct10-1084-zu7e3hb_",
+  "run_dir": "exp/two_backbone_pct10_native_20261025/runs/qwen/pct10/CL_MoE/preflight_20261026_174726",
+  "queue_status": "failed_preflight",
+  "queue_job": {
+    "key": "qwen:CL_MoE",
+    "condition": "pct10",
+    "method": "CL_MoE",
+    "backbone": "qwen",
+    "status": "failed_preflight",
+    "wrapper": {
+      "pid": 512924,
+      "startticks": "770646715",
+      "uid": 1084,
+      "pgid": 512924
+    },
+    "gpu": 1,
+    "phase": "preflight",
+    "phase_status": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/two_backbone_pct10_20261025/requests/qwen_CL_MoE_preflight_1793008046781384790.status.json",
+    "phase_exit": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/two_backbone_pct10_20261025/requests/qwen_CL_MoE_preflight_1793008046781384790.exit.json",
+    "request": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/two_backbone_pct10_20261025/requests/qwen_CL_MoE_preflight_1793008046781384790.json",
+    "pid": 512937,
+    "worker": {
+      "pid": 512937,
+      "startticks": "770646734",
+      "uid": 1084,
+      "pgid": 512937
+    },
+    "run_dir": "exp/two_backbone_pct10_native_20261025/runs/qwen/pct10/CL_MoE/preflight_20261026_174726",
+    "last_exit": {
+      "unix": 1793008105.158171,
+      "returncode": 1,
+      "worker": {
+        "pid": 512937,
+        "startticks": "770646734",
+        "uid": 1084,
+        "pgid": 512937
+      },
+      "wrapper": {
+        "pid": 512924,
+        "startticks": "770646715",
+        "uid": 1084,
+        "pgid": 512924
+      },
+      "phase": "preflight",
+      "run_dir": "exp/two_backbone_pct10_native_20261025/runs/qwen/pct10/CL_MoE/preflight_20261026_174726"
+    },
+    "error_tail": "`Qwen2VLRotaryEmbedding` can now be fully parameterized by passing the model config through the `config` argument. All other arguments will be removed in v4.46\n\nLoading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]\nLoading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.50s/it]\nLoading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.18s/it]\nLoading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.38s/it]\nTraceback (most recent call last):\n  File \"/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_20261025/run.py\", line 342, in <module>\n    main()\n  File \"/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_20261025/run.py\", line 198, in main\n    assert torch.isfinite(loss) and torch.isfinite(grad)\nAssertionError\n"
+  },
+  "failed_worker_actual": null,
+  "failed_wrapper_actual": null,
+  "completed_preflight_case_count": 0,
+  "artifact_exists": {
+    "gpu_preflight.json": false,
+    "checkpoint_reload_proof.json": false,
+    "checkpoints/latest.json": false,
+    "metrics_by_score.json": false
+  },
+  "joint_assertion": "torch.isfinite(loss) and torch.isfinite(grad)",
+  "individual_failed_term_observed": false,
+  "source_files_sha256": {
+    "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_20261025/runs/qwen/pct10/CL_MoE/preflight_20261026_174726/config.json": "9bd175f8673c701a35a45a3b304e3c8d4e97bf63fd9926da5dc55533f1eb35aa",
+    "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_20261025/runs/qwen/pct10/CL_MoE/preflight_20261026_174726/supervisor.log": "02856a1a017f6f99b4acb3a474a056d9a6925a678bcac71fb30e9f745f1e8bda",
+    "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_20261025/runs/qwen/pct10/CL_MoE/preflight_20261026_174726/run_status.json": "6d93441d14f0c5b147126a11226dcf4b029401a59912ecc526cacb679f4664a0",
+    "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_20261025/runs/qwen/pct10/CL_MoE/preflight_20261026_174726/runner_source/run.py": "ffbfe1ce3ecfc3cfa9747e3073ea7d21a5a540c7bcd83d48c4837240770bceb2",
+    "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_20261025/runs/qwen/pct10/CL_MoE/preflight_20261026_174726/runner_source/clmoe_adapter.py": "33946eddfc6424638ded0675ded68860273859c2f71993a6a60bd22556341be9",
+    "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_20261025/runs/qwen/pct10/CL_MoE/preflight_20261026_174726/runner_source/methods.py": "e5bd8f51690b006274ed5adcfa4ef3b1a2c3b0f1d79476d948b71d1cfec41c5b",
+    "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_20261025/runs/qwen/pct10/CL_MoE/preflight_20261026_174726/runner_source/runtime_utils.py": "4f5c4a34be046c29cfbcdaa4b2957faa907684872ba69083bdef53136a851240",
+    "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_20261025/runs/qwen/pct10/CL_MoE/preflight_20261026_174726/runner_source/execution_policy.json": "8dd765f08e586b3fee00274d5122a9ccf87b9327843bdfe602340884ddf3487b",
+    "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/two_backbone_pct10_20261025/requests/qwen_CL_MoE_preflight_1793008046781384790.json": "974afc22bed1840d9b520987a15b288501c91f1b291b876b40101501b5c51457",
+    "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/two_backbone_pct10_20261025/requests/qwen_CL_MoE_preflight_1793008046781384790.status.json": "30c96f931c5cf1015d8d62983827f95350271a9e740630811529186c3a8b2a51",
+    "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/two_backbone_pct10_20261025/requests/qwen_CL_MoE_preflight_1793008046781384790.exit.json": "32485331444dee4ae141d434f743b7558a36be60e173489311d6b2af3da5617b",
+    "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/two_backbone_pct10_20261025/CONTROLLER_HANDOFF.json": "a7a837e1635132efb0ccdaf11d9b8ca4421adcd5743af4f1aea5afe4c9673e79"
+  },
+  "config_manifest_sha256": "02ef86674c22a9dbf7f0d406398615437f8406cff364415e14d54f5fdb5bfcb7",
+  "config_model_dtype": "torch.float16",
+  "config_autocast_dtype": "torch.float16",
+  "config_gpu": "NVIDIA GeForce RTX 2080 Ti",
+  "torch_version": "2.6.0+cu118",
+  "status_to_exit_interval_seconds": 58.18586611747742,
+  "interval_not_full_model_runtime": true,
+  "private_fetch_bundle_sha256": "048bbd82c53ea42635048a79c63450461b88e42357cbbad916767c8d9d769f00",
+  "correct_user_unit_observation_sha256": "d4f712b7d4d5814a4daf64a7f5058f7b1d2334833bae455abfc23c42c47b9979",
+  "first_system_scope_query_not_user_unit_status": true,
+  "local_handoff_updated_to_remote_original_sha256": "a7a837e1635132efb0ccdaf11d9b8ca4421adcd5743af4f1aea5afe4c9673e79",
+  "previous_local_handoff_sha256": "9f017188a68c99c1bfae3adcaecf6941308d0b075eea9a35b05fab8718c6ab69",
+  "previous_local_handoff_preserved": "summary\\two_backbone_pct10_20261025\\CONTROLLER_HANDOFF_LOCAL_STALE_9f017188a68c.json",
+  "remote_files_modified": false,
+  "new_models": 0,
+  "new_scores": 0,
+  "QA_or_checkpoint_payloads_read": 0,
+  "OLD_relay_released": true
+}
