@@ -1,5 +1,7 @@
 # 补充说明：证据索引、实验历史与新会话交接
 
+2026-10-26实际补齐两10% SMoLoRA队列：发布6513d1d后，NEW原CPU1221743由1739063/start35800472/UID1004替代，原unit active/running；原1%8260/8265身份保全、0GPU信号、冻结科学源/policy全不变。queue_new真实只有onevision/qwen两SMo，均waiting，仍无预检/质量；只原1%优先后的GPU1/3空闲机会，NEW0和FOREVER2规则保留。证据new_smolora_queue_20261026/ACTIVATION、AFTER。首次ExecStop缺省字段及其次wchan窄匹配均在任何stop/marker前拒绝，外层字段读取/已知poll等待修正后接管成功，wrapper不改。
+
 2026-10-26新增Qwen原19任务派生已唯一完成，QWEN_ACQUISITION/FINDINGS为准：刚习得17高2低（Quantity/Shape），五域宏46.984723→56.481117；10%唯一负阶段Shape−1.111111，Position/Plane正3.425348/7.447318，不复现LLaVA对应负值。不能推共同题型根因或纯数据因果（Qwen两比例硬件亦不同）；0新模型/评分/QA/CP。Qwen10%CL预检已exit1，首损失/梯度有限性联合断言失败、0成功optimizer step，不能分辨哪项非有限；保留失败，不救设置或重跑。三臂分配器609661正确user unit真实active/running，slot仍无；此前observer误用本地旧unit不是实际服务停止。
 
 2026-10-26最新：10%双骨干SeqFT均完整核验，总2/16，Qwen宏52.853667、完整参数2210075136，两组最终模型已耐久保存；[第二组证据](summary/two_backbone_pct10_20261025/SECOND_COMPLETE_FINDINGS.md)。[位置诊断](summary/train_answer_prior_20261025/POSITION_FINDINGS.md)已结束、唯一核验并归档，不能由有限训练前有效样本推断学习导致位置敏感性变化。固定预算三臂已[接入原分配器](summary/conditional_shared_budget_20261026/ACTIVATION.json)，尚未STARTED；下文较早的1/16及等待位置诊断描述均为历史快照。临时清理仅197个可重建pyc/1364966bytes，主表记录完整保留。

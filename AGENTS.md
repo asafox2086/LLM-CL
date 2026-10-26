@@ -1,5 +1,7 @@
 # 2026-10-26：设置确定后固定，研究方法在条件下的局限
 
+2026-10-26实际补齐两10% SMoLoRA队列：发布6513d1d后，NEW原CPU1221743由1739063/start35800472/UID1004替代，原unit active/running；原1%8260/8265身份保全、0GPU信号、冻结科学源/policy全不变。queue_new真实只有onevision/qwen两SMo，均waiting，仍无预检/质量；只原1%优先后的GPU1/3空闲机会，NEW0和FOREVER2规则保留。证据new_smolora_queue_20261026/ACTIVATION、AFTER。首次ExecStop缺省字段及其次wchan窄匹配均在任何stop/marker前拒绝，外层字段读取/已知poll等待修正后接管成功，wrapper不改。
+
 2026-10-26新增Qwen原19任务派生已唯一完成，QWEN_ACQUISITION/FINDINGS为准：刚习得17高2低（Quantity/Shape），五域宏46.984723→56.481117；10%唯一负阶段Shape−1.111111，Position/Plane正3.425348/7.447318，不复现LLaVA对应负值。不能推共同题型根因或纯数据因果（Qwen两比例硬件亦不同）；0新模型/评分/QA/CP。Qwen10%CL预检已exit1，首损失/梯度有限性联合断言失败、0成功optimizer step，不能分辨哪项非有限；保留失败，不救设置或重跑。三臂分配器609661正确user unit真实active/running，slot仍无；此前observer误用本地旧unit不是实际服务停止。
 
 - 最新完整结果10%为2/16：Qwen SeqFT宏52.853667/AP48.634249，完整2210075136系数、4217.461914MiB、增4.15625MiB，最终CP已NEW pin；SECOND_COMPLETE_ROW/FINDINGS与原proof为准，GPU未测。位置360已原唯一verify完成并耐久归档；S16内容变化32/37与31/40，共同33中28→24；S15有效各2、阶段共同2/1、全8共同0，不作学习前后因果或正确性推断。见POSITION_FINDINGS/ARCHIVE_RECEIPT及独立RESULT_REVIEW；不重跑。原1%主表不变。
