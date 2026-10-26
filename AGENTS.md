@@ -1,5 +1,7 @@
 # 2026-10-26：设置确定后固定，研究方法在条件下的局限
 
+- 最新“继续，探索需要高效”：conditional_shared_budget首轮已收敛Shared/Uniform/A-response-soft，同q/v-r8共540672坐标，shared4/private2×2、scale4、一次dropout响应、无额外LM前向。原Hard双质心被成本/依据评判拒绝，非模型负结果。独立新adaptation/worker准备中，1213FIT/100DEV/87更新，逐taskbefore/acquired各100、终态100+五资源窗；Shared/Uniform真实fold后评测，Soft显式全图strict reload。未排队/STARTED/新质量，不据此填Ours；不重跑医学审计、旧分支或修改活动分配器。权威summary/conditional_shared_budget_20261026/PROTOCOL.md。医学完整证据已push bc72a12fd71c720979b9a218e217972caa5ea8e2。
+
 - 最新人类允许性能略低、显著内存优势优先；要求抽象强方法的有效功能并用简洁机制实现，或发现已验证共同问题后设计自己的方法，不限已提出算法。不能只做折叠/选旧点/简单扩容，不因放宽目标自动恢复全部旧分支。现已提出同总预算shared+private低秩方向的功能问题，尚无准入/模型结果，不称分组是PAS高分因果；PAS实际逐token响应能量软混合，无独立MLP路由，CL有token线性router+问题原型两层机制。全表最高正式Qwen SeqFT48.972351，勿再把LLaVa OSFT称全表最高。
 - 医学配对审计已完整结束：prepare4131→公开PREPARED、491pairs/283same/208blind；两judgmentc1d109/d69441独立封后，唯一consensus c3d6运行完成，OUTCOME与FINDINGS为权威。198同类10分歧；Plane原F1−.718但EXACT+.862，Position未知79承担77.7485%grossloss，不能统一称内容退化/缺知识；不扩QA/TRAIN审计/重标/重分或重开语言提示分支。两模型judge非医学真值；raw/方向/理由私有留工作区，不入Git。0新score/model/tokenize。此有限读数不支撑新知识模块，后续独立条件适应假说来自强方法持久参数成本，不伪造其被本审计证明。
 

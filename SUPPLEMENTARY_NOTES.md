@@ -28,6 +28,8 @@
 
 ## 最新研究重点与刚习得观测
 
+2026-10-26按人类“探索需要高效”收敛：只保留固定总r8预算的共享、均匀、A响应soft三臂。独立评判淘汰需要额外W0前向的Hard聚类提议；均匀对照用于排除静态缩放/优化差异。新增独立GPU训练/重载worker，沿原1213FIT/100DEV/87更新探索条件，不改两正式表，不读取旧模型续训，不重建split；当前尚未排队或运行。每臂before/acquired/final各100及5固定资源窗，完整部署参数另核。见[协议](summary/conditional_shared_budget_20261026/PROTOCOL.md)、[评判](summary/conditional_shared_budget_20261026/DECISION_REVIEW.md)、[实现映射](summary/conditional_shared_budget_20261026/IMPLEMENTATION_MAP.md)、[文献边界](summary/conditional_shared_budget_20261026/LITERATURE_NOTE.md)。医学审计已闭合并推送bc72a12；不再扩展或重评分。
+
 2026-10-26人类把目标明确为允许性能略低、显著内存优势优先，并要求从强方法抽象功能后用简洁机制实现，或从已证明共同问题设计自有方法；不能只选旧方法／折叠／删模块，不限既有方法。旧失败点保留终态，不因放宽偏好自动恢复；可重新陈述其已有质量—资源折中，但不把大域损失擅称轻微。全表最高正式锚是Qwen SeqFT48.972351，本身单LoRA；同骨干PAS46.619976／OSFT45.937438不代表全表最高。待检验的新方向是固定总预算内的条件分工，现无该方法新质量。
 
 10%两个医学阶段下降的[有限配对含义审计](summary/train_answer_prior_20261025/MEDICAL_PAIRED_FINDINGS.md)已完整结束：491题／283原样相同／208变化；两agent盲标198同类10分歧，全部保留。Plane F1−0.718而原EXACT+0.862，明确同内容不同表达组贡献−1.005747pp；Position未知79项占总失分77.7485%，主因仍未识别，不据此开统一格式／知识模块。0新模型／评分／tokenize，私有原文及理由留工作区，公开只hash／标量。两个模型agent不是医学正确性真值，不因未知扩样／重判或重开旧语言提示实验。
