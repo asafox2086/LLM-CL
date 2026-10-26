@@ -4,6 +4,8 @@
 
 ## 10%第二主表：实际启动与归档边界
 
+2026-10-26接续准备：独立FOREVER动态runner已构建的29项科学源保持原字节，新增两个coordinator目录内的stdlib监督源，把唯一2400秒GPU预检／独立重载接入原同一分配器。静态READY只封源／policy／协议；停止旧CPU后另生成真实queue摘要及controller身份输入，不因queue变化重写科学READY。只允许两项FOREVER从defer进入既定门，保全native；正式仍须从fresh训练，门失败不救跑，原collector已包含动态目录无需重建。当前此段只记录实施／准入，不冒称实际交接、GPU通过或质量；实际后续看收据。[具体调用与剩余完整核验缺口](summary/two_backbone_pct10_20261025/FOREVER_DYNAMIC_GATE_INTEGRATION.md)。
+
 2026-10-26更新：人类明确第二主表需两个backbone全部8类基线、与1%同样全部指标并保留最终模型；两处主表已补齐23列。首组LLaVA SeqFT已完整核验，五域宏47.462／AP45.874，真实参数／保存态存储已填；NEW最终pin保存完整CP，当前1/16。完整正负、原唯一评分／元数据费用与[首组证据](summary/two_backbone_pct10_20261025/FIRST_COMPLETE_FINDINGS.md)保留，1%原表不改。
 
 最终模型留存包装经plain_r8_control源码／AST审阅接受后先发布b3056c64再实际启动NEW CPU服务；只替换旧归档CPU，0模型／新评分／GPU信号。混合cgroup路径检查首次失败在任何停止／启动前，修wrapper查实际mount后已成功启动；即时观察断言失败，未持久化具体false子条件，不臆测原因。之后只读同unit/PID1538724/start32618866实际active及无错误16组index／1组已存，补事实收据，不重启。见[归档规则与实际状态](summary/two_backbone_pct10_20261025/FINAL_MODEL_RETENTION.md)。下方0结果／旧collector PID均保留为历史快照。
@@ -18,6 +20,7 @@
 
 ## 最新研究重点与刚习得观测
 
+2026-10-26后续功能问题经research_review接受：45条原资格共同TRAIN、固定循环、四个已完成S15／S16状态，360新生成将检验内容选择对位置重排是否稳定。四个真实完整CP已只读stat确认存在，尚未载入；最长原context308，不触发原6000检索。没有新的split／训练／评分，worker及实际绑定待完成，不把准备当结果。[必要性与正负决策](summary/train_answer_prior_20261025/POSITION_DIAGNOSTIC_DECISION_REVIEW.md) · [具体协议](summary/train_answer_prior_20261025/POSITION_DIAGNOSTIC_PROTOCOL.md)。
 2026-10-26首个完整10%结果后的同ID金融比较已唯一完成：2233题=1307单选＋546多选＋380数值，S15／S16／S19六套原预测全部绑定两条正式proof；复制13398条已有分数，0模型／生成／训练／新评分／权重读取。金融刚习得F1为16.405→25.414，但单选回答不同值174→9、原满分331→495、原零分966→812，撤回“集中本身就说明习得失败”的推断。10%多选仍286条严格单字母且原F1全零，数值S15→S16为8.640→6.974；本固定配方的题型习得不均匀，不据此识别统一位置偏置或PIF有效。完整子进程1.357466秒，内部1.048091秒重叠不加；源码执行前相对路径围栏修正、正负、来源及独立review均见[完整观测与设计影响](summary/train_answer_prior_20261025/PCT01_PCT10_RESPONSE_FINDINGS.md)。没有据TEST分析新增训练方案或修改设置，两个完整主表及最终模型留存任务不缩减。
 
 2026-10-26人类进一步明确：设置一旦确定就不再更改；研究固定条件下的方法局限，不为救结果调整条件。已写入根README、AGENTS和[重点原话](summary/acquisition_readout_20261025/v1/HUMAN_RESEARCH_FOCUS.md)。两个正式主实验设置未改。

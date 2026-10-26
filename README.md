@@ -152,6 +152,8 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 
 **后续只研究新习得：** 依人类最新要求，不再设计遗忘／保持／历史保护实验。现有方法为什么学不好仍需训练前到刚学完的功能获得及匹配干预来解释；少样本／少更新的计数本身不能充当原因。当前没有已确证的新学习机制或正式确认，Ours仍空。
 
+**下一项有限功能问题：** 同一候选内容换位置后，刚学完的模型是否仍选同一个内容？固定45条共同TRAIN、一个循环，比较1%／10%的金融训练前和刚学完状态，共360次生成；这区分规范化集中与内容—位置脆弱，决定是否保留固定LoRA容量的绑定约束工具。没有模型结果，不把稳定选错称正确，也不据此自动训练PIF。[具体问题与正负决策](summary/train_answer_prior_20261025/POSITION_DIAGNOSTIC_DECISION_REVIEW.md) · [固定协议](summary/train_answer_prior_20261025/POSITION_DIAGNOSTIC_PROTOCOL.md)
+
 ---
 
 [探索过程与证据索引](SUPPLEMENTARY_NOTES.md#探索过程与证据索引) · [完整实验口径与数据来源](SUPPLEMENTARY_NOTES.md) · [历史研究记录](README_HISTORY_20261024.md)
