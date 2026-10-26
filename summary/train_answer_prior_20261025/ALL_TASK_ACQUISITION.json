@@ -1,0 +1,1797 @@
+{
+  "status": "COMPLETE_SEALED_AGGREGATE_DERIVATION",
+  "output_json_name": "ALL_TASK_ACQUISITION.json",
+  "backbone": "onevision",
+  "method": "SeqFT_LoRA",
+  "conditions": {
+    "pct01": {
+      "TRAIN_QA": 1313,
+      "single_epoch_optimizer_calls": 93,
+      "domains": {
+        "natural": {
+          "TEST_QA": 5000,
+          "tasks": [
+            1
+          ],
+          "before_F1": 38.711340489239866,
+          "acquired_F1": 75.19318738479868,
+          "acquisition_change_pp": 36.48184689555881,
+          "multiple_task_specific_model_times": true
+        },
+        "medical": {
+          "TEST_QA": 2094,
+          "tasks": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "before_F1": 28.405750590647013,
+          "acquired_F1": 34.42581042608891,
+          "acquisition_change_pp": 6.020059835441895,
+          "multiple_task_specific_model_times": true
+        },
+        "geography": {
+          "TEST_QA": 10004,
+          "tasks": [
+            12,
+            13,
+            14,
+            15
+          ],
+          "before_F1": 32.966813274690125,
+          "acquired_F1": 52.83886445421831,
+          "acquisition_change_pp": 19.872051179528185,
+          "multiple_task_specific_model_times": true
+        },
+        "finance": {
+          "TEST_QA": 2233,
+          "tasks": [
+            16
+          ],
+          "before_F1": 3.8837896951049324,
+          "acquired_F1": 16.404666822500793,
+          "acquisition_change_pp": 12.520877127395861,
+          "multiple_task_specific_model_times": true
+        },
+        "traffic": {
+          "TEST_QA": 2123,
+          "tasks": [
+            17,
+            18,
+            19
+          ],
+          "before_F1": 20.845942069249514,
+          "acquired_F1": 31.267758849264258,
+          "acquisition_change_pp": 10.421816780014744,
+          "multiple_task_specific_model_times": true
+        }
+      },
+      "AP19": {
+        "before_F1": 29.10386487909905,
+        "acquired_F1": 38.604705107534436,
+        "acquisition_change_pp": 9.500840228435386
+      },
+      "domain_macro": {
+        "before_F1": 24.962727223786292,
+        "acquired_F1": 42.02605758737419,
+        "acquisition_change_pp": 17.063330363587898
+      }
+    },
+    "pct10": {
+      "TRAIN_QA": 13105,
+      "single_epoch_optimizer_calls": 828,
+      "domains": {
+        "natural": {
+          "TEST_QA": 5000,
+          "tasks": [
+            1
+          ],
+          "before_F1": 38.711340489239866,
+          "acquired_F1": 76.62745893692967,
+          "acquisition_change_pp": 37.916118447689804,
+          "multiple_task_specific_model_times": true
+        },
+        "medical": {
+          "TEST_QA": 2094,
+          "tasks": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "before_F1": 38.40425482051182,
+          "acquired_F1": 49.11592318325844,
+          "acquisition_change_pp": 10.711668362746622,
+          "multiple_task_specific_model_times": true
+        },
+        "geography": {
+          "TEST_QA": 10004,
+          "tasks": [
+            12,
+            13,
+            14,
+            15
+          ],
+          "before_F1": 37.574970011995205,
+          "acquired_F1": 61.18552578968413,
+          "acquisition_change_pp": 23.610555777688923,
+          "multiple_task_specific_model_times": true
+        },
+        "finance": {
+          "TEST_QA": 2233,
+          "tasks": [
+            16
+          ],
+          "before_F1": 2.1173445154636372,
+          "acquired_F1": 25.414240931482304,
+          "acquisition_change_pp": 23.29689641601867,
+          "multiple_task_specific_model_times": true
+        },
+        "traffic": {
+          "TEST_QA": 2123,
+          "tasks": [
+            17,
+            18,
+            19
+          ],
+          "before_F1": 24.234605639934646,
+          "acquired_F1": 37.638953455103795,
+          "acquisition_change_pp": 13.40434781516915,
+          "multiple_task_specific_model_times": true
+        }
+      },
+      "AP19": {
+        "before_F1": 35.14108787793008,
+        "acquired_F1": 48.652210016297,
+        "acquisition_change_pp": 13.511122138366915
+      },
+      "domain_macro": {
+        "before_F1": 28.208503095429034,
+        "acquired_F1": 49.99642045929166,
+        "acquisition_change_pp": 21.78791736386263
+      }
+    }
+  },
+  "tasks": [
+    {
+      "task": 1,
+      "task_id": "T01",
+      "domain": "natural",
+      "native_label_field": null,
+      "native_label": null,
+      "TEST_QA": 5000,
+      "TEST_identity": {
+        "sha256": "14705cad19879bbe9397add2d6871d6892146aee4be3885030700382307cd3bb",
+        "count": 5000,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T01_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T01_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 347,
+        "single_epoch_optimizer_calls": 22,
+        "before_stage": 0,
+        "acquired_stage": 1,
+        "before_F1": 38.711340489239866,
+        "acquired_F1": 75.19318738479868,
+        "acquisition_change_pp": 36.48184689555881,
+        "before_cell_source": {
+          "F1": 38.711340489239866,
+          "QA": 5000,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "0ae401ce41ea8c2fbddfd807809f4755fe0ead6d5eeda9b4f8ce1fe5b2b4738f"
+        },
+        "acquired_cell_source": {
+          "F1": 75.19318738479868,
+          "QA": 5000,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "ae91e7e4b7f867bc5f9e8e9977d5548ad0310d549f8068e0ae71701b9dc1115d"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 3461,
+        "single_epoch_optimizer_calls": 217,
+        "before_stage": 0,
+        "acquired_stage": 1,
+        "before_F1": 38.711340489239866,
+        "acquired_F1": 76.62745893692967,
+        "acquisition_change_pp": 37.916118447689804,
+        "before_cell_source": {
+          "F1": 38.711340489239866,
+          "QA": 5000,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        },
+        "acquired_cell_source": {
+          "F1": 76.62745893692967,
+          "QA": 5000,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 1.434271552130994,
+      "pct10_minus_pct01_acquisition_change_pp": 1.434271552130994
+    },
+    {
+      "task": 2,
+      "task_id": "T02",
+      "domain": "medical",
+      "native_label_field": "content_type",
+      "native_label": "Modality",
+      "TEST_QA": 228,
+      "TEST_identity": {
+        "sha256": "c319026d6857ee31722732ce54fd0348e189f0f8aaa574522fdb6623ca3bc572",
+        "count": 228,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T02_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T02_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 11,
+        "single_epoch_optimizer_calls": 1,
+        "before_stage": 1,
+        "acquired_stage": 2,
+        "before_F1": 25.57652300686357,
+        "acquired_F1": 29.036891471101985,
+        "acquisition_change_pp": 3.460368464238414,
+        "before_cell_source": {
+          "F1": 25.57652300686357,
+          "QA": 228,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "454d02e7534c816598a9d01c6eb0c4a0caf18c5e3eed6b8fd1999d4f19a8ee8a"
+        },
+        "acquired_cell_source": {
+          "F1": 29.036891471101985,
+          "QA": 228,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "948ebb6a2f4ed91c4680893f9e4832886ba12ddeba83757436277831ee894e81"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 107,
+        "single_epoch_optimizer_calls": 7,
+        "before_stage": 1,
+        "acquired_stage": 2,
+        "before_F1": 54.451469583048535,
+        "acquired_F1": 68.66959064327484,
+        "acquisition_change_pp": 14.21812106022631,
+        "before_cell_source": {
+          "F1": 54.451469583048535,
+          "QA": 228,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        },
+        "acquired_cell_source": {
+          "F1": 68.66959064327484,
+          "QA": 228,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 39.63269917217286,
+      "pct10_minus_pct01_acquisition_change_pp": 10.757752595987895
+    },
+    {
+      "task": 3,
+      "task_id": "T03",
+      "domain": "medical",
+      "native_label_field": "content_type",
+      "native_label": "Position",
+      "TEST_QA": 375,
+      "TEST_identity": {
+        "sha256": "809a68a36926ba0dab02597b9e4492bcebc2ec394f17103413e13a0e3e072d0b",
+        "count": 375,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T03_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T03_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 17,
+        "single_epoch_optimizer_calls": 2,
+        "before_stage": 2,
+        "acquired_stage": 3,
+        "before_F1": 18.125329485329488,
+        "acquired_F1": 30.140958300958285,
+        "acquisition_change_pp": 12.015628815628798,
+        "before_cell_source": {
+          "F1": 18.125329485329488,
+          "QA": 375,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "797daf7fa75494f505dccd2d6e2faec402008c04023af0f5b75acb312ecacbf5"
+        },
+        "acquired_cell_source": {
+          "F1": 30.140958300958285,
+          "QA": 375,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "0ace09caa763aa9a86cef751e47e8c24745b80abc5014b29388bcc7a37f15f76"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 170,
+        "single_epoch_optimizer_calls": 11,
+        "before_stage": 2,
+        "acquired_stage": 3,
+        "before_F1": 42.41756613756609,
+        "acquired_F1": 37.558095238095206,
+        "acquisition_change_pp": -4.859470899470885,
+        "before_cell_source": {
+          "F1": 42.41756613756609,
+          "QA": 375,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        },
+        "acquired_cell_source": {
+          "F1": 37.558095238095206,
+          "QA": 375,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 7.41713693713692,
+      "pct10_minus_pct01_acquisition_change_pp": -16.875099715099683
+    },
+    {
+      "task": 4,
+      "task_id": "T04",
+      "domain": "medical",
+      "native_label_field": "content_type",
+      "native_label": "Organ",
+      "TEST_QA": 507,
+      "TEST_identity": {
+        "sha256": "e5046123567a5d9efe80aae17ed0b141e6261bf80c775f523791ef9022492ba2",
+        "count": 507,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T04_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T04_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 26,
+        "single_epoch_optimizer_calls": 2,
+        "before_stage": 3,
+        "acquired_stage": 4,
+        "before_F1": 27.920649370353512,
+        "acquired_F1": 37.31426692965156,
+        "acquisition_change_pp": 9.393617559298047,
+        "before_cell_source": {
+          "F1": 27.920649370353512,
+          "QA": 507,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "6e6ef6a66c85f5f236a4b57dbf2567cb4ddb82b84ea660e065d0e0c709a7e2a7"
+        },
+        "acquired_cell_source": {
+          "F1": 37.31426692965156,
+          "QA": 507,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "84a29ee70be7b442fe0e4e9a00cc3879e53686bd99e451d85dcf474064f79400"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 254,
+        "single_epoch_optimizer_calls": 16,
+        "before_stage": 3,
+        "acquired_stage": 4,
+        "before_F1": 33.806706114398395,
+        "acquired_F1": 60.59829059829065,
+        "acquisition_change_pp": 26.791584483892258,
+        "before_cell_source": {
+          "F1": 33.806706114398395,
+          "QA": 507,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        },
+        "acquired_cell_source": {
+          "F1": 60.59829059829065,
+          "QA": 507,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 23.284023668639094,
+      "pct10_minus_pct01_acquisition_change_pp": 17.39796692459421
+    },
+    {
+      "task": 5,
+      "task_id": "T05",
+      "domain": "medical",
+      "native_label_field": "content_type",
+      "native_label": "Size",
+      "TEST_QA": 124,
+      "TEST_identity": {
+        "sha256": "7e13f0e2db2a9fb4f66249f152c23c336a566c1e5ccf30c929c2c04710be6264",
+        "count": 124,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T05_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T05_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 6,
+        "single_epoch_optimizer_calls": 1,
+        "before_stage": 4,
+        "acquired_stage": 5,
+        "before_F1": 53.169599217986324,
+        "acquired_F1": 53.951612903225815,
+        "acquisition_change_pp": 0.782013685239491,
+        "before_cell_source": {
+          "F1": 53.169599217986324,
+          "QA": 124,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "9268a79e59de9ded755bdfac4bd6bcbe5a151de2b05cc0e44088641b5496e59b"
+        },
+        "acquired_cell_source": {
+          "F1": 53.951612903225815,
+          "QA": 124,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "60d61d928de4058e823f6b38eff81a38907789689be5905a89ffb57ff41079d2"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 65,
+        "single_epoch_optimizer_calls": 5,
+        "before_stage": 4,
+        "acquired_stage": 5,
+        "before_F1": 51.935483870967744,
+        "acquired_F1": 54.56989247311827,
+        "acquisition_change_pp": 2.634408602150529,
+        "before_cell_source": {
+          "F1": 51.935483870967744,
+          "QA": 124,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        },
+        "acquired_cell_source": {
+          "F1": 54.56989247311827,
+          "QA": 124,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 0.6182795698924579,
+      "pct10_minus_pct01_acquisition_change_pp": 1.852394916911038
+    },
+    {
+      "task": 6,
+      "task_id": "T06",
+      "domain": "medical",
+      "native_label_field": "content_type",
+      "native_label": "Abnormality",
+      "TEST_QA": 311,
+      "TEST_identity": {
+        "sha256": "18f04db0a28b6b0abd9b0f3f5ad7d030151085c47b88213d043752eacad98877",
+        "count": 311,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T06_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T06_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 14,
+        "single_epoch_optimizer_calls": 1,
+        "before_stage": 5,
+        "acquired_stage": 6,
+        "before_F1": 47.743199237112215,
+        "acquired_F1": 48.54784640154411,
+        "acquisition_change_pp": 0.8046471644318984,
+        "before_cell_source": {
+          "F1": 47.743199237112215,
+          "QA": 311,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "89bb2e3d1af0b43c687165148e7bf24c6c4a41d110fc348df4d9c4c3d7ef5471"
+        },
+        "acquired_cell_source": {
+          "F1": 48.54784640154411,
+          "QA": 311,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "c0dd9f0fd0e3a00c16a940e3c2ad66512c645e2289ec5af16c474dfdf762b37c"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 141,
+        "single_epoch_optimizer_calls": 9,
+        "before_stage": 5,
+        "acquired_stage": 6,
+        "before_F1": 44.004329004328994,
+        "acquired_F1": 55.8582842666444,
+        "acquisition_change_pp": 11.853955262315402,
+        "before_cell_source": {
+          "F1": 44.004329004328994,
+          "QA": 311,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        },
+        "acquired_cell_source": {
+          "F1": 55.8582842666444,
+          "QA": 311,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 7.310437865100283,
+      "pct10_minus_pct01_acquisition_change_pp": 11.049308097883504
+    },
+    {
+      "task": 7,
+      "task_id": "T07",
+      "domain": "medical",
+      "native_label_field": "content_type",
+      "native_label": "Quantity",
+      "TEST_QA": 89,
+      "TEST_identity": {
+        "sha256": "e424c1d3905db42165ad9f525f033045af1e8605e6b1e5848bba82573e54e221",
+        "count": 89,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T07_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T07_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 4,
+        "single_epoch_optimizer_calls": 1,
+        "before_stage": 6,
+        "acquired_stage": 7,
+        "before_F1": 19.10112359550562,
+        "acquired_F1": 37.82771535580524,
+        "acquisition_change_pp": 18.72659176029962,
+        "before_cell_source": {
+          "F1": 19.10112359550562,
+          "QA": 89,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "894a1aefcb3add88de97e5d059d022d7952467965d14e54bd7aeee967ec19248"
+        },
+        "acquired_cell_source": {
+          "F1": 37.82771535580524,
+          "QA": 89,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "a0d08be5de81b9bfd87496f9e123a75246d9c1cb86ef7edf2acc8967e36f7081"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 44,
+        "single_epoch_optimizer_calls": 3,
+        "before_stage": 6,
+        "acquired_stage": 7,
+        "before_F1": 48.31460674157304,
+        "acquired_F1": 52.80898876404494,
+        "acquisition_change_pp": 4.494382022471903,
+        "before_cell_source": {
+          "F1": 48.31460674157304,
+          "QA": 89,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        },
+        "acquired_cell_source": {
+          "F1": 52.80898876404494,
+          "QA": 89,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 14.981273408239701,
+      "pct10_minus_pct01_acquisition_change_pp": -14.232209737827716
+    },
+    {
+      "task": 8,
+      "task_id": "T08",
+      "domain": "medical",
+      "native_label_field": "content_type",
+      "native_label": "Plane",
+      "TEST_QA": 116,
+      "TEST_identity": {
+        "sha256": "2c3d5bc145141ac44d4a18722169bb421f47d41f1558d04d6da9a3dd365f8a86",
+        "count": 116,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T08_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T08_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 5,
+        "single_epoch_optimizer_calls": 1,
+        "before_stage": 7,
+        "acquired_stage": 8,
+        "before_F1": 20.25862068965517,
+        "acquired_F1": 21.839080459770113,
+        "acquisition_change_pp": 1.5804597701149419,
+        "before_cell_source": {
+          "F1": 20.25862068965517,
+          "QA": 116,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "f254c047ac5a4fec4c645a8bdb0349b00185760a5b20584ec57189e673f33749"
+        },
+        "acquired_cell_source": {
+          "F1": 21.839080459770113,
+          "QA": 116,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "cc181f541bad935ea62146a99866d16f0b7327a2fbd4682fff298239702b18fd"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 51,
+        "single_epoch_optimizer_calls": 4,
+        "before_stage": 7,
+        "acquired_stage": 8,
+        "before_F1": 28.448275862068957,
+        "acquired_F1": 27.729885057471268,
+        "acquisition_change_pp": -0.7183908045976892,
+        "before_cell_source": {
+          "F1": 28.448275862068957,
+          "QA": 116,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        },
+        "acquired_cell_source": {
+          "F1": 27.729885057471268,
+          "QA": 116,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 5.890804597701155,
+      "pct10_minus_pct01_acquisition_change_pp": -2.298850574712631
+    },
+    {
+      "task": 9,
+      "task_id": "T09",
+      "domain": "medical",
+      "native_label_field": "content_type",
+      "native_label": "Shape",
+      "TEST_QA": 12,
+      "TEST_identity": {
+        "sha256": "3f554ff6047a98566520a39bc9d89ecf0bcf00a29e2e2d1f76bfb2b63097be95",
+        "count": 12,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T09_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T09_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 1,
+        "single_epoch_optimizer_calls": 1,
+        "before_stage": 8,
+        "acquired_stage": 9,
+        "before_F1": 10.833333333333334,
+        "acquired_F1": 10.833333333333334,
+        "acquisition_change_pp": 0.0,
+        "before_cell_source": {
+          "F1": 10.833333333333334,
+          "QA": 12,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "cca38218cae9e08fe4300854c6e9456767f3156c7495a629a574858f4be4ab97"
+        },
+        "acquired_cell_source": {
+          "F1": 10.833333333333334,
+          "QA": 12,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "cca38218cae9e08fe4300854c6e9456767f3156c7495a629a574858f4be4ab97"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 8,
+        "single_epoch_optimizer_calls": 1,
+        "before_stage": 8,
+        "acquired_stage": 9,
+        "before_F1": 22.61904761904762,
+        "acquired_F1": 26.78571428571429,
+        "acquisition_change_pp": 4.166666666666668,
+        "before_cell_source": {
+          "F1": 22.61904761904762,
+          "QA": 12,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        },
+        "acquired_cell_source": {
+          "F1": 26.78571428571429,
+          "QA": 12,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 15.952380952380954,
+      "pct10_minus_pct01_acquisition_change_pp": 4.166666666666668
+    },
+    {
+      "task": 10,
+      "task_id": "T10",
+      "domain": "medical",
+      "native_label_field": "content_type",
+      "native_label": "Color",
+      "TEST_QA": 65,
+      "TEST_identity": {
+        "sha256": "f6c9fcfd7c3b385eb82829ebb478a7db522eecc4a53c33ded2ab8f82ff57e328",
+        "count": 65,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T10_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T10_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 3,
+        "single_epoch_optimizer_calls": 1,
+        "before_stage": 9,
+        "acquired_stage": 10,
+        "before_F1": 42.51282051282051,
+        "acquired_F1": 43.43589743589743,
+        "acquisition_change_pp": 0.9230769230769198,
+        "before_cell_source": {
+          "F1": 42.51282051282051,
+          "QA": 65,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "48f412dd76cee86038ed20eb1344d8bd20f307a259939f7745ecd31b0b836fa7"
+        },
+        "acquired_cell_source": {
+          "F1": 43.43589743589743,
+          "QA": 65,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "1d0238f6f9b8e3fd669d3bfcc8a6a461b739cb57ef3b315fea84d8f961824d07"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 27,
+        "single_epoch_optimizer_calls": 2,
+        "before_stage": 9,
+        "acquired_stage": 10,
+        "before_F1": 40.153846153846146,
+        "acquired_F1": 53.692307692307686,
+        "acquisition_change_pp": 13.53846153846154,
+        "before_cell_source": {
+          "F1": 40.153846153846146,
+          "QA": 65,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        },
+        "acquired_cell_source": {
+          "F1": 53.692307692307686,
+          "QA": 65,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 10.256410256410255,
+      "pct10_minus_pct01_acquisition_change_pp": 12.61538461538462
+    },
+    {
+      "task": 11,
+      "task_id": "T11",
+      "domain": "medical",
+      "native_label_field": "content_type",
+      "native_label": "KG",
+      "TEST_QA": 267,
+      "TEST_identity": {
+        "sha256": "48e7b5e4177a001612d6640f6df92cc3621362792dffb0ad762476e562b6b21b",
+        "count": 267,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T11_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T11_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 12,
+        "single_epoch_optimizer_calls": 1,
+        "before_stage": 10,
+        "acquired_stage": 11,
+        "before_F1": 16.153288780436803,
+        "acquired_F1": 17.244679836751587,
+        "acquisition_change_pp": 1.0913910563147837,
+        "before_cell_source": {
+          "F1": 16.153288780436803,
+          "QA": 267,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "3c7fb52e08a6e6e857416bf6db7455a34588e42cdd1beee19bb07b0080ba6ba0"
+        },
+        "acquired_cell_source": {
+          "F1": 17.244679836751587,
+          "QA": 267,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "201077907c36278a278a91474a0d08a0847cdb3fba42623307c1fb4413b24bb9"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 117,
+        "single_epoch_optimizer_calls": 8,
+        "before_stage": 10,
+        "acquired_stage": 11,
+        "before_F1": 16.29293009683344,
+        "acquired_F1": 24.411120298760753,
+        "acquisition_change_pp": 8.118190201927312,
+        "before_cell_source": {
+          "F1": 16.29293009683344,
+          "QA": 267,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        },
+        "acquired_cell_source": {
+          "F1": 24.411120298760753,
+          "QA": 267,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 7.166440462009167,
+      "pct10_minus_pct01_acquisition_change_pp": 7.026799145612529
+    },
+    {
+      "task": 12,
+      "task_id": "T12",
+      "domain": "geography",
+      "native_label_field": "question_type",
+      "native_label": "rural_urban",
+      "TEST_QA": 100,
+      "TEST_identity": {
+        "sha256": "7948cf70e4996ec38532ff680638b8c81710d6e02cceb9589c58cb6403284013",
+        "count": 100,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T12_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T12_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 6,
+        "single_epoch_optimizer_calls": 1,
+        "before_stage": 11,
+        "acquired_stage": 12,
+        "before_F1": 59.0,
+        "acquired_F1": 64.0,
+        "acquisition_change_pp": 5.0,
+        "before_cell_source": {
+          "F1": 59.0,
+          "QA": 100,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "eefa81a655cfd050589ad3f3996f25bbccf88fd6c6463e5c1773f58592bd45be"
+        },
+        "acquired_cell_source": {
+          "F1": 64.0,
+          "QA": 100,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "4b3f55005e68c2d0f79d1b978d2a8d1c00d2d045536d249de8fa8d7318e8b574"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 57,
+        "single_epoch_optimizer_calls": 4,
+        "before_stage": 11,
+        "acquired_stage": 12,
+        "before_F1": 64.0,
+        "acquired_F1": 68.0,
+        "acquisition_change_pp": 4.0,
+        "before_cell_source": {
+          "F1": 64.0,
+          "QA": 100,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        },
+        "acquired_cell_source": {
+          "F1": 68.0,
+          "QA": 100,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 4.0,
+      "pct10_minus_pct01_acquisition_change_pp": -1.0
+    },
+    {
+      "task": 13,
+      "task_id": "T13",
+      "domain": "geography",
+      "native_label_field": "question_type",
+      "native_label": "presence",
+      "TEST_QA": 2955,
+      "TEST_identity": {
+        "sha256": "4ca421c2594f1d2a36b749d42526706cc6caca9af05f9908b85d08cf7c9218b4",
+        "count": 2955,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T13_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T13_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 170,
+        "single_epoch_optimizer_calls": 11,
+        "before_stage": 12,
+        "acquired_stage": 13,
+        "before_F1": 62.131979695431475,
+        "acquired_F1": 74.51776649746193,
+        "acquisition_change_pp": 12.38578680203046,
+        "before_cell_source": {
+          "F1": 62.131979695431475,
+          "QA": 2955,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "5b7d16a9f00f3f64e7d4866aa2584ca11a7bdd51e78255328d7226357c4bdae1"
+        },
+        "acquired_cell_source": {
+          "F1": 74.51776649746193,
+          "QA": 2955,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "5d242ef8708aafb942c6cdadb020e2fd6515894335715fe8ec73efbbfbe8efeb"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 1701,
+        "single_epoch_optimizer_calls": 107,
+        "before_stage": 12,
+        "acquired_stage": 13,
+        "before_F1": 50.42301184433164,
+        "acquired_F1": 83.8917089678511,
+        "acquisition_change_pp": 33.46869712351946,
+        "before_cell_source": {
+          "F1": 50.42301184433164,
+          "QA": 2955,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        },
+        "acquired_cell_source": {
+          "F1": 83.8917089678511,
+          "QA": 2955,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 9.373942470389167,
+      "pct10_minus_pct01_acquisition_change_pp": 21.082910321489003
+    },
+    {
+      "task": 14,
+      "task_id": "T14",
+      "domain": "geography",
+      "native_label_field": "question_type",
+      "native_label": "count",
+      "TEST_QA": 2947,
+      "TEST_identity": {
+        "sha256": "ff46c370c5b0a545c770e702e7fef159e79f4188c4a657356ca988da4b57866d",
+        "count": 2947,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T14_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T14_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 171,
+        "single_epoch_optimizer_calls": 11,
+        "before_stage": 13,
+        "acquired_stage": 14,
+        "before_F1": 2.0699015948422126,
+        "acquired_F1": 11.876484560570072,
+        "acquisition_change_pp": 9.80658296572786,
+        "before_cell_source": {
+          "F1": 2.0699015948422126,
+          "QA": 2947,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "28c174225295f6993b1af4273d31b854a5f30ad65619d000e16891d678d463d4"
+        },
+        "acquired_cell_source": {
+          "F1": 11.876484560570072,
+          "QA": 2947,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "6accfa0ffba90a5c34c8cc702a291aa5f135e1bca28eb62a008e67d2fbca18d9"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 1709,
+        "single_epoch_optimizer_calls": 107,
+        "before_stage": 13,
+        "acquired_stage": 14,
+        "before_F1": 13.539192399049881,
+        "acquired_F1": 25.110281642348152,
+        "acquisition_change_pp": 11.571089243298271,
+        "before_cell_source": {
+          "F1": 13.539192399049881,
+          "QA": 2947,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        },
+        "acquired_cell_source": {
+          "F1": 25.110281642348152,
+          "QA": 2947,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 13.23379708177808,
+      "pct10_minus_pct01_acquisition_change_pp": 1.764506277570412
+    },
+    {
+      "task": 15,
+      "task_id": "T15",
+      "domain": "geography",
+      "native_label_field": "question_type",
+      "native_label": "comp",
+      "TEST_QA": 4002,
+      "TEST_identity": {
+        "sha256": "6ae35bde45e33788bcd31c99dc9f80a1d9236bd6062a807fd989e2c1fbe426cc",
+        "count": 4002,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T15_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T15_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 226,
+        "single_epoch_optimizer_calls": 15,
+        "before_stage": 14,
+        "acquired_stage": 15,
+        "before_F1": 33.53323338330834,
+        "acquired_F1": 66.71664167916042,
+        "acquisition_change_pp": 33.183408295852075,
+        "before_cell_source": {
+          "F1": 33.53323338330834,
+          "QA": 4002,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "d3374c8d6934288613ea4b7664d729d99479e1876f72f0de4ede61926c899e80"
+        },
+        "acquired_cell_source": {
+          "F1": 66.71664167916042,
+          "QA": 4002,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "2cfb391c66070b75494c18323915c2e863a7f307eb2c114368286fd4d5d835f6"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 2256,
+        "single_epoch_optimizer_calls": 141,
+        "before_stage": 14,
+        "acquired_stage": 15,
+        "before_F1": 45.12743628185907,
+        "acquired_F1": 70.81459270364817,
+        "acquisition_change_pp": 25.687156421789105,
+        "before_cell_source": {
+          "F1": 45.12743628185907,
+          "QA": 4002,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        },
+        "acquired_cell_source": {
+          "F1": 70.81459270364817,
+          "QA": 4002,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 4.097951024487756,
+      "pct10_minus_pct01_acquisition_change_pp": -7.49625187406297
+    },
+    {
+      "task": 16,
+      "task_id": "T16",
+      "domain": "finance",
+      "native_label_field": null,
+      "native_label": null,
+      "TEST_QA": 2233,
+      "TEST_identity": {
+        "sha256": "162ba8ad340a9fb898a3a942b3e720e581f23dddfacb70c289f3bd935d869206",
+        "count": 2233,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T16_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T16_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 89,
+        "single_epoch_optimizer_calls": 6,
+        "before_stage": 15,
+        "acquired_stage": 16,
+        "before_F1": 3.8837896951049324,
+        "acquired_F1": 16.404666822500793,
+        "acquisition_change_pp": 12.520877127395861,
+        "before_cell_source": {
+          "F1": 3.8837896951049324,
+          "QA": 2233,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "506e1ffbdc160687df30df7ddfb2fab974b40c19de80d6df76d4281c4d389e0f"
+        },
+        "acquired_cell_source": {
+          "F1": 16.404666822500793,
+          "QA": 2233,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "a7229a0cd4e685fcaf084100f8421837c9d76fd5499ad308a193df0338ec256f"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 887,
+        "single_epoch_optimizer_calls": 56,
+        "before_stage": 15,
+        "acquired_stage": 16,
+        "before_F1": 2.1173445154636372,
+        "acquired_F1": 25.414240931482304,
+        "acquisition_change_pp": 23.29689641601867,
+        "before_cell_source": {
+          "F1": 2.1173445154636372,
+          "QA": 2233,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        },
+        "acquired_cell_source": {
+          "F1": 25.414240931482304,
+          "QA": 2233,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 9.00957410898151,
+      "pct10_minus_pct01_acquisition_change_pp": 10.776019288622807
+    },
+    {
+      "task": 17,
+      "task_id": "T17",
+      "domain": "traffic",
+      "native_label_field": "question_type",
+      "native_label": "general",
+      "TEST_QA": 500,
+      "TEST_identity": {
+        "sha256": "f5a8de804f54aba60315eff839f05a0401ff96427920c0cd3112affcc19362e8",
+        "count": 500,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T17_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T17_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 49,
+        "single_epoch_optimizer_calls": 4,
+        "before_stage": 16,
+        "acquired_stage": 17,
+        "before_F1": 27.04567760912443,
+        "acquired_F1": 31.23712002938488,
+        "acquisition_change_pp": 4.191442420260451,
+        "before_cell_source": {
+          "F1": 27.04567760912443,
+          "QA": 500,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "9fcf2734e7b18374ae33fec942c77eebcc574755a16a264baed63231ab3fede7"
+        },
+        "acquired_cell_source": {
+          "F1": 31.23712002938488,
+          "QA": 500,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "cf37d0ed3e5a2be20f2df7731d76d06b568459657d244927908bc2559e60b0b1"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 489,
+        "single_epoch_optimizer_calls": 31,
+        "before_stage": 16,
+        "acquired_stage": 17,
+        "before_F1": 11.196410896726537,
+        "acquired_F1": 36.67913801294758,
+        "acquisition_change_pp": 25.482727116221046,
+        "before_cell_source": {
+          "F1": 11.196410896726537,
+          "QA": 500,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        },
+        "acquired_cell_source": {
+          "F1": 36.67913801294758,
+          "QA": 500,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 5.442017983562703,
+      "pct10_minus_pct01_acquisition_change_pp": 21.291284695960595
+    },
+    {
+      "task": 18,
+      "task_id": "T18",
+      "domain": "traffic",
+      "native_label_field": "question_type",
+      "native_label": "regional",
+      "TEST_QA": 1123,
+      "TEST_identity": {
+        "sha256": "48e1bf7b181cf1a5d4c7b9be03e1fa11fe2e26b37ca2f4c8a4f4498ef20c403d",
+        "count": 1123,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T18_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T18_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 107,
+        "single_epoch_optimizer_calls": 7,
+        "before_stage": 17,
+        "acquired_stage": 18,
+        "before_F1": 13.052302897652371,
+        "acquired_F1": 30.62161830124652,
+        "acquisition_change_pp": 17.56931540359415,
+        "before_cell_source": {
+          "F1": 13.052302897652371,
+          "QA": 1123,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "5190c8d1439dac7970d985c1d30cd2a309c7948eea23bb092ffd0d8f85c5914d"
+        },
+        "acquired_cell_source": {
+          "F1": 30.62161830124652,
+          "QA": 1123,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "d5eafb8e395b5ee0eb04f32f955ff4c36251ff6d06e7274f31d4cfa4623c86cf"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 1073,
+        "single_epoch_optimizer_calls": 68,
+        "before_stage": 17,
+        "acquired_stage": 18,
+        "before_F1": 25.346751669433356,
+        "acquired_F1": 38.49394748050515,
+        "acquisition_change_pp": 13.147195811071793,
+        "before_cell_source": {
+          "F1": 25.346751669433356,
+          "QA": 1123,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        },
+        "acquired_cell_source": {
+          "F1": 38.49394748050515,
+          "QA": 1123,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 7.872329179258628,
+      "pct10_minus_pct01_acquisition_change_pp": -4.422119592522357
+    },
+    {
+      "task": 19,
+      "task_id": "T19",
+      "domain": "traffic",
+      "native_label_field": "question_type",
+      "native_label": "suggestion",
+      "TEST_QA": 500,
+      "TEST_identity": {
+        "sha256": "4af47721d341958f26e54744330927a14b5e5f5b8d84489607623b741eddbe2b",
+        "count": 500,
+        "source_paths": {
+          "pct01": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T19_test.jsonl",
+          "pct10": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T19_test.jsonl"
+        },
+        "ID_and_reference_identity_inherited_from_same_file_SHA": true,
+        "TEST_rows_re_read": false
+      },
+      "pct01": {
+        "TRAIN_QA": 49,
+        "single_epoch_optimizer_calls": 4,
+        "before_stage": 18,
+        "acquired_stage": 19,
+        "before_F1": 32.15072010878177,
+        "acquired_F1": 32.749629339991465,
+        "acquisition_change_pp": 0.5989092312096957,
+        "before_cell_source": {
+          "F1": 32.15072010878177,
+          "QA": 500,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "85419159ffa7497471fa9ef2cc59bebb6831d3eaa95eacf100c6ff12377451e5"
+        },
+        "acquired_cell_source": {
+          "F1": 32.749629339991465,
+          "QA": 500,
+          "source": "original sealed aggregate token_f1/count",
+          "source_sha256": "459f0b6c40bce43a028e7226f7fef55a4fd40d1f5403f2710b3bfc4c5cc56947"
+        }
+      },
+      "pct10": {
+        "TRAIN_QA": 488,
+        "single_epoch_optimizer_calls": 31,
+        "before_stage": 18,
+        "acquired_stage": 19,
+        "before_F1": 34.77492040088866,
+        "acquired_F1": 36.678452316208556,
+        "acquisition_change_pp": 1.9035319153198955,
+        "before_cell_source": {
+          "F1": 34.77492040088866,
+          "QA": 500,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        },
+        "acquired_cell_source": {
+          "F1": 36.678452316208556,
+          "QA": 500,
+          "source": "sealed pct10 verified_cells",
+          "formal_proof_sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+        }
+      },
+      "pct10_minus_pct01_acquired_F1_pp": 3.9288229762170914,
+      "pct10_minus_pct01_acquisition_change_pp": 1.3046226841101998
+    }
+  ],
+  "cross_ratio_task_counts": {
+    "acquired": {
+      "higher": 19,
+      "lower": 0,
+      "tie": 0,
+      "denominator": 19
+    },
+    "change": {
+      "higher": 13,
+      "lower": 6,
+      "tie": 0,
+      "denominator": 19
+    }
+  },
+  "source_sha256": {
+    "bundle": {
+      "path": "D:\\锦\\大学\\科研\\LLMCL\\.deployment\\private_acquisition_bundle_20261026.json",
+      "sha256": "d4fdc1a3cbf5d96db6ff182d1f6320044b9f064de1a1aa00ec4f5c1673d2916e",
+      "bytes": 278772
+    },
+    "cells01_bundle": {
+      "path": "D:\\锦\\大学\\科研\\LLMCL\\.deployment\\private_acquisition_cells_pct01_20261026.json",
+      "sha256": "e6b4d161497023d45349eb7f5ba28423013629d4b4cadb75b4eaa8e99d140b0c",
+      "bytes": 45692
+    },
+    "pct01.formal_proof": {
+      "root": "D:\\锦\\大学\\科研\\LLMCL",
+      "relative": "summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/completed/b463d0e9fdfecc9eb456.json",
+      "path": "D:\\锦\\大学\\科研\\LLMCL\\summary\\two_backbone_pct01_20261017\\completion_observer_seven_20261018\\completed\\b463d0e9fdfecc9eb456.json",
+      "sha256": "c0c010f18db89b088cd3ac13b92e79a76c560c13ee9f9960f0e5e2ddc8e88c69",
+      "bytes": 66712
+    },
+    "pct01.config": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/config.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/config.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/config.json",
+      "sha256": "20db5ebdd6400ba5750a3862071ea3a3d6829259ee5f6b6f8a62e51d141124f2",
+      "bytes": 4432
+    },
+    "pct01.manifest": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/manifest.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/manifest.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/manifest.json",
+      "sha256": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+      "bytes": 22662
+    },
+    "pct01.metrics": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/metrics_by_score.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/metrics_by_score.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/metrics_by_score.json",
+      "sha256": "98e1eeb89365c109dff36b42496ed504300c6d528ff7d0834a3cd148fb6b472e",
+      "bytes": 686
+    },
+    "pct10.formal_proof": {
+      "root": "D:\\锦\\大学\\科研\\LLMCL",
+      "relative": "summary/two_backbone_pct10_20261025/completion_observer_native/completed/5d039de56ea15c2f32fc.json",
+      "path": "D:\\锦\\大学\\科研\\LLMCL\\summary\\two_backbone_pct10_20261025\\completion_observer_native\\completed\\5d039de56ea15c2f32fc.json",
+      "sha256": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99",
+      "bytes": 79525
+    },
+    "pct10.config": {
+      "root": "/dev/shm/llmcl-pct10-1084-zu7e3hb_",
+      "relative": "exp/two_backbone_pct10_native_20261025/runs/onevision/pct10/SeqFT_LoRA/training_20261025_222559/config.json",
+      "path": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_20261025/runs/onevision/pct10/SeqFT_LoRA/training_20261025_222559/config.json",
+      "resolved_path": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_20261025/runs/onevision/pct10/SeqFT_LoRA/training_20261025_222559/config.json",
+      "sha256": "c652f2168ce7d01ba85e2777ae4762afc7659b5a15e2d377d8d527ea5818a3e4",
+      "bytes": 4464
+    },
+    "pct10.manifest": {
+      "root": "/dev/shm/llmcl-pct10-1084-zu7e3hb_",
+      "relative": "data/FiveDomainCL/five_domain_native_cl_pct10_20261025/pct10/manifest.json",
+      "path": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/data/FiveDomainCL/five_domain_native_cl_pct10_20261025/pct10/manifest.json",
+      "resolved_path": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/data/FiveDomainCL/five_domain_native_cl_pct10_20261025/pct10/manifest.json",
+      "sha256": "02ef86674c22a9dbf7f0d406398615437f8406cff364415e14d54f5fdb5bfcb7",
+      "bytes": 23425
+    },
+    "pct10.metrics": {
+      "root": "/dev/shm/llmcl-pct10-1084-zu7e3hb_",
+      "relative": "exp/two_backbone_pct10_native_20261025/runs/onevision/pct10/SeqFT_LoRA/training_20261025_222559/metrics_by_score.json",
+      "path": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_20261025/runs/onevision/pct10/SeqFT_LoRA/training_20261025_222559/metrics_by_score.json",
+      "resolved_path": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_20261025/runs/onevision/pct10/SeqFT_LoRA/training_20261025_222559/metrics_by_score.json",
+      "sha256": "9e1f085ef79fbb304d358689524421d3a2f2d817b9152d19dfbeb2ded8f4c43a",
+      "bytes": 685
+    },
+    "pct01.cell.1.before": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_00/T01_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_00/T01_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_00/T01_test_predictions.scores.json",
+      "sha256": "0ae401ce41ea8c2fbddfd807809f4755fe0ead6d5eeda9b4f8ce1fe5b2b4738f",
+      "bytes": 136
+    },
+    "pct01.cell.1.acquired": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_01/T01_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_01/T01_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_01/T01_test_predictions.scores.json",
+      "sha256": "ae91e7e4b7f867bc5f9e8e9977d5548ad0310d549f8068e0ae71701b9dc1115d",
+      "bytes": 138
+    },
+    "pct01.cell.2.before": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_01/T02_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_01/T02_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_01/T02_test_predictions.scores.json",
+      "sha256": "454d02e7534c816598a9d01c6eb0c4a0caf18c5e3eed6b8fd1999d4f19a8ee8a",
+      "bytes": 148
+    },
+    "pct01.cell.2.acquired": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_02/T02_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_02/T02_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_02/T02_test_predictions.scores.json",
+      "sha256": "948ebb6a2f4ed91c4680893f9e4832886ba12ddeba83757436277831ee894e81",
+      "bytes": 149
+    },
+    "pct01.cell.3.before": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_02/T03_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_02/T03_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_02/T03_test_predictions.scores.json",
+      "sha256": "797daf7fa75494f505dccd2d6e2faec402008c04023af0f5b75acb312ecacbf5",
+      "bytes": 149
+    },
+    "pct01.cell.3.acquired": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_03/T03_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_03/T03_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_03/T03_test_predictions.scores.json",
+      "sha256": "0ace09caa763aa9a86cef751e47e8c24745b80abc5014b29388bcc7a37f15f76",
+      "bytes": 149
+    },
+    "pct01.cell.4.before": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_03/T04_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_03/T04_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_03/T04_test_predictions.scores.json",
+      "sha256": "6e6ef6a66c85f5f236a4b57dbf2567cb4ddb82b84ea660e065d0e0c709a7e2a7",
+      "bytes": 151
+    },
+    "pct01.cell.4.acquired": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_04/T04_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_04/T04_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_04/T04_test_predictions.scores.json",
+      "sha256": "84a29ee70be7b442fe0e4e9a00cc3879e53686bd99e451d85dcf474064f79400",
+      "bytes": 148
+    },
+    "pct01.cell.5.before": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_04/T05_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_04/T05_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_04/T05_test_predictions.scores.json",
+      "sha256": "9268a79e59de9ded755bdfac4bd6bcbe5a151de2b05cc0e44088641b5496e59b",
+      "bytes": 149
+    },
+    "pct01.cell.5.acquired": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_05/T05_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_05/T05_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_05/T05_test_predictions.scores.json",
+      "sha256": "60d61d928de4058e823f6b38eff81a38907789689be5905a89ffb57ff41079d2",
+      "bytes": 149
+    },
+    "pct01.cell.6.before": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_05/T06_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_05/T06_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_05/T06_test_predictions.scores.json",
+      "sha256": "89bb2e3d1af0b43c687165148e7bf24c6c4a41d110fc348df4d9c4c3d7ef5471",
+      "bytes": 150
+    },
+    "pct01.cell.6.acquired": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_06/T06_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_06/T06_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_06/T06_test_predictions.scores.json",
+      "sha256": "c0dd9f0fd0e3a00c16a940e3c2ad66512c645e2289ec5af16c474dfdf762b37c",
+      "bytes": 149
+    },
+    "pct01.cell.7.before": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_06/T07_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_06/T07_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_06/T07_test_predictions.scores.json",
+      "sha256": "894a1aefcb3add88de97e5d059d022d7952467965d14e54bd7aeee967ec19248",
+      "bytes": 146
+    },
+    "pct01.cell.7.acquired": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_07/T07_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_07/T07_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_07/T07_test_predictions.scores.json",
+      "sha256": "a0d08be5de81b9bfd87496f9e123a75246d9c1cb86ef7edf2acc8967e36f7081",
+      "bytes": 146
+    },
+    "pct01.cell.8.before": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_07/T08_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_07/T08_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_07/T08_test_predictions.scores.json",
+      "sha256": "f254c047ac5a4fec4c645a8bdb0349b00185760a5b20584ec57189e673f33749",
+      "bytes": 147
+    },
+    "pct01.cell.8.acquired": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_08/T08_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_08/T08_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_08/T08_test_predictions.scores.json",
+      "sha256": "cc181f541bad935ea62146a99866d16f0b7327a2fbd4682fff298239702b18fd",
+      "bytes": 150
+    },
+    "pct01.cell.9.before": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_08/T09_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_08/T09_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_08/T09_test_predictions.scores.json",
+      "sha256": "cca38218cae9e08fe4300854c6e9456767f3156c7495a629a574858f4be4ab97",
+      "bytes": 133
+    },
+    "pct01.cell.9.acquired": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_09/T09_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_09/T09_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_09/T09_test_predictions.scores.json",
+      "sha256": "cca38218cae9e08fe4300854c6e9456767f3156c7495a629a574858f4be4ab97",
+      "bytes": 133
+    },
+    "pct01.cell.10.before": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_09/T10_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_09/T10_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_09/T10_test_predictions.scores.json",
+      "sha256": "48f412dd76cee86038ed20eb1344d8bd20f307a259939f7745ecd31b0b836fa7",
+      "bytes": 147
+    },
+    "pct01.cell.10.acquired": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_10/T10_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_10/T10_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_10/T10_test_predictions.scores.json",
+      "sha256": "1d0238f6f9b8e3fd669d3bfcc8a6a461b739cb57ef3b315fea84d8f961824d07",
+      "bytes": 146
+    },
+    "pct01.cell.11.before": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_10/T11_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_10/T11_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_10/T11_test_predictions.scores.json",
+      "sha256": "3c7fb52e08a6e6e857416bf6db7455a34588e42cdd1beee19bb07b0080ba6ba0",
+      "bytes": 149
+    },
+    "pct01.cell.11.acquired": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_11/T11_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_11/T11_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_11/T11_test_predictions.scores.json",
+      "sha256": "201077907c36278a278a91474a0d08a0847cdb3fba42623307c1fb4413b24bb9",
+      "bytes": 150
+    },
+    "pct01.cell.12.before": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_11/T12_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_11/T12_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_11/T12_test_predictions.scores.json",
+      "sha256": "eefa81a655cfd050589ad3f3996f25bbccf88fd6c6463e5c1773f58592bd45be",
+      "bytes": 108
+    },
+    "pct01.cell.12.acquired": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_12/T12_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_12/T12_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_12/T12_test_predictions.scores.json",
+      "sha256": "4b3f55005e68c2d0f79d1b978d2a8d1c00d2d045536d249de8fa8d7318e8b574",
+      "bytes": 108
+    },
+    "pct01.cell.13.before": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_12/T13_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_12/T13_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_12/T13_test_predictions.scores.json",
+      "sha256": "5b7d16a9f00f3f64e7d4866aa2584ca11a7bdd51e78255328d7226357c4bdae1",
+      "bytes": 153
+    },
+    "pct01.cell.13.acquired": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_13/T13_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_13/T13_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_13/T13_test_predictions.scores.json",
+      "sha256": "5d242ef8708aafb942c6cdadb020e2fd6515894335715fe8ec73efbbfbe8efeb",
+      "bytes": 150
+    },
+    "pct01.cell.14.before": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_13/T14_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_13/T14_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_13/T14_test_predictions.scores.json",
+      "sha256": "28c174225295f6993b1af4273d31b854a5f30ad65619d000e16891d678d463d4",
+      "bytes": 151
+    },
+    "pct01.cell.14.acquired": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_14/T14_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_14/T14_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_14/T14_test_predictions.scores.json",
+      "sha256": "6accfa0ffba90a5c34c8cc702a291aa5f135e1bca28eb62a008e67d2fbca18d9",
+      "bytes": 152
+    },
+    "pct01.cell.15.before": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_14/T15_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_14/T15_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_14/T15_test_predictions.scores.json",
+      "sha256": "d3374c8d6934288613ea4b7664d729d99479e1876f72f0de4ede61926c899e80",
+      "bytes": 150
+    },
+    "pct01.cell.15.acquired": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_15/T15_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_15/T15_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_15/T15_test_predictions.scores.json",
+      "sha256": "2cfb391c66070b75494c18323915c2e863a7f307eb2c114368286fd4d5d835f6",
+      "bytes": 150
+    },
+    "pct01.cell.16.before": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_15/T16_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_15/T16_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_15/T16_test_predictions.scores.json",
+      "sha256": "506e1ffbdc160687df30df7ddfb2fab974b40c19de80d6df76d4281c4d389e0f",
+      "bytes": 151
+    },
+    "pct01.cell.16.acquired": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_16/T16_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_16/T16_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_16/T16_test_predictions.scores.json",
+      "sha256": "a7229a0cd4e685fcaf084100f8421837c9d76fd5499ad308a193df0338ec256f",
+      "bytes": 152
+    },
+    "pct01.cell.17.before": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_16/T17_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_16/T17_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_16/T17_test_predictions.scores.json",
+      "sha256": "9fcf2734e7b18374ae33fec942c77eebcc574755a16a264baed63231ab3fede7",
+      "bytes": 132
+    },
+    "pct01.cell.17.acquired": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_17/T17_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_17/T17_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_17/T17_test_predictions.scores.json",
+      "sha256": "cf37d0ed3e5a2be20f2df7731d76d06b568459657d244927908bc2559e60b0b1",
+      "bytes": 132
+    },
+    "pct01.cell.18.before": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_17/T18_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_17/T18_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_17/T18_test_predictions.scores.json",
+      "sha256": "5190c8d1439dac7970d985c1d30cd2a309c7948eea23bb092ffd0d8f85c5914d",
+      "bytes": 134
+    },
+    "pct01.cell.18.acquired": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_18/T18_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_18/T18_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_18/T18_test_predictions.scores.json",
+      "sha256": "d5eafb8e395b5ee0eb04f32f955ff4c36251ff6d06e7274f31d4cfa4623c86cf",
+      "bytes": 134
+    },
+    "pct01.cell.19.before": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_18/T19_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_18/T19_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_18/T19_test_predictions.scores.json",
+      "sha256": "85419159ffa7497471fa9ef2cc59bebb6831d3eaa95eacf100c6ff12377451e5",
+      "bytes": 133
+    },
+    "pct01.cell.19.acquired": {
+      "root": "/data2/liyapeng_grp/program/LLMCL",
+      "relative": "exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T19_test_predictions.scores.json",
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T19_test_predictions.scores.json",
+      "resolved_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/SeqFT_LoRA/training_20261017_161154/evaluations/stage_19/T19_test_predictions.scores.json",
+      "sha256": "459f0b6c40bce43a028e7226f7fef55a4fd40d1f5403f2710b3bfc4c5cc56947",
+      "bytes": 133
+    },
+    "consumer_source": {
+      "path": "D:\\锦\\大学\\科研\\LLMCL\\analysis\\all_task_acquisition_pct01_pct10_20261026.py",
+      "sha256": "4405e907daa3a683e4cf4ea96912d7e75b85cf094d462a6013bf20111edc2fa4",
+      "bytes": 23283
+    }
+  },
+  "formal_proof_sha256": {
+    "pct01": "c0c010f18db89b088cd3ac13b92e79a76c560c13ee9f9960f0e5e2ddc8e88c69",
+    "pct10": "73fdbbd139a6910225088e78cc44033824456e09dec93411ed93582ac4d67c99"
+  },
+  "parameterization": {
+    "source_methods_sha256": "e5bd8f51690b006274ed5adcfa4ef3b1a2c3b0f1d79476d948b71d1cfec41c5b",
+    "rank": 8,
+    "alpha": 32,
+    "dropout": 0.1,
+    "targets": [
+      "q_proj",
+      "v_proj"
+    ],
+    "adapter_parameter_dtype": "torch.float32",
+    "rank_and_targets_source": "Pinned methods.py, not fields in the run configs",
+    "same_parameterization_function_class": true,
+    "same_learned_numeric_U_V_subspace_not_established": true,
+    "previously_reported_trainable_coordinates_each": 540672,
+    "previously_reported_complete_coefficients_each": 894216224,
+    "count_scope": "Prior published measurements supplied by root; no tensor layout or weight payload read by this consumer"
+  },
+  "budget_source": "Original manifest TRAIN counts, one epoch, batch16/micro1; ceil counts optimizer calls, not all-positive LR claims",
+  "weights": {
+    "domain_within": "Original TEST QA counts",
+    "domain_macro": "Equal five domains",
+    "AP19": "Equal 19 tasks"
+  },
+  "limits": [
+    "Descriptive after completed runs, not blind preregistration.",
+    "Pre/acquired domain aggregates use multiple task-specific model times, not one joint model state.",
+    "More data changes updates, schedule and prior curriculum; differences are not pure data-size causality.",
+    "A larger change from a lower starting score does not itself imply better acquired performance.",
+    "OneVision/SeqFT only, not both backbones or all methods; no new algorithm or method selection.",
+    "No retention/forgetting analysis, bootstrap, geometry/norm audit, or memory/quality advantage claim."
+  ],
+  "activity": {
+    "new_scores": 0,
+    "new_generations": 0,
+    "new_training": 0,
+    "model_or_checkpoint_payload_reads": 0,
+    "QA_or_prediction_rows_read": 0,
+    "embedded_payload_paths_opened": 0,
+    "new_bootstraps": 0,
+    "original_pct01_aggregate_score_JSONs_decoded": 38,
+    "pct10_verified_cells_inherited": 74
+  },
+  "elapsed": {
+    "started_unix": 1792995060.952207,
+    "prepared_UTC": "2026-10-26T06:11:00.956795+00:00",
+    "wall_seconds_before_output_write": 0.0,
+    "CPU_seconds_before_output_write": 0.015625
+  }
+}

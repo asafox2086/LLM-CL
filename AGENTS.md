@@ -1,5 +1,7 @@
 # 2026-10-26：设置确定后固定，研究方法在条件下的局限
 
+- 人类新要求分析1%/10%结果、参数空间与答案；全19任务派生已一次return0，source4405e907／JSONb56656e1／md0f9e673b，见ALL_TASK_ACQUISITION_FINDINGS。LLaVA SeqFT刚习得19高0低0平、五域宏42.026058→49.996420，但阶段内增量13高6低；Position／Plane10%阶段−4.859471／−0.718391且刚习得仍高1%。同q/v-r8同方法源SHA不等同数值A/B空间，93→828调用／10%822正LR6零；不归纯数据、不复活扩容或旧分支，不拿S19自然下降说刚习得下降。1%原proof无verified_cells／metrics无矩阵，实际读取38已封aggregate JSON；10%用proof74cells，0新score/QA/模型/CP。此派生不重跑；所有原任务及负值保留。多选286原零token F1不等286语义全错，固定token规则不按选项集合给部分分，用户解释已写原金融FINDINGS，不改设置。
+
 - 两组FOREVER10%独立完整终态核验入口已备：analysis/pct10_forever_complete_verify_20261026.py，单run CLI只在真实完整exit0后运行；保原raw F1／19/74/80316/21454及828/822/6核验，另核动态／final实际成本、gate及rolling/S19。独立O_EXCL缓存，不接native14或新建observer服务；当前只源码审阅，尚无实际consumer／评分／FOREVER新质量，正式仍1/16。request无stage和selector抽取缺REVISION两处在首次执行前修正，producer不变；beta照原运算顺序是保守一致建议，不是已观测bug。源码与独立review见two_backbone_pct10_20261025/FOREVER_COMPLETE_VERIFIER_*。
 
 - PIF目标有限核对见train_answer_prior_20261025/PIF_OBJECTIVE_REVIEW：负例混合内容错误与绑定错配，作者§4.3本也说明两作用，不当我们的首发现；整包增益不识别绑定独立因果。Eq7/8负例方向印刷不一致已渲染目视确认，GitHub main未见实现，不能推实际训练方向错。纯一致性稳定选错是旧协议已有边界的数学说明，不算新模型发现；不以此新增训练、修改360诊断或两正式主表设置。现无成功新方法，Ours保持空。
