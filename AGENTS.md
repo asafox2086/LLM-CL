@@ -1,5 +1,7 @@
 # 2026-10-26：设置确定后固定，研究方法在条件下的局限
 
+- 两组FOREVER10%独立完整终态核验入口已备：analysis/pct10_forever_complete_verify_20261026.py，单run CLI只在真实完整exit0后运行；保原raw F1／19/74/80316/21454及828/822/6核验，另核动态／final实际成本、gate及rolling/S19。独立O_EXCL缓存，不接native14或新建observer服务；当前只源码审阅，尚无实际consumer／评分／FOREVER新质量，正式仍1/16。request无stage和selector抽取缺REVISION两处在首次执行前修正，producer不变；beta照原运算顺序是保守一致建议，不是已观测bug。源码与独立review见two_backbone_pct10_20261025/FOREVER_COMPLETE_VERIFIER_*。
+
 - PIF目标有限核对见train_answer_prior_20261025/PIF_OBJECTIVE_REVIEW：负例混合内容错误与绑定错配，作者§4.3本也说明两作用，不当我们的首发现；整包增益不识别绑定独立因果。Eq7/8负例方向印刷不一致已渲染目视确认，GitHub main未见实现，不能推实际训练方向错。纯一致性稳定选错是旧协议已有边界的数学说明，不算新模型发现；不以此新增训练、修改360诊断或两正式主表设置。现无成功新方法，Ours保持空。
 
 - 既定360位置诊断已实际进入原空卡分配器：事前发布79b5260e，准入8e46d297...四源未变；仅CPU318427退出，新OLD CPU342620/start768961721/UID1084、unit llmcl-pct10-baselines-position-old-20261026.service active/running，原4GPU与各wrapper身份全保、0GPU信号。首次快照1792991197.0531332 slot=null，尚未STARTED／模型，预算未开始；之后真实SLOT／PID／STARTED／终态为准，不重启唯一点或热改4源。CONTROLLER_HANDOFF已指新unit，其他基线按原队列运行。4态成功才唯一消费，failure不续接；新方法仍未实现。controller只把公开结果复制train_answer_prior report，现有NEW collector不覆盖该目录（冻结注释不准确），公开及私有完整结果都须结束后显式转存核SHA，不误称已耐久。

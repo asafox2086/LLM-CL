@@ -4,6 +4,8 @@
 
 ## 10%第二主表：实际启动与归档边界
 
+2026-10-26补齐两组FOREVER的[独立完整结果核验入口](analysis/pct10_forever_complete_verify_20261026.py)：复用原10%评分／日程核验，另核实际dynamic／final回放、来源、gate和rolling／S19完整图，缓存与native14分开。只在真实完整训练exit0后手动调用，不新增自动扫描或GPU任务；目前仅源码审阅，未实际消费／评分，正式仍1/16。旧1%“零dynamic”与固定memory数不能沿用；请求epochs与实际HF曝光分列，训练峰不冒充受控推理峰。[源码核对与执行边界](summary/two_backbone_pct10_20261025/FOREVER_COMPLETE_VERIFIER_SOURCE_REVIEW.md)保留首次执行前两处真实接口修正，不把实现补齐当方法效果。
+
 实际接续已完成：先发布d4806d8b，29科学源／policy／BUILD及2监督源逐字节运输后，unix1792988577.2441113核新OLD CPU318427/start768699750/UID1084、unit `llmcl-pct10-baselines-dynamic-old-20261026.service`存在；仅旧CPU4049826退出，原Qwen Seq4046298、双PAS4049854/4048289、LLaVA CL236681及各wrapper身份前后全同，0 GPU信号。两FOREVER已由defer进入原空卡分配器waiting，尚无其GPU门或正式质量。原三个入口SHA不变，完整证明仍1/16。详见[实际接续](summary/two_backbone_pct10_20261025/FOREVER_DYNAMIC_ACTIVATION.json)与[首次handoff](summary/two_backbone_pct10_20261025/FOREVER_DYNAMIC_HANDOFF_old.json)。
 
 原1% Qwen FOREVER属于独立nohup队列，不在native pending5中；unix1792989120.7491376实查10498/start131514/UID1004、boot c8bddf24…、原launcher命令与OWNER匹配，state为healthy_wait_for_free_baseline_slot且worker=null，没有NEEDS_ATTENTION／TRAINING_PROCESS_COMPLETE或训练日志。保留其原Qwen队列先清空再等GPU2的条件，没有新增副本／改调度。[实际独立waiter](summary/two_backbone_pct10_20261025/FOREVER_PCT01_WAITER_OBSERVED.json)是时点核实，不是永久live或正式结果。
