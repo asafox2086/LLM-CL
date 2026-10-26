@@ -1,0 +1,137 @@
+{
+  "unix": 1793014350.8718238,
+  "scope": "NEW-only stdlib file/service/process/GPU metadata; no model, QA, scores or weights read",
+  "private_bundle_sha256": "1c08614560d85d62a3fd027d02dd432554a0f28aae0815693e4db0f56b316bc6",
+  "primary_service": {
+    "returncode": 0,
+    "stdout": "Restart=no\nMainPID=1221743\nExecStart={ path=/data1/liyapeng/program/LLMCL/.assets-env/bin/python ; argv[]=/data1/liyapeng/program/LLMCL/.assets-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/baseline_pct01_capacity_20261025.py --watch ; ignore_errors=no ; start_time=[Sun 2026-10-25 16:34:47 CST] ; stop_time=[n/a] ; pid=1221743 ; code=(null) ; status=0/0 }\nKillMode=process\nActiveState=active\nSubState=running\nFragmentPath=/data1/liyapeng/.config/systemd/user/llmcl-two-backbone-native.service\n",
+    "stderr": ""
+  },
+  "pct01_capacity": {
+    "exists": true,
+    "path": "/data1/liyapeng/program/LLMCL/summary/two_backbone_native_cl_20261017_v2/baseline_pct01_capacity_status.json",
+    "bytes": 935,
+    "sha256": "2fc4186d535e50a16bab67e2ba9ec9c0341a9b0aa0e32136e81f8b6c93eae905",
+    "metadata": {
+      "unix": 1793014337.0537043,
+      "CPU_pid": 1221743,
+      "active": {
+        "new3090:pct01:CL_MoE": {
+          "pid": 8260,
+          "startticks": "60876",
+          "uid": 1004,
+          "pgid": 8260
+        },
+        "new3090:pct01:SMoLoRA": {
+          "pid": 8265,
+          "startticks": "60882",
+          "uid": 1004,
+          "pgid": 8265
+        }
+      },
+      "reserved_GPU_not_assigned": 0,
+      "pct01_only": true,
+      "FOREVER_untouched": true,
+      "pending": [
+        {
+          "host": "new3090",
+          "key": "pct01:PASs_MoE",
+          "status": "ready_reload"
+        },
+        {
+          "host": "new3090",
+          "key": "pct01:PaRSP",
+          "status": "ready_reload"
+        },
+        {
+          "host": "new3090_onevision",
+          "key": "pct01:SMoLoRA",
+          "status": "waiting"
+        },
+        {
+          "host": "new3090",
+          "key": "pct01:OSFT",
+          "status": "waiting"
+        },
+        {
+          "host": "new3090",
+          "key": "pct01:SpaRTA",
+          "status": "waiting"
+        }
+      ],
+      "no_GPU_signals": true
+    }
+  },
+  "pct10_queue_new_exists": false,
+  "pct10_dispatch_lock_exists": false,
+  "own_project_processes": [
+    {
+      "identity": {
+        "pid": 8260,
+        "startticks": "60876",
+        "state": "R",
+        "uid": 1004,
+        "pgid": 8260
+      },
+      "project_paths": [
+        "/data1/liyapeng/program/LLMCL/.vision-env/bin/python",
+        "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py",
+        "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837"
+      ],
+      "flags": {
+        "--method": "CL_MoE",
+        "--condition": "pct01",
+        "--run-dir": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837"
+      }
+    },
+    {
+      "identity": {
+        "pid": 8265,
+        "startticks": "60882",
+        "state": "R",
+        "uid": 1004,
+        "pgid": 8265
+      },
+      "project_paths": [
+        "/data1/liyapeng/program/LLMCL/.vision-env/bin/python",
+        "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/run.py",
+        "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SMoLoRA/training_20261022_162837"
+      ],
+      "flags": {
+        "--method": "SMoLoRA",
+        "--condition": "pct01",
+        "--run-dir": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SMoLoRA/training_20261022_162837"
+      }
+    },
+    {
+      "identity": {
+        "pid": 1221743,
+        "startticks": "26017836",
+        "state": "S",
+        "uid": 1004,
+        "pgid": 1221743
+      },
+      "project_paths": [
+        "/data1/liyapeng/program/LLMCL/.assets-env/bin/python",
+        "/data1/liyapeng/program/LLMCL/analysis/baseline_pct01_capacity_20261025.py"
+      ],
+      "flags": {}
+    }
+  ],
+  "gpu_inventory": {
+    "returncode": 0,
+    "stdout": "0, 24002, 257, 0\n1, 16272, 7987, 99\n2, 9880, 14379, 98\n3, 11722, 12537, 60\n",
+    "stderr": ""
+  },
+  "gpu_apps": {
+    "returncode": 0,
+    "stdout": "GPU-0fc921a0-8588-6976-7e2c-172705ab6980, 1704424, 23994\nGPU-3f5b86c8-feeb-110c-c68c-e04716c0f84c, 1428207, 4576\nGPU-3f5b86c8-feeb-110c-c68c-e04716c0f84c, 1549639, 2534\nGPU-3f5b86c8-feeb-110c-c68c-e04716c0f84c, 1630249, 4574\nGPU-3f5b86c8-feeb-110c-c68c-e04716c0f84c, 1691851, 4580\nGPU-01bbc8c7-11be-9e3c-b786-7c075e675e0a, 8260, 5722\nGPU-01bbc8c7-11be-9e3c-b786-7c075e675e0a, 1156784, 4146\nGPU-fb856f23-d2d1-87af-54d4-f805742da76f, 8265, 7568\nGPU-fb856f23-d2d1-87af-54d4-f805742da76f, 1162527, 4146\n",
+    "stderr": ""
+  },
+  "finding": "Two pct10 SMoLoRA jobs are not admitted to any live NEW allocator. Existing primary is pct01-only. No second allocator was started.",
+  "native_runner_py_count": 25,
+  "runner_build_sha256": "9d3a2c76b0229a25be6ecbf2e17b5ab732d6dd0ac451797cec8c518786e1a573",
+  "native_policy_sha256": "8dd765f08e586b3fee00274d5122a9ccf87b9327843bdfe602340884ddf3487b",
+  "proposal": "One existing capacity owner keeps pct01 priority and offers only physical GPU1/3 to the two pct10 SMoLoRA jobs using original phase-request. GPU0 and independent FOREVER GPU2 stay untouched.",
+  "not_completed": "Wrapper is prepared locally, not deployed or activated; no SMoLoRA pct10 run has started."
+}
