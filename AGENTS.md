@@ -1,5 +1,7 @@
 # 2026-10-26：设置确定后固定，研究方法在条件下的局限
 
+2026-10-26资源测量已接入原OLD分配器：发布1797eba4后，新CPU886253/start772519047/UID1084、unit llmcl-pct10-baselines-final-resource-old-20261026.service接管609661，原四GPU worker/wrapper身份全部保全、0GPU信号。unix1793026811真实身份与queue相符，conditional无SLOT、resource无SLOT，均未STARTED。新外层只在原三臂released后原idle机会，同卡串行两10%SeqFT S19各600秒/五原32token窗；不训练/评分/改CP，结果在OLD耐久/data2。worker aedc7e、queue6a833c、verify861893已发布；两binding metadata已通过，不当GPU通过。状态入口RESOURCE_QUEUE_ACTIVATION/LATEST、FINAL_RESOURCE_QUEUE；新观察脚本.deployment/final_resource_observe_20261026.py。旧609661仅历史，不再据其消失认定队列停止；原科研三臂优先与所有科学源保持。正式10%仍2/16，Ours空。
+
 2026-10-26最新人类纠正创新门槛：“如果有效，是可以的。因为任务背景不同。” 已有SMoRA／CoMoL等先例不能单独否决本研究的方法贡献；允许借鉴、适配后在我们的固定多模态CL任务中以性能—内存证据形成贡献，不要求基本机制全新。明确借鉴及适配即可，不自动把新增最近邻基线设为准入前提；当前三臂继续，不因发现先例取消。已有原理不能冒称首次，实际有效性仍须实验验证。
 
 2026-10-26有限工具评判：已封位置反例支持后续小LoRA选项置换增强候选，不等于所有失分统一根因。ICML2024已有全排列LoRA增强；单视图正确映射gold的CE只检验增强整包，不声称同题绑定保证。PA-GRPO多排列组信号和Set-LLM去编号的不变性不能直接移植到固定letter等变目标。详见POSITION_TRAINING_TOOL_REVIEW_20261026.md；0新QA/模型/评分，不形成新训练合同、不新增排队，conditional仍唯一已排队研究。

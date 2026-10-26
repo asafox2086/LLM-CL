@@ -1,0 +1,225 @@
+{
+  "unix": 1793026770.32502,
+  "controller": {
+    "pid": 886253,
+    "startticks": "772519047",
+    "uid": 1084,
+    "pgid": 886253
+  },
+  "unit": "llmcl-pct10-baselines-final-resource-old-20261026.service",
+  "old_controller": {
+    "pid": 609661,
+    "startticks": "771089493",
+    "uid": 1084,
+    "pgid": 609661
+  },
+  "protected": {
+    "onevision:PASs_MoE": {
+      "worker": {
+        "pid": 4049854,
+        "startticks": "763716871",
+        "uid": 1084,
+        "pgid": 4049854
+      },
+      "wrapper": {
+        "pid": 4049841,
+        "startticks": "763716855",
+        "uid": 1084,
+        "pgid": 4049841
+      }
+    },
+    "qwen:PASs_MoE": {
+      "worker": {
+        "pid": 4048289,
+        "startticks": "763699036",
+        "uid": 1084,
+        "pgid": 4048289
+      },
+      "wrapper": {
+        "pid": 4048276,
+        "startticks": "763699020",
+        "uid": 1084,
+        "pgid": 4048276
+      }
+    },
+    "onevision:CL_MoE": {
+      "worker": {
+        "pid": 236681,
+        "startticks": "767836133",
+        "uid": 1084,
+        "pgid": 236681
+      },
+      "wrapper": {
+        "pid": 236668,
+        "startticks": "767836113",
+        "uid": 1084,
+        "pgid": 236668
+      }
+    },
+    "onevision:OSFT": {
+      "worker": {
+        "pid": 519483,
+        "startticks": "770666296",
+        "uid": 1084,
+        "pgid": 519483
+      },
+      "wrapper": {
+        "pid": 519470,
+        "startticks": "770666278",
+        "uid": 1084,
+        "pgid": 519470
+      }
+    }
+  },
+  "workers_before": {
+    "onevision:PASs_MoE": {
+      "worker": {
+        "pid": 4049854,
+        "startticks": "763716871",
+        "uid": 1084,
+        "pgid": 4049854
+      },
+      "wrapper": {
+        "pid": 4049841,
+        "startticks": "763716855",
+        "uid": 1084,
+        "pgid": 4049841
+      }
+    },
+    "qwen:PASs_MoE": {
+      "worker": {
+        "pid": 4048289,
+        "startticks": "763699036",
+        "uid": 1084,
+        "pgid": 4048289
+      },
+      "wrapper": {
+        "pid": 4048276,
+        "startticks": "763699020",
+        "uid": 1084,
+        "pgid": 4048276
+      }
+    },
+    "onevision:CL_MoE": {
+      "worker": {
+        "pid": 236681,
+        "startticks": "767836133",
+        "uid": 1084,
+        "pgid": 236681
+      },
+      "wrapper": {
+        "pid": 236668,
+        "startticks": "767836113",
+        "uid": 1084,
+        "pgid": 236668
+      }
+    },
+    "onevision:OSFT": {
+      "worker": {
+        "pid": 519483,
+        "startticks": "770666296",
+        "uid": 1084,
+        "pgid": 519483
+      },
+      "wrapper": {
+        "pid": 519470,
+        "startticks": "770666278",
+        "uid": 1084,
+        "pgid": 519470
+      }
+    }
+  },
+  "workers_after": {
+    "onevision:PASs_MoE": {
+      "worker": {
+        "pid": 4049854,
+        "startticks": "763716871",
+        "uid": 1084,
+        "pgid": 4049854
+      },
+      "wrapper": {
+        "pid": 4049841,
+        "startticks": "763716855",
+        "uid": 1084,
+        "pgid": 4049841
+      }
+    },
+    "qwen:PASs_MoE": {
+      "worker": {
+        "pid": 4048289,
+        "startticks": "763699036",
+        "uid": 1084,
+        "pgid": 4048289
+      },
+      "wrapper": {
+        "pid": 4048276,
+        "startticks": "763699020",
+        "uid": 1084,
+        "pgid": 4048276
+      }
+    },
+    "onevision:CL_MoE": {
+      "worker": {
+        "pid": 236681,
+        "startticks": "767836133",
+        "uid": 1084,
+        "pgid": 236681
+      },
+      "wrapper": {
+        "pid": 236668,
+        "startticks": "767836113",
+        "uid": 1084,
+        "pgid": 236668
+      }
+    },
+    "onevision:OSFT": {
+      "worker": {
+        "pid": 519483,
+        "startticks": "770666296",
+        "uid": 1084,
+        "pgid": 519483
+      },
+      "wrapper": {
+        "pid": 519470,
+        "startticks": "770666278",
+        "uid": 1084,
+        "pgid": 519470
+      }
+    }
+  },
+  "all_protected_identities_equal": true,
+  "GPU_signals": 0,
+  "published_commit": "1797eba491d97eb537c7d0ffcd2482595d092be3",
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit=llmcl-pct10-baselines-final-resource-old-20261026.service",
+    "--property=Restart=no",
+    "--property=KillMode=process",
+    "--property=WorkingDirectory=/dev/shm/llmcl-pct10-1084-zu7e3hb_",
+    "--setenv=LLMCL_ROOT=/dev/shm/llmcl-pct10-1084-zu7e3hb_",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "-u",
+    "/data2/liyapeng_grp/program/LLMCL/.deployment/final_seq_resource_metadata_20261026/exp/final_seq_resource_20261026/queue_adapter.py",
+    "--resource-root",
+    "/data2/liyapeng_grp/program/LLMCL",
+    "--resource-output",
+    "/data2/liyapeng_grp/program/LLMCL/.deployment/final_seq_resource_metadata_20261026/runs",
+    "--resource-python",
+    "/data2/liyapeng_grp/program/LLMCL/.conda-env/bin/python",
+    "--resource-onevision-binding",
+    "/data2/liyapeng_grp/program/LLMCL/.deployment/final_seq_resource_metadata_20261026/onevision_binding.json",
+    "--resource-qwen-binding",
+    "/data2/liyapeng_grp/program/LLMCL/.deployment/final_seq_resource_metadata_20261026/qwen_binding.json",
+    "--conditional-root",
+    "/dev/shm/llmcl-conditional-1084-20261026",
+    "--conditional-output",
+    "/dev/shm/llmcl-conditional-1084-20261026/run",
+    "--conditional-python",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "--position-admission",
+    "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/train_answer_prior_20261025/POSITION_RUN_ADMISSION.json",
+    "--machine",
+    "old"
+  ]
+}

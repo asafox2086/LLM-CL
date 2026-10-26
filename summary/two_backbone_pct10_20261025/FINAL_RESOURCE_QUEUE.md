@@ -9,3 +9,5 @@
 结果verify仅在真实成功退出后消费COMPLETE和五窗，校验原sealed proof、原CP标识、输入身份、源hash及数值范围。记录五窗最大allocated/reserved、逐窗值、明确标注的中位数与算术均值。五窗速率的算术均值不是合并token吞吐；这些指标不代表全TEST最坏峰、逐题独立冷启动或生产吞吐。
 
 当前文件是接入设计。是否已接管以真实ACTIVATION为准；是否已执行以STARTED、真实PID、EXIT与VERIFIED为准。准备和排队均不能填入主表实测列。资源结果不替代三臂关于条件适应是否有用的检验。
+
+实际接管：unix1793026770.32502，CPU886253/start772519047/UID1084取代原609661，unit为llmcl-pct10-baselines-final-resource-old-20261026.service。四个正式GPU worker及其wrapper前后身份全同，0GPU信号。unix1793026811.5343754再次核新CPU真实存活且queue完整身份匹配，conditional slot尚无、resource slot尚无；未启动模型。证据RESOURCE_QUEUE_ACTIVATION.json、RESOURCE_QUEUE_LATEST.json。新增外层源6a833c…已在目标机实际完成constructor检查，资产root与独立源码目录分离，不改两原binding。
