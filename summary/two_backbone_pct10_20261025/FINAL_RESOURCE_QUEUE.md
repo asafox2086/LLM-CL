@@ -1,0 +1,11 @@
+# 两个10%最终SeqFT资源窗口的队列接入
+
+目的：补主表实际GPU峰值、TTFT、解码速度、常驻adapter数。没有新训练、F1评分或方法效果声明。
+
+使用已发布worker aedc7e7b…及已在OLD原conda通过metadata检查的两个绑定。每骨干600秒，包含原完整CP加载/校验和五个32-token窗口；同一张真正空卡串行LLaVA-OneVision、Qwen，首次失败不重试。保持原输入、生成规则、模型参数和最终CP，不修改主表科学设置。结果位于OLD耐久/data2目录，而非tmpfs。
+
+新queue_adapter只在原conditional适应三臂slot真实released之后，通过同一分配器的idle机会领取卡。三臂优先；原position、conditional、native及FOREVER源均不修改，不另起空卡扫描服务。资源pair占一张卡，其他卡继续原基线。每个child实际退出后写EXIT；原身份和NVML确认消失后才释放。
+
+结果verify仅在真实成功退出后消费COMPLETE和五窗，校验原sealed proof、原CP标识、输入身份、源hash及数值范围。记录五窗最大allocated/reserved、逐窗值、明确标注的中位数与算术均值。五窗速率的算术均值不是合并token吞吐；这些指标不代表全TEST最坏峰、逐题独立冷启动或生产吞吐。
+
+当前文件是接入设计。是否已接管以真实ACTIVATION为准；是否已执行以STARTED、真实PID、EXIT与VERIFIED为准。准备和排队均不能填入主表实测列。资源结果不替代三臂关于条件适应是否有用的检验。
