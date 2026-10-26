@@ -1,5 +1,7 @@
 # 2026-10-26：设置确定后固定，研究方法在条件下的局限
 
+- 人类允许清理临时文件，但明确禁止删除任何主表相关记录：原始答案、指标、配置、日志、核验、最终完整参数及其来源均保留。本次仅清理OLD工作区中有对应源码、同UID且快照身份未变的197个__pycache__/*.pyc，共1364966bytes；0主表记录删除、0模型信号。私有清理收据见.deployment/cache_cleanup_receipt_old_20261026.json。不得把“临时”泛化到主表run目录或checkpoint。
+
 - 最新“继续，探索需要高效”：conditional_shared_budget首轮已收敛Shared/Uniform/A-response-soft，同q/v-r8共540672坐标，shared4/private2×2、scale4、一次dropout响应、无额外LM前向。原Hard双质心被成本/依据评判拒绝，非模型负结果。独立新adaptation/worker准备中，1213FIT/100DEV/87更新，逐taskbefore/acquired各100、终态100+五资源窗；Shared/Uniform真实fold后评测，Soft显式全图strict reload。未排队/STARTED/新质量，不据此填Ours；不重跑医学审计、旧分支或修改活动分配器。权威summary/conditional_shared_budget_20261026/PROTOCOL.md。医学完整证据已push bc72a12fd71c720979b9a218e217972caa5ea8e2。
 
 - 最新人类允许性能略低、显著内存优势优先；要求抽象强方法的有效功能并用简洁机制实现，或发现已验证共同问题后设计自己的方法，不限已提出算法。不能只做折叠/选旧点/简单扩容，不因放宽目标自动恢复全部旧分支。现已提出同总预算shared+private低秩方向的功能问题，尚无准入/模型结果，不称分组是PAS高分因果；PAS实际逐token响应能量软混合，无独立MLP路由，CL有token线性router+问题原型两层机制。全表最高正式Qwen SeqFT48.972351，勿再把LLaVa OSFT称全表最高。

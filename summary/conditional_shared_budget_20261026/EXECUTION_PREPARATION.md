@@ -1,0 +1,13 @@
+# 执行准备与实际状态
+
+上一轮为进展：三臂科学源码及独立评判已发布为b034c088f5f5f2773ce1c03b444a82168f17e98b，不是模型结果。本轮继续把固定实验推进到执行，未扩大研究问题。
+
+实际进程快照unix1793003377：OLD coordinator342620/start768961721匹配，四个基线worker4046298、4049854、4048289、236681均同原身份存活并占四卡；原position slot=null、无STARTED。NEW两原1%worker8260/8265身份匹配，GPU0仍按原约定保留，10%完整核验仍1/16。该快照不是永久状态。
+
+首次复制准备文件到旧pct10工作目录时，已复制若干缺失的只读helper；随后在建立summary/edge_deployment_20261019/osft_increment_screen时真实遇到Errno122 Disk quota exceeded，未启动Torch、模型、生成或评分，未覆盖原有不同字节文件。实际检查表明summary本身是tmpfs目录，但其edge_deployment_20261019子目录是指向/data2的旧symlink。保留已复制helper，不修改该symlink、磁盘原文件或基线设置。
+
+随后改用独立新root `/dev/shm/llmcl-conditional-1084-20261026`。其model/data链接原/data2资产，port/storage链接原科学源，新增helper、冻结SPLIT和新worker原字节复制到本地tmpfs目录。[TRANSPORT.json](TRANSPORT.json)记录unix1793003559的11文件SHA和原1%manifest SHA一致。空间位置变化不改变数据、训练、生成、评分或模型代码；tmpfs不是耐久归档。
+
+当前仅完成科学源码/依赖运输。六phase同卡监督、终态唯一消费者和原分配器接入尚在准备，未排队、未启动、无新质量。科学root与原基线coordinator root不同，接入时必须明确区分；不得覆盖原position四源或独占第二个研究slot。完成后完整模型及公开/私有输出须转存耐久目录再报告已保留。
+
+人类随后允许清理临时文件、禁止删除主表相关记录。实际只删除OLD工作区197个有对应源码且身份/size/mtime与清单一致的Python字节码缓存，共1364966bytes；无主表记录、CP、日志或科学源删除，无模型信号。此小量清理不作为更换数据/实验设置的理由，也不改变独立tmpfs工作目录安排；完整路径收据私有保留于.deployment/cache_cleanup_receipt_old_20261026.json。
