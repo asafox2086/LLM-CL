@@ -11,4 +11,8 @@
 
 CPU接管必须先核旧coordinator身份／单一所有权／KillMode=process／无ExecStop，只停止它本身，保全全部原GPU及各wrapper身份；不与旧分配器并跑。当前文档形成时仅源码及AST／小metadata审阅，没有CPU模型门、模型执行或实际360消费者。
 
-私有模型输出仍位于OLD SHM，非耐久存储。成功消费者仅将公开OUTCOME／VERIFIED原字节复制到原report目录，由既有NEW归档器镜像；原始360回答和完整运行证据仍须结果后转存NEW并逐摘要核对，不据目录存在称已耐久保存。两主表、16组基线及最终完整模型留存继续，当前自研方法总目标未实现。
+私有模型输出仍位于OLD SHM，非耐久存储。成功消费者仅将公开OUTCOME／VERIFIED原字节复制到本report目录；**当前collector只自动镜像10%基线report，本train_answer_prior目录不在其白名单**。冻结controller注释中“已镜像此report”的说法不准确，不据此宣称耐久。公开结果、原始360回答和完整运行证据均须结果后显式转存NEW并逐摘要核对，不另起一个归档器或据目录存在称已保存。两主表、16组基线及最终完整模型留存继续，当前自研方法总目标未实现。
+
+## 实际接入快照
+
+事前发布79b5260e后已逐字节运输并验证实际metadata合同（0Torch／模型）；unix1792991197.0531332仅OLD旧CPU318427退出，新CPU342620/start768961721/UID1084、unit `llmcl-pct10-baselines-position-old-20261026.service` active/running、Restart=no／KillMode=process。原Qwen Seq4046298、双PAS4049854／4048289、LLaVA CL236681及各wrapper身份前后全同，0GPU信号，原三个入口SHA不变。slot=null，尚未占卡／STARTED／产生新响应，4800模型秒预算未开始。以后看真实proc、slot、各phase STARTED与终态，不把快照永久当live。[接入收据](POSITION_QUEUE_ACTIVATION.json) · [运输与metadata核验](POSITION_QUEUE_TRANSPORT.json)。
