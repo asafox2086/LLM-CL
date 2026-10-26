@@ -1,5 +1,7 @@
 # 补充说明：证据索引、实验历史与新会话交接
 
+[小预算条件适应的论文主张评判](summary/conditional_shared_budget_20261026/PAPER_CLAIM_REVIEW_20261026.md)：补充SMoRA／CoMoL直接先例，分解预计23.86%保存态差，明确soft相对普通LoRA无权重节省；保留冻结三臂作为功能资格检验，未新增模型或更改设置。
+
 [位置训练工具的适配评判](summary/train_answer_prior_20261025/POSITION_TRAINING_TOOL_REVIEW_20261026.md)记录单视图增强、PA-GRPO和Set-LLM的机制边界；仅候选选择，未新增实验或模型结果。
 
 2026-10-26实际补齐两10% SMoLoRA队列：发布6513d1d后，NEW原CPU1221743由1739063/start35800472/UID1004替代，原unit active/running；原1%8260/8265身份保全、0GPU信号、冻结科学源/policy全不变。queue_new真实只有onevision/qwen两SMo，均waiting，仍无预检/质量；只原1%优先后的GPU1/3空闲机会，NEW0和FOREVER2规则保留。证据new_smolora_queue_20261026/ACTIVATION、AFTER。首次ExecStop缺省字段及其次wchan窄匹配均在任何stop/marker前拒绝，外层字段读取/已知poll等待修正后接管成功，wrapper不改。
