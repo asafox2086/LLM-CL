@@ -1,5 +1,8 @@
 # 2026-10-26：设置确定后固定，研究方法在条件下的局限
 
+- 最新人类允许性能略低、显著内存优势优先；要求抽象强方法的有效功能并用简洁机制实现，或发现已验证共同问题后设计自己的方法，不限已提出算法。不能只做折叠/选旧点/简单扩容，不因放宽目标自动恢复全部旧分支。现已提出同总预算shared+private低秩方向的功能问题，尚无准入/模型结果，不称分组是PAS高分因果；PAS实际逐token响应能量软混合，无独立MLP路由，CL有token线性router+问题原型两层机制。全表最高正式Qwen SeqFT48.972351，勿再把LLaVa OSFT称全表最高。
+- 医学配对审计已完整结束：prepare4131→公开PREPARED、491pairs/283same/208blind；两judgmentc1d109/d69441独立封后，唯一consensus c3d6运行完成，OUTCOME与FINDINGS为权威。198同类10分歧；Plane原F1−.718但EXACT+.862，Position未知79承担77.7485%grossloss，不能统一称内容退化/缺知识；不扩QA/TRAIN审计/重标/重分或重开语言提示分支。两模型judge非医学真值；raw/方向/理由私有留工作区，不入Git。0新score/model/tokenize。此有限读数不支撑新知识模块，后续独立条件适应假说来自强方法持久参数成本，不伪造其被本审计证明。
+
 - 人类新要求分析1%/10%结果、参数空间与答案；全19任务派生已一次return0，source4405e907／JSONb56656e1／md0f9e673b，见ALL_TASK_ACQUISITION_FINDINGS。LLaVA SeqFT刚习得19高0低0平、五域宏42.026058→49.996420，但阶段内增量13高6低；Position／Plane10%阶段−4.859471／−0.718391且刚习得仍高1%。同q/v-r8同方法源SHA不等同数值A/B空间，93→828调用／10%822正LR6零；不归纯数据、不复活扩容或旧分支，不拿S19自然下降说刚习得下降。1%原proof无verified_cells／metrics无矩阵，实际读取38已封aggregate JSON；10%用proof74cells，0新score/QA/模型/CP。此派生不重跑；所有原任务及负值保留。多选286原零token F1不等286语义全错，固定token规则不按选项集合给部分分，用户解释已写原金融FINDINGS，不改设置。
 
 - 两组FOREVER10%独立完整终态核验入口已备：analysis/pct10_forever_complete_verify_20261026.py，单run CLI只在真实完整exit0后运行；保原raw F1／19/74/80316/21454及828/822/6核验，另核动态／final实际成本、gate及rolling/S19。独立O_EXCL缓存，不接native14或新建observer服务；当前只源码审阅，尚无实际consumer／评分／FOREVER新质量，正式仍1/16。request无stage和selector抽取缺REVISION两处在首次执行前修正，producer不变；beta照原运算顺序是保守一致建议，不是已观测bug。源码与独立review见two_backbone_pct10_20261025/FOREVER_COMPLETE_VERIFIER_*。
