@@ -26,6 +26,8 @@
 
 ## 最新研究重点与刚习得观测
 
+2026-10-26定向核对PIF目标：其错误内容负例混合了绑定正确／错配，作者本也说明两种反馈，未来整包收益不能单独归因绑定；纯一致性允许稳定选错，不替代正确性锚。原文Eq.(7)与Eq.(8)的负例方向不一致已目视核对，未取得可裁定实际实现的代码，不推作者实现错误。[完整推导、原始来源与设计影响](summary/train_answer_prior_20261025/PIF_OBJECTIVE_REVIEW.md)只排除不充分目标／归因，不是新的模型因果或成功框架。0训练／QA／评分，不改360诊断及两主表条件；独立审阅另存同目录。
+
 既定360位置读出已准备实际单次执行接入：只在原空卡分配器第一次发现真空卡时占一个slot，四态串行／各1200秒，其他GPU仍原基线；不另起争卡allocator。源和现有输入合同不改，控制／释放与一次完整消费者代码经独立审阅，未运行模型或实际消费者；准入不冒称功能结果。接续前发现source_dir定位、子phase admission继承、last_attempted_worker退出核查，以及消费者startticks类型／每phase proof ledger范围，均在任何执行前更正，不改变科学条件。见[执行接口、预算与全部边界](summary/train_answer_prior_20261025/POSITION_EXECUTION.md)。
 
 接入已实际完成：事前发布79b5260e，新OLD单一CPU342620/start768961721接管318427，原四GPU及各wrapper身份前后全同、0GPU信号；首快照slot=null，没有模型STARTED／响应或预算消耗，只是队列从计划变为实际可执行。四源／科学配置不变，未来首张真空卡由原分配器启动唯一controller，同卡结束再交回baseline；全证据[见实际接入](summary/train_answer_prior_20261025/POSITION_QUEUE_ACTIVATION.json)。冻结controller注释误称本report会被现有归档器镜像，实际白名单仅baseline10% report；公开／私有结果均待结束后显式NEW转存核SHA，不据此claim耐久，也不为注释改动热更排队科学源。
