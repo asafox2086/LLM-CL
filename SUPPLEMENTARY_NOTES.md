@@ -726,3 +726,10 @@ NEW私有归档732个新输出逐SHA通过，含所有完整CP、19阶段快照�
 CPrompt展示了用独立辅助优化分支加强当前prompt训练的做法，但其随机prompt选择导致的训练机会问题并非本项目已观测机制，且推理仍有prompt池和multi-key选择。当前题型辅助三臂不变，效果仍待GPU实验。借鉴已有机制并做任务适配可以构成贡献，但不能以文献效果代替本实验结果。
 
 [有限文献核对与独立评判](summary/train_answer_prior_20261025/TYPE_AUXILIARY_CL_REFERENCE_20261027.md)。
+
+
+## 2026-10-27：题型辅助导出失败与资源核验
+
+题型辅助共同前缀成功；普通CE后缀18次更新完成，但导出配置hash断言失败，未形成完整最终CP。真实／打乱题型分支未开始，不运行660评分，不作方法质量结论。完整S15、训练头、已有答案、日志及科学源码141文件共1,815,203,840字节已在NEW耐久归档并逐文件SHA核对，OLD原记录保留。[归档收据](summary/train_answer_prior_20261025/TYPE_AUXILIARY_FAILURE_ARCHIVE_20261027.json) · [独立源码评判](summary/train_answer_prior_20261025/TYPE_AUXILIARY_EXPORT_FAILURE_REVIEW_20261027.md)。归档首次因OLD系统Python版本不支持Path.is_relative_to在目标目录创建前失败；仅明确归档解释器后成功，与科学源码无关。
+
+PaRSP已从S0 checkpoint恢复；unix1793094577核实原协调器1638231及四组基线身份匹配，OSFT仍保留已归档S0暂停态。该观察不是永久运行保证。

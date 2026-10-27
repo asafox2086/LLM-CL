@@ -1,0 +1,929 @@
+{
+  "complete": true,
+  "identity": {
+    "pid": 1722993,
+    "startticks": "779255230",
+    "uid": 1084,
+    "pgid": 1722993
+  },
+  "seconds": 69.02095618098974,
+  "binding_sha256": "d33c6006e518b888ee99d8b29db4e6b3dc4ac81f245bb7460d60bdefb36b22c5",
+  "source_sha256": {
+    "worker": "aedc7e7b97d4f5be22a98d022c758d3c3c285dbc805e087b2a952c09de302400",
+    "helpers": {
+      "storage": "032904b7fe92a0912e18c0e664750c35f4c6fa7bf15fae6fa9a5a350f7277ef8",
+      "readouts": "8d68817f330b9b26acbbdec55e344e066879896b4d73db3064dadc7f747acf3a",
+      "clock": "d039ba4307a3920284a0b69f6ac0ad660f3143c487c17efb9b4b2286716d490c"
+    }
+  },
+  "backbone": "qwen",
+  "original_run": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_20261025/runs/qwen/pct10/SeqFT_LoRA/training_20261025_222614",
+  "sealed_logical_run": "exp/two_backbone_pct10_native_20261025/runs/qwen/pct10/SeqFT_LoRA/training_20261025_222614",
+  "formal_proof_sha256": "23e5d338cdc1579b6f8ca4f72d511f32e23896e248bfaf91e0ae775beb257081",
+  "config_sha256": "03312f0511147a9eb3aa88c20c51daf0bc67b482a5e83168e2c2998b5444aadf",
+  "checkpoint_sha256": "0b657653a0f438169d0ec00380209a6a282921fc938274b5dfb407c757ac7927",
+  "checkpoint_bytes": 4562998300,
+  "checkpoint_load_seconds": 19.137408633716404,
+  "checkpoint_load_seconds_scope": "original checkpoints.load including full checkpoint SHA, torch.load and RNG restoration; subset of total seconds",
+  "original_full_unfolded_graph": true,
+  "resident_adapter_banks": 1,
+  "adapter_structure": {
+    "resident_adapter_banks": 1,
+    "projection_modules": 56,
+    "adapter_coordinates": 1089536,
+    "definition": "One shared LoRA across layers/stages; projection modules are not independent banks",
+    "layers": {
+      "model.layers.0.self_attn.q_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          1536,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.0.self_attn.q_proj"
+      },
+      "model.layers.0.self_attn.v_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          256,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.0.self_attn.v_proj"
+      },
+      "model.layers.1.self_attn.q_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          1536,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.1.self_attn.q_proj"
+      },
+      "model.layers.1.self_attn.v_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          256,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.1.self_attn.v_proj"
+      },
+      "model.layers.2.self_attn.q_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          1536,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.2.self_attn.q_proj"
+      },
+      "model.layers.2.self_attn.v_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          256,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.2.self_attn.v_proj"
+      },
+      "model.layers.3.self_attn.q_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          1536,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.3.self_attn.q_proj"
+      },
+      "model.layers.3.self_attn.v_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          256,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.3.self_attn.v_proj"
+      },
+      "model.layers.4.self_attn.q_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          1536,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.4.self_attn.q_proj"
+      },
+      "model.layers.4.self_attn.v_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          256,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.4.self_attn.v_proj"
+      },
+      "model.layers.5.self_attn.q_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          1536,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.5.self_attn.q_proj"
+      },
+      "model.layers.5.self_attn.v_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          256,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.5.self_attn.v_proj"
+      },
+      "model.layers.6.self_attn.q_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          1536,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.6.self_attn.q_proj"
+      },
+      "model.layers.6.self_attn.v_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          256,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.6.self_attn.v_proj"
+      },
+      "model.layers.7.self_attn.q_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          1536,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.7.self_attn.q_proj"
+      },
+      "model.layers.7.self_attn.v_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          256,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.7.self_attn.v_proj"
+      },
+      "model.layers.8.self_attn.q_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          1536,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.8.self_attn.q_proj"
+      },
+      "model.layers.8.self_attn.v_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          256,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.8.self_attn.v_proj"
+      },
+      "model.layers.9.self_attn.q_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          1536,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.9.self_attn.q_proj"
+      },
+      "model.layers.9.self_attn.v_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          256,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.9.self_attn.v_proj"
+      },
+      "model.layers.10.self_attn.q_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          1536,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.10.self_attn.q_proj"
+      },
+      "model.layers.10.self_attn.v_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          256,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.10.self_attn.v_proj"
+      },
+      "model.layers.11.self_attn.q_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          1536,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.11.self_attn.q_proj"
+      },
+      "model.layers.11.self_attn.v_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          256,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.11.self_attn.v_proj"
+      },
+      "model.layers.12.self_attn.q_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          1536,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.12.self_attn.q_proj"
+      },
+      "model.layers.12.self_attn.v_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          256,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.12.self_attn.v_proj"
+      },
+      "model.layers.13.self_attn.q_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          1536,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.13.self_attn.q_proj"
+      },
+      "model.layers.13.self_attn.v_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          256,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.13.self_attn.v_proj"
+      },
+      "model.layers.14.self_attn.q_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          1536,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.14.self_attn.q_proj"
+      },
+      "model.layers.14.self_attn.v_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          256,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.14.self_attn.v_proj"
+      },
+      "model.layers.15.self_attn.q_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          1536,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.15.self_attn.q_proj"
+      },
+      "model.layers.15.self_attn.v_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          256,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.15.self_attn.v_proj"
+      },
+      "model.layers.16.self_attn.q_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          1536,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.16.self_attn.q_proj"
+      },
+      "model.layers.16.self_attn.v_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          256,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.16.self_attn.v_proj"
+      },
+      "model.layers.17.self_attn.q_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          1536,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.17.self_attn.q_proj"
+      },
+      "model.layers.17.self_attn.v_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          256,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.17.self_attn.v_proj"
+      },
+      "model.layers.18.self_attn.q_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          1536,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.18.self_attn.q_proj"
+      },
+      "model.layers.18.self_attn.v_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          256,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.18.self_attn.v_proj"
+      },
+      "model.layers.19.self_attn.q_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          1536,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.19.self_attn.q_proj"
+      },
+      "model.layers.19.self_attn.v_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          256,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.19.self_attn.v_proj"
+      },
+      "model.layers.20.self_attn.q_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          1536,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.20.self_attn.q_proj"
+      },
+      "model.layers.20.self_attn.v_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          256,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.20.self_attn.v_proj"
+      },
+      "model.layers.21.self_attn.q_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          1536,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.21.self_attn.q_proj"
+      },
+      "model.layers.21.self_attn.v_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          256,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.21.self_attn.v_proj"
+      },
+      "model.layers.22.self_attn.q_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          1536,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.22.self_attn.q_proj"
+      },
+      "model.layers.22.self_attn.v_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          256,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.22.self_attn.v_proj"
+      },
+      "model.layers.23.self_attn.q_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          1536,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.23.self_attn.q_proj"
+      },
+      "model.layers.23.self_attn.v_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          256,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.23.self_attn.v_proj"
+      },
+      "model.layers.24.self_attn.q_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          1536,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.24.self_attn.q_proj"
+      },
+      "model.layers.24.self_attn.v_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          256,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.24.self_attn.v_proj"
+      },
+      "model.layers.25.self_attn.q_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          1536,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.25.self_attn.q_proj"
+      },
+      "model.layers.25.self_attn.v_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          256,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.25.self_attn.v_proj"
+      },
+      "model.layers.26.self_attn.q_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          1536,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.26.self_attn.q_proj"
+      },
+      "model.layers.26.self_attn.v_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          256,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.26.self_attn.v_proj"
+      },
+      "model.layers.27.self_attn.q_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          1536,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.27.self_attn.q_proj"
+      },
+      "model.layers.27.self_attn.v_proj": {
+        "A_shape": [
+          8,
+          1536
+        ],
+        "B_shape": [
+          256,
+          8
+        ],
+        "scale": 4.0,
+        "base_dtype": "torch.float16",
+        "adapter_dtype": "torch.float32",
+        "dropout": 0.1,
+        "observed_registered_name": "model.layers.27.self_attn.v_proj"
+      }
+    }
+  },
+  "layout": {
+    "weights": {
+      "coefficients": 2210075136,
+      "bytes": 4422329344
+    },
+    "ordinary_buffers": {
+      "coefficients": 1876,
+      "bytes": 7504
+    },
+    "trainable": 0
+  },
+  "dtype_storage": {
+    "torch.float16": {
+      "bytes": 4417971200,
+      "coefficients": 2208985600
+    },
+    "torch.float32": {
+      "bytes": 4358144,
+      "coefficients": 1089536
+    }
+  },
+  "state_digest": "b9caf32ae32781b14994c6c607aa0d42319abf247b37a8a63bf5df0f2c23af4e",
+  "all_buffers_digest": "15a22c7f7a88bc39e4dab455874b0be0559f3d4007d74709c8f7cf102ead63c2",
+  "state_and_registered_buffers_unchanged": true,
+  "generation_public_unchanged": true,
+  "original_CPU_visual_cache_removed_bytes": 133171200,
+  "original_other_CPU_payload_retained": true,
+  "physical_GPU": 1,
+  "virtual_GPU": 0,
+  "GPU_uuid": "GPU-3c72e4ce-0896-0b40-d610-be585d2bb51e",
+  "runtime_image_root": "/data2/liyapeng_grp/program/LLMCL",
+  "window_order": "fresh_reload_before_any_other_generation",
+  "window_selection": "original per-domain hash-min DEV raw IDs",
+  "windows_sha256": "3b026f08789f1c2ae02405a3e5009df2dc846b56e7afffe36629e2678b0953d2",
+  "new_generations": 5,
+  "forced_new_tokens": 160,
+  "new_scores": 0,
+  "NLL_requests": 0,
+  "backwards": 0,
+  "optimizer_updates": 0,
+  "timing": "instrumented wall time; finite-logit checks and per-token synchronization included; not production throughput",
+  "audit_hashes_in_timing": false,
+  "audit_digest_after_captured_peak": true,
+  "checkpoint_deleted_or_rewritten": false,
+  "no_reconstruction_or_export": true,
+  "versions": {
+    "torch": "2.6.0+cu118",
+    "transformers": "4.46.3",
+    "accelerate": "1.2.1",
+    "cloudpickle": "3.1.2"
+  }
+}
