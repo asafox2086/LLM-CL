@@ -1,3 +1,9 @@
+# 2026-10-27：PaRSP已完整保存暂停，paired首次GPU实验已启动
+
+- unix1793078903实查：PaRSP新run stage0完整CP为1961011556bytes，SHA581d7953c6da450a84ebbfcd62ab6111226630ce816ebeaafe70082e5a057b21已实际全文件核；暂停收据89c74bfd1c39b0ea4393261baae13106cb5f9774264f82921e092c4fa7936859，原worker1379913/wrapper1379900已真实gone，phase exit0。这是S0初评价后保存，尚未训练T1，不是旧OSFT的无CP停止。
+- 原paired slot已running/GPU1：研究controller1466026/start777720774，repeat train worker1466027/start777720779，首次STARTED1793078787.4167259，deadline1793084187.4167259。上述身份于1793078903真实匹配，0FAILURE；其它三OLD baseline保全。四phase预算不重置，后续以真实终态为准。root CPU仍1458635/start777665189。
+- 全部研究结束后进入分析前，按实际暂停收据在原PaRSP run写唯一RESUME_REQUEST，交原allocator接回；不要新run或重做S0。具体只读核对记录 .deployment/paired_resume_contract_review_20261027.md。真实恢复尚未执行。结果消费者analysis/paired_option_result_readout_20261027.py已发布0bc7210，仅未来600旧F1+24映射；归档脚本 .deployment/paired_verified_archive_new_20261027.py已review，尚未执行，不能称研究参数已耐久归档。Ours/正式结果不变。
+
 # 2026-10-27：paired研究已接原分配器，PaRSP阶段暂停请求已排
 
 - 成对选项监督worker bad0ffd6、helpers f4bb0df3、controller efb164df、queue c18e88fb、verify 030cc59d均已独立审阅并发布7bcf976f。OLD新科学root `/dev/shm/llmcl-paired-option-1084-20261027`，binding c0fbf6b7；33FIT/12DEV实际stdlib输入绑定通过，Python3.10原scorer构造通过且0score/模型。原科学源与14,400秒首次预算不改。
