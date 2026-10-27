@@ -15,6 +15,8 @@
 
 all-r8没有R[t,t]和原74格，不塞入要求原74格完整证明的三参照consumer，也不补造FWT/BWT。正式结果解释时另与它已封存的五域最终值比较，原始刚习得对照仍是Seq/PAS/OSFT。这不设置额外事后分数阈值或据TEST调整方法；只是保留已经存在的竞争参照。
 
+为补齐这一简单参照的实际成本，已准备[原完整未合并图五窗测量](../all_r8_final_resource_20261028/PREPARATION.md)，通过独立源码审阅但尚未GPU执行。原未合并图直接对应既成44.8944，不将其分数贴到未经评价的fold图；现有训练峰也不填成部署峰。当前TaskGrad正式源与队列不改。
+
 ## 本轮实核来源
 
 NEW权威目录的VERIFIED/COMPLETE/OUTCOME关联SHA与质量对象一致，manifest仍为36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777。NEW原S19完整checkpoint仍存在、大小1941599549字节；本轮仅stat，没有重复加载或哈希权重。
