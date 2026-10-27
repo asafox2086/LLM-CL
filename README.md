@@ -58,7 +58,7 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 <!-- PCT10_MAIN_TABLE_BEGIN -->
 ## 第二主表：双骨干10%训练／完整测试
 
-训练10%已冻结为**13105 QA**，完整TEST仍为**21454 QA**；seed42、一轮、19任务，主任务共828次优化器调用，其余沿用1%正式设置。**2/16组完整核验：双骨干SeqFT-LoRA。** 当前OLD推进双骨干PASs-MoE及LLaVA CL-MoE；成对监督研究已完成，新版OSFT已保存S0并正常暂停，完整checkpoint已耐久归档；题型辅助研究在普通对照导出时失败，质量缺测；旧run记录保留。PaRSP已保存S1完整checkpoint并暂停，v2研究已启动；条件混合三臂研究已完成。其余组合排队／待既定方法核验。空白不是0分，不复制1%结果或估计未测资源。
+训练10%已冻结为**13105 QA**，完整TEST仍为**21454 QA**；seed42、一轮、19任务，主任务共828次优化器调用，其余沿用1%正式设置。**2/16组完整核验：双骨干SeqFT-LoRA。** 当前OLD推进双骨干PASs-MoE及LLaVA CL-MoE；成对监督研究已完成，新版OSFT已保存S0并正常暂停，完整checkpoint已耐久归档；题型辅助研究在普通对照导出时失败，质量缺测；旧run记录保留。题型辅助v2已完成并未改善目标新习得；PaRSP已从S1恢复；条件混合三臂研究已完成。其余组合排队／待既定方法核验。空白不是0分，不复制1%结果或估计未测资源。
 
 | 方法／Backbone | 类型 | 发表会议／年份 | TextVQA<br>自然／通用 | SLAKE<br>医学 | RSVQA-LR<br>遥感 | FinMME<br>金融 | CODA-LM<br>交通 | 五域宏 F1 ↑ | AP19 ↑ | FWT ↑ | BWT ↑ | 最终权重存储<br>保存态 MiB ↓ | 相对原基座增加<br>MiB ↓ | 固定五窗GPU峰值†<br>MiB ↓ | 首词延迟<br>s ↓ | 生成速度<br>tok/s ↑ | 常驻适配器<br>数量 ↓ | 完整参数量<br>系数 | 最终CP<br>MiB | 新习得五域宏F1 ↑ | 新习得AP19 ↑ | 状态 |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
@@ -78,7 +78,7 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 | CL-MoE | 架构 | [CVPR 2025](https://openaccess.thecvf.com/content/CVPR2025/html/Huai_CL-MoE_Enhancing_Multimodal_Large_Language_Model_with_Dual_Momentum_Mixture-of-Experts_CVPR_2025_paper.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 正式运行 |
 | SMoLoRA | 架构 | [ICCV 2025](https://openaccess.thecvf.com/content/ICCV2025/html/Wang_SMoLoRA_Exploring_and_Defying_Dual_Catastrophic_Forgetting_in_Continual_Visual_ICCV_2025_paper.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 已接NEW原队列，等待原生BF16空卡 |
 | PASs-MoE | 架构（兼正则） | [ACL 2026](https://aclanthology.org/2026.acl-long.1474/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 正式运行 |
-| PaRSP | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.1244/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | S1完整CP已耐久归档并暂停；GPU1运行研究 |
+| PaRSP | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.1244/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 已从S1完整CP恢复；S2训练中 |
 | OSFT | 正则化 | [ICLR 2026](https://proceedings.iclr.cc/paper_files/paper/2026/hash/22620cccae29bbb3f18d226ea0320ff5-Abstract-Conference.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | S0完整CP已保存并耐久归档；已暂停让卡研究 |
 | SpaRTA | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.334/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | OLD排队 |
 | Ours | 自研方法 | 未发表 |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 空，不自动运行探索配方 |
@@ -133,7 +133,7 @@ Qwen SeqFT最终五域宏由1%的48.972升至10%的52.854，遥感、金融、�
 
 **已检验命题：同样的小预算，条件适应是否比简单权重混合值得？** 三臂完整结果不支持保留当前soft点：DEV最终宏shared／uniform／soft为38.623／39.663／39.456，soft低于uniform且显存略高。它的新习得收益集中在一条医学表述变化、一条金融选项变化，不能称普遍知识改善；uniform相对shared最终约96.1%的净提升来自同一条遥感二元题。当前点关闭，三臂完整参数及正负证据均保留，Ours仍空。[完整对照、逐题贡献与资源](summary/conditional_shared_budget_20261026/RESULT_FINDINGS_20261027.md)
 
-**跨骨干金融题型：多选现象复现，数值降分不复现。** Qwen普通LoRA在1%／10%的多选刚习得F1为0／10.989，546题中严格单字母为403／259，与LLaVA的0／8.425及504／286有共同现象。但Qwen数值题两个比例的当前阶段均提高（+0.526／+0.789），不复现LLaVA的阶段下降。不能把跨比例终点变化当当前训练损伤，也不能据此认定统一题型混淆根因。当前辅助监督实验保持不变。[完整题型、前后变化与边界](summary/train_answer_prior_20261025/QWEN_FINANCE_TYPES_FINDINGS_20261027.md)。
+**跨骨干金融题型：多选现象复现，数值降分不复现。** Qwen普通LoRA在1%／10%的多选刚习得F1为0／10.989，546题中严格单字母为403／259，与LLaVA的0／8.425及504／286有共同现象。但Qwen数值题两个比例的当前阶段均提高（+0.526／+0.789），不复现LLaVA的阶段下降。不能把跨比例终点变化当当前训练损伤，也不能据此认定统一题型混淆根因。该观察不单独证明题型监督有效。[完整题型、前后变化与边界](summary/train_answer_prior_20261025/QWEN_FINANCE_TYPES_FINDINGS_20261027.md)。
 
 ## 参数量与已测GPU优势
 
@@ -182,7 +182,7 @@ Qwen SeqFT最终五域宏由1%的48.972升至10%的52.854，遥感、金融、�
 
 [探索过程与证据索引](SUPPLEMENTARY_NOTES.md#探索过程与证据索引) · [完整实验口径与数据来源](SUPPLEMENTARY_NOTES.md) · [历史研究记录](README_HISTORY_20261024.md)
 
-**当前有限检验：训练期题型辅助监督。** 从“OSFT的金融优势集中在单选、PAS还能获得多选F1收益”出发，比较普通答案CE、真实题型辅助CE及打乱类型辅助CE，三个分支共用完整S15状态。辅助头新增2691个训练参数，T16后移除；共同前缀成功，普通CE分支完成训练后在完整模型导出时触发配置哈希断言；真实／打乱辅助分支未开始，当前质量缺测，不能据此否定或支持方法。只改善金融也不足以自动填平总体差距，最终仍须检验五域质量与实测内存。[设计](summary/train_answer_prior_20261025/TYPE_AUXILIARY_DESIGN_20261027.md) · [价值边界](summary/train_answer_prior_20261025/TYPE_AUXILIARY_VALUE_BOUNDARY_20261027.md)
+**题型辅助监督未改善目标新习得。** 同一S15起点，Plain／真实题型／打乱题型的刚习得宏F1为43.255／43.127／43.121，最终宏为38.633／38.740／38.716；金融刚习得均15，多选4题仍全为单字母且原F1为零。真实标签的最终微增全来自交通，与打乱标签仅差0.023，不能证明目标功能有效。三组完整系数893,675,552、权重1704.551 MiB、五窗GPU峰2166.101 MiB一致；训练头新增2691参数、部署移除，仅证明无新增部署成本。关闭此固定方案，不推进正式表；单seed小DEV不支持题型信息普遍无用的结论。[完整正负结果](summary/train_answer_prior_20261025/TYPE_AUXILIARY_V2_FINDINGS_20261027.md) · [独立审阅](summary/train_answer_prior_20261025/TYPE_AUXILIARY_V2_RESULT_REVIEW_20261027.md)
 
 10% Qwen OSFT在SVD初始化预检发生显存溢出，保留为固定条件下的失败；它不是推理显存或质量分数。[失败证据](summary/two_backbone_pct10_20261025/QWEN_OSFT_INITIALIZATION_FAILURE_20261027.md)
 
@@ -192,4 +192,4 @@ Qwen SeqFT最终五域宏由1%的48.972升至10%的52.854，遥感、金融、�
 
 10% SeqFT资源列：原最终未折叠模型、同卡五条固定QA、每条32新token；GPU为五窗最大allocated峰，TTFT与解码速度为五窗中位数。计时包含同步观测开销，不是全TEST最坏峰或生产吞吐。[完整实测与核验](summary/two_backbone_pct10_20261025/FINAL_RESOURCE_FINDINGS_20261027.md)。
 
-**题型辅助三臂已实际启动。** 普通答案训练、真实题型辅助监督、打乱标签对照从同一S15状态开始；GPU1现运行普通训练分支，尚无完整质量结果。PaRSP已保存完整S1 checkpoint并正常暂停，新服务器耐久副本已通过SHA校验。三臂完成、分析后从S1恢复基线。[研究启动证据](summary/train_answer_prior_20261025/TYPE_AUXILIARY_V2_STARTED_20261027.json) · [阶段参数留存](summary/train_answer_prior_20261025/PARSP_S1_RESEARCH_PAUSE_DURABLE_20261027.json)。
+三臂完整最终模型、S15、答案及失败历史已耐久归档，309文件逐SHA校验。PaRSP已从S1恢复并进入S2。[归档证据](summary/train_answer_prior_20261025/TYPE_AUXILIARY_V2_ARCHIVE_20261027.json)。
