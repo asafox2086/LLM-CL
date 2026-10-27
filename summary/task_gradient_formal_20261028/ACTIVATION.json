@@ -1,0 +1,322 @@
+{
+  "unix": 1793121753.8497095,
+  "controller": {
+    "pid": 2179925,
+    "startticks": "782017393",
+    "uid": 1084,
+    "pgid": 2179925
+  },
+  "unit": "llmcl-pct10-task-gradient-formal-old-20261028.service",
+  "old_controller": {
+    "pid": 2093656,
+    "startticks": "781530315",
+    "uid": 1084,
+    "pgid": 2093656
+  },
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit=llmcl-pct10-task-gradient-formal-old-20261028.service",
+    "--property=Restart=no",
+    "--property=KillMode=process",
+    "--property=WorkingDirectory=/dev/shm/llmcl-pct10-1084-zu7e3hb_",
+    "--setenv=LLMCL_ROOT=/dev/shm/llmcl-pct10-1084-zu7e3hb_",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "-u",
+    "/dev/shm/llmcl-task-gradient-formal-1084-20261028/exp/task_gradient_formal_20261028/queue_adapter.py",
+    "--task-gradient-root",
+    "/dev/shm/llmcl-task-gradient-formal-1084-20261028",
+    "--task-gradient-binding",
+    "/dev/shm/llmcl-task-gradient-formal-1084-20261028/summary/task_gradient_formal_20261028/BINDING.json",
+    "--task-gradient-python",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "--direction-local-root",
+    "/dev/shm/llmcl-task-direction-local-1084-20261027",
+    "--direction-local-binding",
+    "/dev/shm/llmcl-task-direction-local-1084-20261027/summary/task_direction_local_20261027/BINDING.json",
+    "--direction-local-python",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "--direction-root",
+    "/dev/shm/llmcl-task-direction-1084-20261027",
+    "--direction-binding",
+    "/dev/shm/llmcl-task-direction-1084-20261027/summary/task_direction_reuse_20261027/BINDING.json",
+    "--direction-python",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "--type-aux-v2-root",
+    "/dev/shm/llmcl-type-aux-1084-20261027",
+    "--type-aux-v2-binding",
+    "/dev/shm/llmcl-type-aux-1084-20261027/summary/train_answer_prior_20261025/TYPE_AUXILIARY_V2_BINDING.json",
+    "--type-aux-v2-python",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "--type-aux-root",
+    "/dev/shm/llmcl-type-aux-1084-20261027",
+    "--type-aux-binding",
+    "/dev/shm/llmcl-type-aux-1084-20261027/summary/train_answer_prior_20261025/TYPE_AUXILIARY_BINDING.json",
+    "--type-aux-python",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "--paired-root",
+    "/dev/shm/llmcl-paired-option-1084-20261027",
+    "--paired-binding",
+    "/dev/shm/llmcl-paired-option-1084-20261027/summary/train_answer_prior_20261025/PAIRED_BINDING.json",
+    "--paired-python",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "--resource-root",
+    "/data2/liyapeng_grp/program/LLMCL",
+    "--resource-output",
+    "/data2/liyapeng_grp/program/LLMCL/.deployment/final_seq_resource_metadata_20261026/runs",
+    "--resource-python",
+    "/data2/liyapeng_grp/program/LLMCL/.conda-env/bin/python",
+    "--resource-onevision-binding",
+    "/data2/liyapeng_grp/program/LLMCL/.deployment/final_seq_resource_metadata_20261026/onevision_binding.json",
+    "--resource-qwen-binding",
+    "/data2/liyapeng_grp/program/LLMCL/.deployment/final_seq_resource_metadata_20261026/qwen_binding.json",
+    "--conditional-root",
+    "/dev/shm/llmcl-conditional-1084-20261026",
+    "--conditional-output",
+    "/dev/shm/llmcl-conditional-1084-20261026/run",
+    "--conditional-python",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "--position-admission",
+    "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/train_answer_prior_20261025/POSITION_RUN_ADMISSION.json",
+    "--machine",
+    "old",
+    "--resource-adapter",
+    "/data2/liyapeng_grp/program/LLMCL/.deployment/final_seq_resource_metadata_20261026/exp/final_seq_resource_20261026/queue_adapter.py"
+  ],
+  "protected": {
+    "onevision:PASs_MoE": {
+      "refs": {
+        "worker": {
+          "pid": 4049854,
+          "startticks": "763716871",
+          "uid": 1084,
+          "pgid": 4049854
+        },
+        "wrapper": {
+          "pid": 4049841,
+          "startticks": "763716855",
+          "uid": 1084,
+          "pgid": 4049841
+        }
+      },
+      "phase_exit": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/two_backbone_pct10_20261025/requests/onevision_PASs_MoE_training_1792938748174547335.exit.json",
+      "run_dir": "exp/two_backbone_pct10_native_20261025/runs/onevision/pct10/PASs_MoE/training_20261025_223228"
+    },
+    "qwen:PASs_MoE": {
+      "refs": {
+        "worker": {
+          "pid": 4048289,
+          "startticks": "763699036",
+          "uid": 1084,
+          "pgid": 4048289
+        },
+        "wrapper": {
+          "pid": 4048276,
+          "startticks": "763699020",
+          "uid": 1084,
+          "pgid": 4048276
+        }
+      },
+      "phase_exit": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/two_backbone_pct10_20261025/requests/qwen_PASs_MoE_training_1792938569833838624.exit.json",
+      "run_dir": "exp/two_backbone_pct10_native_20261025/runs/qwen/pct10/PASs_MoE/training_20261025_222929"
+    },
+    "onevision:CL_MoE": {
+      "refs": {
+        "worker": {
+          "pid": 236681,
+          "startticks": "767836133",
+          "uid": 1084,
+          "pgid": 236681
+        },
+        "wrapper": {
+          "pid": 236668,
+          "startticks": "767836113",
+          "uid": 1084,
+          "pgid": 236668
+        }
+      },
+      "phase_exit": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/two_backbone_pct10_20261025/requests/onevision_CL_MoE_training_1792979940752764465.exit.json",
+      "run_dir": "exp/two_backbone_pct10_native_20261025/runs/onevision/pct10/CL_MoE/training_20261026_095900"
+    },
+    "onevision:PaRSP": {
+      "refs": {
+        "worker": {
+          "pid": 2105078,
+          "startticks": "781587454",
+          "uid": 1084,
+          "pgid": 2105078
+        },
+        "wrapper": {
+          "pid": 2105065,
+          "startticks": "781587434",
+          "uid": 1084,
+          "pgid": 2105065
+        }
+      },
+      "phase_exit": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/two_backbone_pct10_20261025/requests/onevision_PaRSP_training_1793117453970905280.exit.json",
+      "run_dir": "exp/two_backbone_pct10_native_checkpoint_20261027/runs/onevision/pct10/PaRSP/training_20261027_113623"
+    }
+  },
+  "before_adoption": {
+    "onevision:PASs_MoE": {
+      "observed": {
+        "worker": {
+          "pid": 4049854,
+          "startticks": "763716871",
+          "uid": 1084,
+          "pgid": 4049854
+        },
+        "wrapper": {
+          "pid": 4049841,
+          "startticks": "763716855",
+          "uid": 1084,
+          "pgid": 4049841
+        }
+      },
+      "natural_exit": null,
+      "natural_exit_sha256": null
+    },
+    "qwen:PASs_MoE": {
+      "observed": {
+        "worker": {
+          "pid": 4048289,
+          "startticks": "763699036",
+          "uid": 1084,
+          "pgid": 4048289
+        },
+        "wrapper": {
+          "pid": 4048276,
+          "startticks": "763699020",
+          "uid": 1084,
+          "pgid": 4048276
+        }
+      },
+      "natural_exit": null,
+      "natural_exit_sha256": null
+    },
+    "onevision:CL_MoE": {
+      "observed": {
+        "worker": {
+          "pid": 236681,
+          "startticks": "767836133",
+          "uid": 1084,
+          "pgid": 236681
+        },
+        "wrapper": {
+          "pid": 236668,
+          "startticks": "767836113",
+          "uid": 1084,
+          "pgid": 236668
+        }
+      },
+      "natural_exit": null,
+      "natural_exit_sha256": null
+    },
+    "onevision:PaRSP": {
+      "observed": {
+        "worker": {
+          "pid": 2105078,
+          "startticks": "781587454",
+          "uid": 1084,
+          "pgid": 2105078
+        },
+        "wrapper": {
+          "pid": 2105065,
+          "startticks": "781587434",
+          "uid": 1084,
+          "pgid": 2105065
+        }
+      },
+      "natural_exit": null,
+      "natural_exit_sha256": null
+    }
+  },
+  "after_adoption": {
+    "onevision:PASs_MoE": {
+      "observed": {
+        "worker": {
+          "pid": 4049854,
+          "startticks": "763716871",
+          "uid": 1084,
+          "pgid": 4049854
+        },
+        "wrapper": {
+          "pid": 4049841,
+          "startticks": "763716855",
+          "uid": 1084,
+          "pgid": 4049841
+        }
+      },
+      "natural_exit": null,
+      "natural_exit_sha256": null
+    },
+    "qwen:PASs_MoE": {
+      "observed": {
+        "worker": {
+          "pid": 4048289,
+          "startticks": "763699036",
+          "uid": 1084,
+          "pgid": 4048289
+        },
+        "wrapper": {
+          "pid": 4048276,
+          "startticks": "763699020",
+          "uid": 1084,
+          "pgid": 4048276
+        }
+      },
+      "natural_exit": null,
+      "natural_exit_sha256": null
+    },
+    "onevision:CL_MoE": {
+      "observed": {
+        "worker": {
+          "pid": 236681,
+          "startticks": "767836133",
+          "uid": 1084,
+          "pgid": 236681
+        },
+        "wrapper": {
+          "pid": 236668,
+          "startticks": "767836113",
+          "uid": 1084,
+          "pgid": 236668
+        }
+      },
+      "natural_exit": null,
+      "natural_exit_sha256": null
+    },
+    "onevision:PaRSP": {
+      "observed": {
+        "worker": {
+          "pid": 2105078,
+          "startticks": "781587454",
+          "uid": 1084,
+          "pgid": 2105078
+        },
+        "wrapper": {
+          "pid": 2105065,
+          "startticks": "781587434",
+          "uid": 1084,
+          "pgid": 2105065
+        }
+      },
+      "natural_exit": null,
+      "natural_exit_sha256": null
+    }
+  },
+  "controls_preserved": {
+    "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_checkpoint_20261027/runs/qwen/pct10/PaRSP/training_20261027_223425/PAUSE_REQUEST.json": {
+      "original_or_naturally_consumed_archive": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_checkpoint_20261027/runs/qwen/pct10/PaRSP/training_20261027_223425/PAUSE_REQUEST.json",
+      "sha256": "9ac7607cbaa3a2ac012022b39acf0a32d22bd00180dded27a9e9802e1c65b288"
+    }
+  },
+  "no_GPU_signals": true,
+  "no_pause_or_resume_request_writes": true,
+  "no_queue_job_mutation": true,
+  "all_original_downstream_arguments_preserved": true,
+  "science_root": "/dev/shm/llmcl-task-gradient-formal-1084-20261028",
+  "binding_sha256": "4313ef543860e0ef9919b24e1c6a29f5ee40caf49118add470587b9d101edfbb",
+  "admission_sha256": "6c7c17e04ec2e937ab67c7e727d07ddd892029254f7b3c150f0e2ca8f6806f7c",
+  "old_closed_slots_preserved": true
+}

@@ -1,0 +1,15 @@
+# TaskGradReuse正式确认已进入原生运行
+
+科学源已发布5f91fc44888b7996c7f3109901f8aeb946df4e65，binding为4313ef543860e0ef9919b24e1c6a29f5ee40caf49118add470587b9d101edfbb。OLD独立science root为`/dev/shm/llmcl-task-gradient-formal-1084-20261028`。29个Python源、4个独立核验依赖及原1%manifest均已实际核对；PREPARED仅是元数据证据，不代表GPU通过。
+
+原allocator外层真实接管为CPU2179925/start782017393/UID1084，unit `llmcl-pct10-task-gradient-formal-old-20261028.service`；保留原argv、jobs、锁及其它worker，0 GPU信号。没有另建资源分配器。原PaRSP在完整S4结束后正常保存并暂停；CP为5776218034字节、SHA28507221a6e1663033a860ad5c20c1c92cfc119ca164f54c8a421a21db700296，暂停receipt SHA9ff08c42d3cb15c37b13d1811803d55fa6ea28e4d5a9c9ee2ab29d36e0f0c858。NEW原collector已于1793122068.89441逐SHA校验这份完整CP并耐久保存，OLD源不删。
+
+研究controller2183700/start782035453已在原idle机会接管GPU1。**原GPU preflight与独立checkpoint_probe均真实exit0**，phase用时76.488/107.837秒；全19个原native case及原重载后有限反传检查通过。这里只是预检，不是19任务质量或最终dense部署验证。原reload probe按既有行为删除一次性预检`.pt`，该文件不是正式参数或正式起点；预检元数据、源码和回执保留。
+
+随后fresh正式worker2187244/start782053901/UID1084启动，原命令未带`--resume`。unix1793122615实际身份匹配、GPU1 NVML2892MiB；处于原协议S0完整初评，日志持续产生evaluation事件，尚无正式主训练更新或完整F1结果。后续93主更新/222校准/74格由固定协议执行，不由旧探索5400秒预算接续。不得把预检calibration反传算进正式222，也不得把它的参数用于正式。
+
+为使研究结束后基线按原分配器尽快接回，已为真实最新S4写全新恢复许可，SHA261179894bfc5f35b1e0bc544f171049ff75dd1a5f8a5870807124d9d3c033ed，绑定上述9ff0…暂停receipt。当前队列为ready_resume、原RUN仍paused_checkpoint，**不是已经恢复**。GPU1由真实运行的formal slot持有，许可不绕过idle；别卡真正空闲可按原规则接基线，不重复提交或复用旧S3许可。
+
+只在阶段完成、异常或需要保留资产时详细记录；启动确认后按人类要求分段sleep，不忙等、不读partial质量改设置。只读入口为本地`.deployment/task_gradient_observe_old_20261028.py`。NVML观测曾一次超时，后续同一worker持续有原evaluation进展并成功返回NVML；没有把观测超时当终态或重启模型。
+
+正式质量、最终完整权重及固定五窗资源均尚缺测，Ours不填数值，论文目标未实现。原候选的所有旧负结果和数值匹配失败保持独立记录。
