@@ -1,0 +1,11 @@
+# 独立源码审阅与执行边界
+
+本次构建使用实际NEW正式框架26文件（run原SHA0e1f794f…），而非本地较新的I/O模板冒充原运行。builder保留21份原文件字节，仅对run/methods/pipeline/checkpoints/policy接入新方法、原已有阶段保存/暂停恢复接口及RNG隔离保存；BUILD_RECEIPT保存完整差分与原训练/评价循环AST相同的证据。原输入、answer loss、optimizer、native评价/生成、资源函数均逐字保留。
+
+root与baseline_review交叉接受research_review实现的TaskGradReuseMethod。已核OneVision的48个q/v形状、原optimizer建立前的begin_stage、原评价保存前的S19 end_stage、当前TRAIN文件前缀顺序、参数/buffer/dtype/mask/模块模式/视觉缓存/RNG恢复、中间完整method图的TRAIN上下文恢复、S19清理旧因子及上下文。不把保存态主坐标视为全课程独立自由度，也不增加正交门。
+
+root与baseline_review对照真实native预检/重载入口接受controller和queue接口。正式控制器不挑卡，只有原OLD分配器的idle链可提供GPU1；新外层保留旧所有argv、jobs、锁、已有研究闭合状态。三阶段为原preflight→原checkpoint_probe→fresh正式training，预检模型不接入正式。结束后须真实controller/worker退出且NVML所属PID消失才释放卡；异常保持保护，不自动重试。
+
+root与research_review逐键核对plain_r8_control准备的独立正式verifier：只复用原d7aac…引擎的verify函数定位这一个新方法目录，不触旧INDEX/REPORT；原74格/80316既有答案/完整CP SHA与原F1全部保留。前置额外检查93主更新、222当前任务校准、19份方法凭据和最后48模块dense合并；范数误差只记录。独占本实验的VERIFY标记防重复，质量通过后资源仍pending。
+
+以上均为源代码/AST/元数据审阅，未执行Torch、模型或真实评分；不是GPU预检成功或正式结果。完整29份Python源、policy、构建凭据、原评分及校验引擎、协议和计划由BINDING统一冻结。旧全程超时和局部原范数失败保持原记录，不被本次源码审阅洗成通过。

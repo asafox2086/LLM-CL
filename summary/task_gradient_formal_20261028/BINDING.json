@@ -1,0 +1,207 @@
+{
+  "schema": "task-gradient-formal-v1",
+  "method": "TaskGradReuse",
+  "backbone": "onevision",
+  "condition": "pct01",
+  "science_root": "/dev/shm/llmcl-task-gradient-formal-1084-20261028",
+  "sources": {
+    "aler_adapter.py": "4a4c58024727e5e5d01254a6b90b721e873ee6ea9f74d59308da6aa424217635",
+    "build_runner.py": "9edc1569718288bd6dc42f25d7a4d80d2488cdf5c05ad96728ba1f78dcc65ffa",
+    "checkpoint_probe.py": "71b38fb9f202fa2fa012e76a883e23322f68ef938c9f8ef9fac78d01886eb23f",
+    "checkpoints.py": "83ca50cc9365d36b90af8b8472d75a1f9f7c798e5bb1d440f87398c4d3e3a591",
+    "clmoe_adapter.py": "33946eddfc6424638ded0675ded68860273859c2f71993a6a60bd22556341be9",
+    "controller.py": "4064adda841069bb640df11394cfc65b734b1c16b7952835700c67b54238e6af",
+    "freeze_splits.py": "5b4d58451ef3bcdb9fc033c0c9bc15b72ddc36877a64ca22d50f12e9e301510a",
+    "frozen_vision.py": "8211651e92d17019f6ce6cf9615df7f6b5fcaeecc765aec4acdf916c448a35bd",
+    "fv_adapter.py": "85473b19726249703f645a30142b6cfb046a37f798430ca1a255e48213641fab",
+    "host_adam.py": "5e733e6b87c12eb9331ff23e8919a142f1861a2beec82ec8b0361d878b9aec8c",
+    "hyper_adapter.py": "518574b8c3d1c46400d240cc984f0d1c83cb01d96a7d1e2bf788bea4d4610976",
+    "methods.py": "316a2c0a5279e62c2172f47399ee342ada537842b0a0f8139fa005e91d16712a",
+    "native_auxiliary.py": "17f3345fb8d4b4cb3367de2a0b914b34bf69251ecc7f141ba1c7179006599682",
+    "onevision_bridge.py": "f3b1dd38af3b58dbfa69073da698ea2bf39a3a11850fb1069a80e38d0e3669a9",
+    "osft_adapter.py": "60b05f3b59f3878e65ee9543657b54a5aa5da13c14e139123e1c3591f3007b34",
+    "parsp_adapter.py": "d1ebe1831e6d089d434bdde34b59db64eff17dc74d8d77f9ca4f080a51da8366",
+    "pass_adapter.py": "c8e23c85a93e97130d464b4b6d87110470035c5af37f9575fce705923c80c7c4",
+    "pipeline.py": "2b18ce445a01d76b2f065100752c05626bdaf800dd33f47aa8c6e75ff52f9d2d",
+    "prepare_native.py": "200affb091e040e4f4492fb92389b9f1b54a3e71b33683e7de322ca6dd74cb4f",
+    "queue_adapter.py": "99cdac14d7d546e66cc894844518c7c6b6f97d66359a8960b1a5da0b7f3eb6cc",
+    "replay_adapter.py": "da07cfd8e44183ab3e29f1ab51ecbec0f6e7877ac6335efcf179158afff8d141",
+    "resource_monitor.py": "a161c8a82bf762622795f64210c95164fb905c6fa80572b35ae5ee3dd7146533",
+    "retrieval.py": "7d7a9dd6cb223bf96cd9ab3499a4ddf69f8fbb60940d80db84582ad518f5c133",
+    "run.py": "1c6db7068789098ac0473f3148cf0547bf0fdc7637ace6828e3c811c1a22a0f1",
+    "runtime_utils.py": "4f5c4a34be046c29cfbcdaa4b2957faa907684872ba69083bdef53136a851240",
+    "sparse_results.py": "07a7808beff8bc3330e92dc5b0fb5443401486846db764c912a5a0f57558fa3f",
+    "sparta_adapter.py": "8a00505b40663e5a233ddceb34e295d9b7b73d55f0679ac3d2b93318e77d7a44",
+    "task_gradient_adapter.py": "a1ea922be7a774538eae2a9090f87ae48c2610c20587ec15517028b16574c6ef",
+    "training_validity.py": "0ec302d2fa4e8bb1a87b41c861c3aea78bf473e3df805b87d4dd450d21a2f735"
+  },
+  "execution_policy_sha256": "e6d97e34d8f26cc02e00e5fe9cc042ee7f951d124edd7b249656753d91e88f9a",
+  "build_receipt_sha256": "768e5953b45958a8c1d4bb2ea3506d047a01a6679fae875223c98e4f02424ed0",
+  "protocol": {
+    "path": "/dev/shm/llmcl-task-gradient-formal-1084-20261028/summary/task_gradient_formal_20261028/PROTOCOL.md",
+    "sha256": "8fb8830a3ffcb680fc13d46b810058ba1a637be1660e181cd26aa77716199c9c"
+  },
+  "manifest_sha256": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+  "training_plan": [
+    {
+      "stage": 1,
+      "TRAIN_QA": 347,
+      "updates": 22,
+      "calibration_QA": 16,
+      "training_order_sha256": "a4a67372e207e4823c52dad27080d5755684ec56552e3dfa248910e37588c686"
+    },
+    {
+      "stage": 2,
+      "TRAIN_QA": 11,
+      "updates": 1,
+      "calibration_QA": 11,
+      "training_order_sha256": "fbd23f8509313b1dba86e0ac8e73dcb938b2e2008219d5a6c8d404efcb8f103c"
+    },
+    {
+      "stage": 3,
+      "TRAIN_QA": 17,
+      "updates": 2,
+      "calibration_QA": 16,
+      "training_order_sha256": "19b70bffbdce921f0b2860d5f8c0f9334348d657161b22996dd2b48b3e091007"
+    },
+    {
+      "stage": 4,
+      "TRAIN_QA": 26,
+      "updates": 2,
+      "calibration_QA": 16,
+      "training_order_sha256": "4aa0a7516a50c5da507bc8a80136c31758b2a15676783d0714f4380376936afb"
+    },
+    {
+      "stage": 5,
+      "TRAIN_QA": 6,
+      "updates": 1,
+      "calibration_QA": 6,
+      "training_order_sha256": "057c314ab71f07a7f2e8ef6db23e2044246e98ac2beb8310010fa74d4d0bd14e"
+    },
+    {
+      "stage": 6,
+      "TRAIN_QA": 14,
+      "updates": 1,
+      "calibration_QA": 14,
+      "training_order_sha256": "55bb83086e519146e27dde7f1799d92f76b132e7f967715ea6564b7af14c38aa"
+    },
+    {
+      "stage": 7,
+      "TRAIN_QA": 4,
+      "updates": 1,
+      "calibration_QA": 4,
+      "training_order_sha256": "80fb02b77f8ca222a1f139aaaf814eca5bd80991c8450ef2773c1d1ed8f0e197"
+    },
+    {
+      "stage": 8,
+      "TRAIN_QA": 5,
+      "updates": 1,
+      "calibration_QA": 5,
+      "training_order_sha256": "7e892493a3e777430a8e48aaee8448be935c7692ca9624ddc5f36fde10b076e7"
+    },
+    {
+      "stage": 9,
+      "TRAIN_QA": 1,
+      "updates": 1,
+      "calibration_QA": 1,
+      "training_order_sha256": "5fbab230e42aa1c0f7ae7c21e5af74f875f3c69a9954efca9986fd5d39fd0de2"
+    },
+    {
+      "stage": 10,
+      "TRAIN_QA": 3,
+      "updates": 1,
+      "calibration_QA": 3,
+      "training_order_sha256": "166a14ec74dc37a81d557eb55901030ece3d47d647d547793ab76c3c50bf7c19"
+    },
+    {
+      "stage": 11,
+      "TRAIN_QA": 12,
+      "updates": 1,
+      "calibration_QA": 12,
+      "training_order_sha256": "38d5df41f61e0fc2cd534803af67de598d77f06a519c2c318b3f3cb84fc77a5f"
+    },
+    {
+      "stage": 12,
+      "TRAIN_QA": 6,
+      "updates": 1,
+      "calibration_QA": 6,
+      "training_order_sha256": "7fe3ce5e5f6e864890507b0fd02a037c1d5c6c779d5a26ff530324293a86f787"
+    },
+    {
+      "stage": 13,
+      "TRAIN_QA": 170,
+      "updates": 11,
+      "calibration_QA": 16,
+      "training_order_sha256": "b5cb8ca8803cb32e5b9d4d708f82eecade55156ad2bcab84de086e5732c0569a"
+    },
+    {
+      "stage": 14,
+      "TRAIN_QA": 171,
+      "updates": 11,
+      "calibration_QA": 16,
+      "training_order_sha256": "8b8da4a36a2481560e7bbf002178f0690d19a27e0f4ec2e7332b3481f95a3ec5"
+    },
+    {
+      "stage": 15,
+      "TRAIN_QA": 226,
+      "updates": 15,
+      "calibration_QA": 16,
+      "training_order_sha256": "725db608a1c69492f068a7bea3d5e996f3a3fbceae9987f690a9e51dab977807"
+    },
+    {
+      "stage": 16,
+      "TRAIN_QA": 89,
+      "updates": 6,
+      "calibration_QA": 16,
+      "training_order_sha256": "098a1a3f6b8ccf8d0539ae4b92b6116212c2095d87486bd63da0bbdc2d8e2586"
+    },
+    {
+      "stage": 17,
+      "TRAIN_QA": 49,
+      "updates": 4,
+      "calibration_QA": 16,
+      "training_order_sha256": "8f752c3aea8961f4581aa30c9a1ad045241412f51b7fa141286734b7dab4c05f"
+    },
+    {
+      "stage": 18,
+      "TRAIN_QA": 107,
+      "updates": 7,
+      "calibration_QA": 16,
+      "training_order_sha256": "03474f7237bfb7639344842b1d7594cde4edc4d2eae44143b110158b87f9b978"
+    },
+    {
+      "stage": 19,
+      "TRAIN_QA": 49,
+      "updates": 4,
+      "calibration_QA": 16,
+      "training_order_sha256": "9708eb997f9decfef4f6f07b7cc4e1a8ed8f508727e0a5424dc7d06774025c48"
+    }
+  ],
+  "inherited_sources": {
+    "analysis/v2_verified_baseline_report.py": "d7aac920f738c6ee8fde9a636560f2d2d6ee7ea1ba9de9e030e6548b4b4cad0a",
+    "analysis/answer_f1.py": "16c59998413d12b820d6f57269f9e1f45ac78e08595d20bf1f4fbc967fd94c4b",
+    "summary/primary_metric_20261017/metric_lock.json": "a146f037f835afb66251ce35498a4a5df8e7ea97468725b49ea34043f7d1c948",
+    "analysis/task_gradient_formal_verify_20261028.py": "5a911bd3936921c17095df29b0afbc46760ea4da9cc0ad57fb1604ff1fb2659d"
+  },
+  "prior_research_preserved": {
+    "local_root": "/dev/shm/llmcl-task-direction-local-1084-20261027",
+    "local_queue_sha256": "e3ad3c231b0fcad025331ac438043eb3cf95767018335e20a2cb445781e112a3",
+    "global_closed_root": "/dev/shm/llmcl-task-direction-1084-20261027"
+  },
+  "starting_state": "fresh pretrained W0, never preflight/S15/failed partial",
+  "raw_default_SVD_without_QR": true,
+  "old_strict_norm_validation_relabelled": false,
+  "primary_metric": "Original raw Answer F1",
+  "TRAIN_QA": 1313,
+  "TEST_QA": 21454,
+  "model_phases": [
+    "preflight",
+    "reload",
+    "training"
+  ],
+  "preflight_seconds": 1800,
+  "reload_seconds": 600,
+  "training_budget": "19 native stages, 93 main updates, 222 calibration QA backwards, original74 evaluation cells; no old exploration wallclock extension",
+  "final_resource_proof_required": true,
+  "no_automatic_model_retry": true
+}
