@@ -12,4 +12,4 @@
 
 源码SHA：`1434c424dcc7d003494da33054bf6ef823c3b49d7e3710805ff360856bf80cc2`。作者与独立子agent审阅完成；root复现了原AST装载、假整数计数器、假checkpoint暂停/恢复及缺permit/缺final拒绝检查。没有读取真实QA、调用评分或加载模型。尚无新版本完整run供实际端到端验证，不能把静态通过写成真实实验通过。
 
-旧消费者继续负责旧运行。两个比例FOREVER的消费者仍需独立适配多阶段留存，未包含在本工具中。
+旧消费者继续负责旧运行。两个比例FOREVER由独立的[保存版FOREVER消费者](FOREVER_RESULT_CONSUMER.md)核验，不包含在本native工具中。
