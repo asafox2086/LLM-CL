@@ -1,0 +1,17 @@
+# 同起点方向功能对照：已接原队列，等待阶段保存
+
+unix1793114275，原CPU外层接管为2035990/start781267356/UID1084，unit `llmcl-pct10-task-direction-local-old-20261027.service`，原全部argv和四组GPUworker、LLaVA S3恢复许可保全，0GPU信号。Qwen PaRSP真实worker1982138/start781008578收到单次阶段暂停请求，SHA9ac7607cbaa3a2ac012022b39acf0a32d22bd00180dded27a9e9802e1c65b288；初评结束后保存完整S0再正常退出，不冒称此刻已有CP。
+
+sleep60后unix1793114407实查新CPU和Qwen worker身份均匹配，Qwen仍初始评估、pause_pending=true；新research slot不存在，0STARTED，预算尚未开始。后续用 `.deployment/task_direction_local_observe_old_20261027.py` 看真实阶段，勿重复接管、暂停请求或exclusive准备脚本。
+
+科学源/协议已发布 e12c4dfe3a4c2173961d3a5122023173e3dba880，有效binding SHA3a2b661f4ba276f12fae374253c8ac518781211306ca19916be34463d033aa7e。
+
+unix1793113889.118，OLD独立目录 `/dev/shm/llmcl-task-direction-local-1084-20261027` 完成真实stdlib准备：37份继承源、全部六科学源和queue、原split/协议摘要匹配；prefix.validate_metadata成功核验原公共S15的1797070474字节完整CP SHA、来源与成功EXIT、PREFIX_STATE和processor/配置。Torch/Transformers未导入，0模型/生成/新评分。这不是GPU重载成功或功能结果。
+
+输入是原普通shared-r8 S15完整资产，不使用失败方向臂的15个adapter或任何旧后缀训练结果。两臂后续在同一新fold起点、同一新seed42下只比较原T16五更新；这补的是同起点方向信息的局部可识别性，不能据此补全已失败的全课程随机臂。
+
+旧validator返回的 `original_prefix_answers_unscored=True` 是它在旧v2准备时的固定历史标签，不是本次对旧答案当前评分状态的实查；旧120条前缀回答后来已在v2的660条评分中消费。本次不消费或重分这些旧回答，只复用完整模型资产，新计划为独立90生成/80评分。不能把这条历史标签当未探索DEV或盲态证据。
+
+交叉审阅在GPU启动前修正两处真实接口错误：训练AST局部变量名原会遮蔽prefix模块；继承的evaluate_dev helper硬要求100条，不能传20条，因此local eval用现成stage_readout显式循环原20条金融DEV。训练/生成设置未改变，未调用模型救跑。
+
+CPU接管只读检查最初因预期PGID仍误留旧1760521而在任何信号/输出目录创建前拒绝。核接管前原CPU的真实PGID为1894645后，仅修私有外层脚本旧CPU tuple，保留原脚本/拒绝记录；科学七源、binding、协议与模型均未改。修正版检查和实际接管成功。不是模型失败或预算重置。

@@ -107,6 +107,8 @@ Qwen SeqFT最终五域宏由1%的48.972升至10%的52.854，遥感、金融、�
 
 **当前方法：任务方向初始化，质量尚未验证。** 保持q/v-r8的540,672个活动参数，每任务把已有LoRA合并入共享权重，再用当期FIT梯度的主要右奇异方向初始化A、B置零；与同范数随机方向匹配对照，最终都合并为单模型。问题是任务相关方向是否改善固定预算内的新习得，而非证明“扩容有效”。首次方向臂在5400秒上限内完成69/87次更新、保存S1–15阶段adapter后超时，随机臂未启动，无最终完整模型或F1比较；属于执行预算失败，不能判方向有效或无效。原运行关闭并保留证据，基线恢复许可已提交。[固定协议](summary/task_direction_reuse_20261027/PROTOCOL.md) · [研究论证边界](summary/task_direction_reuse_20261027/RESEARCH_CLAIM_BOUNDARY.md) · [本次终态](summary/task_direction_reuse_20261027/FAILURE_FINDINGS.md)
 
+**下一检验更直接控制学习起点。** 复用此前成功的普通shared-r8 S15完整模型，两臂从同一fold权重、同seed开始，只比较原金融任务69FIT／5更新中的方向信息；同样执行校准，最终比较20题原回答F1及逐题得失。它能识别该起点的当前任务局部效用，不能证明全域或专家替代。独立协议/源码已冻结并通过来源核验，已接原队列，等待基线完整阶段保存让卡；尚无GPU结果。[协议](summary/task_direction_local_20261027/PROTOCOL.md) · [设计评判](summary/task_direction_local_20261027/DESIGN_REVIEW.md) · [执行证据](summary/task_direction_local_20261027/EXECUTION_PREPARED.md)
+
 | 观测的问题与探索命题 | 检验结果 | 结论与设计影响 |
 | --- | --- | --- |
 | **强方法主要解决遗忘，还是先学得更好？** | 正式刚习得均分：OSFT47.887821、Seq38.604705；BWT分别−1.616191、+1.774861 | **支持优先研究有效习得。** OSFT在本轨迹上刚习得更强，保持更差；尚未识别其性能原因，不能把所有缺口归为遗忘。[证据](summary/final_weight_reduction_20261024/osft_initial_gap_check_v1/FINDINGS.md) |

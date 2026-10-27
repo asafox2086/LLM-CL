@@ -1,0 +1,316 @@
+{
+  "unix": 1793114253.4710855,
+  "controller": {
+    "pid": 2035990,
+    "startticks": "781267356",
+    "uid": 1084,
+    "pgid": 2035990
+  },
+  "unit": "llmcl-pct10-task-direction-local-old-20261027.service",
+  "old_controller": {
+    "pid": 1894645,
+    "startticks": "780419791",
+    "uid": 1084,
+    "pgid": 1894645
+  },
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit=llmcl-pct10-task-direction-local-old-20261027.service",
+    "--property=Restart=no",
+    "--property=KillMode=process",
+    "--property=WorkingDirectory=/dev/shm/llmcl-pct10-1084-zu7e3hb_",
+    "--setenv=LLMCL_ROOT=/dev/shm/llmcl-pct10-1084-zu7e3hb_",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "-u",
+    "/dev/shm/llmcl-task-direction-local-1084-20261027/exp/task_direction_local_20261027/v1/queue_adapter.py",
+    "--direction-local-root",
+    "/dev/shm/llmcl-task-direction-local-1084-20261027",
+    "--direction-local-binding",
+    "/dev/shm/llmcl-task-direction-local-1084-20261027/summary/task_direction_local_20261027/BINDING.json",
+    "--direction-local-python",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "--direction-root",
+    "/dev/shm/llmcl-task-direction-1084-20261027",
+    "--direction-binding",
+    "/dev/shm/llmcl-task-direction-1084-20261027/summary/task_direction_reuse_20261027/BINDING.json",
+    "--direction-python",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "--type-aux-v2-root",
+    "/dev/shm/llmcl-type-aux-1084-20261027",
+    "--type-aux-v2-binding",
+    "/dev/shm/llmcl-type-aux-1084-20261027/summary/train_answer_prior_20261025/TYPE_AUXILIARY_V2_BINDING.json",
+    "--type-aux-v2-python",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "--type-aux-root",
+    "/dev/shm/llmcl-type-aux-1084-20261027",
+    "--type-aux-binding",
+    "/dev/shm/llmcl-type-aux-1084-20261027/summary/train_answer_prior_20261025/TYPE_AUXILIARY_BINDING.json",
+    "--type-aux-python",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "--paired-root",
+    "/dev/shm/llmcl-paired-option-1084-20261027",
+    "--paired-binding",
+    "/dev/shm/llmcl-paired-option-1084-20261027/summary/train_answer_prior_20261025/PAIRED_BINDING.json",
+    "--paired-python",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "--resource-root",
+    "/data2/liyapeng_grp/program/LLMCL",
+    "--resource-output",
+    "/data2/liyapeng_grp/program/LLMCL/.deployment/final_seq_resource_metadata_20261026/runs",
+    "--resource-python",
+    "/data2/liyapeng_grp/program/LLMCL/.conda-env/bin/python",
+    "--resource-onevision-binding",
+    "/data2/liyapeng_grp/program/LLMCL/.deployment/final_seq_resource_metadata_20261026/onevision_binding.json",
+    "--resource-qwen-binding",
+    "/data2/liyapeng_grp/program/LLMCL/.deployment/final_seq_resource_metadata_20261026/qwen_binding.json",
+    "--conditional-root",
+    "/dev/shm/llmcl-conditional-1084-20261026",
+    "--conditional-output",
+    "/dev/shm/llmcl-conditional-1084-20261026/run",
+    "--conditional-python",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "--position-admission",
+    "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/train_answer_prior_20261025/POSITION_RUN_ADMISSION.json",
+    "--machine",
+    "old",
+    "--resource-adapter",
+    "/data2/liyapeng_grp/program/LLMCL/.deployment/final_seq_resource_metadata_20261026/exp/final_seq_resource_20261026/queue_adapter.py"
+  ],
+  "protected": {
+    "onevision:PASs_MoE": {
+      "refs": {
+        "worker": {
+          "pid": 4049854,
+          "startticks": "763716871",
+          "uid": 1084,
+          "pgid": 4049854
+        },
+        "wrapper": {
+          "pid": 4049841,
+          "startticks": "763716855",
+          "uid": 1084,
+          "pgid": 4049841
+        }
+      },
+      "phase_exit": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/two_backbone_pct10_20261025/requests/onevision_PASs_MoE_training_1792938748174547335.exit.json",
+      "run_dir": "exp/two_backbone_pct10_native_20261025/runs/onevision/pct10/PASs_MoE/training_20261025_223228"
+    },
+    "qwen:PASs_MoE": {
+      "refs": {
+        "worker": {
+          "pid": 4048289,
+          "startticks": "763699036",
+          "uid": 1084,
+          "pgid": 4048289
+        },
+        "wrapper": {
+          "pid": 4048276,
+          "startticks": "763699020",
+          "uid": 1084,
+          "pgid": 4048276
+        }
+      },
+      "phase_exit": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/two_backbone_pct10_20261025/requests/qwen_PASs_MoE_training_1792938569833838624.exit.json",
+      "run_dir": "exp/two_backbone_pct10_native_20261025/runs/qwen/pct10/PASs_MoE/training_20261025_222929"
+    },
+    "onevision:CL_MoE": {
+      "refs": {
+        "worker": {
+          "pid": 236681,
+          "startticks": "767836133",
+          "uid": 1084,
+          "pgid": 236681
+        },
+        "wrapper": {
+          "pid": 236668,
+          "startticks": "767836113",
+          "uid": 1084,
+          "pgid": 236668
+        }
+      },
+      "phase_exit": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/two_backbone_pct10_20261025/requests/onevision_CL_MoE_training_1792979940752764465.exit.json",
+      "run_dir": "exp/two_backbone_pct10_native_20261025/runs/onevision/pct10/CL_MoE/training_20261026_095900"
+    },
+    "qwen:PaRSP": {
+      "refs": {
+        "worker": {
+          "pid": 1982138,
+          "startticks": "781008578",
+          "uid": 1084,
+          "pgid": 1982138
+        },
+        "wrapper": {
+          "pid": 1982125,
+          "startticks": "781008561",
+          "uid": 1084,
+          "pgid": 1982125
+        }
+      },
+      "phase_exit": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/two_backbone_pct10_20261025/requests/qwen_PaRSP_training_1793111665241426836.exit.json",
+      "run_dir": "exp/two_backbone_pct10_native_checkpoint_20261027/runs/qwen/pct10/PaRSP/training_20261027_223425"
+    }
+  },
+  "before_adoption": {
+    "onevision:PASs_MoE": {
+      "observed": {
+        "worker": {
+          "pid": 4049854,
+          "startticks": "763716871",
+          "uid": 1084,
+          "pgid": 4049854
+        },
+        "wrapper": {
+          "pid": 4049841,
+          "startticks": "763716855",
+          "uid": 1084,
+          "pgid": 4049841
+        }
+      },
+      "natural_exit": null,
+      "natural_exit_sha256": null
+    },
+    "qwen:PASs_MoE": {
+      "observed": {
+        "worker": {
+          "pid": 4048289,
+          "startticks": "763699036",
+          "uid": 1084,
+          "pgid": 4048289
+        },
+        "wrapper": {
+          "pid": 4048276,
+          "startticks": "763699020",
+          "uid": 1084,
+          "pgid": 4048276
+        }
+      },
+      "natural_exit": null,
+      "natural_exit_sha256": null
+    },
+    "onevision:CL_MoE": {
+      "observed": {
+        "worker": {
+          "pid": 236681,
+          "startticks": "767836133",
+          "uid": 1084,
+          "pgid": 236681
+        },
+        "wrapper": {
+          "pid": 236668,
+          "startticks": "767836113",
+          "uid": 1084,
+          "pgid": 236668
+        }
+      },
+      "natural_exit": null,
+      "natural_exit_sha256": null
+    },
+    "qwen:PaRSP": {
+      "observed": {
+        "worker": {
+          "pid": 1982138,
+          "startticks": "781008578",
+          "uid": 1084,
+          "pgid": 1982138
+        },
+        "wrapper": {
+          "pid": 1982125,
+          "startticks": "781008561",
+          "uid": 1084,
+          "pgid": 1982125
+        }
+      },
+      "natural_exit": null,
+      "natural_exit_sha256": null
+    }
+  },
+  "after_adoption": {
+    "onevision:PASs_MoE": {
+      "observed": {
+        "worker": {
+          "pid": 4049854,
+          "startticks": "763716871",
+          "uid": 1084,
+          "pgid": 4049854
+        },
+        "wrapper": {
+          "pid": 4049841,
+          "startticks": "763716855",
+          "uid": 1084,
+          "pgid": 4049841
+        }
+      },
+      "natural_exit": null,
+      "natural_exit_sha256": null
+    },
+    "qwen:PASs_MoE": {
+      "observed": {
+        "worker": {
+          "pid": 4048289,
+          "startticks": "763699036",
+          "uid": 1084,
+          "pgid": 4048289
+        },
+        "wrapper": {
+          "pid": 4048276,
+          "startticks": "763699020",
+          "uid": 1084,
+          "pgid": 4048276
+        }
+      },
+      "natural_exit": null,
+      "natural_exit_sha256": null
+    },
+    "onevision:CL_MoE": {
+      "observed": {
+        "worker": {
+          "pid": 236681,
+          "startticks": "767836133",
+          "uid": 1084,
+          "pgid": 236681
+        },
+        "wrapper": {
+          "pid": 236668,
+          "startticks": "767836113",
+          "uid": 1084,
+          "pgid": 236668
+        }
+      },
+      "natural_exit": null,
+      "natural_exit_sha256": null
+    },
+    "qwen:PaRSP": {
+      "observed": {
+        "worker": {
+          "pid": 1982138,
+          "startticks": "781008578",
+          "uid": 1084,
+          "pgid": 1982138
+        },
+        "wrapper": {
+          "pid": 1982125,
+          "startticks": "781008561",
+          "uid": 1084,
+          "pgid": 1982125
+        }
+      },
+      "natural_exit": null,
+      "natural_exit_sha256": null
+    }
+  },
+  "controls_preserved": {
+    "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_checkpoint_20261027/runs/onevision/pct10/PaRSP/training_20261027_113623/RESUME_REQUEST.json": {
+      "original_or_naturally_consumed_archive": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_checkpoint_20261027/runs/onevision/pct10/PaRSP/training_20261027_113623/RESUME_REQUEST.json",
+      "sha256": "136b1dbf0d6b91be5c14c12a2abc07c9b0121241dea90edf12e1b08bd386af2c"
+    }
+  },
+  "no_GPU_signals": true,
+  "no_pause_or_resume_request_writes": true,
+  "no_queue_job_mutation": true,
+  "original_direction_type_v2_resource_type_paired_and_downstream_arguments_preserved": true,
+  "science_root": "/dev/shm/llmcl-task-direction-local-1084-20261027",
+  "binding_sha256": "3a2b661f4ba276f12fae374253c8ac518781211306ca19916be34463d033aa7e",
+  "admission_sha256": "109debc8d62e87c98a49fbb20a76babd2f1b451e3b54d56fb6eb8d23dc274612",
+  "old_closed_slots_preserved": true
+}
