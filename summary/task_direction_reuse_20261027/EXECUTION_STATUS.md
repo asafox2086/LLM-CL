@@ -1,4 +1,12 @@
-# 任务方向对照已实际启动
+# 首次任务方向对照已超时关闭并耐久归档
+
+最新终态：aligned/train于unix1793111613.604达到5400秒预算，完成69/87次主更新；仅有S1–15 adapter凭据，随机臂和全部eval未启动，无完整质量。slot已failed_closed/released，原研究controller/worker实际gone。详情见FAILURE_FINDINGS.md。以下启动信息仅为历史，不能据其认为实验仍live。
+
+NEW耐久归档 `.deployment/task_direction_failed_archive_20261027/complete_research.tar` 已于unix1793112269.471完成；36024320字节、179文件逐文件SHA通过，归档SHA ad23b4cfb5ea856ea17a5007178d9c34f30715f5cf68c41b2449e5af12657e85。保留原始失败、全部partial及来源，不删除OLD源，不声称保存了不存在的最终模型。
+
+PaRSP S3新恢复许可136b1dbf0d6b91be5c14c12a2abc07c9b0121241dea90edf12e1b08bd386af2c已于unix1793111868写入，绑定本次df992...暂停；原allocator在研究释放后先启动Qwen PaRSP1982138/start781008578，原LLaVA PaRSP待排队。恢复许可不是实际续训证明；不要重复提交或中断新基线。当前CPU仍1894645/start780419791，接管脚本勿重跑。
+
+## 以下为启动历史
 
 unix1793106213.605347 aligned/train 首次 STARTED，worker1902963/start780463375/UID1084；研究 controller1902962/start780463366。unix1793106304 实查两者身份匹配，worker 为 R，NVML GPU1 的进程为1902963、占9970MiB。这仅为运行快照，不是正式内存读数或质量结果。5400秒训练预算已开始，不重置。
 
