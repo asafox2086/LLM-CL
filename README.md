@@ -105,14 +105,13 @@ Qwen SeqFT最终五域宏由1%的48.972升至10%的52.854，遥感、金融、�
 
 连续学习先导通常采用1213 FIT／100 DEV、19阶段；其它诊断使用各自固定范围。DEV已用于多次探索，结果用于筛选，不能与正式TEST分数直接排名，也不据此宣称显著提升。下表区分实际负结果、局部支持、质量缺测和待验证假说。
 
-**当前方法：任务方向初始化，质量尚未验证。** 主优化器更新q/v-r8的540,672个坐标，每任务把已有LoRA合并入共享权重，再用当期FIT梯度的主要右奇异方向初始化A、B置零；与同范数随机方向匹配对照，最终都合并为单模型。问题是任务相关方向是否改善固定预算内的新习得，而非证明“扩容有效”。首次方向臂在5400秒上限内完成69/87次更新、保存S1–15阶段adapter后超时，随机臂未启动，无最终完整模型或F1比较；属于执行预算失败，不能判方向有效或无效。原运行关闭并保留证据，基线恢复许可已提交。[固定协议](summary/task_direction_reuse_20261027/PROTOCOL.md) · [研究论证边界](summary/task_direction_reuse_20261027/RESEARCH_CLAIM_BOUNDARY.md) · [本次终态](summary/task_direction_reuse_20261027/FAILURE_FINDINGS.md)
+**当前候选：用当期任务梯度安排小LoRA更新方向，出现局部正向读数。** 同一个shared-r8 S15模型、同69 FIT／5更新，实际SVD初始化在20题金融DEV学后F1为20，随机策略为10，共同before均5。差距只来自两题，其中一题额外新学、一题保住原本会的答案，不能把10pp全部归为新习得。原范数／正交匹配核验失败；看分前公开偏差并用独立消费者唯一评分，结果只描述实际初始化整包，不能作纯方向因果或正式五域优势。[结果与边界](summary/task_direction_local_20261027/DESCRIPTIVE_FINDINGS_20261028.md) · [独立评判](summary/task_direction_local_20261027/DESCRIPTIVE_RESULT_REVIEW_20261028.md)
 
-**下一检验更直接控制学习起点。** 复用此前成功的普通shared-r8 S15完整模型，两臂从同一fold权重、同seed开始，只比较原金融任务69FIT／5更新中的方向信息；同样执行校准，最终比较20题原回答F1及逐题得失。它能识别该起点的当前任务局部效用，不能证明全域或专家替代。独立协议/源码已冻结并通过来源核验，已在GPU1实际启动。按研究优先授权封存并停止零更新的Qwen PaRSP初评，让卡后仍由原分配器执行；此基线后续按原配置新RUN重新启动，不称checkpoint续训。目前尚无方法质量结果。[协议](summary/task_direction_local_20261027/PROTOCOL.md) · [设计评判](summary/task_direction_local_20261027/DESIGN_REVIEW.md) · [执行证据](summary/task_direction_local_20261027/EXECUTION_STARTED_20261028.md)
-
-**小更新空间要承接什么成本与功能？** 同骨干OSFT／PAS的主优化器坐标为113,766,144／140,771,328，约为小r8的210／260倍；它们有真实习得收益，却获得不同回答功能（金融多选刚习得F1分别0／13.736）。当前问题是能否在训练时安排有用方向，以小主更新空间承接足够收益、保留单图部署，而非预设大专家冗余。54.1万只指主优化器：方向校准临时使用22,020,096个dense坐标，G载荷84MiB，额外训练峰另测；部署不永久保留G。已有小图对PAS的五窗GPU优势约25%，不能把260倍坐标差写成260倍内存优势，也不能借用旧小图测量冒充新方法。[功能—成本对照](summary/task_direction_local_20261027/SMALL_SPACE_VS_LARGE_METHODS.md) · [独立评判](summary/task_direction_local_20261027/SPACE_FUNCTION_REVIEW.md)
+**与强方法的成本对照已有本次实测。** 主optimizer仍54.1万坐标，部署新增参数为0；两臂完整模型均8.937亿系数／1704.551MiB权重，固定五窗GPU最大2166.101MiB。相对同卡同输入的PAS原图，权重少23.96%、逐窗GPU低24.84%–26.81%；这不是同测试集质量替代证明，也不是260倍内存优势。校准另用2202万dense坐标／84MiB梯度，训练NVML观测峰10648MiB，不能宣称训练峰也很小。尚无同时满足正式质量与部署目标的完整候选，Ours仍空。[功能—成本参照](summary/task_direction_local_20261027/SMALL_SPACE_VS_LARGE_METHODS.md) · [原全课程超时记录](summary/task_direction_reuse_20261027/FAILURE_FINDINGS.md)
 
 | 观测的问题与探索命题 | 检验结果 | 结论与设计影响 |
 | --- | --- | --- |
+| **少量更新坐标能否借当前任务梯度获得更好回答？** | 同S15、69FIT／5更新：实际SVD金融DEV 20，随机10，共同before5；部署图／GPU相同 | **实际策略有局部正向信号，原范数匹配失败。** 10pp只来自两题，一题额外新学、一题保留旧满分；不证明纯方向、显著或全域优势。[完整正负与资源](summary/task_direction_local_20261027/DESCRIPTIVE_FINDINGS_20261028.md) |
 | **强方法主要解决遗忘，还是先学得更好？** | 正式刚习得均分：OSFT47.887821、Seq38.604705；BWT分别−1.616191、+1.774861 | **支持优先研究有效习得。** OSFT在本轨迹上刚习得更强，保持更差；尚未识别其性能原因，不能把所有缺口归为遗忘。[证据](summary/final_weight_reduction_20261024/osft_initial_gap_check_v1/FINDINGS.md) |
 | **低曝光新专家的冷启动能否靠继承改善？** | 局部11条医学QA／一次更新，从头19.88、完整继承29.26；独立功能中性控制没有复现完整继承收益 | **局部支持功能继承。** 不支持“所有方法每域清零”或“只开放首步A梯度就够”。[冷启动](summary/onevision_diagnostics_20261016/expert_cold_start_20261018/RESEARCH_FINDINGS.md) · [控制](summary/onevision_diagnostics_20261016/function_neutral_init_20261018/v2/function_vs_factor/RESEARCH_FINDINGS.md) |
 | **OSFT部分训练与保护机制是否可省？** | ShortFixed宏42.301329、原OSFT40.783801，梯度及Adam状态少21.34%；去逐步保护42.333991，但金融下降 | **局部支持简化训练状态，未证明最终模型更小。** 点估计不证明等效或保护无用；阶段刷新对照故障，质量缺测。[短侧](summary/edge_deployment_20261019/osft_short_factor_control_20261022/v2/FINDINGS.md) · [保护](summary/edge_deployment_20261019/osft_protection_control_20261022/v1/FINDINGS.md) |
