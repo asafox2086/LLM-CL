@@ -4,7 +4,7 @@
 
 采用原未合并S19图，保持原dtype、A/B和实际payload；原F1与被测参数图直接对应。168个七类位置的r8 A/B共有4399104个FP32坐标，载荷16.78125MiB。这是适配器载荷，不是完整模型权重或GPU峰。普通LoRA数学上可合并，但FP16舍入和计算路径可能改变生成，故不把44.8944直接配到未经评价的合并图；当前不为合并追加完整TEST或分支。
 
-固定资源范围沿用PAS同一物理OLD GPU1、五个原始及准备后输入、每窗32新token，报告完整必要storage、加载峰、五窗allocated/reserved、TTFT及解码速度。PAS原记录无TTFT，不作速度优越性比较。独立重载后确认168个原SeqLinear、r8/scale4/dropout0.1及FP32 A/B，保留隐藏引用审计；不训练、转换dtype、合并、导出或重新评分。源码尚在本地准备，未运输、排队或GPU执行，主表不填估计。
+固定资源范围沿用PAS同一物理OLD GPU1、五个原始及准备后输入、每窗32新token，报告完整必要storage、加载峰、五窗allocated/reserved、TTFT及解码速度。PAS原记录无TTFT，不作速度优越性比较。独立重载后确认168个原SeqLinear、r8/scale4/dropout0.1及FP32 A/B，保留隐藏引用审计；不训练、转换dtype、合并、导出或重新评分。两源已发布并整理为NEW独立快照，未运输到OLD、排队或GPU执行，主表不填估计。
 
 ## 已实际核对的输入
 
@@ -32,3 +32,9 @@ plain_r8_control独立评判接受原图最小补测，理由是它填补公平�
 plain_r8_control完成两源AST、真实封存元数据契约及错误方法/错误policy拒绝检查；root独立重复两源AST和真实封存元数据契约通过，未导入Torch或触碰真实权重。原固定TargetLoRA类对象的cloudpickle/pickle元数据往返已由实现者检查，不调用构造器、不创建模型；真实GPU图重载与资源仍未验证。
 
 baseline_review独立只读审阅两源、原动态类、checkpoint保存加载和OneVision别名后接受，未见确定阻断；核对了原168模块、完整权重、元数据链、隐藏引用审计及五窗计时范围。该结论仅接受可执行准备，不是实际CP重载或GPU测量通过，也没有启动、运输或排队。
+
+## 独立资产快照已实际完成
+
+unix1793137965完成NEW独立快照`.deployment/all_r8_resource_snapshot_20261028`；45个文件含37项原READY源码逐SHA一致，原policy仅从上述Git blob恢复到快照。最终CP以同盘同inode硬链接保留，已实际完整读目标核SHA416ed177…31519，前后源/目标device、inode、大小、mtime一致，没有写入或chmod/chown原inode，也没有额外复制1.94GB载荷。data/model只链接既有资产，不改内容。
+
+执行脚本经baseline_review独立只读审阅、root AST核对后执行一次；随后独立只读检查45项文件、源/目标inode和原全局policy未变。耐久SNAPSHOT收据SHA为384cedd0aee02a089ebc1bd580dbb9bfa61c68162f885238a889cd17f7472d0c，[精简实查凭据](ASSET_SNAPSHOT.json)。剩余空间43,417,968,640字节，保留20GiB余量。本步不产生模型、评分、resource binding、GPU启动、OLD运输或队列更改；仍是资产准备，不是资源实测通过。
