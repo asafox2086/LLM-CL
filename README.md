@@ -8,7 +8,7 @@
 
 **设置确定后固定。** 沿用既定数据、训练、生成与评分条件，研究方法在这些条件下的新习得能力、失败和适用边界，不为改善结果反复调整设置。
 
-**当前结论：尚未得到同时满足质量与资源目标的自研方法，Ours 暂空。** 已有1%完整正式结果8组；10%已有双骨干SeqFT-LoRA共2组完整核验，LLaVA／Qwen五域宏分别47.462／52.854，两组最终完整模型已耐久保存；其余基线继续运行／排队。单图LoRA相对PAS与Qwen的固定窗口显存差异已实测，新方法质量仍待验证。
+**当前结论：尚未得到同时满足质量与资源目标的自研方法，Ours 暂空。** 已有1%完整正式结果9组；10%已有双骨干SeqFT-LoRA共2组完整核验，LLaVA／Qwen五域宏分别47.462／52.854，两组最终完整模型已耐久保存；其余基线继续运行／排队。单图LoRA相对PAS与Qwen的固定窗口显存差异已实测，新方法质量仍待验证。 Qwen CL-MoE已完成并通过原19阶段／74格核验，五域宏48.072，完整S19参数文件已保存；其权重布局与五窗GPU成本待提取，不填估计。
 
 本文只保留主表、探索命题和结论。[补充说明](SUPPLEMENTARY_NOTES.md#探索过程与证据索引)保存完整探索过程、正负证据、故障、成本及运行交接。
 
@@ -22,7 +22,7 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 | **Qwen2-VL-2B-Instruct** |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | SeqFT-LoRA | 朴素顺序微调 | 标准对照（无独立发表年份） | 86.312 | 47.654 | 51.110 | 26.576 | 33.210 | 48.972 | 47.812 | 13.258 | 4.415 | 4217.462 | 4.156 | 4954.604† | 未测 | 未测 | 未测 |
 | FOREVER | 回放 | [ACL 2026](https://aclanthology.org/2026.acl-long.1144/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |
-| CL-MoE | 架构 | [CVPR 2025](https://openaccess.thecvf.com/content/CVPR2025/html/Huai_CL-MoE_Enhancing_Multimodal_Large_Language_Model_with_Dual_Momentum_Mixture-of-Experts_CVPR_2025_paper.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |
+| CL-MoE | 架构 | [CVPR 2025](https://openaccess.thecvf.com/content/CVPR2025/html/Huai_CL-MoE_Enhancing_Multimodal_Large_Language_Model_with_Dual_Momentum_Mixture-of-Experts_CVPR_2025_paper.html) | 85.821 | 47.279 | 50.680 | 23.557 | 33.023 | 48.072 | 47.123 | 14.023 | 0.075 | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |
 | SMoLoRA | 架构 | [ICCV 2025](https://openaccess.thecvf.com/content/ICCV2025/html/Wang_SMoLoRA_Exploring_and_Defying_Dual_Catastrophic_Forgetting_in_Continual_Visual_ICCV_2025_paper.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |
 | PASs-MoE | 架构（兼正则） | [ACL 2026](https://aclanthology.org/2026.acl-long.1474/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |
 | PaRSP | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.1244/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |
@@ -51,7 +51,6 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 <!-- CPU_EDGE_METRICS_NOTE_END -->
 
 † GPU列为原正式checkpoint、原dtype／表示下的**固定五窗最大 `max_memory_allocated`**：同OLD GPU1、同五条原始QA，每题生成32个新token，包含输入准备与生成；各骨干保留原生输入展开。不是全TEST最坏峰、CPU／NVML总内存或最优折叠部署。[PAS实测](summary/strong_pas_resource_20261025/v1/FINDINGS.md) · [Qwen实测](summary/strong_qwen_resource_20261025/v1/FINDINGS.md)。
-
 
 <!-- FORMAL_MAIN_TABLE_END -->
 
