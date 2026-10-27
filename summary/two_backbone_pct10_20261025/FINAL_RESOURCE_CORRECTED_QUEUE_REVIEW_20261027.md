@@ -1,0 +1,9 @@
+# 环境补测外层入口审查
+
+子agent编写并自审`exp/final_seq_resource_env_corrected_20261027/queue_adapter.py`；root逐段复核原ResourceSlot、check_request及supervised合同。源码SHA c89b32ed712f101803ab729d057b723c7ff7d265c2ab0aa9513172f33cd484af。
+
+沿当前TypeAuxSlot之后包同一pipeline.idle，不新建分配器；独立flag不清除旧资源hook。只有type真实released、原idle判空后才claim，原身份核验、释放、同卡两骨干及600秒期限复用。旧failed_closed输出只读；新输出固定在独立耐久目录。来源集合新增外层SHA，而原check_request逐描述符验证，不要求固定keys，因此与原supervised终态匹配。
+
+子agent以假对象测试旧flag不阻断新hook、type未释放不claim、释放后只claim一次；root确认代码与上述行为一致。这些是接口检查，不是GPU验证。环境同版本/同library文件及导入链的实查见FINAL_RESOURCE_ENVIRONMENT_CHECK_20261027.json。
+
+接入时只替换最外层CPU入口，保留所有当前type/paired及下游参数。旧PaRSP恢复许可及OSFT暂停请求不改。正式数值仍缺测，以真实启动与终态核验为准。
