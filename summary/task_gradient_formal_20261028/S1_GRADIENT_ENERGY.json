@@ -1,0 +1,430 @@
+{
+  "status": "S1_TRAIN_MEAN_GRADIENT_DESCRIPTION_NOT_QUALITY",
+  "stage": 1,
+  "calibration_QA": 16,
+  "metadata_path": "/dev/shm/llmcl-task-gradient-formal-1084-20261028/exp/task_gradient_formal_20261028/runs/onevision/pct01/TaskGradReuse/training_v1/method_state/task_gradient_stage_01.json",
+  "metadata_sha256": "8f58dc67f5a4eb2493a63177c345b242abfe3127e8f13c4eb3bdb0d21f77acdc",
+  "binding_sha256": "4313ef543860e0ef9919b24e1c6a29f5ee40caf49118add470587b9d101edfbb",
+  "scope": "Frobenius energy of 48 mean dense q/v gradients from this 16-QA S1 calibration only",
+  "all": {
+    "matrices": 48,
+    "zero_energy_matrices": 0,
+    "sum_total_squared_singular_energy": 500747.4015059471,
+    "sum_top8_squared_singular_energy": 490240.96252918243,
+    "energy_weighted_top8_fraction": 0.9790184852778714,
+    "matrix_median_top8_fraction": 0.9842650294303894,
+    "matrix_mean_top8_fraction": 0.9769875655571619,
+    "minimum_matrix": {
+      "module": "model.layers.1.self_attn.q_proj",
+      "kind": "q",
+      "total_squared_singular_energy": 492.6952819824219,
+      "top_r_squared_singular_energy": 442.14337158203125,
+      "top_r_energy_fraction": 0.8973972201347351
+    },
+    "maximum_matrix": {
+      "module": "model.layers.11.self_attn.q_proj",
+      "kind": "q",
+      "total_squared_singular_energy": 13254.984375,
+      "top_r_squared_singular_energy": 13239.099609375,
+      "top_r_energy_fraction": 0.998801589012146
+    }
+  },
+  "by_projection": {
+    "q": {
+      "matrices": 24,
+      "zero_energy_matrices": 0,
+      "sum_total_squared_singular_energy": 40762.023458004,
+      "sum_top8_squared_singular_energy": 40045.560196876526,
+      "energy_weighted_top8_fraction": 0.9824232655705715,
+      "matrix_median_top8_fraction": 0.9840021133422852,
+      "matrix_mean_top8_fraction": 0.9716596206029257,
+      "minimum_matrix": {
+        "module": "model.layers.1.self_attn.q_proj",
+        "kind": "q",
+        "total_squared_singular_energy": 492.6952819824219,
+        "top_r_squared_singular_energy": 442.14337158203125,
+        "top_r_energy_fraction": 0.8973972201347351
+      },
+      "maximum_matrix": {
+        "module": "model.layers.11.self_attn.q_proj",
+        "kind": "q",
+        "total_squared_singular_energy": 13254.984375,
+        "top_r_squared_singular_energy": 13239.099609375,
+        "top_r_energy_fraction": 0.998801589012146
+      }
+    },
+    "v": {
+      "matrices": 24,
+      "zero_energy_matrices": 0,
+      "sum_total_squared_singular_energy": 459985.3780479431,
+      "sum_top8_squared_singular_energy": 450195.4023323059,
+      "energy_weighted_top8_fraction": 0.9787167675694751,
+      "matrix_median_top8_fraction": 0.986805260181427,
+      "matrix_mean_top8_fraction": 0.9823155105113983,
+      "minimum_matrix": {
+        "module": "model.layers.1.self_attn.v_proj",
+        "kind": "v",
+        "total_squared_singular_energy": 28591.20703125,
+        "top_r_squared_singular_energy": 27136.974609375,
+        "top_r_energy_fraction": 0.9491370916366577
+      },
+      "maximum_matrix": {
+        "module": "model.layers.11.self_attn.v_proj",
+        "kind": "v",
+        "total_squared_singular_energy": 28492.833984375,
+        "top_r_squared_singular_energy": 28395.76953125,
+        "top_r_energy_fraction": 0.9965933561325073
+      }
+    }
+  },
+  "matrices": [
+    {
+      "module": "model.layers.0.self_attn.q_proj",
+      "kind": "q",
+      "total_squared_singular_energy": 118.32939910888672,
+      "top_r_squared_singular_energy": 116.47441101074219,
+      "top_r_energy_fraction": 0.9843235015869141
+    },
+    {
+      "module": "model.layers.0.self_attn.v_proj",
+      "kind": "v",
+      "total_squared_singular_energy": 30571.013671875,
+      "top_r_squared_singular_energy": 29694.87890625,
+      "top_r_energy_fraction": 0.9713410139083862
+    },
+    {
+      "module": "model.layers.1.self_attn.q_proj",
+      "kind": "q",
+      "total_squared_singular_energy": 492.6952819824219,
+      "top_r_squared_singular_energy": 442.14337158203125,
+      "top_r_energy_fraction": 0.8973972201347351
+    },
+    {
+      "module": "model.layers.1.self_attn.v_proj",
+      "kind": "v",
+      "total_squared_singular_energy": 28591.20703125,
+      "top_r_squared_singular_energy": 27136.974609375,
+      "top_r_energy_fraction": 0.9491370916366577
+    },
+    {
+      "module": "model.layers.2.self_attn.q_proj",
+      "kind": "q",
+      "total_squared_singular_energy": 511.3345947265625,
+      "top_r_squared_singular_energy": 486.10736083984375,
+      "top_r_energy_fraction": 0.9506639242172241
+    },
+    {
+      "module": "model.layers.2.self_attn.v_proj",
+      "kind": "v",
+      "total_squared_singular_energy": 17066.689453125,
+      "top_r_squared_singular_energy": 16453.86328125,
+      "top_r_energy_fraction": 0.9640922546386719
+    },
+    {
+      "module": "model.layers.3.self_attn.q_proj",
+      "kind": "q",
+      "total_squared_singular_energy": 743.6973266601562,
+      "top_r_squared_singular_energy": 686.3256225585938,
+      "top_r_energy_fraction": 0.9228560924530029
+    },
+    {
+      "module": "model.layers.3.self_attn.v_proj",
+      "kind": "v",
+      "total_squared_singular_energy": 26816.896484375,
+      "top_r_squared_singular_energy": 26359.98828125,
+      "top_r_energy_fraction": 0.9829619526863098
+    },
+    {
+      "module": "model.layers.4.self_attn.q_proj",
+      "kind": "q",
+      "total_squared_singular_energy": 1694.8604736328125,
+      "top_r_squared_singular_energy": 1611.2060546875,
+      "top_r_energy_fraction": 0.9506422877311707
+    },
+    {
+      "module": "model.layers.4.self_attn.v_proj",
+      "kind": "v",
+      "total_squared_singular_energy": 35400.16796875,
+      "top_r_squared_singular_energy": 34711.16796875,
+      "top_r_energy_fraction": 0.9805368185043335
+    },
+    {
+      "module": "model.layers.5.self_attn.q_proj",
+      "kind": "q",
+      "total_squared_singular_energy": 2303.35888671875,
+      "top_r_squared_singular_energy": 2161.510009765625,
+      "top_r_energy_fraction": 0.9384165406227112
+    },
+    {
+      "module": "model.layers.5.self_attn.v_proj",
+      "kind": "v",
+      "total_squared_singular_energy": 43107.35546875,
+      "top_r_squared_singular_energy": 41998.80078125,
+      "top_r_energy_fraction": 0.9742838740348816
+    },
+    {
+      "module": "model.layers.6.self_attn.q_proj",
+      "kind": "q",
+      "total_squared_singular_energy": 2361.494140625,
+      "top_r_squared_singular_energy": 2295.87109375,
+      "top_r_energy_fraction": 0.9722112417221069
+    },
+    {
+      "module": "model.layers.6.self_attn.v_proj",
+      "kind": "v",
+      "total_squared_singular_energy": 64004.96484375,
+      "top_r_squared_singular_energy": 62505.9921875,
+      "top_r_energy_fraction": 0.9765803813934326
+    },
+    {
+      "module": "model.layers.7.self_attn.q_proj",
+      "kind": "q",
+      "total_squared_singular_energy": 3223.965087890625,
+      "top_r_squared_singular_energy": 3138.952392578125,
+      "top_r_energy_fraction": 0.9736310243606567
+    },
+    {
+      "module": "model.layers.7.self_attn.v_proj",
+      "kind": "v",
+      "total_squared_singular_energy": 21441.169921875,
+      "top_r_squared_singular_energy": 20638.994140625,
+      "top_r_energy_fraction": 0.9625871181488037
+    },
+    {
+      "module": "model.layers.8.self_attn.q_proj",
+      "kind": "q",
+      "total_squared_singular_energy": 3295.489501953125,
+      "top_r_squared_singular_energy": 3242.094970703125,
+      "top_r_energy_fraction": 0.9837976694107056
+    },
+    {
+      "module": "model.layers.8.self_attn.v_proj",
+      "kind": "v",
+      "total_squared_singular_energy": 95706.1171875,
+      "top_r_squared_singular_energy": 94616.5859375,
+      "top_r_energy_fraction": 0.988615870475769
+    },
+    {
+      "module": "model.layers.9.self_attn.q_proj",
+      "kind": "q",
+      "total_squared_singular_energy": 5022.5654296875,
+      "top_r_squared_singular_energy": 4943.24169921875,
+      "top_r_energy_fraction": 0.9842065572738647
+    },
+    {
+      "module": "model.layers.9.self_attn.v_proj",
+      "kind": "v",
+      "total_squared_singular_energy": 10796.1591796875,
+      "top_r_squared_singular_energy": 10540.2294921875,
+      "top_r_energy_fraction": 0.9762943983078003
+    },
+    {
+      "module": "model.layers.10.self_attn.q_proj",
+      "kind": "q",
+      "total_squared_singular_energy": 2868.67578125,
+      "top_r_squared_singular_energy": 2846.0009765625,
+      "top_r_energy_fraction": 0.9920957088470459
+    },
+    {
+      "module": "model.layers.10.self_attn.v_proj",
+      "kind": "v",
+      "total_squared_singular_energy": 39392.0859375,
+      "top_r_squared_singular_energy": 38715.48828125,
+      "top_r_energy_fraction": 0.9828240275382996
+    },
+    {
+      "module": "model.layers.11.self_attn.q_proj",
+      "kind": "q",
+      "total_squared_singular_energy": 13254.984375,
+      "top_r_squared_singular_energy": 13239.099609375,
+      "top_r_energy_fraction": 0.998801589012146
+    },
+    {
+      "module": "model.layers.11.self_attn.v_proj",
+      "kind": "v",
+      "total_squared_singular_energy": 28492.833984375,
+      "top_r_squared_singular_energy": 28395.76953125,
+      "top_r_energy_fraction": 0.9965933561325073
+    },
+    {
+      "module": "model.layers.12.self_attn.q_proj",
+      "kind": "q",
+      "total_squared_singular_energy": 3082.43310546875,
+      "top_r_squared_singular_energy": 3069.07080078125,
+      "top_r_energy_fraction": 0.9956650137901306
+    },
+    {
+      "module": "model.layers.12.self_attn.v_proj",
+      "kind": "v",
+      "total_squared_singular_energy": 10346.3212890625,
+      "top_r_squared_singular_energy": 10266.8232421875,
+      "top_r_energy_fraction": 0.9923163056373596
+    },
+    {
+      "module": "model.layers.13.self_attn.q_proj",
+      "kind": "q",
+      "total_squared_singular_energy": 743.9276733398438,
+      "top_r_squared_singular_energy": 735.7775268554688,
+      "top_r_energy_fraction": 0.9890444278717041
+    },
+    {
+      "module": "model.layers.13.self_attn.v_proj",
+      "kind": "v",
+      "total_squared_singular_energy": 2933.770751953125,
+      "top_r_squared_singular_energy": 2899.405517578125,
+      "top_r_energy_fraction": 0.9882863163948059
+    },
+    {
+      "module": "model.layers.14.self_attn.q_proj",
+      "kind": "q",
+      "total_squared_singular_energy": 455.1314697265625,
+      "top_r_squared_singular_energy": 450.22882080078125,
+      "top_r_energy_fraction": 0.9892280697822571
+    },
+    {
+      "module": "model.layers.14.self_attn.v_proj",
+      "kind": "v",
+      "total_squared_singular_energy": 2011.0455322265625,
+      "top_r_squared_singular_energy": 1983.3916015625,
+      "top_r_energy_fraction": 0.9862489700317383
+    },
+    {
+      "module": "model.layers.15.self_attn.q_proj",
+      "kind": "q",
+      "total_squared_singular_energy": 200.875,
+      "top_r_squared_singular_energy": 198.4991912841797,
+      "top_r_energy_fraction": 0.988172709941864
+    },
+    {
+      "module": "model.layers.15.self_attn.v_proj",
+      "kind": "v",
+      "total_squared_singular_energy": 1155.8446044921875,
+      "top_r_squared_singular_energy": 1141.9874267578125,
+      "top_r_energy_fraction": 0.9880111813545227
+    },
+    {
+      "module": "model.layers.16.self_attn.q_proj",
+      "kind": "q",
+      "total_squared_singular_energy": 235.9788360595703,
+      "top_r_squared_singular_energy": 233.47720336914062,
+      "top_r_energy_fraction": 0.9893988966941833
+    },
+    {
+      "module": "model.layers.16.self_attn.v_proj",
+      "kind": "v",
+      "total_squared_singular_energy": 1440.50830078125,
+      "top_r_squared_singular_energy": 1433.0572509765625,
+      "top_r_energy_fraction": 0.9948275089263916
+    },
+    {
+      "module": "model.layers.17.self_attn.q_proj",
+      "kind": "q",
+      "total_squared_singular_energy": 18.981876373291016,
+      "top_r_squared_singular_energy": 18.566970825195312,
+      "top_r_energy_fraction": 0.9781420230865479
+    },
+    {
+      "module": "model.layers.17.self_attn.v_proj",
+      "kind": "v",
+      "total_squared_singular_energy": 252.58705139160156,
+      "top_r_squared_singular_energy": 247.99024963378906,
+      "top_r_energy_fraction": 0.9818010926246643
+    },
+    {
+      "module": "model.layers.18.self_attn.q_proj",
+      "kind": "q",
+      "total_squared_singular_energy": 52.62017822265625,
+      "top_r_squared_singular_energy": 52.08642578125,
+      "top_r_energy_fraction": 0.989856481552124
+    },
+    {
+      "module": "model.layers.18.self_attn.v_proj",
+      "kind": "v",
+      "total_squared_singular_energy": 126.47171020507812,
+      "top_r_squared_singular_energy": 125.20716094970703,
+      "top_r_energy_fraction": 0.9900013208389282
+    },
+    {
+      "module": "model.layers.19.self_attn.q_proj",
+      "kind": "q",
+      "total_squared_singular_energy": 24.707399368286133,
+      "top_r_squared_singular_energy": 24.39471435546875,
+      "top_r_energy_fraction": 0.98734450340271
+    },
+    {
+      "module": "model.layers.19.self_attn.v_proj",
+      "kind": "v",
+      "total_squared_singular_energy": 81.1876220703125,
+      "top_r_squared_singular_energy": 80.16153717041016,
+      "top_r_energy_fraction": 0.9873615503311157
+    },
+    {
+      "module": "model.layers.20.self_attn.q_proj",
+      "kind": "q",
+      "total_squared_singular_energy": 26.45479393005371,
+      "top_r_squared_singular_energy": 25.97380828857422,
+      "top_r_energy_fraction": 0.9818185567855835
+    },
+    {
+      "module": "model.layers.20.self_attn.v_proj",
+      "kind": "v",
+      "total_squared_singular_energy": 99.62174987792969,
+      "top_r_squared_singular_energy": 98.59891510009766,
+      "top_r_energy_fraction": 0.9897328019142151
+    },
+    {
+      "module": "model.layers.21.self_attn.q_proj",
+      "kind": "q",
+      "total_squared_singular_energy": 7.3135809898376465,
+      "top_r_squared_singular_energy": 6.871641159057617,
+      "top_r_energy_fraction": 0.9395726919174194
+    },
+    {
+      "module": "model.layers.21.self_attn.v_proj",
+      "kind": "v",
+      "total_squared_singular_energy": 31.562841415405273,
+      "top_r_squared_singular_energy": 31.258094787597656,
+      "top_r_energy_fraction": 0.990344762802124
+    },
+    {
+      "module": "model.layers.22.self_attn.q_proj",
+      "kind": "q",
+      "total_squared_singular_energy": 8.955886840820312,
+      "top_r_squared_singular_energy": 8.545252799987793,
+      "top_r_energy_fraction": 0.9541492462158203
+    },
+    {
+      "module": "model.layers.22.self_attn.v_proj",
+      "kind": "v",
+      "total_squared_singular_energy": 21.91718864440918,
+      "top_r_squared_singular_energy": 21.665447235107422,
+      "top_r_energy_fraction": 0.9885139465332031
+    },
+    {
+      "module": "model.layers.23.self_attn.q_proj",
+      "kind": "q",
+      "total_squared_singular_energy": 13.193378448486328,
+      "top_r_squared_singular_energy": 13.040267944335938,
+      "top_r_energy_fraction": 0.9883949160575867
+    },
+    {
+      "module": "model.layers.23.self_attn.v_proj",
+      "kind": "v",
+      "total_squared_singular_energy": 97.8782730102539,
+      "top_r_squared_singular_energy": 97.12248992919922,
+      "top_r_energy_fraction": 0.9922783374786377
+    }
+  ],
+  "new_models": 0,
+  "new_scores": 0,
+  "new_QA_reads": 0,
+  "checkpoint_reads": 0,
+  "interpretation_limits": [
+    "Not actual main-training/dropout gradients or Adam updates",
+    "QA gradient cancellation and 16-QA sampling can affect concentration",
+    "No ordinary Seq/random projection measurement or causal comparison",
+    "Neither high nor low coverage establishes F1 capacity, generalization, or direction-method efficacy",
+    "No threshold, rank selection, method change, or formal quality substitution"
+  ],
+  "consumer_source_sha256": "600e0f0b2a021136b7e25626f4120431a2dde390331b90eb06f288d7e8dbfa81"
+}
