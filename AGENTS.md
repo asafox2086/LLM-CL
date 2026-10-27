@@ -1,3 +1,16 @@
+# 2026-10-27：研究优先，允许保存后暂停一个基线
+
+- 阶段checkpoint新版本已实际部署，以下覆盖“仅本地准备”的旧快照。OLD CPU1320449/start776588707、unit llmcl-pct10-stage-checkpoint-old-20261027.service；NEW原native unit CPU2093344/start41131618；NEW Qwen1%FOREVER新waiter2092791/start41125950替代无GPU子进程的10498；NEW阶段归档CPU2089053/start41087449。两机原5个活baseline身份均保，研究controller1310563也不变，除先前明确停止OSFT外0GPU信号。新版本源独立，不热改旧活动runner；未来native/FOREVER、1%/10%均每完整stage保CP，PAUSE_REQUEST在阶段提交后正常退出，RESUME_REQUEST绑定当前pause receipt同版本续训，故障不自动重试。最终及最新可恢复CP不可删；用户只授权空间不足时人工删旧中间CP及保留全部元数据。OLD新stage CP逐个SHA核后复制NEW，当前0新基线stage CP，不冒称已完成真实GPU暂停恢复测试。入口summary/stage_checkpoint_dispatch_20261027/README.md及ACTIVATION_OLD/ACTIVATION_NEW/pct01_forever/ACTIVATION/ARCHIVE_ACTIVATION_NEW。
+- unix1793068711科研实查：shared train1609.893s、eval125.064s均exit0；uniform train1330483/start776675075真实live，soft尚未STARTED。只有六phase完整终态后唯一900评分及耐久归档，当前仍无完整质量结论。研究完成进入分析后恢复被停OSFT：它无可恢复CP，需保旧RUN并用新版本fresh；不得称从S19续训。原资源测量hook仍在三臂释放后执行，0重置预算/评分或关闭分支复活。
+
+- 最新人类明确“停下来一个跑的最少时间的基线，探究你的方法”，随后要求新启动基线每阶段保存checkpoint、始终保留最终、磁盘不足可手动删旧中间CP，研究时暂停/分析时恢复。此新明确停止指令已取代先前待管理员保存的等待条件。实查最短为OLD LLaVA10% OSFT（约16.2h，其他OLD24–35.5h、NEW113.5h）；unix1793066571仅对其worker519483/wrapper519470发SIGTERM，身份消失，其他三worker不变。其S19终评未完、无可恢复中间CP，不能称完成或续训；全部285文件81778231字节留原路径并复制OLD耐久目录，NEW归档82094080字节/291成员且逐文件SHA通过，私有入口`.deployment/research_priority_20261027/`。
+- unix1793066595同原外层链已新CPU1310549/start776501551、unit llmcl-pct10-research-priority-old-20261027.service接管；原queue唯一OSFT为paused_by_user_for_research。conditional实际占GPU1，controller1310563/start776501573、shared train worker1310564/start776501578、首次STARTED1793066595.6538262，unix1793066658身份均真匹配。原科学源/协议/预算不变，首次预算已开始；尚无完整质量结果。旧886253不再live。最新每阶段CP/暂停恢复改动正在本地新版本准备，不得误称活进程已获得保存入口，旧已删CP不能补齐。
+
+- baseline_review已只读核原分配器：queue在CPU内存中，直接改运行时JSON无效；若人类确认替代方案，应仅停实际CPU协调器、封存目标RUN、明确暂停单job，再终止目标已核worker/wrapper并核GPU释放，恢复原外层由conditional idle hook优先接管。不得用历史PID发信号或另建分配器。现有旧RUN不能无checkpoint直接fresh；恢复应新RUN按冻结设置重新初始化并重做S0，旧记录全保留，不宣称旧缓存能恢复RNG。审查未实施任何操作。连续待确认期间不靠重复巡检或旧统计维持自动推进。
+
+- 最新人类要求先存一个基线checkpoint让出GPU，研究出结果进入分析后恢复基线；此要求优先于旧“不暂停基线”限制。实际检查发现当前native进程没有中途保存入口，非Seq仅存S19，SIGSTOP不能释放显存，不能把输出备份当可续训checkpoint。尚未停止任何基线或发送GPU信号。零训练更新的10% Qwen PAS可停止后按冻结设置fresh重做初态评估，但这不是精确续训；该替代方案已询问，尚待人类答复，自动继续不等于批准。
+- Qwen PAS已有输出已私有归档NEW `.deployment/baseline_pause_20261027/qwen_pas_pre_pause_snapshot/run.tar`，34344960字节/79文件，receipt SHA 7ce914757207f76e8bc5c9a358e016097698962457ce5f3bfc04e3d88aefc78d；checkpoint=false。OLD同名部分备份因配额失败保留，不当完整备份。已按人类临时清理授权仅删除9个旧pip HTTP缓存body，释放3359566312字节，quota由700G降至697G/700G；未删实验/主表/模型记录。OLD收据`.deployment/pip_cache_cleanup_20261027.json`。unix1793035949原CPU886253/start772519047身份仍匹配，conditional/resource均无SLOT；仅时点观察，不是永久状态。
+
 # 2026-10-26：设置确定后固定，研究方法在条件下的局限
 
 2026-10-26资源测量已接入原OLD分配器：发布1797eba4后，新CPU886253/start772519047/UID1084、unit llmcl-pct10-baselines-final-resource-old-20261026.service接管609661，原四GPU worker/wrapper身份全部保全、0GPU信号。unix1793026811真实身份与queue相符，conditional无SLOT、resource无SLOT，均未STARTED。新外层只在原三臂released后原idle机会，同卡串行两10%SeqFT S19各600秒/五原32token窗；不训练/评分/改CP，结果在OLD耐久/data2。worker aedc7e、queue6a833c、verify861893已发布；两binding metadata已通过，不当GPU通过。状态入口RESOURCE_QUEUE_ACTIVATION/LATEST、FINAL_RESOURCE_QUEUE；新观察脚本.deployment/final_resource_observe_20261026.py。旧609661仅历史，不再据其消失认定队列停止；原科研三臂优先与所有科学源保持。正式10%仍2/16，Ours空。

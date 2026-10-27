@@ -1,5 +1,15 @@
 # 补充说明：证据索引、实验历史与新会话交接
 
+[阶段checkpoint与研究优先运行规则](summary/stage_checkpoint_dispatch_20261027/README.md)：新版本已接管两机后续基线启动与1%FOREVER等待入口，原活GPU进程保持。按阶段完整提交暂停、同版本恢复，最终及最新可恢复checkpoint保留；OLD新阶段权重归档到NEW后核SHA。该改动是人类要求的运行管理，不是新方法结果。10月27日最新科研观察：shared训练/评估正常结束、uniform正在训练，仍等六phase完整后一次评分。
+
+2026-10-27约10:03人类新指令已执行：停止实际运行时间最短的LLaVA10% OSFT（约16.2h），让OLD GPU1给研究。OSFT原S19终评未完成、没有完整checkpoint可恢复，不填主表；原285文件全部保留并复制OLD耐久目录，NEW私有归档`.deployment/research_priority_20261027/old_records.tar`为82094080字节/291成员，逐文件SHA核过。只有目标worker/wrapper收到SIGTERM，其他三OLD基线身份保全。原CPU协调器替换为1310549/start776501551，新unit `llmcl-pct10-research-priority-old-20261027.service`；conditional controller1310563/start776501573、shared train worker1310564/start776501578已真实STARTED于1793066595.6538262，六阶段冻结实验首次预算开始，尚无完整结果。所有记录与旧失败保留。
+
+同日新增保存要求：未来新启动基线每阶段保完整checkpoint，最终权重始终保留；空间不足只在核验后手动删旧中间CP。研究需要卡时阶段边界保存并暂停，研究进入分析后同版本恢复。此为新保存/运行管理授权，不调整数据、方法数学或评分；本地新版本正在实现，旧运行没有该接口，不能拿记录备份冒充checkpoint。
+
+2026-10-27人类明确研究优先：允许存一个基线checkpoint让卡，研究完成进入分析后恢复。当前native运行进程没有保存信号/暂停入口，非Seq只在S19保存；现有环境无权限接入进程补保存点。尚未停止任何基线。10% Qwen PAS仍在初态评估、零训练更新，可保留记录后停止并在之后fresh重做初态评估，但不能称checkpoint续训；这一替代方案已询问、待答复。缓存答案未保存逐题RNG/方法状态，不能据缓存复用宣称精确恢复。
+
+该Qwen PAS输出已归档NEW `/data1/liyapeng/program/LLMCL/.deployment/baseline_pause_20261027/qwen_pas_pre_pause_snapshot/run.tar`（34344960字节，79文件；同目录RECEIPT.json SHA 7ce914757207f76e8bc5c9a358e016097698962457ce5f3bfc04e3d88aefc78d）。这是活进程输出快照、不是checkpoint，原始回答保持私有。OLD先前同名部分备份遇配额失败保留。只清理了9个旧pip HTTP下载缓存文件，释放3359566312字节，OLD账户697G/700G；未删模型、环境或任何主表相关记录，收据位于OLD仓库`.deployment/pip_cache_cleanup_20261027.json`。unix1793035949原分配器CPU886253/start772519047仍匹配，研究三臂及资源测量尚无SLOT；本条不构成新模型结果。
+
 [10%已存S19资源测量缺口](summary/two_backbone_pct10_20261025/RESOURCE_MEASUREMENT_GAP.md)列明可复用五窗、TTFT/速度定义及最小计时回调；尚无实际测量consumer或GPU结果，主表保持未测。训练预检checkpoint_probe含backward及删除预检权重逻辑，不能用于已留存S19。
 
 [PAS正式全19任务新习得补充](summary/conditional_shared_budget_20261026/PAS_ACQUISITION_FINDINGS.md)：一次派生原38个封存aggregate，五域宏48.349对Seq42.026；完整保留15高4低及阶段增量反向例。不是新训练、重新评分或路由因果识别，原主表不改。

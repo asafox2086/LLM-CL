@@ -1,0 +1,109 @@
+{
+  "unix": 1793067466.7106032,
+  "controller": {
+    "pid": 1320449,
+    "startticks": "776588707",
+    "uid": 1084,
+    "pgid": 1320449
+  },
+  "unit": "llmcl-pct10-stage-checkpoint-old-20261027.service",
+  "old_controller": {
+    "pid": 1310549,
+    "startticks": "776501551",
+    "uid": 1084,
+    "pgid": 1310549
+  },
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit=llmcl-pct10-stage-checkpoint-old-20261027.service",
+    "--property=Restart=no",
+    "--property=KillMode=process",
+    "--property=WorkingDirectory=/dev/shm/llmcl-pct10-1084-zu7e3hb_",
+    "--setenv=LLMCL_ROOT=/dev/shm/llmcl-pct10-1084-zu7e3hb_",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "-u",
+    "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/stage_checkpoint_dispatch_20261027/entry.py",
+    "--resource-root",
+    "/data2/liyapeng_grp/program/LLMCL",
+    "--resource-output",
+    "/data2/liyapeng_grp/program/LLMCL/.deployment/final_seq_resource_metadata_20261026/runs",
+    "--resource-python",
+    "/data2/liyapeng_grp/program/LLMCL/.conda-env/bin/python",
+    "--resource-onevision-binding",
+    "/data2/liyapeng_grp/program/LLMCL/.deployment/final_seq_resource_metadata_20261026/onevision_binding.json",
+    "--resource-qwen-binding",
+    "/data2/liyapeng_grp/program/LLMCL/.deployment/final_seq_resource_metadata_20261026/qwen_binding.json",
+    "--conditional-root",
+    "/dev/shm/llmcl-conditional-1084-20261026",
+    "--conditional-output",
+    "/dev/shm/llmcl-conditional-1084-20261026/run",
+    "--conditional-python",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "--position-admission",
+    "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/train_answer_prior_20261025/POSITION_RUN_ADMISSION.json",
+    "--machine",
+    "old",
+    "--resource-adapter",
+    "/data2/liyapeng_grp/program/LLMCL/.deployment/final_seq_resource_metadata_20261026/exp/final_seq_resource_20261026/queue_adapter.py"
+  ],
+  "protected": {
+    "onevision:PASs_MoE": {
+      "worker": {
+        "pid": 4049854,
+        "startticks": "763716871",
+        "uid": 1084,
+        "pgid": 4049854
+      },
+      "wrapper": {
+        "pid": 4049841,
+        "startticks": "763716855",
+        "uid": 1084,
+        "pgid": 4049841
+      }
+    },
+    "qwen:PASs_MoE": {
+      "worker": {
+        "pid": 4048289,
+        "startticks": "763699036",
+        "uid": 1084,
+        "pgid": 4048289
+      },
+      "wrapper": {
+        "pid": 4048276,
+        "startticks": "763699020",
+        "uid": 1084,
+        "pgid": 4048276
+      }
+    },
+    "onevision:CL_MoE": {
+      "worker": {
+        "pid": 236681,
+        "startticks": "767836133",
+        "uid": 1084,
+        "pgid": 236681
+      },
+      "wrapper": {
+        "pid": 236668,
+        "startticks": "767836113",
+        "uid": 1084,
+        "pgid": 236668
+      }
+    },
+    "research": {
+      "controller": {
+        "pid": 1310563,
+        "startticks": "776501573",
+        "uid": 1084,
+        "pgid": 1310563
+      },
+      "PHASE_shared_train_STARTED": {
+        "pid": 1310564,
+        "startticks": "776501578",
+        "uid": 1084,
+        "pgid": 1310564
+      }
+    }
+  },
+  "GPU_signals": 0
+}
