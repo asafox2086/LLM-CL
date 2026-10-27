@@ -719,3 +719,10 @@ NEW私有归档732个新输出逐SHA通过，含所有完整CP、19阶段快照�
 10%完整结果核验器已先发布后启动，默认实机discover为0候选／0评分；OLD CPU4063535仅等待完整native run真实exit0后进行一次原评分核验，不运行模型或修改Markdown。原单轮公式实际828次optimizer调用=822次正LR＋6次合法warmup零LR首步，修正的是新核验器继承的1%过严断言，未改训练。FOREVER完整动态调度两源仅WIP，尚未GPU验证、未运输／激活，两组合继续defer。旧1%CL与SMo实际PID身份仍匹配，新服务器GPU0不由本队列分配。
 
 [10%核验源码审阅](summary/two_backbone_pct10_20261025/completion_observer_native/SOURCE_REVIEW.md) · [实际0候选入口与激活](summary/two_backbone_pct10_20261025/completion_observer_native/ACTIVATION.json) · [FOREVER WIP边界](exp/two_backbone_pct10_forever_dynamic_20261025/IMPLEMENTATION_NOTES.md)。
+
+
+## 训练期题型辅助监督的CL借鉴（2026-10-27）
+
+CPrompt展示了用独立辅助优化分支加强当前prompt训练的做法，但其随机prompt选择导致的训练机会问题并非本项目已观测机制，且推理仍有prompt池和multi-key选择。当前题型辅助三臂不变，效果仍待GPU实验。借鉴已有机制并做任务适配可以构成贡献，但不能以文献效果代替本实验结果。
+
+[有限文献核对与独立评判](summary/train_answer_prior_20261025/TYPE_AUXILIARY_CL_REFERENCE_20261027.md)。
