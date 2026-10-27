@@ -8,7 +8,7 @@
 
 **设置确定后固定。** 沿用既定数据、训练、生成与评分条件，研究方法在这些条件下的新习得能力、失败和适用边界，不为改善结果反复调整设置。
 
-**当前结论：尚未得到同时满足质量与资源目标的自研方法，Ours 暂空。** 已有1%完整正式结果9组；10%已有双骨干SeqFT-LoRA共2组完整核验，LLaVA／Qwen五域宏分别47.462／52.854，两组最终完整模型已耐久保存；其余基线继续运行／排队。单图LoRA相对PAS与Qwen的固定窗口显存差异已实测，新方法质量仍待验证。 Qwen CL-MoE已完成并通过原19阶段／74格核验，五域宏48.072，完整S19参数文件已保存；其权重布局与五窗GPU成本待提取，不填估计。
+**当前结论：尚未得到同时满足质量与资源目标的自研方法，Ours 暂空。** 已有1%完整正式结果9组；10%已有双骨干SeqFT-LoRA共2组完整核验，LLaVA／Qwen五域宏分别47.462／52.854，两组最终完整模型已耐久保存；其余基线继续运行／排队。单图LoRA相对PAS与Qwen的固定窗口显存差异已实测，新方法质量仍待验证。 Qwen CL-MoE已完成并通过原19阶段／74格核验，五域宏48.072，完整S19参数文件已保存；完整保存系数2,286,975,072、权重4510.812MiB，五窗GPU仍待测。
 
 本文只保留主表、探索命题和结论。[补充说明](SUPPLEMENTARY_NOTES.md#探索过程与证据索引)保存完整探索过程、正负证据、故障、成本及运行交接。
 
@@ -17,28 +17,28 @@
 
 Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条），测试集为完整21454条；五个数据集按19个原生任务顺序训练，seed=42。空白表示尚无完整核验结果，不能视作0分。
 
-| 方法／Backbone | 类型 | 发表会议／年份 | TextVQA<br>自然／通用 | SLAKE<br>医学 | RSVQA-LR<br>遥感 | FinMME<br>金融 | CODA-LM<br>交通 | 五域宏 F1 ↑ | AP19 ↑ | FWT ↑ | BWT ↑ | 最终权重存储<br>保存态 MiB ↓ | 相对原基座增加<br>MiB ↓ | 固定五窗GPU峰值†<br>MiB ↓ | 首词延迟<br>s ↓ | 生成速度<br>tok/s ↑ | 常驻适配器<br>数量 ↓ |
-| --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| **Qwen2-VL-2B-Instruct** |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| SeqFT-LoRA | 朴素顺序微调 | 标准对照（无独立发表年份） | 86.312 | 47.654 | 51.110 | 26.576 | 33.210 | 48.972 | 47.812 | 13.258 | 4.415 | 4217.462 | 4.156 | 4954.604† | 未测 | 未测 | 未测 |
-| FOREVER | 回放 | [ACL 2026](https://aclanthology.org/2026.acl-long.1144/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |
-| CL-MoE | 架构 | [CVPR 2025](https://openaccess.thecvf.com/content/CVPR2025/html/Huai_CL-MoE_Enhancing_Multimodal_Large_Language_Model_with_Dual_Momentum_Mixture-of-Experts_CVPR_2025_paper.html) | 85.821 | 47.279 | 50.680 | 23.557 | 33.023 | 48.072 | 47.123 | 14.023 | 0.075 | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |
-| SMoLoRA | 架构 | [ICCV 2025](https://openaccess.thecvf.com/content/ICCV2025/html/Wang_SMoLoRA_Exploring_and_Defying_Dual_Catastrophic_Forgetting_in_Continual_Visual_ICCV_2025_paper.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |
-| PASs-MoE | 架构（兼正则） | [ACL 2026](https://aclanthology.org/2026.acl-long.1474/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |
-| PaRSP | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.1244/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |
-| OSFT | 正则化 | [ICLR 2026](https://proceedings.iclr.cc/paper_files/paper/2026/hash/22620cccae29bbb3f18d226ea0320ff5-Abstract-Conference.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |
-| SpaRTA | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.334/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |
-| Ours | 自研方法 | 未发表 |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |
-| **LLaVA-OneVision-Qwen2-0.5B-OV** |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| SeqFT-LoRA | 朴素顺序微调 | 标准对照（无独立发表年份） | 75.632 | 40.758 | 46.711 | 15.891 | 31.938 | 42.186 | 40.286 | 14.783 | 1.775 | 1706.613 | 2.062 | 未测 | 未测 | 未测 | 未测 |
-| FOREVER | 回放 | [ACL 2026](https://aclanthology.org/2026.acl-long.1144/) | 64.486 | 46.103 | 50.570 | 9.623 | 33.370 | 40.830 | 45.245 | 17.748 | 5.642 | 1706.613 | 2.062 | 未测 | 未测 | 未测 | 未测 |
-| CL-MoE | 架构 | [CVPR 2025](https://openaccess.thecvf.com/content/CVPR2025/html/Huai_CL-MoE_Enhancing_Multimodal_Large_Language_Model_with_Dual_Momentum_Mixture-of-Experts_CVPR_2025_paper.html) | 74.657 | 41.139 | 50.050 | 14.914 | 33.110 | 42.774 | 42.288 | 19.039 | 0.012 | 1846.463 | 141.912 | 未测 | 未测 | 未测 | 未测 |
-| SMoLoRA | 架构 | [ICCV 2025](https://openaccess.thecvf.com/content/ICCV2025/html/Wang_SMoLoRA_Exploring_and_Defying_Dual_Catastrophic_Forgetting_in_Continual_Visual_ICCV_2025_paper.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |
-| PASs-MoE | 架构（兼正则） | [ACL 2026](https://aclanthology.org/2026.acl-long.1474/) | 70.697 | 44.202 | 55.738 | 25.223 | 37.241 | 46.620 | 46.406 | 14.726 | -1.732 | 2241.552 | 537.001 | 2959.415† | 未测 | 未测 | 未测 |
-| PaRSP | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.1244/) | 73.346 | 38.743 | 54.088 | 20.609 | 32.655 | 43.888 | 40.390 | 18.503 | -0.484 | 2273.345 | 568.794 | 未测 | 未测 | 未测 | 未测 |
-| OSFT | 正则化 | [ICLR 2026](https://proceedings.iclr.cc/paper_files/paper/2026/hash/22620cccae29bbb3f18d226ea0320ff5-Abstract-Conference.html) | 73.907 | 43.894 | 51.709 | 23.982 | 36.196 | 45.937 | 46.357 | 18.932 | -1.616 | 2757.984 | 1053.434 | 未测 | 未测 | 未测 | 未测 |
-| SpaRTA | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.334/) | 73.596 | 40.921 | 45.942 | 21.328 | 34.520 | 43.261 | 41.829 | 17.145 | -2.992 | 1744.231 | 39.680 | 未测 | 未测 | 未测 | 未测 |
-| Ours | 自研方法 | 未发表 |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |
+| 方法／Backbone | 类型 | 发表会议／年份 | TextVQA<br>自然／通用 | SLAKE<br>医学 | RSVQA-LR<br>遥感 | FinMME<br>金融 | CODA-LM<br>交通 | 五域宏 F1 ↑ | AP19 ↑ | FWT ↑ | BWT ↑ | 最终权重存储<br>保存态 MiB ↓ | 相对原基座增加<br>MiB ↓ | 固定五窗GPU峰值†<br>MiB ↓ | 首词延迟<br>s ↓ | 生成速度<br>tok/s ↑ | 常驻适配器<br>数量 ↓  完整保存系数<br>个 ↓ |
+| --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---:  ---: |
+| **Qwen2-VL-2B-Instruct** |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |    |
+| SeqFT-LoRA | 朴素顺序微调 | 标准对照（无独立发表年份） | 86.312 | 47.654 | 51.110 | 26.576 | 33.210 | 48.972 | 47.812 | 13.258 | 4.415 | 4217.462 | 4.156 | 4954.604† | 未测 | 未测 | 未测  2210075136 |
+| FOREVER | 回放 | [ACL 2026](https://aclanthology.org/2026.acl-long.1144/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测   |
+| CL-MoE | 架构 | [CVPR 2025](https://openaccess.thecvf.com/content/CVPR2025/html/Huai_CL-MoE_Enhancing_Multimodal_Large_Language_Model_with_Dual_Momentum_Mixture-of-Experts_CVPR_2025_paper.html) | 85.821 | 47.279 | 50.680 | 23.557 | 33.023 | 48.072 | 47.123 | 14.023 | 0.075 | 4510.812 | 297.506 | 未测 | 未测 | 未测 | 未测  2286975072 |
+| SMoLoRA | 架构 | [ICCV 2025](https://openaccess.thecvf.com/content/ICCV2025/html/Wang_SMoLoRA_Exploring_and_Defying_Dual_Catastrophic_Forgetting_in_Continual_Visual_ICCV_2025_paper.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测   |
+| PASs-MoE | 架构（兼正则） | [ACL 2026](https://aclanthology.org/2026.acl-long.1474/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测   |
+| PaRSP | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.1244/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测   |
+| OSFT | 正则化 | [ICLR 2026](https://proceedings.iclr.cc/paper_files/paper/2026/hash/22620cccae29bbb3f18d226ea0320ff5-Abstract-Conference.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测   |
+| SpaRTA | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.334/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测   |
+| Ours | 自研方法 | 未发表 |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测   |
+| **LLaVA-OneVision-Qwen2-0.5B-OV** |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |    |
+| SeqFT-LoRA | 朴素顺序微调 | 标准对照（无独立发表年份） | 75.632 | 40.758 | 46.711 | 15.891 | 31.938 | 42.186 | 40.286 | 14.783 | 1.775 | 1706.613 | 2.062 | 未测 | 未测 | 未测 | 未测  894216224 |
+| FOREVER | 回放 | [ACL 2026](https://aclanthology.org/2026.acl-long.1144/) | 64.486 | 46.103 | 50.570 | 9.623 | 33.370 | 40.830 | 45.245 | 17.748 | 5.642 | 1706.613 | 2.062 | 未测 | 未测 | 未测 | 未测  894216224 |
+| CL-MoE | 架构 | [CVPR 2025](https://openaccess.thecvf.com/content/CVPR2025/html/Huai_CL-MoE_Enhancing_Multimodal_Large_Language_Model_with_Dual_Momentum_Mixture-of-Experts_CVPR_2025_paper.html) | 74.657 | 41.139 | 50.050 | 14.914 | 33.110 | 42.774 | 42.288 | 19.039 | 0.012 | 1846.463 | 141.912 | 未测 | 未测 | 未测 | 未测  930877024 |
+| SMoLoRA | 架构 | [ICCV 2025](https://openaccess.thecvf.com/content/ICCV2025/html/Wang_SMoLoRA_Exploring_and_Defying_Dual_Catastrophic_Forgetting_in_Continual_Visual_ICCV_2025_paper.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测   |
+| PASs-MoE | 架构（兼正则） | [ACL 2026](https://aclanthology.org/2026.acl-long.1474/) | 70.697 | 44.202 | 55.738 | 25.223 | 37.241 | 46.620 | 46.406 | 14.726 | -1.732 | 2241.552 | 537.001 | 2959.415† | 未测 | 未测 | 未测  1034447216 |
+| PaRSP | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.1244/) | 73.346 | 38.743 | 54.088 | 20.609 | 32.655 | 43.888 | 40.390 | 18.503 | -0.484 | 2273.345 | 568.794 | 未测 | 未测 | 未测 | 未测  893675552 |
+| OSFT | 正则化 | [ICLR 2026](https://proceedings.iclr.cc/paper_files/paper/2026/hash/22620cccae29bbb3f18d226ea0320ff5-Abstract-Conference.html) | 73.907 | 43.894 | 51.709 | 23.982 | 36.196 | 45.937 | 46.357 | 18.932 | -1.616 | 2757.984 | 1053.434 | 未测 | 未测 | 未测 | 未测  990913568 |
+| SpaRTA | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.334/) | 73.596 | 40.921 | 45.942 | 21.328 | 34.520 | 43.261 | 41.829 | 17.145 | -2.992 | 1744.231 | 39.680 | 未测 | 未测 | 未测 | 未测  904077344 |
+| Ours | 自研方法 | 未发表 |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测   |
 
 五个数据集列为训练结束后的完整域内QA平均F1；五域宏为这五个域均值等权，AP19为19个原生任务等权平均，FWT/BWT按已测的必要阶段计算。两种权重口径不同。[FOREVER（ACL 2026）正式运行](summary/two_backbone_pct01_20261017/forever_multimodal_20261019/v3/README.md)已通过双骨干模型／保存重载门槛；OneVision已通过完整19阶段／74格／21454题及回放成本核验，Qwen尚无完整核验结果；原调度描述仅为历史，不能据此推断当前进度；Ours尚无可填入此正式表的完整结果。ER-LoRA已按用户要求移出比较，已有结果保留在历史证据中。
 
@@ -47,7 +47,7 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 [方法分类、发表信息及状态](summary/two_backbone_pct01_20261017/BASELINES.md) · [完整主表与协议](summary/two_backbone_pct01_20261017/MAIN_TABLE.md) · [逐题核验索引](summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/VERIFIED_INDEX.json) · [FOREVER额外完整核验](summary/two_backbone_pct01_20261017/forever_verified_20261020/README.md)
 
 <!-- CPU_EDGE_METRICS_NOTE -->
-前两项已按8组完整结果的最终checkpoint提取：**原保存态、原dtype、未折叠的完整权重与必需持久状态**，包括视觉、语言、连接器、全部专家/路由、OSFT冻结权重基、PAS掩码及CL-MoE模型外任务锚/任务权重，底层共享存储只计一次。配置可重建的位置/旋转编码缓存、逐次输入激活、视觉缓存、训练保护历史、RNG和文件容器开销另列。增加量相对同骨干原始预训练权重；包含表示和dtype变化，**不等于新增参数量**。MiB=1048576字节。这些数值是保存态权重占用，不是完整checkpoint文件大小、实际推理峰值内存或公平折叠后的压缩比较；没有运行合并、量化或重新评价。只有完成原正式核验并保存最终checkpoint的8组填入数值，未完成与Ours不填估算。GPU列仅填已核验的五窗实测，其余运行指标仍未测。 [逐方法参数数量、dtype、排除项与来源](summary/final_weight_reduction_20261024/checkpoint_weight_storage_v1/FINDINGS.md)。
+前两项已按9组完整结果的最终checkpoint提取：**原保存态、原dtype、未折叠的完整权重与必需持久状态**，包括视觉、语言、连接器、全部专家/路由、OSFT冻结权重基、PAS掩码及CL-MoE模型外任务锚/任务权重，底层共享存储只计一次。配置可重建的位置/旋转编码缓存、逐次输入激活、视觉缓存、训练保护历史、RNG和文件容器开销另列。增加量相对同骨干原始预训练权重；包含表示和dtype变化，**不等于新增参数量**。MiB=1048576字节。这些数值是保存态权重占用，不是完整checkpoint文件大小、实际推理峰值内存或公平折叠后的压缩比较；没有运行合并、量化或重新评价。只有完成原正式核验并保存最终checkpoint的9组填入数值，未完成与Ours不填估算。GPU列仅填已核验的五窗实测，其余运行指标仍未测。 [逐方法参数数量、dtype、排除项与来源](summary/final_weight_reduction_20261024/checkpoint_weight_storage_v1/FINDINGS.md)。 完整保存系数采用同一必要storage口径，包括必需状态而非仅可训练参数；[新增Qwen CL账本](summary/qwen_cl_completed_20261028/FINDINGS.md)。
 <!-- CPU_EDGE_METRICS_NOTE_END -->
 
 † GPU列为原正式checkpoint、原dtype／表示下的**固定五窗最大 `max_memory_allocated`**：同OLD GPU1、同五条原始QA，每题生成32个新token，包含输入准备与生成；各骨干保留原生输入展开。不是全TEST最坏峰、CPU／NVML总内存或最优折叠部署。[PAS实测](summary/strong_pas_resource_20261025/v1/FINDINGS.md) · [Qwen实测](summary/strong_qwen_resource_20261025/v1/FINDINGS.md)。
@@ -110,6 +110,7 @@ Qwen SeqFT最终五域宏由1%的48.972升至10%的52.854，遥感、金融、�
 
 | 观测的问题与探索命题 | 检验结果 | 结论与设计影响 |
 | --- | --- | --- |
+| **最终低分能否直接说明额外结构没有新习得收益？** | Qwen CL最终五域均低于Seq，但刚习得14/19任务更高，五域宏+1.797pp；医学+8.873、金融−2.082 | **该解释被否证。** 收益不均，不能把最终差距当新习得差；完整权重多约7%，GPU仍缺测，不将坐标比写成内存比。[证据与成本](summary/qwen_cl_completed_20261028/FINDINGS.md) |
 | **少量更新坐标能否借当前任务梯度获得更好回答？** | 同S15、69FIT／5更新：实际SVD金融DEV 20，随机10，共同before5；部署图／GPU相同 | **实际策略有局部正向信号，原范数匹配失败。** 10pp只来自两题，一题额外新学、一题保留旧满分；不证明纯方向、显著或全域优势。[完整正负与资源](summary/task_direction_local_20261027/DESCRIPTIVE_FINDINGS_20261028.md) |
 | **强方法主要解决遗忘，还是先学得更好？** | 正式刚习得均分：OSFT47.887821、Seq38.604705；BWT分别−1.616191、+1.774861 | **支持优先研究有效习得。** OSFT在本轨迹上刚习得更强，保持更差；尚未识别其性能原因，不能把所有缺口归为遗忘。[证据](summary/final_weight_reduction_20261024/osft_initial_gap_check_v1/FINDINGS.md) |
 | **低曝光新专家的冷启动能否靠继承改善？** | 局部11条医学QA／一次更新，从头19.88、完整继承29.26；独立功能中性控制没有复现完整继承收益 | **局部支持功能继承。** 不支持“所有方法每域清零”或“只开放首步A梯度就够”。[冷启动](summary/onevision_diagnostics_20261016/expert_cold_start_20261018/RESEARCH_FINDINGS.md) · [控制](summary/onevision_diagnostics_20261016/function_neutral_init_20261018/v2/function_vs_factor/RESEARCH_FINDINGS.md) |

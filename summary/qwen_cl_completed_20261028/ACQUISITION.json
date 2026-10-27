@@ -1,0 +1,1340 @@
+{
+  "schema": "qwen-cl-versus-seq-acquisition-v1",
+  "status": "COMPLETE_SEALED_AGGREGATE_DERIVATION",
+  "backbone": "qwen",
+  "condition": "pct01",
+  "methods": {
+    "CL_MoE": {
+      "proof_file": "summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/completed/ebf69e0412424b46f33e.json",
+      "proof_sha256": "b4de7085d6c0b0f5cb73a8720928b1ceee63c41eb586a8ae0c40d9f0f3214a72",
+      "candidate": {
+        "host": "new3090",
+        "run": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837",
+        "backbone": "qwen",
+        "method": "CL_MoE",
+        "signature": "b0be638455911d6f4a239c3a9b83c7e2b0e737170529ed02611039402aa86301",
+        "collector_sha256": "d7aac920f738c6ee8fde9a636560f2d2d6ee7ea1ba9de9e030e6548b4b4cad0a"
+      },
+      "checkpoint_sha256_from_formal_proof": "ec2369af1e59a7fec6c131faef5c5451393899d4aa3b2b9e8a4ae2f8e86d52bb",
+      "config_sha256": "358e9b740b7e79a2530f83e37ef5b0cd15b70c7a2ffd58207d336cb7b4c38dec",
+      "tasks": [
+        {
+          "task": 1,
+          "task_id": "T01",
+          "domain": "natural",
+          "native_label_field": null,
+          "native_label": null,
+          "TEST_QA": 5000,
+          "TRAIN_QA": 347,
+          "acquired_stage": 1,
+          "acquired_F1": 86.41772922592811,
+          "final_F1": 85.8205613830615,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_01/T01_test_predictions.scores.json",
+          "aggregate_score_sha256": "e8d453a29632a5ded5a2ec3f221aa0e560736470731d74c97248f143c270b304",
+          "paired_prediction_sha256": "5f58fb1061525676de52c4aabf62eea17926139878fb9a9011729cff2d098656",
+          "TEST_file_sha256": "14705cad19879bbe9397add2d6871d6892146aee4be3885030700382307cd3bb",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 2,
+          "task_id": "T02",
+          "domain": "medical",
+          "native_label_field": "content_type",
+          "native_label": "Modality",
+          "TEST_QA": 228,
+          "TRAIN_QA": 11,
+          "acquired_stage": 2,
+          "acquired_F1": 61.81167881825774,
+          "final_F1": 72.00292397660814,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_02/T02_test_predictions.scores.json",
+          "aggregate_score_sha256": "55deefa9c707d36a34d2dba9b1a337f1e55d485f60066f72b104b90c7e3f3f47",
+          "paired_prediction_sha256": "618a947353794c9ef82de73274e21959a31245c0613f251aa806b15f071b0f25",
+          "TEST_file_sha256": "c319026d6857ee31722732ce54fd0348e189f0f8aaa574522fdb6623ca3bc572",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 3,
+          "task_id": "T03",
+          "domain": "medical",
+          "native_label_field": "content_type",
+          "native_label": "Position",
+          "TEST_QA": 375,
+          "TRAIN_QA": 17,
+          "acquired_stage": 3,
+          "acquired_F1": 44.129881409998674,
+          "final_F1": 46.77714285714282,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_03/T03_test_predictions.scores.json",
+          "aggregate_score_sha256": "793e784ca89c3aeebf0dba45076e423b7345d53344c44c02103da39a2c5037b6",
+          "paired_prediction_sha256": "6f0e36ae0fd6bfaebff5ae19617397d3b2cf916907994ea722788340d4ef353a",
+          "TEST_file_sha256": "809a68a36926ba0dab02597b9e4492bcebc2ec394f17103413e13a0e3e072d0b",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 4,
+          "task_id": "T04",
+          "domain": "medical",
+          "native_label_field": "content_type",
+          "native_label": "Organ",
+          "TEST_QA": 507,
+          "TRAIN_QA": 26,
+          "acquired_stage": 4,
+          "acquired_F1": 55.57434018972485,
+          "final_F1": 42.70874424720583,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_04/T04_test_predictions.scores.json",
+          "aggregate_score_sha256": "4321fe6342bf08a9bd944b9c2c72720efb6fbf98220a8596f705ffffdf89af9b",
+          "paired_prediction_sha256": "e036d6a5deba81e8b9ac131de5292994b1b10d3ad62230cc663293e637f4b09f",
+          "TEST_file_sha256": "e5046123567a5d9efe80aae17ed0b141e6261bf80c775f523791ef9022492ba2",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 5,
+          "task_id": "T05",
+          "domain": "medical",
+          "native_label_field": "content_type",
+          "native_label": "Size",
+          "TEST_QA": 124,
+          "TRAIN_QA": 6,
+          "acquired_stage": 5,
+          "acquired_F1": 55.77956989247312,
+          "final_F1": 54.83870967741935,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_05/T05_test_predictions.scores.json",
+          "aggregate_score_sha256": "b9e909ce1263242af97a2d00467638d987ab3377e50b7ab6b5e81996ef589026",
+          "paired_prediction_sha256": "146a6a7b8708d9e33a712fd919dd482bfeeb6efd4411c82c396f85f5a82bad4c",
+          "TEST_file_sha256": "7e13f0e2db2a9fb4f66249f152c23c336a566c1e5ccf30c929c2c04710be6264",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 6,
+          "task_id": "T06",
+          "domain": "medical",
+          "native_label_field": "content_type",
+          "native_label": "Abnormality",
+          "TEST_QA": 311,
+          "TRAIN_QA": 14,
+          "acquired_stage": 6,
+          "acquired_F1": 54.09325100728038,
+          "final_F1": 51.463458412180586,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_06/T06_test_predictions.scores.json",
+          "aggregate_score_sha256": "f1306a4475aecbf91d8e74f137eb9658077aca8e0fb28d0f9206dd3be31db37c",
+          "paired_prediction_sha256": "5d6de3bf7fb2a18b6c08640e84b4e53022c40790ef0ed2bd91898708b30931c7",
+          "TEST_file_sha256": "18f04db0a28b6b0abd9b0f3f5ad7d030151085c47b88213d043752eacad98877",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 7,
+          "task_id": "T07",
+          "domain": "medical",
+          "native_label_field": "content_type",
+          "native_label": "Quantity",
+          "TEST_QA": 89,
+          "TRAIN_QA": 4,
+          "acquired_stage": 7,
+          "acquired_F1": 49.438202247191015,
+          "final_F1": 50.561797752808985,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_07/T07_test_predictions.scores.json",
+          "aggregate_score_sha256": "c43895af28486d3fc0473ff922f67ba1419068400b1c1d9ec7c58b58de2c979f",
+          "paired_prediction_sha256": "2bf4368d476ba10960949a22d373a7f31c9c5b8d7ac532fdb0107a6a9aeeb7d2",
+          "TEST_file_sha256": "e424c1d3905db42165ad9f525f033045af1e8605e6b1e5848bba82573e54e221",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 8,
+          "task_id": "T08",
+          "domain": "medical",
+          "native_label_field": "content_type",
+          "native_label": "Plane",
+          "TEST_QA": 116,
+          "TRAIN_QA": 5,
+          "acquired_stage": 8,
+          "acquired_F1": 41.52298850574713,
+          "final_F1": 41.52298850574713,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_08/T08_test_predictions.scores.json",
+          "aggregate_score_sha256": "43da9e98cdce3d3187332c999995f6cb9dbdbb4820262debe53c677a91744b0c",
+          "paired_prediction_sha256": "b0d914d9c8f5fbf2011f58ac4838ff2e30f5c98920b4410e457caffdee7178a3",
+          "TEST_file_sha256": "2c3d5bc145141ac44d4a18722169bb421f47d41f1558d04d6da9a3dd365f8a86",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 9,
+          "task_id": "T09",
+          "domain": "medical",
+          "native_label_field": "content_type",
+          "native_label": "Shape",
+          "TEST_QA": 12,
+          "TRAIN_QA": 1,
+          "acquired_stage": 9,
+          "acquired_F1": 12.5,
+          "final_F1": 18.055555555555554,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_09/T09_test_predictions.scores.json",
+          "aggregate_score_sha256": "67ac21791b2afa1f00ea9c443e3dbd8d8b1aaeca032440a7ca23e58e255d14df",
+          "paired_prediction_sha256": "87e6da89464789856c8e3cf23113f5e6d7a691109554a91913a4619ca36e8875",
+          "TEST_file_sha256": "3f554ff6047a98566520a39bc9d89ecf0bcf00a29e2e2d1f76bfb2b63097be95",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 10,
+          "task_id": "T10",
+          "domain": "medical",
+          "native_label_field": "content_type",
+          "native_label": "Color",
+          "TEST_QA": 65,
+          "TRAIN_QA": 3,
+          "acquired_stage": 10,
+          "acquired_F1": 66.76923076923077,
+          "final_F1": 62.153846153846146,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_10/T10_test_predictions.scores.json",
+          "aggregate_score_sha256": "bf3e80d21c82eb45d063e5634b542fea19df9028b0fb08989fedea17d062eba2",
+          "paired_prediction_sha256": "61ab37b20df43bd5c65d1c623a08ea193ff27e5e6a24434b6fce605d84fbb343",
+          "TEST_file_sha256": "f6c9fcfd7c3b385eb82829ebb478a7db522eecc4a53c33ded2ab8f82ff57e328",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 11,
+          "task_id": "T11",
+          "domain": "medical",
+          "native_label_field": "content_type",
+          "native_label": "KG",
+          "TEST_QA": 267,
+          "TRAIN_QA": 12,
+          "acquired_stage": 11,
+          "acquired_F1": 26.145730515010715,
+          "final_F1": 26.260305038892167,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_11/T11_test_predictions.scores.json",
+          "aggregate_score_sha256": "827a1502c26b0c43ae9f1c011e1c3b42c3f1ef8f5db09c4b1cb019b17a79a2b8",
+          "paired_prediction_sha256": "728603b35cb8518e971cf6c7f7b667595f6c5177b2aed0f8062b15ca5abdd36f",
+          "TEST_file_sha256": "48e7b5e4177a001612d6640f6df92cc3621362792dffb0ad762476e562b6b21b",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 12,
+          "task_id": "T12",
+          "domain": "geography",
+          "native_label_field": "question_type",
+          "native_label": "rural_urban",
+          "TEST_QA": 100,
+          "TRAIN_QA": 6,
+          "acquired_stage": 12,
+          "acquired_F1": 65.0,
+          "final_F1": 75.0,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_12/T12_test_predictions.scores.json",
+          "aggregate_score_sha256": "be144481632d0c4d27e6f8d87bc61078c652815dde5808c50c6e1c9a8086be3e",
+          "paired_prediction_sha256": "2d47712505eac4be2750c99fc977a9b1e27ebce13baa805aa57809ba80e3f5fc",
+          "TEST_file_sha256": "7948cf70e4996ec38532ff680638b8c81710d6e02cceb9589c58cb6403284013",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 13,
+          "task_id": "T13",
+          "domain": "geography",
+          "native_label_field": "question_type",
+          "native_label": "presence",
+          "TEST_QA": 2955,
+          "TRAIN_QA": 170,
+          "acquired_stage": 13,
+          "acquired_F1": 69.4077834179357,
+          "final_F1": 57.59729272419628,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_13/T13_test_predictions.scores.json",
+          "aggregate_score_sha256": "b1e9a9f66f65668fc58619a6b2876e17eda339fdfdd5095d85f04615cbb1ddf6",
+          "paired_prediction_sha256": "8f08c88afa5caae7073676e7524d8cc4bc88b6f3b2365a07714ff3a2eaceb9f7",
+          "TEST_file_sha256": "4ca421c2594f1d2a36b749d42526706cc6caca9af05f9908b85d08cf7c9218b4",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 14,
+          "task_id": "T14",
+          "domain": "geography",
+          "native_label_field": "question_type",
+          "native_label": "count",
+          "TEST_QA": 2947,
+          "TRAIN_QA": 171,
+          "acquired_stage": 14,
+          "acquired_F1": 19.681031557516118,
+          "final_F1": 18.32371903630811,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_14/T14_test_predictions.scores.json",
+          "aggregate_score_sha256": "99a4793925a466e238f9b690e5ad3ce76617d60aeb4a857dd4275275149810fe",
+          "paired_prediction_sha256": "7d0de38d74a6ed2f07b49c05ee28a7d49f08b2aefdd34b1de04a8e04a04b31fd",
+          "TEST_file_sha256": "ff46c370c5b0a545c770e702e7fef159e79f4188c4a657356ca988da4b57866d",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 15,
+          "task_id": "T15",
+          "domain": "geography",
+          "native_label_field": "question_type",
+          "native_label": "comp",
+          "TEST_QA": 4002,
+          "TRAIN_QA": 226,
+          "acquired_stage": 15,
+          "acquired_F1": 69.56521739130434,
+          "final_F1": 68.79060469765118,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_15/T15_test_predictions.scores.json",
+          "aggregate_score_sha256": "85f2750dc2da773c865f5f1bce4496315a7eecd76a18ba30394cff2022c76b80",
+          "paired_prediction_sha256": "21ea259402ba578f193f9e26e9747cd70a4ea710adae47d9634ff592b07431f7",
+          "TEST_file_sha256": "6ae35bde45e33788bcd31c99dc9f80a1d9236bd6062a807fd989e2c1fbe426cc",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 16,
+          "task_id": "T16",
+          "domain": "finance",
+          "native_label_field": null,
+          "native_label": null,
+          "TEST_QA": 2233,
+          "TRAIN_QA": 89,
+          "acquired_stage": 16,
+          "acquired_F1": 21.924167786236747,
+          "final_F1": 23.55668252219976,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_16/T16_test_predictions.scores.json",
+          "aggregate_score_sha256": "8171f319a0630210340798bbc6570e27a77d2ce85d25c73cbd426c20a5b48d4c",
+          "paired_prediction_sha256": "5cf515f93015f26ecb687230d3be8bcb47e988a59c70b8833716833a118ac726",
+          "TEST_file_sha256": "162ba8ad340a9fb898a3a942b3e720e581f23dddfacb70c289f3bd935d869206",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 17,
+          "task_id": "T17",
+          "domain": "traffic",
+          "native_label_field": "question_type",
+          "native_label": "general",
+          "TEST_QA": 500,
+          "TRAIN_QA": 49,
+          "acquired_stage": 17,
+          "acquired_F1": 32.12629986946053,
+          "final_F1": 37.125059667789486,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_17/T17_test_predictions.scores.json",
+          "aggregate_score_sha256": "974c30e926e86916e2e52a455adba976343348c0e918e5430848a4b444727818",
+          "paired_prediction_sha256": "19cfda40e10085ce64b8945272855357bb8f33c791d0beb99f8948a73469489f",
+          "TEST_file_sha256": "f5a8de804f54aba60315eff839f05a0401ff96427920c0cd3112affcc19362e8",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 18,
+          "task_id": "T18",
+          "domain": "traffic",
+          "native_label_field": "question_type",
+          "native_label": "regional",
+          "TEST_QA": 1123,
+          "TRAIN_QA": 107,
+          "acquired_stage": 18,
+          "acquired_F1": 31.673117862398055,
+          "final_F1": 32.358325237286465,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_18/T18_test_predictions.scores.json",
+          "aggregate_score_sha256": "08de0c335632c3485bc9a7a402b8bce29112fea59a4e4e28a0a1eb5f3347b1ff",
+          "paired_prediction_sha256": "4b597a3ab6a1d70a7c22fcac57a2a4188e304efe98ddb92edb7b383c8aa671e7",
+          "TEST_file_sha256": "48e1bf7b181cf1a5d4c7b9be03e1fa11fe2e26b37ca2f4c8a4f4498ef20c403d",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 19,
+          "task_id": "T19",
+          "domain": "traffic",
+          "native_label_field": "question_type",
+          "native_label": "suggestion",
+          "TEST_QA": 500,
+          "TRAIN_QA": 49,
+          "acquired_stage": 19,
+          "acquired_F1": 30.413758510397045,
+          "final_F1": 30.413758510397045,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_19/T19_test_predictions.scores.json",
+          "aggregate_score_sha256": "802d473b250d19174efae3a16850784bca57aedb1b826f8088bff58d198f5c50",
+          "paired_prediction_sha256": "09cdce5a0a68bbfdf4e08f5cf4248c3110a9bcc8529a05dc41068b719e9ea7aa",
+          "TEST_file_sha256": "4af47721d341958f26e54744330927a14b5e5f5b8d84489607623b741eddbe2b",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        }
+      ],
+      "domains": {
+        "natural": {
+          "TEST_QA": 5000,
+          "tasks": [
+            1
+          ],
+          "acquired_F1": 86.41772922592811,
+          "final_F1": 85.8205613830615
+        },
+        "medical": {
+          "TEST_QA": 2094,
+          "tasks": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "acquired_F1": 49.305254641646684,
+          "final_F1": 47.27860502212717
+        },
+        "geography": {
+          "TEST_QA": 10004,
+          "tasks": [
+            12,
+            13,
+            14,
+            15
+          ],
+          "acquired_F1": 54.7780887644942,
+          "final_F1": 50.6797281087565
+        },
+        "finance": {
+          "TEST_QA": 2233,
+          "tasks": [
+            16
+          ],
+          "acquired_F1": 21.924167786236747,
+          "final_F1": 23.55668252219976
+        },
+        "traffic": {
+          "TEST_QA": 2123,
+          "tasks": [
+            17,
+            18,
+            19
+          ],
+          "acquired_F1": 31.483250376543477,
+          "final_F1": 33.02299026404426
+        }
+      },
+      "acquired_domain_macro_F1": 48.781698158969846,
+      "acquired_AP19": 47.05126205137322,
+      "final_domain_macro_F1": 48.07171346003784,
+      "final_AP19": 47.12270926085771,
+      "final_scalars_copied_from_cached_formal_proof": true
+    },
+    "SeqFT_LoRA": {
+      "proof_file": "summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/completed/2a0b6d43f89c3cec6cb9.json",
+      "proof_sha256": "ff979a21b171372834940e3b68bdcaa84c7db4cdf9eaccb8939fa4b3c84bd59a",
+      "candidate": {
+        "host": "new3090",
+        "run": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2",
+        "backbone": "qwen",
+        "method": "SeqFT_LoRA",
+        "signature": "95fa4ec26bfe6fa8667b7924223eff937a72fd08a224fc78e526cda72d734721",
+        "collector_sha256": "d7aac920f738c6ee8fde9a636560f2d2d6ee7ea1ba9de9e030e6548b4b4cad0a"
+      },
+      "checkpoint_sha256_from_formal_proof": "d3df6622f2de818e3b5cb5209c106cc2bc827ae87a65841af823032dcd3d2f85",
+      "config_sha256": "9db372397a602a25499fe83c74871fab9696bdadf5442352867a55277a2ccea1",
+      "tasks": [
+        {
+          "task": 1,
+          "task_id": "T01",
+          "domain": "natural",
+          "native_label_field": null,
+          "native_label": null,
+          "TEST_QA": 5000,
+          "TRAIN_QA": 347,
+          "acquired_stage": 1,
+          "acquired_F1": 86.0498981483982,
+          "final_F1": 86.31201304251312,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_01/T01_test_predictions.scores.json",
+          "aggregate_score_sha256": "284d2bc684cdfa9c0964c9eab3c77d346ad73af301c1e7b86da6dfa673b4e578",
+          "paired_prediction_sha256": "0f6aaef781314e13c44633107a5c888b49cb54586f4d4ba7673c1761ffc97312",
+          "TEST_file_sha256": "14705cad19879bbe9397add2d6871d6892146aee4be3885030700382307cd3bb",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 2,
+          "task_id": "T02",
+          "domain": "medical",
+          "native_label_field": "content_type",
+          "native_label": "Modality",
+          "TEST_QA": 228,
+          "TRAIN_QA": 11,
+          "acquired_stage": 2,
+          "acquired_F1": 40.31353258673206,
+          "final_F1": 72.0614035087719,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_02/T02_test_predictions.scores.json",
+          "aggregate_score_sha256": "9d13a7cc6488b061462bb8fd42baef282b148324f3008bcd47eb20f353a9163b",
+          "paired_prediction_sha256": "1867d381dec68f22fda7c6348ed755b842974f358922179eec01d6f0ed2cd35a",
+          "TEST_file_sha256": "c319026d6857ee31722732ce54fd0348e189f0f8aaa574522fdb6623ca3bc572",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 3,
+          "task_id": "T03",
+          "domain": "medical",
+          "native_label_field": "content_type",
+          "native_label": "Position",
+          "TEST_QA": 375,
+          "TRAIN_QA": 17,
+          "acquired_stage": 3,
+          "acquired_F1": 31.380305996131757,
+          "final_F1": 45.82730158730155,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_03/T03_test_predictions.scores.json",
+          "aggregate_score_sha256": "3a5e82b40305a83a002f650f86d1bdf9b8d7f6ffb7c75e56745988320987c4e1",
+          "paired_prediction_sha256": "b95c24901c6fb381edae1f79ec20aa5aa6d95b296ffd298e996ca64cc17209d0",
+          "TEST_file_sha256": "809a68a36926ba0dab02597b9e4492bcebc2ec394f17103413e13a0e3e072d0b",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 4,
+          "task_id": "T04",
+          "domain": "medical",
+          "native_label_field": "content_type",
+          "native_label": "Organ",
+          "TEST_QA": 507,
+          "TRAIN_QA": 26,
+          "acquired_stage": 4,
+          "acquired_F1": 45.2095391427101,
+          "final_F1": 41.17028270874428,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_04/T04_test_predictions.scores.json",
+          "aggregate_score_sha256": "bf39ca73365ea2a45ed335abf91152194cfca1d81874217054af1ec665c6123c",
+          "paired_prediction_sha256": "7c0f9fa7bec690d7671c3721d2253c94c44c75c05176b52ecbcbf36c34b229fa",
+          "TEST_file_sha256": "e5046123567a5d9efe80aae17ed0b141e6261bf80c775f523791ef9022492ba2",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 5,
+          "task_id": "T05",
+          "domain": "medical",
+          "native_label_field": "content_type",
+          "native_label": "Size",
+          "TEST_QA": 124,
+          "TRAIN_QA": 6,
+          "acquired_stage": 5,
+          "acquired_F1": 48.381779510811754,
+          "final_F1": 56.98924731182796,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_05/T05_test_predictions.scores.json",
+          "aggregate_score_sha256": "d3db6b1eea5e57d3199811ea02d926a3a64d560f0513b62659b1eef6b6cb3573",
+          "paired_prediction_sha256": "1e935fa592d0ee0e48eb2f8ada6d735a4105c5c063708c3c77f72697908e3147",
+          "TEST_file_sha256": "7e13f0e2db2a9fb4f66249f152c23c336a566c1e5ccf30c929c2c04710be6264",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 6,
+          "task_id": "T06",
+          "domain": "medical",
+          "native_label_field": "content_type",
+          "native_label": "Abnormality",
+          "TEST_QA": 311,
+          "TRAIN_QA": 14,
+          "acquired_stage": 6,
+          "acquired_F1": 46.48821938295617,
+          "final_F1": 53.60557683793418,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_06/T06_test_predictions.scores.json",
+          "aggregate_score_sha256": "2bae5ee10e637af77b35d1d8016bf6bc253f4428cfc44947f11b0821eec4ea8d",
+          "paired_prediction_sha256": "501ec9e81e1ccd1dd61ed4ce24f04db6c767c78dadf5587cb8abe6a4bd0b38d5",
+          "TEST_file_sha256": "18f04db0a28b6b0abd9b0f3f5ad7d030151085c47b88213d043752eacad98877",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 7,
+          "task_id": "T07",
+          "domain": "medical",
+          "native_label_field": "content_type",
+          "native_label": "Quantity",
+          "TEST_QA": 89,
+          "TRAIN_QA": 4,
+          "acquired_stage": 7,
+          "acquired_F1": 59.550561797752806,
+          "final_F1": 56.17977528089887,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_07/T07_test_predictions.scores.json",
+          "aggregate_score_sha256": "1f5cccd9018b940a787830f9454a9eb40163025f45c3ca443be261b8a5c93e94",
+          "paired_prediction_sha256": "1ded856b7359ed32c272cc74242b195be6391273667939e45b6a511cde234399",
+          "TEST_file_sha256": "e424c1d3905db42165ad9f525f033045af1e8605e6b1e5848bba82573e54e221",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 8,
+          "task_id": "T08",
+          "domain": "medical",
+          "native_label_field": "content_type",
+          "native_label": "Plane",
+          "TEST_QA": 116,
+          "TRAIN_QA": 5,
+          "acquired_stage": 8,
+          "acquired_F1": 40.33011767925561,
+          "final_F1": 42.001915708812255,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_08/T08_test_predictions.scores.json",
+          "aggregate_score_sha256": "183e9c8452a085f8517f2e29547e20fd14e55a71beed313df71210a1aa613e06",
+          "paired_prediction_sha256": "dfb5a2965750929ddc5be09a424e01f4ba30cc9d6b9479b85547227c27afa8b7",
+          "TEST_file_sha256": "2c3d5bc145141ac44d4a18722169bb421f47d41f1558d04d6da9a3dd365f8a86",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 9,
+          "task_id": "T09",
+          "domain": "medical",
+          "native_label_field": "content_type",
+          "native_label": "Shape",
+          "TEST_QA": 12,
+          "TRAIN_QA": 1,
+          "acquired_stage": 9,
+          "acquired_F1": 20.833333333333332,
+          "final_F1": 18.055555555555554,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_09/T09_test_predictions.scores.json",
+          "aggregate_score_sha256": "294d4e8819f0a03a366b6183c93fe903d3d2bb1407de643be2a828c9fd70e69d",
+          "paired_prediction_sha256": "75f18895056bfdc6900a301ceffb2cd821f0eb879abba5f07e769c11fb472ad9",
+          "TEST_file_sha256": "3f554ff6047a98566520a39bc9d89ecf0bcf00a29e2e2d1f76bfb2b63097be95",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 10,
+          "task_id": "T10",
+          "domain": "medical",
+          "native_label_field": "content_type",
+          "native_label": "Color",
+          "TEST_QA": 65,
+          "TRAIN_QA": 3,
+          "acquired_stage": 10,
+          "acquired_F1": 55.1025641025641,
+          "final_F1": 62.92307692307691,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_10/T10_test_predictions.scores.json",
+          "aggregate_score_sha256": "fc944b52b9f352c12d9baba39520ddfe680a2b75bd826665a7e4ddbf5ee3671f",
+          "paired_prediction_sha256": "6ac11e48580362c748d44ff170c49fe74592ecf8f8e1beab96b742fa3a91dc7f",
+          "TEST_file_sha256": "f6c9fcfd7c3b385eb82829ebb478a7db522eecc4a53c33ded2ab8f82ff57e328",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 11,
+          "task_id": "T11",
+          "domain": "medical",
+          "native_label_field": "content_type",
+          "native_label": "KG",
+          "TEST_QA": 267,
+          "TRAIN_QA": 12,
+          "acquired_stage": 11,
+          "acquired_F1": 24.408884214503328,
+          "final_F1": 27.650387501664056,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_11/T11_test_predictions.scores.json",
+          "aggregate_score_sha256": "383ffca0d803c1abb3e9d424662ead2aff2800f49de0b00ba4e4f7b26ec00b44",
+          "paired_prediction_sha256": "456fe8951781bcc7ce6a6153839cc9be174b844071b96103bef0d3af3642eeda",
+          "TEST_file_sha256": "48e7b5e4177a001612d6640f6df92cc3621362792dffb0ad762476e562b6b21b",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 12,
+          "task_id": "T12",
+          "domain": "geography",
+          "native_label_field": "question_type",
+          "native_label": "rural_urban",
+          "TEST_QA": 100,
+          "TRAIN_QA": 6,
+          "acquired_stage": 12,
+          "acquired_F1": 61.0,
+          "final_F1": 72.0,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_12/T12_test_predictions.scores.json",
+          "aggregate_score_sha256": "4c92a2afc42c39aa692db8660c8e9503b17aa13ba46c3e1f0ec9717ea4323f7b",
+          "paired_prediction_sha256": "7696e308505e94d47b8523dff1cdf7d53f6a9241d491b700ed54f4e8bca3fd9e",
+          "TEST_file_sha256": "7948cf70e4996ec38532ff680638b8c81710d6e02cceb9589c58cb6403284013",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 13,
+          "task_id": "T13",
+          "domain": "geography",
+          "native_label_field": "question_type",
+          "native_label": "presence",
+          "TEST_QA": 2955,
+          "TRAIN_QA": 170,
+          "acquired_stage": 13,
+          "acquired_F1": 66.42978003384094,
+          "final_F1": 65.0761421319797,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_13/T13_test_predictions.scores.json",
+          "aggregate_score_sha256": "d986d10a7bfac1215c5f3b042b9ca3487c738f9cd07ee7ab661f1f013f3bb334",
+          "paired_prediction_sha256": "bafb99ea7a038fecf7652d4e60e0b4fc4dc0aea0203d46b9cfd3760691296cfc",
+          "TEST_file_sha256": "4ca421c2594f1d2a36b749d42526706cc6caca9af05f9908b85d08cf7c9218b4",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 14,
+          "task_id": "T14",
+          "domain": "geography",
+          "native_label_field": "question_type",
+          "native_label": "count",
+          "TEST_QA": 2947,
+          "TRAIN_QA": 171,
+          "acquired_stage": 14,
+          "acquired_F1": 15.043547110055425,
+          "final_F1": 14.116050220563285,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_14/T14_test_predictions.scores.json",
+          "aggregate_score_sha256": "17007c88b3d70a417e7ba6872fbad898720adb1a61ad144f32deff22f26d5bf7",
+          "paired_prediction_sha256": "e8bc90758fb65008d96c8d42dc5f0108ddb96a14dba6def89da4ad7f71a4425d",
+          "TEST_file_sha256": "ff46c370c5b0a545c770e702e7fef159e79f4188c4a657356ca988da4b57866d",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 15,
+          "task_id": "T15",
+          "domain": "geography",
+          "native_label_field": "question_type",
+          "native_label": "comp",
+          "TEST_QA": 4002,
+          "TRAIN_QA": 226,
+          "acquired_stage": 15,
+          "acquired_F1": 68.54072963518242,
+          "final_F1": 67.51624187906047,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_15/T15_test_predictions.scores.json",
+          "aggregate_score_sha256": "267237d7297f66c6bb1f470670ce729005fe4b275c4dac519515baf2916b6576",
+          "paired_prediction_sha256": "161ab48b12d7eac838713ef3b35fadaa822015efb0d5d40caf98a6d8902f248a",
+          "TEST_file_sha256": "6ae35bde45e33788bcd31c99dc9f80a1d9236bd6062a807fd989e2c1fbe426cc",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 16,
+          "task_id": "T16",
+          "domain": "finance",
+          "native_label_field": null,
+          "native_label": null,
+          "TEST_QA": 2233,
+          "TRAIN_QA": 89,
+          "acquired_stage": 16,
+          "acquired_F1": 24.00656814449917,
+          "final_F1": 26.575526762429092,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_16/T16_test_predictions.scores.json",
+          "aggregate_score_sha256": "bed46b3b0c67cc45631b685cafe982f976651ebd78850c3072bdca2acbe90131",
+          "paired_prediction_sha256": "e7552572d69ba8e711721c8e36d3cc3abca7c947ecf2facfad7ec4097984457b",
+          "TEST_file_sha256": "162ba8ad340a9fb898a3a942b3e720e581f23dddfacb70c289f3bd935d869206",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 17,
+          "task_id": "T17",
+          "domain": "traffic",
+          "native_label_field": "question_type",
+          "native_label": "general",
+          "TEST_QA": 500,
+          "TRAIN_QA": 49,
+          "acquired_stage": 17,
+          "acquired_F1": 32.707401386701626,
+          "final_F1": 37.848694132543216,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_17/T17_test_predictions.scores.json",
+          "aggregate_score_sha256": "0989d22c48ea9ae779d622a01387c247b7d5e8bd1cd361ec342867f7c4e0a8f7",
+          "paired_prediction_sha256": "67c9db00ca6b157687174de4083322155599ef6dc565e63cb6e96137f1becaf2",
+          "TEST_file_sha256": "f5a8de804f54aba60315eff839f05a0401ff96427920c0cd3112affcc19362e8",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 18,
+          "task_id": "T18",
+          "domain": "traffic",
+          "native_label_field": "question_type",
+          "native_label": "regional",
+          "TEST_QA": 1123,
+          "TRAIN_QA": 107,
+          "acquired_stage": 18,
+          "acquired_F1": 33.2844689947851,
+          "final_F1": 32.61688267904268,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_18/T18_test_predictions.scores.json",
+          "aggregate_score_sha256": "8e8c0119bab8ed2d8d0f496b35b81560cd713eb0fa1443f231235d516e15652d",
+          "paired_prediction_sha256": "4f3a2d4408cfab023ee11d20c11799fbb3def186e304b2d3563d6144acfc7afc",
+          "TEST_file_sha256": "48e1bf7b181cf1a5d4c7b9be03e1fa11fe2e26b37ca2f4c8a4f4498ef20c403d",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        },
+        {
+          "task": 19,
+          "task_id": "T19",
+          "domain": "traffic",
+          "native_label_field": "question_type",
+          "native_label": "suggestion",
+          "TEST_QA": 500,
+          "TRAIN_QA": 49,
+          "acquired_stage": 19,
+          "acquired_F1": 29.904953927044986,
+          "final_F1": 29.904953927044986,
+          "aggregate_score_path": "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_19/T19_test_predictions.scores.json",
+          "aggregate_score_sha256": "25ab7de2f8adea145bfd8e0f271345460a00669be73e2890fb781a69cc5fed67",
+          "paired_prediction_sha256": "5966292be2ca36cb45c636fbbf94d5b1874e5e469c8d36627c2c1427d015e202",
+          "TEST_file_sha256": "4af47721d341958f26e54744330927a14b5e5f5b8d84489607623b741eddbe2b",
+          "original_ID_reference_pairing_inherited_from_formal_proof": true
+        }
+      ],
+      "domains": {
+        "natural": {
+          "TEST_QA": 5000,
+          "tasks": [
+            1
+          ],
+          "acquired_F1": 86.0498981483982,
+          "final_F1": 86.31201304251312
+        },
+        "medical": {
+          "TEST_QA": 2094,
+          "tasks": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "acquired_F1": 40.43201805819057,
+          "final_F1": 47.6543050829364
+        },
+        "geography": {
+          "TEST_QA": 10004,
+          "tasks": [
+            12,
+            13,
+            14,
+            15
+          ],
+          "acquired_F1": 52.08250033320005,
+          "final_F1": 51.10955617752899
+        },
+        "finance": {
+          "TEST_QA": 2233,
+          "tasks": [
+            16
+          ],
+          "acquired_F1": 24.00656814449917,
+          "final_F1": 26.575526762429092
+        },
+        "traffic": {
+          "TEST_QA": 2123,
+          "tasks": [
+            17,
+            18,
+            19
+          ],
+          "acquired_F1": 32.35263134150588,
+          "final_F1": 33.2103548178799
+        }
+      },
+      "acquired_domain_macro_F1": 46.98472320515877,
+      "acquired_AP19": 43.62979921722415,
+      "final_domain_macro_F1": 48.9723511766575,
+      "final_AP19": 47.812159352619155,
+      "final_scalars_copied_from_cached_formal_proof": true
+    }
+  },
+  "CL_minus_Seq": {
+    "tasks": [
+      {
+        "task": 1,
+        "domain": "natural",
+        "TEST_QA": 5000,
+        "native_label": null,
+        "CL_acquired_F1": 86.41772922592811,
+        "Seq_acquired_F1": 86.0498981483982,
+        "CL_minus_Seq_acquired_pp": 0.36783107752991384,
+        "CL_final_F1": 85.8205613830615,
+        "Seq_final_F1": 86.31201304251312,
+        "CL_minus_Seq_final_pp": -0.49145165945161295
+      },
+      {
+        "task": 2,
+        "domain": "medical",
+        "TEST_QA": 228,
+        "native_label": "Modality",
+        "CL_acquired_F1": 61.81167881825774,
+        "Seq_acquired_F1": 40.31353258673206,
+        "CL_minus_Seq_acquired_pp": 21.49814623152568,
+        "CL_final_F1": 72.00292397660814,
+        "Seq_final_F1": 72.0614035087719,
+        "CL_minus_Seq_final_pp": -0.05847953216375856
+      },
+      {
+        "task": 3,
+        "domain": "medical",
+        "TEST_QA": 375,
+        "native_label": "Position",
+        "CL_acquired_F1": 44.129881409998674,
+        "Seq_acquired_F1": 31.380305996131757,
+        "CL_minus_Seq_acquired_pp": 12.749575413866918,
+        "CL_final_F1": 46.77714285714282,
+        "Seq_final_F1": 45.82730158730155,
+        "CL_minus_Seq_final_pp": 0.9498412698412722
+      },
+      {
+        "task": 4,
+        "domain": "medical",
+        "TEST_QA": 507,
+        "native_label": "Organ",
+        "CL_acquired_F1": 55.57434018972485,
+        "Seq_acquired_F1": 45.2095391427101,
+        "CL_minus_Seq_acquired_pp": 10.364801047014751,
+        "CL_final_F1": 42.70874424720583,
+        "Seq_final_F1": 41.17028270874428,
+        "CL_minus_Seq_final_pp": 1.5384615384615472
+      },
+      {
+        "task": 5,
+        "domain": "medical",
+        "TEST_QA": 124,
+        "native_label": "Size",
+        "CL_acquired_F1": 55.77956989247312,
+        "Seq_acquired_F1": 48.381779510811754,
+        "CL_minus_Seq_acquired_pp": 7.397790381661366,
+        "CL_final_F1": 54.83870967741935,
+        "Seq_final_F1": 56.98924731182796,
+        "CL_minus_Seq_final_pp": -2.1505376344086073
+      },
+      {
+        "task": 6,
+        "domain": "medical",
+        "TEST_QA": 311,
+        "native_label": "Abnormality",
+        "CL_acquired_F1": 54.09325100728038,
+        "Seq_acquired_F1": 46.48821938295617,
+        "CL_minus_Seq_acquired_pp": 7.605031624324212,
+        "CL_final_F1": 51.463458412180586,
+        "Seq_final_F1": 53.60557683793418,
+        "CL_minus_Seq_final_pp": -2.142118425753594
+      },
+      {
+        "task": 7,
+        "domain": "medical",
+        "TEST_QA": 89,
+        "native_label": "Quantity",
+        "CL_acquired_F1": 49.438202247191015,
+        "Seq_acquired_F1": 59.550561797752806,
+        "CL_minus_Seq_acquired_pp": -10.112359550561791,
+        "CL_final_F1": 50.561797752808985,
+        "Seq_final_F1": 56.17977528089887,
+        "CL_minus_Seq_final_pp": -5.617977528089888
+      },
+      {
+        "task": 8,
+        "domain": "medical",
+        "TEST_QA": 116,
+        "native_label": "Plane",
+        "CL_acquired_F1": 41.52298850574713,
+        "Seq_acquired_F1": 40.33011767925561,
+        "CL_minus_Seq_acquired_pp": 1.1928708264915215,
+        "CL_final_F1": 41.52298850574713,
+        "Seq_final_F1": 42.001915708812255,
+        "CL_minus_Seq_final_pp": -0.47892720306512615
+      },
+      {
+        "task": 9,
+        "domain": "medical",
+        "TEST_QA": 12,
+        "native_label": "Shape",
+        "CL_acquired_F1": 12.5,
+        "Seq_acquired_F1": 20.833333333333332,
+        "CL_minus_Seq_acquired_pp": -8.333333333333332,
+        "CL_final_F1": 18.055555555555554,
+        "Seq_final_F1": 18.055555555555554,
+        "CL_minus_Seq_final_pp": 0.0
+      },
+      {
+        "task": 10,
+        "domain": "medical",
+        "TEST_QA": 65,
+        "native_label": "Color",
+        "CL_acquired_F1": 66.76923076923077,
+        "Seq_acquired_F1": 55.1025641025641,
+        "CL_minus_Seq_acquired_pp": 11.666666666666671,
+        "CL_final_F1": 62.153846153846146,
+        "Seq_final_F1": 62.92307692307691,
+        "CL_minus_Seq_final_pp": -0.7692307692307665
+      },
+      {
+        "task": 11,
+        "domain": "medical",
+        "TEST_QA": 267,
+        "native_label": "KG",
+        "CL_acquired_F1": 26.145730515010715,
+        "Seq_acquired_F1": 24.408884214503328,
+        "CL_minus_Seq_acquired_pp": 1.7368463005073878,
+        "CL_final_F1": 26.260305038892167,
+        "Seq_final_F1": 27.650387501664056,
+        "CL_minus_Seq_final_pp": -1.3900824627718897
+      },
+      {
+        "task": 12,
+        "domain": "geography",
+        "TEST_QA": 100,
+        "native_label": "rural_urban",
+        "CL_acquired_F1": 65.0,
+        "Seq_acquired_F1": 61.0,
+        "CL_minus_Seq_acquired_pp": 4.0,
+        "CL_final_F1": 75.0,
+        "Seq_final_F1": 72.0,
+        "CL_minus_Seq_final_pp": 3.0
+      },
+      {
+        "task": 13,
+        "domain": "geography",
+        "TEST_QA": 2955,
+        "native_label": "presence",
+        "CL_acquired_F1": 69.4077834179357,
+        "Seq_acquired_F1": 66.42978003384094,
+        "CL_minus_Seq_acquired_pp": 2.9780033840947624,
+        "CL_final_F1": 57.59729272419628,
+        "Seq_final_F1": 65.0761421319797,
+        "CL_minus_Seq_final_pp": -7.4788494077834144
+      },
+      {
+        "task": 14,
+        "domain": "geography",
+        "TEST_QA": 2947,
+        "native_label": "count",
+        "CL_acquired_F1": 19.681031557516118,
+        "Seq_acquired_F1": 15.043547110055425,
+        "CL_minus_Seq_acquired_pp": 4.637484447460693,
+        "CL_final_F1": 18.32371903630811,
+        "Seq_final_F1": 14.116050220563285,
+        "CL_minus_Seq_final_pp": 4.2076688157448245
+      },
+      {
+        "task": 15,
+        "domain": "geography",
+        "TEST_QA": 4002,
+        "native_label": "comp",
+        "CL_acquired_F1": 69.56521739130434,
+        "Seq_acquired_F1": 68.54072963518242,
+        "CL_minus_Seq_acquired_pp": 1.0244877561219283,
+        "CL_final_F1": 68.79060469765118,
+        "Seq_final_F1": 67.51624187906047,
+        "CL_minus_Seq_final_pp": 1.2743628185907028
+      },
+      {
+        "task": 16,
+        "domain": "finance",
+        "TEST_QA": 2233,
+        "native_label": null,
+        "CL_acquired_F1": 21.924167786236747,
+        "Seq_acquired_F1": 24.00656814449917,
+        "CL_minus_Seq_acquired_pp": -2.082400358262422,
+        "CL_final_F1": 23.55668252219976,
+        "Seq_final_F1": 26.575526762429092,
+        "CL_minus_Seq_final_pp": -3.018844240229331
+      },
+      {
+        "task": 17,
+        "domain": "traffic",
+        "TEST_QA": 500,
+        "native_label": "general",
+        "CL_acquired_F1": 32.12629986946053,
+        "Seq_acquired_F1": 32.707401386701626,
+        "CL_minus_Seq_acquired_pp": -0.5811015172410947,
+        "CL_final_F1": 37.125059667789486,
+        "Seq_final_F1": 37.848694132543216,
+        "CL_minus_Seq_final_pp": -0.7236344647537294
+      },
+      {
+        "task": 18,
+        "domain": "traffic",
+        "TEST_QA": 1123,
+        "native_label": "regional",
+        "CL_acquired_F1": 31.673117862398055,
+        "Seq_acquired_F1": 33.2844689947851,
+        "CL_minus_Seq_acquired_pp": -1.6113511323870462,
+        "CL_final_F1": 32.358325237286465,
+        "Seq_final_F1": 32.61688267904268,
+        "CL_minus_Seq_final_pp": -0.2585574417562171
+      },
+      {
+        "task": 19,
+        "domain": "traffic",
+        "TEST_QA": 500,
+        "native_label": "suggestion",
+        "CL_acquired_F1": 30.413758510397045,
+        "Seq_acquired_F1": 29.904953927044986,
+        "CL_minus_Seq_acquired_pp": 0.5088045833520596,
+        "CL_final_F1": 30.413758510397045,
+        "Seq_final_F1": 29.904953927044986,
+        "CL_minus_Seq_final_pp": 0.5088045833520596
+      }
+    ],
+    "domains": {
+      "natural": {
+        "TEST_QA": 5000,
+        "CL_minus_Seq_acquired_pp": 0.36783107752991384,
+        "CL_minus_Seq_final_pp": -0.49145165945161295
+      },
+      "medical": {
+        "TEST_QA": 2094,
+        "CL_minus_Seq_acquired_pp": 8.873236583456112,
+        "CL_minus_Seq_final_pp": -0.3757000608092369
+      },
+      "geography": {
+        "TEST_QA": 10004,
+        "CL_minus_Seq_acquired_pp": 2.695588431294148,
+        "CL_minus_Seq_final_pp": -0.4298280687724869
+      },
+      "finance": {
+        "TEST_QA": 2233,
+        "CL_minus_Seq_acquired_pp": -2.082400358262422,
+        "CL_minus_Seq_final_pp": -3.018844240229331
+      },
+      "traffic": {
+        "TEST_QA": 2123,
+        "CL_minus_Seq_acquired_pp": -0.8693809649623994,
+        "CL_minus_Seq_final_pp": -0.18736455383564277
+      }
+    },
+    "acquired_domain_macro_pp": 1.7969749538110733,
+    "acquired_AP19_pp": 3.421462834149068,
+    "final_domain_macro_pp": -0.9006377166196557,
+    "final_AP19_pp": -0.6894500917614437,
+    "task_acquired_counts": {
+      "higher": 14,
+      "lower": 5,
+      "tie": 0,
+      "denominator": 19
+    },
+    "domain_acquired_counts": {
+      "higher": 3,
+      "lower": 2,
+      "tie": 0,
+      "denominator": 5
+    },
+    "task_final_counts": {
+      "higher": 6,
+      "lower": 12,
+      "tie": 1,
+      "denominator": 19
+    },
+    "domain_final_counts": {
+      "higher": 0,
+      "lower": 5,
+      "tie": 0,
+      "denominator": 5
+    }
+  },
+  "source_metadata": {
+    "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/manifest.json": {
+      "sha256": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+      "bytes": 22662,
+      "mtime_ns": 1792133856677125554
+    },
+    "summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/completed/ebf69e0412424b46f33e.json": {
+      "sha256": "b4de7085d6c0b0f5cb73a8720928b1ceee63c41eb586a8ae0c40d9f0f3214a72",
+      "bytes": 64738,
+      "mtime_ns": 1793115443074475995
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/config.json": {
+      "sha256": "358e9b740b7e79a2530f83e37ef5b0cd15b70c7a2ffd58207d336cb7b4c38dec",
+      "bytes": 4408,
+      "mtime_ns": 1792657725661507862
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_01/T01_test_predictions.scores.json": {
+      "sha256": "e8d453a29632a5ded5a2ec3f221aa0e560736470731d74c97248f143c270b304",
+      "bytes": 138,
+      "mtime_ns": 1792864140079689139
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_02/T02_test_predictions.scores.json": {
+      "sha256": "55deefa9c707d36a34d2dba9b1a337f1e55d485f60066f72b104b90c7e3f3f47",
+      "bytes": 148,
+      "mtime_ns": 1792865240076206159
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_03/T03_test_predictions.scores.json": {
+      "sha256": "793e784ca89c3aeebf0dba45076e423b7345d53344c44c02103da39a2c5037b6",
+      "bytes": 149,
+      "mtime_ns": 1792866993307962573
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_04/T04_test_predictions.scores.json": {
+      "sha256": "4321fe6342bf08a9bd944b9c2c72720efb6fbf98220a8596f705ffffdf89af9b",
+      "bytes": 147,
+      "mtime_ns": 1792868091401534169
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_05/T05_test_predictions.scores.json": {
+      "sha256": "b9e909ce1263242af97a2d00467638d987ab3377e50b7ab6b5e81996ef589026",
+      "bytes": 148,
+      "mtime_ns": 1792868380805529243
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_06/T06_test_predictions.scores.json": {
+      "sha256": "f1306a4475aecbf91d8e74f137eb9658077aca8e0fb28d0f9206dd3be31db37c",
+      "bytes": 149,
+      "mtime_ns": 1792869182296434628
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_07/T07_test_predictions.scores.json": {
+      "sha256": "c43895af28486d3fc0473ff922f67ba1419068400b1c1d9ec7c58b58de2c979f",
+      "bytes": 149,
+      "mtime_ns": 1792869356265287629
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_08/T08_test_predictions.scores.json": {
+      "sha256": "43da9e98cdce3d3187332c999995f6cb9dbdbb4820262debe53c677a91744b0c",
+      "bytes": 148,
+      "mtime_ns": 1792869635066394250
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_09/T09_test_predictions.scores.json": {
+      "sha256": "67ac21791b2afa1f00ea9c443e3dbd8d8b1aaeca032440a7ca23e58e255d14df",
+      "bytes": 119,
+      "mtime_ns": 1792869668838512547
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_10/T10_test_predictions.scores.json": {
+      "sha256": "bf3e80d21c82eb45d063e5634b542fea19df9028b0fb08989fedea17d062eba2",
+      "bytes": 146,
+      "mtime_ns": 1792869814242993219
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_11/T11_test_predictions.scores.json": {
+      "sha256": "827a1502c26b0c43ae9f1c011e1c3b42c3f1ef8f5db09c4b1cb019b17a79a2b8",
+      "bytes": 150,
+      "mtime_ns": 1792871076802198917
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_12/T12_test_predictions.scores.json": {
+      "sha256": "be144481632d0c4d27e6f8d87bc61078c652815dde5808c50c6e1c9a8086be3e",
+      "bytes": 108,
+      "mtime_ns": 1792871325610764309
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_13/T13_test_predictions.scores.json": {
+      "sha256": "b1e9a9f66f65668fc58619a6b2876e17eda339fdfdd5095d85f04615cbb1ddf6",
+      "bytes": 147,
+      "mtime_ns": 1792876025438856707
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_14/T14_test_predictions.scores.json": {
+      "sha256": "99a4793925a466e238f9b690e5ad3ce76617d60aeb4a857dd4275275149810fe",
+      "bytes": 152,
+      "mtime_ns": 1792880520774904741
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_15/T15_test_predictions.scores.json": {
+      "sha256": "85f2750dc2da773c865f5f1bce4496315a7eecd76a18ba30394cff2022c76b80",
+      "bytes": 150,
+      "mtime_ns": 1792886633692028088
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_16/T16_test_predictions.scores.json": {
+      "sha256": "8171f319a0630210340798bbc6570e27a77d2ce85d25c73cbd426c20a5b48d4c",
+      "bytes": 152,
+      "mtime_ns": 1792895357513427894
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_17/T17_test_predictions.scores.json": {
+      "sha256": "974c30e926e86916e2e52a455adba976343348c0e918e5430848a4b444727818",
+      "bytes": 133,
+      "mtime_ns": 1792954408896371265
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_18/T18_test_predictions.scores.json": {
+      "sha256": "08de0c335632c3485bc9a7a402b8bce29112fea59a4e4e28a0a1eb5f3347b1ff",
+      "bytes": 135,
+      "mtime_ns": 1793009209823947879
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/CL_MoE/training_20261022_162837/evaluations/stage_19/T19_test_predictions.scores.json": {
+      "sha256": "802d473b250d19174efae3a16850784bca57aedb1b826f8088bff58d198f5c50",
+      "bytes": 133,
+      "mtime_ns": 1793115345594251167
+    },
+    "summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/completed/2a0b6d43f89c3cec6cb9.json": {
+      "sha256": "ff979a21b171372834940e3b68bdcaa84c7db4cdf9eaccb8939fa4b3c84bd59a",
+      "bytes": 69752,
+      "mtime_ns": 1792373896356851619
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/config.json": {
+      "sha256": "9db372397a602a25499fe83c74871fab9696bdadf5442352867a55277a2ccea1",
+      "bytes": 4411,
+      "mtime_ns": 1792224736397178315
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_01/T01_test_predictions.scores.json": {
+      "sha256": "284d2bc684cdfa9c0964c9eab3c77d346ad73af301c1e7b86da6dfa673b4e578",
+      "bytes": 137,
+      "mtime_ns": 1792264838814146392
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_02/T02_test_predictions.scores.json": {
+      "sha256": "9d13a7cc6488b061462bb8fd42baef282b148324f3008bcd47eb20f353a9163b",
+      "bytes": 147,
+      "mtime_ns": 1792265186302257052
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_03/T03_test_predictions.scores.json": {
+      "sha256": "3a5e82b40305a83a002f650f86d1bdf9b8d7f6ffb7c75e56745988320987c4e1",
+      "bytes": 136,
+      "mtime_ns": 1792265755262819706
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_04/T04_test_predictions.scores.json": {
+      "sha256": "bf39ca73365ea2a45ed335abf91152194cfca1d81874217054af1ec665c6123c",
+      "bytes": 146,
+      "mtime_ns": 1792266072187225057
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_05/T05_test_predictions.scores.json": {
+      "sha256": "d3db6b1eea5e57d3199811ea02d926a3a64d560f0513b62659b1eef6b6cb3573",
+      "bytes": 149,
+      "mtime_ns": 1792266198681438921
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_06/T06_test_predictions.scores.json": {
+      "sha256": "2bae5ee10e637af77b35d1d8016bf6bc253f4428cfc44947f11b0821eec4ea8d",
+      "bytes": 148,
+      "mtime_ns": 1792266492462508470
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_07/T07_test_predictions.scores.json": {
+      "sha256": "1f5cccd9018b940a787830f9454a9eb40163025f45c3ca443be261b8a5c93e94",
+      "bytes": 149,
+      "mtime_ns": 1792266583335720735
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_08/T08_test_predictions.scores.json": {
+      "sha256": "183e9c8452a085f8517f2e29547e20fd14e55a71beed313df71210a1aa613e06",
+      "bytes": 134,
+      "mtime_ns": 1792266685720941392
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_09/T09_test_predictions.scores.json": {
+      "sha256": "294d4e8819f0a03a366b6183c93fe903d3d2bb1407de643be2a828c9fd70e69d",
+      "bytes": 148,
+      "mtime_ns": 1792266752993672814
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_10/T10_test_predictions.scores.json": {
+      "sha256": "fc944b52b9f352c12d9baba39520ddfe680a2b75bd826665a7e4ddbf5ee3671f",
+      "bytes": 144,
+      "mtime_ns": 1792296652336516570
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_11/T11_test_predictions.scores.json": {
+      "sha256": "383ffca0d803c1abb3e9d424662ead2aff2800f49de0b00ba4e4f7b26ec00b44",
+      "bytes": 150,
+      "mtime_ns": 1792296882712223975
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_12/T12_test_predictions.scores.json": {
+      "sha256": "4c92a2afc42c39aa692db8660c8e9503b17aa13ba46c3e1f0ec9717ea4323f7b",
+      "bytes": 108,
+      "mtime_ns": 1792296965278512453
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_13/T13_test_predictions.scores.json": {
+      "sha256": "d986d10a7bfac1215c5f3b042b9ca3487c738f9cd07ee7ab661f1f013f3bb334",
+      "bytes": 150,
+      "mtime_ns": 1792297772999512229
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_14/T14_test_predictions.scores.json": {
+      "sha256": "17007c88b3d70a417e7ba6872fbad898720adb1a61ad144f32deff22f26d5bf7",
+      "bytes": 151,
+      "mtime_ns": 1792298573015180040
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_15/T15_test_predictions.scores.json": {
+      "sha256": "267237d7297f66c6bb1f470670ce729005fe4b275c4dac519515baf2916b6576",
+      "bytes": 150,
+      "mtime_ns": 1792299625709733679
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_16/T16_test_predictions.scores.json": {
+      "sha256": "bed46b3b0c67cc45631b685cafe982f976651ebd78850c3072bdca2acbe90131",
+      "bytes": 149,
+      "mtime_ns": 1792301439401163490
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_17/T17_test_predictions.scores.json": {
+      "sha256": "0989d22c48ea9ae779d622a01387c247b7d5e8bd1cd361ec342867f7c4e0a8f7",
+      "bytes": 133,
+      "mtime_ns": 1792310601550145723
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_18/T18_test_predictions.scores.json": {
+      "sha256": "8e8c0119bab8ed2d8d0f496b35b81560cd713eb0fa1443f231235d516e15652d",
+      "bytes": 132,
+      "mtime_ns": 1792324919393963101
+    },
+    "exp/two_backbone_native_cl_20261017_v2/runs/qwen/pct01/SeqFT_LoRA/training_20261019_verified_resume_branch_v2/evaluations/stage_19/T19_test_predictions.scores.json": {
+      "sha256": "25ab7de2f8adea145bfd8e0f271345460a00669be73e2890fb781a69cc5fed67",
+      "bytes": 134,
+      "mtime_ns": 1792349807803576095
+    }
+  },
+  "source_script_sha256": "412e9b73fd21a79600c097f0981576e65e858712a2f3b4ce72ab7ec1f06f6353",
+  "weights": {
+    "within_domain": "Original complete TEST QA counts",
+    "domain_macro": "Five domains equally weighted",
+    "acquired_AP19": "19 task-specific acquired states equally weighted"
+  },
+  "limits": [
+    "Descriptive comparison of two completed formal methods, not a causal intervention.",
+    "Acquired is R[t,t]; domain summaries combine task-specific times, not one model at one time.",
+    "Acquired differences include earlier-task transfer and current learning; no pure current-stage attribution.",
+    "No retention/forgetting decomposition or significance/equivalence test.",
+    "No claim that all tasks/domains must win, and no new method/parameter or GPU measurement."
+  ],
+  "activity": {
+    "cached_proofs": 2,
+    "existing_aggregate_score_files": 38,
+    "new_scores": 0,
+    "new_models": 0,
+    "new_generations": 0,
+    "QA_rows_read": 0,
+    "prediction_rows_read": 0,
+    "checkpoint_payload_reads": 0,
+    "paired_prediction_files_hashed_or_opened": 0,
+    "TEST_files_hashed_or_opened": 0,
+    "pairing_source": "Original formal proof SHA declarations"
+  },
+  "started_unix": 1793119409.861342,
+  "seconds_before_output": 0.060884618025738746
+}
