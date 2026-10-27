@@ -1,0 +1,400 @@
+{
+  "unix": 1793096648.0112498,
+  "activation": {
+    "unix": 1793096498.3970768,
+    "controller": {
+      "pid": 1760521,
+      "startticks": "779491850",
+      "uid": 1084,
+      "pgid": 1760521
+    },
+    "unit": "llmcl-pct10-type-aux-v2-old-20261027.service",
+    "old_controller": {
+      "pid": 1638231,
+      "startticks": "778716934",
+      "uid": 1084,
+      "pgid": 1638231
+    },
+    "command": [
+      "systemd-run",
+      "--user",
+      "--unit=llmcl-pct10-type-aux-v2-old-20261027.service",
+      "--property=Restart=no",
+      "--property=KillMode=process",
+      "--property=WorkingDirectory=/dev/shm/llmcl-pct10-1084-zu7e3hb_",
+      "--setenv=LLMCL_ROOT=/dev/shm/llmcl-pct10-1084-zu7e3hb_",
+      "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+      "-u",
+      "/dev/shm/llmcl-type-aux-1084-20261027/exp/type_auxiliary_supervision_20261027/v2/queue_adapter.py",
+      "--type-aux-v2-root",
+      "/dev/shm/llmcl-type-aux-1084-20261027",
+      "--type-aux-v2-binding",
+      "/dev/shm/llmcl-type-aux-1084-20261027/summary/train_answer_prior_20261025/TYPE_AUXILIARY_V2_BINDING.json",
+      "--type-aux-v2-python",
+      "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+      "--type-aux-root",
+      "/dev/shm/llmcl-type-aux-1084-20261027",
+      "--type-aux-binding",
+      "/dev/shm/llmcl-type-aux-1084-20261027/summary/train_answer_prior_20261025/TYPE_AUXILIARY_BINDING.json",
+      "--type-aux-python",
+      "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+      "--paired-root",
+      "/dev/shm/llmcl-paired-option-1084-20261027",
+      "--paired-binding",
+      "/dev/shm/llmcl-paired-option-1084-20261027/summary/train_answer_prior_20261025/PAIRED_BINDING.json",
+      "--paired-python",
+      "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+      "--resource-root",
+      "/data2/liyapeng_grp/program/LLMCL",
+      "--resource-output",
+      "/data2/liyapeng_grp/program/LLMCL/.deployment/final_seq_resource_metadata_20261026/runs",
+      "--resource-python",
+      "/data2/liyapeng_grp/program/LLMCL/.conda-env/bin/python",
+      "--resource-onevision-binding",
+      "/data2/liyapeng_grp/program/LLMCL/.deployment/final_seq_resource_metadata_20261026/onevision_binding.json",
+      "--resource-qwen-binding",
+      "/data2/liyapeng_grp/program/LLMCL/.deployment/final_seq_resource_metadata_20261026/qwen_binding.json",
+      "--conditional-root",
+      "/dev/shm/llmcl-conditional-1084-20261026",
+      "--conditional-output",
+      "/dev/shm/llmcl-conditional-1084-20261026/run",
+      "--conditional-python",
+      "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+      "--position-admission",
+      "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/train_answer_prior_20261025/POSITION_RUN_ADMISSION.json",
+      "--machine",
+      "old",
+      "--resource-adapter",
+      "/data2/liyapeng_grp/program/LLMCL/.deployment/final_seq_resource_metadata_20261026/exp/final_seq_resource_20261026/queue_adapter.py"
+    ],
+    "protected": {
+      "onevision:PASs_MoE": {
+        "refs": {
+          "worker": {
+            "pid": 4049854,
+            "startticks": "763716871",
+            "uid": 1084,
+            "pgid": 4049854
+          },
+          "wrapper": {
+            "pid": 4049841,
+            "startticks": "763716855",
+            "uid": 1084,
+            "pgid": 4049841
+          }
+        },
+        "phase_exit": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/two_backbone_pct10_20261025/requests/onevision_PASs_MoE_training_1792938748174547335.exit.json",
+        "run_dir": "exp/two_backbone_pct10_native_20261025/runs/onevision/pct10/PASs_MoE/training_20261025_223228"
+      },
+      "qwen:PASs_MoE": {
+        "refs": {
+          "worker": {
+            "pid": 4048289,
+            "startticks": "763699036",
+            "uid": 1084,
+            "pgid": 4048289
+          },
+          "wrapper": {
+            "pid": 4048276,
+            "startticks": "763699020",
+            "uid": 1084,
+            "pgid": 4048276
+          }
+        },
+        "phase_exit": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/two_backbone_pct10_20261025/requests/qwen_PASs_MoE_training_1792938569833838624.exit.json",
+        "run_dir": "exp/two_backbone_pct10_native_20261025/runs/qwen/pct10/PASs_MoE/training_20261025_222929"
+      },
+      "onevision:CL_MoE": {
+        "refs": {
+          "worker": {
+            "pid": 236681,
+            "startticks": "767836133",
+            "uid": 1084,
+            "pgid": 236681
+          },
+          "wrapper": {
+            "pid": 236668,
+            "startticks": "767836113",
+            "uid": 1084,
+            "pgid": 236668
+          }
+        },
+        "phase_exit": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/two_backbone_pct10_20261025/requests/onevision_CL_MoE_training_1792979940752764465.exit.json",
+        "run_dir": "exp/two_backbone_pct10_native_20261025/runs/onevision/pct10/CL_MoE/training_20261026_095900"
+      },
+      "onevision:PaRSP": {
+        "refs": {
+          "worker": {
+            "pid": 1724385,
+            "startticks": "779263644",
+            "uid": 1084,
+            "pgid": 1724385
+          },
+          "wrapper": {
+            "pid": 1724352,
+            "startticks": "779263627",
+            "uid": 1084,
+            "pgid": 1724352
+          }
+        },
+        "phase_exit": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/two_backbone_pct10_20261025/requests/onevision_PaRSP_training_1793094215899733386.exit.json",
+        "run_dir": "exp/two_backbone_pct10_native_checkpoint_20261027/runs/onevision/pct10/PaRSP/training_20261027_113623"
+      }
+    },
+    "before_adoption": {
+      "onevision:PASs_MoE": {
+        "observed": {
+          "worker": {
+            "pid": 4049854,
+            "startticks": "763716871",
+            "uid": 1084,
+            "pgid": 4049854
+          },
+          "wrapper": {
+            "pid": 4049841,
+            "startticks": "763716855",
+            "uid": 1084,
+            "pgid": 4049841
+          }
+        },
+        "natural_exit": null,
+        "natural_exit_sha256": null
+      },
+      "qwen:PASs_MoE": {
+        "observed": {
+          "worker": {
+            "pid": 4048289,
+            "startticks": "763699036",
+            "uid": 1084,
+            "pgid": 4048289
+          },
+          "wrapper": {
+            "pid": 4048276,
+            "startticks": "763699020",
+            "uid": 1084,
+            "pgid": 4048276
+          }
+        },
+        "natural_exit": null,
+        "natural_exit_sha256": null
+      },
+      "onevision:CL_MoE": {
+        "observed": {
+          "worker": {
+            "pid": 236681,
+            "startticks": "767836133",
+            "uid": 1084,
+            "pgid": 236681
+          },
+          "wrapper": {
+            "pid": 236668,
+            "startticks": "767836113",
+            "uid": 1084,
+            "pgid": 236668
+          }
+        },
+        "natural_exit": null,
+        "natural_exit_sha256": null
+      },
+      "onevision:PaRSP": {
+        "observed": {
+          "worker": {
+            "pid": 1724385,
+            "startticks": "779263644",
+            "uid": 1084,
+            "pgid": 1724385
+          },
+          "wrapper": {
+            "pid": 1724352,
+            "startticks": "779263627",
+            "uid": 1084,
+            "pgid": 1724352
+          }
+        },
+        "natural_exit": null,
+        "natural_exit_sha256": null
+      }
+    },
+    "after_adoption": {
+      "onevision:PASs_MoE": {
+        "observed": {
+          "worker": {
+            "pid": 4049854,
+            "startticks": "763716871",
+            "uid": 1084,
+            "pgid": 4049854
+          },
+          "wrapper": {
+            "pid": 4049841,
+            "startticks": "763716855",
+            "uid": 1084,
+            "pgid": 4049841
+          }
+        },
+        "natural_exit": null,
+        "natural_exit_sha256": null
+      },
+      "qwen:PASs_MoE": {
+        "observed": {
+          "worker": {
+            "pid": 4048289,
+            "startticks": "763699036",
+            "uid": 1084,
+            "pgid": 4048289
+          },
+          "wrapper": {
+            "pid": 4048276,
+            "startticks": "763699020",
+            "uid": 1084,
+            "pgid": 4048276
+          }
+        },
+        "natural_exit": null,
+        "natural_exit_sha256": null
+      },
+      "onevision:CL_MoE": {
+        "observed": {
+          "worker": {
+            "pid": 236681,
+            "startticks": "767836133",
+            "uid": 1084,
+            "pgid": 236681
+          },
+          "wrapper": {
+            "pid": 236668,
+            "startticks": "767836113",
+            "uid": 1084,
+            "pgid": 236668
+          }
+        },
+        "natural_exit": null,
+        "natural_exit_sha256": null
+      },
+      "onevision:PaRSP": {
+        "observed": {
+          "worker": {
+            "pid": 1724385,
+            "startticks": "779263644",
+            "uid": 1084,
+            "pgid": 1724385
+          },
+          "wrapper": {
+            "pid": 1724352,
+            "startticks": "779263627",
+            "uid": 1084,
+            "pgid": 1724352
+          }
+        },
+        "natural_exit": null,
+        "natural_exit_sha256": null
+      }
+    },
+    "controls_preserved": {},
+    "no_GPU_signals": true,
+    "no_pause_or_resume_request_writes": true,
+    "no_queue_job_mutation": true,
+    "original_resource_type_paired_and_downstream_arguments_preserved": true,
+    "science_root": "/dev/shm/llmcl-type-aux-1084-20261027",
+    "binding_sha256": "0fb8b3c1f3a9c41f48b3a06ffc2d15739ffa4bfd27b07fb3e95330adacf0914e",
+    "old_closed_slots_preserved": true
+  },
+  "controller": {
+    "pid": 1760521,
+    "startticks": "779491850",
+    "uid": 1084,
+    "pgid": 1760521
+  },
+  "baseline_identity_matches": {
+    "onevision:PASs_MoE": true,
+    "qwen:PASs_MoE": true,
+    "onevision:CL_MoE": true,
+    "onevision:PaRSP": true
+  },
+  "PaRSP_job": {
+    "key": "onevision:PaRSP",
+    "condition": "pct10",
+    "method": "PaRSP",
+    "backbone": "onevision",
+    "status": "training",
+    "wrapper": {
+      "pid": 1724352,
+      "startticks": "779263627",
+      "uid": 1084,
+      "pgid": 1724352
+    },
+    "gpu": 1,
+    "phase": "training",
+    "phase_status": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/two_backbone_pct10_20261025/requests/onevision_PaRSP_training_1793094215899733386.status.json",
+    "phase_exit": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/two_backbone_pct10_20261025/requests/onevision_PaRSP_training_1793094215899733386.exit.json",
+    "request": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/two_backbone_pct10_20261025/requests/onevision_PaRSP_training_1793094215899733386.json",
+    "pid": 1724385,
+    "worker": {
+      "pid": 1724385,
+      "startticks": "779263644",
+      "uid": 1084,
+      "pgid": 1724385
+    },
+    "run_dir": "exp/two_backbone_pct10_native_checkpoint_20261027/runs/onevision/pct10/PaRSP/training_20261027_113623",
+    "last_exit": {
+      "unix": 1793078782.892434,
+      "returncode": 0,
+      "worker": {
+        "pid": 1379913,
+        "startticks": "777060360",
+        "uid": 1084,
+        "pgid": 1379913
+      },
+      "wrapper": {
+        "pid": 1379900,
+        "startticks": "777060343",
+        "uid": 1084,
+        "pgid": 1379900
+      },
+      "phase": "training",
+      "run_dir": "exp/two_backbone_pct10_native_checkpoint_20261027/runs/onevision/pct10/PaRSP/training_20261027_113623",
+      "resume": false
+    },
+    "preflight_run": "exp/two_backbone_pct10_native_checkpoint_20261027/runs/onevision/pct10/PaRSP/preflight_20261027_113422",
+    "completed_stage": 0,
+    "pause_receipt": "pause_history/pause_S00_1793078781808788819.json",
+    "pause_receipt_sha256": "89c74bfd1c39b0ea4393261baae13106cb5f9774264f82921e092c4fa7936859"
+  },
+  "PaRSP_run_status": {
+    "status": "training",
+    "completed_stage": 0,
+    "active_stage": 1
+  },
+  "pause_request": {
+    "unix": 1793096568.283938,
+    "controller": {
+      "pid": 1760521,
+      "startticks": "779491850",
+      "uid": 1084,
+      "pgid": 1760521
+    },
+    "worker": {
+      "pid": 1724385,
+      "startticks": "779263644",
+      "uid": 1084,
+      "pgid": 1724385
+    },
+    "run": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_checkpoint_20261027/runs/onevision/pct10/PaRSP/training_20261027_113623",
+    "request": {
+      "request_id": "parsp-next-stage-yield-type-aux-v2-20261027",
+      "reason": "Save the next complete stage checkpoint, then yield GPU1 to the authorized fixed type auxiliary three-arm study",
+      "unix": 1793096568.283861
+    },
+    "request_sha256": "a989d592fdb877d5ddcbfc94db81f378435e189c4ede6b91b62d805d8032412a",
+    "observed_stage": {
+      "status": "training",
+      "completed_stage": 0,
+      "active_stage": 1
+    },
+    "pause_observed": false,
+    "GPU_signals": 0,
+    "other_workers_unchanged": true
+  },
+  "slot": null,
+  "run_exists": false,
+  "new_scores": 0
+}

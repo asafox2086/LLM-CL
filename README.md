@@ -78,7 +78,7 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 | CL-MoE | 架构 | [CVPR 2025](https://openaccess.thecvf.com/content/CVPR2025/html/Huai_CL-MoE_Enhancing_Multimodal_Large_Language_Model_with_Dual_Momentum_Mixture-of-Experts_CVPR_2025_paper.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 正式运行 |
 | SMoLoRA | 架构 | [ICCV 2025](https://openaccess.thecvf.com/content/ICCV2025/html/Wang_SMoLoRA_Exploring_and_Defying_Dual_Catastrophic_Forgetting_in_Continual_Visual_ICCV_2025_paper.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 已接NEW原队列，等待原生BF16空卡 |
 | PASs-MoE | 架构（兼正则） | [ACL 2026](https://aclanthology.org/2026.acl-long.1474/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 正式运行 |
-| PaRSP | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.1244/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 已从S0完整CP恢复训练 |
+| PaRSP | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.1244/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 已从S0恢复训练；已请求下阶段保存后暂停让卡 |
 | OSFT | 正则化 | [ICLR 2026](https://proceedings.iclr.cc/paper_files/paper/2026/hash/22620cccae29bbb3f18d226ea0320ff5-Abstract-Conference.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | S0完整CP已保存并耐久归档；已暂停让卡研究 |
 | SpaRTA | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.334/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | OLD排队 |
 | Ours | 自研方法 | 未发表 |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 空，不自动运行探索配方 |
@@ -189,3 +189,5 @@ Qwen SeqFT最终五域宏由1%的48.972升至10%的52.854，遥感、金融、�
 [题型辅助导出故障独立审阅](summary/train_answer_prior_20261025/TYPE_AUXILIARY_EXPORT_FAILURE_REVIEW_20261027.md)；完整S15与失败现场已耐久归档，141文件逐SHA核对，原始记录保留。
 
 10% SeqFT资源列：原最终未折叠模型、同卡五条固定QA、每条32新token；GPU为五窗最大allocated峰，TTFT与解码速度为五窗中位数。计时包含同步观测开销，不是全TEST最坏峰或生产吞吐。[完整实测与核验](summary/two_backbone_pct10_20261025/FINAL_RESOURCE_FINDINGS_20261027.md)。
+
+**题型辅助修正版已接入原队列。** 复用同一成功S15与RNG，训练代码／损失不变；修复跨进程配置hash检查，三臂独立从共同起点学习。PaRSP正在S1训练，已请求下一完整阶段保存checkpoint后让卡，研究尚未STARTED，暂无新F1。[修正版设计](summary/train_answer_prior_20261025/TYPE_AUXILIARY_V2_DESIGN_20261027.md) · [实际接管及暂停请求](summary/train_answer_prior_20261025/TYPE_AUXILIARY_V2_ACTIVATION_20261027.json)。

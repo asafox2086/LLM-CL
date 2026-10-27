@@ -733,3 +733,10 @@ CPrompt展示了用独立辅助优化分支加强当前prompt训练的做法，�
 题型辅助共同前缀成功；普通CE后缀18次更新完成，但导出配置hash断言失败，未形成完整最终CP。真实／打乱题型分支未开始，不运行660评分，不作方法质量结论。完整S15、训练头、已有答案、日志及科学源码141文件共1,815,203,840字节已在NEW耐久归档并逐文件SHA核对，OLD原记录保留。[归档收据](summary/train_answer_prior_20261025/TYPE_AUXILIARY_FAILURE_ARCHIVE_20261027.json) · [独立源码评判](summary/train_answer_prior_20261025/TYPE_AUXILIARY_EXPORT_FAILURE_REVIEW_20261027.md)。归档首次因OLD系统Python版本不支持Path.is_relative_to在目标目录创建前失败；仅明确归档解释器后成功，与科学源码无关。
 
 PaRSP已从S0 checkpoint恢复；unix1793094577核实原协调器1638231及四组基线身份匹配，OSFT仍保留已归档S0暂停态。该观察不是永久运行保证。
+
+
+## 2026-10-27：题型辅助v2实际接队列
+
+原CPU1638231由1760521/start779491850接管，新unit为llmcl-pct10-type-aux-v2-old-20261027.service。保留原四组GPU worker/wrapper、原resource/type/paired参数链和所有旧closed记录，0GPU信号。PaRSP1724385已收到下阶段完整CP后暂停请求（SHA a989d592fdb877d5ddcbfc94db81f378435e189c4ede6b91b62d805d8032412a）；unix1793096648仍S1训练，尚未暂停、v2无slot/run。实际接管不等于研究已训练。[实据](summary/train_answer_prior_20261025/TYPE_AUXILIARY_V2_ACTIVATION_20261027.json) · [服务器准备核验](summary/train_answer_prior_20261025/TYPE_AUXILIARY_V2_PREPARED.json)。
+
+新版本复用原成功S15；六phase共9000秒、555新生成、54更新、762FIT，旧prefix与失败plain费用单列。完整六phase后原660对象一次评分，再用既有result_readout消费；在完整前不读partial质量。当前没有新方法有效性证据。
