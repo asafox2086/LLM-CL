@@ -58,7 +58,7 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 <!-- PCT10_MAIN_TABLE_BEGIN -->
 ## 第二主表：双骨干10%训练／完整测试
 
-训练10%已冻结为**13105 QA**，完整TEST仍为**21454 QA**；seed42、一轮、19任务，主任务共828次优化器调用，其余沿用1%正式设置。**2/16组完整核验：双骨干SeqFT-LoRA。** 当前OLD推进双骨干PASs-MoE及LLaVA CL-MoE；成对监督研究已完成，原队列已启动新版OSFT，旧run记录保留。PaRSP的S0完整checkpoint已存，恢复许可已接收，仍待空卡，并非已经续训；条件混合三臂研究已完成。其余组合排队／待既定方法核验。空白不是0分，不复制1%结果或估计未测资源。
+训练10%已冻结为**13105 QA**，完整TEST仍为**21454 QA**；seed42、一轮、19任务，主任务共828次优化器调用，其余沿用1%正式设置。**2/16组完整核验：双骨干SeqFT-LoRA。** 当前OLD推进双骨干PASs-MoE及LLaVA CL-MoE；成对监督研究已完成，新版OSFT已保存S0并正常暂停，完整checkpoint已耐久归档；题型辅助研究已接管GPU，旧run记录保留。PaRSP的S0完整checkpoint已存，恢复许可已接收，仍待空卡，并非已经续训；条件混合三臂研究已完成。其余组合排队／待既定方法核验。空白不是0分，不复制1%结果或估计未测资源。
 
 | 方法／Backbone | 类型 | 发表会议／年份 | TextVQA<br>自然／通用 | SLAKE<br>医学 | RSVQA-LR<br>遥感 | FinMME<br>金融 | CODA-LM<br>交通 | 五域宏 F1 ↑ | AP19 ↑ | FWT ↑ | BWT ↑ | 最终权重存储<br>保存态 MiB ↓ | 相对原基座增加<br>MiB ↓ | 固定五窗GPU峰值†<br>MiB ↓ | 首词延迟<br>s ↓ | 生成速度<br>tok/s ↑ | 常驻适配器<br>数量 ↓ | 完整参数量<br>系数 | 最终CP<br>MiB | 新习得五域宏F1 ↑ | 新习得AP19 ↑ | 状态 |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
@@ -79,7 +79,7 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 | SMoLoRA | 架构 | [ICCV 2025](https://openaccess.thecvf.com/content/ICCV2025/html/Wang_SMoLoRA_Exploring_and_Defying_Dual_Catastrophic_Forgetting_in_Continual_Visual_ICCV_2025_paper.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 已接NEW原队列，等待原生BF16空卡 |
 | PASs-MoE | 架构（兼正则） | [ACL 2026](https://aclanthology.org/2026.acl-long.1474/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 正式运行 |
 | PaRSP | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.1244/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | S0完整CP已存；恢复许可已接收，等待空卡 |
-| OSFT | 正则化 | [ICLR 2026](https://proceedings.iclr.cc/paper_files/paper/2026/hash/22620cccae29bbb3f18d226ea0320ff5-Abstract-Conference.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 新版运行S0评估；已请求保存后暂停 |
+| OSFT | 正则化 | [ICLR 2026](https://proceedings.iclr.cc/paper_files/paper/2026/hash/22620cccae29bbb3f18d226ea0320ff5-Abstract-Conference.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | S0完整CP已保存并耐久归档；已暂停让卡研究 |
 | SpaRTA | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.334/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | OLD排队 |
 | Ours | 自研方法 | 未发表 |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 空，不自动运行探索配方 |
 
@@ -180,6 +180,8 @@ Qwen SeqFT最终五域宏由1%的48.972升至10%的52.854，遥感、金融、�
 
 [探索过程与证据索引](SUPPLEMENTARY_NOTES.md#探索过程与证据索引) · [完整实验口径与数据来源](SUPPLEMENTARY_NOTES.md) · [历史研究记录](README_HISTORY_20261024.md)
 
-**当前有限检验：训练期题型辅助监督。** 从“OSFT的金融优势集中在单选、PAS还能获得多选F1收益”出发，比较普通答案CE、真实题型辅助CE及打乱类型辅助CE，三个分支共用完整S15状态。辅助头新增2691个训练参数，T16后移除；已接原GPU调度队列，尚未开始模型执行，无新质量结论。只改善金融也不足以自动填平总体差距，最终仍须检验五域质量与实测内存。[设计](summary/train_answer_prior_20261025/TYPE_AUXILIARY_DESIGN_20261027.md) · [价值边界](summary/train_answer_prior_20261025/TYPE_AUXILIARY_VALUE_BOUNDARY_20261027.md)
+**当前有限检验：训练期题型辅助监督。** 从“OSFT的金融优势集中在单选、PAS还能获得多选F1收益”出发，比较普通答案CE、真实题型辅助CE及打乱类型辅助CE，三个分支共用完整S15状态。辅助头新增2691个训练参数，T16后移除；已实际接管OLD GPU1，正在执行共同前缀，尚无质量结论。只改善金融也不足以自动填平总体差距，最终仍须检验五域质量与实测内存。[设计](summary/train_answer_prior_20261025/TYPE_AUXILIARY_DESIGN_20261027.md) · [价值边界](summary/train_answer_prior_20261025/TYPE_AUXILIARY_VALUE_BOUNDARY_20261027.md)
 
 10% Qwen OSFT在SVD初始化预检发生显存溢出，保留为固定条件下的失败；它不是推理显存或质量分数。[失败证据](summary/two_backbone_pct10_20261025/QWEN_OSFT_INITIALIZATION_FAILURE_20261027.md)
+
+[题型辅助研究首次实际启动及基线暂停留存证据](summary/train_answer_prior_20261025/TYPE_AUXILIARY_FIRST_STARTED_20261027.json)。

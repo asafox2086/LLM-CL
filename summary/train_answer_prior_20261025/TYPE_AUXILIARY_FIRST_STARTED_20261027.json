@@ -1,0 +1,283 @@
+{
+  "observation": {
+    "unix": 1793092393.085545,
+    "slot": {
+      "status": "running",
+      "unix": 1793092308.2515562,
+      "GPU": 1,
+      "baseline_root": "/dev/shm/llmcl-pct10-1084-zu7e3hb_",
+      "science_root": "/dev/shm/llmcl-type-aux-1084-20261027",
+      "output": "/dev/shm/llmcl-type-aux-1084-20261027/run",
+      "sources": {
+        "queue_adapter.py": "9dc9e3baef0eee4d81f9a7bdc6a4a2618cf8326c2bfc6a949619f1620b81dae7",
+        "controller.py": "f7b7c20a8e8cd8a154fbb6a4c799fc915c23214aefce4122d6bf99b542375622",
+        "worker.py": "82fc897d957027471ef303556957826afb9e5ac2f6a16119d8b67ade7c8d6b57",
+        "helpers.py": "b141ef72c7adf9e1c5adc93eab174fe4577d82c8bca2a1759308533f2c7e97f5",
+        "training.py": "e9f1ab7fb4df06c17aa0ba1a2a3db7ba211d200dbe6490c18d01761a22f6e297"
+      },
+      "protocol_sha256": "82b7297efda7019f1b482121890e301f89b5a83644707e69cfe6b0be36926b44",
+      "binding_sha256": "dd2969ea9ba8d20286fc5e5e5a76db74fd74808fddbc12b5bb77088908423ae0",
+      "controller": {
+        "pid": 1693310,
+        "startticks": "779072862",
+        "uid": 1084,
+        "pgid": 1693310
+      },
+      "no_retry": true,
+      "released": false,
+      "coordinator": {
+        "pid": 1638231,
+        "startticks": "778716934",
+        "uid": 1084,
+        "pgid": 1638231
+      },
+      "prior_slot_path": "/dev/shm/llmcl-paired-option-1084-20261027/summary/train_answer_prior_20261025/PAIRED_SLOT.json",
+      "prior_release_sha256": "03e5c0b7b0911d6bc11e9cec012ec366ad1bed0c5ec3ee2df4ac07db01828032",
+      "command": [
+        "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+        "-u",
+        "/dev/shm/llmcl-type-aux-1084-20261027/exp/type_auxiliary_supervision_20261027/v1/controller.py",
+        "--root",
+        "/dev/shm/llmcl-type-aux-1084-20261027",
+        "--output",
+        "/dev/shm/llmcl-type-aux-1084-20261027/run",
+        "--gpu",
+        "1",
+        "--python",
+        "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+        "--binding",
+        "/dev/shm/llmcl-type-aux-1084-20261027/summary/train_answer_prior_20261025/TYPE_AUXILIARY_BINDING.json"
+      ],
+      "log_path": "/dev/shm/llmcl-type-aux-1084-20261027/summary/train_answer_prior_20261025/TYPE_AUXILIARY_SLOT.controller.log",
+      "status_changed_unix": 1793092308.2529504
+    },
+    "controller_actual": {
+      "pid": 1693310,
+      "startticks": "779072862",
+      "uid": 1084,
+      "pgid": 1693310
+    },
+    "records": {
+      "run/PHASE_prefix_prefix_STARTED.json": {
+        "unix": 1793092308.302074,
+        "deadline_unix": 1793095908.302074,
+        "identity": {
+          "pid": 1693311,
+          "startticks": "779072867",
+          "uid": 1084,
+          "pgid": 1693311
+        },
+        "arm": "prefix",
+        "phase": "prefix",
+        "GPU": 1,
+        "run_dir": "/dev/shm/llmcl-type-aux-1084-20261027/run/prefix",
+        "command": [
+          "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+          "-u",
+          "/dev/shm/llmcl-type-aux-1084-20261027/exp/type_auxiliary_supervision_20261027/v1/worker.py",
+          "--root",
+          "/dev/shm/llmcl-type-aux-1084-20261027",
+          "--run",
+          "/dev/shm/llmcl-type-aux-1084-20261027/run/prefix",
+          "--arm",
+          "prefix",
+          "--gpu",
+          "1",
+          "--phase",
+          "prefix",
+          "--binding",
+          "/dev/shm/llmcl-type-aux-1084-20261027/summary/train_answer_prior_20261025/TYPE_AUXILIARY_BINDING.json"
+        ],
+        "limit_seconds": 3600,
+        "includes_python_startup": true,
+        "observed_identity": {
+          "pid": 1693311,
+          "startticks": "779072867",
+          "uid": 1084,
+          "pgid": 1693311
+        }
+      },
+      "run/SUPERVISOR_STARTED.json": {
+        "unix": 1793092308.3014655,
+        "identity": {
+          "pid": 1693310,
+          "startticks": "779072862",
+          "uid": 1084,
+          "pgid": 1693310
+        },
+        "GPU": 1,
+        "source_dir": "/dev/shm/llmcl-type-aux-1084-20261027/exp/type_auxiliary_supervision_20261027/v1",
+        "source_sha256": {
+          "controller.py": "f7b7c20a8e8cd8a154fbb6a4c799fc915c23214aefce4122d6bf99b542375622",
+          "worker.py": "82fc897d957027471ef303556957826afb9e5ac2f6a16119d8b67ade7c8d6b57",
+          "helpers.py": "b141ef72c7adf9e1c5adc93eab174fe4577d82c8bca2a1759308533f2c7e97f5",
+          "training.py": "e9f1ab7fb4df06c17aa0ba1a2a3db7ba211d200dbe6490c18d01761a22f6e297"
+        },
+        "binding_sha256": "dd2969ea9ba8d20286fc5e5e5a76db74fd74808fddbc12b5bb77088908423ae0",
+        "protocol": {
+          "path": "/dev/shm/llmcl-type-aux-1084-20261027/summary/train_answer_prior_20261025/TYPE_AUXILIARY_DESIGN_20261027.md",
+          "sha256": "82b7297efda7019f1b482121890e301f89b5a83644707e69cfe6b0be36926b44"
+        },
+        "order": [
+          {
+            "arm": "prefix",
+            "phase": "prefix"
+          },
+          {
+            "arm": "plain",
+            "phase": "train"
+          },
+          {
+            "arm": "plain",
+            "phase": "eval"
+          },
+          {
+            "arm": "true",
+            "phase": "train"
+          },
+          {
+            "arm": "true",
+            "phase": "eval"
+          },
+          {
+            "arm": "shuffled",
+            "phase": "train"
+          },
+          {
+            "arm": "shuffled",
+            "phase": "eval"
+          }
+        ],
+        "phase_limits": {
+          "prefix": 3600,
+          "train": 2400,
+          "eval": 600
+        },
+        "cumulative_model_budget_seconds": 12600,
+        "existing_allocator_supplied_GPU": true,
+        "no_retry": true,
+        "new_scores": 0,
+        "observed_identity": {
+          "pid": 1693310,
+          "startticks": "779072862",
+          "uid": 1084,
+          "pgid": 1693310
+        }
+      },
+      "run/prefix/prefix_STARTED.json": {
+        "unix": 1793092308.5366678,
+        "identity": {
+          "pid": 1693311,
+          "startticks": "779072867",
+          "uid": 1084,
+          "pgid": 1693311
+        },
+        "arm": "prefix",
+        "phase": "prefix",
+        "GPU": 1,
+        "boot": "5b259bd9-d0cb-4a1d-8b90-6e6107080488",
+        "limit_seconds": 3600,
+        "inventory": {
+          "uuid": "GPU-3c72e4ce-0896-0b40-d610-be585d2bb51e",
+          "memory_MiB": 8,
+          "utilization": 0,
+          "owners": []
+        },
+        "observed_identity": {
+          "pid": 1693311,
+          "startticks": "779072867",
+          "uid": 1084,
+          "pgid": 1693311
+        }
+      }
+    },
+    "nvml": "236681, GPU-783c5d2c-a6f8-9594-472c-4ab9fe54d3b1, 8476 MiB\n1693311, GPU-3c72e4ce-0896-0b40-d610-be585d2bb51e, 3022 MiB\n4049854, GPU-25d3cb92-fa97-a722-f9cd-c012bad046a8, 5312 MiB\n4048289, GPU-fb9fc5ed-bf92-b947-d8c5-302296c4a447, 7912 MiB\n\n"
+  },
+  "baseline_pause": {
+    "unix": 1793092394.0733747,
+    "run": "exp/two_backbone_pct10_native_checkpoint_20261027/runs/onevision/pct10/OSFT/training_20261027_142732",
+    "last_exit": {
+      "unix": 1793092298.533154,
+      "returncode": 0,
+      "worker": {
+        "pid": 1539927,
+        "startticks": "778087273",
+        "uid": 1084,
+        "pgid": 1539927
+      },
+      "wrapper": {
+        "pid": 1539913,
+        "startticks": "778087254",
+        "uid": 1084,
+        "pgid": 1539913
+      },
+      "phase": "training",
+      "run_dir": "exp/two_backbone_pct10_native_checkpoint_20261027/runs/onevision/pct10/OSFT/training_20261027_142732",
+      "resume": false
+    },
+    "status": {
+      "status": "paused_checkpoint",
+      "completed_stage": 0,
+      "checkpoint": {
+        "path": "checkpoints/stage_00.pt",
+        "stage": 0,
+        "bytes": 3028589429,
+        "sha256": "48697fbe06cc7cb081f33e16b5d4f2473f66680913259e27d9d86306a2f29678",
+        "seconds": 13.295990657992661,
+        "manifest_sha256": "02ef86674c22a9dbf7f0d406398615437f8406cff364415e14d54f5fdb5bfcb7",
+        "method": "OSFT",
+        "full_architecture_and_runtime": true,
+        "optimizer_saved": false
+      },
+      "pause_receipt": "pause_history/pause_S00_1793092297554055386.json",
+      "pause_receipt_sha256": "b2f949b2b89777df04b59ca839c33cdd03c8105bd9679a5ddbd63b2e8d641b1c"
+    }
+  },
+  "quality_result": false,
+  "baseline_durable_archive_confirmed": true,
+  "baseline_archive_receipt": {
+    "unix": 1793092511.7341921,
+    "seconds": 0.91191991296364,
+    "copied": [],
+    "already_verified": [
+      {
+        "run": "exp/two_backbone_pct10_native_checkpoint_20261027/runs/onevision/pct10/OSFT/training_20261027_142732",
+        "stage": 0,
+        "sha256": "48697fbe06cc7cb081f33e16b5d4f2473f66680913259e27d9d86306a2f29678"
+      },
+      {
+        "run": "exp/two_backbone_pct10_native_checkpoint_20261027/runs/onevision/pct10/PaRSP/training_20261027_113623",
+        "stage": 0,
+        "sha256": "581d7953c6da450a84ebbfcd62ab6111226630ce816ebeaafe70082e5a057b21"
+      }
+    ],
+    "skipped": [],
+    "source_deferred": [],
+    "metadata_snapshots": [
+      {
+        "path": "exp/two_backbone_pct10_native_checkpoint_20261027",
+        "returncode": 0,
+        "stderr": ""
+      },
+      {
+        "path": "exp/two_backbone_pct10_forever_checkpoint_20261027",
+        "returncode": 0,
+        "stderr": ""
+      }
+    ],
+    "discovered_committed_checkpoints": 2,
+    "free_bytes": 74962677760,
+    "reserve_bytes": 21474836480,
+    "all_discovered_checkpoints_durable": true,
+    "reserve_scope": "Pre-transfer free-space guard; other concurrent disk writers are not controlled.",
+    "every_completed_stage_enumerated": true,
+    "old_files_deleted": 0,
+    "archive_CP_files_deleted": 0,
+    "source_CP_payloads_hashed": 0,
+    "new_models": 0,
+    "new_scores": 0,
+    "final_retention": "Copied final CPs are never automatically removed; insufficient space is explicit, not success.",
+    "metadata_max_file_bytes": 67108864,
+    "metadata_is_live_snapshot_not_scientific_result_verification": true
+  }
+}
