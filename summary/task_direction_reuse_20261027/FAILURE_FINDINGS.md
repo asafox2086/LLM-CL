@@ -1,0 +1,13 @@
+# 首次任务方向对照：固定训练预算耗尽，质量缺测
+
+方向臂首次执行约5400.218秒后由原controller按协议终止，returncode=-15、timeout=true；后续eval、random/train、random/eval均未启动。原slot已failed_closed/released，controller及worker真实退出；无600答案评分，不运行成功verifier，不续跑、不延长或抹去旧费用。
+
+已落盘69/87次主优化器更新与S1–15的adapter保存凭据、15份梯度校准/方向初始化记录。阶段adapter凭据在acquired读出前写，因此不能把15份凭据直接称为15份完整刚习得结果。没有最终完整模型 `run_v1/aligned/complete.pt`，没有train_COMPLETE或完整READOUT_EVENTS文件。
+
+原主更新计时合计2746.778秒，已记录的144次校准反传计时合计305.742秒；总执行墙钟5400.218秒。两类计时不能穷尽总时间；fold、SVD、摘要、读出及保存没有完整独立落盘计时，不能把残差直接归为SVD或读出瓶颈，也不能将本次硬件负载延迟全归给算法成本。
+
+结论仅为：这份执行包在既定时间预算内未产出完整对照。方向策略的F1、最终参数与GPU实测缺测，不能判方法有效或无效，不能填Ours。已有主任务训练结果及失败现场均保留；后续设计须先解释成本及科学必要性，不能靠重启原RUN取得结果。
+
+基线方面：原分配器研究结束后已自动在GPU1启动10% Qwen PaRSP，其他三组OLD基线继续。unix1793111868对已耐久保存的LLaVA PaRSP S3提交新恢复许可，SHA136b1dbf0d6b91be5c14c12a2abc07c9b0121241dea90edf12e1b08bd386af2c，进入原队列等待；不能称它此时已续训。未停止当前Qwen任务。
+
+来源：OLD科学root `/dev/shm/llmcl-task-direction-1084-20261027`；SUPERVISOR_FAILURE SHA9441eab6b18c46b7a0ec0b4cb65cfae83189d8f553af79bea3ca919be664ba10；FAILED_COST_READOUT SHAb1fd3363ec9ff37bb8ee0c6aa14254860d56b224892535441fa7490a32e6bbef。原成本读数误用complete_model.pt判断最终文件，另有FAILED_SCOPE_CORRECTION按真实complete.pt明确不存在，旧读数原字节保留。

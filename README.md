@@ -105,6 +105,8 @@ Qwen SeqFT最终五域宏由1%的48.972升至10%的52.854，遥感、金融、�
 
 连续学习先导通常采用1213 FIT／100 DEV、19阶段；其它诊断使用各自固定范围。DEV已用于多次探索，结果用于筛选，不能与正式TEST分数直接排名，也不据此宣称显著提升。下表区分实际负结果、局部支持、质量缺测和待验证假说。
 
+**当前方法：任务方向初始化，质量尚未验证。** 保持q/v-r8的540,672个活动参数，每任务把已有LoRA合并入共享权重，再用当期FIT梯度的主要右奇异方向初始化A、B置零；与同范数随机方向匹配对照，最终都合并为单模型。问题是任务相关方向是否改善固定预算内的新习得，而非证明“扩容有效”。首次方向臂在5400秒上限内完成69/87次更新、保存S1–15阶段adapter后超时，随机臂未启动，无最终完整模型或F1比较；属于执行预算失败，不能判方向有效或无效。原运行关闭并保留证据，基线恢复许可已提交。[固定协议](summary/task_direction_reuse_20261027/PROTOCOL.md) · [研究论证边界](summary/task_direction_reuse_20261027/RESEARCH_CLAIM_BOUNDARY.md) · [本次终态](summary/task_direction_reuse_20261027/FAILURE_FINDINGS.md)
+
 | 观测的问题与探索命题 | 检验结果 | 结论与设计影响 |
 | --- | --- | --- |
 | **强方法主要解决遗忘，还是先学得更好？** | 正式刚习得均分：OSFT47.887821、Seq38.604705；BWT分别−1.616191、+1.774861 | **支持优先研究有效习得。** OSFT在本轨迹上刚习得更强，保持更差；尚未识别其性能原因，不能把所有缺口归为遗忘。[证据](summary/final_weight_reduction_20261024/osft_initial_gap_check_v1/FINDINGS.md) |
@@ -112,7 +114,6 @@ Qwen SeqFT最终五域宏由1%的48.972升至10%的52.854，遥感、金融、�
 | **OSFT部分训练与保护机制是否可省？** | ShortFixed宏42.301329、原OSFT40.783801，梯度及Adam状态少21.34%；去逐步保护42.333991，但金融下降 | **局部支持简化训练状态，未证明最终模型更小。** 点估计不证明等效或保护无用；阶段刷新对照故障，质量缺测。[短侧](summary/edge_deployment_20261019/osft_short_factor_control_20261022/v2/FINDINGS.md) · [保护](summary/edge_deployment_20261019/osft_protection_control_20261022/v1/FINDINGS.md) |
 | **增加更新位置就能稳定胜强基线？** | all-r8先导41.952549；完整确认五域宏44.894423，低于正式OSFT、PAS | **本配方被否证。** 先导入选未转成正式优势，不按TEST追配置。[完整负结果](summary/edge_deployment_20261019/osft_increment_confirmation_20261022/v1/FINDINGS.md) |
 | **借原生FFN响应做轻量调制有净收益？** | 动态44.757603、固定44.681201；匹配宽q/v为45.085963，分别高0.328360／0.404762pp | **未支持新增调制的净质量收益。** 原生响应非退化并不等于有答题价值；宽q/v保留为容量对照，正式推进已关闭。[匹配结果](summary/native_response_selection_20261025/qv_control/FINDINGS.md) |
-| **加宽带来的收益能否算新增模块创新？** | 匹配GPU朴素r8宏38.775370，宽q/v45.085963；宽模型训练坐标约8.14倍 | **只能作为容量对照。** wide高6.310593pp不证明新模块有效，不覆盖旧实现r8的历史分数，也不是正式TEST优势。[完整对照](summary/plain_r8_gpu_control_20261025/v1/FINDINGS.md) |
 | **低损伤排名、低秩或局部拟合能直接承接回答功能？** | 联合删8个FFN：43.791987→19.620168；FFN低秩／功能拟合多组虽减重8.61%–25.83%，F1仍崩坏 | **这些固定替代方案保质失败。** 局部误差下降、单删低损伤都不足以证明完整图可删；不否定所有压缩。[删图](summary/ffn_direct_ablation_20261025/v1/FINDINGS.md) · [角色对照](summary/final_weight_reduction_20261024/ffn_role_retention_v1/README.md) · [读出](summary/final_weight_reduction_20261024/functional_readout_carrier_v1/README.md) |
 | **换更小预训练载体，就能同时保质且省显存？** | 小视觉接口宏38.966256<父43.791987；完整SmolVLM学习后37.991536，权重少43.21%，五窗GPU峰却高14.09%–57.43% | **本组质量／资源联合目标失败。** 参数少不能代替GPU峰实测，预训练完整也不保证功能承接。[视觉接口](summary/vision_interface_transfer_20261025/v1/FINDINGS.md) · [原生小模型](summary/native_prior_learning_20261025/compatibility/INTERPRETATION.md) |
 | **OSFT优势是图文配对利用整体更强？** | 61题四状态488次NLL，配对支持改善OSFT相对q/v差−0.013734 | **未支持预定解释。** 不能反推视觉无用或可以删视觉编码器。[证据](summary/final_weight_reduction_20261024/paired_image_support_diagnostic_v1/RESULT_FINDINGS.md) |
@@ -120,10 +121,11 @@ Qwen SeqFT最终五域宏由1%的48.972升至10%的52.854，遥感、金融、�
 | **共同回放配方的终态收益来自更好的新习得？** | 两方法医学刚习得均36.857143、遥感均65；40条逐题F1全同，0高／0低／40平 | **本次两域不支持该解释。** 终态差在后续形成，不将约4.93pp宏收益归为更会学新任务。按人类要求，后续只查新习得原因，不开保持／遗忘分支。[证据与独立评判](summary/acquisition_readout_20261025/v1/FINDINGS.md) |
 | **金融TRAIN标签扩大到10%后是否更均衡？** | 单选金标A/B/C/D：1%为22/18/7/6，10%为189/163/99/76；最大占比41.509%→35.863% | **监督偏斜减弱但仍存在。** 不能据计数认定模型塌缩原因或自动做先验校正；模型观测见下一行。[完整比较与独立审阅](summary/train_answer_prior_20261025/INTERPRETATION.md) |
 | **10%会消除金融集中错答、均匀改善新习得吗？** | LLaVA／SeqFT刚习得F1：16.405→25.414；单选不同回答174→9，但原满分331→495、零分966→812。10%多选仍286题严格单字母且原token F1全零（非选项集合正确率），数值训练前8.640→刚学完6.974 | **集中与更高F1可以并存，题型习得并不均匀。** 不支持把集中直接当作失败或统一位置偏置原因；单组结果不推广全部基线，也不隔离纯数据因果。[完整同ID比较与独立评判](summary/train_answer_prior_20261025/PCT01_PCT10_RESPONSE_FINDINGS.md) |
-| **10%是否普遍提高各任务刚习得，而不只是金融？** | 同LLaVA／SeqFT的19/19任务刚习得F1均更高；五域刚习得宏42.026→49.996。阶段内增量13高6低，10%医学Position／Plane自身阶段分别下降4.859／0.718pp | **同容量的更充分学习配置广泛提高刚习得水平，但当前任务更新并非都更有效。** 不把1%低分普遍认定为容量上限；前课程、数据与更新共同改变，非纯数据因果。[全19任务、参数空间与解释](summary/train_answer_prior_20261025/ALL_TASK_ACQUISITION_FINDINGS.md) |
 | **两个医学任务的阶段降分都意味着内容退化吗？** | 全491题配对、208项回答变化经双agent盲读。Plane原F1−0.718pp而EXACT+0.862pp；Position的未知含义变化承载77.75%总失分量 | **不能统一归因。** Plane有明确表述效应，Position主因未识别；不据此选择统一格式／知识模块，EXACT也非语义正确率。[完整正负与未知](summary/train_answer_prior_20261025/MEDICAL_PAIRED_FINDINGS.md) |
 
-**跨骨干的新结论：更多数据／更新提高总体新习得，但局部失败不固定在同一题型。** Qwen刚习得五域宏46.985→56.481，19任务中17提高、2下降（Quantity、Shape）；10%时Shape阶段仍下降1.111。LLaVA在10%中下降的Position／Plane，Qwen却分别提高3.425／7.447。因此不支持“这两类医学任务统一学不会”或一个共同根因；能保留的是固定配置下学习收益不均匀。两比例同时改变数据、更新与课程，Qwen历史训练硬件也不同，不能作纯数据因果。[Qwen完整对照](summary/train_answer_prior_20261025/QWEN_ACQUISITION_FINDINGS.md) · [LLaVA完整对照](summary/train_answer_prior_20261025/ALL_TASK_ACQUISITION_FINDINGS.md)
+**背景对照，不作为核心研究发现。** 匹配探索中朴素r8宏38.775370、宽q/v45.085963，训练坐标相差约8.14倍；这说明容量比较的量级，不能解释为什么学不好。同LLaVA／SeqFT的1%→10%刚习得19/19任务提高，五域宏42.026→49.996；阶段内增量却13高6低。这些结果是后续问题的背景，不能单独作为优化机制发现。[容量对照](summary/plain_r8_gpu_control_20261025/v1/FINDINGS.md) · [全19任务](summary/train_answer_prior_20261025/ALL_TASK_ACQUISITION_FINDINGS.md)
+
+**跨骨干背景核对：局部失败不固定在同一题型。** Qwen刚习得五域宏46.985→56.481，19任务中17提高、2下降（Quantity、Shape）；10%时Shape阶段仍下降1.111。LLaVA在10%中下降的Position／Plane，Qwen却分别提高3.425／7.447。因此不支持“这两类医学任务统一学不会”或一个共同根因；能保留的是固定配置下学习收益不均匀。两比例同时改变数据、更新与课程，Qwen历史训练硬件也不同，不能作纯数据因果。[Qwen完整对照](summary/train_answer_prior_20261025/QWEN_ACQUISITION_FINDINGS.md) · [LLaVA完整对照](summary/train_answer_prior_20261025/ALL_TASK_ACQUISITION_FINDINGS.md)
 
 **PAS的优势包含跨域新习得，但不能归因于路由。** 正式1%全19任务补齐后，PAS刚习得五域宏48.349，普通LoRA为42.026；医学／遥感／金融／交通更高，自然更低，任务15高4低。但交通T18／T19刚习得更高、阶段增量反而更小：继承起点不同，不能把终点高分统一称为本阶段学得更多。[完整观测与局限](summary/conditional_shared_budget_20261026/PAS_ACQUISITION_FINDINGS.md)
 
@@ -160,7 +162,7 @@ Qwen SeqFT最终五域宏由1%的48.972升至10%的52.854，遥感、金融、�
 
 **这仍不是Ours的联合成功：** 宽q/v训练参数4,399,104，比朴素r8的540,672多3,858,432，约8.14倍；合并后均无新增推理参数。其F1是DEV结果，尚未证明正式质量胜最强基线。
 
-## 最新探索结论：当前条件混合点关闭
+## 已结束探索：条件混合点关闭
 
 **问题与方法。** PAS有跨域新习得优势但持久专家成本较高；我们检验能否用540,672个训练坐标承接这项收益。普通shared r8、固定4/2/2混合uniform、A响应能量加权soft共用初始化与训练暴露。soft没有额外router参数，但保留条件分支；简单两臂实际fold。借鉴已有机制本身不是否决理由，取舍依据是以下实测结果。
 
