@@ -104,7 +104,7 @@ Qwen SeqFT最终五域宏由1%的48.972升至10%的52.854，遥感、金融、�
 
 连续学习先导通常采用1213 FIT／100 DEV、19阶段；其它诊断使用各自固定范围。DEV已用于多次探索，结果用于筛选，不能与正式TEST分数直接排名，也不据此宣称显著提升。下表区分实际负结果、局部支持、质量缺测和待验证假说。
 
-**当前候选：用当期任务梯度安排小LoRA更新方向，出现局部正向读数。** 同一个shared-r8 S15模型、同69 FIT／5更新，实际SVD初始化在20题金融DEV学后F1为20，随机策略为10，共同before均5。差距只来自两题，其中一题额外新学、一题保住原本会的答案，不能把10pp全部归为新习得。原范数／正交匹配核验失败；看分前公开偏差并用独立消费者唯一评分，结果只描述实际初始化整包，不能作纯方向因果或正式五域优势。[结果与边界](summary/task_direction_local_20261027/DESCRIPTIVE_FINDINGS_20261028.md) · [独立评判](summary/task_direction_local_20261027/DESCRIPTIVE_RESULT_REVIEW_20261028.md) 已进入fresh 1%正式确认，原GPU预检与独立重载通过，目前仍是初始完整评估，尚无正式结果。[固定正式协议](summary/task_gradient_formal_20261028/PROTOCOL.md) · [执行证据](summary/task_gradient_formal_20261028/EXECUTION_STATUS.md)
+**当前候选：用当期任务梯度安排小LoRA更新方向，出现局部正向读数。** 同一个shared-r8 S15模型、同69 FIT／5更新，实际SVD初始化在20题金融DEV学后F1为20，随机策略为10，共同before均5。差距只来自两题，其中一题额外新学、一题保住原本会的答案，不能把10pp全部归为新习得。原范数／正交匹配核验失败；看分前公开偏差并用独立消费者唯一评分，结果只描述实际初始化整包，不能作纯方向因果或正式五域优势。[结果与边界](summary/task_direction_local_20261027/DESCRIPTIVE_FINDINGS_20261028.md) · [独立评判](summary/task_direction_local_20261027/DESCRIPTIVE_RESULT_REVIEW_20261028.md) fresh 1%正式确认已通过原GPU预检与独立重载，初评结束并进入正式训练，完整结果待测。[固定正式协议](summary/task_gradient_formal_20261028/PROTOCOL.md) · [执行证据](summary/task_gradient_formal_20261028/EXECUTION_STATUS.md)
 
 **与强方法的成本对照已有本次实测。** 主optimizer仍54.1万坐标，部署新增参数为0；两臂完整模型均8.937亿系数／1704.551MiB权重，固定五窗GPU最大2166.101MiB。相对同卡同输入的PAS原图，权重少23.96%、逐窗GPU低24.84%–26.81%；这不是同测试集质量替代证明，也不是260倍内存优势。校准另用2202万dense坐标／84MiB梯度，训练NVML观测峰10648MiB，不能宣称训练峰也很小。尚无同时满足正式质量与部署目标的完整候选，Ours仍空。[功能—成本参照](summary/task_direction_local_20261027/SMALL_SPACE_VS_LARGE_METHODS.md) · [原全课程超时记录](summary/task_direction_reuse_20261027/FAILURE_FINDINGS.md)
 

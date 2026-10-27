@@ -8,8 +8,12 @@
 
 随后fresh正式worker2187244/start782053901/UID1084启动，原命令未带`--resume`。unix1793122615实际身份匹配、GPU1 NVML2892MiB；处于原协议S0完整初评，日志持续产生evaluation事件，尚无正式主训练更新或完整F1结果。后续93主更新/222校准/74格由固定协议执行，不由旧探索5400秒预算接续。不得把预检calibration反传算进正式222，也不得把它的参数用于正式。
 
+**后续已完成初评并进入正式主训练。** 同一worker实际完成S1的16条当前TRAIN梯度校准、48个默认FP32 SVD/B0初始化，以及原主循环第1次正LR更新（16/347 QA，LR1e-4、warmup0）。原阶段元数据SHA为8f58dc67f5a4eb2493a63177c345b242abfe3127e8f13c4eb3bdb0d21f77acdc；首条主更新事件原字节SHA为853573365ce9c36d3eaa828f3b15dfd5ae1edfa4bf38b17bee7b46f7be6eeecf。29源与binding实核未变；没有读取任何部分TEST分数或预测。[首次正式主更新观察](FIRST_MAIN_UPDATE_OBSERVED.json)
+
+这仅验证执行，不是完整正式核验、新F1或方向优于随机／强方法的结论。阶段初始化25.149秒中包含梯度校准14.979秒；单次主更新397.072秒，scope不同，不外推整程／部署成本。主优化器540672坐标之外，校准临时dense22020096坐标及84MiB G仍须单独计费。research_review独立只读接受此记录口径，未启动模型或评分。
+
 为使研究结束后基线按原分配器尽快接回，已为真实最新S4写全新恢复许可，SHA261179894bfc5f35b1e0bc544f171049ff75dd1a5f8a5870807124d9d3c033ed，绑定上述9ff0…暂停receipt。当前队列为ready_resume、原RUN仍paused_checkpoint，**不是已经恢复**。GPU1由真实运行的formal slot持有，许可不绕过idle；别卡真正空闲可按原规则接基线，不重复提交或复用旧S3许可。
 
-只在阶段完成、异常或需要保留资产时详细记录；启动确认后按人类要求分段sleep，不忙等、不读partial质量改设置。只读入口为本地`.deployment/task_gradient_observe_old_20261028.py`。NVML观测曾一次超时，后续同一worker持续有原evaluation进展并成功返回NVML；没有把观测超时当终态或重启模型。
+只在阶段完成、异常或需要保留资产时详细记录；启动确认后按人类要求分段sleep，不忙等、不读partial质量改设置。只读入口为本地`.deployment/task_gradient_observe_old_20261028.py`。NVML观测超时须结合真实进程和原日志复查，不能直接当作模型终态；没有因观测超时重启模型。
 
 正式质量、最终完整权重及固定五窗资源均尚缺测，Ours不填数值，论文目标未实现。原候选的所有旧负结果和数值匹配失败保持独立记录。
