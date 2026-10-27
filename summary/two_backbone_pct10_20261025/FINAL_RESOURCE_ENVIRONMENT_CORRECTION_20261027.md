@@ -11,3 +11,5 @@
 补测只能接在当前type辅助研究真实释放后，不能抢其GPU。此文件不是启动收据；以新slot/STARTED/COMPLETE为准。目前没有新GPU指标。
 
 证据：[原失败](FINAL_RESOURCE_FAILURE_EVIDENCE_20261027.json)、[子agent审查](FINAL_RESOURCE_FAILURE_ENVIRONMENT_REVIEW_20261027.md)。环境实查记录与导入证明见`FINAL_RESOURCE_ENVIRONMENT_CHECK_20261027.json`。
+
+实际接入：unix1793088803复核新CPU1638231/start778716934、unit llmcl-pct10-type-aux-resource-old-20261027.service active/running，原四baseline worker/wrapper身份全部保全，0GPU信号、0请求改写。type仍slot=null；补测外层已经接入，等待type释放后的原空卡机会。没有新GPU结果。见FINAL_RESOURCE_ENVIRONMENT_ACTIVATION_20261027.json。
