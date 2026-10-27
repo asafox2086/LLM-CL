@@ -1,6 +1,6 @@
 # 第二主表：10%训练／完整测试
 
-人类于2026-10-25明确确认训练10%＋完整测试。数据与独立runner已freeze：TRAIN13105 QA、完整TEST21454 QA、19任务、单轮828次优化器调用，seed42；manifest SHA为`02ef86674c22a9dbf7f0d406398615437f8406cff364415e14d54f5fdb5bfcb7`。双骨干SeqFT-LoRA已完整核验并填实际成绩、参数及保存态存储；总进度2/16，两组最终完整模型已耐久保存。当前OLD三卡推进双骨干PASs-MoE及LLaVA CL-MoE；新版OSFT已保存S0完整CP并耐久归档后暂停，旧run记录保留，题型辅助研究导出失败，质量缺测；GPU1已恢复PaRSP训练；其余组合排队／待既定核验；两SMoLoRA已接NEW原分配器，等待原生BF16空卡。未测资源保留未测，不填1%数值或估计。见[正式协议](PROTOCOL.md)及[首组完整证据](FIRST_COMPLETE_FINDINGS.md)。
+人类于2026-10-25明确确认训练10%＋完整测试。数据与独立runner已freeze：TRAIN13105 QA、完整TEST21454 QA、19任务、单轮828次优化器调用，seed42；manifest SHA为`02ef86674c22a9dbf7f0d406398615437f8406cff364415e14d54f5fdb5bfcb7`。双骨干SeqFT-LoRA已完整核验并填实际成绩、参数及保存态存储；总进度2/16，两组最终完整模型已耐久保存。当前OLD三卡推进双骨干PASs-MoE及LLaVA CL-MoE；新版OSFT已保存S0完整CP并耐久归档后暂停，旧run记录保留，题型辅助研究导出失败，质量缺测；PaRSP已保存S1并暂停，GPU1已启动题型辅助v2研究；其余组合排队／待既定核验；两SMoLoRA已接NEW原分配器，等待原生BF16空卡。未测资源保留未测，不填1%数值或估计。见[正式协议](PROTOCOL.md)及[首组完整证据](FIRST_COMPLETE_FINDINGS.md)。
 
 Answer F1取原token_f1，0–100。五域列是S19最终域内QA平均；五域宏给五域等权，AP19给19个原生任务等权。本表覆盖两个backbone各八类基线，共16组合，与1%原表的18列逐列对齐，另保留完整参数量、CP大小、新习得补充和运行状态。新习得／金融错答不替代完整主表，BWT仅继承描述，不作为优化目标。空白表示没有完整核验结果，不是0分。
 
@@ -22,7 +22,7 @@ Answer F1取原token_f1，0–100。五域列是S19最终域内QA平均；五域
 | CL-MoE | 架构 | [CVPR 2025](https://openaccess.thecvf.com/content/CVPR2025/html/Huai_CL-MoE_Enhancing_Multimodal_Large_Language_Model_with_Dual_Momentum_Mixture-of-Experts_CVPR_2025_paper.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 正式运行 |
 | SMoLoRA | 架构 | [ICCV 2025](https://openaccess.thecvf.com/content/ICCV2025/html/Wang_SMoLoRA_Exploring_and_Defying_Dual_Catastrophic_Forgetting_in_Continual_Visual_ICCV_2025_paper.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 已接NEW原队列，等待原生BF16空卡 |
 | PASs-MoE | 架构（兼正则） | [ACL 2026](https://aclanthology.org/2026.acl-long.1474/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 正式运行 |
-| PaRSP | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.1244/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 已从S0恢复训练；已请求下阶段保存后暂停让卡 |
+| PaRSP | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.1244/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | S1完整CP已耐久归档并暂停；GPU1运行研究 |
 | OSFT | 正则化 | [ICLR 2026](https://proceedings.iclr.cc/paper_files/paper/2026/hash/22620cccae29bbb3f18d226ea0320ff5-Abstract-Conference.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | S0完整CP已保存并耐久归档；已暂停让卡研究 |
 | SpaRTA | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.334/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | OLD排队 |
 | Ours | 自研方法 | 未发表 |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 空，不自动运行探索配方 |

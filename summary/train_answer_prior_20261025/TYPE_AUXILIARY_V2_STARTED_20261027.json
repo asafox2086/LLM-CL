@@ -1,0 +1,301 @@
+{
+  "unix": 1793100615.9862943,
+  "slot": {
+    "status": "running",
+    "unix": 1793100522.8322895,
+    "GPU": 1,
+    "baseline_root": "/dev/shm/llmcl-pct10-1084-zu7e3hb_",
+    "science_root": "/dev/shm/llmcl-type-aux-1084-20261027",
+    "output": "/dev/shm/llmcl-type-aux-1084-20261027/run_v2",
+    "sources": {
+      "queue_adapter.py": "6bc952b98c65980812e14da0d124b43264cb2034832d5e900e262627ba0ffa47",
+      "controller.py": "83fb92e4a8101f9b747c1ca258ebe1d778490c1f5a11f0cceeca1723586518c2",
+      "worker.py": "4a040b66e995b4fd3e4526c47c6ba85fa1589f80df912d6eb8e5ed6ad747a4cd",
+      "helpers.py": "b141ef72c7adf9e1c5adc93eab174fe4577d82c8bca2a1759308533f2c7e97f5",
+      "training.py": "e9f1ab7fb4df06c17aa0ba1a2a3db7ba211d200dbe6490c18d01761a22f6e297"
+    },
+    "protocol_sha256": "ddf065bd49429579894a528cc2e47127dc5941db17d2de6b93d63c84920d2d66",
+    "binding_sha256": "0fb8b3c1f3a9c41f48b3a06ffc2d15739ffa4bfd27b07fb3e95330adacf0914e",
+    "controller": {
+      "pid": 1815978,
+      "startticks": "779894320",
+      "uid": 1084,
+      "pgid": 1815978
+    },
+    "no_retry": true,
+    "released": false,
+    "coordinator": {
+      "pid": 1760521,
+      "startticks": "779491850",
+      "uid": 1084,
+      "pgid": 1760521
+    },
+    "prior_slot_path": "/data2/liyapeng_grp/program/LLMCL/.deployment/final_seq_resource_env_corrected_20261027/runs.slot.json",
+    "prior_release_sha256": "54093638a492ad40369cb90ad17982d68ce08b3079dc032279ddc56f5c04a4ca",
+    "command": [
+      "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+      "-u",
+      "/dev/shm/llmcl-type-aux-1084-20261027/exp/type_auxiliary_supervision_20261027/v2/controller.py",
+      "--root",
+      "/dev/shm/llmcl-type-aux-1084-20261027",
+      "--output",
+      "/dev/shm/llmcl-type-aux-1084-20261027/run_v2",
+      "--gpu",
+      "1",
+      "--python",
+      "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+      "--binding",
+      "/dev/shm/llmcl-type-aux-1084-20261027/summary/train_answer_prior_20261025/TYPE_AUXILIARY_V2_BINDING.json"
+    ],
+    "log_path": "/dev/shm/llmcl-type-aux-1084-20261027/summary/train_answer_prior_20261025/TYPE_AUXILIARY_V2_SLOT.controller.log",
+    "status_changed_unix": 1793100522.8341823
+  },
+  "supervisor_started": {
+    "unix": 1793100528.6253304,
+    "identity": {
+      "pid": 1815978,
+      "startticks": "779894320",
+      "uid": 1084,
+      "pgid": 1815978
+    },
+    "GPU": 1,
+    "source_dir": "/dev/shm/llmcl-type-aux-1084-20261027/exp/type_auxiliary_supervision_20261027/v2",
+    "source_sha256": {
+      "controller.py": "83fb92e4a8101f9b747c1ca258ebe1d778490c1f5a11f0cceeca1723586518c2",
+      "worker.py": "4a040b66e995b4fd3e4526c47c6ba85fa1589f80df912d6eb8e5ed6ad747a4cd",
+      "helpers.py": "b141ef72c7adf9e1c5adc93eab174fe4577d82c8bca2a1759308533f2c7e97f5",
+      "training.py": "e9f1ab7fb4df06c17aa0ba1a2a3db7ba211d200dbe6490c18d01761a22f6e297"
+    },
+    "binding_sha256": "0fb8b3c1f3a9c41f48b3a06ffc2d15739ffa4bfd27b07fb3e95330adacf0914e",
+    "protocol": {
+      "path": "/dev/shm/llmcl-type-aux-1084-20261027/summary/train_answer_prior_20261025/TYPE_AUXILIARY_V2_DESIGN_20261027.md",
+      "sha256": "ddf065bd49429579894a528cc2e47127dc5941db17d2de6b93d63c84920d2d66"
+    },
+    "order": [
+      {
+        "arm": "plain",
+        "phase": "train"
+      },
+      {
+        "arm": "plain",
+        "phase": "eval"
+      },
+      {
+        "arm": "true",
+        "phase": "train"
+      },
+      {
+        "arm": "true",
+        "phase": "eval"
+      },
+      {
+        "arm": "shuffled",
+        "phase": "train"
+      },
+      {
+        "arm": "shuffled",
+        "phase": "eval"
+      }
+    ],
+    "phase_limits": {
+      "prefix": 3600,
+      "train": 2400,
+      "eval": 600
+    },
+    "cumulative_model_budget_seconds": 9000,
+    "existing_allocator_supplied_GPU": true,
+    "no_retry": true,
+    "new_scores": 0,
+    "reused_prefix_sha256": "4e68eda4553ca9017c05010baf454b87e150f3ebef77ed2b8c4c7cc0c7145361",
+    "reused_prefix_cost": {
+      "generations": 120,
+      "optimizer_updates": 69,
+      "FIT_backwards": 959,
+      "worker_seconds": 1192.6507113492116,
+      "phase_seconds": 1199.3762060198933
+    },
+    "prelaunch_prefix_validation_seconds": 5.724802942946553
+  },
+  "phase_starts": [
+    {
+      "file": "PHASE_plain_train_STARTED.json",
+      "data": {
+        "unix": 1793100528.6259432,
+        "deadline_unix": 1793102928.6259432,
+        "identity": {
+          "pid": 1816052,
+          "startticks": "779894900",
+          "uid": 1084,
+          "pgid": 1816052
+        },
+        "arm": "plain",
+        "phase": "train",
+        "GPU": 1,
+        "run_dir": "/dev/shm/llmcl-type-aux-1084-20261027/run_v2/plain",
+        "command": [
+          "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+          "-u",
+          "/dev/shm/llmcl-type-aux-1084-20261027/exp/type_auxiliary_supervision_20261027/v2/worker.py",
+          "--root",
+          "/dev/shm/llmcl-type-aux-1084-20261027",
+          "--run",
+          "/dev/shm/llmcl-type-aux-1084-20261027/run_v2/plain",
+          "--arm",
+          "plain",
+          "--gpu",
+          "1",
+          "--phase",
+          "train",
+          "--binding",
+          "/dev/shm/llmcl-type-aux-1084-20261027/summary/train_answer_prior_20261025/TYPE_AUXILIARY_V2_BINDING.json",
+          "--prefix-run",
+          "/dev/shm/llmcl-type-aux-1084-20261027/run/prefix"
+        ],
+        "limit_seconds": 2400,
+        "includes_python_startup": true
+      }
+    }
+  ],
+  "controller_identity": {
+    "pid": 1815978,
+    "startticks": "779894320",
+    "uid": 1084,
+    "pgid": 1815978
+  },
+  "phase_identities": {
+    "PHASE_plain_train_STARTED.json": {
+      "pid": 1816052,
+      "startticks": "779894900",
+      "uid": 1084,
+      "pgid": 1816052
+    }
+  },
+  "baseline_job": {
+    "key": "onevision:PaRSP",
+    "condition": "pct10",
+    "method": "PaRSP",
+    "backbone": "onevision",
+    "status": "paused_checkpoint",
+    "wrapper": {
+      "pid": 1724352,
+      "startticks": "779263627",
+      "uid": 1084,
+      "pgid": 1724352
+    },
+    "gpu": 1,
+    "phase": "training",
+    "phase_status": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/two_backbone_pct10_20261025/requests/onevision_PaRSP_training_1793094215899733386.status.json",
+    "phase_exit": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/two_backbone_pct10_20261025/requests/onevision_PaRSP_training_1793094215899733386.exit.json",
+    "request": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/two_backbone_pct10_20261025/requests/onevision_PaRSP_training_1793094215899733386.json",
+    "pid": 1724385,
+    "worker": {
+      "pid": 1724385,
+      "startticks": "779263644",
+      "uid": 1084,
+      "pgid": 1724385
+    },
+    "run_dir": "exp/two_backbone_pct10_native_checkpoint_20261027/runs/onevision/pct10/PaRSP/training_20261027_113623",
+    "last_exit": {
+      "unix": 1793100512.6280167,
+      "returncode": 0,
+      "worker": {
+        "pid": 1724385,
+        "startticks": "779263644",
+        "uid": 1084,
+        "pgid": 1724385
+      },
+      "wrapper": {
+        "pid": 1724352,
+        "startticks": "779263627",
+        "uid": 1084,
+        "pgid": 1724352
+      },
+      "phase": "training",
+      "run_dir": "exp/two_backbone_pct10_native_checkpoint_20261027/runs/onevision/pct10/PaRSP/training_20261027_113623",
+      "resume": true
+    },
+    "preflight_run": "exp/two_backbone_pct10_native_checkpoint_20261027/runs/onevision/pct10/PaRSP/preflight_20261027_113422",
+    "completed_stage": 1,
+    "pause_receipt": "pause_history/pause_S01_1793100510846222234.json",
+    "pause_receipt_sha256": "c770a2e9425a47b0de2a1cfdd194bc67d66628e34a6cdce01f1739165f4c5475"
+  },
+  "baseline_status": {
+    "status": "paused_checkpoint",
+    "completed_stage": 1,
+    "checkpoint": {
+      "path": "checkpoints/stage_01.pt",
+      "stage": 1,
+      "bytes": 4737783714,
+      "sha256": "2eaef537a98b1263b9112ef92cdc52a0ed78aca2f6834cd828f28d14e1cdd452",
+      "seconds": 23.992085565812886,
+      "manifest_sha256": "02ef86674c22a9dbf7f0d406398615437f8406cff364415e14d54f5fdb5bfcb7",
+      "method": "PaRSP",
+      "full_architecture_and_runtime": true,
+      "optimizer_saved": false
+    },
+    "pause_receipt": "pause_history/pause_S01_1793100510846222234.json",
+    "pause_receipt_sha256": "c770a2e9425a47b0de2a1cfdd194bc67d66628e34a6cdce01f1739165f4c5475"
+  },
+  "pause_receipt": {
+    "status": "paused_checkpoint",
+    "completed_stage": 1,
+    "unix": 1793100510.8462427,
+    "request_id": "parsp-next-stage-yield-type-aux-v2-20261027",
+    "request_sha256": "a989d592fdb877d5ddcbfc94db81f378435e189c4ede6b91b62d805d8032412a",
+    "request_path": "pause_history/request_a989d592fdb877d5ddcbfc94db81f378435e189c4ede6b91b62d805d8032412a.json",
+    "checkpoint": {
+      "path": "checkpoints/stage_01.pt",
+      "stage": 1,
+      "bytes": 4737783714,
+      "sha256": "2eaef537a98b1263b9112ef92cdc52a0ed78aca2f6834cd828f28d14e1cdd452",
+      "seconds": 23.992085565812886,
+      "manifest_sha256": "02ef86674c22a9dbf7f0d406398615437f8406cff364415e14d54f5fdb5bfcb7",
+      "method": "PaRSP",
+      "full_architecture_and_runtime": true,
+      "optimizer_saved": false
+    },
+    "checkpoint_metadata_sha256": "bff308e54a197c915553f30f07399d38127a0752710a66a627589d41be71ed44",
+    "config_sha256": "a73f4fb441f842d7333a2a4ebf7b41ab2ea8b17087fb470f8dbc13839d95bfaf",
+    "manifest_sha256": "02ef86674c22a9dbf7f0d406398615437f8406cff364415e14d54f5fdb5bfcb7",
+    "execution_source_sha256": {
+      "training_validity.py": "0ec302d2fa4e8bb1a87b41c861c3aea78bf473e3df805b87d4dd450d21a2f735",
+      "sparta_adapter.py": "8a00505b40663e5a233ddceb34e295d9b7b73d55f0679ac3d2b93318e77d7a44",
+      "sparse_results.py": "07a7808beff8bc3330e92dc5b0fb5443401486846db764c912a5a0f57558fa3f",
+      "runtime_utils.py": "4f5c4a34be046c29cfbcdaa4b2957faa907684872ba69083bdef53136a851240",
+      "run.py": "882057aab8dadfed58663eb46e66213936581e0ad6b4bb2d1f4a96b776a414f4",
+      "retrieval.py": "7d7a9dd6cb223bf96cd9ab3499a4ddf69f8fbb60940d80db84582ad518f5c133",
+      "resource_monitor.py": "a161c8a82bf762622795f64210c95164fb905c6fa80572b35ae5ee3dd7146533",
+      "replay_adapter.py": "da07cfd8e44183ab3e29f1ab51ecbec0f6e7877ac6335efcf179158afff8d141",
+      "prepare_native.py": "200affb091e040e4f4492fb92389b9f1b54a3e71b33683e7de322ca6dd74cb4f",
+      "pipeline.py": "2b18ce445a01d76b2f065100752c05626bdaf800dd33f47aa8c6e75ff52f9d2d",
+      "pass_adapter.py": "c8e23c85a93e97130d464b4b6d87110470035c5af37f9575fce705923c80c7c4",
+      "parsp_adapter.py": "d1ebe1831e6d089d434bdde34b59db64eff17dc74d8d77f9ca4f080a51da8366",
+      "osft_adapter.py": "60b05f3b59f3878e65ee9543657b54a5aa5da13c14e139123e1c3591f3007b34",
+      "onevision_bridge.py": "f3b1dd38af3b58dbfa69073da698ea2bf39a3a11850fb1069a80e38d0e3669a9",
+      "native_auxiliary.py": "17f3345fb8d4b4cb3367de2a0b914b34bf69251ecc7f141ba1c7179006599682",
+      "methods.py": "e5bd8f51690b006274ed5adcfa4ef3b1a2c3b0f1d79476d948b71d1cfec41c5b",
+      "hyper_adapter.py": "518574b8c3d1c46400d240cc984f0d1c83cb01d96a7d1e2bf788bea4d4610976",
+      "host_adam.py": "5e733e6b87c12eb9331ff23e8919a142f1861a2beec82ec8b0361d878b9aec8c",
+      "fv_adapter.py": "85473b19726249703f645a30142b6cfb046a37f798430ca1a255e48213641fab",
+      "frozen_vision.py": "8211651e92d17019f6ce6cf9615df7f6b5fcaeecc765aec4acdf916c448a35bd",
+      "freeze_splits.py": "5b4d58451ef3bcdb9fc033c0c9bc15b72ddc36877a64ca22d50f12e9e301510a",
+      "clmoe_adapter.py": "33946eddfc6424638ded0675ded68860273859c2f71993a6a60bd22556341be9",
+      "checkpoints.py": "83ca50cc9365d36b90af8b8472d75a1f9f7c798e5bb1d440f87398c4d3e3a591",
+      "checkpoint_probe.py": "71b38fb9f202fa2fa012e76a883e23322f68ef938c9f8ef9fac78d01886eb23f",
+      "aler_adapter.py": "4a4c58024727e5e5d01254a6b90b721e873ee6ea9f74d59308da6aa424217635"
+    },
+    "optimizer_lifecycle": "fresh optimizer/scheduler/scaler at each stage",
+    "next_stage": 2,
+    "full_stage_complete": true
+  },
+  "original_worker_absent": true,
+  "original_wrapper_absent": true,
+  "other_baseline_matches": {
+    "onevision:PASs_MoE": true,
+    "qwen:PASs_MoE": true,
+    "onevision:CL_MoE": true
+  },
+  "checkpoint_exists": true,
+  "new_scores": 0,
+  "quality_missing": true
+}
