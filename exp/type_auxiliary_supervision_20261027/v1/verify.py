@@ -7,6 +7,7 @@ import json
 import math
 from pathlib import Path
 import re
+import random
 
 ARMS=('plain','true','shuffled')
 ORDER=[('prefix','prefix')]+[(a,p) for a in ARMS for p in ('train','eval')]
@@ -22,12 +23,19 @@ def sha(p):
 def write(p,x):
  with p.open('x',encoding='utf8') as f:json.dump(x,f,indent=2,allow_nan=False);f.write('\n')
 
+def same_live(who):
+ try:
+  p=Path('/proc')/str(who['pid']);fields=(p/'stat').read_text().rsplit(') ',1)[1].split()
+  return fields[0]!='Z' and fields[19]==str(who['startticks']) and p.stat().st_uid==who['uid'] and int(fields[2])==who['pgid']
+ except (OSError,IndexError,ValueError):return False
+
 def main():
  ap=argparse.ArgumentParser();ap.add_argument('--root',type=Path,required=True);ap.add_argument('--run',type=Path,required=True)
  a=ap.parse_args();root,run=a.root,a.run
  assert root.is_absolute() and run.is_absolute()
  assert not (run/'SUPERVISOR_FAILURE.json').exists()
  super=read(run/'SUPERVISOR_COMPLETE.json')
+ assert not same_live(super['identity']), 'Controller must exit before consumption'
  assert [(p['arm'],p['phase']) for p in super['phases']]==ORDER
  assert super['new_generations']==675 and super['optimizer_updates']==123 and super['FIT_backwards']==1721
  assert super['new_scores']==super['TEST_QA']==0 and super['active_worker'] is None
@@ -35,12 +43,17 @@ def main():
  for n,h in super['source_sha256'].items():assert sha(source/n)==h
  protocol=super['protocol'];assert sha(Path(protocol['path']))==protocol['sha256']
  checked={};receipts={}
- for arm,phase in ORDER:
+ for index,(arm,phase) in enumerate(ORDER):
   folder=run/arm
   started=read(folder/(phase+'_STARTED.json'));complete=read(folder/(phase+'_COMPLETE.json'))
   exit=read(run/('PHASE_'+arm+'_'+phase+'_EXIT.json'))
   assert exit['returncode']==0 and exit['identity_absent'] and not exit['timeout']
   assert started['identity']==complete['identity']==exit['identity']
+  assert not same_live(exit['identity'])
+  sealed=super['phases'][index]
+  assert all(sealed[k]==exit[k] for k in exit)
+  assert sealed['started_sha256']==sha(folder/(phase+'_STARTED.json'))
+  assert sealed['complete_sha256']==sha(folder/(phase+'_COMPLETE.json'))
   assert complete['arm']==arm and complete['phase']==phase and complete['GPU']==super['GPU']
   assert complete['seconds']<=started['limit_seconds']
   assert complete['new_scores']==complete['TEST_QA']==0
@@ -55,14 +68,28 @@ def main():
  split_path=root/'summary/edge_deployment_20261019/osft_increment_screen/v1/SPLIT.json'
  assert sha(manifest_path)==MANIFEST and sha(split_path)==SPLIT
  manifest,split=read(manifest_path),read(split_path)
- rows={};tasks={t['task']:t for t in manifest['tasks']}
+ rows={};tasks={t['task']:t for t in manifest['tasks']};type_maps={}
  for t in manifest['tasks']:
   ref=t['files']['train'];p=root/ref['path'];assert sha(p)==ref['sha256']
   data=[json.loads(x) for x in p.read_bytes().splitlines()];by={x['id']:x for x in data}
   assert len(by)==len(data)==ref['count']
   for i in split['dev_ids'][str(t['task'])]:rows[t['task'],i]=by[i]
+  if t['task']==16:
+   ids=split['fit_ids']['16'];types=('single_choice','multiple_choice','numerical')
+   true=[types.index(by[i]['metadata']['question_type']) for i in ids]
+   shuffled=list(true);random.Random(42).shuffle(shuffled)
+   assert len(ids)==69 and sum(x!=y for x,y in zip(true,shuffled))==40
+   for arm,labels in [('true',true),('shuffled',shuffled)]:
+    type_maps[arm]={hashlib.sha256(i.encode()).hexdigest():v for i,v in zip(ids,labels)}
  prefix=read(run/'prefix/PREFIX_STATE.json')
+ heads=[read(run/arm/'HEAD_INITIAL.json') for arm in ARMS]
+ assert len({h['digest'] for h in heads})==1 and all(h['parameters']==2691 and h['RNG_restored'] for h in heads)
  for arm in ARMS:
+  supervision=read(run/arm/'SUPERVISION.json')
+  if arm=='plain':assert supervision==[]
+  else:
+   assert len(supervision)==69 and {x['id_sha256']:x['label'] for x in supervision}==type_maps[arm]
+   assert all(math.isfinite(x['answer_CE']) and math.isfinite(x['auxiliary_CE']) for x in supervision)
   reload=read(run/arm/'PREFIX_RELOAD.json');assert reload['digest']==prefix['model_digest']
   assert reload['checkpoint']==prefix['checkpoint'] and reload['exact_full_graph']
   trained=receipts[arm,'train']['checkpoint'];evaluated=receipts[arm,'eval']
@@ -101,6 +128,9 @@ def main():
   summary[key]=dict(QA=len(out),domains={d:sum(x['F1'] for x in rr)/len(rr) for d,rr in groups.items()},
    finance_by_type={typ:dict(QA=len(rr),F1=sum(x['F1'] for x in rr)/len(rr),strict_single=sum(x['strict_single'] for x in rr))
     for typ in ('single_choice','multiple_choice','numerical') if (rr:=[x for x in out if x['domain']=='finance' and x['question_type']==typ])})
+  if phase=='final':
+   assert len(groups)==5 and all(len(rr)==20 for rr in groups.values())
+   summary[key]['five_domain_macro_F1']=sum(summary[key]['domains'].values())/5
  write(run/'SCORES.json',scores)
  write(run/'OUTCOME.json',dict(summary=summary,unique_scores=660,formal_result=False,
   final_costs={arm:dict(checkpoint=receipts[arm,'train']['checkpoint'],memory=read(run/arm/'memory.json')) for arm in ARMS},
