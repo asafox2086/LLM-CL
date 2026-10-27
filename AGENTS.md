@@ -1,3 +1,9 @@
+# 2026-10-27：下一有限检验为paired选项监督（仅设计/实现中）
+
+- 原soft点保持关闭，不复活或调参。新候选由原POSITION已封反例出发，详见summary/train_answer_prior_20261025/PAIRED_OPTION_DESIGN_20261027.md。原45资格与既有split交集=33 FIT/12 DEV/0未匹配，scope metadata源SHA均已核，0新QA/模型/评分；12DEV绝不训练。
+- 比较repeat原样两真实forward与paired原样加已认证+1循环，组内两CE平均再原16QA组归约；每臂1246监督前向/1213显式backward/87更新，不能将1246视图重新分batch。无新增推理参数，两臂fresh全19，不用旧S15无RNG快照续训。单视图统一循环/随机1-3循环提议均未运行，不当模型阴性。
+- 计划四阶段train各5400/eval各1800，共14400秒；每臂317生成，合计634；原样600份只完整后一次评分，循环24份严格功能解析。原数据/学习率/测试/评分不改，只新方法组内视图监督。当前worker独立实现中，未运输、未GPU准入、未暂停基线；OLD四baseline与NEW两baseline真实live已核。不得把设计通过称效果通过。
+
 # 2026-10-27：三臂完成，当前soft点关闭，OSFT已恢复队列
 
 - conditional六phase均exit0，SUPERVISOR_COMPLETE 01531daa...；唯一900评分完成，OUTCOME ca7d8760af28b8a58d7de8d65946874eb4b677091654338fbce3e2e6a1832de2，VERIFIED 523d48ecf05e372ed7c76676507ed1f9d58f2f07eae4226a6921444926e7f711。首次核验在评分前因3.12/3.10空type_params AST表示差异失败、0marker/0score；独立审后外部adapter6b96fa...只兼容指纹，冻结科学源/评分函数不改，原失败全保留。不可再评分、重训或调参救此点。
