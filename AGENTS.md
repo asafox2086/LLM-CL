@@ -1,3 +1,11 @@
+# 2026-10-27：paired研究已接原分配器，PaRSP阶段暂停请求已排
+
+- 成对选项监督worker bad0ffd6、helpers f4bb0df3、controller efb164df、queue c18e88fb、verify 030cc59d均已独立审阅并发布7bcf976f。OLD新科学root `/dev/shm/llmcl-paired-option-1084-20261027`，binding c0fbf6b7；33FIT/12DEV实际stdlib输入绑定通过，Python3.10原scorer构造通过且0score/模型。原科学源与14,400秒首次预算不改。
+- unix1793078231实际仅CPU接管：新controller1458635/start777665189/UID1084，unit `llmcl-pct10-paired-option-old-20261027.service`，原四GPU worker/wrapper全部保全、0GPU信号、queue job未改。旧1380883仅历史。ACTIVATION及请求收据在OLD耐久 `.deployment/paired_queue_activation_20261027/`；CONTROLLER_HANDOFF已更新。
+- 已向真实新版本PaRSP1379913/start777060360的training_20261027_113623写唯一PAUSE_REQUEST，SHA11ca37c6475c32f049f5636fe8aa097c5536a90e3d90cdcdddfe60245b66261f。unix1793078253新unit实际active/running、所有保护身份匹配；PaRSP仍S0 initial_evaluation，paired slot=null。不能把请求称已存checkpoint/已暂停/研究已训练。待阶段完整保存及worker退出，原idle优先四phase研究；首次STARTED后预算开始，不另起任务或复用旧conditional slot。
+- 研究四phase真实终态后先核PaRSP保存态与暂停收据，写绑定该收据的RESUME_REQUEST交原allocator恢复，再做研究600原评分一次/24严格循环映射及分析；不得拿旧OSFT无CP记录当本次续训。全部主表记录和最终完整参数保留，0清理。结果仍未产生，Ours为空。
+- NEW unix1793077704实际又核三baseline：原QwenCL8260 S19/T17、QwenSMo8265 S0/T18、新stage版本LLaVA1%SMo2154888/start41744412 S0。此为时点状态，不永久live。最近本轮没有新完整主表结果。
+
 # 2026-10-27：下一有限检验为paired选项监督（仅设计/实现中）
 
 - 原soft点保持关闭，不复活或调参。新候选由原POSITION已封反例出发，详见summary/train_answer_prior_20261025/PAIRED_OPTION_DESIGN_20261027.md。原45资格与既有split交集=33 FIT/12 DEV/0未匹配，scope metadata源SHA均已核，0新QA/模型/评分；12DEV绝不训练。
