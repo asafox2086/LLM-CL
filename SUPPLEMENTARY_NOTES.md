@@ -1,5 +1,10 @@
 # 补充说明：证据索引、实验历史与新会话交接
 
+2026-10-27最新：[三臂完整结果](summary/conditional_shared_budget_20261026/RESULT_FINDINGS_20261027.md)不支持保留当前soft点，原正负、首次AST兼容故障与唯一900评分都已保存。NEW完整归档5544888320字节/560文件逐SHA通过；OSFT以fresh任务恢复原队列（尚未开训），当前OLD协调CPU1380883、unit llmcl-pct10-osft-fresh-restored-old-20261027.service。两10%SeqFT资源hook因所选环境缺PIL失败，Qwen未测，两组资源仍留空，不自动重跑。新native单run核验工具见[说明](summary/stage_checkpoint_dispatch_20261027/NATIVE_RESULT_CONSUMER.md)，不改变旧分数。
+
+以下运行段落为历史快照，当前以本段、AGENTS最新条目与真实进程/收据为准。
+
+
 [阶段checkpoint与研究优先运行规则](summary/stage_checkpoint_dispatch_20261027/README.md)：新版本已接管两机后续基线启动与1%FOREVER等待入口，原活GPU进程保持。按阶段完整提交暂停、同版本恢复，最终及最新可恢复checkpoint保留；OLD新阶段权重归档到NEW后核SHA。该改动是人类要求的运行管理，不是新方法结果。10月27日最新科研观察：shared训练/评估正常结束、uniform正在训练，仍等六phase完整后一次评分。
 
 2026-10-27约10:03人类新指令已执行：停止实际运行时间最短的LLaVA10% OSFT（约16.2h），让OLD GPU1给研究。OSFT原S19终评未完成、没有完整checkpoint可恢复，不填主表；原285文件全部保留并复制OLD耐久目录，NEW私有归档`.deployment/research_priority_20261027/old_records.tar`为82094080字节/291成员，逐文件SHA核过。只有目标worker/wrapper收到SIGTERM，其他三OLD基线身份保全。原CPU协调器替换为1310549/start776501551，新unit `llmcl-pct10-research-priority-old-20261027.service`；conditional controller1310563/start776501573、shared train worker1310564/start776501578已真实STARTED于1793066595.6538262，六阶段冻结实验首次预算开始，尚无完整结果。所有记录与旧失败保留。

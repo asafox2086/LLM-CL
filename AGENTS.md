@@ -1,3 +1,12 @@
+# 2026-10-27：三臂完成，当前soft点关闭，OSFT已恢复队列
+
+- conditional六phase均exit0，SUPERVISOR_COMPLETE 01531daa...；唯一900评分完成，OUTCOME ca7d8760af28b8a58d7de8d65946874eb4b677091654338fbce3e2e6a1832de2，VERIFIED 523d48ecf05e372ed7c76676507ed1f9d58f2f07eae4226a6921444926e7f711。首次核验在评分前因3.12/3.10空type_params AST表示差异失败、0marker/0score；独立审后外部adapter6b96fa...只兼容指纹，冻结科学源/评分函数不改，原失败全保留。不可再评分、重训或调参救此点。
+- shared/uniform/soft刚习得宏43.252194/42.366643/43.818933，最终38.622780/39.663448/39.455659；五窗max allocated2166.100586/2166.100586/2168.163086MiB。soft相对uniform没有最终质量—成本优势，关闭当前点，不泛否条件方法。医学soft-uniform新习得+3.333域分仅一题语言表述，金融+5仅一题且shared已答对；uniform-shared最终净收益约96.1%来自同一遥感二元题，不列Ours。只1213FIT/100DEV，正式1%8/16、10%2/16未变。结果入口summary/conditional_shared_budget_20261026/RESULT_FINDINGS_20261027.md。
+- NEW完整三臂归档.deployment/conditional_verified_archive_20261027/complete_research.tar：5544888320字节/560文件，逐SHA通过、含全部三臂完整权重；原run不删。原答案/PAIRED_READOUT/独立review保私有，不入Git。
+- OSFT已在原分配器恢复为fresh waiting，旧RUN/旧job先存，不能称checkpoint续训或已经开训。新OLD CPU1380883/start777066692/UID1084，unit llmcl-pct10-osft-fresh-restored-old-20261027.service；原其它GPU身份保全，0GPU信号。当前handoff为准，1320449仅历史。激活收据OLD耐久.deployment/osft_restore_after_conditional_20261027/ACTIVATION.json。
+- 两10%SeqFT最终资源hook真实失败并释放：onevision在导入runtime_utils时缺PIL（选定.conda-env），模型load前但Torch/CUDA初始化已发生；约2.735s exit1，Qwen未启动，两组资源仍缺测。保留原failure，不把它当模型科学负结果，不自动重跑。
+- 新native完整结果consumer已两机部署并push654e562，source1434c424...，单run独立cache，保原评分与74格/93或828检查，支持全阶段元数据/手工旧中间权重清理及暂停许可链，缺真实final exit0拒绝。仅synthetic/AST通过、尚无新run整链实证；不替代两个FOREVER尚未适配的消费者。
+
 # 2026-10-27：研究优先，允许保存后暂停一个基线
 
 - 阶段checkpoint新版本已实际部署，以下覆盖“仅本地准备”的旧快照。OLD CPU1320449/start776588707、unit llmcl-pct10-stage-checkpoint-old-20261027.service；NEW原native unit CPU2093344/start41131618；NEW Qwen1%FOREVER新waiter2092791/start41125950替代无GPU子进程的10498；NEW阶段归档CPU2089053/start41087449。两机原5个活baseline身份均保，研究controller1310563也不变，除先前明确停止OSFT外0GPU信号。新版本源独立，不热改旧活动runner；未来native/FOREVER、1%/10%均每完整stage保CP，PAUSE_REQUEST在阶段提交后正常退出，RESUME_REQUEST绑定当前pause receipt同版本续训，故障不自动重试。最终及最新可恢复CP不可删；用户只授权空间不足时人工删旧中间CP及保留全部元数据。OLD新stage CP逐个SHA核后复制NEW，当前0新基线stage CP，不冒称已完成真实GPU暂停恢复测试。入口summary/stage_checkpoint_dispatch_20261027/README.md及ACTIVATION_OLD/ACTIVATION_NEW/pct01_forever/ACTIVATION/ARCHIVE_ACTIVATION_NEW。
