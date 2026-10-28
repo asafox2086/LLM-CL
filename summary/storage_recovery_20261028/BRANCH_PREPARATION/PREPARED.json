@@ -1,0 +1,81 @@
+{
+  "schema": "native-IO-recovery-owner-plan-v1",
+  "prepared": [
+    {
+      "job": {
+        "key": "pct01:OSFT",
+        "host": "new3090",
+        "backbone": "qwen",
+        "method": "OSFT",
+        "gpu": 2,
+        "stage": 2,
+        "original": "runs/qwen/pct01/OSFT/training_20261027_234229",
+        "branch": "runs/qwen/pct01/OSFT/recovery_io_20261028_S02",
+        "bytes": 8516943791,
+        "sha256": "ba9bf9583ed2bd81a882f0b6eeb46531a1fcd25d3d8314dc869ad50c1c1075d6"
+      },
+      "branch": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_checkpoint_20261027/runs/qwen/pct01/OSFT/recovery_io_20261028_S02",
+      "proof_sha256": "8f33aea8c72b5b1acc1b06f90172c8e3f2e3240a6b618abc8b6a11c9032e6ff1"
+    },
+    {
+      "job": {
+        "key": "pct01:SMoLoRA",
+        "host": "new3090_onevision",
+        "backbone": "onevision",
+        "method": "SMoLoRA",
+        "gpu": 1,
+        "stage": 13,
+        "original": "runs/onevision/pct01/SMoLoRA/training_20261027_121553",
+        "branch": "runs/onevision/pct01/SMoLoRA/recovery_io_20261028_S13",
+        "bytes": 2219762819,
+        "sha256": "9d74ed4971158090b3e028677da83a759c1ff27a807d723aeb74f66a77f4efcb"
+      },
+      "branch": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_checkpoint_20261027/runs/onevision/pct01/SMoLoRA/recovery_io_20261028_S13",
+      "proof_sha256": "4b0cfad71004f56a1a872f7860dfe7678f90d2dd230aa6f75d073091657bb838"
+    }
+  ],
+  "original_owner": "llmcl-two-backbone-native.service",
+  "existing_outer_entry": "/data1/liyapeng/program/LLMCL/analysis/full_parameter_preflight_capacity_20261028.py",
+  "baseline_entry": "/data1/liyapeng/program/LLMCL/analysis/baseline_pct01_pct10_checkpoint_capacity_20261027.py",
+  "queue_replacements": [
+    {
+      "host": "new3090",
+      "key": "pct01:OSFT",
+      "run_dir": "exp/two_backbone_native_checkpoint_20261027/runs/qwen/pct01/OSFT/recovery_io_20261028_S02",
+      "status": "ready_resume",
+      "completed_stage": 2,
+      "resume_origin": "explicit_IO_recovery",
+      "IO_RECOVERY_SOURCE_sha256": "8f33aea8c72b5b1acc1b06f90172c8e3f2e3240a6b618abc8b6a11c9032e6ff1",
+      "clear_stale_fields": [
+        "pid",
+        "capacity_identity",
+        "worker",
+        "wrapper",
+        "phase_exit",
+        "phase_status"
+      ]
+    },
+    {
+      "host": "new3090_onevision",
+      "key": "pct01:SMoLoRA",
+      "run_dir": "exp/two_backbone_native_checkpoint_20261027/runs/onevision/pct01/SMoLoRA/recovery_io_20261028_S13",
+      "status": "ready_resume",
+      "completed_stage": 13,
+      "resume_origin": "explicit_IO_recovery",
+      "IO_RECOVERY_SOURCE_sha256": "4b0cfad71004f56a1a872f7860dfe7678f90d2dd230aa6f75d073091657bb838",
+      "clear_stale_fields": [
+        "pid",
+        "capacity_identity",
+        "worker",
+        "wrapper",
+        "phase_exit",
+        "phase_status"
+      ]
+    }
+  ],
+  "required_owner_adapter": "One private resume_requested override only for the two bound recovery branches; all other runs use the original function. Original cap locks and idle/FullFT hook stay in force.",
+  "queue_written": false,
+  "owner_started": false,
+  "GPU_launches": 0,
+  "note": "Original unmodified allocator rejects non-paused ready_resume; do not forge pause/permit or run this plan without the narrow owner adapter. Old Qwen SMo fresh recovery remains a separate follow-up."
+}
