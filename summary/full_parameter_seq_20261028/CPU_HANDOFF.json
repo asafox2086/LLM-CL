@@ -1,0 +1,32 @@
+{
+  "unix": 1793177984.1286767,
+  "old_controller": {
+    "pid": 2093344,
+    "startticks": "41131618",
+    "uid": 1004,
+    "pgid": 2093344
+  },
+  "workers": {
+    "8265": {
+      "pid": 8265,
+      "startticks": "60882",
+      "uid": 1004,
+      "pgid": 8265
+    },
+    "2154888": {
+      "pid": 2154888,
+      "startticks": "41744412",
+      "uid": 1004,
+      "pgid": 2154888
+    },
+    "2840219": {
+      "pid": 2840219,
+      "startticks": "45864072",
+      "uid": 1004,
+      "pgid": 2840219
+    }
+  },
+  "old_unit": "[Unit]\nDescription=Unified 1percent baseline queue with one reserved GPU\nAfter=default.target\n[Service]\nType=simple\nWorkingDirectory=/data1/liyapeng/program/LLMCL\nEnvironment=PYTORCH_CUDA_ALLOC_CONF=backend:cudaMallocAsync\nExecStart=/data1/liyapeng/program/LLMCL/.assets-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/baseline_pct01_pct10_checkpoint_capacity_20261027.py --checkpoint-admission /data1/liyapeng/program/LLMCL/summary/stage_checkpoint_dispatch_20261027/NEW_ADMISSION.json --watch\nStandardInput=null\nStandardOutput=append:/data1/liyapeng/program/LLMCL/summary/baseline_capacity_20261025/v1/supervisor.log\nStandardError=inherit\nKillMode=process\nRestart=no\n",
+  "new_unit": "[Unit]\nDescription=Unified 1percent baseline queue with one reserved GPU\nAfter=default.target\n[Service]\nType=simple\nWorkingDirectory=/data1/liyapeng/program/LLMCL\nEnvironment=PYTORCH_CUDA_ALLOC_CONF=backend:cudaMallocAsync\nExecStart=/data1/liyapeng/program/LLMCL/.assets-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/full_parameter_preflight_capacity_20261028.py --fullft-admission /data1/liyapeng/program/LLMCL/summary/full_parameter_seq_20261028/PREFLIGHT_ADMISSION.json --checkpoint-admission /data1/liyapeng/program/LLMCL/summary/stage_checkpoint_dispatch_20261027/NEW_ADMISSION.json --watch\nStandardInput=null\nStandardOutput=append:/data1/liyapeng/program/LLMCL/summary/baseline_capacity_20261025/v1/supervisor.log\nStandardError=inherit\nKillMode=process\nRestart=no\n",
+  "no_GPU_signals": true
+}
