@@ -14,8 +14,8 @@
 
 全量指模型原有参数直接训练且不添加adapter；语言、视觉、投影模块的确切范围必须在运行前逐项明确。当前原生输入链使用冻结视觉特征缓存，不能只把requires_grad改为true就称完整全量训练。需要独立新实现绕过冻结特征缓存，验证视觉和语言梯度，保持既定数据、任务顺序、输入、评分与完整TEST，不改任何活动实验源。优化器、精度和学习率在新基线启动前固定并公开；不根据TEST调参，不静默用部分层更新或CPU卸载代替全量基线。
 
-当前仅完成需求记录与入口源码检查，全量基线尚未实现、预检、排队或启动；不得称它在跑。新基线每阶段保留checkpoint，最终模型与全部主表证据保留。研究实验优先、NEW保留一张GPU的规则不变。
+独立全量基线入口已实现并通过root与baseline_review源码审阅和AST检查；尚未GPU预检、重载验证、排队或启动，不得称它在跑。[源码与待验证范围](../../exp/full_parameter_seq_20261028/PREPARATION.md)。新基线每阶段保留checkpoint，最终模型与全部主表证据保留。研究实验优先、NEW保留一张GPU的规则不变。
 
 ## 独立源码审查
 
-baseline_review确认现有Method先冻结全模型再加LoRA，缺少真正全量入口。全量应覆盖LLaVA语言模块、视觉塔、projector、image_newline及Qwen语言模块、visual/merger、lm_head等全部原生唯一Parameter。基座完整系数分别为893,675,552与2,208,985,600；不得与训练坐标或buffer数混同。FP32权重及其梯度的理论载荷已约7.15GB／17.67GB，尚不含优化器与激活；不能据此承诺旧服务器单卡可跑Qwen，需GPU预检。plain_r8_control正在准备独立源码，未启动、未预检、未产生结果。
+baseline_review确认现有Method先冻结全模型再加LoRA，缺少真正全量入口。全量应覆盖LLaVA语言模块、视觉塔、projector、image_newline及Qwen语言模块、visual/merger、lm_head等全部原生唯一Parameter。基座完整系数分别为893,675,552与2,208,985,600；不得与训练坐标或buffer数混同。FP32权重及其梯度的理论载荷已约7.15GB／17.67GB，尚不含优化器与激活；不能据此承诺旧服务器单卡可跑Qwen，需GPU预检。plain_r8_control已完成独立源码准备，未启动、未预检、未产生结果。
