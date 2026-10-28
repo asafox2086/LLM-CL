@@ -1,0 +1,11 @@
+# 全量基线一次性GPU预检接入
+
+只准备LLaVA 1%的19条原TRAIN预检与独立同题checkpoint重载，不启动正式训练，不产生TEST/F1；前后向及优化器运算在GPU。科学三源已独立审阅，完整结果与资源仍未测。
+
+接入复用原NEW容量协调器和锁，仅在原idle确认GPU1或3空闲且没有原任务占位时，优先一次预检→重载。当前GPU工人不暂停，GPU0不使用。GPU2及原三条待运行1%基线、两条10%SMo队列保留。成功或失败后，必须确认本次全部进程退出、自己的NVML PID消失后归还队列；观察超时只保留占位，不判实验故障、不重启。无自动重试或自动正式训练。
+
+固定预检上限7200秒，重载1800秒，仅适用于这次有限GPU执行，不是正式训练预算。首次要求至少24GiB剩余磁盘（20GiB保留+4GiB模型预算），重载前至少20GiB；不是并发写入的硬空间保证。预检CP保留。若达到执行上限，记录本次失败，不改预算重试。
+
+analysis/full_parameter_preflight_capacity_20261028.py由research_review实现，root与baseline_review独立检查；最终SHA48c6a3034261772bb538042a56f8f767019e849573cf1e5ec10479ac31e63f4e。PREFLIGHT_ADMISSION.json绑定原入口、policy、原科学依赖及新增三源，SHA3bbd451654f00755577fb4f587cc3a453ff41559200a9f4025b68b21a55a786e。
+
+原--once实际执行exit0，返回两条no_launch元数据，未创建SLOT或模型。CPU协调器接入将在独立CPU_HANDOFF/ACTIVATION收据记录：仅替换原KillMode=process服务的CPU入口并实核原三个GPU工人身份不变。发布本文时尚未接入，也没有运行GPU预检；运行状态以对应收据为准。
