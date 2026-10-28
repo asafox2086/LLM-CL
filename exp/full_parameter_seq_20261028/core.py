@@ -243,3 +243,57 @@ UNVERIFIED = (
  'Draft runner exists; protocol/source freezing and actual pct01/pct10 two-backbone preflights/reload remain pending.',
  'Need actual final BF16 full TEST before assigning quality or deployment bytes/GPU; intermediate FP32 mothergraph/BF16AMP scores cannot be relabeled pure-BF16.',
 )
+
+
+def batch_digest(batch):
+    """Exact prepared input tensor bytes; CPU serialization, no model CPU math."""
+    h=hashlib.sha256()
+    for name,value in sorted(batch.items()):
+        assert torch.is_tensor(value)
+        v=value.detach().cpu().contiguous()
+        h.update(str((name,tuple(v.shape),str(v.dtype))).encode())
+        raw=v.reshape(-1).view(torch.uint8).numpy().reshape(-1)
+        for start in range(0,raw.size,8*1024**2):h.update(raw[start:start+8*1024**2].tobytes())
+    return h.hexdigest()
+
+
+def full_parameter_inventory(method):
+    """Check the reloaded graph, without resetting any mask or constructing FT."""
+    import json
+    model=method.model;parameters=unique_parameters(model)
+    assert not method.finalized
+    assert all(p.is_cuda and p.dtype==torch.float32 and p.requires_grad for p in parameters)
+    original=getattr(model,'core',model)
+    assert {id(p) for p in original.parameters()}=={id(p) for p in parameters}
+    assert not any(type(m).__name__ in ('SeqLinear','AuthorSMoLinear') for m in model.modules())
+    assert not any('lora' in name.lower() for name,_ in model.named_parameters())
+    assert not any(k.startswith('_llmcl_visual_') for k in vars(model))
+    count=sum(p.numel() for p in parameters)
+    assert count==method.initial_unique_parameter_count
+    layout=[{'name':n,'shape':list(p.shape),'dtype':str(p.dtype),'numel':p.numel(),
+             'requires_grad':p.requires_grad} for n,p in model.named_parameters()]
+    return {'unique_parameters':count,'registered_parameter_bytes':sum(p.numel()*p.element_size() for p in parameters),
+            'parameter_layout_sha256':hashlib.sha256(json.dumps(layout,sort_keys=True,separators=(',',':')).encode()).hexdigest(),
+            'all_original_parameters_covered':True,'no_LoRA':True,'no_frozen_visual_cache':True}
+
+
+def make_reload_reference(method, processor, row, task):
+    """One last ALREADY-USED TRAIN QA, eval mode/BF16AMP, not TEST or F1."""
+    import json
+    from runtime_utils import input_batch,answer_loss
+    from training_validity import parameter_digest
+    method.model.eval();method.set_instruction(task['task'])
+    assert row.get('images'), 'Reload visual-gradient probe needs the last used TRAIN image QA'
+    with torch.no_grad(),torch.autocast('cuda',dtype=DTYPE):
+        batch,details=input_batch(row,task,processor,method.model.device)
+        loss,n=answer_loss(method.model,batch,row['answer'],processor)
+    assert torch.isfinite(loss)
+    stat=Path('/proc/self/stat').read_text();fields=stat[stat.rfind(')')+2:].split()
+    return {'schema':'fullft-checkpoint-probe-v1','preflight_only':True,'split':'train',
+            'row':row,'task':task,'loss':float(loss),'answer_tokens':n,
+            'input_sha256':batch_digest(batch),'input_details':details,
+            'parameter_sha256':parameter_digest(unique_parameters(method.model)),
+            'parameter_inventory':full_parameter_inventory(method),
+            'producer_identity':{'pid':os.getpid(),'startticks':int(fields[19]),'uid':os.getuid()},
+            'AMP_dtype':'torch.bfloat16','parameter_dtype':'torch.float32',
+            'row_sha256':hashlib.sha256(json.dumps(row,sort_keys=True,separators=(',',':'),ensure_ascii=False).encode()).hexdigest()}

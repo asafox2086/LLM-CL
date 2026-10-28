@@ -4,10 +4,11 @@
 
 ## 当前源
 
-- `core.py`：`905d2e929e9ed0d6c368bcd5b2a57c40513d740ca7a60bcec658f94721d87464`（245行）。
-- `run.py`：`f7164de3cce95f93666e6d6f4982f5309feae3382cf2176f2f864dca73a83f79`（173行）。
+- `core.py`：`67ec0cc0ba660201b24f842556f8291afa4153d1fee17ee1ccb86f7255a7a2d4`（299行）。
+- `run.py`：`c603aecee855d6e269048e4b2c6670ef78b364b6a92a7abe9b63e438f850a2f1`（174行）。
+- `reload_probe.py`：`779aa9d0c01237774c41d69487f84cb9a7e7b2b41fc64d5f12af67edaab8b64c`（104行）。
 
-两源已在 NEW 上仅执行 stdlib AST/compile 源码检查，未 import 候选/Torch 模块、未调用 main、未加载模型/权重/QA、未评分或训练。baseline_review 对上述实际源独立只读审阅，未发现明确 fatal；这不等于 GPU 准入或执行通过。此前纯 BF16 参数更新草案已被 FP32 母参数方案替换，未运行两种方案比较。
+三源已在 NEW 上仅执行 stdlib AST/compile 源码检查，未 import 候选/Torch 模块、未调用 main、未加载模型/权重/QA、未评分或训练。baseline_review 对上述实际源独立只读审阅，未发现明确 fatal；这不等于 GPU 准入或执行通过。此前纯 BF16 参数更新草案已被 FP32 母参数方案替换，未运行两种方案比较。
 
 ## 训练与部署口径
 
@@ -33,6 +34,12 @@ CLI 草案：`LLMCL_ROOT=/data1/liyapeng/program/LLMCL LLMCL_HOST=<new3090 或 n
 
 尚无任何 GPU 验证：需要 NEW Ampere/BF16 支持；两骨干真实 QA token/feature 一致性；vision/projector/language 等模块非零梯度与真实权重更新；优化器覆盖所有唯一 Parameter，finite 梯度/矩/权重；HostAdam 矩 dtype/CPU驻留/传输与全量梯度/激活峰；阶段暂停和 RNG 恢复；完整图 CP 重载；S19 转换后实际评分图与保存图一致；完整74格/最终总参数/权重/独立同卡 GPU 资源。不能承诺24GiB必 fit，也不能因潜在容量而将训练范围改成 LLM-only。
 
-预检沿原每任务首条 TRAIN 的19案例，不新增 QA 搜索；此候选保存的 diagnostic probe schema 为 `diagnostic_only`，不能直接声称兼容原 checkpoint_probe.py 所需 task/row/loss 协议。真实重载验证仍待明确接入，当前没有调用原 probe 或冒称其通过。
+预检沿原每任务首条 TRAIN 的19案例，不新增 QA 搜索。独立重载 schema 已实现而未执行；不直接调用原 checkpoint_probe.py。19次正常更新和 optimizer 清理后，用最后一条已用 TRAIN 图像 QA 在 eval/BF16 AMP 下保存 loss、完整 prepared 输入 tensor SHA/细节、原参数 SHA/layout、原 row SHA 与 producer identity，写入原完整 CP 的 fullft-checkpoint-probe-v1 probe。不是 TEST、新 split 或 F1。
+
+独立 CLI：`python exp/full_parameter_seq_20261028/reload_probe.py --run-dir <同预检RUN> --config-sha256 <config字节SHA> --checkpoint-sha256 <原CP SHA> --checkpoint-metadata-sha256 <latest.json字节SHA>`。保留同 NEW host/backbone/GPU0规则。先核 config/source/meta/preflight receipt，再由原完整 CP loader 核全文件 SHA 并加载，核同 QA 的 loss（原 probe 容差 max(.005,abs(loss)*.002)）、prepared 输入、参数/layout 摘要精确一致。随后 TRAIN 模式重新打包同 QA，做一次反传，核 language/vision/projector 非零 finite 梯度、0 optimizer、参数 SHA 不变；不能复用 eval 的无图 features。原 CP 不删除。GPU_RELOAD_STARTED、失败文件和 checkpoint_reload_proof 独占，拒绝重复执行或覆盖，不自动失败重试。
+
+仅增加已有 TRAIN QA 的参考 loss 前向、重载同题前向和一次反传，0新题/TEST/F1。检查全部原 Parameter 的掩码/数量/布局及原 core 对象集合，无 LoRA/冻结视觉缓存。stage1 预检重载不能替代未来 S19 BF16 部署重载/资源。
+
+下一次实际 GPU 预检限定 LLaVA 1%，尚未准入或执行；未来经原 NEW allocator 真正 idle GPU1/3 插入 preflight→reload后释放，不自动训练或四组批跑，不抢正式研究/原基线/NEW0。本轮只发布准备，尚无 allocator hook。
 
 没有 launch、queue、调度服务、模型操作、真实评分或对运行中 GPU 的任何信号。

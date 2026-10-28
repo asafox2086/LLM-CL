@@ -128,9 +128,10 @@ def main():
         optimizer.zero_grad(set_to_none=True);del optimizer
         seen={g for case in cases for g,v in case['module_probes'].items() if v['nonzero_gradient'] and v['parameter_changed']}
         assert {'language','vision','projector'}<=seen
-        model.eval();monitor.snapshot('training_after',1,model);monitor.finish(model)
-        cp=checkpoints.save(method,processor,run,1,config,probe={'diagnostic_only':True})
+        reference=core.make_reload_reference(method,processor,row,task)
+        cp=checkpoints.save(method,processor,run,1,config,probe=reference)
         rt.write(run/'gpu_preflight.json',{'passed':True,'not_formal':True,'cases':cases,'checkpoint':cp,'required_nonzero_updated_groups':sorted(seen)})
+        monitor.snapshot('training_after',1,model);monitor.finish(model)
         return
     if not old:rt.evaluate(method,processor,manifest['tasks'],data,run,0)
     if old:rt.restore_rng(old['rng'])
