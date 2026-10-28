@@ -17,3 +17,11 @@
 只在阶段完成、异常或需要保留资产时详细记录；启动确认后按人类要求分段sleep，不忙等、不读partial质量改设置。只读入口为本地`.deployment/task_gradient_observe_old_20261028.py`。NVML观测超时须结合真实进程和原日志复查，不能直接当作模型终态；没有因观测超时重启模型。
 
 正式质量、最终完整权重及固定五窗资源均尚缺测，Ours不填数值，论文目标未实现。原候选的所有旧负结果和数值匹配失败保持独立记录。
+
+## S1 assets retained on NEW (2026-10-28)
+
+S1 complete-stage and matching saved-checkpoint metadata passed the prepared archiver admission. The saved archiver was executed once with `--write`; it returned `S1_ASSETS_DURABLE`. [Original durable receipt](S1_DURABLE_ASSETS.json) SHA256: `c8496490d6419b45fc723364ab27d05301cd48677a9c74ca19e5ee1ffe7dd532`.
+
+The checkpoint payload is 1,932,673,608 bytes (file size, not deployment weight memory), SHA256 `418d7cf28d24e114b04b16f0490ab57a33d1846ebf26761d134cfe502f543367`. NEW verified the full payload SHA and immutable metadata during archival at unix1793185904.4972248. Destination: `.deployment/task_gradient_stage_assets_20261028/stage_01`. No source files were deleted. A subsequent inspect returned `EXISTING_ASSETS_VERIFIED` using unchanged recorded stat keys, without a second payload read or a restore test.
+
+At unix1793185956.8105807, the original worker 2187244/start782053901 remained live with completed_stage=1, active_stage=2 and S2/T2 evaluation 20/228. This is a timestamped execution observation, not a quality result. This archive retains assets only; it does not claim a consistent continuation prefix or validated resume. Final formal F1 and the candidate's final deployment resource measurement remain pending. README, main tables, protocol, binding and frozen training sources are unchanged.
