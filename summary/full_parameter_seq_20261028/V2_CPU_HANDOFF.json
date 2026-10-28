@@ -1,0 +1,32 @@
+{
+  "unix": 1793198347.3085635,
+  "old_controller": {
+    "pid": 789874,
+    "startticks": "54093206",
+    "uid": 1004,
+    "pgid": 789874
+  },
+  "workers": {
+    "782824": {
+      "pid": 782824,
+      "startticks": "54065154",
+      "uid": 1004,
+      "pgid": 782824
+    },
+    "782837": {
+      "pid": 782837,
+      "startticks": "54065162",
+      "uid": 1004,
+      "pgid": 782837
+    },
+    "790980": {
+      "pid": 790980,
+      "startticks": "54097728",
+      "uid": 1004,
+      "pgid": 790980
+    }
+  },
+  "old_unit": "[Unit]\nDescription=Unified 1percent baseline queue with one reserved GPU\nAfter=default.target\n[Service]\nType=simple\nWorkingDirectory=/data1/liyapeng/program/LLMCL\nEnvironment=PYTORCH_CUDA_ALLOC_CONF=backend:cudaMallocAsync\nExecStart=/data1/liyapeng/program/LLMCL/.assets-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/full_parameter_preflight_capacity_20261028.py --fullft-admission /data1/liyapeng/program/LLMCL/summary/full_parameter_seq_20261028/PREFLIGHT_ADMISSION.json --checkpoint-admission /data1/liyapeng/program/LLMCL/summary/stage_checkpoint_dispatch_20261027/NEW_ADMISSION.json --watch\nStandardInput=null\nStandardOutput=append:/data1/liyapeng/program/LLMCL/summary/baseline_capacity_20261025/v1/supervisor.log\nStandardError=inherit\nKillMode=process\nRestart=no\n",
+  "new_unit": "[Unit]\nDescription=Unified 1percent baseline queue with one reserved GPU\nAfter=default.target\n[Service]\nType=simple\nWorkingDirectory=/data1/liyapeng/program/LLMCL\nEnvironment=PYTORCH_CUDA_ALLOC_CONF=backend:cudaMallocAsync\nExecStart=/data1/liyapeng/program/LLMCL/.assets-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/full_parameter_preflight_capacity_v2_20261028.py --fullft-admission /data1/liyapeng/program/LLMCL/summary/full_parameter_seq_20261028/PREFLIGHT_V2_ADMISSION.json --checkpoint-admission /data1/liyapeng/program/LLMCL/summary/stage_checkpoint_dispatch_20261027/NEW_ADMISSION.json --watch\nStandardInput=null\nStandardOutput=append:/data1/liyapeng/program/LLMCL/summary/baseline_capacity_20261025/v1/supervisor.log\nStandardError=inherit\nKillMode=process\nRestart=no\n",
+  "GPU_signals": 0
+}
