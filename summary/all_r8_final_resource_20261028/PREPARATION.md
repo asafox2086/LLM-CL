@@ -38,3 +38,9 @@ baseline_review独立只读审阅两源、原动态类、checkpoint保存加载�
 unix1793137965完成NEW独立快照`.deployment/all_r8_resource_snapshot_20261028`；45个文件含37项原READY源码逐SHA一致，原policy仅从上述Git blob恢复到快照。最终CP以同盘同inode硬链接保留，已实际完整读目标核SHA416ed177…31519，前后源/目标device、inode、大小、mtime一致，没有写入或chmod/chown原inode，也没有额外复制1.94GB载荷。data/model只链接既有资产，不改内容。
 
 执行脚本经baseline_review独立只读审阅、root AST核对后执行一次；随后独立只读检查45项文件、源/目标inode和原全局policy未变。耐久SNAPSHOT收据SHA为384cedd0aee02a089ebc1bd580dbb9bfa61c68162f885238a889cd17f7472d0c，[精简实查凭据](ASSET_SNAPSHOT.json)。剩余空间43,417,968,640字节，保留20GiB余量。本步不产生模型、评分、resource binding、GPU启动、OLD运输或队列更改；仍是资产准备，不是资源实测通过。
+
+## OLD资产运输已完成，尚未GPU测量
+
+unix1793199481，47资产已运输到OLD `/dev/shm/llmcl-all-r8-resource-1084-20261028`。46小文件逐SHA、1.941599549GB完整最终CP整SHA通过；原NEW快照/CP保留。数据与模型只链接OLD既有资产。剩余20,001,214,464B，运输前按剩余正式5阶段CP约9.7GB加8GB余量检查，未占研究GPU或改正式运行。root另独立核46小文件SHA、全部47文件stat/UID和两本地链接；NEW/OLD收据JSON内容一致，序列化字节不同，首次字节比较拒绝后显式记录此区别，未重放运输或再次全hash CP。
+
+[运输收据](OLD_TRANSPORT.json)及[独立检查](OLD_TRANSPORT_CHECK.json)已保存。一次性运输脚本已执行，不可重放；原NEW snapshot准备也不可重放。当前还没有resource binding、运行环境核验、GPU重载或实测，不能称资源通过。后续沿原PAS同GPU1/五输入/32token，不启动额外分配器。
