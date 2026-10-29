@@ -1,0 +1,533 @@
+{
+  "experiment_id": "four_domain_native_cl_20261029",
+  "condition": "pct10",
+  "seed": 42,
+  "formal_ready": true,
+  "assets_pending": false,
+  "tasks": [
+    {
+      "task": 1,
+      "task_id": "T01",
+      "domain": "natural",
+      "modality": "image",
+      "instruction": "Answer the question using the image. Give the answer directly.",
+      "parent_domain_task": 1,
+      "native_label_field": null,
+      "native_label": null,
+      "max_new_tokens": 128,
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_pct10_20261025/pct10/T01_train.jsonl",
+          "count": 3461,
+          "sha256": "44c5e5849c63d9d1f998f271cdd6f00c816e5e4a75a5d8a57dec53fe5c5c1475",
+          "dataset_counts": {
+            "TextVQA": 3461
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T01_test.jsonl",
+          "count": 5000,
+          "sha256": "14705cad19879bbe9397add2d6871d6892146aee4be3885030700382307cd3bb",
+          "dataset_counts": {
+            "TextVQA": 5000
+          }
+        }
+      },
+      "training_order_sha256": "2b65ce685ef38e974530f660a9cf0224ce15b5514afd88f7c1032a1ab66b61db",
+      "training_order_rule": "SHA256(42:stage:original_QA_ID), ascending digest"
+    },
+    {
+      "task": 2,
+      "task_id": "T02",
+      "domain": "medical",
+      "modality": "image",
+      "instruction": "Answer the medical question using the image. Native task: Modality.",
+      "parent_domain_task": 2,
+      "native_label_field": "content_type",
+      "native_label": "Modality",
+      "max_new_tokens": 128,
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_pct10_20261025/pct10/T02_train.jsonl",
+          "count": 107,
+          "sha256": "8f9bd69b328a162d4bb087282bae5d3a88d9d946731e5673083a54b83ddd85ec",
+          "dataset_counts": {
+            "SLAKE": 107
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T02_test.jsonl",
+          "count": 228,
+          "sha256": "c319026d6857ee31722732ce54fd0348e189f0f8aaa574522fdb6623ca3bc572",
+          "dataset_counts": {
+            "SLAKE": 228
+          }
+        }
+      },
+      "training_order_sha256": "7c85a10c8839bb21af0ceb313ced5c131d984618043c71873470f8dfd954a67f",
+      "training_order_rule": "SHA256(42:stage:original_QA_ID), ascending digest"
+    },
+    {
+      "task": 3,
+      "task_id": "T03",
+      "domain": "medical",
+      "modality": "image",
+      "instruction": "Answer the medical question using the image. Native task: Position.",
+      "parent_domain_task": 2,
+      "native_label_field": "content_type",
+      "native_label": "Position",
+      "max_new_tokens": 128,
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_pct10_20261025/pct10/T03_train.jsonl",
+          "count": 170,
+          "sha256": "f1a8fb743c6cd4a7da20f889a21a0e5cc06ca5ee08638772dba133ea73b1e2f3",
+          "dataset_counts": {
+            "SLAKE": 170
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T03_test.jsonl",
+          "count": 375,
+          "sha256": "809a68a36926ba0dab02597b9e4492bcebc2ec394f17103413e13a0e3e072d0b",
+          "dataset_counts": {
+            "SLAKE": 375
+          }
+        }
+      },
+      "training_order_sha256": "3a20a35a1d5d2afabea791e43c6aca6f49cbfe4ab87213625b5b27a9ddac037d",
+      "training_order_rule": "SHA256(42:stage:original_QA_ID), ascending digest"
+    },
+    {
+      "task": 4,
+      "task_id": "T04",
+      "domain": "medical",
+      "modality": "image",
+      "instruction": "Answer the medical question using the image. Native task: Organ.",
+      "parent_domain_task": 2,
+      "native_label_field": "content_type",
+      "native_label": "Organ",
+      "max_new_tokens": 128,
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_pct10_20261025/pct10/T04_train.jsonl",
+          "count": 254,
+          "sha256": "247d5285a0ed3e5cd10553ee7785bf0757fa5d2d998f2ffc167ba8b6612245a3",
+          "dataset_counts": {
+            "SLAKE": 254
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T04_test.jsonl",
+          "count": 507,
+          "sha256": "e5046123567a5d9efe80aae17ed0b141e6261bf80c775f523791ef9022492ba2",
+          "dataset_counts": {
+            "SLAKE": 507
+          }
+        }
+      },
+      "training_order_sha256": "bd7d48a5d46d3e375b78f89fa5b0c6beba620c6afc1cff3aabcdd1b98a7668a5",
+      "training_order_rule": "SHA256(42:stage:original_QA_ID), ascending digest"
+    },
+    {
+      "task": 5,
+      "task_id": "T05",
+      "domain": "medical",
+      "modality": "image",
+      "instruction": "Answer the medical question using the image. Native task: Size.",
+      "parent_domain_task": 2,
+      "native_label_field": "content_type",
+      "native_label": "Size",
+      "max_new_tokens": 128,
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_pct10_20261025/pct10/T05_train.jsonl",
+          "count": 65,
+          "sha256": "045f8dc60214222c2a2b3875a8fb8d7f3c5c62b0321f8b4032c91f10e2b5b403",
+          "dataset_counts": {
+            "SLAKE": 65
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T05_test.jsonl",
+          "count": 124,
+          "sha256": "7e13f0e2db2a9fb4f66249f152c23c336a566c1e5ccf30c929c2c04710be6264",
+          "dataset_counts": {
+            "SLAKE": 124
+          }
+        }
+      },
+      "training_order_sha256": "b0c50d1cf58f87193ba11dd81d31cd3a1d083645fdc06dae415c116ae66a599a",
+      "training_order_rule": "SHA256(42:stage:original_QA_ID), ascending digest"
+    },
+    {
+      "task": 6,
+      "task_id": "T06",
+      "domain": "medical",
+      "modality": "image",
+      "instruction": "Answer the medical question using the image. Native task: Abnormality.",
+      "parent_domain_task": 2,
+      "native_label_field": "content_type",
+      "native_label": "Abnormality",
+      "max_new_tokens": 128,
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_pct10_20261025/pct10/T06_train.jsonl",
+          "count": 141,
+          "sha256": "748952bed8e8f48bdbc3d39a6e8b37beeb36638d618f011e8ab919e1286a6c3c",
+          "dataset_counts": {
+            "SLAKE": 141
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T06_test.jsonl",
+          "count": 311,
+          "sha256": "18f04db0a28b6b0abd9b0f3f5ad7d030151085c47b88213d043752eacad98877",
+          "dataset_counts": {
+            "SLAKE": 311
+          }
+        }
+      },
+      "training_order_sha256": "021b9e901241a92f562f1a671e7ca0d87a7fd79f1ceec8cb036df1a02ac159fa",
+      "training_order_rule": "SHA256(42:stage:original_QA_ID), ascending digest"
+    },
+    {
+      "task": 7,
+      "task_id": "T07",
+      "domain": "medical",
+      "modality": "image",
+      "instruction": "Answer the medical question using the image. Native task: Quantity.",
+      "parent_domain_task": 2,
+      "native_label_field": "content_type",
+      "native_label": "Quantity",
+      "max_new_tokens": 128,
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_pct10_20261025/pct10/T07_train.jsonl",
+          "count": 44,
+          "sha256": "54f8c3c45d0bfc08a8cf4989415208a152abcaa81f09742bf1a719bd11e57536",
+          "dataset_counts": {
+            "SLAKE": 44
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T07_test.jsonl",
+          "count": 89,
+          "sha256": "e424c1d3905db42165ad9f525f033045af1e8605e6b1e5848bba82573e54e221",
+          "dataset_counts": {
+            "SLAKE": 89
+          }
+        }
+      },
+      "training_order_sha256": "3db9b53d7b8aa4a54772a12c49e3c7c358466707208b2fd96db0e392aa439562",
+      "training_order_rule": "SHA256(42:stage:original_QA_ID), ascending digest"
+    },
+    {
+      "task": 8,
+      "task_id": "T08",
+      "domain": "medical",
+      "modality": "image",
+      "instruction": "Answer the medical question using the image. Native task: Plane.",
+      "parent_domain_task": 2,
+      "native_label_field": "content_type",
+      "native_label": "Plane",
+      "max_new_tokens": 128,
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_pct10_20261025/pct10/T08_train.jsonl",
+          "count": 51,
+          "sha256": "9a96c2ce7ed6f6b941614b067dff23854387e880cf9f4fdd32e3dc321f6c8575",
+          "dataset_counts": {
+            "SLAKE": 51
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T08_test.jsonl",
+          "count": 116,
+          "sha256": "2c3d5bc145141ac44d4a18722169bb421f47d41f1558d04d6da9a3dd365f8a86",
+          "dataset_counts": {
+            "SLAKE": 116
+          }
+        }
+      },
+      "training_order_sha256": "0eb6eb8210af383ecc519a66a33f039a6b081413ef9e50d7b5a843b9c6d0083b",
+      "training_order_rule": "SHA256(42:stage:original_QA_ID), ascending digest"
+    },
+    {
+      "task": 9,
+      "task_id": "T09",
+      "domain": "medical",
+      "modality": "image",
+      "instruction": "Answer the medical question using the image. Native task: Shape.",
+      "parent_domain_task": 2,
+      "native_label_field": "content_type",
+      "native_label": "Shape",
+      "max_new_tokens": 128,
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_pct10_20261025/pct10/T09_train.jsonl",
+          "count": 8,
+          "sha256": "72b967b5e81eb45233e9edee2828081ba7e3a245af4c6e73e76219b7685b5bba",
+          "dataset_counts": {
+            "SLAKE": 8
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T09_test.jsonl",
+          "count": 12,
+          "sha256": "3f554ff6047a98566520a39bc9d89ecf0bcf00a29e2e2d1f76bfb2b63097be95",
+          "dataset_counts": {
+            "SLAKE": 12
+          }
+        }
+      },
+      "training_order_sha256": "db4e3932e8258ec539dc0136b79415b8234d2fa01d891323a6095c53fb22c21c",
+      "training_order_rule": "SHA256(42:stage:original_QA_ID), ascending digest"
+    },
+    {
+      "task": 10,
+      "task_id": "T10",
+      "domain": "medical",
+      "modality": "image",
+      "instruction": "Answer the medical question using the image. Native task: Color.",
+      "parent_domain_task": 2,
+      "native_label_field": "content_type",
+      "native_label": "Color",
+      "max_new_tokens": 128,
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_pct10_20261025/pct10/T10_train.jsonl",
+          "count": 27,
+          "sha256": "24943372d1cb16595cfb697d896d5de70e08a5593be410ec6936b39747d89ffe",
+          "dataset_counts": {
+            "SLAKE": 27
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T10_test.jsonl",
+          "count": 65,
+          "sha256": "f6c9fcfd7c3b385eb82829ebb478a7db522eecc4a53c33ded2ab8f82ff57e328",
+          "dataset_counts": {
+            "SLAKE": 65
+          }
+        }
+      },
+      "training_order_sha256": "f35fd25bd0b0c034cd1ad13672943f617a85a4c1948153bb5a452391f29c9c4b",
+      "training_order_rule": "SHA256(42:stage:original_QA_ID), ascending digest"
+    },
+    {
+      "task": 11,
+      "task_id": "T11",
+      "domain": "medical",
+      "modality": "image",
+      "instruction": "Answer the medical question using the image. Native task: KG.",
+      "parent_domain_task": 2,
+      "native_label_field": "content_type",
+      "native_label": "KG",
+      "max_new_tokens": 128,
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_pct10_20261025/pct10/T11_train.jsonl",
+          "count": 117,
+          "sha256": "6523d075e5f673f67965ba5a3520275c77ea1bd0831c9fd4eb7a087338e4afcf",
+          "dataset_counts": {
+            "SLAKE": 117
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T11_test.jsonl",
+          "count": 267,
+          "sha256": "48e7b5e4177a001612d6640f6df92cc3621362792dffb0ad762476e562b6b21b",
+          "dataset_counts": {
+            "SLAKE": 267
+          }
+        }
+      },
+      "training_order_sha256": "ec1714cfe0a2a91453cdc5aa7f03a392d0ee53454bc09c008ac5edb5f822c72a",
+      "training_order_rule": "SHA256(42:stage:original_QA_ID), ascending digest"
+    },
+    {
+      "task": 12,
+      "task_id": "T12",
+      "domain": "geography",
+      "modality": "image",
+      "instruction": "Answer the remote-sensing question using the image. Preserve the original numeric answer format. Native task: rural_urban.",
+      "parent_domain_task": 3,
+      "native_label_field": "question_type",
+      "native_label": "rural_urban",
+      "max_new_tokens": 512,
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_pct10_20261025/pct10/T12_train.jsonl",
+          "count": 57,
+          "sha256": "d6a27e9d107d0fc7709f7877e4666903c00934eb52efb91b09588be405dc4ecd",
+          "dataset_counts": {
+            "RSVQA-LR": 57
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T12_test.jsonl",
+          "count": 100,
+          "sha256": "7948cf70e4996ec38532ff680638b8c81710d6e02cceb9589c58cb6403284013",
+          "dataset_counts": {
+            "RSVQA-LR": 100
+          }
+        }
+      },
+      "training_order_sha256": "9fee2c24b3c94a772109a0ae9f57adccba9c071058bf73b038c6cbfc974c5cb9",
+      "training_order_rule": "SHA256(42:stage:original_QA_ID), ascending digest"
+    },
+    {
+      "task": 13,
+      "task_id": "T13",
+      "domain": "geography",
+      "modality": "image",
+      "instruction": "Answer the remote-sensing question using the image. Preserve the original numeric answer format. Native task: presence.",
+      "parent_domain_task": 3,
+      "native_label_field": "question_type",
+      "native_label": "presence",
+      "max_new_tokens": 512,
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_pct10_20261025/pct10/T13_train.jsonl",
+          "count": 1701,
+          "sha256": "9923dd488a8e123a32df2030f3129dfd6765a79646e7e1f7a2ebc899155c7d13",
+          "dataset_counts": {
+            "RSVQA-LR": 1701
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T13_test.jsonl",
+          "count": 2955,
+          "sha256": "4ca421c2594f1d2a36b749d42526706cc6caca9af05f9908b85d08cf7c9218b4",
+          "dataset_counts": {
+            "RSVQA-LR": 2955
+          }
+        }
+      },
+      "training_order_sha256": "837fe8f02225572ad39dd4de8a04a831cf8773efcd686ed8eee49bd0a7d83eb6",
+      "training_order_rule": "SHA256(42:stage:original_QA_ID), ascending digest"
+    },
+    {
+      "task": 14,
+      "task_id": "T14",
+      "domain": "geography",
+      "modality": "image",
+      "instruction": "Answer the remote-sensing question using the image. Preserve the original numeric answer format. Native task: count.",
+      "parent_domain_task": 3,
+      "native_label_field": "question_type",
+      "native_label": "count",
+      "max_new_tokens": 512,
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_pct10_20261025/pct10/T14_train.jsonl",
+          "count": 1709,
+          "sha256": "1e493055644a34bc6838649c99091f1760773874fab92b57894a85b03c472f06",
+          "dataset_counts": {
+            "RSVQA-LR": 1709
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T14_test.jsonl",
+          "count": 2947,
+          "sha256": "ff46c370c5b0a545c770e702e7fef159e79f4188c4a657356ca988da4b57866d",
+          "dataset_counts": {
+            "RSVQA-LR": 2947
+          }
+        }
+      },
+      "training_order_sha256": "d1cd7cac30032b0c7c3a7cc4e7da976518d68419fbd8d16af4285f1a196efa3c",
+      "training_order_rule": "SHA256(42:stage:original_QA_ID), ascending digest"
+    },
+    {
+      "task": 15,
+      "task_id": "T15",
+      "domain": "geography",
+      "modality": "image",
+      "instruction": "Answer the remote-sensing question using the image. Preserve the original numeric answer format. Native task: comp.",
+      "parent_domain_task": 3,
+      "native_label_field": "question_type",
+      "native_label": "comp",
+      "max_new_tokens": 512,
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_pct10_20261025/pct10/T15_train.jsonl",
+          "count": 2256,
+          "sha256": "88a6608fe763642e6520476fc10415d6b258eb140e80a30da2378fe714d6dc95",
+          "dataset_counts": {
+            "RSVQA-LR": 2256
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T15_test.jsonl",
+          "count": 4002,
+          "sha256": "6ae35bde45e33788bcd31c99dc9f80a1d9236bd6062a807fd989e2c1fbe426cc",
+          "dataset_counts": {
+            "RSVQA-LR": 4002
+          }
+        }
+      },
+      "training_order_sha256": "c1da4dc8895354611e8363f016b31b24c39f96594a74ff67aa3b9e669faba7d3",
+      "training_order_rule": "SHA256(42:stage:original_QA_ID), ascending digest"
+    },
+    {
+      "task": 16,
+      "task_id": "T16",
+      "domain": "finance",
+      "modality": "image",
+      "instruction": "Answer the financial question using the image and original background.",
+      "parent_domain_task": 4,
+      "native_label_field": null,
+      "native_label": null,
+      "max_new_tokens": 512,
+      "files": {
+        "train": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_pct10_20261025/pct10/T16_train.jsonl",
+          "count": 887,
+          "sha256": "c38ebb451cf9409beca756f0efe0e99e1e94b745cbd2bfcac48d40314e7aa2c7",
+          "dataset_counts": {
+            "FinMME": 887
+          }
+        },
+        "test": {
+          "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/full/T16_test.jsonl",
+          "count": 2233,
+          "sha256": "162ba8ad340a9fb898a3a942b3e720e581f23dddfacb70c289f3bd935d869206",
+          "dataset_counts": {
+            "FinMME": 2233
+          }
+        }
+      },
+      "training_order_sha256": "906cbc91a8b8d61088b3ea9c6525f2b68c36d49b22f7c394633dbf9929c4c5d5",
+      "training_order_rule": "SHA256(42:stage:original_QA_ID), ascending digest"
+    }
+  ],
+  "source_manifest_sha256": "02ef86674c22a9dbf7f0d406398615437f8406cff364415e14d54f5fdb5bfcb7",
+  "parent_five_domain_manifest": {
+    "path": "data/FiveDomainCL/five_domain_native_cl_pct10_20261025/pct10/manifest.json",
+    "sha256": "02ef86674c22a9dbf7f0d406398615437f8406cff364415e14d54f5fdb5bfcb7"
+  },
+  "native_task_order": "Domain order, then explicit label order in prepare_native.py; no claim of official curriculum",
+  "no_qa_rewriting": true,
+  "original_source_split_identity_preserved": true,
+  "parent_1pct_ids_preserved": true,
+  "scope": "Original native T01..T16 only: natural/medical/geography/finance; traffic T17..19 excluded from training and evaluation",
+  "task_count": 16,
+  "domains": [
+    "natural",
+    "medical",
+    "geography",
+    "finance"
+  ],
+  "train_fraction": 0.1,
+  "test_fraction": 1.0,
+  "effective_train_count": 11055,
+  "effective_test_count": 19331,
+  "planned_main_optimizer_updates": 698,
+  "main_batch_size": 16,
+  "micro_batch_size": 1,
+  "epochs": 1,
+  "sampling_rule": "Exact frozen parent T1..16 records/files/order; no resampling or QA file operation performed",
+  "no_future_traffic_instructions": true,
+  "formal_ready_scope": "Input metadata inherited from frozen parent only; not runner/GPU acceptance or proof of reusable S16 state"
+}

@@ -1,6 +1,6 @@
 # LLMCL：1%与10%数据下的多领域多模态持续学习
 
-**研究目标：完整模型权重与 GPU 内存显著更小，同时保持有竞争力的总体 Answer F1。** 人类最新允许比最高分略低，按质量—内存取舍判断；允许域间取舍，五域分别报告，重点是论文方法与实测资源优势，不做端侧设备适配。
+**研究目标：完整模型权重与 GPU 内存显著更小，同时保持有竞争力的总体 Answer F1。** 人类最新允许比最高分略低，按质量—内存取舍判断；允许域间取舍，当前四域分别报告，重点是论文方法与实测资源优势，不做端侧设备适配。
 
 **部署参数优先级（2026-10-28）：总部署参数、完整权重内存和实际GPU峰值是主要资源指标，参与训练的参数量次要。 目标是接近单骨干规模、仅增加很少的部署参数；不要求比同骨干全量微调更小。朴素基线采用不加LoRA的全量顺序微调；已有SeqFT-LoRA保留为小参数参照，不改旧结果、不冒充全量微调。** 当前TaskGradReuse的540,672仅为主训练坐标；最终单dense图预计893,675,552个总系数，正式模型仍待重载核验，与同骨干全量微调并无总参数优势。它能否用单骨干达到强方法的学习效果仍待正式结果。[比较口径与全量基线要求](summary/deployment_total_parameters_20261028/REQUIREMENTS.md)
 
@@ -8,14 +8,162 @@
 
 **研究重点（人类最新指示）：只考虑新习得，不研究遗忘。** 后续问题是现有方法为什么没有学好新任务、如何使1%与10%数据下的学习更有效；内存／参数量作为最终评估，不替代学习原因证据。
 
+**当前主实验范围（2026-10-29）：按用户要求移除交通，保留自然、医学、地理、金融，共16个子任务。1%为1108条TRAIN，10%为11055条TRAIN，均使用完整19331条TEST。** 两套四域主表须用统一S16终点的完整评估；下方已有五域表保留为历史结果，不直接删列充作新实验。[四域口径](summary/four_domain_scope_20261029/PROTOCOL.md) · [16个子任务已有新习得分数](summary/task_gradient_interim_s17_20261029/SUBTASK_ACQUISITION.md)
+
 **设置确定后固定。** 沿用既定数据、训练、生成与评分条件，研究方法在这些条件下的新习得能力、失败和适用边界，不为改善结果反复调整设置。
 
-**当前结论：尚未得到同时满足质量与资源目标的自研方法，Ours 暂空。** 已有1%完整正式结果9组；10%已有双骨干SeqFT-LoRA共2组完整核验，LLaVA／Qwen五域宏分别47.462／52.854，两组最终完整模型已耐久保存；其余基线继续运行／排队。单图LoRA相对PAS与Qwen的固定窗口显存差异已实测，新方法质量仍待验证。 Qwen CL-MoE已完成并通过原19阶段／74格核验，五域宏48.072，完整S19参数文件已保存；完整保存系数2,286,975,072、权重4510.812MiB，五窗GPU仍待测。
+**历史五域结果与当前结论：尚未得到同时满足质量与资源目标的自研方法，Ours 暂空。** 已有1%完整正式结果9组；10%已有双骨干SeqFT-LoRA共2组完整核验，LLaVA／Qwen五域宏分别47.462／52.854，两组最终完整模型已耐久保存；其余基线继续运行／排队。单图LoRA相对PAS与Qwen的固定窗口显存差异已实测，新方法质量仍待验证。 Qwen CL-MoE已完成并通过原19阶段／74格核验，五域宏48.072，完整S19参数文件已保存；完整保存系数2,286,975,072、权重4510.812MiB，五窗GPU仍待测。
 
 本文只保留主表、探索命题和结论。[补充说明](SUPPLEMENTARY_NOTES.md#探索过程与证据索引)保存完整探索过程、正负证据、故障、成本及运行交接。
 
+<!-- FOUR_DOMAIN_MAIN_TABLES_BEGIN -->
+## 四域主实验：1%训练
+
+### 表1：四大类／16小类最终Answer F1
+
+<table>
+<thead>
+<tr><th rowspan="2">方法</th><th colspan="1">自然</th><th colspan="11">医学</th><th colspan="5">地理／遥感</th><th colspan="1">金融</th><th rowspan="2">四域宏<br>F1 ↑</th></tr>
+<tr><th>TextVQA</th><th>Mod.</th><th>Pos.</th><th>Organ</th><th>Size</th><th>Abn.</th><th>Qty.</th><th>Plane</th><th>Shape</th><th>Color</th><th>KG</th><th>Avg</th><th>R/U</th><th>Exist</th><th>Count</th><th>Compare</th><th>Avg</th><th>FinMME</th></tr>
+</thead>
+<tbody>
+<tr><th colspan="20">LLaVA-OneVision-Qwen2-0.5B-OV</th></tr>
+<tr><th>FullFT（朴素全量）</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>SeqFT-LoRA（q/v-r8）</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>FOREVER</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>CL-MoE</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>SMoLoRA</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>PASs-MoE</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>PaRSP</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>OSFT</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>SpaRTA</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>Ours</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th colspan="20">Qwen2-VL-2B-Instruct</th></tr>
+<tr><th>FullFT（朴素全量）</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>SeqFT-LoRA（q/v-r8）</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>FOREVER</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>CL-MoE</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>SMoLoRA</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>PASs-MoE</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>PaRSP</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>OSFT</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>SpaRTA</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>Ours</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+</tbody>
+</table>
+
+医学：Mod.=模态，Pos.=位置，Organ=器官，Size=尺寸，Abn.=异常，Qty.=数量，Plane=切面，Shape=形状，Color=颜色，KG=知识；地理：R/U=城乡，Exist=存在性，Count=计数，Compare=比较。自然和金融各只有一个原生任务，不重复列相同的域内Avg。
+
+各小类均为统一四域终点R[16,t]的原始Answer F1（0–100）。Avg按该域TEST题数加权；四域宏对四个域等权。AP16对16个终点任务分数等权，不能与四域宏互换。FWT/BWT沿原定义限制在16任务；保留报告但研究分析聚焦新习得。—表示尚未完成该四域口径核验，不是0。历史五域和阶段刚习得分数不得直接填入。
+
+### 表2：持续学习与部署开销
+
+| 方法 | AP16 ↑ | FWT ↑ | BWT ↑ | 总部署参数<br>M ↓ | 新增部署参数<br>M ↓ | 完整权重<br>MiB ↓ | 权重增量<br>MiB ↓ | GPU峰值†<br>MiB ↓ | 首词延迟<br>s ↓ | 生成速度<br>tok/s ↑ | 常驻适配器<br>数量 ↓ |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| **LLaVA-OneVision-Qwen2-0.5B-OV** |  |  |  |  |  |  |  |  |  |  |  |
+| FullFT（朴素全量） | — | — | — | — | — | — | — | — | — | — | — |
+| SeqFT-LoRA（q/v-r8） | — | — | — | — | — | — | — | — | — | — | — |
+| FOREVER | — | — | — | — | — | — | — | — | — | — | — |
+| CL-MoE | — | — | — | — | — | — | — | — | — | — | — |
+| SMoLoRA | — | — | — | — | — | — | — | — | — | — | — |
+| PASs-MoE | — | — | — | — | — | — | — | — | — | — | — |
+| PaRSP | — | — | — | — | — | — | — | — | — | — | — |
+| OSFT | — | — | — | — | — | — | — | — | — | — | — |
+| SpaRTA | — | — | — | — | — | — | — | — | — | — | — |
+| Ours | — | — | — | — | — | — | — | — | — | — | — |
+| **Qwen2-VL-2B-Instruct** |  |  |  |  |  |  |  |  |  |  |  |
+| FullFT（朴素全量） | — | — | — | — | — | — | — | — | — | — | — |
+| SeqFT-LoRA（q/v-r8） | — | — | — | — | — | — | — | — | — | — | — |
+| FOREVER | — | — | — | — | — | — | — | — | — | — | — |
+| CL-MoE | — | — | — | — | — | — | — | — | — | — | — |
+| SMoLoRA | — | — | — | — | — | — | — | — | — | — | — |
+| PASs-MoE | — | — | — | — | — | — | — | — | — | — | — |
+| PaRSP | — | — | — | — | — | — | — | — | — | — | — |
+| OSFT | — | — | — | — | — | — | — | — | — | — | — |
+| SpaRTA | — | — | — | — | — | — | — | — | — | — | — |
+| Ours | — | — | — | — | — | — | — | — | — | — | — |
+
+† GPU峰值为统一四域固定输入、同卡同生成长度下的推理allocated峰；reserved峰、实际dtype、训练峰、完整最终checkpoint与来源在证据表另存。MiB=2²⁰字节，参数M=10⁶；新增参数/权重增量相对同backbone。部署量包括推理必需的共享权重、专家/适配器及必要状态，不含optimizer，不用训练坐标或checkpoint容器体积替代。
+
+<details>
+<summary>10%训练：同版式两张主表</summary>
+
+
+## 表1：16个子任务的最终Answer F1
+
+<table>
+<thead>
+<tr><th rowspan="2">方法</th><th colspan="1">自然</th><th colspan="11">医学</th><th colspan="5">地理／遥感</th><th colspan="1">金融</th><th rowspan="2">四域宏<br>F1 ↑</th></tr>
+<tr><th>TextVQA</th><th>Mod.</th><th>Pos.</th><th>Organ</th><th>Size</th><th>Abn.</th><th>Qty.</th><th>Plane</th><th>Shape</th><th>Color</th><th>KG</th><th>Avg</th><th>R/U</th><th>Exist</th><th>Count</th><th>Compare</th><th>Avg</th><th>FinMME</th></tr>
+</thead>
+<tbody>
+<tr><th colspan="20">LLaVA-OneVision-Qwen2-0.5B-OV</th></tr>
+<tr><th>FullFT（朴素全量）</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>SeqFT-LoRA（q/v-r8）</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>FOREVER</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>CL-MoE</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>SMoLoRA</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>PASs-MoE</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>PaRSP</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>OSFT</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>SpaRTA</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>Ours</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th colspan="20">Qwen2-VL-2B-Instruct</th></tr>
+<tr><th>FullFT（朴素全量）</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>SeqFT-LoRA（q/v-r8）</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>FOREVER</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>CL-MoE</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>SMoLoRA</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>PASs-MoE</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>PaRSP</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>OSFT</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>SpaRTA</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>Ours</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+</tbody>
+</table>
+
+医学：Mod.=模态，Pos.=位置，Organ=器官，Size=尺寸，Abn.=异常，Qty.=数量，Plane=切面，Shape=形状，Color=颜色，KG=知识；地理：R/U=城乡，Exist=存在性，Count=计数，Compare=比较。自然和金融各只有一个原生任务，不重复列相同的域内Avg。
+
+各小类均为统一四域终点R[16,t]的原始Answer F1（0–100）。Avg按该域TEST题数加权；四域宏对四个域等权。AP16对16个终点任务分数等权，不能与四域宏互换。FWT/BWT沿原定义限制在16任务；保留报告但研究分析聚焦新习得。—表示尚未完成该四域口径核验，不是0。历史五域和阶段刚习得分数不得直接填入。
+
+## 表2：持续学习与部署开销
+
+| 方法 | AP16 ↑ | FWT ↑ | BWT ↑ | 总部署参数<br>M ↓ | 新增部署参数<br>M ↓ | 完整权重<br>MiB ↓ | 权重增量<br>MiB ↓ | GPU峰值†<br>MiB ↓ | 首词延迟<br>s ↓ | 生成速度<br>tok/s ↑ | 常驻适配器<br>数量 ↓ |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| **LLaVA-OneVision-Qwen2-0.5B-OV** |  |  |  |  |  |  |  |  |  |  |  |
+| FullFT（朴素全量） | — | — | — | — | — | — | — | — | — | — | — |
+| SeqFT-LoRA（q/v-r8） | — | — | — | — | — | — | — | — | — | — | — |
+| FOREVER | — | — | — | — | — | — | — | — | — | — | — |
+| CL-MoE | — | — | — | — | — | — | — | — | — | — | — |
+| SMoLoRA | — | — | — | — | — | — | — | — | — | — | — |
+| PASs-MoE | — | — | — | — | — | — | — | — | — | — | — |
+| PaRSP | — | — | — | — | — | — | — | — | — | — | — |
+| OSFT | — | — | — | — | — | — | — | — | — | — | — |
+| SpaRTA | — | — | — | — | — | — | — | — | — | — | — |
+| Ours | — | — | — | — | — | — | — | — | — | — | — |
+| **Qwen2-VL-2B-Instruct** |  |  |  |  |  |  |  |  |  |  |  |
+| FullFT（朴素全量） | — | — | — | — | — | — | — | — | — | — | — |
+| SeqFT-LoRA（q/v-r8） | — | — | — | — | — | — | — | — | — | — | — |
+| FOREVER | — | — | — | — | — | — | — | — | — | — | — |
+| CL-MoE | — | — | — | — | — | — | — | — | — | — | — |
+| SMoLoRA | — | — | — | — | — | — | — | — | — | — | — |
+| PASs-MoE | — | — | — | — | — | — | — | — | — | — | — |
+| PaRSP | — | — | — | — | — | — | — | — | — | — | — |
+| OSFT | — | — | — | — | — | — | — | — | — | — | — |
+| SpaRTA | — | — | — | — | — | — | — | — | — | — | — |
+| Ours | — | — | — | — | — | — | — | — | — | — | — |
+
+† GPU峰值为统一四域固定输入、同卡同生成长度下的推理allocated峰；reserved峰、实际dtype、训练峰、完整最终checkpoint与来源在证据表另存。MiB=2²⁰字节，参数M=10⁶；新增参数/权重增量相对同backbone。部署量包括推理必需的共享权重、专家/适配器及必要状态，不含optimizer，不用训练坐标或checkpoint容器体积替代。
+
+</details>
+
+<!-- FOUR_DOMAIN_MAIN_TABLES_END -->
+
+<details>
+<summary>历史五域两张主表及原口径（完整保留）</summary>
+
 <!-- FORMAL_MAIN_TABLE_BEGIN -->
-## 主实验：双骨干1%多领域持续学习
+## 历史五域主表：双骨干1%
 
 Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条），测试集为完整21454条；五个数据集按19个原生任务顺序训练，seed=42。空白表示尚无完整核验结果，不能视作0分。
 
@@ -57,7 +205,7 @@ Acc采用唯一的**Answer F1（0–100）**。训练集为冻结的1%（1313条
 <!-- FORMAL_MAIN_TABLE_END -->
 
 <!-- PCT10_MAIN_TABLE_BEGIN -->
-## 第二主表：双骨干10%训练／完整测试
+## 历史五域第二表：双骨干10%训练／完整测试
 
 训练10%已冻结为**13105 QA**，完整TEST仍为**21454 QA**；seed42、一轮、19任务，主任务共828次优化器调用，其余沿用1%正式设置。**2/16组完整核验：双骨干SeqFT-LoRA。** 其余基线按原队列运行，或已保存阶段checkpoint等待接续。空白不是0分，不复制1%结果或估计未测资源。
 
@@ -101,6 +249,9 @@ Qwen SeqFT最终五域宏由1%的48.972升至10%的52.854，遥感、金融、�
 - **评价口径：** 主表为冻结1%训练集1313条、19阶段、完整21454 TEST、seed42；五域宏是五个域均值等权，AP是19任务等权，两者不混用。已完整核验9/16组，空白不代表0分。
 - **最强参照：** 当前已核验的LLaVA-OneVision内五域宏最高为PASs-MoE **46.619976**；跨骨干最高为Qwen顺序LoRA **48.972351**。新方法需同时报告这两个比较范围，不能把PAS无条件称为全体最强。
 - **基线接续：** 新服务器由队列使用GPU1/2/3，只保留GPU0不由我方分配；移除了不必要的队列屏障。原基线继续运行，新完整核验结果出来后补表。[运行与队列详情](summary/baseline_capacity_20261025/v1/FINDINGS.md)。
+
+
+</details>
 
 ## 探索命题与结论
 
