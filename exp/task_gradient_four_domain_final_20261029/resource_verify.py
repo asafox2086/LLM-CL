@@ -32,7 +32,7 @@ def verify(root,output,binding_path,worker_path):
     b=read(binding_path);bh=sha(binding_path)
     assert sha(worker_path)==b['worker_sha256'] and sha(__file__)==b['verifier_sha256']
     assert b['schema']=='task-gradient-four-domain-resource-v1'
-    assert b['worker_sha256']=='f270d5e5d325f23e871eab87e47d44d1f72a97f8d5af7582561e827be91e6d72'
+    assert b['worker_sha256']=='cde2520f7e0cd4f6764bf655cb63a43f4c87d22c327cf02d9a94afb86f39dd3e'
     result_path=checked(root,b['quality_result']);quality=read(result_path)
     certificate_path=checked(root,b['quality_verified']);certificate=read(certificate_path)
     verifier_path=checked(root,b['quality_verifier'])

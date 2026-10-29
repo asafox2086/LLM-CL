@@ -72,7 +72,8 @@ def terminal(a,files):
     check(ss['identity']==ws['supervisor']==se['supervisor']==sx['identity'],'supervisor identity chain')
     check(ws['identity']==wx['identity']==se['worker'] and ws['GPU']==1,'worker identity chain')
     check(ws['command']==ss['command'] and '--execute' in ss['command'],'actual worker command')
-    check(wx['returncode']==se['returncode']==sx['returncode']==0 and wx['identity_absent'] and sx['identity_absent'],'actual two process exit0')
+    check(wx['returncode']==se['returncode']==0 and wx['identity_absent'] and sx['identity_absent'],'science worker successful exit and supervisor absent')
+    check(sx['returncode'] is None and sx['exit_status_available'] is False and sx['systemd']['LoadState']=='not-found','explicit unavailable supervisor exit status')
     check(sx['binding_sha256']==BINDING_SHA,'external exit receipt binding')
     # External receipt must derive exit0 from systemd/setsid --wait, not the worker's claim.
     check(identity(ws['identity']['pid'])!=ws['identity'] and identity(ss['identity']['pid'])!=ss['identity'],'process still live')
@@ -164,6 +165,7 @@ def main():
             method='TaskGradReuse',backbone='onevision',condition='pct01',terminal_stage=16,
             binding_sha256=BINDING_SHA,verifier_sha256=own,worker_complete_sha256=sha(a.run/'COMPLETE.json'),
             final_checkpoint=cp,final_checkpoint_full_SHA_rechecked=False,independent_dense_reload_pending=True,
+            supervisor_literal_exitcode_available=False,supervisor_completion_source='source-audited success receipt and absent identity; literal process returncode unavailable',
             independent_fixed_window_resource_pending=True,new_models=0,new_generations=0,
             limits=['S16 TRAIN-prefix equivalence is source-audited, not a fresh sixteen-task training process.',
                     'The original run evaluated some traffic inputs but no traffic TRAIN was used through S16.',

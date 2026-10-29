@@ -103,7 +103,8 @@ def validate_metadata(root, binding_path):
     assert not (original/'FAILURE.json').exists() and not (report/'SUPERVISOR_FAILURE.json').exists()
     supervisor=read(report/'SUPERVISOR_COMPLETE.json');worker_exit=read(report/'WORKER_EXIT.json')
     supervisor_exit_path=checked(root,b['quality_supervisor_exit']);supervisor_exit=read(supervisor_exit_path)
-    assert supervisor['returncode']==worker_exit['returncode']==supervisor_exit['returncode']==0
+    assert supervisor['returncode']==worker_exit['returncode']==0
+    assert supervisor_exit['returncode'] is None and supervisor_exit['exit_status_available'] is False and supervisor_exit['systemd']['LoadState']=='not-found'
     assert supervisor['complete_sha256']==sha(complete_path)
     assert supervisor['worker']==worker_exit['identity'] and supervisor['supervisor']==supervisor_exit['identity']
     assert worker_exit['identity_absent'] and supervisor_exit['identity_absent']
