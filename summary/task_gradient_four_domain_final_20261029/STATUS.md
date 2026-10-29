@@ -9,3 +9,9 @@ OLD GPU1上的新四域终评worker350536/start795215352、supervisor350528/star
 完整退出后仅执行独立核验一次；同一最终dense图需独立重载、参数与权重字节账本和统一资源测量。主表当前已填的历史S19基线不能冒充S16同终点对照。
 
 PaRSP仅退休本分支S09/S10早期payload，释放11748866920B，S6/S11/S12及全部QA/JSON保留；此前S07/S08退休记录独立保留。当前tmpfs约26.74GB可用；不得重放清理脚本。监控使用summary/runtime_recovery_20261029/observe_recovery.py，低频核查真实身份与完整终态。
+
+## 完成后核验准备
+
+独立verify.py（770fbe5346c23996c8f1a87083184d24a6ab12e4d455e681d336d871f4588354）已root与baseline_review交叉审阅并运输OLD，未执行main或消费QA/评分。实际读取完整终态后，核19331条已有分数与16聚合、输入身份一致性；0重评分，不声称独立重算metric。必须先从systemd该unit的ExecMainCode/ExecMainStatus和MainPID采集真实supervisor退出收据，LAUNCH不等于成功退出。已有活动worker不改。
+
+资源补测方案：独立重载这一S16最终dense图，不重新fold/cast；同OLD GPU1、同原PAS前四域raw/prepared输入、各32token，比较两者这四窗的峰值。历史PAS五窗最大值不能冒作四窗对照。资源源码准备中、实际CP及质量proof待完成后绑定；未产生新参数/显存实测值。
