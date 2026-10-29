@@ -1,3 +1,12 @@
+# 2026-10-29：静态PAS已完整导出/独立重载/资源通过，完整TEST仍在同一进程运行
+
+- 当前唯一研究完整确认科学冻结f05f162；源与旧c c55d1a...不再变。OLD final目录exp/pas_static_final_confirmation_20261029、summary同名，binding469735a7...。export762104/start797489622已67.878184秒EXIT0/gone；eval763648/start797496721/UID1084/PGID同PID在OLD GPU1，unit llmcl-pas-static-final-confirmation-20261029.service，86400秒模型期限。原始GPU全过程，不CPU模型实验；不更改生成/数据/指标，不因部分质量救点。
+- 最终完整CP SHA246e876954f9aa71af4fcd0d9d9315060fbc745c642c81894acd970efb25f4a1/1787572114B，同fold digest3ea480...；OLD runs/export_v1/model.pt保留，NEW .deployment/pas_static_final_confirmation_20261029/export_v1/model.pt+processor已耐久复制全SHA。不得删最终、不下载CP到Windows。独立新进程meta+strict完整reload成功，无base权重补缺，旧专家/learner已去掉。
+- 已完成五窗且已通知：同原PAS GPU UUID/输入/32token，最高allocated2166.100586MiB vs2959.415039，逐窗低24.8433%..26.8065%。893675552神经参数/新增0/1704.550842MiB；原PAS2241.552124包含1344B必要mask，纯weights2241.550842。Resource_FINDINGS/REVIEW与DURABLE_MODEL为证据，不是全TEST峰或完整质量胜出。
+- eval完整19格/21454TEST待核，不读partial质量调方法。真实EXIT0+COMPLETE+gone后仅一次E/verify.py --binding D/BINDING.json --export-dir E/runs/export_v1 --run E/runs/evaluation_v1 --execute；verify SHA b45c304052672d513a6c0f1f05a0bbdb497bd93d5db2d8ffa907630e599f3ac7。已有VERIFIED只复用，marker在不成功不自动重放。最终只AP19/五域宏/19小类，FWT/BWT缺测，不能借原PAS。原probe已唯一核验结束，52.498→53.766→53.761只100个原训练已见QA，别重probe/score或冒作主表。
+- 最新一次实核1793277108：NEW3217671 owner、3217693/start61619775 SMo S15eval、3217709/start61619786 QwenOSFT S17eval；OLD550957/550976/463926均身份匹配，S16eval/S17eval/S0初评。NEW实际合法1/3、其它UID0/2，保0规则不变。无新完整基线，别重consumer。NEW free43.26GB；OLD quota余14.31GB/tmpfs23.69GB，后续按真实值。
+- 最近仅OLD OSFT14/15+PaRSP14三旧payload已退11966389759B，保16/15与原锚/全部小记录；先前其它退休也都已完成不可重放。各原ENOSPC/OOM现场保留，恢复收据NEW summary/storage_recovery_second_20261029。主表仍9组1%与2组10%完整，不能将资源完成或探索提升当论文目标成功。
+
 # 2026-10-29：PAS部署函数必要性唯一probe已在OLD GPU1真实运行
 
 - 研究目标是最终新增部署参数少，训练空间不限。当前唯一新问题是已训练PAS动态专家条件性在部署时是否必要，不预设专家冗余。Git科学冻结7dc6cb0；worker036c5ec42a82c1051407a659a18490ea6f6b4a6b3797cb194782dd87e4ee2567、verify4b4d7e92af72d7a95831ccd59127a2b93783b0f45a257f8f6311664f80a9eb6a，protocol e73b6983、OLD bindingd1aa5282。0模型元数据预检通过后真实worker694358/start797156965/UID1084/PGID同PID，unit llmcl-pas-static-function-probe-20261029.service，START1793273149.54。原始输出OLD /data2/liyapeng_grp/program/LLMCL/exp/pas_static_function_probe_20261029/runs/observation_v1，D summary同名。
