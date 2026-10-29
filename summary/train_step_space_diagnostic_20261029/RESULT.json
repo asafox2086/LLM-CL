@@ -1,0 +1,3057 @@
+{
+  "schema": "train-step-space-diagnostic-v1",
+  "status": "ONE_FIXED_TRAIN_UPDATE_COUNTERFACTUAL_OBSERVED",
+  "stage": 2,
+  "TRAIN_QA": 11,
+  "source_checkpoint_sha256": "84fe80998252e6e5000afd676e7710d7c262f759c85faa666e967e52431b0376",
+  "source_config_sha256": "20db5ebdd6400ba5750a3862071ea3a3d6829259ee5f6b6f8a62e51d141124f2",
+  "source_snapshot": {
+    "training_validity.py": "0ec302d2fa4e8bb1a87b41c861c3aea78bf473e3df805b87d4dd450d21a2f735",
+    "parsp_adapter.py": "d1ebe1831e6d089d434bdde34b59db64eff17dc74d8d77f9ca4f080a51da8366",
+    "pass_adapter.py": "c8e23c85a93e97130d464b4b6d87110470035c5af37f9575fce705923c80c7c4",
+    "frozen_vision.py": "8211651e92d17019f6ce6cf9615df7f6b5fcaeecc765aec4acdf916c448a35bd",
+    "clmoe_adapter.py": "33946eddfc6424638ded0675ded68860273859c2f71993a6a60bd22556341be9",
+    "replay_adapter.py": "da07cfd8e44183ab3e29f1ab51ecbec0f6e7877ac6335efcf179158afff8d141",
+    "osft_adapter.py": "60b05f3b59f3878e65ee9543657b54a5aa5da13c14e139123e1c3591f3007b34",
+    "sparta_adapter.py": "8a00505b40663e5a233ddceb34e295d9b7b73d55f0679ac3d2b93318e77d7a44",
+    "native_auxiliary.py": "17f3345fb8d4b4cb3367de2a0b914b34bf69251ecc7f141ba1c7179006599682",
+    "pipeline.py": "a05c27c773dc69369cbef90f89a77c6224d1f5a5d1716c1f8576ac3ff823be17",
+    "hyper_adapter.py": "518574b8c3d1c46400d240cc984f0d1c83cb01d96a7d1e2bf788bea4d4610976",
+    "sparse_results.py": "07a7808beff8bc3330e92dc5b0fb5443401486846db764c912a5a0f57558fa3f",
+    "fv_adapter.py": "85473b19726249703f645a30142b6cfb046a37f798430ca1a255e48213641fab",
+    "methods.py": "e5bd8f51690b006274ed5adcfa4ef3b1a2c3b0f1d79476d948b71d1cfec41c5b",
+    "prepare_native.py": "200affb091e040e4f4492fb92389b9f1b54a3e71b33683e7de322ca6dd74cb4f",
+    "retrieval.py": "7d7a9dd6cb223bf96cd9ab3499a4ddf69f8fbb60940d80db84582ad518f5c133",
+    "checkpoints.py": "06c53eab2c6810901f5206edbfb1df9defabdc747b1856ace0afa31e74b37a78",
+    "checkpoint_probe.py": "71b38fb9f202fa2fa012e76a883e23322f68ef938c9f8ef9fac78d01886eb23f",
+    "host_adam.py": "5e733e6b87c12eb9331ff23e8919a142f1861a2beec82ec8b0361d878b9aec8c",
+    "run.py": "0e1f794ff1daf0694bdf960c3f89ccd4078764577db75271d8f78684282a39a9",
+    "freeze_splits.py": "5b4d58451ef3bcdb9fc033c0c9bc15b72ddc36877a64ca22d50f12e9e301510a",
+    "onevision_bridge.py": "f3b1dd38af3b58dbfa69073da698ea2bf39a3a11850fb1069a80e38d0e3669a9",
+    "resource_monitor.py": "a161c8a82bf762622795f64210c95164fb905c6fa80572b35ae5ee3dd7146533",
+    "aler_adapter.py": "4a4c58024727e5e5d01254a6b90b721e873ee6ea9f74d59308da6aa424217635",
+    "runtime_utils.py": "4f5c4a34be046c29cfbcdaa4b2957faa907684872ba69083bdef53136a851240"
+  },
+  "all_r8_registration_source_sha256": "d189bc45b8086e862083320aed1808989638fc2ece214aa48a0a4287b46c7e30",
+  "input_records": [
+    {
+      "id_sha256": "d3477ce5f740a157f32f88a4d0d524d74ce9901774f950ab02714ce5353752d6",
+      "prompt_tokens": 3733,
+      "batch_digest": "2da0099cc7f14378df65d216ce4046dde397d2f6ac81987c91abb27852220301"
+    },
+    {
+      "id_sha256": "1c32c96fa40116281a6f61ed89ae73b36500ad5cf86ceb96b1f5036cc8492897",
+      "prompt_tokens": 3733,
+      "batch_digest": "af1d8cf9ce9e6406e4f085410a12c444de98c4dbf97a7dcc5914c20971fe3b28"
+    },
+    {
+      "id_sha256": "023c048f95ec8f2b8c8da64bff9891391f7063aabdc291c5899879ae9a0342ed",
+      "prompt_tokens": 1519,
+      "batch_digest": "e9ec5f0144e148b1f3cb4fd62e38882b6e604a5a2142e1eade04b8d0a019e73c"
+    },
+    {
+      "id_sha256": "1bb6142730dc2d3a55e1aa81aa32c3c831db49533dc1237789ad3785b66b30e7",
+      "prompt_tokens": 3728,
+      "batch_digest": "3c48ddfe8f4dc1adacbebac723432a635f1c307a45a97493a99618e330e26757"
+    },
+    {
+      "id_sha256": "fdc7f3e9013bd01b29956c1b12612cec36de7571a8ae07154d06c93e6a3da9ba",
+      "prompt_tokens": 3730,
+      "batch_digest": "a8826a57e0d2dcf90fb238d4abf55e99ecfea742b3cb674d70a48c01a66d932a"
+    },
+    {
+      "id_sha256": "59a682a76ac41abed689ae4fb8d8d12c684c7c8007191e90dde0b3dc75be8260",
+      "prompt_tokens": 1519,
+      "batch_digest": "57a92ebc6cb77b7dfd4e6a166d266c99dd8e507357dc62a2ad75f562f4261db1"
+    },
+    {
+      "id_sha256": "e95440a015d24af6250547164df1db9b0e42cc492977a0af42697e8d63e1da94",
+      "prompt_tokens": 3733,
+      "batch_digest": "6922e566d88edc5d586ccfd7f4ba0d154f213c4d6b1df2ae7873b0a12eeec45e"
+    },
+    {
+      "id_sha256": "3af3894785c962984b13828eae0ffe4646f47a755e1f92a446b77a558d3dabde",
+      "prompt_tokens": 1518,
+      "batch_digest": "338b1c30fc78669cbed592484b9c81ed2b15e63b578138c87e86a2e332a90f03"
+    },
+    {
+      "id_sha256": "94b82bb49e4fd20c28c1f70951549d65fb9af307ccd966aea2f68a32253474fd",
+      "prompt_tokens": 1523,
+      "batch_digest": "9c38543419e38be85f492958afa037b965d50f8c37cb827cb59197ec460d4e40"
+    },
+    {
+      "id_sha256": "b86b9bbecbf85972aefa1b36f89e799dc17b96d21201a3b50eef25f42e51755a",
+      "prompt_tokens": 1518,
+      "batch_digest": "27cfbb397cbeacba12deaf15e221d3ca9e921226e859db8d71f9c99d4f357673"
+    },
+    {
+      "id_sha256": "adbd64077863924b37ea37c3bc2bd88c14d249822159ac7334a21587509e82d8",
+      "prompt_tokens": 3733,
+      "batch_digest": "dbe10a6dbdf579f1b404d032ed0175c59404c14e702a7055e90d2b86512b2d5b"
+    }
+  ],
+  "target_tokens": 29,
+  "original_qv_AB_digest": "4ada2c2819a26e5357bea11b2d637e9b29308db506e63013dc4669f574348c5a",
+  "common_initial_AB_digest": "82dd52a4c33eb91b5a23826c3057f7c80f971a1675bec06f74015ff35c200048",
+  "B0_extra_modules": 120,
+  "shared_function_sanity": {
+    "QA": 1,
+    "mode": "eval",
+    "before_AnswerCE": 2.5078160762786865,
+    "after_AnswerCE": 2.5078160762786865
+  },
+  "common_gradient_scope": "all-r8 graph; per-QA answer-token mean then QA-equal mean; 11 backwards, no common optimizer step",
+  "same_function_at_start": "Original q/v and base preserved; all extra branches B0. Both masks use exactly the same graph and shared gradients.",
+  "common_dropout_RNG_start_sha256": "7aefc0f382ce01954bf81b602fa76f28f55a1d0ee9f3a6606c7394da1e7fac86",
+  "common_dropout_RNG_end_sha256": "4390b46ad346fc1ac911bbff5e3b5352357ac28d8e2a0baae241bef2d115a52a",
+  "arms": {
+    "qv": {
+      "active_parameters": 96,
+      "active_coordinates": 540672,
+      "before_AnswerCE": 3.4633134711872446,
+      "after_AnswerCE": 2.863530224019831,
+      "CE_change": -0.5997832471674139,
+      "per_QA_before": [
+        2.570085287094116,
+        2.400218963623047,
+        3.478868007659912,
+        2.3401148319244385,
+        5.98474645614624,
+        5.550893783569336,
+        2.4760897159576416,
+        5.028008937835693,
+        2.773017168045044,
+        3.30671763420105,
+        2.187687397003174
+      ],
+      "per_QA_after": [
+        1.9921702146530151,
+        1.8751416206359863,
+        3.054265022277832,
+        1.8667500019073486,
+        5.054501533508301,
+        5.027399063110352,
+        1.9440559148788452,
+        4.622040748596191,
+        1.3524595499038696,
+        2.873392105102539,
+        1.8366566896438599
+      ],
+      "raw_gradient_dot_parameter_update": -0.7075032723469162,
+      "parameter_update_norm": 0.07332497209894873,
+      "effective_dense_update_norm": 0.10301384791397822,
+      "projection_groups": {
+        "q_proj": {
+          "raw_gradient_dot_parameter_update": -0.28058865687772516,
+          "parameter_update_squared_norm": 0.003425930022309367,
+          "common_parameter_gradient_squared_norm": 131.59432909598596,
+          "effective_dense_update_squared_norm": 0.00928095999388161,
+          "parameter_update_norm": 0.05853144473109618,
+          "common_parameter_gradient_norm": 11.471457147894768,
+          "effective_dense_update_norm": 0.09633773919851768
+        },
+        "k_proj": {
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 265.1148632690817,
+          "effective_dense_update_squared_norm": 0.0,
+          "parameter_update_norm": 0.0,
+          "common_parameter_gradient_norm": 16.28234821114822,
+          "effective_dense_update_norm": 0.0
+        },
+        "v_proj": {
+          "raw_gradient_dot_parameter_update": -0.4269146154691907,
+          "parameter_update_squared_norm": 0.0019506215110022423,
+          "common_parameter_gradient_squared_norm": 1612.599383140601,
+          "effective_dense_update_squared_norm": 0.0013308928681626242,
+          "parameter_update_norm": 0.04416584099733913,
+          "common_parameter_gradient_norm": 40.15718345627095,
+          "effective_dense_update_norm": 0.03648140441598465
+        },
+        "o_proj": {
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 468.9329493222052,
+          "effective_dense_update_squared_norm": 0.0,
+          "parameter_update_norm": 0.0,
+          "common_parameter_gradient_norm": 21.65485971605924,
+          "effective_dense_update_norm": 0.0
+        },
+        "gate_proj": {
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 401.72951442826377,
+          "effective_dense_update_squared_norm": 0.0,
+          "parameter_update_norm": 0.0,
+          "common_parameter_gradient_norm": 20.04319122366156,
+          "effective_dense_update_norm": 0.0
+        },
+        "up_proj": {
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 642.3315293559986,
+          "effective_dense_update_squared_norm": 0.0,
+          "parameter_update_norm": 0.0,
+          "common_parameter_gradient_norm": 25.344260284253682,
+          "effective_dense_update_norm": 0.0
+        },
+        "down_proj": {
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 211.09298386830912,
+          "effective_dense_update_squared_norm": 0.0,
+          "parameter_update_norm": 0.0,
+          "common_parameter_gradient_norm": 14.529039330537623,
+          "effective_dense_update_norm": 0.0
+        }
+      },
+      "per_projection": [
+        {
+          "module": "model.layers.0.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.0016793536328493664,
+          "parameter_update_squared_norm": 0.00014118662412729153,
+          "common_parameter_gradient_squared_norm": 0.19289112114842766,
+          "effective_dense_update_squared_norm": 0.00038499163823716055
+        },
+        {
+          "module": "model.layers.0.self_attn.k_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 3.237485973715774,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.0.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.01888167864713778,
+          "parameter_update_squared_norm": 8.15249064405427e-05,
+          "common_parameter_gradient_squared_norm": 72.38647140716986,
+          "effective_dense_update_squared_norm": 5.583642084141216e-05
+        },
+        {
+          "module": "model.layers.0.self_attn.o_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 15.434335956916438,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.0.mlp.gate_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 13.671223692018337,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.0.mlp.up_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 34.802525851849666,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.0.mlp.down_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 11.86302120215474,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.1.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.008492931475837918,
+          "parameter_update_squared_norm": 0.0001428799387281022,
+          "common_parameter_gradient_squared_norm": 2.3453202566458913,
+          "effective_dense_update_squared_norm": 0.00038324117864515887
+        },
+        {
+          "module": "model.layers.1.self_attn.k_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 2.9451948628877638,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.1.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.021956413005395626,
+          "parameter_update_squared_norm": 8.165242246328812e-05,
+          "common_parameter_gradient_squared_norm": 69.25918344488983,
+          "effective_dense_update_squared_norm": 5.524394446596519e-05
+        },
+        {
+          "module": "model.layers.1.self_attn.o_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 40.55650664771243,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.1.mlp.gate_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 9.958371778546688,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.1.mlp.up_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 18.899972003294288,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.1.mlp.down_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 4.474878467311001,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.2.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.00839764313369535,
+          "parameter_update_squared_norm": 0.00014282175705285124,
+          "common_parameter_gradient_squared_norm": 1.869955679629598,
+          "effective_dense_update_squared_norm": 0.00038545366638767834
+        },
+        {
+          "module": "model.layers.2.self_attn.k_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 1.5312700633972547,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.2.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.020060341967564777,
+          "parameter_update_squared_norm": 8.171986878523681e-05,
+          "common_parameter_gradient_squared_norm": 58.28154335596858,
+          "effective_dense_update_squared_norm": 5.422185530113282e-05
+        },
+        {
+          "module": "model.layers.2.self_attn.o_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 16.258916139943576,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.2.mlp.gate_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 12.688179726583613,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.2.mlp.up_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 21.915475085593314,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.2.mlp.down_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 82.59380846875447,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.3.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.009090389176094334,
+          "parameter_update_squared_norm": 0.00014302897994022588,
+          "common_parameter_gradient_squared_norm": 2.3011210075168016,
+          "effective_dense_update_squared_norm": 0.00038258934577645566
+        },
+        {
+          "module": "model.layers.3.self_attn.k_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 1.661541079276688,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.3.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.019268788798084704,
+          "parameter_update_squared_norm": 8.15955617160591e-05,
+          "common_parameter_gradient_squared_norm": 55.68482146390012,
+          "effective_dense_update_squared_norm": 5.390338649301304e-05
+        },
+        {
+          "module": "model.layers.3.self_attn.o_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 15.418139062332234,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.3.mlp.gate_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 18.60595003684147,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.3.mlp.up_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 30.913361426910182,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.3.mlp.down_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 6.001342135805714,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.4.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.011658942141507743,
+          "parameter_update_squared_norm": 0.00014309958132589947,
+          "common_parameter_gradient_squared_norm": 3.6627131644171484,
+          "effective_dense_update_squared_norm": 0.000376420330572612
+        },
+        {
+          "module": "model.layers.4.self_attn.k_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 3.286671073040157,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.4.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.029342900528467504,
+          "parameter_update_squared_norm": 8.151482256136764e-05,
+          "common_parameter_gradient_squared_norm": 152.81189468762338,
+          "effective_dense_update_squared_norm": 5.5105326445501804e-05
+        },
+        {
+          "module": "model.layers.4.self_attn.o_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 16.95928372908362,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.4.mlp.gate_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 20.978799522395803,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.4.mlp.up_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 30.043711898382213,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.4.mlp.down_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 11.409725484975645,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.5.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.01439019420962151,
+          "parameter_update_squared_norm": 0.00014309298023126534,
+          "common_parameter_gradient_squared_norm": 5.5998467908776846,
+          "effective_dense_update_squared_norm": 0.0003914242820584645
+        },
+        {
+          "module": "model.layers.5.self_attn.k_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 24.132889299193238,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.5.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.023570300322267222,
+          "parameter_update_squared_norm": 8.164349836751116e-05,
+          "common_parameter_gradient_squared_norm": 96.24591038022969,
+          "effective_dense_update_squared_norm": 5.535570332806475e-05
+        },
+        {
+          "module": "model.layers.5.self_attn.o_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 22.073591171864333,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.5.mlp.gate_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 20.74986491747666,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.5.mlp.up_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 25.41826324617075,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.5.mlp.down_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 4.7880404743825515,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.6.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.011630073682680308,
+          "parameter_update_squared_norm": 0.00014301749647793857,
+          "common_parameter_gradient_squared_norm": 3.8653004541242026,
+          "effective_dense_update_squared_norm": 0.00038306091285933094
+        },
+        {
+          "module": "model.layers.6.self_attn.k_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 10.640438122874155,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.6.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.030862872278846695,
+          "parameter_update_squared_norm": 8.174293033025298e-05,
+          "common_parameter_gradient_squared_norm": 144.20404874661187,
+          "effective_dense_update_squared_norm": 5.766943395854382e-05
+        },
+        {
+          "module": "model.layers.6.self_attn.o_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 36.171050625011574,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.6.mlp.gate_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 19.830132491708955,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.6.mlp.up_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 39.45491878566058,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.6.mlp.down_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 5.898120656391715,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.7.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.019190951535515498,
+          "parameter_update_squared_norm": 0.00014318352270717777,
+          "common_parameter_gradient_squared_norm": 10.430793672433811,
+          "effective_dense_update_squared_norm": 0.00038449542210395926
+        },
+        {
+          "module": "model.layers.7.self_attn.k_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 11.344531781760491,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.7.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.018244555968849184,
+          "parameter_update_squared_norm": 8.16415699346032e-05,
+          "common_parameter_gradient_squared_norm": 52.070571555993965,
+          "effective_dense_update_squared_norm": 5.563430340064394e-05
+        },
+        {
+          "module": "model.layers.7.self_attn.o_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 38.69058919136441,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.7.mlp.gate_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 24.02036077504021,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.7.mlp.up_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 40.01048141017115,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.7.mlp.down_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 9.051050485991514,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.8.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.017983548034946426,
+          "parameter_update_squared_norm": 0.00014314091530483625,
+          "common_parameter_gradient_squared_norm": 10.691887186958859,
+          "effective_dense_update_squared_norm": 0.0003745457950180338
+        },
+        {
+          "module": "model.layers.8.self_attn.k_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 20.787880967807723,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.8.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.037377547912862234,
+          "parameter_update_squared_norm": 8.177531571533725e-05,
+          "common_parameter_gradient_squared_norm": 231.13725669283127,
+          "effective_dense_update_squared_norm": 5.802133106247981e-05
+        },
+        {
+          "module": "model.layers.8.self_attn.o_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 34.6518587671101,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.8.mlp.gate_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 25.253257983524072,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.8.mlp.up_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 52.355552798032164,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.8.mlp.down_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 6.958020069086732,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.9.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.017717604185283252,
+          "parameter_update_squared_norm": 0.00014160964098222466,
+          "common_parameter_gradient_squared_norm": 13.698272070819257,
+          "effective_dense_update_squared_norm": 0.00036875237392932286
+        },
+        {
+          "module": "model.layers.9.self_attn.k_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 19.186377479508224,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.9.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.015478075298473956,
+          "parameter_update_squared_norm": 8.166909180077127e-05,
+          "common_parameter_gradient_squared_norm": 34.679146802700195,
+          "effective_dense_update_squared_norm": 5.71186553017983e-05
+        },
+        {
+          "module": "model.layers.9.self_attn.o_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 35.74018116808641,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.9.mlp.gate_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 43.510785049462484,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.9.mlp.up_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 41.522608707734264,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.9.mlp.down_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 7.529751305588697,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.10.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.01561245283881776,
+          "parameter_update_squared_norm": 0.00014305829059260537,
+          "common_parameter_gradient_squared_norm": 7.071051768018908,
+          "effective_dense_update_squared_norm": 0.0003898616321678731
+        },
+        {
+          "module": "model.layers.10.self_attn.k_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 25.721683738379546,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.10.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.025061865799334074,
+          "parameter_update_squared_norm": 8.178498514183074e-05,
+          "common_parameter_gradient_squared_norm": 84.89065543423638,
+          "effective_dense_update_squared_norm": 5.421980495087186e-05
+        },
+        {
+          "module": "model.layers.10.self_attn.o_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 61.92569593665614,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.10.mlp.gate_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 50.34641371989029,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.10.mlp.up_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 44.844323938101866,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.10.mlp.down_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 15.671435472103564,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.11.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.0284581907429071,
+          "parameter_update_squared_norm": 0.00014322244261547634,
+          "common_parameter_gradient_squared_norm": 24.581064795362817,
+          "effective_dense_update_squared_norm": 0.0003871459999286538
+        },
+        {
+          "module": "model.layers.11.self_attn.k_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 41.26088895234277,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.11.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.03420235044442391,
+          "parameter_update_squared_norm": 8.182520526774009e-05,
+          "common_parameter_gradient_squared_norm": 191.32671864963038,
+          "effective_dense_update_squared_norm": 5.580416265253606e-05
+        },
+        {
+          "module": "model.layers.11.self_attn.o_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 53.59353339616243,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.11.mlp.gate_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 28.772816442111484,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.11.mlp.up_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 33.06885739290305,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.11.mlp.down_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 5.026673637654028,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.12.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.022776693144002828,
+          "parameter_update_squared_norm": 0.00014322689885102512,
+          "common_parameter_gradient_squared_norm": 12.563674663003269,
+          "effective_dense_update_squared_norm": 0.0003961597418465492
+        },
+        {
+          "module": "model.layers.12.self_attn.k_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 41.942029626960746,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.12.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.03085227739533032,
+          "parameter_update_squared_norm": 8.177977677579914e-05,
+          "common_parameter_gradient_squared_norm": 160.9939362368507,
+          "effective_dense_update_squared_norm": 5.404635020383825e-05
+        },
+        {
+          "module": "model.layers.12.self_attn.o_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 14.839634336530455,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.12.mlp.gate_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 14.348179555110143,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.12.mlp.up_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 20.423725966823884,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.12.mlp.down_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 4.822633906362828,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.13.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.023551458159831947,
+          "parameter_update_squared_norm": 0.00014319707841881188,
+          "common_parameter_gradient_squared_norm": 14.186400340055037,
+          "effective_dense_update_squared_norm": 0.00040870462624162537
+        },
+        {
+          "module": "model.layers.13.self_attn.k_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 6.725176575177482,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.13.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.01651113604400469,
+          "parameter_update_squared_norm": 8.153225489551132e-05,
+          "common_parameter_gradient_squared_norm": 41.81091566500332,
+          "effective_dense_update_squared_norm": 5.6624746954126094e-05
+        },
+        {
+          "module": "model.layers.13.self_attn.o_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 11.256382363143416,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.13.mlp.gate_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 11.95815738224876,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.13.mlp.up_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 18.822339009371525,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.13.mlp.down_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 3.568302144216979,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.14.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.011783917086392204,
+          "parameter_update_squared_norm": 0.0001429865723944865,
+          "common_parameter_gradient_squared_norm": 4.298393827449772,
+          "effective_dense_update_squared_norm": 0.0003896636860410521
+        },
+        {
+          "module": "model.layers.14.self_attn.k_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 2.416270621390076,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.14.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.01104715439528788,
+          "parameter_update_squared_norm": 8.160447414003477e-05,
+          "common_parameter_gradient_squared_norm": 18.113791009305373,
+          "effective_dense_update_squared_norm": 5.534253294623137e-05
+        },
+        {
+          "module": "model.layers.14.self_attn.o_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 8.349685482487427,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.14.mlp.gate_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 8.132977245018978,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.14.mlp.up_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 43.19534740377817,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.14.mlp.down_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 3.075893782874573,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.15.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.011530583250971949,
+          "parameter_update_squared_norm": 0.00014302165706226656,
+          "common_parameter_gradient_squared_norm": 3.311435203324436,
+          "effective_dense_update_squared_norm": 0.00039310699832861243
+        },
+        {
+          "module": "model.layers.15.self_attn.k_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 12.889679899221079,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.15.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.011807280889048546,
+          "parameter_update_squared_norm": 8.129136981899532e-05,
+          "common_parameter_gradient_squared_norm": 24.530340243054557,
+          "effective_dense_update_squared_norm": 5.5629197786724755e-05
+        },
+        {
+          "module": "model.layers.15.self_attn.o_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 9.154007160466218,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.15.mlp.gate_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 16.00859976383912,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.15.mlp.up_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 18.1433237801121,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.15.mlp.down_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 2.8537796332791743,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.16.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.010053185501546009,
+          "parameter_update_squared_norm": 0.00014304558031994684,
+          "common_parameter_gradient_squared_norm": 2.8051411238488058,
+          "effective_dense_update_squared_norm": 0.00038580659224989164
+        },
+        {
+          "module": "model.layers.16.self_attn.k_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 11.19815519537493,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.16.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.0207943438708713,
+          "parameter_update_squared_norm": 8.146305032700532e-05,
+          "common_parameter_gradient_squared_norm": 77.72449176303078,
+          "effective_dense_update_squared_norm": 5.719198630665647e-05
+        },
+        {
+          "module": "model.layers.16.self_attn.o_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 7.251125926258577,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.16.mlp.gate_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 7.167490935782439,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.16.mlp.up_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 11.235231398174761,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.16.mlp.down_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 2.143462127722376,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.17.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.005072609595541301,
+          "parameter_update_squared_norm": 0.00014274080826636183,
+          "common_parameter_gradient_squared_norm": 0.8965482341344817,
+          "effective_dense_update_squared_norm": 0.00039038624952502255
+        },
+        {
+          "module": "model.layers.17.self_attn.k_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 4.437741154117727,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.17.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.008431224453627054,
+          "parameter_update_squared_norm": 8.116013198877435e-05,
+          "common_parameter_gradient_squared_norm": 11.867469552896459,
+          "effective_dense_update_squared_norm": 5.547219613600039e-05
+        },
+        {
+          "module": "model.layers.17.self_attn.o_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 7.112240341562494,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.17.mlp.gate_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 9.901451926389559,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.17.mlp.up_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 5.789222546759316,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.17.mlp.down_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 3.234593811674312,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.18.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.006094483721314303,
+          "parameter_update_squared_norm": 0.00014288814730086327,
+          "common_parameter_gradient_squared_norm": 1.2242752068294749,
+          "effective_dense_update_squared_norm": 0.00039372753526012644
+        },
+        {
+          "module": "model.layers.18.self_attn.k_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 1.2702461974793096,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.18.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.00442024840941993,
+          "parameter_update_squared_norm": 8.026657900235142e-05,
+          "common_parameter_gradient_squared_norm": 3.21419421917955,
+          "effective_dense_update_squared_norm": 5.517637946173328e-05
+        },
+        {
+          "module": "model.layers.18.self_attn.o_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 2.2265357563114243,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.18.mlp.gate_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 6.528055563658427,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.18.mlp.up_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 8.325957129026573,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.18.mlp.down_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 2.245036900569616,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.19.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.006389272699028616,
+          "parameter_update_squared_norm": 0.00014271529512299767,
+          "common_parameter_gradient_squared_norm": 2.044336674414076,
+          "effective_dense_update_squared_norm": 0.00039193381178811185
+        },
+        {
+          "module": "model.layers.19.self_attn.k_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 3.983630987414415,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.19.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.007201239846648529,
+          "parameter_update_squared_norm": 8.129407599817978e-05,
+          "common_parameter_gradient_squared_norm": 7.336495128032496,
+          "effective_dense_update_squared_norm": 5.4362792161644554e-05
+        },
+        {
+          "module": "model.layers.19.self_attn.o_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 1.4687411859913198,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.19.mlp.gate_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 8.13518224336551,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.19.mlp.up_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 10.1602736905594,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.19.mlp.down_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 1.9981986932591056,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.20.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.007642851622396555,
+          "parameter_update_squared_norm": 0.0001428148078679114,
+          "common_parameter_gradient_squared_norm": 2.0341087472888297,
+          "effective_dense_update_squared_norm": 0.00038402004973172536
+        },
+        {
+          "module": "model.layers.20.self_attn.k_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 6.335904986357551,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.20.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.007948025621039577,
+          "parameter_update_squared_norm": 8.078723199158534e-05,
+          "common_parameter_gradient_squared_norm": 12.788468672682964,
+          "effective_dense_update_squared_norm": 5.301416788591874e-05
+        },
+        {
+          "module": "model.layers.20.self_attn.o_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 9.580854091451386,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.20.mlp.gate_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 9.566828885243343,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.20.mlp.up_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 16.69620483487806,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.20.mlp.down_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 2.431105154127035,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.21.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.003281936877513065,
+          "parameter_update_squared_norm": 0.00014187208940451488,
+          "common_parameter_gradient_squared_norm": 0.45135118789082895,
+          "effective_dense_update_squared_norm": 0.00038132965633500416
+        },
+        {
+          "module": "model.layers.21.self_attn.k_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 2.460527170169229,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.21.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.0036201355082511894,
+          "parameter_update_squared_norm": 7.921503397768524e-05,
+          "common_parameter_gradient_squared_norm": 2.1526447564179882,
+          "effective_dense_update_squared_norm": 5.50368981235618e-05
+        },
+        {
+          "module": "model.layers.21.self_attn.o_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 0.670130044852236,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.21.mlp.gate_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 3.7923086543210047,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.21.mlp.up_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 12.314222285831335,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.21.mlp.down_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 1.3734482310414187,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.22.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.0037150240068888935,
+          "parameter_update_squared_norm": 0.00014246326685385483,
+          "common_parameter_gradient_squared_norm": 0.7448121654761657,
+          "effective_dense_update_squared_norm": 0.00038475563873450254
+        },
+        {
+          "module": "model.layers.22.self_attn.k_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 5.01727657904733,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.22.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.003995457230675321,
+          "parameter_update_squared_norm": 7.940127778343724e-05,
+          "common_parameter_gradient_squared_norm": 2.2698207452606702,
+          "effective_dense_update_squared_norm": 5.703694444513401e-05
+        },
+        {
+          "module": "model.layers.22.self_attn.o_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 8.724276240269148,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.22.mlp.gate_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 7.733098238201578,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.22.mlp.up_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 23.97504329490994,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.22.mlp.down_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 4.438954015359247,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.23.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.00439436642254097,
+          "parameter_update_squared_norm": 0.00014161565036043203,
+          "common_parameter_gradient_squared_norm": 0.723633754317401,
+          "effective_dense_update_squared_norm": 0.0003893828301146821
+        },
+        {
+          "module": "model.layers.23.self_attn.k_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 0.7013708821879483,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.23.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.0059784008332786865,
+          "parameter_update_squared_norm": 8.07360757783418e-05,
+          "common_parameter_gradient_squared_norm": 6.818592527101423,
+          "effective_dense_update_squared_norm": 5.3824347549090864e-05
+        },
+        {
+          "module": "model.layers.23.self_attn.o_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 0.8256546006374101,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.23.mlp.gate_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 10.071027899484736,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.23.mlp.up_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 40.00058547097002,
+          "effective_dense_update_squared_norm": 0.0
+        },
+        {
+          "module": "model.layers.23.mlp.down_proj",
+          "active": false,
+          "raw_gradient_dot_parameter_update": 0.0,
+          "parameter_update_squared_norm": 0.0,
+          "common_parameter_gradient_squared_norm": 7.641707607622099,
+          "effective_dense_update_squared_norm": 0.0
+        }
+      ],
+      "gradient_l2_preclip": 41.76354217529297,
+      "gradient_l2_postclip": 1.0000001192092896,
+      "clip_threshold": 1.0,
+      "nominal_clip_coefficient": 0.023944328569123735,
+      "learning_rate_used": [
+        0.0001
+      ],
+      "learning_rate_after_scheduler": [
+        0.0
+      ],
+      "scaler_before": 1.0,
+      "scaler_after": 1.0,
+      "optimizer_class": "torch.optim.AdamW",
+      "optimizer_steps": 1,
+      "optimizer_moments_fresh": true,
+      "actual_parameters_changed": true,
+      "same_dropout_RNG_replay": true,
+      "base_parameters_unchanged": true,
+      "adapter_after_digest": "8d8100d36a53381cd3a9cba5389e93861c5c5f6d6e4201a059b3d4194a118592"
+    },
+    "all": {
+      "active_parameters": 336,
+      "active_coordinates": 4399104,
+      "before_AnswerCE": 3.4633134711872446,
+      "after_AnswerCE": 1.3298224048181013,
+      "CE_change": -2.1334910663691433,
+      "per_QA_before": [
+        2.570085287094116,
+        2.400218963623047,
+        3.478868007659912,
+        2.3401148319244385,
+        5.98474645614624,
+        5.550893783569336,
+        2.4760897159576416,
+        5.028008937835693,
+        2.773017168045044,
+        3.30671763420105,
+        2.187687397003174
+      ],
+      "per_QA_after": [
+        1.2709542512893677,
+        0.7764191031455994,
+        0.8760752081871033,
+        0.8849691152572632,
+        2.443646192550659,
+        1.441324234008789,
+        1.2374231815338135,
+        2.134507894515991,
+        0.6971395611763,
+        1.62575101852417,
+        1.2398366928100586
+      ],
+      "raw_gradient_dot_parameter_update": -4.238401989536619,
+      "parameter_update_norm": 0.16645657060361685,
+      "effective_dense_update_norm": 0.36090818673838976,
+      "projection_groups": {
+        "q_proj": {
+          "raw_gradient_dot_parameter_update": -0.2805820337788151,
+          "parameter_update_squared_norm": 0.0034205813856494445,
+          "common_parameter_gradient_squared_norm": 131.59432909598596,
+          "effective_dense_update_squared_norm": 0.009273364018313674,
+          "parameter_update_norm": 0.05848573660004159,
+          "common_parameter_gradient_norm": 11.471457147894768,
+          "effective_dense_update_norm": 0.09629830745300602
+        },
+        "k_proj": {
+          "raw_gradient_dot_parameter_update": -0.10954870873179784,
+          "parameter_update_squared_norm": 0.0002456720126523491,
+          "common_parameter_gradient_squared_norm": 265.1148632690817,
+          "effective_dense_update_squared_norm": 0.001309628161003947,
+          "parameter_update_norm": 0.015673927799130283,
+          "common_parameter_gradient_norm": 16.28234821114822,
+          "effective_dense_update_norm": 0.03618878501696274
+        },
+        "v_proj": {
+          "raw_gradient_dot_parameter_update": -0.4269108521080058,
+          "parameter_update_squared_norm": 0.0019450522817972722,
+          "common_parameter_gradient_squared_norm": 1612.599383140601,
+          "effective_dense_update_squared_norm": 0.0013308506416240505,
+          "parameter_update_norm": 0.044102746873604964,
+          "common_parameter_gradient_norm": 40.15718345627095,
+          "effective_dense_update_norm": 0.036480825670810284
+        },
+        "o_proj": {
+          "raw_gradient_dot_parameter_update": -0.5786462975026182,
+          "parameter_update_squared_norm": 0.0017196562492342022,
+          "common_parameter_gradient_squared_norm": 468.9329493222052,
+          "effective_dense_update_squared_norm": 0.00921826348287801,
+          "parameter_update_norm": 0.04146873821608517,
+          "common_parameter_gradient_norm": 21.65485971605924,
+          "effective_dense_update_norm": 0.09601178824955824
+        },
+        "gate_proj": {
+          "raw_gradient_dot_parameter_update": -1.0327725858839603,
+          "parameter_update_squared_norm": 0.00932557994936546,
+          "common_parameter_gradient_squared_norm": 401.72951442826377,
+          "effective_dense_update_squared_norm": 0.050042062309743195,
+          "parameter_update_norm": 0.09656904239644018,
+          "common_parameter_gradient_norm": 20.04319122366156,
+          "effective_dense_update_norm": 0.22370083216149017
+        },
+        "up_proj": {
+          "raw_gradient_dot_parameter_update": -1.4271072886324883,
+          "parameter_update_squared_norm": 0.009331713415499961,
+          "common_parameter_gradient_squared_norm": 642.3315293559986,
+          "effective_dense_update_squared_norm": 0.04990305640280531,
+          "parameter_update_norm": 0.09660079407282303,
+          "common_parameter_gradient_norm": 25.344260284253682,
+          "effective_dense_update_norm": 0.22338992010116596
+        },
+        "down_proj": {
+          "raw_gradient_dot_parameter_update": -0.3828342228989338,
+          "parameter_update_squared_norm": 0.0017195346029181945,
+          "common_parameter_gradient_squared_norm": 211.09298386830912,
+          "effective_dense_update_squared_norm": 0.009177494238424157,
+          "parameter_update_norm": 0.04146727146700389,
+          "common_parameter_gradient_norm": 14.529039330537623,
+          "effective_dense_update_norm": 0.09579923923718892
+        }
+      },
+      "per_projection": [
+        {
+          "module": "model.layers.0.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.0016790813508653067,
+          "parameter_update_squared_norm": 0.0001403706708217712,
+          "common_parameter_gradient_squared_norm": 0.19289112114842766,
+          "effective_dense_update_squared_norm": 0.000383721562738526
+        },
+        {
+          "module": "model.layers.0.self_attn.k_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.0020039560765292754,
+          "parameter_update_squared_norm": 1.0228697442054004e-05,
+          "common_parameter_gradient_squared_norm": 3.237485973715774,
+          "effective_dense_update_squared_norm": 5.641618490046439e-05
+        },
+        {
+          "module": "model.layers.0.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.018881521349922267,
+          "parameter_update_squared_norm": 8.137594210014711e-05,
+          "common_parameter_gradient_squared_norm": 72.38647140716986,
+          "effective_dense_update_squared_norm": 5.5835547411724196e-05
+        },
+        {
+          "module": "model.layers.0.self_attn.o_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.024155280121863767,
+          "parameter_update_squared_norm": 7.166338131558126e-05,
+          "common_parameter_gradient_squared_norm": 15.434335956916438,
+          "effective_dense_update_squared_norm": 0.00038778228429483093
+        },
+        {
+          "module": "model.layers.0.mlp.gate_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.050123526748713246,
+          "parameter_update_squared_norm": 0.00038883697665279275,
+          "common_parameter_gradient_squared_norm": 13.671223692018337,
+          "effective_dense_update_squared_norm": 0.0021293659830880704
+        },
+        {
+          "module": "model.layers.0.mlp.up_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.08143249083165809,
+          "parameter_update_squared_norm": 0.0003889392271165316,
+          "common_parameter_gradient_squared_norm": 34.802525851849666,
+          "effective_dense_update_squared_norm": 0.0021234017743682414
+        },
+        {
+          "module": "model.layers.0.mlp.down_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.022469713447163607,
+          "parameter_update_squared_norm": 7.166394478580126e-05,
+          "common_parameter_gradient_squared_norm": 11.86302120215474,
+          "effective_dense_update_squared_norm": 0.00038127065231295123
+        },
+        {
+          "module": "model.layers.1.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.008492655408568797,
+          "parameter_update_squared_norm": 0.0001427202074982219,
+          "common_parameter_gradient_squared_norm": 2.3453202566458913,
+          "effective_dense_update_squared_norm": 0.0003831247296132589
+        },
+        {
+          "module": "model.layers.1.self_attn.k_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.0035396553251591523,
+          "parameter_update_squared_norm": 1.0238191325792065e-05,
+          "common_parameter_gradient_squared_norm": 2.9451948628877638,
+          "effective_dense_update_squared_norm": 5.436539072894505e-05
+        },
+        {
+          "module": "model.layers.1.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.021956255180601382,
+          "parameter_update_squared_norm": 8.157299634077027e-05,
+          "common_parameter_gradient_squared_norm": 69.25918344488983,
+          "effective_dense_update_squared_norm": 5.5243304791953896e-05
+        },
+        {
+          "module": "model.layers.1.self_attn.o_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.040060822026112185,
+          "parameter_update_squared_norm": 7.166940958307523e-05,
+          "common_parameter_gradient_squared_norm": 40.55650664771243,
+          "effective_dense_update_squared_norm": 0.00037939128208722676
+        },
+        {
+          "module": "model.layers.1.mlp.gate_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.042302454228373504,
+          "parameter_update_squared_norm": 0.0003887840297793084,
+          "common_parameter_gradient_squared_norm": 9.958371778546688,
+          "effective_dense_update_squared_norm": 0.002058151570233261
+        },
+        {
+          "module": "model.layers.1.mlp.up_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.061780103420675796,
+          "parameter_update_squared_norm": 0.00038893144476189335,
+          "common_parameter_gradient_squared_norm": 18.899972003294288,
+          "effective_dense_update_squared_norm": 0.0020481965857300603
+        },
+        {
+          "module": "model.layers.1.mlp.down_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.013949185351805856,
+          "parameter_update_squared_norm": 7.164855684494761e-05,
+          "common_parameter_gradient_squared_norm": 4.474878467311001,
+          "effective_dense_update_squared_norm": 0.00038465151053397454
+        },
+        {
+          "module": "model.layers.2.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.008397367076154046,
+          "parameter_update_squared_norm": 0.0001426168383569556,
+          "common_parameter_gradient_squared_norm": 1.869955679629598,
+          "effective_dense_update_squared_norm": 0.0003853571523475569
+        },
+        {
+          "module": "model.layers.2.self_attn.k_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.002828416133327612,
+          "parameter_update_squared_norm": 1.0237721156931801e-05,
+          "common_parameter_gradient_squared_norm": 1.5312700633972547,
+          "effective_dense_update_squared_norm": 5.660542719556921e-05
+        },
+        {
+          "module": "model.layers.2.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.020060184479989585,
+          "parameter_update_squared_norm": 8.163777913332648e-05,
+          "common_parameter_gradient_squared_norm": 58.28154335596858,
+          "effective_dense_update_squared_norm": 5.422040664827131e-05
+        },
+        {
+          "module": "model.layers.2.self_attn.o_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.026476583900759822,
+          "parameter_update_squared_norm": 7.166664549076109e-05,
+          "common_parameter_gradient_squared_norm": 16.258916139943576,
+          "effective_dense_update_squared_norm": 0.0003839277768297833
+        },
+        {
+          "module": "model.layers.2.mlp.gate_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.046478986038890634,
+          "parameter_update_squared_norm": 0.0003887678575013498,
+          "common_parameter_gradient_squared_norm": 12.688179726583613,
+          "effective_dense_update_squared_norm": 0.002105933386147359
+        },
+        {
+          "module": "model.layers.2.mlp.up_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.06706272799497244,
+          "parameter_update_squared_norm": 0.0003889173681914271,
+          "common_parameter_gradient_squared_norm": 21.915475085593314,
+          "effective_dense_update_squared_norm": 0.002076601276384287
+        },
+        {
+          "module": "model.layers.2.mlp.down_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.05721672600101037,
+          "parameter_update_squared_norm": 7.167224104408903e-05,
+          "common_parameter_gradient_squared_norm": 82.59380846875447,
+          "effective_dense_update_squared_norm": 0.00038094072755285924
+        },
+        {
+          "module": "model.layers.3.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.009090112620093252,
+          "parameter_update_squared_norm": 0.0001428969107441808,
+          "common_parameter_gradient_squared_norm": 2.3011210075168016,
+          "effective_dense_update_squared_norm": 0.00038247930458868134
+        },
+        {
+          "module": "model.layers.3.self_attn.k_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.0027135719645851866,
+          "parameter_update_squared_norm": 1.0236425068050096e-05,
+          "common_parameter_gradient_squared_norm": 1.661541079276688,
+          "effective_dense_update_squared_norm": 5.5560279904992986e-05
+        },
+        {
+          "module": "model.layers.3.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.019268631405920035,
+          "parameter_update_squared_norm": 8.147548382071249e-05,
+          "common_parameter_gradient_squared_norm": 55.68482146390012,
+          "effective_dense_update_squared_norm": 5.390251675381587e-05
+        },
+        {
+          "module": "model.layers.3.self_attn.o_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.023484776910588208,
+          "parameter_update_squared_norm": 7.166407386901798e-05,
+          "common_parameter_gradient_squared_norm": 15.418139062332234,
+          "effective_dense_update_squared_norm": 0.00038429046450362585
+        },
+        {
+          "module": "model.layers.3.mlp.gate_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.05346091033410697,
+          "parameter_update_squared_norm": 0.00038881262476121107,
+          "common_parameter_gradient_squared_norm": 18.60595003684147,
+          "effective_dense_update_squared_norm": 0.002064844551628496
+        },
+        {
+          "module": "model.layers.3.mlp.up_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.07933727134005353,
+          "parameter_update_squared_norm": 0.0003889504090765993,
+          "common_parameter_gradient_squared_norm": 30.913361426910182,
+          "effective_dense_update_squared_norm": 0.0021109051443537587
+        },
+        {
+          "module": "model.layers.3.mlp.down_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.015868772459618007,
+          "parameter_update_squared_norm": 7.165234518116356e-05,
+          "common_parameter_gradient_squared_norm": 6.001342135805714,
+          "effective_dense_update_squared_norm": 0.0003852951993482015
+        },
+        {
+          "module": "model.layers.4.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.011658665295901142,
+          "parameter_update_squared_norm": 0.00014300283017929416,
+          "common_parameter_gradient_squared_norm": 3.6627131644171484,
+          "effective_dense_update_squared_norm": 0.0003763502146955759
+        },
+        {
+          "module": "model.layers.4.self_attn.k_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.003963701745557819,
+          "parameter_update_squared_norm": 1.0236242198952664e-05,
+          "common_parameter_gradient_squared_norm": 3.286671073040157,
+          "effective_dense_update_squared_norm": 5.4824140049513174e-05
+        },
+        {
+          "module": "model.layers.4.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.029342743302438603,
+          "parameter_update_squared_norm": 8.135487879910755e-05,
+          "common_parameter_gradient_squared_norm": 152.81189468762338,
+          "effective_dense_update_squared_norm": 5.510442073729081e-05
+        },
+        {
+          "module": "model.layers.4.self_attn.o_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.026780529934487825,
+          "parameter_update_squared_norm": 7.166482693289382e-05,
+          "common_parameter_gradient_squared_norm": 16.95928372908362,
+          "effective_dense_update_squared_norm": 0.00037913369768889475
+        },
+        {
+          "module": "model.layers.4.mlp.gate_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.05771643302192157,
+          "parameter_update_squared_norm": 0.0003888510731022175,
+          "common_parameter_gradient_squared_norm": 20.978799522395803,
+          "effective_dense_update_squared_norm": 0.0021044022656806546
+        },
+        {
+          "module": "model.layers.4.mlp.up_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.07648173632611807,
+          "parameter_update_squared_norm": 0.0003889586434589658,
+          "common_parameter_gradient_squared_norm": 30.043711898382213,
+          "effective_dense_update_squared_norm": 0.002074908109613526
+        },
+        {
+          "module": "model.layers.4.mlp.down_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.021454687916493062,
+          "parameter_update_squared_norm": 7.165724085086771e-05,
+          "common_parameter_gradient_squared_norm": 11.409725484975645,
+          "effective_dense_update_squared_norm": 0.0003857003049385806
+        },
+        {
+          "module": "model.layers.5.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.014389917366017722,
+          "parameter_update_squared_norm": 0.00014299587191074636,
+          "common_parameter_gradient_squared_norm": 5.5998467908776846,
+          "effective_dense_update_squared_norm": 0.0003913207603679957
+        },
+        {
+          "module": "model.layers.5.self_attn.k_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.007084708091707837,
+          "parameter_update_squared_norm": 1.0238619034365115e-05,
+          "common_parameter_gradient_squared_norm": 24.132889299193238,
+          "effective_dense_update_squared_norm": 5.47120628369331e-05
+        },
+        {
+          "module": "model.layers.5.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.023570142322090426,
+          "parameter_update_squared_norm": 8.154659795322134e-05,
+          "common_parameter_gradient_squared_norm": 96.24591038022969,
+          "effective_dense_update_squared_norm": 5.535450919747474e-05
+        },
+        {
+          "module": "model.layers.5.self_attn.o_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.030529546288150893,
+          "parameter_update_squared_norm": 7.166190742688192e-05,
+          "common_parameter_gradient_squared_norm": 22.073591171864333,
+          "effective_dense_update_squared_norm": 0.0003770715601824197
+        },
+        {
+          "module": "model.layers.5.mlp.gate_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.0572762406118531,
+          "parameter_update_squared_norm": 0.00038882228366956525,
+          "common_parameter_gradient_squared_norm": 20.74986491747666,
+          "effective_dense_update_squared_norm": 0.0020413328717980884
+        },
+        {
+          "module": "model.layers.5.mlp.up_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.0728316450925966,
+          "parameter_update_squared_norm": 0.00038893514762285695,
+          "common_parameter_gradient_squared_norm": 25.41826324617075,
+          "effective_dense_update_squared_norm": 0.0020849319890312856
+        },
+        {
+          "module": "model.layers.5.mlp.down_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.014523860422227211,
+          "parameter_update_squared_norm": 7.165556032193137e-05,
+          "common_parameter_gradient_squared_norm": 4.7880404743825515,
+          "effective_dense_update_squared_norm": 0.00038035321367880766
+        },
+        {
+          "module": "model.layers.6.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.011629797362278042,
+          "parameter_update_squared_norm": 0.00014289893338498792,
+          "common_parameter_gradient_squared_norm": 3.8653004541242026,
+          "effective_dense_update_squared_norm": 0.00038296855329220255
+        },
+        {
+          "module": "model.layers.6.self_attn.k_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.00523909718700751,
+          "parameter_update_squared_norm": 1.0237144302705422e-05,
+          "common_parameter_gradient_squared_norm": 10.640438122874155,
+          "effective_dense_update_squared_norm": 5.4226273029021794e-05
+        },
+        {
+          "module": "model.layers.6.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.03086271385794328,
+          "parameter_update_squared_norm": 8.167054046396771e-05,
+          "common_parameter_gradient_squared_norm": 144.20404874661187,
+          "effective_dense_update_squared_norm": 5.766897356692352e-05
+        },
+        {
+          "module": "model.layers.6.self_attn.o_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.034841918066110616,
+          "parameter_update_squared_norm": 7.165577182906884e-05,
+          "common_parameter_gradient_squared_norm": 36.171050625011574,
+          "effective_dense_update_squared_norm": 0.00038446434180774633
+        },
+        {
+          "module": "model.layers.6.mlp.gate_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.0543648580862897,
+          "parameter_update_squared_norm": 0.00038880704652875906,
+          "common_parameter_gradient_squared_norm": 19.830132491708955,
+          "effective_dense_update_squared_norm": 0.0021076395150344224
+        },
+        {
+          "module": "model.layers.6.mlp.up_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.08732860830196754,
+          "parameter_update_squared_norm": 0.0003889598479548821,
+          "common_parameter_gradient_squared_norm": 39.45491878566058,
+          "effective_dense_update_squared_norm": 0.002050817738437647
+        },
+        {
+          "module": "model.layers.6.mlp.down_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.015790093308618372,
+          "parameter_update_squared_norm": 7.164177310015713e-05,
+          "common_parameter_gradient_squared_norm": 5.898120656391715,
+          "effective_dense_update_squared_norm": 0.00038290743182831365
+        },
+        {
+          "module": "model.layers.7.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.019190674420477435,
+          "parameter_update_squared_norm": 0.00014311215576360328,
+          "common_parameter_gradient_squared_norm": 10.430793672433811,
+          "effective_dense_update_squared_norm": 0.00038442339852005366
+        },
+        {
+          "module": "model.layers.7.self_attn.k_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.006032443230265194,
+          "parameter_update_squared_norm": 1.0238685353131996e-05,
+          "common_parameter_gradient_squared_norm": 11.344531781760491,
+          "effective_dense_update_squared_norm": 5.573549468790664e-05
+        },
+        {
+          "module": "model.layers.7.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.018244398346221782,
+          "parameter_update_squared_norm": 8.153546637098301e-05,
+          "common_parameter_gradient_squared_norm": 52.070571555993965,
+          "effective_dense_update_squared_norm": 5.5632673721691254e-05
+        },
+        {
+          "module": "model.layers.7.self_attn.o_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.0392973273695688,
+          "parameter_update_squared_norm": 7.166525620360965e-05,
+          "common_parameter_gradient_squared_norm": 38.69058919136441,
+          "effective_dense_update_squared_norm": 0.00037455067128689654
+        },
+        {
+          "module": "model.layers.7.mlp.gate_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.056047012884931684,
+          "parameter_update_squared_norm": 0.00038877381267899314,
+          "common_parameter_gradient_squared_norm": 24.02036077504021,
+          "effective_dense_update_squared_norm": 0.002099556377254364
+        },
+        {
+          "module": "model.layers.7.mlp.up_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.08598836051290444,
+          "parameter_update_squared_norm": 0.00038895195387477735,
+          "common_parameter_gradient_squared_norm": 40.01048141017115,
+          "effective_dense_update_squared_norm": 0.0020074153105452035
+        },
+        {
+          "module": "model.layers.7.mlp.down_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.018867349264121976,
+          "parameter_update_squared_norm": 7.165100474412932e-05,
+          "common_parameter_gradient_squared_norm": 9.051050485991514,
+          "effective_dense_update_squared_norm": 0.00038107209381266487
+        },
+        {
+          "module": "model.layers.8.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.017983271514365053,
+          "parameter_update_squared_norm": 0.00014305034693430359,
+          "common_parameter_gradient_squared_norm": 10.691887186958859,
+          "effective_dense_update_squared_norm": 0.00037448810315908877
+        },
+        {
+          "module": "model.layers.8.self_attn.k_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.008216232082557891,
+          "parameter_update_squared_norm": 1.0228810610638808e-05,
+          "common_parameter_gradient_squared_norm": 20.787880967807723,
+          "effective_dense_update_squared_norm": 5.061182563535886e-05
+        },
+        {
+          "module": "model.layers.8.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.037377390386833374,
+          "parameter_update_squared_norm": 8.171797620535854e-05,
+          "common_parameter_gradient_squared_norm": 231.13725669283127,
+          "effective_dense_update_squared_norm": 5.802089493229448e-05
+        },
+        {
+          "module": "model.layers.8.self_attn.o_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.03645893020462517,
+          "parameter_update_squared_norm": 7.16596672406499e-05,
+          "common_parameter_gradient_squared_norm": 34.6518587671101,
+          "effective_dense_update_squared_norm": 0.0003862310210556617
+        },
+        {
+          "module": "model.layers.8.mlp.gate_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.06078049946095046,
+          "parameter_update_squared_norm": 0.0003888375066610676,
+          "common_parameter_gradient_squared_norm": 25.253257983524072,
+          "effective_dense_update_squared_norm": 0.002041639063260684
+        },
+        {
+          "module": "model.layers.8.mlp.up_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.09570263903238721,
+          "parameter_update_squared_norm": 0.0003889437998445888,
+          "common_parameter_gradient_squared_norm": 52.355552798032164,
+          "effective_dense_update_squared_norm": 0.002107613282165314
+        },
+        {
+          "module": "model.layers.8.mlp.down_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.016899794099161376,
+          "parameter_update_squared_norm": 7.165576275367807e-05,
+          "common_parameter_gradient_squared_norm": 6.958020069086732,
+          "effective_dense_update_squared_norm": 0.00038707479856276924
+        },
+        {
+          "module": "model.layers.9.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.01771733052290833,
+          "parameter_update_squared_norm": 0.00014110205946405477,
+          "common_parameter_gradient_squared_norm": 13.698272070819257,
+          "effective_dense_update_squared_norm": 0.0003664822817641926
+        },
+        {
+          "module": "model.layers.9.self_attn.k_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.0067018576762443525,
+          "parameter_update_squared_norm": 1.0238423005629665e-05,
+          "common_parameter_gradient_squared_norm": 19.186377479508224,
+          "effective_dense_update_squared_norm": 5.560280634830284e-05
+        },
+        {
+          "module": "model.layers.9.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.015477917869218736,
+          "parameter_update_squared_norm": 8.157534821955968e-05,
+          "common_parameter_gradient_squared_norm": 34.679146802700195,
+          "effective_dense_update_squared_norm": 5.711763810440817e-05
+        },
+        {
+          "module": "model.layers.9.self_attn.o_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.03532200825278269,
+          "parameter_update_squared_norm": 7.166642049055881e-05,
+          "common_parameter_gradient_squared_norm": 35.74018116808641,
+          "effective_dense_update_squared_norm": 0.00036269253171893935
+        },
+        {
+          "module": "model.layers.9.mlp.gate_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.0744422532607632,
+          "parameter_update_squared_norm": 0.00038885642245421915,
+          "common_parameter_gradient_squared_norm": 43.510785049462484,
+          "effective_dense_update_squared_norm": 0.0020795695410858617
+        },
+        {
+          "module": "model.layers.9.mlp.up_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.08228428670024251,
+          "parameter_update_squared_norm": 0.00038894891465335947,
+          "common_parameter_gradient_squared_norm": 41.522608707734264,
+          "effective_dense_update_squared_norm": 0.002053705384446247
+        },
+        {
+          "module": "model.layers.9.mlp.down_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.01690969158890841,
+          "parameter_update_squared_norm": 7.165123266717797e-05,
+          "common_parameter_gradient_squared_norm": 7.529751305588697,
+          "effective_dense_update_squared_norm": 0.0003830716773584857
+        },
+        {
+          "module": "model.layers.10.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.015612176391989887,
+          "parameter_update_squared_norm": 0.00014294065964158033,
+          "common_parameter_gradient_squared_norm": 7.071051768018908,
+          "effective_dense_update_squared_norm": 0.0003897518515982799
+        },
+        {
+          "module": "model.layers.10.self_attn.k_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.008251974709603342,
+          "parameter_update_squared_norm": 1.0237946107258493e-05,
+          "common_parameter_gradient_squared_norm": 25.721683738379546,
+          "effective_dense_update_squared_norm": 5.405175206101775e-05
+        },
+        {
+          "module": "model.layers.10.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.02506170770008526,
+          "parameter_update_squared_norm": 8.172643414670834e-05,
+          "common_parameter_gradient_squared_norm": 84.89065543423638,
+          "effective_dense_update_squared_norm": 5.421899794708498e-05
+        },
+        {
+          "module": "model.layers.10.self_attn.o_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.0440977437298427,
+          "parameter_update_squared_norm": 7.167013583096643e-05,
+          "common_parameter_gradient_squared_norm": 61.92569593665614,
+          "effective_dense_update_squared_norm": 0.00038515876619033186
+        },
+        {
+          "module": "model.layers.10.mlp.gate_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.06909329911929657,
+          "parameter_update_squared_norm": 0.0003887871384772617,
+          "common_parameter_gradient_squared_norm": 50.34641371989029,
+          "effective_dense_update_squared_norm": 0.002142448346937805
+        },
+        {
+          "module": "model.layers.10.mlp.up_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.07652141729429432,
+          "parameter_update_squared_norm": 0.0003889429254923496,
+          "common_parameter_gradient_squared_norm": 44.844323938101866,
+          "effective_dense_update_squared_norm": 0.0020870861769382077
+        },
+        {
+          "module": "model.layers.10.mlp.down_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.021455169611035958,
+          "parameter_update_squared_norm": 7.165919491847519e-05,
+          "common_parameter_gradient_squared_norm": 15.671435472103564,
+          "effective_dense_update_squared_norm": 0.00038005930848861413
+        },
+        {
+          "module": "model.layers.11.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.0284579128514822,
+          "parameter_update_squared_norm": 0.00014316228656275203,
+          "common_parameter_gradient_squared_norm": 24.581064795362817,
+          "effective_dense_update_squared_norm": 0.00038699658171831156
+        },
+        {
+          "module": "model.layers.11.self_attn.k_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.008646614713625963,
+          "parameter_update_squared_norm": 1.0237504595845217e-05,
+          "common_parameter_gradient_squared_norm": 41.26088895234277,
+          "effective_dense_update_squared_norm": 5.375051293776887e-05
+        },
+        {
+          "module": "model.layers.11.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.03420219329380889,
+          "parameter_update_squared_norm": 8.178449453702423e-05,
+          "common_parameter_gradient_squared_norm": 191.32671864963038,
+          "effective_dense_update_squared_norm": 5.580307139822332e-05
+        },
+        {
+          "module": "model.layers.11.self_attn.o_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.03898922619690519,
+          "parameter_update_squared_norm": 7.166753807921129e-05,
+          "common_parameter_gradient_squared_norm": 53.59353339616243,
+          "effective_dense_update_squared_norm": 0.000392474547634723
+        },
+        {
+          "module": "model.layers.11.mlp.gate_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.05256783608150743,
+          "parameter_update_squared_norm": 0.00038870154307517167,
+          "common_parameter_gradient_squared_norm": 28.772816442111484,
+          "effective_dense_update_squared_norm": 0.0020938463588974854
+        },
+        {
+          "module": "model.layers.11.mlp.up_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.06251892840732642,
+          "parameter_update_squared_norm": 0.0003888482406100575,
+          "common_parameter_gradient_squared_norm": 33.06885739290305,
+          "effective_dense_update_squared_norm": 0.0021167021804383004
+        },
+        {
+          "module": "model.layers.11.mlp.down_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.014191473711587828,
+          "parameter_update_squared_norm": 7.165505308851745e-05,
+          "common_parameter_gradient_squared_norm": 5.026673637654028,
+          "effective_dense_update_squared_norm": 0.00038206413536272493
+        },
+        {
+          "module": "model.layers.12.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.022776415313136032,
+          "parameter_update_squared_norm": 0.00014317250285437826,
+          "common_parameter_gradient_squared_norm": 12.563674663003269,
+          "effective_dense_update_squared_norm": 0.0003960815252348065
+        },
+        {
+          "module": "model.layers.12.self_attn.k_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.008503724663259587,
+          "parameter_update_squared_norm": 1.023902350756235e-05,
+          "common_parameter_gradient_squared_norm": 41.942029626960746,
+          "effective_dense_update_squared_norm": 5.490123543295393e-05
+        },
+        {
+          "module": "model.layers.12.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.030852119341747298,
+          "parameter_update_squared_norm": 8.173043020157058e-05,
+          "common_parameter_gradient_squared_norm": 160.9939362368507,
+          "effective_dense_update_squared_norm": 5.404568775687905e-05
+        },
+        {
+          "module": "model.layers.12.self_attn.o_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.024547219176536204,
+          "parameter_update_squared_norm": 7.166134456059905e-05,
+          "common_parameter_gradient_squared_norm": 14.839634336530455,
+          "effective_dense_update_squared_norm": 0.00038483553144917187
+        },
+        {
+          "module": "model.layers.12.mlp.gate_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.041419481976535326,
+          "parameter_update_squared_norm": 0.0003886639811078596,
+          "common_parameter_gradient_squared_norm": 14.348179555110143,
+          "effective_dense_update_squared_norm": 0.0020669451596709836
+        },
+        {
+          "module": "model.layers.12.mlp.up_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.05884867851610517,
+          "parameter_update_squared_norm": 0.0003888839558820438,
+          "common_parameter_gradient_squared_norm": 20.423725966823884,
+          "effective_dense_update_squared_norm": 0.0020833324080085387
+        },
+        {
+          "module": "model.layers.12.mlp.down_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.013724507646943732,
+          "parameter_update_squared_norm": 7.165497336407199e-05,
+          "common_parameter_gradient_squared_norm": 4.822633906362828,
+          "effective_dense_update_squared_norm": 0.00038143417089553323
+        },
+        {
+          "module": "model.layers.13.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.023551181047298503,
+          "parameter_update_squared_norm": 0.00014313373010968,
+          "common_parameter_gradient_squared_norm": 14.186400340055037,
+          "effective_dense_update_squared_norm": 0.00040866427070368526
+        },
+        {
+          "module": "model.layers.13.self_attn.k_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.004106295532441656,
+          "parameter_update_squared_norm": 1.0237792209540088e-05,
+          "common_parameter_gradient_squared_norm": 6.725176575177482,
+          "effective_dense_update_squared_norm": 5.430669751395394e-05
+        },
+        {
+          "module": "model.layers.13.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.01651097881162469,
+          "parameter_update_squared_norm": 8.138447730989071e-05,
+          "common_parameter_gradient_squared_norm": 41.81091566500332,
+          "effective_dense_update_squared_norm": 5.662391021330085e-05
+        },
+        {
+          "module": "model.layers.13.self_attn.o_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.021047565284744267,
+          "parameter_update_squared_norm": 7.166250806791603e-05,
+          "common_parameter_gradient_squared_norm": 11.256382363143416,
+          "effective_dense_update_squared_norm": 0.0003840777883462022
+        },
+        {
+          "module": "model.layers.13.mlp.gate_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.039647230014109885,
+          "parameter_update_squared_norm": 0.0003886416719606706,
+          "common_parameter_gradient_squared_norm": 11.95815738224876,
+          "effective_dense_update_squared_norm": 0.0020624247452570525
+        },
+        {
+          "module": "model.layers.13.mlp.up_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.054195530569633915,
+          "parameter_update_squared_norm": 0.0003888467808512432,
+          "common_parameter_gradient_squared_norm": 18.822339009371525,
+          "effective_dense_update_squared_norm": 0.002148633768739348
+        },
+        {
+          "module": "model.layers.13.mlp.down_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.012195504250471853,
+          "parameter_update_squared_norm": 7.164490618659335e-05,
+          "common_parameter_gradient_squared_norm": 3.568302144216979,
+          "effective_dense_update_squared_norm": 0.0003830630692373835
+        },
+        {
+          "module": "model.layers.14.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.011783640901504503,
+          "parameter_update_squared_norm": 0.0001428506044025609,
+          "common_parameter_gradient_squared_norm": 4.298393827449772,
+          "effective_dense_update_squared_norm": 0.0003895632184735476
+        },
+        {
+          "module": "model.layers.14.self_attn.k_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.0028580284047065798,
+          "parameter_update_squared_norm": 1.0237924559477548e-05,
+          "common_parameter_gradient_squared_norm": 2.416270621390076,
+          "effective_dense_update_squared_norm": 5.311707823518271e-05
+        },
+        {
+          "module": "model.layers.14.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.011046996765022092,
+          "parameter_update_squared_norm": 8.147625486815205e-05,
+          "common_parameter_gradient_squared_norm": 18.113791009305373,
+          "effective_dense_update_squared_norm": 5.53414605082668e-05
+        },
+        {
+          "module": "model.layers.14.self_attn.o_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.018797485690034366,
+          "parameter_update_squared_norm": 7.165015065318384e-05,
+          "common_parameter_gradient_squared_norm": 8.349685482487427,
+          "effective_dense_update_squared_norm": 0.00037827241528041577
+        },
+        {
+          "module": "model.layers.14.mlp.gate_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.034176289347650615,
+          "parameter_update_squared_norm": 0.0003885724958214569,
+          "common_parameter_gradient_squared_norm": 8.132977245018978,
+          "effective_dense_update_squared_norm": 0.002073959318651871
+        },
+        {
+          "module": "model.layers.14.mlp.up_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.06851872575965537,
+          "parameter_update_squared_norm": 0.0003888637390707983,
+          "common_parameter_gradient_squared_norm": 43.19534740377817,
+          "effective_dense_update_squared_norm": 0.00205693100278398
+        },
+        {
+          "module": "model.layers.14.mlp.down_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.011006231674625673,
+          "parameter_update_squared_norm": 7.164306924790372e-05,
+          "common_parameter_gradient_squared_norm": 3.075893782874573,
+          "effective_dense_update_squared_norm": 0.00038144965318841613
+        },
+        {
+          "module": "model.layers.15.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.011530306600291158,
+          "parameter_update_squared_norm": 0.00014289122702919912,
+          "common_parameter_gradient_squared_norm": 3.311435203324436,
+          "effective_dense_update_squared_norm": 0.0003930237773274555
+        },
+        {
+          "module": "model.layers.15.self_attn.k_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.004422923667678681,
+          "parameter_update_squared_norm": 1.023776253397793e-05,
+          "common_parameter_gradient_squared_norm": 12.889679899221079,
+          "effective_dense_update_squared_norm": 5.405020142963209e-05
+        },
+        {
+          "module": "model.layers.15.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.011807124082109668,
+          "parameter_update_squared_norm": 8.105750350445924e-05,
+          "common_parameter_gradient_squared_norm": 24.530340243054557,
+          "effective_dense_update_squared_norm": 5.562734484760632e-05
+        },
+        {
+          "module": "model.layers.15.self_attn.o_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.018880101746511092,
+          "parameter_update_squared_norm": 7.165791804957471e-05,
+          "common_parameter_gradient_squared_norm": 9.154007160466218,
+          "effective_dense_update_squared_norm": 0.0003751893736865604
+        },
+        {
+          "module": "model.layers.15.mlp.gate_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.03731129909916433,
+          "parameter_update_squared_norm": 0.0003885065794593268,
+          "common_parameter_gradient_squared_norm": 16.00859976383912,
+          "effective_dense_update_squared_norm": 0.0020966307392280698
+        },
+        {
+          "module": "model.layers.15.mlp.up_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.04347938326683311,
+          "parameter_update_squared_norm": 0.00038878345505029624,
+          "common_parameter_gradient_squared_norm": 18.1433237801121,
+          "effective_dense_update_squared_norm": 0.002105001406405887
+        },
+        {
+          "module": "model.layers.15.mlp.down_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.010553734538921448,
+          "parameter_update_squared_norm": 7.164307837067004e-05,
+          "common_parameter_gradient_squared_norm": 2.8537796332791743,
+          "effective_dense_update_squared_norm": 0.0003800948905785206
+        },
+        {
+          "module": "model.layers.16.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.010052908721205421,
+          "parameter_update_squared_norm": 0.00014292429731379175,
+          "common_parameter_gradient_squared_norm": 2.8051411238488058,
+          "effective_dense_update_squared_norm": 0.00038568602457709686
+        },
+        {
+          "module": "model.layers.16.self_attn.k_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.005432694478848265,
+          "parameter_update_squared_norm": 1.0236073165712307e-05,
+          "common_parameter_gradient_squared_norm": 11.19815519537493,
+          "effective_dense_update_squared_norm": 5.5041811445035965e-05
+        },
+        {
+          "module": "model.layers.16.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.020794186593793274,
+          "parameter_update_squared_norm": 8.128921745671194e-05,
+          "common_parameter_gradient_squared_norm": 77.72449176303078,
+          "effective_dense_update_squared_norm": 5.719138115557364e-05
+        },
+        {
+          "module": "model.layers.16.self_attn.o_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.01682875493941561,
+          "parameter_update_squared_norm": 7.165436705288615e-05,
+          "common_parameter_gradient_squared_norm": 7.251125926258577,
+          "effective_dense_update_squared_norm": 0.0003983213006030675
+        },
+        {
+          "module": "model.layers.16.mlp.gate_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.02611426227153455,
+          "parameter_update_squared_norm": 0.0003884199042601261,
+          "common_parameter_gradient_squared_norm": 7.167490935782439,
+          "effective_dense_update_squared_norm": 0.002049604221039034
+        },
+        {
+          "module": "model.layers.16.mlp.up_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.039298593675061194,
+          "parameter_update_squared_norm": 0.00038874421515834226,
+          "common_parameter_gradient_squared_norm": 11.235231398174761,
+          "effective_dense_update_squared_norm": 0.002050512548103429
+        },
+        {
+          "module": "model.layers.16.mlp.down_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.009280435434035533,
+          "parameter_update_squared_norm": 7.163971607403673e-05,
+          "common_parameter_gradient_squared_norm": 2.143462127722376,
+          "effective_dense_update_squared_norm": 0.00038385890212620094
+        },
+        {
+          "module": "model.layers.17.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.0050723337343940664,
+          "parameter_update_squared_norm": 0.00014249693896643635,
+          "common_parameter_gradient_squared_norm": 0.8965482341344817,
+          "effective_dense_update_squared_norm": 0.0003901323286703037
+        },
+        {
+          "module": "model.layers.17.self_attn.k_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.003264641173433703,
+          "parameter_update_squared_norm": 1.0235758083484817e-05,
+          "common_parameter_gradient_squared_norm": 4.437741154117727,
+          "effective_dense_update_squared_norm": 5.558969931817466e-05
+        },
+        {
+          "module": "model.layers.17.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.008431067661431148,
+          "parameter_update_squared_norm": 8.088095451188706e-05,
+          "common_parameter_gradient_squared_norm": 11.867469552896459,
+          "effective_dense_update_squared_norm": 5.547016256508362e-05
+        },
+        {
+          "module": "model.layers.17.self_attn.o_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.015839277495313164,
+          "parameter_update_squared_norm": 7.164990049634046e-05,
+          "common_parameter_gradient_squared_norm": 7.112240341562494,
+          "effective_dense_update_squared_norm": 0.0004043263899373745
+        },
+        {
+          "module": "model.layers.17.mlp.gate_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.029173194309452803,
+          "parameter_update_squared_norm": 0.0003883280870891789,
+          "common_parameter_gradient_squared_norm": 9.901451926389559,
+          "effective_dense_update_squared_norm": 0.0020172113045316643
+        },
+        {
+          "module": "model.layers.17.mlp.up_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.029040807881113583,
+          "parameter_update_squared_norm": 0.0003886547222082515,
+          "common_parameter_gradient_squared_norm": 5.789222546759316,
+          "effective_dense_update_squared_norm": 0.0020933340468407904
+        },
+        {
+          "module": "model.layers.17.mlp.down_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.011264727026371166,
+          "parameter_update_squared_norm": 7.163574505050717e-05,
+          "common_parameter_gradient_squared_norm": 3.234593811674312,
+          "effective_dense_update_squared_norm": 0.0003828136881622073
+        },
+        {
+          "module": "model.layers.18.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.006094207494648858,
+          "parameter_update_squared_norm": 0.00014271205279505324,
+          "common_parameter_gradient_squared_norm": 1.2242752068294749,
+          "effective_dense_update_squared_norm": 0.0003935392195585615
+        },
+        {
+          "module": "model.layers.18.self_attn.k_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.0017020027318884324,
+          "parameter_update_squared_norm": 1.0234271194329982e-05,
+          "common_parameter_gradient_squared_norm": 1.2702461974793096,
+          "effective_dense_update_squared_norm": 5.497822274913713e-05
+        },
+        {
+          "module": "model.layers.18.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.00442009368583993,
+          "parameter_update_squared_norm": 7.968394218753555e-05,
+          "common_parameter_gradient_squared_norm": 3.21419421917955,
+          "effective_dense_update_squared_norm": 5.517168829821717e-05
+        },
+        {
+          "module": "model.layers.18.self_attn.o_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.00944032837943513,
+          "parameter_update_squared_norm": 7.162054614089569e-05,
+          "common_parameter_gradient_squared_norm": 2.2265357563114243,
+          "effective_dense_update_squared_norm": 0.000385870959499653
+        },
+        {
+          "module": "model.layers.18.mlp.gate_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.026355769830667248,
+          "parameter_update_squared_norm": 0.0003882584805021902,
+          "common_parameter_gradient_squared_norm": 6.528055563658427,
+          "effective_dense_update_squared_norm": 0.0020758699049725606
+        },
+        {
+          "module": "model.layers.18.mlp.up_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.033859209304054866,
+          "parameter_update_squared_norm": 0.00038868005100401506,
+          "common_parameter_gradient_squared_norm": 8.325957129026573,
+          "effective_dense_update_squared_norm": 0.0020575328768155793
+        },
+        {
+          "module": "model.layers.18.mlp.down_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.009170736109278496,
+          "parameter_update_squared_norm": 7.162053112440625e-05,
+          "common_parameter_gradient_squared_norm": 2.245036900569616,
+          "effective_dense_update_squared_norm": 0.0003761907054611656
+        },
+        {
+          "module": "model.layers.19.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.006388996909380178,
+          "parameter_update_squared_norm": 0.00014247621315363016,
+          "common_parameter_gradient_squared_norm": 2.044336674414076,
+          "effective_dense_update_squared_norm": 0.00039174906853827
+        },
+        {
+          "module": "model.layers.19.self_attn.k_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.0026382920546291965,
+          "parameter_update_squared_norm": 1.0235687837563783e-05,
+          "common_parameter_gradient_squared_norm": 3.983630987414415,
+          "effective_dense_update_squared_norm": 5.338642869788147e-05
+        },
+        {
+          "module": "model.layers.19.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.007201082782300382,
+          "parameter_update_squared_norm": 8.104800361220154e-05,
+          "common_parameter_gradient_squared_norm": 7.336495128032496,
+          "effective_dense_update_squared_norm": 5.436108279126565e-05
+        },
+        {
+          "module": "model.layers.19.self_attn.o_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.007448414299812187,
+          "parameter_update_squared_norm": 7.162427568868995e-05,
+          "common_parameter_gradient_squared_norm": 1.4687411859913198,
+          "effective_dense_update_squared_norm": 0.00038158906213197285
+        },
+        {
+          "module": "model.layers.19.mlp.gate_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.02837644179686835,
+          "parameter_update_squared_norm": 0.00038844429225971295,
+          "common_parameter_gradient_squared_norm": 8.13518224336551,
+          "effective_dense_update_squared_norm": 0.0021503720965649273
+        },
+        {
+          "module": "model.layers.19.mlp.up_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.03376342994693196,
+          "parameter_update_squared_norm": 0.0003886732649526876,
+          "common_parameter_gradient_squared_norm": 10.1602736905594,
+          "effective_dense_update_squared_norm": 0.002126078543563547
+        },
+        {
+          "module": "model.layers.19.mlp.down_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.008686498510744742,
+          "parameter_update_squared_norm": 7.162235630565563e-05,
+          "common_parameter_gradient_squared_norm": 1.9981986932591056,
+          "effective_dense_update_squared_norm": 0.0003798603869114252
+        },
+        {
+          "module": "model.layers.20.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.00764257574377399,
+          "parameter_update_squared_norm": 0.00014260198225922362,
+          "common_parameter_gradient_squared_norm": 2.0341087472888297,
+          "effective_dense_update_squared_norm": 0.00038387365515943014
+        },
+        {
+          "module": "model.layers.20.self_attn.k_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.0036830685204735703,
+          "parameter_update_squared_norm": 1.0236582595758455e-05,
+          "common_parameter_gradient_squared_norm": 6.335904986357551,
+          "effective_dense_update_squared_norm": 5.2884165470295205e-05
+        },
+        {
+          "module": "model.layers.20.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.007947869890247788,
+          "parameter_update_squared_norm": 8.034994362370699e-05,
+          "common_parameter_gradient_squared_norm": 12.788468672682964,
+          "effective_dense_update_squared_norm": 5.300821206284398e-05
+        },
+        {
+          "module": "model.layers.20.self_attn.o_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.016915765725547715,
+          "parameter_update_squared_norm": 7.164885757338541e-05,
+          "common_parameter_gradient_squared_norm": 9.580854091451386,
+          "effective_dense_update_squared_norm": 0.00038429501796685716
+        },
+        {
+          "module": "model.layers.20.mlp.gate_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.027095658943720388,
+          "parameter_update_squared_norm": 0.00038823145219143653,
+          "common_parameter_gradient_squared_norm": 9.566828885243343,
+          "effective_dense_update_squared_norm": 0.002092120137186675
+        },
+        {
+          "module": "model.layers.20.mlp.up_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.039343335716494114,
+          "parameter_update_squared_norm": 0.0003887006330260997,
+          "common_parameter_gradient_squared_norm": 16.69620483487806,
+          "effective_dense_update_squared_norm": 0.002050341464613086
+        },
+        {
+          "module": "model.layers.20.mlp.down_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.009364134543197393,
+          "parameter_update_squared_norm": 7.164082330933836e-05,
+          "common_parameter_gradient_squared_norm": 2.431105154127035,
+          "effective_dense_update_squared_norm": 0.00038437576997365174
+        },
+        {
+          "module": "model.layers.21.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.0032816630603967538,
+          "parameter_update_squared_norm": 0.00014131492488346866,
+          "common_parameter_gradient_squared_norm": 0.45135118789082895,
+          "effective_dense_update_squared_norm": 0.00038099052922609464
+        },
+        {
+          "module": "model.layers.21.self_attn.k_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.002664595391780077,
+          "parameter_update_squared_norm": 1.0234099002502848e-05,
+          "common_parameter_gradient_squared_norm": 2.460527170169229,
+          "effective_dense_update_squared_norm": 5.4127431162500124e-05
+        },
+        {
+          "module": "model.layers.21.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.0036199832705509196,
+          "parameter_update_squared_norm": 7.829534338083461e-05,
+          "common_parameter_gradient_squared_norm": 2.1526447564179882,
+          "effective_dense_update_squared_norm": 5.5031912447169195e-05
+        },
+        {
+          "module": "model.layers.21.self_attn.o_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.005053665886919789,
+          "parameter_update_squared_norm": 7.160371061669733e-05,
+          "common_parameter_gradient_squared_norm": 0.670130044852236,
+          "effective_dense_update_squared_norm": 0.00038620000002155997
+        },
+        {
+          "module": "model.layers.21.mlp.gate_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.018339030205530613,
+          "parameter_update_squared_norm": 0.0003878902101856023,
+          "common_parameter_gradient_squared_norm": 3.7923086543210047,
+          "effective_dense_update_squared_norm": 0.002105240411658131
+        },
+        {
+          "module": "model.layers.21.mlp.up_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.030095448433150776,
+          "parameter_update_squared_norm": 0.00038858571112040165,
+          "common_parameter_gradient_squared_norm": 12.314222285831335,
+          "effective_dense_update_squared_norm": 0.002089321459758844
+        },
+        {
+          "module": "model.layers.21.mlp.down_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.007546436759838743,
+          "parameter_update_squared_norm": 7.163182830656607e-05,
+          "common_parameter_gradient_squared_norm": 1.3734482310414187,
+          "effective_dense_update_squared_norm": 0.000386458204141799
+        },
+        {
+          "module": "model.layers.22.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.003714748872871836,
+          "parameter_update_squared_norm": 0.00014212387544943784,
+          "common_parameter_gradient_squared_norm": 0.7448121654761657,
+          "effective_dense_update_squared_norm": 0.000384341834206161
+        },
+        {
+          "module": "model.layers.22.self_attn.k_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.0032614328568753796,
+          "parameter_update_squared_norm": 1.02371312920931e-05,
+          "common_parameter_gradient_squared_norm": 5.01727657904733,
+          "effective_dense_update_squared_norm": 5.60350988001744e-05
+        },
+        {
+          "module": "model.layers.22.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.003995304572182529,
+          "parameter_update_squared_norm": 7.857070235342259e-05,
+          "common_parameter_gradient_squared_norm": 2.2698207452606702,
+          "effective_dense_update_squared_norm": 5.703428146224485e-05
+        },
+        {
+          "module": "model.layers.22.self_attn.o_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.01777334411648354,
+          "parameter_update_squared_norm": 7.163846192929693e-05,
+          "common_parameter_gradient_squared_norm": 8.724276240269148,
+          "effective_dense_update_squared_norm": 0.00039101770766674954
+        },
+        {
+          "module": "model.layers.22.mlp.gate_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.023579874750778506,
+          "parameter_update_squared_norm": 0.0003880264726237239,
+          "common_parameter_gradient_squared_norm": 7.733098238201578,
+          "effective_dense_update_squared_norm": 0.002044561968577768
+        },
+        {
+          "module": "model.layers.22.mlp.up_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.036734664216136435,
+          "parameter_update_squared_norm": 0.00038861564531685896,
+          "common_parameter_gradient_squared_norm": 23.97504329490994,
+          "effective_dense_update_squared_norm": 0.0019814985506193482
+        },
+        {
+          "module": "model.layers.22.mlp.down_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.013224662453770528,
+          "parameter_update_squared_norm": 7.16492306607653e-05,
+          "common_parameter_gradient_squared_norm": 4.438954015359247,
+          "effective_dense_update_squared_norm": 0.00038565305842881004
+        },
+        {
+          "module": "model.layers.23.self_attn.q_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.004394093198812619,
+          "parameter_update_squared_norm": 0.0001410132651701328,
+          "common_parameter_gradient_squared_norm": 0.723633754317401,
+          "effective_dense_update_squared_norm": 0.0003882540722345388
+        },
+        {
+          "module": "model.layers.23.self_attn.k_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.001788780319611577,
+          "parameter_update_squared_norm": 1.023549646899056e-05,
+          "common_parameter_gradient_squared_norm": 0.7013708821879483,
+          "effective_dense_update_squared_norm": 5.474794043323013e-05
+        },
+        {
+          "module": "model.layers.23.self_attn.v_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.005978245156082437,
+          "parameter_update_squared_norm": 8.031157069601265e-05,
+          "common_parameter_gradient_squared_norm": 6.818592527101423,
+          "effective_dense_update_squared_norm": 5.382056230444305e-05
+        },
+        {
+          "module": "model.layers.23.self_attn.o_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.00557968176006734,
+          "parameter_update_squared_norm": 7.16091741124606e-05,
+          "common_parameter_gradient_squared_norm": 0.8256546006374101,
+          "effective_dense_update_squared_norm": 0.00038709899100734194
+        },
+        {
+          "module": "model.layers.23.mlp.gate_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.026529743460349725,
+          "parameter_update_squared_norm": 0.0003879580065622579,
+          "common_parameter_gradient_squared_norm": 10.071027899484736,
+          "effective_dense_update_squared_norm": 0.0021383924713579147
+        },
+        {
+          "module": "model.layers.23.mlp.up_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.030659266092120822,
+          "parameter_update_squared_norm": 0.0003884533192006335,
+          "common_parameter_gradient_squared_norm": 40.00058547097002,
+          "effective_dense_update_squared_norm": 0.002118253374100862
+        },
+        {
+          "module": "model.layers.23.mlp.down_proj",
+          "active": true,
+          "raw_gradient_dot_parameter_update": -0.01722009676898256,
+          "parameter_update_squared_norm": 7.164443461674406e-05,
+          "common_parameter_gradient_squared_norm": 7.641707607622099,
+          "effective_dense_update_squared_norm": 0.0003777806855400981
+        }
+      ],
+      "gradient_l2_preclip": 61.10151672363281,
+      "gradient_l2_postclip": 1.0,
+      "clip_threshold": 1.0,
+      "nominal_clip_coefficient": 0.01636620557484484,
+      "learning_rate_used": [
+        0.0001
+      ],
+      "learning_rate_after_scheduler": [
+        0.0
+      ],
+      "scaler_before": 1.0,
+      "scaler_after": 1.0,
+      "optimizer_class": "torch.optim.AdamW",
+      "optimizer_steps": 1,
+      "optimizer_moments_fresh": true,
+      "actual_parameters_changed": true,
+      "same_dropout_RNG_replay": true,
+      "base_parameters_unchanged": true,
+      "adapter_after_digest": "8766a21b20bc0c1bda5def25defd83d5be88aa092f2752b80242e3f18a147bad"
+    }
+  },
+  "new_optimizer_steps": 2,
+  "new_backward_calls": 11,
+  "new_answer_loss_forwards": 35,
+  "TRAIN_QA_used": 11,
+  "TEST_QA": 0,
+  "new_generations": 0,
+  "new_F1_scores": 0,
+  "new_checkpoint_saved": false,
+  "effective_dense_norm_definition": "FP32 scale*(B_after A_after-B_before A_before), TF32 disabled for measurement only; not merged into W",
+  "limits": [
+    "One predetermined current task and one shared gradient, not a convergence curve or generalization result.",
+    "Common dummy extra branches consume identical RNG/computation in both masks; not a replay of the original q/v-only trajectory.",
+    "All-r8 has more active coordinates and may take a larger step. No norm matching; not pure direction causality.",
+    "Replay uses the same dropout realization, not an independent fresh-mask loss or held-out QA.",
+    "Base is frozen and initial q/v already learned at S1; do not apply B0/A-zero-gradient arguments to that q/v state."
+  ]
+}
