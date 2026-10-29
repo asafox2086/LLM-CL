@@ -1,0 +1,55 @@
+{
+  "unix": 1793250822.616515,
+  "prior_check_failed": "A read-only observation expected every job to remain queued; allocator had already launched a genuine eligible resume, so that assertion failed before writing a result. No process or scientific failure.",
+  "actual_jobs": [
+    {
+      "host": "new3090",
+      "key": "pct01:OSFT",
+      "status": "ready_resume",
+      "run_dir": "exp/two_backbone_native_checkpoint_20261027/runs/qwen/pct01/OSFT/recovery_io_20261029_S14",
+      "completed_stage": 14,
+      "pid": null,
+      "gpu": 2,
+      "actual_run_status": {
+        "status": "io_recovery_prepared",
+        "completed_stage": 14,
+        "active_stage": null
+      }
+    },
+    {
+      "host": "new3090_onevision",
+      "key": "pct01:SMoLoRA",
+      "status": "training",
+      "run_dir": "exp/two_backbone_native_checkpoint_20261027/runs/onevision/pct01/SMoLoRA/recovery_io_20261029_S14",
+      "completed_stage": 14,
+      "pid": 1958657,
+      "gpu": 2,
+      "actual_identity": {
+        "pid": 1958657,
+        "startticks": "59355970",
+        "uid": 1004,
+        "pgid": 1958657
+      },
+      "native_resume_argv_confirmed": true,
+      "actual_run_status": {
+        "status": "training",
+        "completed_stage": 14,
+        "active_stage": 15
+      }
+    },
+    {
+      "host": "new3090",
+      "key": "pct01:PASs_MoE",
+      "status": "ready_training",
+      "run_dir": "exp/two_backbone_native_checkpoint_20261027/runs/qwen/pct01/PASs_MoE/training_20261028_223446",
+      "completed_stage": 0,
+      "pid": null,
+      "gpu": 3,
+      "actual_run_status": {
+        "status": "initial_evaluation",
+        "completed_stage": 0,
+        "active_stage": null
+      }
+    }
+  ]
+}

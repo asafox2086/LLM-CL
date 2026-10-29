@@ -1,0 +1,17 @@
+# 2026-10-29：按用户要求从完整阶段恢复
+
+用户要求恢复后，保留原失败现场和固定科学设置，建立独立续训分支，不再把“不自动重试”误解为禁止审查后的阶段恢复。
+
+TaskGradReuse已从完整S17 checkpoint（SHA939b7081ad009f387cc142b9baffcbfb6ad1e5e031bc3b1d47463771e7c74ed4）恢复到training_recovery_S17_20261029。S0–S17共53评估单元及训练事件按原字节保留，S18未提交事件和输出留在旧失败RUN，未混入新轨迹。29个训练源、数据、优化器和预算均未改。原加载器恢复完整method/processor/RNG并重绑新state_root。
+
+实际已观测worker278958/start794865544、supervisor278942/start794865500在OLD GPU1存活，S18梯度校准和至少两次主更新完成；这不是仅准备或排队。运行时GPU显存不能作为最终部署指标。新unit为llmcl-taskgrad-s17-recovery-wait-20261029.service；第一次unit调用因setsid父进程退出，在任何STARTING或worker前结束，修为setsid --wait，原调用收据保留，不是重复模型训练。
+
+OLD PaRSP已从完整S6分支进入S7训练（GPU0），OSFT按原正常暂停许可从S0进入S1训练（GPU2）；固定单次监督器调用原pipeline.launch，不改方法或研究GPU1。NEW两S14恢复分支及原唯一owner恢复另见summary/storage_recovery_20261029，实际启动以其收据为准。
+
+尚无最终S19完整质量、正式部署参数和GPU峰结论。独立恢复核验器复用原评分引擎、74格/80316评分、93条实际主更新、222校准及原metric锁；原失败仍是失败，旧S18额外成本另计。未执行核验或重新评分。阶段结论保持原口径，主表Ours仍空。
+
+后续检查入口：NEW本目录observe_recovery.py只读核实际worker、完成/失败收据和存储。恢复/清理/准备均为一次性已执行动作，不重放；原唯一评分与归档仍保幂等。监控按用户低频要求运行。
+
+GPU3的Qwen PaRSP已按原通过的预检/重载与原25源fresh开始S0，原无CP且0更新的失败RUN完整保留；新RUN training_20261029_131134。OLD四卡已分别用于研究和三项基线。NEW原唯一owner已恢复，LLaVA SMo从S14分支获得实际空闲GPU2并启动，另两项在队列中；具体真实身份见NEW恢复收据。
+
+按已授权保留策略又清理旧PaRSP S4/S5两个非最终权重，释放11582456712B；S6原/分支同inode及完整SHA核验，195个非目标文件stat摘要不变，动态续训分支未改。清理后OLD可用25151815680B（同时有运行写入，非静止容量差）。NEW当前约30.66GB；这些清理不删除任何答案、评分或主表记录。

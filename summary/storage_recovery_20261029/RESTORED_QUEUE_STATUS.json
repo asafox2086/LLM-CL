@@ -1,0 +1,103 @@
+{
+  "status": "ORIGINAL_SINGLE_OWNER_RUNNING_RECOVERIES_ADMITTED",
+  "unix": 1793250822.0845428,
+  "controller": {
+    "pid": 1958632,
+    "startticks": "59355819",
+    "uid": 1004,
+    "pgid": 1958632
+  },
+  "unit": "llmcl-two-backbone-native.service",
+  "jobs": [
+    {
+      "host": "new3090",
+      "key": "pct01:OSFT",
+      "status": "ready_resume",
+      "run_dir": "exp/two_backbone_native_checkpoint_20261027/runs/qwen/pct01/OSFT/recovery_io_20261029_S14",
+      "completed_stage": 14,
+      "pid": null,
+      "gpu": 2,
+      "actual_run_status": {
+        "status": "io_recovery_prepared",
+        "completed_stage": 14,
+        "active_stage": null
+      }
+    },
+    {
+      "host": "new3090_onevision",
+      "key": "pct01:SMoLoRA",
+      "status": "training",
+      "run_dir": "exp/two_backbone_native_checkpoint_20261027/runs/onevision/pct01/SMoLoRA/recovery_io_20261029_S14",
+      "completed_stage": 14,
+      "pid": 1958657,
+      "gpu": 2,
+      "actual_identity": {
+        "pid": 1958657,
+        "startticks": "59355970",
+        "uid": 1004,
+        "pgid": 1958657
+      },
+      "native_resume_argv_confirmed": true,
+      "actual_run_status": {
+        "status": "training",
+        "completed_stage": 14,
+        "active_stage": 15
+      }
+    },
+    {
+      "host": "new3090",
+      "key": "pct01:PASs_MoE",
+      "status": "ready_training",
+      "run_dir": "exp/two_backbone_native_checkpoint_20261027/runs/qwen/pct01/PASs_MoE/training_20261028_223446",
+      "completed_stage": 0,
+      "pid": null,
+      "gpu": 3,
+      "actual_run_status": {
+        "status": "initial_evaluation",
+        "completed_stage": 0,
+        "active_stage": null
+      }
+    }
+  ],
+  "current_GPU_owners": [
+    {
+      "pid": 1910797,
+      "UID": 1020,
+      "GPU_uuid": "GPU-0fc921a0-8588-6976-7e2c-172705ab6980",
+      "MiB": 23994
+    },
+    {
+      "pid": 1834314,
+      "UID": 1024,
+      "GPU_uuid": "GPU-3f5b86c8-feeb-110c-c68c-e04716c0f84c",
+      "MiB": 4576
+    },
+    {
+      "pid": 1958657,
+      "UID": 1004,
+      "GPU_uuid": "GPU-01bbc8c7-11be-9e3c-b786-7c075e675e0a",
+      "MiB": 6392
+    },
+    {
+      "pid": 1832253,
+      "UID": 1024,
+      "GPU_uuid": "GPU-fb856f23-d2d1-87af-54d4-f805742da76f",
+      "MiB": 4594
+    }
+  ],
+  "NEW_GPU0_reserved": true,
+  "GPU_signals": 0,
+  "CP_branches_prepared_sha256": "809690af798f06134cd632120bc32173c51a042f4649b3e1bdf56027d6c180ee",
+  "queue_activation_sha256": "b0c099ba2b7dd3d9f3d339d8620943afa13504a0c6e20d673af1e5586ab5c1d4",
+  "admission_sha256": "800b5a124131d31afe902bf456e0ce4c51f63e34b31601d3cd0a4822f6eaab15",
+  "source_sha256": {
+    "prepare_S14_branches.py": "45da060c4bcc409c5e6c8533b3925df39e5a4be2eb9c7dd02e11f1ab06110091",
+    "enqueue_recovery.py": "f0e5d0a60e3b7e83806baf7ca2a0d45bd40a433adad8b849de36a6bbe1fe5340",
+    "owner_recovery.py": "8db6c0ed9b256a3dd462612ecd4b050980da2619fa9b831bd26c5077575466c1"
+  },
+  "old_failed_RUNs_untouched": true,
+  "scientific_settings_changed": false,
+  "FullFT_v2_slot_exists": false,
+  "free_bytes": 28397469696,
+  "interpretation": "LLaVA SMo has been launched by original allocator on an actually free GPU; process/argv confirmed, not an S15 quality or update conclusion. OSFT waits CP resume and PAS waits fresh RUN. Other UID processes untouched. No new F1."
+}
