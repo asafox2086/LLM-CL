@@ -1,0 +1,33 @@
+{
+  "unix": 1793280271.3647473,
+  "old_controller": {
+    "pid": 3217671,
+    "startticks": "61619749",
+    "uid": 1004,
+    "pgid": 3217671
+  },
+  "workers_before": {
+    "3217693": {
+      "pid": 3217693,
+      "startticks": "61619775",
+      "uid": 1004,
+      "pgid": 3217693
+    },
+    "3217709": {
+      "pid": 3217709,
+      "startticks": "61619786",
+      "uid": 1004,
+      "pgid": 3217709
+    }
+  },
+  "old_unit": "[Unit]\nDescription=Unified 1percent baseline queue with one reserved GPU\nAfter=default.target\n[Service]\nType=simple\nWorkingDirectory=/data1/liyapeng/program/LLMCL\nEnvironment=PYTORCH_CUDA_ALLOC_CONF=backend:cudaMallocAsync\nExecStart=/data1/liyapeng/program/LLMCL/.assets-env/bin/python -u /data1/liyapeng/program/LLMCL/summary/storage_recovery_second_20261029/owner_recovery.py --recovery-admission /data1/liyapeng/program/LLMCL/summary/storage_recovery_second_20261029/RECOVERY_ADMISSION.json --recovery-admission-sha256 ffaea4e369bb3ad50d67a6e0be732f16442a6112c7255c062343d1a038c0cc13 --fullft-admission /data1/liyapeng/program/LLMCL/summary/full_parameter_seq_20261028/PREFLIGHT_V2_ADMISSION.json --checkpoint-admission /data1/liyapeng/program/LLMCL/summary/stage_checkpoint_dispatch_20261027/NEW_ADMISSION.json --watch\nStandardInput=null\nStandardOutput=append:/data1/liyapeng/program/LLMCL/summary/baseline_capacity_20261025/v1/supervisor.log\nStandardError=inherit\nKillMode=process\nRestart=no\n",
+  "new_unit": "[Unit]\nDescription=Unified 1percent baseline queue with one reserved GPU\nAfter=default.target\n[Service]\nType=simple\nWorkingDirectory=/data1/liyapeng/program/LLMCL\nEnvironment=PYTORCH_CUDA_ALLOC_CONF=backend:cudaMallocAsync\nExecStart=/data1/liyapeng/program/LLMCL/.assets-env/bin/python -u /data1/liyapeng/program/LLMCL/analysis/full_parameter_formal_capacity_20261029.py --formal-admission /data1/liyapeng/program/LLMCL/summary/full_parameter_seq_20261028/formal_pct01_once_20261029/ADMISSION.json --recovery-admission /data1/liyapeng/program/LLMCL/summary/storage_recovery_second_20261029/RECOVERY_ADMISSION.json --recovery-admission-sha256 ffaea4e369bb3ad50d67a6e0be732f16442a6112c7255c062343d1a038c0cc13 --fullft-admission /data1/liyapeng/program/LLMCL/summary/full_parameter_seq_20261028/PREFLIGHT_V2_ADMISSION.json --checkpoint-admission /data1/liyapeng/program/LLMCL/summary/stage_checkpoint_dispatch_20261027/NEW_ADMISSION.json --watch\nStandardInput=null\nStandardOutput=append:/data1/liyapeng/program/LLMCL/summary/baseline_capacity_20261025/v1/supervisor.log\nStandardError=inherit\nKillMode=process\nRestart=no\n",
+  "admission_sha256": "aa9656e711a49717334a4ce9752b6f4109259ce100f6d41ae8bac3d359bf4a75",
+  "safe_sleep": {
+    "unix": 1793280271.3647382,
+    "state": "S",
+    "wchan": "poll_schedule_timeout.constprop.0",
+    "two_samples_seconds": 0.1
+  },
+  "GPU_signals": 0
+}
