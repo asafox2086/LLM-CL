@@ -2,7 +2,7 @@
 
 ## 已观察到的性质
 
-LLaVA 1%主实验中，遥感presence刚学完时，三种不同更新机制几乎对全部2955题输出同一个**标准化答案**：Seq-LoRA为2912题，OSFT为2947题，PAS为2955题；三者众数的标准化token SHA相同。PAS这2955题中，2217题原token F1满分、738题为零，其总F1恰为75.025381。故这批样本上的高F1可以由一个固定答案获得，不足以证明模型的回答随图像或问题内容作出了有效区分。该事实不证明模型内部没有使用图像，不认定该答案为何产生，也不把hash猜成具体字符串。
+LLaVA 1%主实验中，遥感presence刚学完时，三种不同更新机制几乎对全部2955题输出同一个**按原评分token标准化后的答案**：Seq-LoRA为2912题，OSFT为2947题，PAS为2955题；三者众数的标准化token SHA相同。PAS这2955题中，2217题原token F1满分、738题为零，其总F1恰为75.025381。故这批样本上的高F1可以由一个固定答案获得，不足以证明模型的回答随图像或问题内容作出了有效区分。该事实不证明模型内部没有使用图像，不认定该答案为何产生，也不把hash猜成具体字符串。
 
 源是既有 `summary/final_weight_reduction_20261024/response_failure_profile_v1/EVIDENCE.json` 中三个方法的 `task_profile[13].acquired`；这些数据来自已封原预测/原score的既有唯一分析，本文只读取聚合，不重算分、不读取题目/预测正文。结论适用单seed、LLaVA、1%、这三个已核模型及此任务，其他方法的逐题输出分布仍未验证。不能因三种方法共享一个输出就推测共同参数机制、指令偏置原因或全部领域如此。
 
@@ -24,7 +24,7 @@ T13=presence、T14=count。各任务的主TRAIN分别170和171条，均11次主�
 
 六个LLaVA native方法及两个Qwen方法的原分来自 `summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/completed/` 各自已封proof及其绑定的原aggregate score；逐文件核源SHA和count。FOREVER沿 `summary/two_backbone_pct01_20261017/forever_multimodal_20261019/v3/formal_verification/dependency_restore_v1/onevision_COMPLETE.json` 的shared_V2_proof绑定来源。只读取54个score小JSON及proof，0QA、原预测、模型、新评分或训练。FullFT暂无正式结果。
 
-**纠正此前判断：** LLaVA Seq 1%中，presence本阶段+12.386、count +9.807，差2.579百分点；两者任务前已经差60.062。不能把最终62.641点差简单称作“本阶段学习增量大幅分化”，也不能称count没学动。10%同方法的阶段变化分别为+33.469和+11.571，但数据、前序课程和调度同时改变，不是纯数据因果。其他方法中PaRSP、OSFT、SpaRTA的count本阶段也有明显提升，FOREVER和Qwen Seq则下降；说明最终低分不等价于普遍不学习。
+**纠正此前判断：** LLaVA Seq 1%中，presence本阶段+12.386、count +9.807，差2.579百分点；两者任务前已经差60.062。不能把最终62.641点差简单称作“本阶段学习增量大幅分化”，也不能称count没学动。10%同方法的阶段变化分别为+33.469和+11.571，但训练数据、前序模型状态及实际更新数和学习率序列随规模改变，调度规则未变，不是纯数据因果。其他方法中PaRSP、OSFT、SpaRTA的count本阶段也有明显提升，FOREVER和Qwen Seq则下降；说明最终低分不等价于普遍不学习。
 
 参考答案集合、任务形式和原token F1在两类题间不同；跨任务数值不是经过难度校准的共同能力量尺。需要先解释真实答案分布和逐题条件反应，再研究学习过程中的机制，不根据上述TEST观察调rank、提示或训练配置。用户要求重点研究新习得，这里不展开遗忘。
 
