@@ -6,6 +6,8 @@
 
 **方法方向：抽象强方法的有效功能，用简洁机制实现，或从已验证的共同问题设计新方法。** 不局限于改造某个现有算法，不把折叠、普通扩容或换基线本身当论文贡献。新假说必须给出功能理由及实验对照，最终按原F1和完整资源实测判断。
 
+**当前共同问题：训练后留下的附加结构，哪些是端侧推理真正需要的？** 区分训练辅助状态、输入无关表示与输入条件功能；PAS只作首个探针，CL-MoE检验另一种条件机制，SpaRTA考察保留动态功能时的充分表示。OSFT／普通LoRA的静态物化与FOREVER低新增作为必要参照，不预设所有方法都能压缩。[八法前向与成本审计](summary/deployment_total_parameters_20261028/CROSS_METHOD_FUNCTION_AUDIT_20261029.md)
+
 **研究重点（人类最新指示）：只考虑新习得，不研究遗忘。** 后续问题是现有方法为什么没有学好新任务、如何使1%与10%数据下的学习更有效；内存／参数量作为最终评估，不替代学习原因证据。
 
 **当前主实验：恢复五域（含交通）、19个子任务。1%为1313 TRAIN，10%为13105 TRAIN，均为完整21454 TEST。TaskGradReuse已关闭，不再追加训练；四域负结果完整保留。** [恢复决定与候选门槛](summary/five_domain_restored_20261029/DECISION.md)
@@ -416,16 +418,12 @@ Qwen SeqFT最终五域宏由1%的48.972升至10%的52.854，遥感、金融、�
 
 连续学习先导通常采用1213 FIT／100 DEV、19阶段；其它诊断使用各自固定范围。DEV已用于多次探索，结果用于筛选，不能与正式TEST分数直接排名，也不据此宣称显著提升。下表区分实际负结果、局部支持、质量缺测和待验证假说。
 
-**当前候选：用当期任务梯度安排小LoRA更新方向，出现局部正向读数。** 同一个shared-r8 S15模型、同69 FIT／5更新，实际SVD初始化在20题金融DEV学后F1为20，随机策略为10，共同before均5。差距只来自两题，其中一题额外新学、一题保住原本会的答案，不能把10pp全部归为新习得。原范数／正交匹配核验失败；看分前公开偏差并用独立消费者唯一评分，结果只描述实际初始化整包，不能作纯方向因果或正式五域优势。[结果与边界](summary/task_direction_local_20261027/DESCRIPTIVE_FINDINGS_20261028.md) · [独立评判](summary/task_direction_local_20261027/DESCRIPTIVE_RESULT_REVIEW_20261028.md) fresh 1%正式确认已通过原GPU预检与独立重载，原运行中断后已从完整S17恢复，正在继续S18训练，完整结果待测。[恢复来源](summary/runtime_recovery_20261029/STATUS.md)[固定正式协议](summary/task_gradient_formal_20261028/PROTOCOL.md) · [执行证据](summary/task_gradient_formal_20261028/EXECUTION_STATUS.md)
-
-**与强方法的成本对照已有本次实测。** 主optimizer仍54.1万坐标，部署新增参数为0；两臂完整模型均8.937亿系数／1704.551MiB权重，固定五窗GPU最大2166.101MiB。相对同卡同输入的PAS原图，权重少23.96%、逐窗GPU低24.84%–26.81%；这不是同测试集质量替代证明，也不是260倍内存优势。校准另用2202万dense坐标／84MiB梯度，训练NVML观测峰10648MiB，不能宣称训练峰也很小。尚无同时满足正式质量与部署目标的完整候选，Ours仍空。[功能—成本参照](summary/task_direction_local_20261027/SMALL_SPACE_VS_LARGE_METHODS.md) · [原全课程超时记录](summary/task_direction_reuse_20261027/FAILURE_FINDINGS.md)
-
-**正式实验中途观测（已提交S1–S13）：** TaskGradReuse刚习得13任务等权F1为53.020，普通q/v-r8为41.837、PAS为52.397、OSFT为53.092；医学完整10任务仍低于PAS 1.435pp、OSFT 2.056pp。T07阶段后本任务F1下降10.112pp，全部89题显示短数字输出向0/1集中，净少9题正确。小更新空间已有竞争力，但并非普遍改善新习得；这不是最终五域成绩，当前正式模型部署资源仍待测，运行设置保持冻结。[阶段结论、负例与来源](summary/task_gradient_interim_s13_20261028/FINDINGS.md)
-
-**小空间的局部梯度潜力：** 正式S1的16条TRAIN均值q/v梯度中，48矩阵各自前8个记录奇异值占总平方奇异值能量的97.90%（q为98.24%、v为97.87%）。这支持本次梯度存在低秩近似潜力，不能证明普通Seq未对准、r8全任务容量充分或F1会更好。[完整观测与边界](summary/task_gradient_formal_20261028/S1_GRADIENT_ENERGY_FINDINGS.md)
+**当前端侧功能验证：** 同一PAS末态上，100条原训练已见探索题的动态／常量未合并／常量合并宏F1为52.498／53.766／53.761，不能作正式泛化结果。完整静态图已独立重载，同原PAS输入的五窗GPU allocated峰低24.84%–26.81%，权重少约24%；完整21454 TEST质量仍待确认。这里只支持继续检验条件结构的部署必要性，不证明训练路由无用。[局部功能对照](summary/pas_static_function_probe_20261029/FINDINGS.md) · [实际部署资源](summary/pas_static_final_confirmation_20261029/RESOURCE_FINDINGS.md) · [论文范围与反证要求](summary/pas_static_final_confirmation_20261029/SCOPE_REVIEW.md)
 
 | 观测的问题与探索命题 | 检验结果 | 结论与设计影响 |
 | --- | --- | --- |
+| **训练附加结构是否必须原样部署？** | 八法实际前向：OSFT／LoRA输入无关部分可物化，PaRSP已是原稠密参数；CL／PAS／SMo／SpaRTA保留不同条件计算，FOREVER原新增约2.062MiB | **必须按功能区分，不能一概称大结构冗余。** PAS仅局部近似证据，CL是另一条件机制的待检验对象；不把常规合并当创新。[跨方法审计与共同准则](summary/deployment_total_parameters_20261028/CROSS_METHOD_FUNCTION_AUDIT_20261029.md) |
+| **条件模块的完整参数是否都是推理必需自由度？** | SpaRTA当前eval分支的K/W矩阵只经normalize后K行和与W行和进入最终标量，实数算术可保留动态功能而收缩表示 | **代数层面的观测，未有GPU/F1结论。** 保守公式载荷可少12.455MiB，不能称零新增、训练矩阵无用或泛化压缩成功。[推导、适用分支与边界](summary/deployment_total_parameters_20261028/CROSS_METHOD_FUNCTION_AUDIT_20261029.md) |
 | **最终低分能否直接说明额外结构没有新习得收益？** | Qwen CL最终五域均低于Seq，但刚习得14/19任务更高，五域宏+1.797pp；医学+8.873、金融−2.082 | **该解释被否证。** 收益不均，不能把最终差距当新习得差；完整权重多约7%，GPU仍缺测，不将坐标比写成内存比。[证据与成本](summary/qwen_cl_completed_20261028/FINDINGS.md) |
 | **少量更新坐标能否借当前任务梯度获得更好回答？** | 同S15、69FIT／5更新：实际SVD金融DEV 20，随机10，共同before5；部署图／GPU相同 | **实际策略有局部正向信号，原范数匹配失败。** 10pp只来自两题，一题额外新学、一题保留旧满分；不证明纯方向、显著或全域优势。[完整正负与资源](summary/task_direction_local_20261027/DESCRIPTIVE_FINDINGS_20261028.md) |
 | **强方法主要解决遗忘，还是先学得更好？** | 正式刚习得均分：OSFT47.887821、Seq38.604705；BWT分别−1.616191、+1.774861 | **支持优先研究有效习得。** OSFT在本轨迹上刚习得更强，保持更差；尚未识别其性能原因，不能把所有缺口归为遗忘。[证据](summary/final_weight_reduction_20261024/osft_initial_gap_check_v1/FINDINGS.md) |

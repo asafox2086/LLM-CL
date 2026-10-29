@@ -758,3 +758,16 @@ PaRSP已从S0 checkpoint恢复；unix1793094577核实原协调器1638231及四�
 原CPU1638231由1760521/start779491850接管，新unit为llmcl-pct10-type-aux-v2-old-20261027.service。保留原四组GPU worker/wrapper、原resource/type/paired参数链和所有旧closed记录，0GPU信号。PaRSP1724385已收到下阶段完整CP后暂停请求（SHA a989d592fdb877d5ddcbfc94db81f378435e189c4ede6b91b62d805d8032412a）；unix1793096648仍S1训练，尚未暂停、v2无slot/run。实际接管不等于研究已训练。[实据](summary/train_answer_prior_20261025/TYPE_AUXILIARY_V2_ACTIVATION_20261027.json) · [服务器准备核验](summary/train_answer_prior_20261025/TYPE_AUXILIARY_V2_PREPARED.json)。
 
 新版本复用原成功S15；六phase共9000秒、555新生成、54更新、762FIT，旧prefix与失败plain费用单列。完整六phase后原660对象一次评分，再用既有result_readout消费；在完整前不读partial质量。当前没有新方法有效性证据。
+
+
+## 2026-10-29：已关闭TaskGradReuse的旧运行叙述（从根README迁出）
+
+以下为此前README的历史原文，保留当时局部观测及来源；其中“当前／正在／待测”等表述只代表原记录时点。TaskGradReuse已经关闭，不能据此恢复任务或声称仍运行。
+
+**当前候选：用当期任务梯度安排小LoRA更新方向，出现局部正向读数。** 同一个shared-r8 S15模型、同69 FIT／5更新，实际SVD初始化在20题金融DEV学后F1为20，随机策略为10，共同before均5。差距只来自两题，其中一题额外新学、一题保住原本会的答案，不能把10pp全部归为新习得。原范数／正交匹配核验失败；看分前公开偏差并用独立消费者唯一评分，结果只描述实际初始化整包，不能作纯方向因果或正式五域优势。[结果与边界](summary/task_direction_local_20261027/DESCRIPTIVE_FINDINGS_20261028.md) · [独立评判](summary/task_direction_local_20261027/DESCRIPTIVE_RESULT_REVIEW_20261028.md) fresh 1%正式确认已通过原GPU预检与独立重载，原运行中断后已从完整S17恢复，正在继续S18训练，完整结果待测。[恢复来源](summary/runtime_recovery_20261029/STATUS.md)[固定正式协议](summary/task_gradient_formal_20261028/PROTOCOL.md) · [执行证据](summary/task_gradient_formal_20261028/EXECUTION_STATUS.md)
+
+**与强方法的成本对照已有本次实测。** 主optimizer仍54.1万坐标，部署新增参数为0；两臂完整模型均8.937亿系数／1704.551MiB权重，固定五窗GPU最大2166.101MiB。相对同卡同输入的PAS原图，权重少23.96%、逐窗GPU低24.84%–26.81%；这不是同测试集质量替代证明，也不是260倍内存优势。校准另用2202万dense坐标／84MiB梯度，训练NVML观测峰10648MiB，不能宣称训练峰也很小。尚无同时满足正式质量与部署目标的完整候选，Ours仍空。[功能—成本参照](summary/task_direction_local_20261027/SMALL_SPACE_VS_LARGE_METHODS.md) · [原全课程超时记录](summary/task_direction_reuse_20261027/FAILURE_FINDINGS.md)
+
+**正式实验中途观测（已提交S1–S13）：** TaskGradReuse刚习得13任务等权F1为53.020，普通q/v-r8为41.837、PAS为52.397、OSFT为53.092；医学完整10任务仍低于PAS 1.435pp、OSFT 2.056pp。T07阶段后本任务F1下降10.112pp，全部89题显示短数字输出向0/1集中，净少9题正确。小更新空间已有竞争力，但并非普遍改善新习得；这不是最终五域成绩，当前正式模型部署资源仍待测，运行设置保持冻结。[阶段结论、负例与来源](summary/task_gradient_interim_s13_20261028/FINDINGS.md)
+
+**小空间的局部梯度潜力：** 正式S1的16条TRAIN均值q/v梯度中，48矩阵各自前8个记录奇异值占总平方奇异值能量的97.90%（q为98.24%、v为97.87%）。这支持本次梯度存在低秩近似潜力，不能证明普通Seq未对准、r8全任务容量充分或F1会更好。[完整观测与边界](summary/task_gradient_formal_20261028/S1_GRADIENT_ENERGY_FINDINGS.md)

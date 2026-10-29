@@ -1,0 +1,15 @@
+# Research scope and falsifiable next decisions
+
+Independent research_review accepted the following scope after reviewing the successful probe, fixed final protocol and resource evidence. This companion document does not change binding, calibration, scientific source, settings or the active final model.
+
+The question is whether an already-trained conditional expert bank must remain conditional and explicit at deployment. The sequential controls are original PAS -> fixed mixture with unchanged expert weights -> the same mixture folded into the base -> an independent strict reload. The first comparison tests removal of input conditionality for this trained state; the second separates representation/numerical effects; the reload and same-GPU windows establish a real deployment artifact and measured resource difference. None proves expert training or training-time routing unnecessary.
+
+The existing 100-QA probe is outside the 80-QA calibration but was seen in original PAS training. It is not a held-out TEST/generalization result. Original PAS formal scores cannot be assigned to the folded model. Only the frozen complete 21454-TEST confirmation and its unique verification may establish formal final quality. This confirmation supplies final 19 task cells only; FWT/BWT/acquisition cannot be borrowed from PAS.
+
+Calibration revisits 80 historical TRAIN examples and their gold answers, without backward or optimizer updates. The entire workflow must not be called unqualified replay-free. Deployment needs no historical examples, but that does not erase post-training calibration data access or the original PAS training cost.
+
+The measured gain is against original PAS's deployed implementation and dtype: final added parameters zero, roughly 24% lower necessary weight bytes, and 24.84%-26.81% lower allocated peaks in the same five input windows. This is not a same-dtype compression lower bound, full-TEST worst memory peak, TTFT result, or advantage over every method. Ordinary LoRA and OSFT can also be folded; FOREVER is already low-addition; true FullFT is a necessary simple comparison.
+
+If the fixed-c full confirmation retains competitive quality, the next minimal component control is uniform expert mixing on the same original S19, because the existing TRAIN-derived coefficients are near one-half. The saved local residual calculation is not a uniform-model F1 experiment. A positive uniform control would justify simplifying the recipe; a negative control would support calibration only for this state. Do not change current coefficients or run speculative branches while confirmation is unresolved. A broader cross-setting claim then needs a fixed-rule second backbone or 10% confirmation, rather than inference from one state.
+
+Prior expert/model merging is relevant prior art, not a reason to discard a useful CL adaptation. The contribution must be scoped to an experimentally supported CL deployment observation and a simple effective consolidation rule, not first model merging, a new algebraic identity, a new optimizer, or proof that all large structures are redundant.
