@@ -1,0 +1,75 @@
+--- exp/native_response_selection_20261025/qv_control/control_deployment.py
++++ exp/pas_static_final_confirmation_20261029/deployment.py
+@@ -9,7 +9,7 @@
+ import hashlib
+ import json
+ 
+-FORMAT = 'native-response-qv-control-complete-v1'
++FORMAT = 'pas-static-final-complete-v1'
+ BASE_WEIGHTS = {'coefficients': 893675552, 'bytes': 1787351104}
+ RESPONSE_WEIGHTS = {'coefficients': 893675576, 'bytes': 1787351200}
+ 
+@@ -57,6 +57,11 @@
+     # assign=True replaces this Parameter; the bridge's registered alias must
+     # follow the new object rather than keep its meta constructor Parameter.
+     model.visual.image_newline = core.image_newline
++
++
++def generation_semantics(config):
++    present = hasattr(config, '_original_object_hash')
++    return dict(hash_present=present, hash_matches_current=(getattr(config, '_original_object_hash') == hash(config)) if present else False)
+ 
+ 
+ def receipt(model, storage, response_installed=False):
+@@ -116,7 +121,8 @@
+                 language_attention_classes=sorted({type(layer.self_attn).__name__ for layer in model.model.layers}),
+                 vision_attention_classes=sorted({type(layer.self_attn).__name__
+                                                  for layer in core.vision_tower.vision_model.encoder.layers}),
+-                response=metadata)
++                response=metadata, generation_semantics={key: generation_semantics(value) for key,value in [('outer',core.generation_config),('language',core.language_model.generation_config)]},
++                shared_generation_object=core.generation_config is core.language_model.generation_config)
+ 
+ 
+ def load_base(base, device, storage):
+@@ -155,8 +161,6 @@
+     assert storage.digest(state) == value['digest']
+     buffers = _cpu_buffers(core, state)
+     assert storage.digest(buffers) == value['all_buffers_digest']
+-    for config in (core.generation_config, core.language_model.generation_config):
+-        assert hasattr(config, '_original_object_hash') and config._original_object_hash == hash(config)
+     metadata = value['response']
+     scales = ([float(layer.mlp.calibration_scale.detach().item()) for layer in model.model.layers]
+               if metadata is not None and metadata['arm'] == 'static' and not metadata['final'] else None)
+@@ -183,12 +187,16 @@
+     return result
+ 
+ 
+-def _generation(values):
++def _generation(values, semantics):
+     from transformers import GenerationConfig
+     config = GenerationConfig.from_dict(values)
+-    # HF4.46's ordinary GenerationConfig loaders restore this private sentinel.
+-    # It is absent from to_dict; public fields and _from_model_config stay fixed.
+-    config._original_object_hash = hash(config)
++    # Preserve the old legacy-rebuild comparison branch across Python hash seeds.
++    # Never unconditionally turn a formerly false guard into a true guard.
++    if semantics['hash_present']:
++        config._original_object_hash = hash(config) + (0 if semantics['hash_matches_current'] else 1)
++    elif hasattr(config, '_original_object_hash'):
++        delattr(config, '_original_object_hash')
++    assert generation_semantics(config) == semantics
+     assert config.to_dict() == values
+     return config
+ 
+@@ -229,8 +237,9 @@
+             assert getattr(module, 'rope_type', 'default') == 'default'
+             module.original_inv_freq = module.inv_freq
+     core.language_model.tie_weights()
+-    core.generation_config = _generation(package['generation_config'])
+-    core.language_model.generation_config = _generation(package['language_generation_config'])
++    core.generation_config = _generation(package['generation_config'], package['receipt']['generation_semantics']['outer'])
++    core.language_model.generation_config = (core.generation_config if package['receipt']['shared_generation_object'] else _generation(package['language_generation_config'], package['receipt']['generation_semantics']['language']))
++    assert core.language_model.generation_config.to_dict() == package['language_generation_config']
+     _rebind(model)
+     model.requires_grad_(False).eval()
+     actual = receipt(model, storage, response_installed=metadata is not None)

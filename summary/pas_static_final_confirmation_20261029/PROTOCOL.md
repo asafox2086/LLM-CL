@@ -1,0 +1,39 @@
+# 固定PAS静态增量：完整保存、独立重载和正式最终质量确认
+
+本次是已完成探索的唯一完整确认。不能重新训练/校准、调混合系数、改数据/任务/生成/指标、换图或挑域；失败及完整结果都保留。目标是最终新增部署参数少、实际GPU/完整权重优势且质量有竞争力，训练空间不限。
+
+## 固定起点与科学选择
+
+原1% LLaVA PAS完整S19 CP SHA583ab5d02e187fbd6a54bd4a05a019e33101deb8af2d9533795253140721441a，3051292733B；config79edcca96dd315260816932438b7c0ec57835f5761d2ec0b88d8ecdb5c837fb6，25执行源逐项保持。当前CALIBRATION SHA c55d1a97b19fb839c4f8cc6056876180ff9b8831035501c70b68589293641e84的168对c唯一固定；不再次运行80QA校准、不优化c。复用原probe的同顺序FP32 W+Σc*scale*BA后转原FP16，必须精确达到全图digest3ea480aec723afb0d8660853c274312b9aab0580bc7674f96d35d6f7180c7683再导出。
+
+既有probe RESULT9dd48260afac595fe9454d4a4bc03144f6f30074457fe0ab142cc38f43d5cee5、原VERIFIED321a2cf969b63cd7649ff0025c15a1a02c74f8ddef6159407698d4908c9b269b与c绑定。100题结果不是正式泛化：原模型已在训练见过、DEV反复探索；原动态→常量10高11低/79平，地理净增仅1题；fold也改变部分F1。research_review/baseline_review均事前GO完整确认，不把它当科研目标完成。
+
+## 完整图与独立进程
+
+export为一次GPU1执行，模型期限600秒：原CP一次完整load校验，同c重建，同digest，168旧专家模块弱引用全部释放、learner删除，完整893675552个FP16权重/1787351104B，所有普通buffers、config、原双GenerationConfig及alias明示保存，processor全文件保存并绑SHA。最终model.pt完整保留；不能只存delta、依赖第二个W0或隐藏专家。原source CP、c及全部已有记录保留。
+
+复用已成功control_deployment的完整state+buffers/meta strict=True/assign=True重载；本新helper只改format以及跨进程私有生成sentinel契约。public to_dict/_from_model_config/双对象是否共享都保持；记录旧sentinel存在性和与当前hash相等布尔，在新对象上保持同一布尔，不无条件开启legacy from_model_config重建。其余已有strict完整图/alias/dtype/digest契约不放宽。所有source父SHA/实际diff公开并独立源审。
+
+独立evaluate进程只从新model.pt+保存processor构造，meta初始化不读外部base权重。加载前CP全SHA/processor摘要吻合，加载后同digest/layout、全CUDA参数及buffers/alias/SDPA/公开生成语义逐项吻合。按既有bridge.bind/fv.install输入链安装，权重摘要不变。只能评估这一CP，GPU资源和最终质量都绑定其同一SHA。导出模型另取NEW耐久副本并全SHA核对，不删除OLD最终件。
+
+## 资源：先五原窗，后正式质量
+
+独立reload之后、任何全TEST生成之前，在原同物理GPU1（UUID由binding锁定）、原PAS五个raw QA、每窗32新token测资源。复用原resource_windows/Batcher与原已审gpu_prepare，仅此五窗保持GPUfeature/无cache路径；全部raw/prepared/transport hash、shape及32token逐值匹配原PAS窗口。测每窗baseline/peak allocated与peak reserved；NVML只before/after观测，不称峰。未加TTFT或速度hook，不宣称加速。五窗不是全TEST最坏峰。
+
+资源后恢复原fv.prepare/LIMIT及原native TEST输入链；同一图/参数/生成公有值不变。原PAS峰已有2959.415MiB等窗口，但本候选必须自己实测，不挪用其它图。537.0013MiB权重差包含原FP32专家与FP16骨干表示，不能说同dtype最优部署下界。
+
+## 正式质量与唯一核验
+
+唯一manifest36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777；原五域19任务、完整21454 TEST全部生成，0新训练、0全TEST NLL、0再次校准。独立evaluate期限86400模型秒（24h，含load/五资源窗及完整质量），外监督至多额外120秒退出；不根据部分质量延长或换样本。预算依据仅已完成probe的mtime：fold及100CE+100生成+摘要约119.6秒，不把这个混合段作为速度测量或线性承诺。
+
+沿原rt.evaluate/原processor/原task max_new_tokens/do_sample=False/num_beams=1/use_cache及原pad/eos；记录全部原始预测和原多指标，不添加答案映射/清洗/语义评分。论文主指标严格按原metric_lock score_field=token_f1（Answer F1，0–100，SHA16c59998413d12b820d6f57269f9e1f45ac78e08595d20bf1f4fbc967fd94c4b）；config历史primary_score='rougeL'不是本论文主指标，不能改用它追分。
+
+最后仅统计原最终19格、各域原QA加权F1、五域等权宏F1、AP19（19任务等权最终F1）。本次没有S0/Rtt/pre-task轨迹，FWT/BWT缺测并留空，不能借原PAS的这些值，也不能把原正式46.619976贴给新图。结果先全保留，真实退出0/完整完成后verify独占marker一次核来源/模型SHA/全部21454对象与已评分字段/原window签名，0新模型/重评分。metadata-only不创建评分/核验marker；实际失败保留，不自动重试或换输出目录绕marker。
+
+总工作量：export0生成；evaluate5资源生成/160新token+21454质量生成/21454原评分；0反传/optimizer/全TEST NLL，完整新CP1份（可另耐久副本）。本阶段0训练不表示方法总成本为0：包括原PAS1313TRAIN/93主更新、既有80校准及探索成本，必须分列。
+
+## 比较与解释
+
+完整质量未知，不承诺五域逐域最佳或绝对等价。与原PAS/CL等新增结构比较真实参数/内存—质量取舍；与低新增的FOREVER、普通q/v/完整all-r8、可静态合并OSFT及FullFT公平比较，不能以原USV保存表示制造独占减重。两骨干/10%完整基线及对应最终模型仍按原主表持续完成，不用本次单终态确认冒充全实验完成。
+
+若完整TEST失败，只否定此固定静态近似的泛化，不证明少新增模型不可能；不按TEST救c。若成功，也只支持训练所得增量在此部署图上的质量—成本，不证明训练路由无用或专家普遍冗余。主表待完整唯一核验与同CP资源通过后才添加，探索结果和所有阴性对照继续保留。
