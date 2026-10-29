@@ -10,19 +10,22 @@ def ident(w):
   return dict(pid=w['pid'],startticks=s[19],uid=p.stat().st_uid,pgid=int(s[2]),state=s[0])
  except (OSError,ValueError,IndexError):return None
 v={'unix':time.time(),'tmpfs_free':shutil.disk_usage(r).free}
-for n in ['STARTED.json','EXIT.json','COMPLETE.json','FAILURE.json','VERIFIED.json']:
+d=r/'summary/task_gradient_four_domain_final_20261029'
+for n in ['WORKER_STARTED.json','WORKER_EXIT.json','SUPERVISOR_COMPLETE.json','SUPERVISOR_FAILURE.json']:
  p=d/n;v[n]=json.loads(p.read_text()) if p.exists() else None
-if v['STARTED.json']:
- for k in ['worker','supervisor']:v[k+'_actual']=ident(v['STARTED.json'][k])
-u=r/'exp/task_gradient_formal_20261028/runs/onevision/pct01/TaskGradReuse/training_recovery_S17_20261029'
-p=u/'run_status.json';v['native']=json.loads(p.read_text()) if p.exists() else None
-p=d/'supervisor.log';last=[]
+if v['WORKER_STARTED.json']:
+ for k in ['identity','supervisor']:v[k+'_actual']=ident(v['WORKER_STARTED.json'][k])
+u=r/'exp/task_gradient_four_domain_final_20261029/runs/onevision/pct01/final_s16_v1'
+for n in ['FOLD.json','COMPLETE.json','FAILURE.json']:
+ p=u/n;v[n+'_exists']=p.exists()
+ if n!='FOLD.json' and p.exists():v[n]=json.loads(p.read_text())
+p=d/'worker.log';last=[]
 if p.exists():
  with p.open('rb') as f:f.seek(max(0,p.stat().st_size-5000));raw=f.read().decode(errors='replace')
  for line in raw.splitlines():
   try:x=json.loads(line)
   except ValueError:continue
-  if x.get('event') in ['train_update','evaluation','task_gradient_stage_ready']:last.append({k:x[k] for k in ['event','stage','task','step','done','total'] if k in x})
+  if x.get('event')=='evaluation':last.append({k:x[k] for k in ['event','stage','task','done','total'] if k in x})
 v['progress']=last[-1:]
 bd=Path('/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/runtime_recovery_20261029')
 v['baseline_recovery']={}
