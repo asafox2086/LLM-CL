@@ -1,0 +1,166 @@
+{
+  "old_returncode": 0,
+  "old": {
+    "unix": 1793259926.9207819,
+    "tmpfs_free": 23816908800,
+    "WORKER_STARTED.json": {
+      "unix": 1793259208.745685,
+      "identity": {
+        "pid": 454633,
+        "startticks": "795762911",
+        "uid": 1084,
+        "pgid": 454633
+      },
+      "GPU": 1,
+      "binding_sha256": "5cac99e0c8e8d1a42caeaf0f264a75b5e1a7cf61b94663519d673f26643642fb",
+      "worker_sha256": "ae0c9d8ccb704056187e2649ebed859fb97d40c4a11279826a72dde8934c3077",
+      "output": "/data2/liyapeng_grp/program/LLMCL/exp/task_gradient_four_domain_final_20261029/runs/onevision/pct01/seq_s16_v1"
+    },
+    "EXIT.json": null,
+    "worker_actual": {
+      "pid": 454633,
+      "startticks": "795762911",
+      "uid": 1084,
+      "pgid": 454633,
+      "state": "R"
+    },
+    "GRAPH.json_exists": true,
+    "COMPLETE.json_exists": false,
+    "FAILURE.json_exists": false,
+    "progress": [
+      {
+        "event": "evaluation",
+        "stage": 16,
+        "task": 1,
+        "done": 1800,
+        "total": 5000
+      }
+    ],
+    "baseline_recovery": {
+      "SUPERVISOR_NATIVE_ENTRY_V2/PaRSP_STARTED.json": {
+        "receipt": {
+          "identity": {
+            "pid": 466011,
+            "startticks": "795830980",
+            "uid": 1084
+          },
+          "job": {
+            "method": "PaRSP",
+            "condition": "pct10",
+            "completed_stage": 13,
+            "gpu": 0,
+            "run_dir": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_checkpoint_20261027/runs/onevision/pct10/PaRSP/recovery_persistent_CP_S13_20261029",
+            "sha": "abd659c0b29e9f4c81da007f6c768814809cee068e8989958439880162c4e0ff"
+          },
+          "command": [
+            "/dev/shm/llmcl-pct10-1084-zu7e3hb_/.vision-env/bin/python",
+            "-u",
+            "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_checkpoint_20261027/run.py",
+            "--method",
+            "PaRSP",
+            "--condition",
+            "pct10",
+            "--run-dir",
+            "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_checkpoint_20261027/runs/onevision/pct10/PaRSP/recovery_persistent_CP_S13_20261029",
+            "--resume"
+          ]
+        },
+        "actual": {
+          "pid": 466011,
+          "startticks": "795830980",
+          "uid": 1084,
+          "pgid": 466011,
+          "state": "R"
+        },
+        "native": {
+          "status": "training",
+          "completed_stage": 13,
+          "active_stage": 14
+        }
+      },
+      "SUPERVISOR_NATIVE_ENTRY_V2/OSFT_STARTED.json": {
+        "receipt": {
+          "identity": {
+            "pid": 466012,
+            "startticks": "795830981",
+            "uid": 1084
+          },
+          "job": {
+            "method": "OSFT",
+            "condition": "pct10",
+            "completed_stage": 6,
+            "gpu": 2,
+            "run_dir": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_checkpoint_20261027/runs/onevision/pct10/OSFT/recovery_persistent_CP_S06_20261029",
+            "sha": "c137198504159ad1b7b147cdbc5be3e655156a6f2a31b83ea246f8d2021a8018"
+          },
+          "command": [
+            "/dev/shm/llmcl-pct10-1084-zu7e3hb_/.vision-env/bin/python",
+            "-u",
+            "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_checkpoint_20261027/run.py",
+            "--method",
+            "OSFT",
+            "--condition",
+            "pct10",
+            "--run-dir",
+            "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_checkpoint_20261027/runs/onevision/pct10/OSFT/recovery_persistent_CP_S06_20261029",
+            "--resume"
+          ]
+        },
+        "actual": {
+          "pid": 466012,
+          "startticks": "795830981",
+          "uid": 1084,
+          "pgid": 466012,
+          "state": "S"
+        },
+        "native": {
+          "status": "training",
+          "completed_stage": 6,
+          "active_stage": 7
+        }
+      },
+      "QWEN_PARSP_FRESH/STARTED.json": {
+        "receipt": {
+          "identity": {
+            "pid": 463926,
+            "startticks": "795819618",
+            "uid": 1084
+          },
+          "job": {
+            "method": "PaRSP",
+            "condition": "pct10",
+            "gpu": 3,
+            "run_dir": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_checkpoint_20261027/runs/qwen/pct10/PaRSP/training_storage_recovery_20261029",
+            "host": "old_pct10_qwen",
+            "fresh_not_resume": true
+          },
+          "original_failed_run": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_checkpoint_20261027/runs/qwen/pct10/PaRSP/training_20261029_131134",
+          "fresh_not_resume": true,
+          "command": [
+            "/dev/shm/llmcl-pct10-1084-zu7e3hb_/.vision-env/bin/python",
+            "-u",
+            "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_checkpoint_20261027/run.py",
+            "--method",
+            "PaRSP",
+            "--condition",
+            "pct10",
+            "--run-dir",
+            "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_checkpoint_20261027/runs/qwen/pct10/PaRSP/training_storage_recovery_20261029"
+          ]
+        },
+        "actual": {
+          "pid": 463926,
+          "startticks": "795819618",
+          "uid": 1084,
+          "pgid": 463926,
+          "state": "R"
+        },
+        "native": {
+          "status": "initial_evaluation",
+          "completed_stage": 0
+        }
+      }
+    }
+  },
+  "new_free": 24209526784
+}

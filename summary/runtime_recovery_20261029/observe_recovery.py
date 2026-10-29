@@ -10,15 +10,15 @@ def ident(w):
   return dict(pid=w['pid'],startticks=s[19],uid=p.stat().st_uid,pgid=int(s[2]),state=s[0])
  except (OSError,ValueError,IndexError):return None
 v={'unix':time.time(),'tmpfs_free':shutil.disk_usage(r).free}
-d=r/'summary/task_gradient_four_domain_final_20261029'
-for n in ['WORKER_STARTED.json','WORKER_EXIT.json','SUPERVISOR_COMPLETE.json','SUPERVISOR_FAILURE.json']:
+d=r/'summary/seq_s16_four_domain_final_20261029'
+for n in ['WORKER_STARTED.json','EXIT.json']:
  p=d/n;v[n]=json.loads(p.read_text()) if p.exists() else None
-if v['WORKER_STARTED.json']:
- for k in ['identity','supervisor']:v[k+'_actual']=ident(v['WORKER_STARTED.json'][k])
-u=r/'exp/task_gradient_four_domain_final_20261029/runs/onevision/pct01/final_s16_v1'
-for n in ['FOLD.json','COMPLETE.json','FAILURE.json']:
- p=u/n;v[n+'_exists']=p.exists()
- if n!='FOLD.json' and p.exists():v[n]=json.loads(p.read_text())
+start=v['WORKER_STARTED.json']
+if start:
+ v['worker_actual']=ident(start['identity']);u=Path(start['output'])
+ for n in ['GRAPH.json','COMPLETE.json','FAILURE.json']:
+  p=u/n;v[n+'_exists']=p.exists()
+  if n!='GRAPH.json' and p.exists():v[n]=json.loads(p.read_text())
 p=d/'worker.log';last=[]
 if p.exists():
  with p.open('rb') as f:f.seek(max(0,p.stat().st_size-5000));raw=f.read().decode(errors='replace')
@@ -27,9 +27,9 @@ if p.exists():
   except ValueError:continue
   if x.get('event')=='evaluation':last.append({k:x[k] for k in ['event','stage','task','done','total'] if k in x})
 v['progress']=last[-1:]
-bd=Path('/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/runtime_recovery_20261029')
+bd=Path('/data2/liyapeng_grp/program/LLMCL/.deployment/storage_recovery_20261029_second')
 v['baseline_recovery']={}
-for sub,names in [('TWO_BASELINE_SUPERVISOR',['PaRSP_STARTED.json','OSFT_STARTED.json','PaRSP_EXIT.json','OSFT_EXIT.json','LAUNCH_FAILURE.json']),('QWEN_PARSP_FRESH',['STARTED.json','EXIT.json'])]:
+for sub,names in [('SUPERVISOR_NATIVE_ENTRY_V2',['PaRSP_STARTED.json','OSFT_STARTED.json','PaRSP_EXIT.json','OSFT_EXIT.json','LAUNCH_FAILURE.json']),('QWEN_PARSP_FRESH',['STARTED.json','EXIT.json'])]:
  for name in names:
   p=bd/sub/name
   if p.exists():

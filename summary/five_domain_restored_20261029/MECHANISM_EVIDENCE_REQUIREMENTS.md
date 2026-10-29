@@ -1,0 +1,11 @@
+# 学习机制观测要求
+
+用户要求从算法学习过程解释问题，而不是只罗列评分。当前TaskGradReuse候选已关闭；不能将最终评分差直接改称不收敛、梯度错误或任务冲突。
+
+现有真实native保存记录：train_update.loss是本minibatch更新前loss_sum；全局gradient_l2_preclip/postclip、阈值1、实际学习率及scheduler后学习率、QA/tokens与耗时。validity认证正LR次数和参数digest改变；源代码拒绝非有限loss/grad与Scaler跳步。部分method可混入extra_loss/training_loss。由于每步QA/长度不同，这些记录不构成固定目标收敛曲线，即使10%多步也不能直接比较为纯答案CE。
+
+目前能确认‘更新执行且数值有限’，缺失的是同一QA目标在真实更新之后的效果及更新方向。下一最小实验：真实Seq S1同一CP，课程第一个单更新任务T02全部11条TRAIN；共同功能起点、同dropout实现，原q/v及all-r8更新mask各执行一次原AdamW，记录同批纯AnswerCE前后、g·DeltaTheta、实际dense DeltaW范数/投影分解及clip系数。额外all位置B0使两arm起始函数相同。它是TRAIN反事实诊断，不是新方法训练或原q/v轨迹复现，不读TEST或新F1。
+
+反证标准：若q/v已经明显降低同批CE而all无优势，就否定该stage‘小空间学不动’解释；若两者都降，不能靠该读数解释最终答题差；若all降更多，也须同时披露更多活动坐标和更大步长，不能宣称纯方向根因。一个固定stage不推广全部19任务。不为筛阳性追加任务/参数扫描，不重放旧S1平均梯度谱诊断。
+
+两个reviewer独立源码审计均确认上述现有证据缺口。诊断代码准备中，尚无实验结果。
