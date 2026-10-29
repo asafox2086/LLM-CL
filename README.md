@@ -409,7 +409,7 @@ Qwen SeqFT最终五域宏由1%的48.972升至10%的52.854，遥感、金融、�
 
 ## 探索命题与结论
 
-**先找有价值的观测，再设计方法。** 当前优先核查已学功能能否为新任务提供有利学习起点：局部新专家只训练一次、此后权重未变；完整继承优于从头或仅复制A，功能中性控制也未复现完整继承收益。它排除了该专家被后续更新覆盖及“只需首步A梯度非零”的充分性解释，但没有分离源功能、激活和优化路径，更不是全部基线的共同机制。[原证据](summary/onevision_diagnostics_20261016/expert_cold_start_20261018/RESEARCH_FINDINGS.md) · [控制与边界](summary/onevision_diagnostics_20261016/function_neutral_init_20261018/v2/function_vs_factor/RESEARCH_FINDINGS.md)
+**先找有价值的观测，再设计方法。** 当前优先核查已学功能能否为新任务提供有利学习起点：局部新专家只训练一次、此后权重未变；完整继承优于从头或仅复制A，功能中性控制也未复现完整继承收益。它排除了该专家被后续更新覆盖及“只需首步A梯度非零”的充分性解释，但完整继承在旧32题上已有初始NLL优势，而终态507题缺同池前后对照，尚未证明本阶段学得更多；源功能、激活和优化路径未分离，更不是全部基线的共同机制。[原证据](summary/onevision_diagnostics_20261016/expert_cold_start_20261018/RESEARCH_FINDINGS.md) · [控制与边界](summary/onevision_diagnostics_20261016/function_neutral_init_20261018/v2/function_vs_factor/RESEARCH_FINDINGS.md)
 
 **已有GPU过程反证：** 同11条TRAIN，q/v与all一步均让11/11答案CE下降，不能称该批q/v“没学动／一阶朝上”。all降幅较大也伴更大真实权重位移，原因尚未识别；它不是最终新增参数少的方法成果，已准备的范数控制未启动、不自动立项。[实际过程观测](summary/train_step_space_diagnostic_20261029/FINDINGS.md) · [观测标准](summary/five_domain_restored_20261029/MECHANISM_EVIDENCE_REQUIREMENTS.md)
 
