@@ -1,3 +1,11 @@
+# 2026-10-29：PAS部署函数必要性唯一probe已在OLD GPU1真实运行
+
+- 研究目标是最终新增部署参数少，训练空间不限。当前唯一新问题是已训练PAS动态专家条件性在部署时是否必要，不预设专家冗余。Git科学冻结7dc6cb0；worker036c5ec42a82c1051407a659a18490ea6f6b4a6b3797cb194782dd87e4ee2567、verify4b4d7e92af72d7a95831ccd59127a2b93783b0f45a257f8f6311664f80a9eb6a，protocol e73b6983、OLD bindingd1aa5282。0模型元数据预检通过后真实worker694358/start797156965/UID1084/PGID同PID，unit llmcl-pas-static-function-probe-20261029.service，START1793273149.54。原始输出OLD /data2/liyapeng_grp/program/LLMCL/exp/pas_static_function_probe_20261029/runs/observation_v1，D summary同名。
+- 80FIT校准/原100DEV（原PAS见过，只校准外）；同一S19 dynamic→constant_unfolded→constant_folded，80+300CE/300生成评分，0训练/CP，固定2400秒。research_review只读事件等待进程退出，勿重复远程轮询/consumer。完整exit0/COMPLETE后唯一verify --execute，marker独占、不新评分；失败保留不自动重跑/更改规则。答案位teacher拟合用于全prefill/视觉/生成位置，负结果仅约束这个规则；不证明训练路由无用、少新增模型不可能或新习得更强。fold先清learner隐藏银行，168旧模块弱引用全死；本轮未存新CP/未测推理峰，不称独立部署重载成功。
+- NEW /data1曾真实Avail0但账号764/1024G未满，导致新未运行协议写入0；已精确重构原5491B/SHA2e066后仅两事前解释澄清恢复，INCIDENT保留，非模型retry。SMo15保存失败及PAS/PaRSP S0无CP的ENOSPC原现场均保留。QwenOSFT17是重构OOM、最新完整16，不可归disk。
+- NEW当前已实际恢复：唯一owner3217671/start61619749；SMo3217693/start61619775 GPU1从14进入15，OSFT3217709/start61619786 GPU3从16进入17（SVD已83/196）。其它UID实际在GPU0/2，故合法空闲是1/3，不能沿旧记忆硬抢2；NEW0保留。PAS/PaRSP无CP，旧失败保留后fresh ready_training排队，不假称续训。恢复/清理收据NEW summary/storage_recovery_second_20261029。
+- OLD三基线550957/550976/463926仍以真实身份为准。新增OLD OSFT S11..13清理已完成释放9097839441B，保14/anchor7/PaRSP15及全部小文件；NEW SMo9..13清理释放11095410949B、QwenOSFT7..10释放约34.06GB，保各最新/anchor/全部主表记录。旧一次性清理均不可重放，不把全盘free代替账号quota。当前科研目标未实现，主表不填probe。
+
 # 2026-10-29：少的是最终新增部署参数；先找有价值的学习过程观测
 
 - 人类最新纠正：研究约束是最终部署新增参数少、总部署参数接近单骨干；不是训练更新空间小。训练可以更新全参数或使用更大的临时空间。训练坐标/训练内存另行报告，不能用540672或其它训练坐标替代总部署/新增参数，也不能为保持小训练空间牺牲质量。
