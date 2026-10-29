@@ -1,0 +1,29 @@
+# CL静态函数草稿：只读源码审查与暂停边界
+
+状态：依人类最新要求暂停，不准入四臂模型实验；保留草稿及缺口。本文不是运行、模型加载、求解器数值通过、保真、完整质量或论文目标成功证明。未修改三科学源、原CL来源或任何活动进程；未执行模型、评分、消费者或新分组统计，未读取QA正文/CP载荷。
+
+## 审阅版本
+
+- worker.py：53ac7050c203ea82e10443c923475fd177b83f11cd22818dbe696e1ad7ba2e97。
+- solver.py：8d712bdb9567b6e4901faae152ceff67024fcdf6afde76f8fd8b741eaabf4d10。
+- verify.py：4218d7e04aefd64a3c82126d6f8121379aabb7d13eb029ef02db9a86fab3ba2e。
+- PROTOCOL_DRAFT.md：c5e7c557db6bc11cb574519b3b0c487d76a34d4e72124769a007bfa676ea3114。
+
+源在exp/cl_static_function_probe_20261029/。对照原exp/two_backbone_native_cl_20261017_v2/{clmoe_adapter,onevision_bridge,runtime_utils,native_auxiliary}.py，作者code/CL_MoE/source/CLMoE/peft/tuners/clitmoelora.py，以及既有completed/adc8088c131265b0715b.json小证明。
+
+## 已确认的接口与数学范围
+
+原CL证明的S19 CP8550fdeb886a0e942ee9038ab0aeae7e5933b943094ee3af40c0816df592ffa4及config125d1f9ead67d5e4d222f5fcfc05897b582f90bbe2bdbd1603e12534aa91dc02与草稿匹配。worker逐原25source/root绑定，并在加载前要求rt.ROOT等于绑定source_root。当前没有本实验运行binding或真实模型加载结果。
+
+CL实际是168投影、8个rank8线性A/B专家；eval权重为0.5 token router softmax+0.5 question最近anchor所选历史task_weights。prepare_row使用adapter-disabled question-only feature，不向router提供真实taskID。草稿D/S保留原prepare_row，S的enabledFalse路径返回base；F/U清anchors后prepare_row先返回，故不会使用已清空的io。作者expert无额外非线性，静态线性BA可代数合并，实际FP16舍入须分开观察。
+
+hook只在主答案forward开启，取[P-1:L-1]含EOS预测位；捕获原8个2*B(Ax)及原混合权重，每QA先答案位置均值，再累加H/h/a。求解器枚举255支持集，trace归一化、固定FP64伪逆阈值，检验simplex/KKT/FWgap与uniform目标，未按读数选择。此为教师路径上的局部函数目标，不能从公式推出完整自由生成保真或训练路由无用。
+
+四臂各自从原CP加载；源内比较core digest、公开GenerationConfig和实际prepared输入。fold清layers/io/anchors/feature_cache并检查旧bank弱引用消失；每臂结束bind(None)、删除模型后检查模型弱引用消失。按当前源未发现确定的必然加载错误、错误API调用或明显错误的主公式；这不等于执行已验证。
+
+## 留存的证据缺口（未修、未执行）
+
+1. counts的80校准、400答案CE、400生成是主请求计数，不包含D/S原prepare_row中的question-feature辅助forward。协议已声明该辅助pass不进校准统计；仍不应把这些字段解释为全部神经forward总数。若以后恢复该设计，实际feature cache miss/额外请求宜单列，不能为补计数再做额外模型调用。
+2. verifier已用H/h/c独立复核simplex、对称性、归一化目标、uniform目标与FWgap；但target_squared_norm(a)、normalization_trace、teacher_residual/uniform_teacher_residual等展示字段尚未逐项闭合，不能称所有证书字段均已独立核实。可由现有8x8标量代数核对，不需要QP重解、模型或评分；本轮按暂停要求不实施。
+
+原80TRAIN和100已探索DEV沿PAS选择；原CL曾训练见过全部1313TRAIN，因此不是训练heldout、新习得因果、TEST、显著性或普遍部署结论。uniform_folded对比也含FP16折叠舍入。当前不依据未运行四臂提新方法，不以历史F1或参数规模替代学习过程证据；正式PAS确认与原基线继续各自冻结运行。

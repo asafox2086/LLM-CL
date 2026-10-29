@@ -1,0 +1,13 @@
+# CL跨机制探索草稿状态：暂停推进，未运行
+
+用户最新要求优先得到可解释的观测/性质，不以方法方向或刷分替代结论。现有D/S/F/U草稿保留，但暂停推进：不启动模型，不排队，不为通过审查扩大功能。源AST通过只代表语法准备，不代表数值、资源或科学假说通过；0新模型/0GPU/0分数。
+
+当前源码版本：worker18d9da6449a1d10721354e9919248d93441003e1ecdc0fbdcd832aca1fcc693b；solver2cec2534b5ffef3eee5830c699173cfdd3fb9235cb9faeadd9530b2c25e17f0b；verify500272be2a68e37a2daf28ea85d475e8f146901e490eb8ccc70935353d0c10d2。此文只记录缺口，不修改源码或冻结正式实验。
+
+独立reviewer已指出、尚未修复/验证的必要缺口：
+
+1. zero Gram解析uniform分支目前核H/h为0，但还应核teacher平方常数a==0，防矛盾moments被当成合法零问题。
+2. teacher_residual与uniform_teacher_residual当前使用clamp_min(0)，应先保留raw残差并按事前固定FP64尺度容差核负值，再允许仅在数值容差内展示非负化；verifier也需独立核raw。当前不能声称这些残差已得到完整一致性检查。
+3. 成本字段目前只列主480次答案loss请求/400生成及4次CPload，尚未完整计入prepare_row的feature requests/cache miss额外decoder前向，也未分别记录load/solver/fold时间。不能把主请求数写成总神经前向数或执行总费。
+
+以上为待处理缺口，不是失败的GPU实验；没有运行结果，也不据此改样本、臂、目标或数值阈值。本轮后续只审计PAS已保存统计能否支持解释，不设计下一算法。
