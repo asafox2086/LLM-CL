@@ -1,3 +1,12 @@
+# 2026-10-30最新：CL固定G整模观测已实际运行，控制通过不等于质量结论
+
+- 本段取代下方“尚未GPU／donor待暂停”的历史状态。冻结科学发布f82feb3f460b77851674c9bd4e6db9e67b211664；四源／协议／原指标／19task与21454TEST不变。OLD唯一研究worker2062414/start806922611/UID1084/PGID2062414、parent2062389/start806922580，原unit llmcl-cl-fixed-effective-gate-necessity-20261030.service。BINDING52b555228dfeea634414ace0d1b2580dd6e9deaf58d0a8c47344a0c89f5a650f，ADMISSIONd0248977864a03c701fd1531a1cbcd146578bee874706637debd8d69415fddb8，controllerc0f2f007...；实际输出exp/cl_fixed_effective_gate_necessity_20261030/runs/fixed_oldTF_mean_v1。
+- 原CP8550完整加载证明c41a83bf...；五个预定TRAIN控制全部168投影输出字节摘要／生成token逐位相同，COMPLETE控制证据0e56e9b7...，共1680个投影摘要比较，无新质量分。这仅验证恒等接口，不证明固定G保分。开始九原件manifest054c21ab...与控制原件manifest33f71dd3...已NEW耐久；不重控制／运输／归档，不读取partial TEST质量调设置。
+- 原parent内核事件72578，耐久PARENT_PIDFD_EVENT_STREAM_20261030.jsonl先fsync；root当前tool handle不可见只算观察连接问题，不当模型终态，不重启／重复watcher。baseline_audit负责一次核对原流和真实身份，能承接原会话则复用。终态须actual EXIT0+COMPLETE+worker gone，先查verification_v1既有marker，再唯一执行原7aeb verifier；禁止重score／改常量／追加臂／自动retry。
+- OLD1 SpaRTA已原生完整paused16/next17，旧1946673与1946636均真实EXIT0/gone。完整CP16 SHA393bbc46304cb5d5e9a0940d4d83135ae215be97ef7cd8cc32e59bb02d8a36de、proof66cffbac...；同RUN原882入口恢复源9df1ff96...已运输仅准备。研究真正退出／SLOT released／两身份gone／GPUidle后，baseline_audit已获条件授权唯一接回17，不等CPU结果分析，不重复问用户，不重S0。研究原bank保留，不声称新部署内存优势。
+- 用户认可固定／动态近质量可作为动态调度有效性不足的观测切入。当前PAS整模仅支持已测检查点固定表示近质量（-0.288pp）；CL完整结果待核。paired原分数读出须分开动态更好／固定更好／F1相同与字符串相同，区分逐题几乎无效与正负抵消。不能据此直接称router训练失败、数据少造成失效或多数方法／10%普适；先观测不设计方法。
+- NEW checkpoint耐久事件19473仍按原对象复用；其它六baseline的最新真实事实见RECOVERY_STATUS_LATEST。OLD Qwen最新已完整S5/训练6，S4→5精确退旧已交baseline_audit唯一执行，以新receipt为准；旧S3→4容量40GB是历史，不能作当前quota。所有主表／QA／JSON／proof／final与当前恢复点保留。
+
 # 2026-10-30最新：CL单一固定G的整模功能必要性观测已冻结，尚未GPU
 
 - 最新人类问题是“动态专家在数据受限多领域没有好的选择作用吗”；目前只能说PAS可被固定表示近似、额外推理收益有限，不能说路由学坏或数据少导致失效。外层README明确列“未验证”，不把局部误差当全模型保分保证。目标仍先观测，不设计新方法。

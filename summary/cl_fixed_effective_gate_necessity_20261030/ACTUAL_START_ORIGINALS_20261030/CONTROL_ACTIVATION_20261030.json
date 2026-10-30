@@ -1,0 +1,23 @@
+{
+  "unix": 1793370805.4305513,
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit=llmcl-cl-fixed-effective-gate-necessity-20261030.service",
+    "--property=Type=exec",
+    "--property=Restart=no",
+    "--property=KillMode=control-group",
+    "--property=RuntimeMaxSec=86500",
+    "--property=TimeoutStopSec=40",
+    "/usr/bin/setsid",
+    "--wait",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "-u",
+    "/data2/liyapeng_grp/program/LLMCL/summary/cl_fixed_effective_gate_necessity_20261030/controller.py",
+    "--execute"
+  ],
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "Running as unit: llmcl-cl-fixed-effective-gate-necessity-20261030.service\n",
+  "unit_activation_not_model_loading_verification": true
+}
