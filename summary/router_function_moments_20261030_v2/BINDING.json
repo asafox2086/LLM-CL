@@ -1,0 +1,63 @@
+{
+  "schema": "router-function-moments-v1",
+  "admitted": true,
+  "source_root": "/data2/liyapeng_grp/program/LLMCL",
+  "native_source_dir": "/data2/liyapeng_grp/program/LLMCL/exp/pas_static_native_sources_20261029",
+  "observation_source_dir": "/data2/liyapeng_grp/program/LLMCL/exp/router_function_moments_20261030_v2",
+  "manifest": "/data2/liyapeng_grp/program/LLMCL/data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/manifest.json",
+  "split": "/data2/liyapeng_grp/program/LLMCL/summary/pas_static_function_probe_20261029/SPLIT.json",
+  "split_sha256": "d8e2dd59767c53eb833988dda87b4330ac208d2c804e42e327725f09d38bcb9d",
+  "selection_path": "/data2/liyapeng_grp/program/LLMCL/summary/pas_static_function_probe_20261029/SELECTION.json",
+  "selection_sha256": "710f9a7c15a5b7830eea6c16e56b09e8c155a1ddf48b7ad04dd27a55aa089f2b",
+  "storage_helper": "/data2/liyapeng_grp/program/LLMCL/exp/pas_static_function_probe_20261029/storage_helper.py",
+  "storage_helper_sha256": "032904b7fe92a0912e18c0e664750c35f4c6fa7bf15fae6fa9a5a350f7277ef8",
+  "protocol_path": "/data2/liyapeng_grp/program/LLMCL/summary/router_function_moments_20261030_v2/PROTOCOL.md",
+  "protocol_sha256": "8eb16cf56454d0072dbda703136bd4f82fa8c7aee9de338bdee05e1c776b45d1",
+  "output_root": "/data2/liyapeng_grp/program/LLMCL/exp/router_function_moments_20261030_v2/runs/observation_v1",
+  "admission_path": "/data2/liyapeng_grp/program/LLMCL/summary/router_function_moments_20261030_v2/ADMISSION.json",
+  "calibration_ids_sha256": "5bbf318d07a4cd6b64c97acf616d96336ef3cd66aa8199a9eb6c30e1cae9eb74",
+  "runtime_files": {
+    "code/PASs_MoE/source/CoIN/peft/tuners/coinmoelora.py": "75d46bcd7850ec3c03d13968f1e4180098d62a1da7ab905df6f9fa1d054a4b6a",
+    "code/PASs_MoE/source/cl_learner/moelora.py": "95ff81926866e3a94b041a83fd67dfa0ec27087f58dba590ba3c8d6a50e27728",
+    "code/PASs_MoE/files_sha256.json": "7b5608ec197369c24a5708b6cd13d3c2f59cdca91db75f557758bbc6809c208c",
+    "code/PASs_MoE/source_manifest.json": "835540f7de910c3375405ecf7f4b72896c9c0eb6942033628419e4aaf687eae6",
+    "analysis/answer_f1.py": "16c59998413d12b820d6f57269f9e1f45ac78e08595d20bf1f4fbc967fd94c4b",
+    "summary/primary_metric_20261017/metric_lock.json": "a146f037f835afb66251ce35498a4a5df8e7ea97468725b49ea34043f7d1c948",
+    "code/CL_MoE/source/CLMoE/peft/tuners/clitmoelora.py": "d1578188d8c03340da7449ed7c25967e2a08e957aacde3d21071970ed77cb195",
+    "code/CL_MoE/files_sha256.json": "13fca8ca025a2aad863b9edf52c6ce92bdfba654d5fa6caa39da9273f84abe8c",
+    "code/CL_MoE/source_manifest.json": "3a2250b90a5c3db9c66e30cecaee3af7e0f049f8b12d30f9edcb0495af8dba84"
+  },
+  "limit_seconds": 7200,
+  "cuda_visible_devices": "1",
+  "gpu_uuid": "GPU-3c72e4ce-0896-0b40-d610-be585d2bb51e",
+  "closure_atol": 0.0,
+  "closure_rtol": 0.0,
+  "observation_sources": {
+    "run.py": "1f3eb8ef68d6ac9f3c9a9961cc1b2f2f9964ba16370b0a79e5020c4e6bddc6db",
+    "worker_draft.py": "4567fe44c689e51387f93cd2a0422d66a385c10f70882d633d45dcedf7bf4238",
+    "gpu_statistics.py": "cc464b4f38cd1e8c0b407c74c201f23bb31a9d40103671b45abfd382c671f79a",
+    "statistics.py": "358ffb8a021629e94db05db46cc8ed5f315e68cb6607ff9c077bffb210a723c7"
+  },
+  "methods": {
+    "PASs_MoE": {
+      "original_run": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/PASs_MoE/training_20261017_161725",
+      "config_sha256": "79edcca96dd315260816932438b7c0ec57835f5761d2ec0b88d8ecdb5c837fb6",
+      "checkpoint_sha256": "583ab5d02e187fbd6a54bd4a05a019e33101deb8af2d9533795253140721441a"
+    },
+    "CL_MoE": {
+      "original_run": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/CL_MoE/training_20261017_161424",
+      "config_sha256": "125d1f9ead67d5e4d222f5fcfc05897b582f90bbe2bdbd1603e12534aa91dc02",
+      "checkpoint_sha256": "8550fdeb886a0e942ee9038ab0aeae7e5933b943094ee3af40c0816df592ffa4"
+    }
+  },
+  "prior_failed_attempt": {
+    "binding_sha256": "2147a8bfd2b08b377eca1ce7fd703cb2a1dba312eb6e11e1d93a0cc1c68ac651",
+    "worker": {
+      "pid": 1350671,
+      "startticks": "802322258"
+    },
+    "valid_QA": 0,
+    "CL_loaded": false,
+    "repair": "capture actual aten.softmax.int as well as aten._softmax.default; no scientific settings changed"
+  }
+}

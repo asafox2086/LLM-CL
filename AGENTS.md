@@ -1,3 +1,12 @@
+# 2026-10-30：已有实际函数观测；五条基线恢复；唯一核验IO失败不重放
+
+- 最新主线是已完成的原模型联合函数观测，不是CL四臂方法。NEW `summary/router_function_moments_20261030_v2/{FINDINGS,READOUT,HANDOFF}`：binding fa32a3e584e5c8aaf030931928873be4a3f2761d744bd8656c40f00c88eeea90，READOUT SHA55e95fd9dde9a76b34aa02bdd12b507e03506feb2137a706ba31067c37da6ef1。PAS/CL各80历史TRAIN、全部168投影、原答案预测位置含EOS，原层输出bitwise/FP32舍入界通过，两进程EXIT0/gone；唯一readout已消费，不重跑模型/消费者。v1因inference_mode派发softmax而非_softmax漏gate，0完整QA失败，原记录保留；v2仅修接口，经16纯合成case与独立审阅后实际完成。
+- 事实：PAS新增神经140771328、CL37158912，相对各层固定global mean-gate参照的局部差值平方和/原增量平方和0.0104569%/2.95234%，五域汇总排序一致。参数规模与这个指标排序相反，不是参数量因果/最优常数/必需动态功能下界/端到端F1等价/全CL规律。Rjoint/Rindep总体1.571526/1.065197，五域汇总均>1，原负耦合假设未支持；部分单层<1。不要写保留99.99%功能、专家无用、路由回避差异。历史TRAIN teacher-forcing不等于自由生成泛化。T12为遥感城乡分类不是医学；presence75.03%先验有RSVQA直接先例，不包装创新。
+- 五baseline最新实核1793326290/91全部真live：OLD PaRSP1342300/start802265912/GPU0 S19train31；OSFT1342314/start802265921/GPU2 S19eval；QwenPaRSP1341844/start802262974/GPU3 S0。NEW QwenOSFT261356/start66873512/GPU3 S18eval、SMo261406/start66873614/GPU1 S16train2；窄controller261265/unit llmcl-new-native-recovery-20261030持七原locks，原owner failed。以HANDOFF和真实身份为准，不冒作完整终态。OLD1在observer完成后空。FullFT offer仍未started，不另起竞争allocator/重放旧activate_once；后续CPU handoff需保两GPUworker。
+- 两机存储故障原现场保留，已精确退旧OLD4paths17887230158B、NEW v7九paths34705757596B，当前S18(old双方)、S17/S15(new)、全部QA/JSON/proof/final保护。NEW summary/storage_recovery_20261030 的原RECEIPT为证，任何旧清理/inspect修复版不得重放。当前NEW真实free34.524GB、quota708G/1024G；OLDquota684G/700G、tmpfs23.47GB，全球2.742TB不是账号可写。原失败更新不进canonical前缀，恢复原科学设置/RNG/每stage optimizer不变。
+- PAS静态完整eval763648已EXIT0/gone，RESULT f0608237...206dda6、COMPLETE5d103d...61fcc1；但root原唯一verify在line21写STARTED时Errno122，留下0B marker(e3b0...)，尚未进入核验try/loop。故障已NEW `summary/pas_static_final_confirmation_20261029/VERIFIER_START_IO_FAILURE_20261030.json` 耐久。用户有限恢复核验问题仍待答，禁止自动重试/删marker/换目录；主表质量暂不填。最终CP246e...已两机保留不删/不下载Windows。模型本身不需重跑。
+- README只新增已审事实/反证与先例边界，HTML主表原字节未动；当前没有新方法完整质量成功，研究目标未实现。自动跟进llmcl本地最后状态PAUSED，保持状态，不擅自恢复。
+
 # 2026-10-29：静态PAS已完整导出/独立重载/资源通过，完整TEST仍在同一进程运行
 
 - 当前唯一研究完整确认科学冻结f05f162；源与旧c c55d1a...不再变。OLD final目录exp/pas_static_final_confirmation_20261029、summary同名，binding469735a7...。export762104/start797489622已67.878184秒EXIT0/gone；eval763648/start797496721/UID1084/PGID同PID在OLD GPU1，unit llmcl-pas-static-final-confirmation-20261029.service，86400秒模型期限。原始GPU全过程，不CPU模型实验；不更改生成/数据/指标，不因部分质量救点。

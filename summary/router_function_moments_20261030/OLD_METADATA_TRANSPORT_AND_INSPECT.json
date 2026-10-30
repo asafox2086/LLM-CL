@@ -1,0 +1,88 @@
+{
+  "transport": {
+    "schema": "router-moments-metadata-transport-v1",
+    "unix": 1793324669.011339,
+    "source_sha256": {
+      "exp/router_function_moments_20261030/run.py": "8c4327f8258832c7b6756b9d1c9116686de1a25fb1a648485de858ecd2b36cff",
+      "exp/router_function_moments_20261030/worker_draft.py": "83c099912ac72d955024daa6f392a53c66b8c76594c741405482f82400599ffd",
+      "exp/router_function_moments_20261030/gpu_statistics.py": "cc464b4f38cd1e8c0b407c74c201f23bb31a9d40103671b45abfd382c671f79a",
+      "exp/router_function_moments_20261030/statistics.py": "358ffb8a021629e94db05db46cc8ed5f315e68cb6607ff9c077bffb210a723c7",
+      "summary/router_function_moments_20261030/PROTOCOL_DRAFT.md": "74e0e9095af8c602df680e15248bd0cd39aceea2b7b1729aa9c60ca267fc98c2"
+    },
+    "binding_sha256": "f945cd1b55c8d2792057a69e7f3e3d7301c5ad33394787fe86b0ba653c181a85",
+    "binding_path": "/data2/liyapeng_grp/program/LLMCL/summary/router_function_moments_20261030/BINDING.metadata_only.json",
+    "gpu_uuid_by_index": {
+      "0": "GPU-783c5d2c-a6f8-9594-472c-4ab9fe54d3b1",
+      "1": "GPU-3c72e4ce-0896-0b40-d610-be585d2bb51e",
+      "2": "GPU-25d3cb92-fa97-a722-f9cd-c012bad046a8",
+      "3": "GPU-fb9fc5ed-bf92-b947-d8c5-302296c4a447"
+    },
+    "compute_workers": [
+      {
+        "gpu_uuid": "GPU-783c5d2c-a6f8-9594-472c-4ab9fe54d3b1",
+        "used_MiB": "3258",
+        "identity": {
+          "pid": 1342300,
+          "startticks": "802265912",
+          "state": "R",
+          "pgid": "1342300",
+          "uid": 1084,
+          "script": [
+            "run.py"
+          ]
+        }
+      },
+      {
+        "gpu_uuid": "GPU-25d3cb92-fa97-a722-f9cd-c012bad046a8",
+        "used_MiB": "4382",
+        "identity": {
+          "pid": 1342314,
+          "startticks": "802265921",
+          "state": "S",
+          "pgid": "1342314",
+          "uid": 1084,
+          "script": [
+            "run.py"
+          ]
+        }
+      },
+      {
+        "gpu_uuid": "GPU-fb9fc5ed-bf92-b947-d8c5-302296c4a447",
+        "used_MiB": "6540",
+        "identity": {
+          "pid": 1341844,
+          "startticks": "802262974",
+          "state": "R",
+          "pgid": "1341844",
+          "uid": 1084,
+          "script": [
+            "run.py"
+          ]
+        }
+      }
+    ],
+    "GPU1_idle": true,
+    "model_loads": 0,
+    "execute_called": false
+  },
+  "checks": {
+    "PASs_MoE": {
+      "method": "PASs_MoE",
+      "returncode": 0,
+      "stdout": "{\"metadata_validated\": true, \"method\": \"PASs_MoE\", \"model_loaded\": false, \"TRAIN_forward_QA\": 80, \"TEST_QA\": 0, \"output_exists\": false}\n",
+      "stderr": "",
+      "execute": false,
+      "model_loaded": false,
+      "output_run_root_exists": false
+    },
+    "CL_MoE": {
+      "method": "CL_MoE",
+      "returncode": 0,
+      "stdout": "{\"metadata_validated\": true, \"method\": \"CL_MoE\", \"model_loaded\": false, \"TRAIN_forward_QA\": 80, \"TEST_QA\": 0, \"output_exists\": false}\n",
+      "stderr": "",
+      "execute": false,
+      "model_loaded": false,
+      "output_run_root_exists": false
+    }
+  }
+}

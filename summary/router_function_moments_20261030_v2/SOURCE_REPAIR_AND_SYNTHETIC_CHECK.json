@@ -1,0 +1,28 @@
+{
+  "schema": "router-hook-interface-repair-not-model-observation-v2",
+  "unix": 1793325105.9967008,
+  "prior_v1_sources": {
+    "run.py": "8c4327f8258832c7b6756b9d1c9116686de1a25fb1a648485de858ecd2b36cff",
+    "worker_draft.py": "83c099912ac72d955024daa6f392a53c66b8c76594c741405482f82400599ffd",
+    "gpu_statistics.py": "cc464b4f38cd1e8c0b407c74c201f23bb31a9d40103671b45abfd382c671f79a",
+    "statistics.py": "358ffb8a021629e94db05db46cc8ed5f315e68cb6607ff9c077bffb210a723c7"
+  },
+  "source_sha256": {
+    "run.py": "1f3eb8ef68d6ac9f3c9a9961cc1b2f2f9964ba16370b0a79e5020c4e6bddc6db",
+    "worker_draft.py": "4567fe44c689e51387f93cd2a0422d66a385c10f70882d633d45dcedf7bf4238",
+    "gpu_statistics.py": "cc464b4f38cd1e8c0b407c74c201f23bb31a9d40103671b45abfd382c671f79a",
+    "statistics.py": "358ffb8a021629e94db05db46cc8ed5f315e68cb6607ff9c077bffb210a723c7"
+  },
+  "changes": [
+    "capture both aten.softmax.int and aten._softmax.default by original packet name with exact native shape guard",
+    "preserve B hooks and all scientific settings",
+    "include missing capture state in error and FAILURE metadata"
+  ],
+  "prior_v1_attempt": "PAS worker1350671/start802322258 EXIT1; zero complete QA; CL not started; prior FAILURE untouched",
+  "actual_source_evidence": "canonical coinmoelora.py SHA75d46bcd7850ec3c03d13968f1e4180098d62a1da7ab905df6f9fa1d054a4b6a lines745,848..850 call parent B; inference softmax packet changes",
+  "test_returncode": 0,
+  "test_stdout": "{\"torch_version\": \"2.6.0+cu118\", \"cases\": [{\"E\": 2, \"dimensions\": 2, \"inference\": false, \"autocast\": false, \"operator\": \"aten._softmax.default\", \"first_gate_exact\": true}, {\"E\": 2, \"dimensions\": 2, \"inference\": false, \"autocast\": true, \"operator\": \"aten._softmax.default\", \"first_gate_exact\": true}, {\"E\": 2, \"dimensions\": 2, \"inference\": true, \"autocast\": false, \"operator\": \"aten.softmax.int\", \"first_gate_exact\": true}, {\"E\": 2, \"dimensions\": 2, \"inference\": true, \"autocast\": true, \"operator\": \"aten.softmax.int\", \"first_gate_exact\": true}, {\"E\": 2, \"dimensions\": 3, \"inference\": false, \"autocast\": false, \"operator\": \"aten._softmax.default\", \"first_gate_exact\": true}, {\"E\": 2, \"dimensions\": 3, \"inference\": false, \"autocast\": true, \"operator\": \"aten._softmax.default\", \"first_gate_exact\": true}, {\"E\": 2, \"dimensions\": 3, \"inference\": true, \"autocast\": false, \"operator\": \"aten.softmax.int\", \"first_gate_exact\": true}, {\"E\": 2, \"dimensions\": 3, \"inference\": true, \"autocast\": true, \"operator\": \"aten.softmax.int\", \"first_gate_exact\": true}, {\"E\": 8, \"dimensions\": 2, \"inference\": false, \"autocast\": false, \"operator\": \"aten._softmax.default\", \"first_gate_exact\": true}, {\"E\": 8, \"dimensions\": 2, \"inference\": false, \"autocast\": true, \"operator\": \"aten._softmax.default\", \"first_gate_exact\": true}, {\"E\": 8, \"dimensions\": 2, \"inference\": true, \"autocast\": false, \"operator\": \"aten.softmax.int\", \"first_gate_exact\": true}, {\"E\": 8, \"dimensions\": 2, \"inference\": true, \"autocast\": true, \"operator\": \"aten.softmax.int\", \"first_gate_exact\": true}, {\"E\": 8, \"dimensions\": 3, \"inference\": false, \"autocast\": false, \"operator\": \"aten._softmax.default\", \"first_gate_exact\": true}, {\"E\": 8, \"dimensions\": 3, \"inference\": false, \"autocast\": true, \"operator\": \"aten._softmax.default\", \"first_gate_exact\": true}, {\"E\": 8, \"dimensions\": 3, \"inference\": true, \"autocast\": false, \"operator\": \"aten.softmax.int\", \"first_gate_exact\": true}, {\"E\": 8, \"dimensions\": 3, \"inference\": true, \"autocast\": true, \"operator\": \"aten.softmax.int\", \"first_gate_exact\": true}], \"passed\": 16, \"failure_metadata\": {\"layer_id\": \"L\", \"qa_id\": \"synthetic\", \"domain\": \"synthetic\", \"raw_gate_present\": false, \"captured_expert_indices\": [0], \"expected_expert_indices\": [0, 1], \"gate_dispatch_operator\": null, \"input_shape\": [1, 5, 3], \"selected_prediction_positions\": [1, 4]}, \"model_loads\": 0, \"checkpoint_reads\": 0, \"GPU_tensor_allocations\": 0, \"pure_synthetic_module_test\": true}\n",
+  "test_stderr": "",
+  "OLD_frozen_source_changed": false,
+  "model_attempt_started": false
+}
