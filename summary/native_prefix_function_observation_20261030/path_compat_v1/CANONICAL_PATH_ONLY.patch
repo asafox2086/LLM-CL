@@ -1,0 +1,13 @@
+--- original_failed_run.py
++++ path_compat_v1/run.py
+@@ -71,7 +71,9 @@
+   stats=load('native_prefix_gpu_statistics',Path(__file__).parent/'gpu_statistics.py')
+   observer=load('native_prefix_observe_qa',Path(__file__).parent/'observe_qa.py')
+   import transformers.generation.utils as gu,transformers.generation.stopping_criteria as gs
+-  for mod in (gu,gs):assert sha(mod.__file__)==b['prefix_runtime_files'][str(Path(mod.__file__).resolve())]
++  canonical_runtime={str(Path(p).resolve()):h for p,h in b['prefix_runtime_files'].items()}
++  assert len(canonical_runtime)==len(b['prefix_runtime_files']),'Duplicate canonical runtime bindings'
++  for mod in (gu,gs):assert sha(mod.__file__)==canonical_runtime[str(Path(mod.__file__).resolve())]
+   cp=run/'checkpoints/stage_19.pt';assert sha(cp)==original.METHODS[a.method][0]
+   payload=checkpoints.load(run,expected=cfg)
+   assert payload['format']=='llmcl-method-graph-v1' and payload['stage']==19 and payload['probe'] is None
