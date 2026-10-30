@@ -1,3 +1,13 @@
+# 2026-10-30最新：CL单一固定G的整模功能必要性观测已冻结，尚未GPU
+
+- 最新人类问题是“动态专家在数据受限多领域没有好的选择作用吗”；目前只能说PAS可被固定表示近似、额外推理收益有限，不能说路由学坏或数据少导致失效。外层README明确列“未验证”，不把局部误差当全模型保分保证。目标仍先观测，不设计新方法。
+- 新独立观测 exp/summary cl_fixed_effective_gate_necessity_20261030，不恢复旧cl_static_function_probe四臂/QP/fold。唯一CL原1%S19，原bank/dtype/scale2/原prepare_row与anchor计算全留，完整effectiveG固定55e旧TF均值（11ee），不换c/不训练/不设事后保分线。局部旧2.952%只测答案预测位；新干预覆盖全部视觉／问题prefill和decode，失败不能单归为解码路由或误差放大。
+- 已root/lit全审四源冻结：run3a9c40ce95fa11c0fcd4337b29ee4c4808c2aab0eea07e08ebb8352e01c3bbca，verify7aebbb6438c09c93e59a9e1a884ff46aac67b23be6118e50c92c8bb65d1ced24，fixed_gate60323dba3c5145a3dcce44da585c5c917891a29e9f4a9260f86b6e16b1534f81，controlsc8a232bd20cfd2deb360316daa5557e34605bdba41257344337fcddd426dac23；协议a35619fa0a5e2dd43e56b50924727e362ed02b3d3e2d8b3c5d0ec61697743bfb。源审662dcbb5...，原动态宏42.77401941548098／21454，f31参考与f835原proof/72dc原rawSHA绑定，不重score。
+- 新接口AST只插1个G回调，passthrough同Tensor；5个预定TRAIN索引0/16/32/48/64，各原生≤2token做原始/动态恒等控制。只存输出字节摘要，不保全prefill GPU输出；固定C32存储别名覆盖全部168投影。完整21454 TEST后才unique verify，原native ordered sum闭合，不再score；配对F1正负变化与字符串相同分开，防小净差被误当选择无用。无新增部署优势（原bank保留）。
+- 唯一小文件运输和一次default metadata已EXIT0，OLD E/S独占逐SHA通过，receipt6c0901...；model_loads0/TESTcalls0/output不存在。正式BINDING／ADMISSION尚未创建，donor proof仍空，不称运行或实测controls已过；运输不可重放。CP8550fdeb...在此确为payloadSHA，latest.json本身331847a...，已三方核清，actual worker仍须fullhash+原strict loader。
+- OLD1原Spa下一完整stage合作暂停请求57fc...已发布，当前16；worker1946673/start806193331与CPU1946636/start806193288原事件60102仍待真CP／gone，未新模型准入。NEW CP事件已observer-only恢复成1458344/start71143891，耐久journal先fsync，唯一session19473；旧1436760已精确observer-only SIGTERM，不是模型终态，不重建两观察流。
+- 七条baseline最近均真live：OLD1557042/1946673/1650061/1341844，NEW1401697/1411303/1434218，owner1401680/8db；Qwen NEW是原W0 fresh+初评prefix非CP续训。FullFT已commit13。OLD S2/S3与NEW精确旧9/新11/失败11partial退旧均唯一闭合；partial仅SHA/stat/故障原件保，payload已不在，不得假称仍保。origin10/current13和全部主表／QA／JSON／proof保护。最新动态详情看RECOVERY_STATUS_LATEST，原19473/60102复用，不重放retention。
+
 # 2026-10-30人类最新纠正：结论须指出专家的部署冗余，不包装“脱钩”概念
 
 - 新增专家模块本身没有问题，不能凭参数多就批评算法。外层结论改为：在已测两个模型的原动态隐藏输入上，主要适应增量能由固定专家组合近似承载；仅PAS有整模静态替代保接近F1／降低权重及GPU内存的正式证明。不是gate恒定、专家权重同质、训练专家无用或所有CL冗余的证明。

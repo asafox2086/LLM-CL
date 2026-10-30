@@ -1,0 +1,539 @@
+{
+  "schema": "cl-fixed-G-original-dynamic-baseline-reference-v1",
+  "original_run": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/CL_MoE/training_20261017_161424",
+  "original_config_sha256": "125d1f9ead67d5e4d222f5fcfc05897b582f90bbe2bdbd1603e12534aa91dc02",
+  "checkpoint_payload_sha256": "8550fdeb886a0e942ee9038ab0aeae7e5933b943094ee3af40c0816df592ffa4",
+  "checkpoint_latest_json_sha256": "331847a29bd61e60d77b11a01307a259f665d770f29537170b460c3db2ce871a",
+  "checkpoint_latest_metadata": {
+    "path": "checkpoints/stage_19.pt",
+    "stage": 19,
+    "bytes": 2100250526,
+    "sha256": "8550fdeb886a0e942ee9038ab0aeae7e5933b943094ee3af40c0816df592ffa4",
+    "seconds": 23.740142406895757,
+    "manifest_sha256": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+    "method": "CL_MoE",
+    "full_architecture_and_runtime": true,
+    "optimizer_saved": false
+  },
+  "manifest_path": "/data2/liyapeng_grp/program/LLMCL/data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/manifest.json",
+  "manifest_sha256": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+  "metric_lock_path": "/data2/liyapeng_grp/program/LLMCL/summary/primary_metric_20261017/metric_lock.json",
+  "metric_lock_sha256": "a146f037f835afb66251ce35498a4a5df8e7ea97468725b49ea34043f7d1c948",
+  "answer_f1_source_sha256": "16c59998413d12b820d6f57269f9e1f45ac78e08595d20bf1f4fbc967fd94c4b",
+  "runtime_source_sha256": "4f5c4a34be046c29cfbcdaa4b2957faa907684872ba69083bdef53136a851240",
+  "original_execution_source_sha256": {
+    "training_validity.py": "0ec302d2fa4e8bb1a87b41c861c3aea78bf473e3df805b87d4dd450d21a2f735",
+    "parsp_adapter.py": "d1ebe1831e6d089d434bdde34b59db64eff17dc74d8d77f9ca4f080a51da8366",
+    "pass_adapter.py": "c8e23c85a93e97130d464b4b6d87110470035c5af37f9575fce705923c80c7c4",
+    "frozen_vision.py": "8211651e92d17019f6ce6cf9615df7f6b5fcaeecc765aec4acdf916c448a35bd",
+    "clmoe_adapter.py": "33946eddfc6424638ded0675ded68860273859c2f71993a6a60bd22556341be9",
+    "replay_adapter.py": "da07cfd8e44183ab3e29f1ab51ecbec0f6e7877ac6335efcf179158afff8d141",
+    "osft_adapter.py": "60b05f3b59f3878e65ee9543657b54a5aa5da13c14e139123e1c3591f3007b34",
+    "sparta_adapter.py": "8a00505b40663e5a233ddceb34e295d9b7b73d55f0679ac3d2b93318e77d7a44",
+    "native_auxiliary.py": "17f3345fb8d4b4cb3367de2a0b914b34bf69251ecc7f141ba1c7179006599682",
+    "pipeline.py": "a05c27c773dc69369cbef90f89a77c6224d1f5a5d1716c1f8576ac3ff823be17",
+    "hyper_adapter.py": "518574b8c3d1c46400d240cc984f0d1c83cb01d96a7d1e2bf788bea4d4610976",
+    "sparse_results.py": "07a7808beff8bc3330e92dc5b0fb5443401486846db764c912a5a0f57558fa3f",
+    "fv_adapter.py": "85473b19726249703f645a30142b6cfb046a37f798430ca1a255e48213641fab",
+    "methods.py": "e5bd8f51690b006274ed5adcfa4ef3b1a2c3b0f1d79476d948b71d1cfec41c5b",
+    "prepare_native.py": "200affb091e040e4f4492fb92389b9f1b54a3e71b33683e7de322ca6dd74cb4f",
+    "retrieval.py": "7d7a9dd6cb223bf96cd9ab3499a4ddf69f8fbb60940d80db84582ad518f5c133",
+    "checkpoints.py": "06c53eab2c6810901f5206edbfb1df9defabdc747b1856ace0afa31e74b37a78",
+    "checkpoint_probe.py": "71b38fb9f202fa2fa012e76a883e23322f68ef938c9f8ef9fac78d01886eb23f",
+    "host_adam.py": "5e733e6b87c12eb9331ff23e8919a142f1861a2beec82ec8b0361d878b9aec8c",
+    "run.py": "0e1f794ff1daf0694bdf960c3f89ccd4078764577db75271d8f78684282a39a9",
+    "freeze_splits.py": "5b4d58451ef3bcdb9fc033c0c9bc15b72ddc36877a64ca22d50f12e9e301510a",
+    "onevision_bridge.py": "f3b1dd38af3b58dbfa69073da698ea2bf39a3a11850fb1069a80e38d0e3669a9",
+    "resource_monitor.py": "a161c8a82bf762622795f64210c95164fb905c6fa80572b35ae5ee3dd7146533",
+    "aler_adapter.py": "4a4c58024727e5e5d01254a6b90b721e873ee6ea9f74d59308da6aa424217635",
+    "runtime_utils.py": "4f5c4a34be046c29cfbcdaa4b2957faa907684872ba69083bdef53136a851240"
+  },
+  "final19": [
+    {
+      "task": 1,
+      "TEST_count": 5000,
+      "token_f1": 74.6572639549994,
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/CL_MoE/training_20261017_161424/evaluations/stage_19/T01_test_predictions.scores.json",
+      "sha256": "64485649e9bb453c7ba525371cf6ffe9d3ad05fa488ce9f4de4d5a04bfc7ca8d",
+      "score_record": {
+        "rougeL": 74.6572639549994,
+        "token_f1": 74.6572639549994,
+        "exact_match": 68.06,
+        "count": 5000,
+        "exact_match_correct": 3403
+      },
+      "max_new_tokens": 128,
+      "instruction": "Answer the question using the image. Give the answer directly.",
+      "TEST_descriptor": {
+        "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T01_test.jsonl",
+        "count": 5000,
+        "sha256": "14705cad19879bbe9397add2d6871d6892146aee4be3885030700382307cd3bb",
+        "dataset_counts": {
+          "TextVQA": 5000
+        }
+      }
+    },
+    {
+      "task": 2,
+      "TEST_count": 228,
+      "token_f1": 62.02589807852964,
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/CL_MoE/training_20261017_161424/evaluations/stage_19/T02_test_predictions.scores.json",
+      "sha256": "9054143f097ece4f4102eeced6ed44e129909b972b4be0a18633662fc4329179",
+      "score_record": {
+        "rougeL": 62.02589807852964,
+        "token_f1": 62.02589807852964,
+        "exact_match": 53.50877192982456,
+        "count": 228,
+        "exact_match_correct": 122
+      },
+      "max_new_tokens": 128,
+      "instruction": "Answer the medical question using the image. Native task: Modality.",
+      "TEST_descriptor": {
+        "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T02_test.jsonl",
+        "count": 228,
+        "sha256": "c319026d6857ee31722732ce54fd0348e189f0f8aaa574522fdb6623ca3bc572",
+        "dataset_counts": {
+          "SLAKE": 228
+        }
+      }
+    },
+    {
+      "task": 3,
+      "TEST_count": 375,
+      "token_f1": 42.635767195767144,
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/CL_MoE/training_20261017_161424/evaluations/stage_19/T03_test_predictions.scores.json",
+      "sha256": "4747a27464e8498450823ea6b7d2c519fdf7869c88606c9470a945f03e88e94b",
+      "score_record": {
+        "rougeL": 41.82052910052905,
+        "token_f1": 42.635767195767144,
+        "exact_match": 21.866666666666667,
+        "count": 375,
+        "exact_match_correct": 82
+      },
+      "max_new_tokens": 128,
+      "instruction": "Answer the medical question using the image. Native task: Position.",
+      "TEST_descriptor": {
+        "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T03_test.jsonl",
+        "count": 375,
+        "sha256": "809a68a36926ba0dab02597b9e4492bcebc2ec394f17103413e13a0e3e072d0b",
+        "dataset_counts": {
+          "SLAKE": 375
+        }
+      }
+    },
+    {
+      "task": 4,
+      "TEST_count": 507,
+      "token_f1": 34.27021696252465,
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/CL_MoE/training_20261017_161424/evaluations/stage_19/T04_test_predictions.scores.json",
+      "sha256": "c4b2b0de9bf05dcb2b975a9542901bc6584563ca53276e70e307d85eafc39036",
+      "score_record": {
+        "rougeL": 34.27021696252465,
+        "token_f1": 34.27021696252465,
+        "exact_match": 30.76923076923077,
+        "count": 507,
+        "exact_match_correct": 156
+      },
+      "max_new_tokens": 128,
+      "instruction": "Answer the medical question using the image. Native task: Organ.",
+      "TEST_descriptor": {
+        "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T04_test.jsonl",
+        "count": 507,
+        "sha256": "e5046123567a5d9efe80aae17ed0b141e6261bf80c775f523791ef9022492ba2",
+        "dataset_counts": {
+          "SLAKE": 507
+        }
+      }
+    },
+    {
+      "task": 5,
+      "TEST_count": 124,
+      "token_f1": 44.892473118279575,
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/CL_MoE/training_20261017_161424/evaluations/stage_19/T05_test_predictions.scores.json",
+      "sha256": "61d5a8ac5f9f97ba0720c86bfb9d694c6d07f2a208882a91213bcc3537ec110c",
+      "score_record": {
+        "rougeL": 44.892473118279575,
+        "token_f1": 44.892473118279575,
+        "exact_match": 40.32258064516129,
+        "count": 124,
+        "exact_match_correct": 50
+      },
+      "max_new_tokens": 128,
+      "instruction": "Answer the medical question using the image. Native task: Size.",
+      "TEST_descriptor": {
+        "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T05_test.jsonl",
+        "count": 124,
+        "sha256": "7e13f0e2db2a9fb4f66249f152c23c336a566c1e5ccf30c929c2c04710be6264",
+        "dataset_counts": {
+          "SLAKE": 124
+        }
+      }
+    },
+    {
+      "task": 6,
+      "TEST_count": 311,
+      "token_f1": 52.726275153927816,
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/CL_MoE/training_20261017_161424/evaluations/stage_19/T06_test_predictions.scores.json",
+      "sha256": "6f2339800db9af1af3e2d884a7c2c36914e47e13ac31b55a8a34727128fc0e92",
+      "score_record": {
+        "rougeL": 52.726275153927816,
+        "token_f1": 52.726275153927816,
+        "exact_match": 35.048231511254016,
+        "count": 311,
+        "exact_match_correct": 109
+      },
+      "max_new_tokens": 128,
+      "instruction": "Answer the medical question using the image. Native task: Abnormality.",
+      "TEST_descriptor": {
+        "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T06_test.jsonl",
+        "count": 311,
+        "sha256": "18f04db0a28b6b0abd9b0f3f5ad7d030151085c47b88213d043752eacad98877",
+        "dataset_counts": {
+          "SLAKE": 311
+        }
+      }
+    },
+    {
+      "task": 7,
+      "TEST_count": 89,
+      "token_f1": 47.19101123595506,
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/CL_MoE/training_20261017_161424/evaluations/stage_19/T07_test_predictions.scores.json",
+      "sha256": "49f02aee8274f53f2f6ef643cd5830a95e5d6c3d5918cd5cbcf63a5f9dc577ac",
+      "score_record": {
+        "rougeL": 47.19101123595506,
+        "token_f1": 47.19101123595506,
+        "exact_match": 47.19101123595506,
+        "count": 89,
+        "exact_match_correct": 42
+      },
+      "max_new_tokens": 128,
+      "instruction": "Answer the medical question using the image. Native task: Quantity.",
+      "TEST_descriptor": {
+        "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T07_test.jsonl",
+        "count": 89,
+        "sha256": "e424c1d3905db42165ad9f525f033045af1e8605e6b1e5848bba82573e54e221",
+        "dataset_counts": {
+          "SLAKE": 89
+        }
+      }
+    },
+    {
+      "task": 8,
+      "TEST_count": 116,
+      "token_f1": 27.442528735632184,
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/CL_MoE/training_20261017_161424/evaluations/stage_19/T08_test_predictions.scores.json",
+      "sha256": "7a322dd7b4db2763846fa893539f4e28137ec846784eb1741fc67b11d530eb4a",
+      "score_record": {
+        "rougeL": 27.442528735632184,
+        "token_f1": 27.442528735632184,
+        "exact_match": 15.517241379310345,
+        "count": 116,
+        "exact_match_correct": 18
+      },
+      "max_new_tokens": 128,
+      "instruction": "Answer the medical question using the image. Native task: Plane.",
+      "TEST_descriptor": {
+        "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T08_test.jsonl",
+        "count": 116,
+        "sha256": "2c3d5bc145141ac44d4a18722169bb421f47d41f1558d04d6da9a3dd365f8a86",
+        "dataset_counts": {
+          "SLAKE": 116
+        }
+      }
+    },
+    {
+      "task": 9,
+      "TEST_count": 12,
+      "token_f1": 14.015151515151516,
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/CL_MoE/training_20261017_161424/evaluations/stage_19/T09_test_predictions.scores.json",
+      "sha256": "bfc43a0731a0b6aa48da91058b0c9d4a32ae6f163e89dc7fb2c4d723a82c7103",
+      "score_record": {
+        "rougeL": 14.015151515151516,
+        "token_f1": 14.015151515151516,
+        "exact_match": 8.333333333333334,
+        "count": 12,
+        "exact_match_correct": 1
+      },
+      "max_new_tokens": 128,
+      "instruction": "Answer the medical question using the image. Native task: Shape.",
+      "TEST_descriptor": {
+        "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T09_test.jsonl",
+        "count": 12,
+        "sha256": "3f554ff6047a98566520a39bc9d89ecf0bcf00a29e2e2d1f76bfb2b63097be95",
+        "dataset_counts": {
+          "SLAKE": 12
+        }
+      }
+    },
+    {
+      "task": 10,
+      "TEST_count": 65,
+      "token_f1": 49.07692307692307,
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/CL_MoE/training_20261017_161424/evaluations/stage_19/T10_test_predictions.scores.json",
+      "sha256": "8a48472582bb595f5ef7a174a181f177af89c15aed2a5847f39041a6981cdf8b",
+      "score_record": {
+        "rougeL": 49.07692307692307,
+        "token_f1": 49.07692307692307,
+        "exact_match": 35.38461538461539,
+        "count": 65,
+        "exact_match_correct": 23
+      },
+      "max_new_tokens": 128,
+      "instruction": "Answer the medical question using the image. Native task: Color.",
+      "TEST_descriptor": {
+        "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T10_test.jsonl",
+        "count": 65,
+        "sha256": "f6c9fcfd7c3b385eb82829ebb478a7db522eecc4a53c33ded2ab8f82ff57e328",
+        "dataset_counts": {
+          "SLAKE": 65
+        }
+      }
+    },
+    {
+      "task": 11,
+      "TEST_count": 267,
+      "token_f1": 22.226900499904602,
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/CL_MoE/training_20261017_161424/evaluations/stage_19/T11_test_predictions.scores.json",
+      "sha256": "47c683ed9e9168a95f38006257645f49547608855594ba7947be47f2ecad0a45",
+      "score_record": {
+        "rougeL": 22.125437654999796,
+        "token_f1": 22.226900499904602,
+        "exact_match": 17.60299625468165,
+        "count": 267,
+        "exact_match_correct": 47
+      },
+      "max_new_tokens": 128,
+      "instruction": "Answer the medical question using the image. Native task: KG.",
+      "TEST_descriptor": {
+        "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T11_test.jsonl",
+        "count": 267,
+        "sha256": "48e7b5e4177a001612d6640f6df92cc3621362792dffb0ad762476e562b6b21b",
+        "dataset_counts": {
+          "SLAKE": 267
+        }
+      }
+    },
+    {
+      "task": 12,
+      "TEST_count": 100,
+      "token_f1": 73.0,
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/CL_MoE/training_20261017_161424/evaluations/stage_19/T12_test_predictions.scores.json",
+      "sha256": "f4c65994dc924943310ad268e28fa445dd893d6a6f33fd9ed31bc45c664fbb54",
+      "score_record": {
+        "rougeL": 73.0,
+        "token_f1": 73.0,
+        "exact_match": 73.0,
+        "count": 100,
+        "exact_match_correct": 73
+      },
+      "max_new_tokens": 512,
+      "instruction": "Answer the remote-sensing question using the image. Preserve the original numeric answer format. Native task: rural_urban.",
+      "TEST_descriptor": {
+        "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T12_test.jsonl",
+        "count": 100,
+        "sha256": "7948cf70e4996ec38532ff680638b8c81710d6e02cceb9589c58cb6403284013",
+        "dataset_counts": {
+          "RSVQA-LR": 100
+        }
+      }
+    },
+    {
+      "task": 13,
+      "TEST_count": 2955,
+      "token_f1": 57.59729272419628,
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/CL_MoE/training_20261017_161424/evaluations/stage_19/T13_test_predictions.scores.json",
+      "sha256": "35d84e77397ceea5673bfbba0e27650c668c825ae2d34fa3a3387ceb018cbd2f",
+      "score_record": {
+        "rougeL": 57.59729272419628,
+        "token_f1": 57.59729272419628,
+        "exact_match": 57.59729272419628,
+        "count": 2955,
+        "exact_match_correct": 1702
+      },
+      "max_new_tokens": 512,
+      "instruction": "Answer the remote-sensing question using the image. Preserve the original numeric answer format. Native task: presence.",
+      "TEST_descriptor": {
+        "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T13_test.jsonl",
+        "count": 2955,
+        "sha256": "4ca421c2594f1d2a36b749d42526706cc6caca9af05f9908b85d08cf7c9218b4",
+        "dataset_counts": {
+          "RSVQA-LR": 2955
+        }
+      }
+    },
+    {
+      "task": 14,
+      "TEST_count": 2947,
+      "token_f1": 18.25585341024771,
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/CL_MoE/training_20261017_161424/evaluations/stage_19/T14_test_predictions.scores.json",
+      "sha256": "ab218e44e91d6dd8d20e0576b4275d7e9e6185fa870939b5a5e25971bad6213e",
+      "score_record": {
+        "rougeL": 18.25585341024771,
+        "token_f1": 18.25585341024771,
+        "exact_match": 18.25585341024771,
+        "count": 2947,
+        "exact_match_correct": 538
+      },
+      "max_new_tokens": 512,
+      "instruction": "Answer the remote-sensing question using the image. Preserve the original numeric answer format. Native task: count.",
+      "TEST_descriptor": {
+        "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T14_test.jsonl",
+        "count": 2947,
+        "sha256": "ff46c370c5b0a545c770e702e7fef159e79f4188c4a657356ca988da4b57866d",
+        "dataset_counts": {
+          "RSVQA-LR": 2947
+        }
+      }
+    },
+    {
+      "task": 15,
+      "TEST_count": 4002,
+      "token_f1": 67.31634182908546,
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/CL_MoE/training_20261017_161424/evaluations/stage_19/T15_test_predictions.scores.json",
+      "sha256": "1e244f3d5dc66b809093f7917d9a3d65de9b59d92bdb9a63181da2959b215b0f",
+      "score_record": {
+        "rougeL": 67.31634182908546,
+        "token_f1": 67.31634182908546,
+        "exact_match": 67.31634182908546,
+        "count": 4002,
+        "exact_match_correct": 2694
+      },
+      "max_new_tokens": 512,
+      "instruction": "Answer the remote-sensing question using the image. Preserve the original numeric answer format. Native task: comp.",
+      "TEST_descriptor": {
+        "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T15_test.jsonl",
+        "count": 4002,
+        "sha256": "6ae35bde45e33788bcd31c99dc9f80a1d9236bd6062a807fd989e2c1fbe426cc",
+        "dataset_counts": {
+          "RSVQA-LR": 4002
+        }
+      }
+    },
+    {
+      "task": 16,
+      "TEST_count": 2233,
+      "token_f1": 14.91388713820015,
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/CL_MoE/training_20261017_161424/evaluations/stage_19/T16_test_predictions.scores.json",
+      "sha256": "bc58698b618bbb782b7b4d6ddc8155aa4a546733ebaa3abba9fdc9a798bbe477",
+      "score_record": {
+        "rougeL": 14.91388713820015,
+        "token_f1": 14.91388713820015,
+        "exact_match": 13.793103448275861,
+        "count": 2233,
+        "exact_match_correct": 308
+      },
+      "max_new_tokens": 512,
+      "instruction": "Answer the financial question using the image and original background.",
+      "TEST_descriptor": {
+        "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T16_test.jsonl",
+        "count": 2233,
+        "sha256": "162ba8ad340a9fb898a3a942b3e720e581f23dddfacb70c289f3bd935d869206",
+        "dataset_counts": {
+          "FinMME": 2233
+        }
+      }
+    },
+    {
+      "task": 17,
+      "TEST_count": 500,
+      "token_f1": 34.32987868555488,
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/CL_MoE/training_20261017_161424/evaluations/stage_19/T17_test_predictions.scores.json",
+      "sha256": "461602f34bb7cc96796255dd844cc99f8ca087c95efafac54065d904081f3729",
+      "score_record": {
+        "rougeL": 18.851410041666593,
+        "token_f1": 34.32987868555488,
+        "exact_match": 0.0,
+        "count": 500,
+        "exact_match_correct": 0
+      },
+      "max_new_tokens": 512,
+      "instruction": "Answer the driving question using the road image. Native task: general.",
+      "TEST_descriptor": {
+        "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T17_test.jsonl",
+        "count": 500,
+        "sha256": "f5a8de804f54aba60315eff839f05a0401ff96427920c0cd3112affcc19362e8",
+        "dataset_counts": {
+          "CODA-LM": 500
+        }
+      }
+    },
+    {
+      "task": 18,
+      "TEST_count": 1123,
+      "token_f1": 31.592161898675958,
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/CL_MoE/training_20261017_161424/evaluations/stage_19/T18_test_predictions.scores.json",
+      "sha256": "9d55d5621cc795c3dede35ca58d0d9c928b80bd2f58f385843f2d4d49b5302d9",
+      "score_record": {
+        "rougeL": 20.294151454510605,
+        "token_f1": 31.592161898675958,
+        "exact_match": 0.0,
+        "count": 1123,
+        "exact_match_correct": 0
+      },
+      "max_new_tokens": 512,
+      "instruction": "Answer the driving question using the road image. Native task: regional.",
+      "TEST_descriptor": {
+        "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T18_test.jsonl",
+        "count": 1123,
+        "sha256": "48e1bf7b181cf1a5d4c7b9be03e1fa11fe2e26b37ca2f4c8a4f4498ef20c403d",
+        "dataset_counts": {
+          "CODA-LM": 1123
+        }
+      }
+    },
+    {
+      "task": 19,
+      "TEST_count": 500,
+      "token_f1": 35.29724207912969,
+      "path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/CL_MoE/training_20261017_161424/evaluations/stage_19/T19_test_predictions.scores.json",
+      "sha256": "8304d512f40600dfa41a88700002f6f1611e45cd04763229d431b2652fe3fd3f",
+      "score_record": {
+        "rougeL": 22.369229820604954,
+        "token_f1": 35.29724207912969,
+        "exact_match": 0.0,
+        "count": 500,
+        "exact_match_correct": 0
+      },
+      "max_new_tokens": 512,
+      "instruction": "Answer the driving question using the road image. Native task: suggestion.",
+      "TEST_descriptor": {
+        "path": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse/pct01/T19_test.jsonl",
+        "count": 500,
+        "sha256": "4af47721d341958f26e54744330927a14b5e5f5b8d84489607623b741eddbe2b",
+        "dataset_counts": {
+          "CODA-LM": 500
+        }
+      }
+    }
+  ],
+  "domain_macro": 42.77401941548098,
+  "original_domains": {
+    "natural": {
+      "F1": 74.6572639549994,
+      "QA": 5000
+    },
+    "medical": {
+      "F1": 41.139423727242274,
+      "QA": 2094
+    },
+    "geography": {
+      "F1": 50.0499800079968,
+      "QA": 10004
+    },
+    "finance": {
+      "F1": 14.91388713820015,
+      "QA": 2233
+    },
+    "traffic": {
+      "F1": 33.10954224896627,
+      "QA": 2123
+    }
+  },
+  "full_TEST_count": 21454,
+  "scores_recomputed": false,
+  "CP_payload_read": false,
+  "QA_predictions_read": false,
+  "gen_scope": "Task generation limits/instructions and original runtime source pinned; same complete method-graph CP preserves model generation_config. No independent complete generation_config snapshot exists in original formal proof; do not fabricate one.",
+  "original_formal_proof_path_NEW": "/data1/liyapeng/program/LLMCL/summary/two_backbone_pct01_20261017/completion_observer_seven_20261018/completed/adc8088c131265b0715b.json",
+  "original_formal_proof_sha256": "f8352dadac808c284cd4c8f8bb2b128237a3e28bf1f0b41aa2f4a0826a20f9a6"
+}
