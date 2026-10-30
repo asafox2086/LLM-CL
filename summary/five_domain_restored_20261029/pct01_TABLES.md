@@ -66,4 +66,4 @@
 
 PAS-static为原1% PAS检查点的固定末态部署表示：80条历史TRAIN及答案校准后，系数冻结，独立完整重载并评测21454 TEST；不是一次新的持续训练。19小类／五域宏及AP19均来自其自身完整评估，FWT/BWT未测。总部署893,675,552神经参数、新增0，权重1704.551MiB；普通buffer另9032B。GPU为同卡同五窗各32新token的最大allocated，不是全TEST峰或速度。成本包含原PAS训练及校准/export；FOREVER和可合并LoRA／OSFT仍是公平参照。[完整核验、资源与边界](../pas_static_final_confirmation_20261029/FINAL_FINDINGS_20261030.md)。
 
-资源沿原S19保存态、原dtype及原固定五窗实测。完整保存系数包含必要持久状态，不等同训练坐标；原基座可重建缓存排除。新增权重参数含推理必需U/S/V基，排除mask与CL历史anchor/prior；这些非参数状态仍计入完整必要系数和字节。普通LoRA／OSFT可物化为原dense形状的0新增，保存态不是最优部署下界。[参数证据](../deployment_total_parameters_20261028/ADDED_MODEL_WEIGHT_PARAMETERS_20261030.json)。MiB=2²⁰字节，M=10⁶。FOREVER的权重增量约2.062MiB，属于必须比较的低成本强参照。Ours旧四域S16实测另存，不填本S19主表。
+资源沿原S19保存态、原dtype及原固定五窗实测。完整保存系数包含必要持久状态，不等同训练坐标；原基座可重建缓存排除。新增权重参数含推理必需U/S/V基，排除mask与CL历史anchor/prior；这些非参数状态仍计入完整必要系数和字节。基线严格沿原方法保存态／原推理图，不替普通LoRA、OSFT等额外合并或物化。[参数证据](../deployment_total_parameters_20261028/ADDED_MODEL_WEIGHT_PARAMETERS_20261030.json)。MiB=2²⁰字节，M=10⁶。FOREVER的权重增量约2.062MiB，属于必须比较的低成本强参照。Ours旧四域S16实测另存，不填本S19主表。

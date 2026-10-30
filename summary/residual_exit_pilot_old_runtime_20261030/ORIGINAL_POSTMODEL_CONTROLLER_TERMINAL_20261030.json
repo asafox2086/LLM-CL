@@ -1,0 +1,58 @@
+{
+  "unix": 1793341661.6595843,
+  "unit": "llmcl-residual-exit-pilot-old2-20261030.service",
+  "systemd_raw": "MainPID=0\nExecMainStartTimestampMonotonic=8039446871079\nExecMainExitTimestampMonotonic=8039775133754\nExecMainPID=1598462\nExecMainCode=1\nExecMainStatus=1\nExecStart={ path=/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python ; argv[]=/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python -u /data2/liyapeng_grp/program/LLMCL/summary/residual_exit_pilot_old_runtime_20261030/controller.py --binding /data2/liyapeng_grp/program/LLMCL/summary/residual_exit_pilot_old_runtime_20261030/BINDING.json --execute ; ignore_errors=no ; start_time=[Fri 2026-10-30 14:17:06 CST] ; stop_time=[Fri 2026-10-30 14:22:34 CST] ; pid=1598462 ; code=exited ; status=1 }\nActiveState=failed\n",
+  "systemd_fields": {
+    "MainPID": "0",
+    "ExecMainStartTimestampMonotonic": "8039446871079",
+    "ExecMainExitTimestampMonotonic": "8039775133754",
+    "ExecMainPID": "1598462",
+    "ExecMainCode": "1",
+    "ExecMainStatus": "1",
+    "ExecStart": "{ path=/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python ; argv[]=/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python -u /data2/liyapeng_grp/program/LLMCL/summary/residual_exit_pilot_old_runtime_20261030/controller.py --binding /data2/liyapeng_grp/program/LLMCL/summary/residual_exit_pilot_old_runtime_20261030/BINDING.json --execute ; ignore_errors=no ; start_time=[Fri 2026-10-30 14:17:06 CST] ; stop_time=[Fri 2026-10-30 14:22:34 CST] ; pid=1598462 ; code=exited ; status=1 }",
+    "ActiveState": "failed"
+  },
+  "original_controller": {
+    "pid": 1598462,
+    "startticks": "803944687",
+    "uid": 1084,
+    "pgid": 1598462
+  },
+  "original_controller_gone": true,
+  "original_controller_exit_status": 1,
+  "original_controller_source_sha256": "b722ee806e0e10ee3694592855ff484912e046e7e9068a4afd1502004c4ed390",
+  "original_binding_sha256": "3d5655b8fad20ab3db9487f5be2d992b925e27c1b6377f87cd3b8c2934b839ef",
+  "original_FAILURE_sha256": "f134a48ece8999664f9a940da17661e3b59f7392abfe27362d80c96c64f24541",
+  "original_COMPLETE_sha256": "522e714fa2b4e6a25c2b62d4a72d7a01c0d47dbc4d071e919b538396eee77f66",
+  "original_SLOT_sha256": "9b067418f687163c5f3cbd61aa03adbbd9d677343e81205ec00fd7d9b4b6c2ac",
+  "original_CLAIM_sha256": "9b067418f687163c5f3cbd61aa03adbbd9d677343e81205ec00fd7d9b4b6c2ac",
+  "both_model_EXIT0_and_gone": true,
+  "model_phases": [
+    {
+      "method": "PASs_MoE",
+      "identity": {
+        "pid": 1598513,
+        "startticks": "803944732",
+        "uid": 1084,
+        "pgid": 1598513
+      },
+      "returncode": 0,
+      "worker_gone": true,
+      "unix": 1793341169.209377
+    },
+    {
+      "method": "CL_MoE",
+      "identity": {
+        "pid": 1600682,
+        "startticks": "803958996",
+        "uid": 1084,
+        "pgid": 1600682
+      },
+      "returncode": 0,
+      "worker_gone": true,
+      "unix": 1793341354.5747514
+    }
+  ],
+  "partial_metrics_read": false,
+  "no_model_or_consumer_replay": true
+}

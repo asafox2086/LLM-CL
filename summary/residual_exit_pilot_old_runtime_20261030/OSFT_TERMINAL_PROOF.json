@@ -1,0 +1,87 @@
+{
+  "schema": "original-old-osft-S19-exit-v1",
+  "verified": true,
+  "GPU": 2,
+  "worker": {
+    "pid": 1342314,
+    "startticks": "802265921",
+    "uid": 1084
+  },
+  "returncode": 0,
+  "completed_stage": 19,
+  "checkpoint": {
+    "path": "checkpoints/stage_19.pt",
+    "stage": 19,
+    "bytes": 3028599989,
+    "sha256": "a041efb3fd178d603b164740b59a6de7ad60608e2fc38d2acae8023963ae69bd",
+    "seconds": 27.49797422811389,
+    "manifest_sha256": "02ef86674c22a9dbf7f0d406398615437f8406cff364415e14d54f5fdb5bfcb7",
+    "method": "OSFT",
+    "full_architecture_and_runtime": true,
+    "optimizer_saved": false
+  },
+  "raw_CP_payload_not_read": true,
+  "source_records": [
+    {
+      "path": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/runtime_recovery_20261030/FOURTH_BASELINE_RECOVERY/OSFT_STARTED.json",
+      "sha256": "a73c26e17bceee432e722a6cfca9672728f76f4cebb5bc8cac60895614917d69",
+      "value": {
+        "identity": {
+          "pid": 1342314,
+          "startticks": "802265921",
+          "uid": 1084
+        },
+        "GPU": 2,
+        "command": [
+          "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+          "-u",
+          "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_checkpoint_20261027/run.py",
+          "--method",
+          "OSFT",
+          "--condition",
+          "pct10",
+          "--run-dir",
+          "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_checkpoint_20261027/runs/onevision/pct10/OSFT/recovery_quota_fourth_S18_20261030",
+          "--resume"
+        ],
+        "run": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_checkpoint_20261027/runs/onevision/pct10/OSFT/recovery_quota_fourth_S18_20261030"
+      }
+    },
+    {
+      "path": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/runtime_recovery_20261030/FOURTH_BASELINE_RECOVERY/OSFT_EXIT.json",
+      "sha256": "05959e74e152b09b600028798c5dc82d92f9a18986c73455b45fcbbb9e914a72",
+      "value": {
+        "unix": 1793339463.272598,
+        "returncode": 0,
+        "identity_absent": true,
+        "run": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_checkpoint_20261027/runs/onevision/pct10/OSFT/recovery_quota_fourth_S18_20261030"
+      }
+    },
+    {
+      "path": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_checkpoint_20261027/runs/onevision/pct10/OSFT/recovery_quota_fourth_S18_20261030/run_status.json",
+      "sha256": "85e5483f9edabc8bde6fd006dfd00671fa3415a356320dda6a3ea43c0e0831a4",
+      "value": {
+        "status": "completed",
+        "completed_stage": 19,
+        "final_checkpoint": "checkpoints/stage_19.pt",
+        "final_parameter_file_bytes": 3028599989
+      }
+    },
+    {
+      "path": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_checkpoint_20261027/runs/onevision/pct10/OSFT/recovery_quota_fourth_S18_20261030/checkpoints/latest.json",
+      "sha256": "6bab7f8f9fdafe7a84a11ad837868d33fe9edc50ccd7f10818bcd28708b91ac9",
+      "value": {
+        "path": "checkpoints/stage_19.pt",
+        "stage": 19,
+        "bytes": 3028599989,
+        "sha256": "a041efb3fd178d603b164740b59a6de7ad60608e2fc38d2acae8023963ae69bd",
+        "seconds": 27.49797422811389,
+        "manifest_sha256": "02ef86674c22a9dbf7f0d406398615437f8406cff364415e14d54f5fdb5bfcb7",
+        "method": "OSFT",
+        "full_architecture_and_runtime": true,
+        "optimizer_saved": false
+      }
+    }
+  ],
+  "unix": 1793340175.9673843
+}

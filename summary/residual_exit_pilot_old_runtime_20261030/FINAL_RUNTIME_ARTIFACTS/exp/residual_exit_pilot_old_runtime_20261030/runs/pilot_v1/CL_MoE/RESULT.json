@@ -1,0 +1,183 @@
+{
+  "schema": "residual-exit-pilot-v1",
+  "method": "CL_MoE",
+  "counts": {
+    "checkpoint_loads": 1,
+    "teacher_main_forward": 100,
+    "student_calibration_forward": 80,
+    "student_readout_forward": 80,
+    "teacher_feature_forward": 78,
+    "generations": 0,
+    "CE": 0,
+    "F1": 0,
+    "TEST_QA": 0,
+    "backwards": 0,
+    "optimizer_updates": 0,
+    "new_checkpoints": 0
+  },
+  "block_index": 11,
+  "arms": {
+    "A": {
+      "raw_block_MSE": 0.06562616397182822,
+      "block_MSE_delta_vs_A": 0.0,
+      "KL_delta_vs_A": 0.0,
+      "KL": 0.0009429339069973855,
+      "top1_agreement": 0.9997109826589595,
+      "block_relative_squared_error": 0.00029287672711126765,
+      "domains": {
+        "finance": {
+          "KL": 0.0008362944488572619,
+          "block_relative_squared_error": 0.000527875431696297
+        },
+        "geography": {
+          "KL": 5.739998371719406e-05,
+          "block_relative_squared_error": 0.00029818419854314764
+        },
+        "medical": {
+          "KL": 0.002921011594397622,
+          "block_relative_squared_error": 0.00038604135547767437
+        },
+        "natural": {
+          "KL": 0.0004302922281546282,
+          "block_relative_squared_error": 0.00021884134015487183
+        },
+        "traffic": {
+          "KL": 0.00046967127986022116,
+          "block_relative_squared_error": 3.3441309684347726e-05
+        }
+      }
+    },
+    "B": {
+      "raw_block_MSE": 0.06559248022882704,
+      "block_MSE_delta_vs_A": -3.368374300117801e-05,
+      "KL_delta_vs_A": 4.606630674255024e-06,
+      "KL": 0.0009475405376716406,
+      "top1_agreement": 0.9990260511521102,
+      "block_relative_squared_error": 0.0002927300031109755,
+      "domains": {
+        "finance": {
+          "KL": 0.000860483014881303,
+          "block_relative_squared_error": 0.0005281731946763017
+        },
+        "geography": {
+          "KL": 5.3961918569578535e-05,
+          "block_relative_squared_error": 0.0002977617785732008
+        },
+        "medical": {
+          "KL": 0.0028925805506776836,
+          "block_relative_squared_error": 0.00038571094988716593
+        },
+        "natural": {
+          "KL": 0.00045736371156346724,
+          "block_relative_squared_error": 0.00021857429550735526
+        },
+        "traffic": {
+          "KL": 0.0004733134926661705,
+          "block_relative_squared_error": 3.3429796910853606e-05
+        }
+      }
+    },
+    "C": {
+      "raw_block_MSE": 0.0588507901714914,
+      "block_MSE_delta_vs_A": -0.00677537380033681,
+      "KL_delta_vs_A": -0.0002122436345663337,
+      "KL": 0.000730690272431052,
+      "top1_agreement": 0.9982321918322394,
+      "block_relative_squared_error": 0.00026045818630837864,
+      "domains": {
+        "finance": {
+          "KL": 0.0008297401396113382,
+          "block_relative_squared_error": 0.0004334113349467315
+        },
+        "geography": {
+          "KL": 8.280503945094764e-05,
+          "block_relative_squared_error": 0.00025583137627705453
+        },
+        "medical": {
+          "KL": 0.0018153724658720332,
+          "block_relative_squared_error": 0.00035858203674798994
+        },
+        "natural": {
+          "KL": 0.0004880536288426874,
+          "block_relative_squared_error": 0.0002173327385416836
+        },
+        "traffic": {
+          "KL": 0.0004374800883782532,
+          "block_relative_squared_error": 3.7133445028433685e-05
+        }
+      }
+    },
+    "D": {
+      "raw_block_MSE": 0.016433761858702177,
+      "block_MSE_delta_vs_A": -0.049192402113126046,
+      "KL_delta_vs_A": -0.0004320573994206229,
+      "KL": 0.0005108765075767627,
+      "top1_agreement": 0.9993506493506494,
+      "block_relative_squared_error": 7.232427910939435e-05,
+      "domains": {
+        "finance": {
+          "KL": 0.0005155056359829332,
+          "block_relative_squared_error": 0.00013104204595172707
+        },
+        "geography": {
+          "KL": 0.00011443784364196273,
+          "block_relative_squared_error": 1.9024042605970506e-05
+        },
+        "medical": {
+          "KL": 0.0014186047142537486,
+          "block_relative_squared_error": 0.00012299952951319392
+        },
+        "natural": {
+          "KL": 0.0003490582033512554,
+          "block_relative_squared_error": 6.887593033089679e-05
+        },
+        "traffic": {
+          "KL": 0.00015677614065391329,
+          "block_relative_squared_error": 1.9679847145183503e-05
+        }
+      }
+    }
+  },
+  "readout_sha256": "73386c4a0b4fc1d7dc2b2232f456c9e4a4efcadf1b854918fcd204c527be4539",
+  "fit_sha256": "292cb95b00e454ecbdb16a86c2f587e670e114da7da03f4bf02e97130135c584",
+  "teacher_unchanged": true,
+  "student_only_existing_down_weight_changed": true,
+  "weights_restored_to_A": true,
+  "final_added_parameters": 0,
+  "not_full_24block_validation": true,
+  "not_quality_verification": true,
+  "student_registered_layout": {
+    "registered_neural_parameters": 893675552,
+    "registered_neural_weight_bytes": 1787351104,
+    "registration_deduplicated": true,
+    "additional_deployment_parameters": 0,
+    "all_arms_same_registered_graph": true,
+    "dtypes": {
+      "torch.float16": {
+        "parameters": 893675552,
+        "bytes": 1787351104
+      }
+    }
+  },
+  "temporary_resources": {
+    "gpu_uuid": "GPU-25d3cb92-fa97-a722-f9cd-c012bad046a8",
+    "gpu_name": "NVIDIA GeForce RTX 2080 Ti",
+    "peak_allocated_bytes": 5451039232,
+    "peak_reserved_bytes": 6104809472,
+    "CPU_process_max_RSS_KiB": 2530168,
+    "whole_worker_wall_seconds": 183.66974075511098,
+    "peak_scope": "pilot temporary teacher+student+calibration+FP64 solve+hash checks; reset before load",
+    "is_deployment_inference_peak": false,
+    "is_speedup_measurement": false
+  },
+  "checkpoint_integrity": {
+    "original_loader_sha256": "06c53eab2c6810901f5206edbfb1df9defabdc747b1856ace0afa31e74b37a78",
+    "full_payload_SHA_verified_inside_original_loader": true,
+    "expected_checkpoint_sha256": "8550fdeb886a0e942ee9038ab0aeae7e5933b943094ee3af40c0816df592ffa4",
+    "actual_temporary_cp_path": "/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/CL_MoE/training_20261017_161424/checkpoints/stage_19.pt",
+    "resolve_containment_guard_preserved": true,
+    "assertions_active": true,
+    "load_seconds": 10.429980522952974
+  },
+  "temporary_resources_sha256": "5b82f81fe28d86c4ae10d1338868f22deb50e5130c0ccec87c93ab45ac15dfa9"
+}

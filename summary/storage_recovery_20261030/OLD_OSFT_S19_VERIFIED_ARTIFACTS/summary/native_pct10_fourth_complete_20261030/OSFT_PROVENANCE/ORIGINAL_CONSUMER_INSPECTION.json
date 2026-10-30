@@ -1,0 +1,20 @@
+{
+  "command": [
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "/dev/shm/llmcl-pct10-1084-zu7e3hb_/analysis/stage_checkpoint_native_complete_verify_path_compat_20261030.py",
+    "--root",
+    "/dev/shm/llmcl-pct10-1084-zu7e3hb_",
+    "--run",
+    "exp/two_backbone_pct10_native_checkpoint_20261027/runs/onevision/pct10/OSFT/recovery_quota_fourth_S18_20261030",
+    "--host",
+    "old2080",
+    "--binding",
+    "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/native_pct10_fourth_complete_20261030/OSFT_PROVENANCE/BINDING.json",
+    "--output",
+    "/dev/shm/llmcl-pct10-1084-zu7e3hb_/summary/native_pct10_fourth_complete_20261030"
+  ],
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/dev/shm/llmcl-pct10-1084-zu7e3hb_/analysis/stage_checkpoint_native_complete_verify_path_compat_20261030.py\", line 338, in <module>\n    if __name__ == '__main__': main()\n  File \"/dev/shm/llmcl-pct10-1084-zu7e3hb_/analysis/stage_checkpoint_native_complete_verify_path_compat_20261030.py\", line 290, in main\n    pause_proof = checkpoints_and_pauses(run, config, spec, files)\n  File \"/dev/shm/llmcl-pct10-1084-zu7e3hb_/analysis/stage_checkpoint_native_complete_verify_path_compat_20261030.py\", line 180, in checkpoints_and_pauses\n    if stage == 0: metadata[0] = files.json(run/'checkpoints/stage_00.json')\n  File \"/dev/shm/llmcl-pct10-1084-zu7e3hb_/analysis/stage_checkpoint_native_complete_verify_path_compat_20261030.py\", line 73, in json\n    def json(self, path, expected=None): return read(self.checked(path, expected))\n  File \"/dev/shm/llmcl-pct10-1084-zu7e3hb_/analysis/stage_checkpoint_native_complete_verify_path_compat_20261030.py\", line 65, in checked\n    path = Path(path); value = sha(path)\n  File \"/dev/shm/llmcl-pct10-1084-zu7e3hb_/analysis/stage_checkpoint_native_complete_verify_path_compat_20261030.py\", line 41, in sha\n    with Path(path).open('rb') as stream:\n  File \"/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/pathlib.py\", line 1119, in open\n    return self._accessor.open(self, mode, buffering, encoding, errors,\nFileNotFoundError: [Errno 2] No such file or directory: '/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_checkpoint_20261027/runs/onevision/pct10/OSFT/recovery_quota_fourth_S18_20261030/checkpoints/stage_00.json'\n",
+  "scoring_requested": false
+}

@@ -1,0 +1,36 @@
+--- NEW_original/run.py
++++ OLD_runtime_only/run.py
+@@ -3,7 +3,7 @@
+ """
+ from pathlib import Path
+ import argparse,hashlib,json,importlib.util,sys,os,time,signal,traceback,subprocess,resource
+-ROOT=Path('/data1/liyapeng/program/LLMCL');ARMS=('A','B','C','D')
++ROOT=Path('/data2/liyapeng_grp/program/LLMCL');ARMS=('A','B','C','D')
+ CP={'PASs_MoE':('583ab5d02e187fbd6a54bd4a05a019e33101deb8af2d9533795253140721441a',3051292733),'CL_MoE':('8550fdeb886a0e942ee9038ab0aeae7e5933b943094ee3af40c0816df592ffa4',2100250526)}
+ def sha(p):
+  h=hashlib.sha256()
+@@ -56,7 +56,7 @@
+  assert cfg['method']==method and cfg['backbone']=='onevision' and cfg['condition']=='pct01'
+  assert (meta['sha256'],meta['bytes'])==CP[method] and meta['stage']==19
+  cp=(run/meta['path']).resolve();assert cp.is_relative_to((run/'checkpoints').resolve()) and cp.stat().st_size==CP[method][1]
+- assert str(cp).startswith('/dev/shm/llmcl-residual-exit-pilot-1004-20261030/')
++ assert str(cp).startswith('/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/')
+  for n,h in cfg['execution_source_sha256'].items():assert sha(P/n)==sha(run/'runner_source'/n)==h,n
+  assert cfg['execution_source_sha256']==receipt['native_source_sha256']
+  for rel,h in receipt['runtime_files'].items():assert sha(ROOT/rel)==h,rel
+@@ -92,12 +92,12 @@
+  b=read(args.binding);E,P,A,run,cfg,cal,out=scope(b,args.method)
+  folder=Path(b['output_root'])/args.method
+  if not args.execute:print(json.dumps(dict(metadata_validated=True,model_loaded=False,calibration_QA=80,readout_QA=20,TEST_QA=0,method=args.method,output_exists=folder.exists())));return
+- assert b['admitted'] is True and os.environ.get('CUDA_VISIBLE_DEVICES')=='3'
++ assert b['admitted'] is True and os.environ.get('CUDA_VISIBLE_DEVICES')=='2'
+  adm=read(b['admission_path']);assert adm['approved'] is True and adm['binding_sha256']==sha(args.binding)
+  assert b['limit_seconds']==7200
+- uuid=subprocess.check_output(['nvidia-smi','--id=3','--query-gpu=uuid','--format=csv,noheader'],text=True).strip();assert uuid==b['gpu_uuid'] and uuid.startswith('GPU-')
++ uuid=subprocess.check_output(['nvidia-smi','--id=2','--query-gpu=uuid','--format=csv,noheader'],text=True).strip();assert uuid==b['gpu_uuid'] and uuid.startswith('GPU-')
+  folder.mkdir(parents=True,exist_ok=False);started=time.monotonic()
+- ps=Path('/proc/self/stat').read_text().rsplit(') ',1)[1].split();who=dict(pid=os.getpid(),pgid=os.getpgrp(),uid=os.getuid(),startticks=ps[19]);assert who['pid']==who['pgid'] and who['uid']==1004
++ ps=Path('/proc/self/stat').read_text().rsplit(') ',1)[1].split();who=dict(pid=os.getpid(),pgid=os.getpgrp(),uid=os.getuid(),startticks=ps[19]);assert who['pid']==who['pgid'] and who['uid']==1084
+  durable(folder/'STARTED.json',dict(binding_sha256=sha(args.binding),identity=who,method=args.method,unix=time.time(),limit_seconds=7200,no_retry=True))
+  def expired(*_):raise TimeoutError('fixed 7200s one-teacher pilot deadline')
+  signal.signal(signal.SIGALRM,expired);signal.alarm(7200)

@@ -17,7 +17,7 @@
 <tr><th>SMoLoRA</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
 <tr><th>PASs-MoE</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
 <tr><th>PaRSP</th><td>76.399</td><td>77.047</td><td>47.579</td><td>64.043</td><td>69.489</td><td>56.328</td><td>57.303</td><td>31.609</td><td>14.015</td><td>65.231</td><td>32.179</td><td>55.291</td><td>73.000</td><td>86.091</td><td>25.416</td><td>78.011</td><td>64.854</td><td>25.728</td><td>41.268</td><td>39.827</td><td>37.427</td><td>39.601</td><td>52.375</td></tr>
-<tr><th>OSFT</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>OSFT</th><td>73.470</td><td>74.503</td><td>51.170</td><td>62.012</td><td>68.683</td><td>53.235</td><td>53.933</td><td>34.195</td><td>41.667</td><td>76.462</td><td>31.360</td><td>55.061</td><td>63.000</td><td>71.540</td><td>16.390</td><td>81.459</td><td>59.176</td><td>27.146</td><td>37.818</td><td>40.095</td><td>35.208</td><td>38.408</td><td>50.652</td></tr>
 <tr><th>SpaRTA</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
 <tr><th>Ours（待新候选）</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
 <tr><th colspan="24">Qwen2-VL-2B-Instruct</th></tr>
@@ -47,7 +47,7 @@
 | SMoLoRA | — | — | — | — | — | — | — | — | — | — | — |
 | PASs-MoE | — | — | — | — | — | — | — | — | — | — | — |
 | PaRSP | 52.526 | 25.734 | 0.214 | 893.676 | 0.000 | 2205.537 | 500.986 | — | — | — | 0 |
-| OSFT | — | — | — | — | — | — | — | — | — | — | — |
+| OSFT | 52.281 | 20.445 | -7.334 | 990.914 | 97.238 | 2757.984 | 1053.434 | — | — | — | — |
 | SpaRTA | — | — | — | — | — | — | — | — | — | — | — |
 | Ours（待新候选） | — | — | — | — | — | — | — | — | — | — | — |
 | **Qwen2-VL-2B-Instruct** | | | | | | | | | | | |
@@ -65,4 +65,6 @@
 
 PaRSP10%已核验全部19阶段／74格与完整21454TEST：五域宏52.375，新增权重参数0，保存态权重2205.537MiB；GPU推理峰未测。对Qwen SeqFT的0.479pp差仅指最终宏，不能当作新习得接近。[完整结果与参数证明](../two_backbone_pct10_20261025/PARSP_COMPLETE_FINDINGS_20261030.md)。
 
-资源沿原S19保存态、原dtype及原固定五窗实测。完整保存系数包含必要持久状态，不等同训练坐标；原基座可重建缓存排除。新增权重参数含推理必需U/S/V基，排除mask与CL历史anchor/prior；这些非参数状态仍计入完整必要系数和字节。普通LoRA／OSFT可物化为原dense形状的0新增，保存态不是最优部署下界。[参数证据](../deployment_total_parameters_20261028/ADDED_MODEL_WEIGHT_PARAMETERS_20261030.json)。MiB=2²⁰字节，M=10⁶。FOREVER的权重增量约2.062MiB，属于必须比较的低成本强参照。Ours旧四域S16实测另存，不填本S19主表。
+OSFT10%已核验全部19阶段／74格与完整21454TEST：五域宏50.652，刚习得五域宏54.921；保存态新增权重97,238,016，包含推理必需U/S/V基，权重2757.984MiB。按原OSFT分解推理图报告；GPU推理指标未测。[完整结果与参数证明](../two_backbone_pct10_20261025/OSFT_COMPLETE_FINDINGS_20261030.md)。
+
+资源沿原S19保存态、原dtype及原固定五窗实测。完整保存系数包含必要持久状态，不等同训练坐标；原基座可重建缓存排除。新增权重参数含推理必需U/S/V基，排除mask与CL历史anchor/prior；这些非参数状态仍计入完整必要系数和字节。基线严格沿原方法保存态／原推理图，不替普通LoRA、OSFT等额外合并或物化。[参数证据](../deployment_total_parameters_20261028/ADDED_MODEL_WEIGHT_PARAMETERS_20261030.json)。MiB=2²⁰字节，M=10⁶。FOREVER的权重增量约2.062MiB，属于必须比较的低成本强参照。Ours旧四域S16实测另存，不填本S19主表。

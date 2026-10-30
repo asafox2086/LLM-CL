@@ -6,7 +6,9 @@
 
 **方法方向：抽象强方法的有效功能，用简洁机制实现，或从已验证的共同问题设计新方法。** 不局限于改造某个现有算法，不把折叠、普通扩容或换基线本身当论文贡献。新假说必须给出功能理由及实验对照，最终按原F1和完整资源实测判断。
 
-**当前共同问题：训练后留下的附加结构，哪些是端侧推理真正需要的？** 区分训练辅助状态、输入无关表示与输入条件功能；PAS只作首个探针，CL-MoE检验另一种条件机制，SpaRTA考察保留动态功能时的充分表示。OSFT／普通LoRA的静态物化与FOREVER低新增作为必要参照，不预设所有方法都能压缩。[八法前向与成本审计](summary/deployment_total_parameters_20261028/CROSS_METHOD_FUNCTION_AUDIT_20261029.md)
+**当前研究要求：共同问题必须同时检查扩展法与不扩展法。** PAS／CL已有局部功能观测，但尚不能解释1%／10%大部分基线的学习局限；暂停从该局部事实直接扩展主方法，先核查PaRSP、OSFT等的实际学习过程。PaRSP本来就不新增神经参数，不能用“专家银行大”概括所有强法。[八法实际前向](summary/deployment_total_parameters_20261028/CROSS_METHOD_FUNCTION_AUDIT_20261029.md)
+
+**基线评估口径：原方法、原部署图。** 参数与内存沿原正式实现统计；OSFT、普通LoRA等原本未合并，就不替它们额外合并、物化或优化。[明确约定](summary/deployment_total_parameters_20261028/BENCHMARK_ORIGINAL_GRAPH_POLICY_20261030.md)
 
 **已获得的模型事实：专家参数更多，输入相关的局部功能变化未必更大。** PAS／CL新增神经权重140,771,328／37,158,912，相对各层固定全局平均gate混合的局部差值平方比为0.010457%／2.952336%，五域排序一致。测量范围为同80条历史TRAIN、168投影；不是F1损失或可删参数比例。[外层定量记录](#探索命题与结论) · [完整功能证据](summary/router_function_moments_20261030_v2/FINDINGS.md)
 
@@ -16,7 +18,7 @@
 
 **设置确定后固定。** 沿用既定数据、训练、生成与评分条件，研究方法在这些条件下的新习得能力、失败和适用边界，不为改善结果反复调整设置。
 
-**最新完整部署结果：PAS-static五域宏46.332，原PAS为46.620，低0.288pp；同卡固定五窗GPU最高2166.101MiB，原PAS2959.415MiB，权重少537.001MiB。** 已通过原完整核验，新增部署参数0；作为1%主表中的末态部署行单独报告。现有基线完整结果为1%九组、10%三组（双骨干SeqFT及LLaVA PaRSP），静态表示不计作新增训练基线。当前只证明这个检查点的质量—资源取舍，跨方法完整确认及FullFT参照仍缺，论文目标尚未完成。[完整结论与证明](summary/pas_static_final_confirmation_20261029/FINAL_FINDINGS_20261030.md)
+**最新完整部署结果：PAS-static五域宏46.332，原PAS为46.620，低0.288pp；同卡固定五窗GPU最高2166.101MiB，原PAS2959.415MiB，权重少537.001MiB。** 已通过原完整核验，新增部署参数0；作为1%主表中的末态部署行单独报告。现有基线完整结果为1%九组、10%四组（双骨干SeqFT及LLaVA PaRSP、OSFT），静态表示不计作新增训练基线。当前只证明这个检查点的质量—资源取舍，跨方法完整确认及FullFT参照仍缺，论文目标尚未完成。[完整结论与证明](summary/pas_static_final_confirmation_20261029/FINAL_FINDINGS_20261030.md)
 
 **已关闭候选：TaskGradReuse四域最终宏F1为44.127；省内存未弥补质量不足。后续先过FOREVER等低开销方法的质量门槛。** [实验状态](summary/task_gradient_four_domain_final_20261029/STATUS.md)
 
@@ -91,7 +93,7 @@
 
 PAS-static为原1% PAS检查点的固定末态部署表示：80条历史TRAIN及答案校准后，系数冻结，独立完整重载并评测21454 TEST；不是一次新的持续训练。19小类／五域宏及AP19均来自其自身完整评估，FWT/BWT未测。总部署893,675,552神经参数、新增0，权重1704.551MiB；普通buffer另9032B。GPU为同卡同五窗各32新token的最大allocated，不是全TEST峰或速度。成本包含原PAS训练及校准/export；FOREVER和可合并LoRA／OSFT仍是公平参照。[完整核验、资源与边界](summary/pas_static_final_confirmation_20261029/FINAL_FINDINGS_20261030.md)。
 
-资源沿原S19保存态、原dtype及原固定五窗实测。完整保存系数包含必要持久状态，不等同训练坐标；原基座可重建缓存排除。新增权重参数含推理必需U/S/V基，排除mask与CL历史anchor/prior；这些非参数状态仍计入完整必要系数和字节。普通LoRA／OSFT可物化为原dense形状的0新增，保存态不是最优部署下界。[参数证据](summary/deployment_total_parameters_20261028/ADDED_MODEL_WEIGHT_PARAMETERS_20261030.json)。MiB=2²⁰字节，M=10⁶。FOREVER的权重增量约2.062MiB，属于必须比较的低成本强参照。Ours旧四域S16实测另存，不填本S19主表。
+资源沿原S19保存态、原dtype及原固定五窗实测。完整保存系数包含必要持久状态，不等同训练坐标；原基座可重建缓存排除。新增权重参数含推理必需U/S/V基，排除mask与CL历史anchor/prior；这些非参数状态仍计入完整必要系数和字节。基线严格沿原方法保存态／原推理图，不替普通LoRA、OSFT等额外合并或物化。[参数证据](summary/deployment_total_parameters_20261028/ADDED_MODEL_WEIGHT_PARAMETERS_20261030.json)。MiB=2²⁰字节，M=10⁶。FOREVER的权重增量约2.062MiB，属于必须比较的低成本强参照。Ours旧四域S16实测另存，不填本S19主表。
 
 <details>
 <summary>10%训练：五域主表</summary>
@@ -115,7 +117,7 @@ PAS-static为原1% PAS检查点的固定末态部署表示：80条历史TRAIN及
 <tr><th>SMoLoRA</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
 <tr><th>PASs-MoE</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
 <tr><th>PaRSP</th><td>76.399</td><td>77.047</td><td>47.579</td><td>64.043</td><td>69.489</td><td>56.328</td><td>57.303</td><td>31.609</td><td>14.015</td><td>65.231</td><td>32.179</td><td>55.291</td><td>73.000</td><td>86.091</td><td>25.416</td><td>78.011</td><td>64.854</td><td>25.728</td><td>41.268</td><td>39.827</td><td>37.427</td><td>39.601</td><td>52.375</td></tr>
-<tr><th>OSFT</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>OSFT</th><td>73.470</td><td>74.503</td><td>51.170</td><td>62.012</td><td>68.683</td><td>53.235</td><td>53.933</td><td>34.195</td><td>41.667</td><td>76.462</td><td>31.360</td><td>55.061</td><td>63.000</td><td>71.540</td><td>16.390</td><td>81.459</td><td>59.176</td><td>27.146</td><td>37.818</td><td>40.095</td><td>35.208</td><td>38.408</td><td>50.652</td></tr>
 <tr><th>SpaRTA</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
 <tr><th>Ours（待新候选）</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
 <tr><th colspan="24">Qwen2-VL-2B-Instruct</th></tr>
@@ -145,7 +147,7 @@ PAS-static为原1% PAS检查点的固定末态部署表示：80条历史TRAIN及
 | SMoLoRA | — | — | — | — | — | — | — | — | — | — | — |
 | PASs-MoE | — | — | — | — | — | — | — | — | — | — | — |
 | PaRSP | 52.526 | 25.734 | 0.214 | 893.676 | 0.000 | 2205.537 | 500.986 | — | — | — | 0 |
-| OSFT | — | — | — | — | — | — | — | — | — | — | — |
+| OSFT | 52.281 | 20.445 | -7.334 | 990.914 | 97.238 | 2757.984 | 1053.434 | — | — | — | — |
 | SpaRTA | — | — | — | — | — | — | — | — | — | — | — |
 | Ours（待新候选） | — | — | — | — | — | — | — | — | — | — | — |
 | **Qwen2-VL-2B-Instruct** | | | | | | | | | | | |
@@ -163,7 +165,9 @@ PAS-static为原1% PAS检查点的固定末态部署表示：80条历史TRAIN及
 
 PaRSP10%已核验全部19阶段／74格与完整21454TEST：五域宏52.375，新增权重参数0，保存态权重2205.537MiB；GPU推理峰未测。对Qwen SeqFT的0.479pp差仅指最终宏，不能当作新习得接近。[完整结果与参数证明](summary/two_backbone_pct10_20261025/PARSP_COMPLETE_FINDINGS_20261030.md)。
 
-资源沿原S19保存态、原dtype及原固定五窗实测。完整保存系数包含必要持久状态，不等同训练坐标；原基座可重建缓存排除。新增权重参数含推理必需U/S/V基，排除mask与CL历史anchor/prior；这些非参数状态仍计入完整必要系数和字节。普通LoRA／OSFT可物化为原dense形状的0新增，保存态不是最优部署下界。[参数证据](summary/deployment_total_parameters_20261028/ADDED_MODEL_WEIGHT_PARAMETERS_20261030.json)。MiB=2²⁰字节，M=10⁶。FOREVER的权重增量约2.062MiB，属于必须比较的低成本强参照。Ours旧四域S16实测另存，不填本S19主表。
+OSFT10%已核验全部19阶段／74格与完整21454TEST：五域宏50.652，刚习得五域宏54.921；保存态新增权重97,238,016，包含推理必需U/S/V基，权重2757.984MiB。按原OSFT分解推理图报告；GPU推理指标未测。[完整结果与参数证明](summary/two_backbone_pct10_20261025/OSFT_COMPLETE_FINDINGS_20261030.md)。
+
+资源沿原S19保存态、原dtype及原固定五窗实测。完整保存系数包含必要持久状态，不等同训练坐标；原基座可重建缓存排除。新增权重参数含推理必需U/S/V基，排除mask与CL历史anchor/prior；这些非参数状态仍计入完整必要系数和字节。基线严格沿原方法保存态／原推理图，不替普通LoRA、OSFT等额外合并或物化。[参数证据](summary/deployment_total_parameters_20261028/ADDED_MODEL_WEIGHT_PARAMETERS_20261030.json)。MiB=2²⁰字节，M=10⁶。FOREVER的权重增量约2.062MiB，属于必须比较的低成本强参照。Ours旧四域S16实测另存，不填本S19主表。
 
 </details>
 <!-- FIVE_DOMAIN_RESTORED_MAIN_END -->
@@ -420,6 +424,8 @@ Qwen SeqFT最终五域宏由1%的48.972升至10%的52.854，遥感、金融、�
 
 ## 探索命题与结论
 
+**普适性尚未成立。** 下列参数—功能反例只直接测过LLaVA、1%的PAS／CL，不能外推至10%或大部分基线；非扩展／正则化方法和FullFT必须一起检验，先找实际学习事实，再决定方法。[覆盖、归一化检查与原因缺口](summary/deployment_total_parameters_20261028/GENERALITY_AND_CAUSE_STATUS_20261030.md)。
+
 **核心观测：专家参数更多，输入相关的局部功能变化未必更大。** 相同LLaVA骨干、1%正式训练后的两个S19模型，PAS新增参数更多，但相对固定gate均值混合的局部输出差异更小：
 
 | 原模型 | 新增神经权重参数（个） | 局部差值平方和／原适应增量平方和 | 对应相对L2范数 |
@@ -442,6 +448,8 @@ Qwen SeqFT最终五域宏由1%的48.972升至10%的52.854，遥感、金融、�
 
 | 观测的问题与探索命题 | 检验结果 | 结论与设计影响 |
 | --- | --- | --- |
+| **非扩展PaRSP投影器保留的方向数量是否随任务数持续缩小？** | 1%／10%完整轨迹各648/648次Force、0次Auto；约20%投影最低比例全程起作用，38阶段选择预算固定 | **本两条轨迹的保留数量并未持续缩小。** 方向及联合约束的有效空间仍待测，尚未证明当前学习受损。[实际学习过程证据](summary/parsp_protection_process_20261030/FINDINGS.md) |
+| **学生输入重配与完整残差出口对齐是否同样有效？** | C→D两teacher block20/20下降，KL分别19/20、16/20下降；B→C在PAS的block20/20更差；D对A的top1一致率均略降 | **出口目标有局部作用，纯输入重配不是共同解释。** 仅1%两teacher／单block／20历史TRAIN，无F1或非扩展法普适证明；本诊断结束、不自动扩方法。[完整正负结果](summary/residual_exit_pilot_old_runtime_20261030/FINAL_DIAGNOSTIC_FINDINGS_20261030.md) |
 | **按大域取均值能否承载条件变化？** | 两法gate域内变差仍为79.24%/70.66%；域均值局部误差分别保留全局均值参照的72.83%/66.09%，函数分解的cross非零 | **大域有部分组织，但均值参照仍留下多数残差。** 不是域划分无效/最优表示下界；不把误差下降叫功能解释率。[分解、范围与设计影响](summary/router_function_domain_decomposition_20261030/FINDINGS.md) |
 | **更多新增参数是否对应更大的条件响应？** | PAS／CL新增神经权重140,771,328／37,158,912；同80TRAIN／168投影，固定平均gate参照的局部差值平方比0.010457%／2.952336%，五域排序一致 | **参数规模与本次局部条件变化指标排序相反。** 作为端侧表示选择的观测依据；非最优表示下界、非整模删参或F1等价证明。[完整读数与证明](summary/router_function_moments_20261030_v2/FINDINGS.md) |
 | **路由是否回避专家输出差异大的方向？** | 两法总体Rjoint/Rindep为1.572/1.065，五域汇总均>1，部分单层<1 | **原负耦合假设未获支持。** 不用抵消故事解释静态可行性。[完整正负证据](summary/router_function_moments_20261030_v2/FINDINGS.md) |
@@ -495,7 +503,7 @@ Qwen SeqFT最终五域宏由1%的48.972升至10%的52.854，遥感、金融、�
 | LLaVA-OneVision／SpaRTA | 904,077,344 | 1744.231 |
 | Qwen2-VL／SeqFT-LoRA | 2,210,075,136 | 4217.462 |
 
-保存dtype与表示不同，**存储增加不等于新增参数量**；普通LoRA与OSFT常规fold后都可回原稠密形状，不能拿OSFT未折叠保存态制造独占减重优势。[完整统计口径](summary/final_weight_reduction_20261024/checkpoint_weight_storage_v1/FINDINGS.md)。
+保存dtype与表示不同，**存储增加不等于新增参数量**。所有baseline按原方法原图比较，不替其额外合并或物化；[原图评估约定](summary/deployment_total_parameters_20261028/BENCHMARK_ORIGINAL_GRAPH_POLICY_20261030.md)。[完整统计口径](summary/final_weight_reduction_20261024/checkpoint_weight_storage_v1/FINDINGS.md)。
 
 **GPU实测成立的范围：** 已完成宽q/v对原完整PAS的同卡、同五题、各32新token测量。宽q/v最终893,675,552个系数，比PAS少**13.61%**；原dtype权重字节少**23.96%**；五窗口GPU峰 **1857–2166 MiB**，PAS为 **2490–2959 MiB**，逐窗低**24.84%–26.81%**。包含原FP32专家／FP16基座的dtype差异，仅是这五窗的原实现比较；未证明同dtype最优部署或全输入峰。[实测证据](summary/native_response_selection_20261025/qv_control/RESOURCE_COMPARISON.json) · [参数与dtype影响拆分](summary/edge_resource_comparison_20261025/v1/PRECISION_FAIRNESS_REVIEW.md)。
 

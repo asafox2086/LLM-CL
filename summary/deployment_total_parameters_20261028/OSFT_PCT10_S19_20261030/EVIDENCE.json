@@ -1,0 +1,7713 @@
+{
+  "scope": "Actual complete OSFT LLaVA 10% S19 saved deployment representation; includes inference-required SVD coefficients even when registered as buffers.",
+  "checkpoint_sha256_from_original_verified_proof": "a041efb3fd178d603b164740b59a6de7ad60608e2fc38d2acae8023963ae69bd",
+  "checkpoint_bytes": 3028599989,
+  "manifest_sha256": "02ef86674c22a9dbf7f0d406398615437f8406cff364415e14d54f5fdb5bfcb7",
+  "proof_sha256": "5b8aa1803fd72941fdb4a6a669ea72f3aa323bb66413e913f028f9db4213957f",
+  "durable_artifacts_sha256": "b95d1efa596c6774944d8ef309a66ca31cba501d11fdfd9350065a6c0b650311",
+  "metadata_path": "summary/deployment_total_parameters_20261028/OSFT_PCT10_S19_20261030/METADATA.json",
+  "metadata_sha256": "3b26043bd53566d6af8f7e8a9831f31d807a58d678fd5e0c2db0c94d06ef9ee6",
+  "reader_sha256": "62bb56da7130270210f752e684d381bdadac0c667bf5b514085f550bad31a3dd",
+  "base_footprint_proof": "summary/edge_deployment_20261019/component_footprint/v1/COMPLETE.json",
+  "base_footprint_proof_sha256": "0fceb97bbae94d6ddec5717db24940a19758a088d1958c867697a264993bb963",
+  "base_neural_parameters": 893675552,
+  "total_deployment_neural_weight_coefficients": 990913568,
+  "added_deployment_neural_weight_coefficients": 97238016,
+  "registered_nn_parameter_coefficients": 649615136,
+  "registered_nn_parameter_logical_bytes": 1526762560,
+  "registered_nn_parameter_dtype_profile": {
+    "HalfStorage": {
+      "tensors": 548,
+      "elements": 535848992,
+      "logical_bytes": 1071697984
+    },
+    "FloatStorage": {
+      "tensors": 504,
+      "elements": 113766144,
+      "logical_bytes": 455064576
+    }
+  },
+  "required_neural_weight_buffer_coefficients": 341298432,
+  "required_neural_weight_buffer_logical_bytes": 1365193728,
+  "required_neural_weight_buffer_dtype_profile": {
+    "FloatStorage": {
+      "tensors": 504,
+      "elements": 341298432,
+      "logical_bytes": 1365193728
+    }
+  },
+  "required_neural_weight_buffers": [
+    {
+      "name": "model.model.layers.0.self_attn.q_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "5",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.0.self_attn.q_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "3",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.0.self_attn.q_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "4",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.0.self_attn.k_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "10",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.0.self_attn.k_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "8",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.0.self_attn.k_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "9",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.0.self_attn.v_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "15",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.0.self_attn.v_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "13",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.0.self_attn.v_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "14",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.0.self_attn.o_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "19",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.0.self_attn.o_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "17",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.0.self_attn.o_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "18",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.0.mlp.gate_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "25",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.0.mlp.gate_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "23",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.0.mlp.gate_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "24",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.0.mlp.up_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "29",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.0.mlp.up_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "27",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.0.mlp.up_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "28",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.0.mlp.down_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "33",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.0.mlp.down_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "31",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.0.mlp.down_proj.V_high",
+      "shape": [
+        672,
+        4864
+      ],
+      "stride": [
+        4864,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "32",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.1.self_attn.q_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "40",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.1.self_attn.q_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "38",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.1.self_attn.q_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "39",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.1.self_attn.k_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "45",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.1.self_attn.k_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "43",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.1.self_attn.k_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "44",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.1.self_attn.v_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "50",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.1.self_attn.v_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "48",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.1.self_attn.v_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "49",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.1.self_attn.o_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "54",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.1.self_attn.o_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "52",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.1.self_attn.o_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "53",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.1.mlp.gate_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "60",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.1.mlp.gate_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "58",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.1.mlp.gate_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "59",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.1.mlp.up_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "64",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.1.mlp.up_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "62",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.1.mlp.up_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "63",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.1.mlp.down_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "68",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.1.mlp.down_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "66",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.1.mlp.down_proj.V_high",
+      "shape": [
+        672,
+        4864
+      ],
+      "stride": [
+        4864,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "67",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.2.self_attn.q_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "75",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.2.self_attn.q_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "73",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.2.self_attn.q_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "74",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.2.self_attn.k_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "80",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.2.self_attn.k_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "78",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.2.self_attn.k_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "79",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.2.self_attn.v_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "85",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.2.self_attn.v_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "83",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.2.self_attn.v_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "84",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.2.self_attn.o_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "89",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.2.self_attn.o_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "87",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.2.self_attn.o_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "88",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.2.mlp.gate_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "95",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.2.mlp.gate_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "93",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.2.mlp.gate_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "94",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.2.mlp.up_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "99",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.2.mlp.up_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "97",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.2.mlp.up_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "98",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.2.mlp.down_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "103",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.2.mlp.down_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "101",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.2.mlp.down_proj.V_high",
+      "shape": [
+        672,
+        4864
+      ],
+      "stride": [
+        4864,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "102",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.3.self_attn.q_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "110",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.3.self_attn.q_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "108",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.3.self_attn.q_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "109",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.3.self_attn.k_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "115",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.3.self_attn.k_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "113",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.3.self_attn.k_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "114",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.3.self_attn.v_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "120",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.3.self_attn.v_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "118",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.3.self_attn.v_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "119",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.3.self_attn.o_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "124",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.3.self_attn.o_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "122",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.3.self_attn.o_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "123",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.3.mlp.gate_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "130",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.3.mlp.gate_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "128",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.3.mlp.gate_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "129",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.3.mlp.up_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "134",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.3.mlp.up_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "132",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.3.mlp.up_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "133",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.3.mlp.down_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "138",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.3.mlp.down_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "136",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.3.mlp.down_proj.V_high",
+      "shape": [
+        672,
+        4864
+      ],
+      "stride": [
+        4864,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "137",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.4.self_attn.q_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "145",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.4.self_attn.q_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "143",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.4.self_attn.q_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "144",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.4.self_attn.k_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "150",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.4.self_attn.k_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "148",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.4.self_attn.k_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "149",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.4.self_attn.v_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "155",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.4.self_attn.v_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "153",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.4.self_attn.v_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "154",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.4.self_attn.o_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "159",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.4.self_attn.o_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "157",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.4.self_attn.o_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "158",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.4.mlp.gate_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "165",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.4.mlp.gate_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "163",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.4.mlp.gate_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "164",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.4.mlp.up_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "169",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.4.mlp.up_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "167",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.4.mlp.up_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "168",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.4.mlp.down_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "173",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.4.mlp.down_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "171",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.4.mlp.down_proj.V_high",
+      "shape": [
+        672,
+        4864
+      ],
+      "stride": [
+        4864,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "172",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.5.self_attn.q_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "180",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.5.self_attn.q_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "178",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.5.self_attn.q_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "179",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.5.self_attn.k_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "185",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.5.self_attn.k_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "183",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.5.self_attn.k_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "184",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.5.self_attn.v_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "190",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.5.self_attn.v_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "188",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.5.self_attn.v_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "189",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.5.self_attn.o_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "194",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.5.self_attn.o_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "192",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.5.self_attn.o_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "193",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.5.mlp.gate_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "200",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.5.mlp.gate_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "198",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.5.mlp.gate_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "199",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.5.mlp.up_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "204",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.5.mlp.up_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "202",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.5.mlp.up_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "203",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.5.mlp.down_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "208",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.5.mlp.down_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "206",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.5.mlp.down_proj.V_high",
+      "shape": [
+        672,
+        4864
+      ],
+      "stride": [
+        4864,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "207",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.6.self_attn.q_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "215",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.6.self_attn.q_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "213",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.6.self_attn.q_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "214",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.6.self_attn.k_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "220",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.6.self_attn.k_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "218",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.6.self_attn.k_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "219",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.6.self_attn.v_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "225",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.6.self_attn.v_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "223",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.6.self_attn.v_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "224",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.6.self_attn.o_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "229",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.6.self_attn.o_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "227",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.6.self_attn.o_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "228",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.6.mlp.gate_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "235",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.6.mlp.gate_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "233",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.6.mlp.gate_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "234",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.6.mlp.up_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "239",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.6.mlp.up_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "237",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.6.mlp.up_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "238",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.6.mlp.down_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "243",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.6.mlp.down_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "241",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.6.mlp.down_proj.V_high",
+      "shape": [
+        672,
+        4864
+      ],
+      "stride": [
+        4864,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "242",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.7.self_attn.q_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "250",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.7.self_attn.q_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "248",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.7.self_attn.q_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "249",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.7.self_attn.k_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "255",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.7.self_attn.k_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "253",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.7.self_attn.k_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "254",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.7.self_attn.v_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "260",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.7.self_attn.v_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "258",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.7.self_attn.v_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "259",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.7.self_attn.o_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "264",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.7.self_attn.o_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "262",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.7.self_attn.o_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "263",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.7.mlp.gate_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "270",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.7.mlp.gate_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "268",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.7.mlp.gate_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "269",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.7.mlp.up_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "274",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.7.mlp.up_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "272",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.7.mlp.up_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "273",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.7.mlp.down_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "278",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.7.mlp.down_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "276",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.7.mlp.down_proj.V_high",
+      "shape": [
+        672,
+        4864
+      ],
+      "stride": [
+        4864,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "277",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.8.self_attn.q_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "285",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.8.self_attn.q_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "283",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.8.self_attn.q_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "284",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.8.self_attn.k_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "290",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.8.self_attn.k_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "288",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.8.self_attn.k_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "289",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.8.self_attn.v_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "295",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.8.self_attn.v_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "293",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.8.self_attn.v_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "294",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.8.self_attn.o_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "299",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.8.self_attn.o_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "297",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.8.self_attn.o_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "298",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.8.mlp.gate_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "305",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.8.mlp.gate_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "303",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.8.mlp.gate_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "304",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.8.mlp.up_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "309",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.8.mlp.up_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "307",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.8.mlp.up_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "308",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.8.mlp.down_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "313",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.8.mlp.down_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "311",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.8.mlp.down_proj.V_high",
+      "shape": [
+        672,
+        4864
+      ],
+      "stride": [
+        4864,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "312",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.9.self_attn.q_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "320",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.9.self_attn.q_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "318",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.9.self_attn.q_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "319",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.9.self_attn.k_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "325",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.9.self_attn.k_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "323",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.9.self_attn.k_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "324",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.9.self_attn.v_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "330",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.9.self_attn.v_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "328",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.9.self_attn.v_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "329",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.9.self_attn.o_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "334",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.9.self_attn.o_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "332",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.9.self_attn.o_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "333",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.9.mlp.gate_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "340",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.9.mlp.gate_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "338",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.9.mlp.gate_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "339",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.9.mlp.up_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "344",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.9.mlp.up_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "342",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.9.mlp.up_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "343",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.9.mlp.down_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "348",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.9.mlp.down_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "346",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.9.mlp.down_proj.V_high",
+      "shape": [
+        672,
+        4864
+      ],
+      "stride": [
+        4864,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "347",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.10.self_attn.q_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "355",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.10.self_attn.q_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "353",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.10.self_attn.q_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "354",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.10.self_attn.k_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "360",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.10.self_attn.k_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "358",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.10.self_attn.k_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "359",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.10.self_attn.v_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "365",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.10.self_attn.v_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "363",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.10.self_attn.v_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "364",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.10.self_attn.o_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "369",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.10.self_attn.o_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "367",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.10.self_attn.o_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "368",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.10.mlp.gate_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "375",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.10.mlp.gate_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "373",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.10.mlp.gate_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "374",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.10.mlp.up_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "379",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.10.mlp.up_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "377",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.10.mlp.up_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "378",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.10.mlp.down_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "383",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.10.mlp.down_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "381",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.10.mlp.down_proj.V_high",
+      "shape": [
+        672,
+        4864
+      ],
+      "stride": [
+        4864,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "382",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.11.self_attn.q_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "390",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.11.self_attn.q_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "388",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.11.self_attn.q_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "389",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.11.self_attn.k_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "395",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.11.self_attn.k_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "393",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.11.self_attn.k_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "394",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.11.self_attn.v_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "400",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.11.self_attn.v_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "398",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.11.self_attn.v_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "399",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.11.self_attn.o_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "404",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.11.self_attn.o_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "402",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.11.self_attn.o_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "403",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.11.mlp.gate_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "410",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.11.mlp.gate_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "408",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.11.mlp.gate_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "409",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.11.mlp.up_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "414",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.11.mlp.up_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "412",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.11.mlp.up_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "413",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.11.mlp.down_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "418",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.11.mlp.down_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "416",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.11.mlp.down_proj.V_high",
+      "shape": [
+        672,
+        4864
+      ],
+      "stride": [
+        4864,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "417",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.12.self_attn.q_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "425",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.12.self_attn.q_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "423",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.12.self_attn.q_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "424",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.12.self_attn.k_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "430",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.12.self_attn.k_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "428",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.12.self_attn.k_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "429",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.12.self_attn.v_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "435",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.12.self_attn.v_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "433",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.12.self_attn.v_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "434",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.12.self_attn.o_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "439",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.12.self_attn.o_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "437",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.12.self_attn.o_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "438",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.12.mlp.gate_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "445",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.12.mlp.gate_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "443",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.12.mlp.gate_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "444",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.12.mlp.up_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "449",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.12.mlp.up_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "447",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.12.mlp.up_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "448",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.12.mlp.down_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "453",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.12.mlp.down_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "451",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.12.mlp.down_proj.V_high",
+      "shape": [
+        672,
+        4864
+      ],
+      "stride": [
+        4864,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "452",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.13.self_attn.q_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "460",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.13.self_attn.q_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "458",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.13.self_attn.q_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "459",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.13.self_attn.k_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "465",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.13.self_attn.k_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "463",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.13.self_attn.k_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "464",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.13.self_attn.v_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "470",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.13.self_attn.v_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "468",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.13.self_attn.v_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "469",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.13.self_attn.o_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "474",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.13.self_attn.o_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "472",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.13.self_attn.o_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "473",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.13.mlp.gate_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "480",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.13.mlp.gate_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "478",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.13.mlp.gate_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "479",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.13.mlp.up_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "484",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.13.mlp.up_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "482",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.13.mlp.up_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "483",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.13.mlp.down_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "488",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.13.mlp.down_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "486",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.13.mlp.down_proj.V_high",
+      "shape": [
+        672,
+        4864
+      ],
+      "stride": [
+        4864,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "487",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.14.self_attn.q_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "495",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.14.self_attn.q_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "493",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.14.self_attn.q_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "494",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.14.self_attn.k_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "500",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.14.self_attn.k_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "498",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.14.self_attn.k_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "499",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.14.self_attn.v_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "505",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.14.self_attn.v_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "503",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.14.self_attn.v_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "504",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.14.self_attn.o_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "509",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.14.self_attn.o_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "507",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.14.self_attn.o_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "508",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.14.mlp.gate_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "515",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.14.mlp.gate_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "513",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.14.mlp.gate_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "514",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.14.mlp.up_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "519",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.14.mlp.up_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "517",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.14.mlp.up_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "518",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.14.mlp.down_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "523",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.14.mlp.down_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "521",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.14.mlp.down_proj.V_high",
+      "shape": [
+        672,
+        4864
+      ],
+      "stride": [
+        4864,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "522",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.15.self_attn.q_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "530",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.15.self_attn.q_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "528",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.15.self_attn.q_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "529",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.15.self_attn.k_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "535",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.15.self_attn.k_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "533",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.15.self_attn.k_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "534",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.15.self_attn.v_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "540",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.15.self_attn.v_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "538",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.15.self_attn.v_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "539",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.15.self_attn.o_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "544",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.15.self_attn.o_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "542",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.15.self_attn.o_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "543",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.15.mlp.gate_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "550",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.15.mlp.gate_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "548",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.15.mlp.gate_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "549",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.15.mlp.up_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "554",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.15.mlp.up_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "552",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.15.mlp.up_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "553",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.15.mlp.down_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "558",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.15.mlp.down_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "556",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.15.mlp.down_proj.V_high",
+      "shape": [
+        672,
+        4864
+      ],
+      "stride": [
+        4864,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "557",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.16.self_attn.q_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "565",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.16.self_attn.q_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "563",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.16.self_attn.q_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "564",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.16.self_attn.k_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "570",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.16.self_attn.k_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "568",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.16.self_attn.k_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "569",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.16.self_attn.v_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "575",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.16.self_attn.v_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "573",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.16.self_attn.v_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "574",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.16.self_attn.o_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "579",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.16.self_attn.o_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "577",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.16.self_attn.o_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "578",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.16.mlp.gate_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "585",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.16.mlp.gate_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "583",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.16.mlp.gate_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "584",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.16.mlp.up_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "589",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.16.mlp.up_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "587",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.16.mlp.up_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "588",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.16.mlp.down_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "593",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.16.mlp.down_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "591",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.16.mlp.down_proj.V_high",
+      "shape": [
+        672,
+        4864
+      ],
+      "stride": [
+        4864,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "592",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.17.self_attn.q_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "600",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.17.self_attn.q_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "598",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.17.self_attn.q_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "599",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.17.self_attn.k_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "605",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.17.self_attn.k_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "603",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.17.self_attn.k_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "604",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.17.self_attn.v_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "610",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.17.self_attn.v_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "608",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.17.self_attn.v_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "609",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.17.self_attn.o_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "614",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.17.self_attn.o_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "612",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.17.self_attn.o_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "613",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.17.mlp.gate_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "620",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.17.mlp.gate_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "618",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.17.mlp.gate_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "619",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.17.mlp.up_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "624",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.17.mlp.up_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "622",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.17.mlp.up_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "623",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.17.mlp.down_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "628",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.17.mlp.down_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "626",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.17.mlp.down_proj.V_high",
+      "shape": [
+        672,
+        4864
+      ],
+      "stride": [
+        4864,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "627",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.18.self_attn.q_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "635",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.18.self_attn.q_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "633",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.18.self_attn.q_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "634",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.18.self_attn.k_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "640",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.18.self_attn.k_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "638",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.18.self_attn.k_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "639",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.18.self_attn.v_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "645",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.18.self_attn.v_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "643",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.18.self_attn.v_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "644",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.18.self_attn.o_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "649",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.18.self_attn.o_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "647",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.18.self_attn.o_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "648",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.18.mlp.gate_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "655",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.18.mlp.gate_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "653",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.18.mlp.gate_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "654",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.18.mlp.up_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "659",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.18.mlp.up_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "657",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.18.mlp.up_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "658",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.18.mlp.down_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "663",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.18.mlp.down_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "661",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.18.mlp.down_proj.V_high",
+      "shape": [
+        672,
+        4864
+      ],
+      "stride": [
+        4864,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "662",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.19.self_attn.q_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "670",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.19.self_attn.q_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "668",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.19.self_attn.q_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "669",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.19.self_attn.k_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "675",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.19.self_attn.k_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "673",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.19.self_attn.k_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "674",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.19.self_attn.v_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "680",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.19.self_attn.v_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "678",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.19.self_attn.v_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "679",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.19.self_attn.o_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "684",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.19.self_attn.o_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "682",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.19.self_attn.o_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "683",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.19.mlp.gate_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "690",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.19.mlp.gate_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "688",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.19.mlp.gate_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "689",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.19.mlp.up_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "694",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.19.mlp.up_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "692",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.19.mlp.up_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "693",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.19.mlp.down_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "698",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.19.mlp.down_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "696",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.19.mlp.down_proj.V_high",
+      "shape": [
+        672,
+        4864
+      ],
+      "stride": [
+        4864,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "697",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.20.self_attn.q_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "705",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.20.self_attn.q_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "703",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.20.self_attn.q_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "704",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.20.self_attn.k_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "710",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.20.self_attn.k_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "708",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.20.self_attn.k_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "709",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.20.self_attn.v_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "715",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.20.self_attn.v_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "713",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.20.self_attn.v_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "714",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.20.self_attn.o_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "719",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.20.self_attn.o_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "717",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.20.self_attn.o_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "718",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.20.mlp.gate_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "725",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.20.mlp.gate_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "723",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.20.mlp.gate_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "724",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.20.mlp.up_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "729",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.20.mlp.up_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "727",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.20.mlp.up_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "728",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.20.mlp.down_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "733",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.20.mlp.down_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "731",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.20.mlp.down_proj.V_high",
+      "shape": [
+        672,
+        4864
+      ],
+      "stride": [
+        4864,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "732",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.21.self_attn.q_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "740",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.21.self_attn.q_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "738",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.21.self_attn.q_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "739",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.21.self_attn.k_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "745",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.21.self_attn.k_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "743",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.21.self_attn.k_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "744",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.21.self_attn.v_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "750",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.21.self_attn.v_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "748",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.21.self_attn.v_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "749",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.21.self_attn.o_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "754",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.21.self_attn.o_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "752",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.21.self_attn.o_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "753",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.21.mlp.gate_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "760",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.21.mlp.gate_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "758",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.21.mlp.gate_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "759",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.21.mlp.up_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "764",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.21.mlp.up_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "762",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.21.mlp.up_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "763",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.21.mlp.down_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "768",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.21.mlp.down_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "766",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.21.mlp.down_proj.V_high",
+      "shape": [
+        672,
+        4864
+      ],
+      "stride": [
+        4864,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "767",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.22.self_attn.q_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "775",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.22.self_attn.q_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "773",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.22.self_attn.q_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "774",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.22.self_attn.k_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "780",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.22.self_attn.k_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "778",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.22.self_attn.k_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "779",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.22.self_attn.v_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "785",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.22.self_attn.v_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "783",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.22.self_attn.v_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "784",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.22.self_attn.o_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "789",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.22.self_attn.o_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "787",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.22.self_attn.o_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "788",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.22.mlp.gate_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "795",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.22.mlp.gate_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "793",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.22.mlp.gate_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "794",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.22.mlp.up_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "799",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.22.mlp.up_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "797",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.22.mlp.up_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "798",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.22.mlp.down_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "803",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.22.mlp.down_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "801",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.22.mlp.down_proj.V_high",
+      "shape": [
+        672,
+        4864
+      ],
+      "stride": [
+        4864,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "802",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.23.self_attn.q_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "810",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.23.self_attn.q_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "808",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.23.self_attn.q_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "809",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.23.self_attn.k_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "815",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.23.self_attn.k_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "813",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.23.self_attn.k_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "814",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.23.self_attn.v_proj.U_high",
+      "shape": [
+        128,
+        96
+      ],
+      "stride": [
+        96,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "820",
+      "dtype": "FloatStorage",
+      "logical_elements": 12288
+    },
+    {
+      "name": "model.model.layers.23.self_attn.v_proj.S_high",
+      "shape": [
+        96
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "818",
+      "dtype": "FloatStorage",
+      "logical_elements": 96
+    },
+    {
+      "name": "model.model.layers.23.self_attn.v_proj.V_high",
+      "shape": [
+        96,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "819",
+      "dtype": "FloatStorage",
+      "logical_elements": 86016
+    },
+    {
+      "name": "model.model.layers.23.self_attn.o_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "824",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.23.self_attn.o_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "822",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.23.self_attn.o_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "823",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.23.mlp.gate_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "830",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.23.mlp.gate_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "828",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.23.mlp.gate_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "829",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.23.mlp.up_proj.U_high",
+      "shape": [
+        4864,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "834",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    },
+    {
+      "name": "model.model.layers.23.mlp.up_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "832",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.23.mlp.up_proj.V_high",
+      "shape": [
+        672,
+        896
+      ],
+      "stride": [
+        896,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "833",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.23.mlp.down_proj.U_high",
+      "shape": [
+        896,
+        672
+      ],
+      "stride": [
+        672,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "838",
+      "dtype": "FloatStorage",
+      "logical_elements": 602112
+    },
+    {
+      "name": "model.model.layers.23.mlp.down_proj.S_high",
+      "shape": [
+        672
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "836",
+      "dtype": "FloatStorage",
+      "logical_elements": 672
+    },
+    {
+      "name": "model.model.layers.23.mlp.down_proj.V_high",
+      "shape": [
+        672,
+        4864
+      ],
+      "stride": [
+        4864,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "837",
+      "dtype": "FloatStorage",
+      "logical_elements": 3268608
+    }
+  ],
+  "neural_weight_dtype_profile": {
+    "HalfStorage": {
+      "tensors": 548,
+      "elements": 535848992,
+      "logical_bytes": 1071697984
+    },
+    "FloatStorage": {
+      "tensors": 1008,
+      "elements": 455064576,
+      "logical_bytes": 1820258304
+    }
+  },
+  "neural_weight_bytes": 2891956288,
+  "neural_weight_MiB": 2757.9844360351562,
+  "base_FP16_weight_bytes": 1787351104,
+  "additional_weight_bytes": 1104605184,
+  "additional_weight_MiB": 1053.43359375,
+  "required_nonneural_weight_state_bytes": 0,
+  "required_nonneural_weight_state_coefficients": 0,
+  "selected_unique_neural_storage_count": 1220,
+  "all_required_views_contiguous": true,
+  "union_of_required_intervals_exactly_covers_selected_storages": true,
+  "duplicate_weight_aliases_deduplicated": true,
+  "required_saved_weight_coefficients": 990913568,
+  "required_saved_weights_bytes": 2891956288,
+  "excluded_derived_registered_buffer_bytes": 9032,
+  "excluded_derived_registered_buffer_coefficients": 1529,
+  "excluded_derived_registered_buffers": [
+    {
+      "name": "model.model.layers.0.self_attn.rotary_emb.inv_freq",
+      "kind": "_buffers",
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "20",
+      "dtype": "FloatStorage",
+      "logical_elements": 32,
+      "requires_grad": false
+    },
+    {
+      "name": "model.model.layers.1.self_attn.rotary_emb.inv_freq",
+      "kind": "_buffers",
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "55",
+      "dtype": "FloatStorage",
+      "logical_elements": 32,
+      "requires_grad": false
+    },
+    {
+      "name": "model.model.layers.2.self_attn.rotary_emb.inv_freq",
+      "kind": "_buffers",
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "90",
+      "dtype": "FloatStorage",
+      "logical_elements": 32,
+      "requires_grad": false
+    },
+    {
+      "name": "model.model.layers.3.self_attn.rotary_emb.inv_freq",
+      "kind": "_buffers",
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "125",
+      "dtype": "FloatStorage",
+      "logical_elements": 32,
+      "requires_grad": false
+    },
+    {
+      "name": "model.model.layers.4.self_attn.rotary_emb.inv_freq",
+      "kind": "_buffers",
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "160",
+      "dtype": "FloatStorage",
+      "logical_elements": 32,
+      "requires_grad": false
+    },
+    {
+      "name": "model.model.layers.5.self_attn.rotary_emb.inv_freq",
+      "kind": "_buffers",
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "195",
+      "dtype": "FloatStorage",
+      "logical_elements": 32,
+      "requires_grad": false
+    },
+    {
+      "name": "model.model.layers.6.self_attn.rotary_emb.inv_freq",
+      "kind": "_buffers",
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "230",
+      "dtype": "FloatStorage",
+      "logical_elements": 32,
+      "requires_grad": false
+    },
+    {
+      "name": "model.model.layers.7.self_attn.rotary_emb.inv_freq",
+      "kind": "_buffers",
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "265",
+      "dtype": "FloatStorage",
+      "logical_elements": 32,
+      "requires_grad": false
+    },
+    {
+      "name": "model.model.layers.8.self_attn.rotary_emb.inv_freq",
+      "kind": "_buffers",
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "300",
+      "dtype": "FloatStorage",
+      "logical_elements": 32,
+      "requires_grad": false
+    },
+    {
+      "name": "model.model.layers.9.self_attn.rotary_emb.inv_freq",
+      "kind": "_buffers",
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "335",
+      "dtype": "FloatStorage",
+      "logical_elements": 32,
+      "requires_grad": false
+    },
+    {
+      "name": "model.model.layers.10.self_attn.rotary_emb.inv_freq",
+      "kind": "_buffers",
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "370",
+      "dtype": "FloatStorage",
+      "logical_elements": 32,
+      "requires_grad": false
+    },
+    {
+      "name": "model.model.layers.11.self_attn.rotary_emb.inv_freq",
+      "kind": "_buffers",
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "405",
+      "dtype": "FloatStorage",
+      "logical_elements": 32,
+      "requires_grad": false
+    },
+    {
+      "name": "model.model.layers.12.self_attn.rotary_emb.inv_freq",
+      "kind": "_buffers",
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "440",
+      "dtype": "FloatStorage",
+      "logical_elements": 32,
+      "requires_grad": false
+    },
+    {
+      "name": "model.model.layers.13.self_attn.rotary_emb.inv_freq",
+      "kind": "_buffers",
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "475",
+      "dtype": "FloatStorage",
+      "logical_elements": 32,
+      "requires_grad": false
+    },
+    {
+      "name": "model.model.layers.14.self_attn.rotary_emb.inv_freq",
+      "kind": "_buffers",
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "510",
+      "dtype": "FloatStorage",
+      "logical_elements": 32,
+      "requires_grad": false
+    },
+    {
+      "name": "model.model.layers.15.self_attn.rotary_emb.inv_freq",
+      "kind": "_buffers",
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "545",
+      "dtype": "FloatStorage",
+      "logical_elements": 32,
+      "requires_grad": false
+    },
+    {
+      "name": "model.model.layers.16.self_attn.rotary_emb.inv_freq",
+      "kind": "_buffers",
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "580",
+      "dtype": "FloatStorage",
+      "logical_elements": 32,
+      "requires_grad": false
+    },
+    {
+      "name": "model.model.layers.17.self_attn.rotary_emb.inv_freq",
+      "kind": "_buffers",
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "615",
+      "dtype": "FloatStorage",
+      "logical_elements": 32,
+      "requires_grad": false
+    },
+    {
+      "name": "model.model.layers.18.self_attn.rotary_emb.inv_freq",
+      "kind": "_buffers",
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "650",
+      "dtype": "FloatStorage",
+      "logical_elements": 32,
+      "requires_grad": false
+    },
+    {
+      "name": "model.model.layers.19.self_attn.rotary_emb.inv_freq",
+      "kind": "_buffers",
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "685",
+      "dtype": "FloatStorage",
+      "logical_elements": 32,
+      "requires_grad": false
+    },
+    {
+      "name": "model.model.layers.20.self_attn.rotary_emb.inv_freq",
+      "kind": "_buffers",
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "720",
+      "dtype": "FloatStorage",
+      "logical_elements": 32,
+      "requires_grad": false
+    },
+    {
+      "name": "model.model.layers.21.self_attn.rotary_emb.inv_freq",
+      "kind": "_buffers",
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "755",
+      "dtype": "FloatStorage",
+      "logical_elements": 32,
+      "requires_grad": false
+    },
+    {
+      "name": "model.model.layers.22.self_attn.rotary_emb.inv_freq",
+      "kind": "_buffers",
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "790",
+      "dtype": "FloatStorage",
+      "logical_elements": 32,
+      "requires_grad": false
+    },
+    {
+      "name": "model.model.layers.23.self_attn.rotary_emb.inv_freq",
+      "kind": "_buffers",
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "825",
+      "dtype": "FloatStorage",
+      "logical_elements": 32,
+      "requires_grad": false
+    },
+    {
+      "name": "model.model.rotary_emb.inv_freq",
+      "kind": "_buffers",
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "842",
+      "dtype": "FloatStorage",
+      "logical_elements": 32,
+      "requires_grad": false
+    },
+    {
+      "name": "model.visual.tower.vision_model.embeddings.position_ids",
+      "kind": "_buffers",
+      "shape": [
+        1,
+        729
+      ],
+      "stride": [
+        729,
+        1
+      ],
+      "storage_offset": 0,
+      "storage_key": "845",
+      "dtype": "LongStorage",
+      "logical_elements": 729,
+      "requires_grad": false
+    }
+  ],
+  "registered_storage_bytes_including_derived_buffers": 2891965320,
+  "checkpoint_tensor_storage_bytes_outside_deployment_weights": 129069976,
+  "archive_metadata_container_bytes": 7573725,
+  "trainable_parameter_count_at_final_checkpoint": 113766144,
+  "original_run_finished_registered_parameter_bytes_closure": true,
+  "source_facts": {
+    "osft_adapter_path": "exp/two_backbone_pct10_native_checkpoint_20261027/osft_adapter.py",
+    "osft_adapter_sha256": "60b05f3b59f3878e65ee9543657b54a5aa5da13c14e139123e1c3591f3007b34",
+    "facts": [
+      "svd() line22 includes U/S/V high buffers AND U/S/V low parameters.",
+      "refactor lines25-28 registers high factors as buffers and low factors as parameters.",
+      "forward lines29-31 reconstructs each inference weight from both groups, so high buffers are neural weights, not auxiliary training state.",
+      "S and V high/low share original storage; counting full storage once per view would double count. The interval-union certificate proves exact coverage and one unique allocation per storage."
+    ]
+  },
+  "accounting": "Required neural weight coefficients include nn.Parameters and inference-required U/S/V buffers. Count actual shapes, deduplicate tied parameter views, and count selected archive allocations once. Do not equate training coordinates, nn.Parameter bytes, or buffer registration with deployment necessity.",
+  "limitations": [
+    "No fold/export was performed. This is the original saved factorized graph, not a claim that OSFT cannot deploy folded.",
+    "Original full CP SHA is reused from unique verified final proof; raw weight payload not rehashed.",
+    "No new GPU deployment peak measured; cumulative training peak is not a final inference peak.",
+    "Same shape/count as a prior condition, if any, is an independent observed result here; no 1% totals were copied.",
+    "Processor/RNG, visual activation cache, derived rotary/position values and container metadata excluded; no mask is present in this OSFT registered layout."
+  ],
+  "new_model_executions": 0,
+  "new_scores": 0,
+  "raw_tensor_payload_reads": 0,
+  "checkpoint_payload_downloaded_to_Windows": false
+}

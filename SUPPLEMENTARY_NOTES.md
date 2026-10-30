@@ -1,3 +1,17 @@
+# 2026-10-30最新：原图baseline与跨机制观测优先
+
+- [原图评估约定](summary/deployment_total_parameters_20261028/BENCHMARK_ORIGINAL_GRAPH_POLICY_20261030.md)：不替OSFT/LoRA等另做合并或物化；主表按原正式实现。
+- [普适性与原因缺口](summary/deployment_total_parameters_20261028/GENERALITY_AND_CAUSE_STATUS_20261030.md)：1%专家局部反例未覆盖10%或大部分方法，非扩展与FullFT必须检验；先找事实、不自动扩新方法。
+- [PaRSP真实过程](summary/parsp_protection_process_20261030/FINDINGS.md)：1%/10%各648次Force，仅数量floor作用已证；mask/P/Adam实际更新仍待测。
+- [四组完整诊断](summary/residual_exit_pilot_old_runtime_20261030/FINAL_DIAGNOSTIC_FINDINGS_20261030.md)：单block出口目标改善两teacher平均MSE/KL，但输入重配不统一、top1未同步改善，不能称F1/普适成功。原控制器发布故障及唯一有限恢复全保留，不重放。
+- [10% OSFT完整结果](summary/two_backbone_pct10_20261025/OSFT_COMPLETE_FINDINGS_20261030.md)：实际S19/74格/80316调用及独立参数证据补主表，无新生成或部署资源估计。
+
+# 2026-10-30：源码机制边界与固定出口先导判据
+
+- [生命周期审计](summary/router_function_moments_20261030_v2/TRAINING_LIFECYCLE_AUDIT_20261030.md)核原源码与既有参数metadata：PAS无独立router、两expert连续继承；CL top2只影响阶段末momentum，前向计算全8expert，eval另混question-anchor prior。训练资格不等于真实梯度或有效学习，不用“冻结/重置专家”解释终态差异；仍缺训练轨迹因果证据。
+- [原论文先例与可证伪判据](summary/residual_exit_pilot_20261030/MECHANISM_PRIOR_AND_FALSIFICATION_REVIEW.md)：CrossMean/BRECQ已有输入变化和残差重构先例；仅局部fit好不算成功，固定四臂要在拟合外QA同时改善实际出口与最终KL。全24block/F1/普适性仍缺；未改实验设置。
+- [容量参照边界](summary/residual_exit_pilot_20261030/CAPACITY_COMPARATOR_SCOPE_REVIEW_20261030.md)：静态PAS超过all-r8不作为路由因果收益；当前给定teacher后处理范围不自动加r256，若声称条件训练优于同容量普通训练则必须补相应控制。正式FullFT质量仍待完成。
+
 # 补充说明：证据索引、实验历史与新会话交接
 
 ## 2026-10-29：观测优先与部署参数目标纠正

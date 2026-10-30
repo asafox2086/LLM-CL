@@ -1,0 +1,43 @@
+{
+  "schema": "residual-exit-runtime-only-migration-metadata-v1",
+  "unix": 1793339908.6694148,
+  "original_NEW_sources": {
+    "run.py": "838a05c11f8b3ec6c2141c4dd45d4913f32b129829a977840c736e994e9ac2ed",
+    "probe.py": "d4c756a932a7c15dccad31d2296d9722df80716b5b00935b170764f00b321063",
+    "ridge.py": "b77350ac0df5557ac9496332fb65c79ca99bdc9dc549f8c57a0254abf49791bb"
+  },
+  "runtime_sources": {
+    "run.py": "2cc4a902a875da64e9a65a038966010e10563cee7e6a55d9d8113c38e9131306",
+    "probe.py": "d4c756a932a7c15dccad31d2296d9722df80716b5b00935b170764f00b321063",
+    "ridge.py": "b77350ac0df5557ac9496332fb65c79ca99bdc9dc549f8c57a0254abf49791bb"
+  },
+  "literal_replacements": {
+    "ROOT=Path('/data1/liyapeng/program/LLMCL')": "ROOT=Path('/data2/liyapeng_grp/program/LLMCL')",
+    "'/dev/shm/llmcl-residual-exit-pilot-1004-20261030/'": "'/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/runs/onevision/pct01/'",
+    "CUDA_VISIBLE_DEVICES')=='3'": "CUDA_VISIBLE_DEVICES')=='2'",
+    "'--id=3'": "'--id=2'",
+    "who['uid']==1004": "who['uid']==1084"
+  },
+  "AST_equal_after_only_runtime_literal_normalization": true,
+  "probe_ridge_byte_identical": true,
+  "original_NEW_binding_sha256": "90ea666d895457683c1f2b32e9ba0ca936b111ef95bc891d8c93caf21bfdec8c",
+  "runtime_binding_sha256": "4c2d32008dc1eed4f5d034a2404c63c028c0cad0c96e22822e1cccff4b1fd8c5",
+  "metadata_checks": {
+    "PASs_MoE": {
+      "returncode": 0,
+      "stdout": "{\"metadata_validated\": true, \"model_loaded\": false, \"calibration_QA\": 80, \"readout_QA\": 20, \"TEST_QA\": 0, \"method\": \"PASs_MoE\", \"output_exists\": false}\n",
+      "stderr": ""
+    },
+    "CL_MoE": {
+      "returncode": 0,
+      "stdout": "{\"metadata_validated\": true, \"model_loaded\": false, \"calibration_QA\": 80, \"readout_QA\": 20, \"TEST_QA\": 0, \"method\": \"CL_MoE\", \"output_exists\": false}\n",
+      "stderr": ""
+    }
+  },
+  "original_CP_payload_copy_bytes": 0,
+  "models_loaded": 0,
+  "GPU_allocations": 0,
+  "physical_GPU2_snapshot": "GPU-25d3cb92-fa97-a722-f9cd-c012bad046a8, NVIDIA GeForce RTX 2080 Ti, 11264, 11002",
+  "CP_full_SHA_to_be_reverified_by_unchanged_original_loader": true,
+  "original_NEW_history_unchanged": true
+}

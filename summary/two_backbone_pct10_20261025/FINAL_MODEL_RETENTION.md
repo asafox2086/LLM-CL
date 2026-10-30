@@ -1,4 +1,4 @@
-> 2026-10-30更新：10%现有双骨干SeqFT及LLaVA PaRSP共3组完整质量已核验。新PaRSP完整S19保留在OLD原持久checkpoint目录（5928092498B／SHA74c58b82…49f3），其19阶段／74格已核，未下载Windows；[新增留存记录](PARSP_FINAL_MODEL_RETAINED_20261030.json)与[完整结果](PARSP_COMPLETE_FINDINGS_20261030.md)为准。下文旧自动归档索引是历史机制/观察，不把其中旧1/16或旧PID当实时状态；未伪造NEW归档副本。
+> 2026-10-30更新：10%现有双骨干SeqFT及LLaVA PaRSP、OSFT共4组完整质量已核验。新PaRSP完整S19保留在OLD原持久checkpoint目录（5928092498B／SHA74c58b82…49f3），其19阶段／74格已核，未下载Windows；[新增留存记录](PARSP_FINAL_MODEL_RETAINED_20261030.json)与[完整结果](PARSP_COMPLETE_FINDINGS_20261030.md)为准。下文旧自动归档索引是历史机制/观察，不把其中旧1/16或旧PID当实时状态；未伪造NEW归档副本。 OSFT完整S19为3028599989B／SHAa041efb3…69bd，同样保留OLD持久盘；[OSFT留存](OSFT_FINAL_MODEL_RETAINED_20261030.json)。
 
 # 10%完整主表与最终模型留存
 

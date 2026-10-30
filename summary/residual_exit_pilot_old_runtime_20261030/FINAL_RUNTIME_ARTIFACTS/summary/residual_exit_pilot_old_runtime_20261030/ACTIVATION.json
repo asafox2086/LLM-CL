@@ -1,0 +1,21 @@
+{
+  "unix": 1793341026.498388,
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit=llmcl-residual-exit-pilot-old2-20261030.service",
+    "--property=Restart=no",
+    "--property=KillMode=process",
+    "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "-u",
+    "/data2/liyapeng_grp/program/LLMCL/summary/residual_exit_pilot_old_runtime_20261030/controller.py",
+    "--binding",
+    "/data2/liyapeng_grp/program/LLMCL/summary/residual_exit_pilot_old_runtime_20261030/BINDING.json",
+    "--execute"
+  ],
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "Running as unit: llmcl-residual-exit-pilot-old2-20261030.service\n",
+  "binding_sha256": "3d5655b8fad20ab3db9487f5be2d992b925e27c1b6377f87cd3b8c2934b839ef",
+  "admission_sha256": "b643f1224fa897576124478a6a74aac6e9c6c1f6e317641ad715de8262a5978d"
+}

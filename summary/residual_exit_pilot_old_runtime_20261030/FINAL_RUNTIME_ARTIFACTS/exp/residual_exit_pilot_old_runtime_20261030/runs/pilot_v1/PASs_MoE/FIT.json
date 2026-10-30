@@ -1,0 +1,119 @@
+{
+  "QA": 80,
+  "lambda_value": 0.00022796871588242132,
+  "teacher_gram_mean_diagonal": 0.022796871588242132,
+  "fitted_existing_weight_coefficients": 4358144,
+  "additional_deployment_parameters": 0,
+  "fixed_bias": true,
+  "candidate_weight_dtype": "torch.float16",
+  "arms": {
+    "B": {
+      "normal_equation_relative_residual": 7.053739255200497e-15,
+      "precast_fit": {
+        "ideal_linear_residual_raw": 5.8443051627886613e-08,
+        "ridge_penalty": 1.1332415385203758e-07,
+        "regularized_objective_raw": 1.717672054799242e-07,
+        "terms": [
+          4.5034811386388595e-06,
+          -8.663427866317854e-06,
+          4.218389779306881e-06
+        ],
+        "FP64_reduction_scale": 1.7736828346034246e-13,
+        "residual_negative_beyond_scale": false,
+        "includes_actual_FP16_GEMM": false
+      },
+      "cast_fit": {
+        "ideal_linear_residual_raw": 1.1025721595887859e-06,
+        "ridge_penalty": 1.2023791876187523e-07,
+        "regularized_objective_raw": 1.2228100783506612e-06,
+        "terms": [
+          4.5034811386388595e-06,
+          -8.250465978567368e-06,
+          4.8495569995172946e-06
+        ],
+        "FP64_reduction_scale": 1.5821524156217967e-13,
+        "residual_negative_beyond_scale": false,
+        "includes_actual_FP16_GEMM": false
+      },
+      "lambda_value": 0.00022796871588242132,
+      "lambda_rule": "0.01*meanDiag(equal-QA teacher Gram)",
+      "pre_cast_update_squared_norm": 0.0004971039706627396,
+      "post_cast_update_squared_norm": 0.0005274316622632114,
+      "rounding_squared_norm": 4.6259940185143964e-05,
+      "changed_FP16_coefficients": 2858119,
+      "baseline_fit_target_residual_energy": 4.5034811386388595e-06
+    },
+    "C": {
+      "normal_equation_relative_residual": 2.9212020932095278e-15,
+      "precast_fit": {
+        "ideal_linear_residual_raw": 0.0001337242139251016,
+        "ridge_penalty": 0.00036279025519872905,
+        "regularized_objective_raw": 0.0004965144691238307,
+        "terms": [
+          0.07267410151060835,
+          -0.144355174082969,
+          0.07181479678628575
+        ],
+        "FP64_reduction_scale": 5.619771273941042e-10,
+        "residual_negative_beyond_scale": false,
+        "includes_actual_FP16_GEMM": false
+      },
+      "cast_fit": {
+        "ideal_linear_residual_raw": 0.00013489267253903592,
+        "ridge_penalty": 0.00036279771933803514,
+        "regularized_objective_raw": 0.000497690391877071,
+        "terms": [
+          0.07267410151060835,
+          -0.14435460846129156,
+          0.07181539962322224
+        ],
+        "FP64_reduction_scale": 5.619461485268405e-10,
+        "residual_negative_beyond_scale": false,
+        "includes_actual_FP16_GEMM": false
+      },
+      "lambda_value": 0.00022796871588242132,
+      "lambda_rule": "0.01*meanDiag(equal-QA teacher Gram)",
+      "pre_cast_update_squared_norm": 1.5914036879772757,
+      "post_cast_update_squared_norm": 1.591436429922929,
+      "rounding_squared_norm": 5.267317359249366e-05,
+      "changed_FP16_coefficients": 4331229,
+      "baseline_fit_target_residual_energy": 0.07267410151060835
+    },
+    "D": {
+      "normal_equation_relative_residual": 2.862437427961228e-15,
+      "precast_fit": {
+        "ideal_linear_residual_raw": 0.0003191557040574111,
+        "ridge_penalty": 0.0008525500871971317,
+        "regularized_objective_raw": 0.0011717057912545427,
+        "terms": [
+          0.21080944239312321,
+          -0.41927547320373737,
+          0.20878518651467157
+        ],
+        "FP64_reduction_scale": 1.331133566861426e-09,
+        "residual_negative_beyond_scale": false,
+        "includes_actual_FP16_GEMM": false
+      },
+      "cast_fit": {
+        "ideal_linear_residual_raw": 0.0003203475113277843,
+        "ridge_penalty": 0.0008525641618767162,
+        "regularized_objective_raw": 0.0011729116732045004,
+        "terms": [
+          0.21080944239312321,
+          -0.419271485016829,
+          0.20878239013503355
+        ],
+        "FP64_reduction_scale": 1.3311098591282562e-09,
+        "residual_negative_beyond_scale": false,
+        "includes_actual_FP16_GEMM": false
+      },
+      "lambda_value": 0.00022796871588242132,
+      "lambda_rule": "0.01*meanDiag(equal-QA teacher Gram)",
+      "pre_cast_update_squared_norm": 3.7397679058597175,
+      "post_cast_update_squared_norm": 3.739829645381871,
+      "rounding_squared_norm": 5.278027496365828e-05,
+      "changed_FP16_coefficients": 4339815,
+      "baseline_fit_target_residual_energy": 0.21080944239312321
+    }
+  }
+}

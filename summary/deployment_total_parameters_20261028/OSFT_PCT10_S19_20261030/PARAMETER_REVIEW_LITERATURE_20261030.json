@@ -1,0 +1,18 @@
+{
+  "status": "PARAMETER_EVIDENCE_ACCEPTED",
+  "reviewer": "literature_observation",
+  "evidence_sha256": "38590ea8c58ceebeab176c5b246b096a39d5a3dc82fe47fd2b7374444585b0e6",
+  "metadata_sha256": "3b26043bd53566d6af8f7e8a9831f31d807a58d678fd5e0c2db0c94d06ef9ee6",
+  "checks": [
+    "Read only existing EVIDENCE and metadata JSON, not checkpoint archive or tensor payloads. Independently deduplicated exact tied tensor views and checked contiguous high/low factor intervals: every selected allocation covered exactly once, 1220 storages.",
+    "649615136 registered parameter coefficients plus341298432 inference-required U/S/V high coefficients equals990913568; added97238016 relative same-backbone893675552.",
+    "FP16 535848992 and FP32 455064576 shape coefficients give2891956288B=2757.984436MiB and increment1104605184B=1053.433594MiB; derived26buffers/9032B excluded, no required nonneural state.",
+    "Actual frozen OSFT source SHA60b05f3 matches evidence; forward reconstructs weights from high buffers and low parameters, so registered parameter bytes alone would undercount deployment weights.",
+    "Original factorized saved-state only. No folding, independent deployment GPU peak or F1 claim follows from this accounting."
+  ],
+  "models_executed": 0,
+  "new_scores": 0,
+  "checkpoint_archives_parsed": 0,
+  "raw_QA_read": 0,
+  "table_files_modified": false
+}

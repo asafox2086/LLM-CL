@@ -1,0 +1,103 @@
+{
+  "schema": "protection-operator-source-audit-v1",
+  "evidence_sha256": "c9c9abc23ae03fc200da58aeedbe9848d119d3e44287c04e0adcc6b9f81ae33f",
+  "PaRSP": {
+    "native_adapter_sha256": "d1ebe1831e6d089d434bdde34b59db64eff17dc74d8d77f9ca4f080a51da8366",
+    "author_masking_sha256": "bcf0f73c7093436ea986e500805a089d5436b94cc192336ea276d059ec8ea179",
+    "author_projection_sha256": "e722a4d4192cfeb19f106d86ddeb2688f103dd3266ddfa22c9793d27640e6cfb",
+    "sources": [
+      {
+        "path": "code/PaRSP/source/parsp/methods/masking.py",
+        "lines": "93-119",
+        "fact": "Each stage first resets all requires_grad false, then enables selected attention/MLP modules."
+      },
+      {
+        "path": "code/PaRSP/source/parsp/methods/masking.py",
+        "lines": "129-143,165-180",
+        "fact": "Author hooks multiply selected weights gradient by neuron masks; gate/up/v use output-row masks, down/o use input-column masks; indices are filtered by actual dimension. q/k have no neuron mask."
+      },
+      {
+        "path": "exp/two_backbone_pct10_native_checkpoint_20261027/parsp_adapter.py",
+        "lines": "123-141",
+        "fact": "Adapter records/removes original neuron-mask hooks and registers them before later weight gradient-right-multiply-by-P hooks."
+      },
+      {
+        "path": "code/PaRSP/source/parsp/methods/projection.py",
+        "lines": "145-184",
+        "fact": "Threshold S<=1e-6*max_eigenvalue first; when count below floor(.2*d), replaces selection by the smallest floor(.2*d) eigenvectors; P=Z Z.T."
+      },
+      {
+        "path": "exp/two_backbone_pct10_native_checkpoint_20261027/parsp_adapter.py",
+        "lines": "95-163",
+        "fact": "Covariance/projectors derive from historical activations. No after_update method or post-step reapplication of mask/projector exists."
+      }
+    ],
+    "actual_hook_order": "neuron mask, then grad @ P; column masks G M P, row masks R G P",
+    "missing_measurements": [
+      "Raw current-loss G before masking/projection",
+      "Actual optimizer deltaW and norm-matched directional descent",
+      "Measured M/P commutator, subspace intersection, numeric projector residual or actual support leakage"
+    ]
+  },
+  "OSFT": {
+    "native_adapter_sha256": "60b05f3b59f3878e65ee9543657b54a5aa5da13c14e139123e1c3591f3007b34",
+    "author_utils_sha256": "ff67271a66cc6016854f3e1d5736f2931efa5f8feafb5eefbfa70a52105910b3",
+    "sources": [
+      {
+        "path": "exp/two_backbone_pct10_native_checkpoint_20261027/osft_adapter.py",
+        "lines": "23-31,43-54",
+        "fact": "Top75% singular components frozen; low25% trainable factors. Every new stage refactors current reconstructed weight. post_backward projects factor gradients, after_update projects factor parameters."
+      },
+      {
+        "path": "code/OSFT/source/src/mini_trainer/osft_utils.py",
+        "lines": "541-561,650-662",
+        "fact": "Original code explicitly distinguishes gradient projection from parameter projection after Adam rescaling. This is an informative contrast, not evidence of actual PaRSP leakage."
+      }
+    ],
+    "not_a_shared_failure_claim": true
+  },
+  "optimizer": {
+    "host_adam_sha256": "5e733e6b87c12eb9331ff23e8919a142f1861a2beec82ec8b0361d878b9aec8c",
+    "runtime_utils_sha256": "4f5c4a34be046c29cfbcdaa4b2957faa907684872ba69083bdef53136a851240",
+    "sources": [
+      {
+        "path": "exp/two_backbone_pct10_native_checkpoint_20261027/runtime_utils.py",
+        "lines": "213-224",
+        "fact": "Only SMoLoRA gets weight_decay .01. Actual PaRSP and OSFT groups use weight_decay0, eps1e-8, betas(.9,.999)."
+      },
+      {
+        "path": "exp/two_backbone_pct10_native_checkpoint_20261027/host_adam.py",
+        "lines": "20-44",
+        "fact": "Stock AdamW step with moment transfers; no mask/projector repair in this optimizer."
+      },
+      {
+        "path": "exp/two_backbone_pct10_native_checkpoint_20261027/run.py",
+        "lines": "353-377",
+        "fact": "Gradient clipping and logged preclip/postclip gradient norms occur after method gradient protection. after_update is invoked when a method defines it; PaRSP does not, OSFT does."
+      }
+    ],
+    "stage_optimizer_state": "Fresh optimizer/scheduler/scaler each stage in original training; do not invent cross-stage Adam momentum retention."
+  },
+  "mathematical_condition": {
+    "column_support": "For a row update constrained both to coordinate support M of dimension m and an ideal P-subspace of rank r, generic intersection dimension is max(0,m+r-d).",
+    "example_o": [
+      358,
+      179,
+      896
+    ],
+    "example_down": [
+      1946,
+      972,
+      4864
+    ],
+    "not_empirical_intersection_measurement": true,
+    "caveats": [
+      "Specific historical eigenspaces may align with selected coordinates and have a nonzero intersection.",
+      "GMP generally need not preserve M unless appropriate invariance/commutation holds; row masks are different.",
+      "Coordinatewise Adam preconditioning can change membership in P, but actual deltaW has not been measured here.",
+      "FP32 projector rank/idempotence properties were not measured; logged vector count is not a new numerical rank estimate."
+    ]
+  },
+  "new_models": 0,
+  "new_scores": 0
+}

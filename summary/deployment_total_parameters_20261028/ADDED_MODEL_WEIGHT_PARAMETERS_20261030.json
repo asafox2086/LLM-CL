@@ -184,11 +184,25 @@
       "source_sha256": "3f77fd3ad08933402d6f5abc1e8d13fba66946cc9bba9a81023a8a01d649c410",
       "checkpoint_sha256": "246e876954f9aa71af4fcd0d9d9315060fbc745c642c81894acd970efb25f4a1",
       "note": ""
+    },
+    {
+      "condition": "pct10",
+      "backbone": "onevision",
+      "method": "OSFT",
+      "full_required_saved_coefficients": 990913568,
+      "nonweight_state_coefficients": 0,
+      "model_weight_parameters_including_required_bases": 990913568,
+      "base_parameters": 893675552,
+      "additional_model_weight_parameters": 97238016,
+      "source": "summary/deployment_total_parameters_20261028/OSFT_PCT10_S19_20261030/EVIDENCE.json",
+      "source_sha256": "38590ea8c58ceebeab176c5b246b096a39d5a3dc82fe47fd2b7374444585b0e6",
+      "checkpoint_sha256": "a041efb3fd178d603b164740b59a6de7ad60608e2fc38d2acae8023963ae69bd",
+      "note": "Actual pct10 S19 metadata independently parsed once. Includes inference-required U/S/V weight buffers in the original OSFT inference graph. No additional baseline folding/materialization."
     }
   ],
   "new_models": 0,
   "new_scores": 0,
   "new_checkpoint_or_tensor_reads": 0,
   "no_old_consumer_replay": true,
-  "foldability_caveat": "Ordinary LoRA and OSFT can be materialized to a dense base shape with zero additional weights; raw saved representation is not a best-deployment lower bound."
+  "foldability_caveat": "Benchmark all baselines as the original method/saved inference graph. Do not additionally fold/materialize/optimize OSFT or LoRA baselines. Historical mathematical foldability facts do not change this benchmark policy."
 }

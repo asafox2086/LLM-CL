@@ -1,0 +1,47 @@
+--- original_70a_readout.py
++++ readout_terminal_recovery_v1.py
+@@ -27,6 +27,24 @@
+  try:return p.read_text().rsplit(') ',1)[1].split()[19]!=str(who['startticks'])
+  except FileNotFoundError:return True
+ 
++def verified_postmodel_release_inputs(binding,b,D,O):
++ audit_path=D/'RELEASE_AUDIT.json'
++ if not audit_path.exists():return None
++ a=read(audit_path)
++ assert a['schema']=='fixed-exit-postmodel-release-audit-v1' and a['binding_sha256']==sha(binding)=='3d5655b8fad20ab3db9487f5be2d992b925e27c1b6377f87cd3b8c2934b839ef'
++ assert a['repair_source_sha256']==sha(D/'release_postmodel_slot_once.py')=='a28a48d464be72a2b9423293332fe721bc65e1d45537a8e56fbba562d5587d62'
++ assert a['original_controller_exit_status']==1 and a['model_retries']==a['controller_retries']==a['new_models']==0
++ assert a['original_failure_preserved_in_place'] and a['original_controller_complete_preserved_in_place'] and a['quality_or_scalar_rows_modified'] is False
++ assert sha(O/'FAILURE.json')==a['original_controller_failure_sha256']=='f134a48ece8999664f9a940da17661e3b59f7392abfe27362d80c96c64f24541'
++ assert sha(O/'COMPLETE.json')==a['original_controller_complete_sha256']=='522e714fa2b4e6a25c2b62d4a72d7a01c0d47dbc4d071e919b538396eee77f66'
++ original=Path(a['archived_original_slot_path']);assert original==O/'SLOT_BEFORE_RELEASE_RECOVERY.json' and sha(original)==a['original_slot_sha256']=='9b067418f687163c5f3cbd61aa03adbbd9d677343e81205ec00fd7d9b4b6c2ac'
++ assert sha(O/'SLOT.json')==a['published_slot_sha256']
++ fail=read(O/'FAILURE.json');assert fail['last_worker'] is None and fail['last_worker_gone'] and "line 89, in main" in fail['traceback'] and 'assert current==claim' in fail['traceback']
++ assert fail['phases']==read(O/'COMPLETE.json')['phases'] and all(x['returncode']==0 and x['worker_gone'] and gone(x['identity']) for x in fail['phases'])
++ assert a['original_inputs_sha256'][str(D/'ORIGINAL_POSTMODEL_CONTROLLER_TERMINAL_20261030.json')]=='ef9d2c0c66bad652d360732993320ad774fd997676b84be6fe3aa1fcf8a2fe6a'
++ assert all(sha(Path(p))==digest for p,digest in a['original_inputs_sha256'].items())
++ return dict(a['original_inputs_sha256'],**{str(audit_path):sha(audit_path),str(original):sha(original),str(D/'release_postmodel_slot_once.py'):sha(D/'release_postmodel_slot_once.py')})
++
+ def terminal_inputs(binding):
+  b=read(binding);D=Path(b['admission_path']).parent;O=D/'CONTROLLER_V1';root=Path(b['output_root'])
+  assert b['schema']=='residual-exit-pilot-v1' and b['admitted'] is True and b['block_index']==11
+@@ -34,7 +52,10 @@
+  assert sha(D/'controller.py')==admission['controller_sha256']
+  for name,digest in b['sources'].items():assert sha(Path(b['source_dir'])/name)==digest,name
+  assert sha(b['protocol_path'])==b['protocol_sha256']
+- if (O/'FAILURE.json').exists():return dict(status='FAILED',raw_rows_parsed=False),None
++ recovery_inputs={}
++ if (O/'FAILURE.json').exists():
++  recovery_inputs=verified_postmodel_release_inputs(binding,b,D,O)
++  if recovery_inputs is None:return dict(status='FAILED',raw_rows_parsed=False),None
+  if not (O/'COMPLETE.json').exists() or not (O/'SLOT.json').exists():return dict(status='WAITING',raw_rows_parsed=False),None
+  complete=read(O/'COMPLETE.json');slot=read(O/'SLOT.json')
+  if slot.get('released') is not True:return dict(status='WAITING',raw_rows_parsed=False),None
+@@ -58,6 +79,7 @@
+  domains={x['domain'] for x in expected};assert len(domains)==5 and all(sum(x['domain']==d for x in expected)==4 for d in domains)
+  inputs={str(binding):sha(binding),str(D/'controller.py'):sha(D/'controller.py'),str(b['admission_path']):sha(b['admission_path']),str(b['protocol_path']):sha(b['protocol_path']),str(O/'COMPLETE.json'):sha(O/'COMPLETE.json'),str(O/'SLOT.json'):sha(O/'SLOT.json'),str(md_path):sha(md_path)}
+  for n,h in b['sources'].items():inputs[str(Path(b['source_dir'])/n)]=h
++ inputs.update(recovery_inputs)
+  results={};fits={}
+  for method in METHODS:
+   run=root/method;r=read(run/'RESULT.json');fit=read(run/'FIT.json');loaded=read(run/'MODEL_LOADED.json')
