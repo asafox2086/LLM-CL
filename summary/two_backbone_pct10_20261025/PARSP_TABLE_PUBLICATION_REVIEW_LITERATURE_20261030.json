@@ -1,0 +1,27 @@
+{
+  "status": "PUBLICATION_ACCEPTED",
+  "reviewer": "literature_observation",
+  "files_sha256": {
+    "README.md": "dcff547fe841c2be74558e7e7338bee3b5f3160181ade161791f57810ee54904",
+    "summary/two_backbone_pct10_20261025/MAIN_TABLE.md": "b1db74c34be90b3f6f77d91b24a8230cef06bfd85a210ac54127dbfa0274248e",
+    "summary/five_domain_restored_20261029/pct01_TABLES.md": "e799814fb48270ab5e1353b5f309d4a9fd251dbd3fb299537393f0f24c1d33bd",
+    "summary/five_domain_restored_20261029/pct10_TABLES.md": "1cb0faaef689c12cbe3d845e0cde73a22b6679181d57976476770e5a9cb06651",
+    "summary/deployment_total_parameters_20261028/ADDED_MODEL_WEIGHT_PARAMETERS_20261030.json": "2b120df960273479974bfbf4e05d2187977ebd854ec0c97071c0edc42642559a",
+    "summary/two_backbone_pct10_20261025/PARSP_COMPLETE_FINDINGS_20261030.md": "a2d88e92a1c8003154acf3a5bb517fc3d6cc1eebb3b4242302217f6b41d22a8d"
+  },
+  "proof_sha256": "25826ae27277afbeeda5d80c366f1aa73c2a09daa2f16252dae793d80052dbbd",
+  "parameter_evidence_sha256": "74bad2d564318990087c104fbba80a4581a53aea0051b285d698d7aa7993fe10",
+  "checks": [
+    "README four HTML blocks independently compared with preserved before_0: only pct10 LLaVA PaRSP quality row changed; replacing it restores original block exactly, other three blocks byte-identical.",
+    "All 23 displayed PaRSP cells match rounded original 19 task results and QA-weighted domain aggregates plus five-domain macro. AP/FWT/BWT and saved mixed-dtype resources match original complete proof/EVIDENCE; GPU/TTFT/speed remain missing.",
+    "README preexisting resource numeric rows changed only added-weight column; PaRSP new resource row is 893.676M total, zero added, 2205.537MiB/500.986MiB increment, zero adapters.",
+    "MAIN_TABLE and pct01/pct10 TABLES actual before/after diffs reviewed; PAS-static synchronization uses existing own full result and leaves FWT/BWT missing.",
+    "All 13 added-weight evidence rows pass exact arithmetic and original source SHA checks; Qwen CL 58976 FP32 anchor/prior coefficients close to 235904B. OSFT necessary U/S/V included, PAS masks and CL priors excluded only from weight-parameter count.",
+    "Findings distinguish terminal macro from newly acquired performance, precision bytes from added weights, path-only verifier compatibility from changed science, and absent deployment GPU measurements."
+  ],
+  "raw_QA_read": 0,
+  "new_scoring_calls": 0,
+  "checkpoint_payloads_parsed": 0,
+  "model_runs": 0,
+  "table_files_modified": false
+}

@@ -16,7 +16,7 @@
 <tr><th>CL-MoE</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
 <tr><th>SMoLoRA</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
 <tr><th>PASs-MoE</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-<tr><th>PaRSP</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>PaRSP</th><td>76.399</td><td>77.047</td><td>47.579</td><td>64.043</td><td>69.489</td><td>56.328</td><td>57.303</td><td>31.609</td><td>14.015</td><td>65.231</td><td>32.179</td><td>55.291</td><td>73.000</td><td>86.091</td><td>25.416</td><td>78.011</td><td>64.854</td><td>25.728</td><td>41.268</td><td>39.827</td><td>37.427</td><td>39.601</td><td>52.375</td></tr>
 <tr><th>OSFT</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
 <tr><th>SpaRTA</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
 <tr><th>Ours（待新候选）</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
@@ -37,22 +37,22 @@
 
 ## 表2：持续学习与部署开销
 
-| 方法 | AP19 ↑ | FWT ↑ | BWT ↑ | 完整保存系数 M ↓ | 新增部署参数 M ↓ | 权重 MiB ↓ | 权重增量 MiB ↓ | GPU五窗峰 MiB ↓ | TTFT s ↓ | tok/s ↑ | 适配器数 ↓ |
+| 方法 | AP19 ↑ | FWT ↑ | BWT ↑ | 完整保存系数 M ↓ | 新增权重参数（保存态）M ↓ | 权重 MiB ↓ | 权重增量 MiB ↓ | GPU五窗峰 MiB ↓ | TTFT s ↓ | tok/s ↑ | 适配器数 ↓ |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | **LLaVA-OneVision-Qwen2-0.5B-OV** | | | | | | | | | | | |
 | FullFT（朴素全量） | — | — | — | — | — | — | — | — | — | — | — |
-| SeqFT-LoRA（q/v-r8） | 45.874 | 21.156 | -2.933 | 894.216 | — | 1706.613 | 2.062 | 2176.659† | 0.315 | 31.543 | 1 |
+| SeqFT-LoRA（q/v-r8） | 45.874 | 21.156 | -2.933 | 894.216 | 0.541 | 1706.613 | 2.062 | 2176.659† | 0.315 | 31.543 | 1 |
 | FOREVER | — | — | — | — | — | — | — | — | — | — | — |
 | CL-MoE | — | — | — | — | — | — | — | — | — | — | — |
 | SMoLoRA | — | — | — | — | — | — | — | — | — | — | — |
 | PASs-MoE | — | — | — | — | — | — | — | — | — | — | — |
-| PaRSP | — | — | — | — | — | — | — | — | — | — | — |
+| PaRSP | 52.526 | 25.734 | 0.214 | 893.676 | 0.000 | 2205.537 | 500.986 | — | — | — | 0 |
 | OSFT | — | — | — | — | — | — | — | — | — | — | — |
 | SpaRTA | — | — | — | — | — | — | — | — | — | — | — |
 | Ours（待新候选） | — | — | — | — | — | — | — | — | — | — | — |
 | **Qwen2-VL-2B-Instruct** | | | | | | | | | | | |
 | FullFT（朴素全量） | — | — | — | — | — | — | — | — | — | — | — |
-| SeqFT-LoRA（q/v-r8） | 48.634 | 14.864 | -5.218 | 2210.075 | — | 4217.462 | 4.156 | 4954.604† | 0.515 | 24.873 | 1 |
+| SeqFT-LoRA（q/v-r8） | 48.634 | 14.864 | -5.218 | 2210.075 | 1.090 | 4217.462 | 4.156 | 4954.604† | 0.515 | 24.873 | 1 |
 | FOREVER | — | — | — | — | — | — | — | — | — | — | — |
 | CL-MoE | — | — | — | — | — | — | — | — | — | — | — |
 | SMoLoRA | — | — | — | — | — | — | — | — | — | — | — |
@@ -62,4 +62,7 @@
 | SpaRTA | — | — | — | — | — | — | — | — | — | — | — |
 | Ours（待新候选） | — | — | — | — | — | — | — | — | — | — | — |
 
-资源沿原S19保存态、原dtype及原固定五窗实测。完整保存系数包含必要持久状态，不等同训练坐标；原基座可重建缓存排除。权重增量不等于新增参数；未核新增参数时留空。MiB=2²⁰字节，M=10⁶。FOREVER的权重增量约2.062MiB，属于必须比较的低成本强参照。Ours旧四域S16实测另存，不填本S19主表。
+
+PaRSP10%已核验全部19阶段／74格与完整21454TEST：五域宏52.375，新增权重参数0，保存态权重2205.537MiB；GPU推理峰未测。对Qwen SeqFT的0.479pp差仅指最终宏，不能当作新习得接近。[完整结果与参数证明](../two_backbone_pct10_20261025/PARSP_COMPLETE_FINDINGS_20261030.md)。
+
+资源沿原S19保存态、原dtype及原固定五窗实测。完整保存系数包含必要持久状态，不等同训练坐标；原基座可重建缓存排除。新增权重参数含推理必需U/S/V基，排除mask与CL历史anchor/prior；这些非参数状态仍计入完整必要系数和字节。普通LoRA／OSFT可物化为原dense形状的0新增，保存态不是最优部署下界。[参数证据](../deployment_total_parameters_20261028/ADDED_MODEL_WEIGHT_PARAMETERS_20261030.json)。MiB=2²⁰字节，M=10⁶。FOREVER的权重增量约2.062MiB，属于必须比较的低成本强参照。Ours旧四域S16实测另存，不填本S19主表。

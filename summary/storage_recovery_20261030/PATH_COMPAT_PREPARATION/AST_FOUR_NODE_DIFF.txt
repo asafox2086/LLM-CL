@@ -1,0 +1,24 @@
+--- original inherited AST
++++ compat inherited AST
+@@ -37,8 +37,8 @@
+     assert sha(MANIFEST) == MANIFEST_SHA
+     manifest = read(MANIFEST)
+     latest = read(run / 'checkpoints/latest.json')
+-    checkpoint = (run / latest['path']).resolve()
+-    assert checkpoint.is_relative_to(run / 'checkpoints')
++    checkpoint = run / latest['path']
++    assert checkpoint.resolve().is_relative_to((run / 'checkpoints').resolve())
+     paths = [run / name for name in ['run_status.json', 'config.json', 'metrics_by_score.json', 'domain_results.json', 'checkpoints/latest.json', 'logs/events.jsonl']] + [checkpoint, Path(__file__)]
+     paths += [ROOT / 'summary/primary_metric_20261017/metric_lock.json', ROOT / 'analysis/answer_f1.py', MANIFEST, ROOT / 'summary/storage_recovery_20261030/PATH_COMPAT_PREPARATION/path_compat_six_q_i2hecz/test_binding.json']
+     for name in config['execution_source_sha256']:
+@@ -173,8 +173,8 @@
+     acquired = {'AP19': sum((cells[t, t] for t in range(1, 20))) / 19, 'domain_macro_F1': sum((v['F1'] for v in acquired_domains.values())) / 5, 'domains': acquired_domains, 'native19': [cells[t, t] for t in range(1, 20)], 'multiple_task_specific_model_times': True, 'new_model_requests': 0, 'additional_scoring': 0}
+     latest = read(checked(run / 'checkpoints/latest.json'))
+     assert latest['stage'] == 19 and latest['method'] == config['method']
+-    checkpoint = (run / latest['path']).resolve()
+-    assert checkpoint.is_relative_to(run / 'checkpoints') and checkpoint.stat().st_size == latest['bytes']
++    checkpoint = run / latest['path']
++    assert checkpoint.resolve().is_relative_to((run / 'checkpoints').resolve()) and checkpoint.stat().st_size == latest['bytes']
+     checked(checkpoint, latest['sha256'])
+     assert candidate(relative, host) == before, 'Completed artifacts changed during verification'
+     assert sha(Path(__file__)) == SOURCE_SHA

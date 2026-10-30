@@ -1,0 +1,108 @@
+{
+  "complete": true,
+  "source_sha256": {
+    "/data1/liyapeng/program/LLMCL/analysis/stage_checkpoint_native_complete_verify_20261027.py": "1434c424dcc7d003494da33054bf6ef823c3b49d7e3710805ff360856bf80cc2",
+    "/data1/liyapeng/program/LLMCL/summary/storage_recovery_20261030/PATH_COMPAT_PREPARATION/consumer.py": "414a424f9bb5a7c631661fffb83bf1d7cf678c1eacb672f56bc5094d75e38c0a",
+    "/data1/liyapeng/program/LLMCL/analysis/pct10_verified_baseline_report_20261025.py": "2b2a3202fa049c911324081aacb31d0e7c7508b1020a2727893f1f85ab15c376"
+  },
+  "original_base_unchanged": true,
+  "original_consumer_unchanged": true,
+  "only_four_inherited_AST_path_nodes_changed": true,
+  "AST_diff_sha256": "e2eb1c62422431c98062a8867edbd32dbd81e7819cebb06c874b66f63b370085",
+  "adapted_AST_sha256": "a3e923f71c2852d0ca9a334421357767db19c856af376f7b431a7aa6ced5d495",
+  "path_counts": {
+    "logical_checkpoint_assignments": 2,
+    "resolved_containment_calls": 2
+  },
+  "six_real_temporary_cases_twice": [
+    {
+      "function": "candidate",
+      "case": "normal_dir",
+      "expected_accept": true,
+      "actual_accept": true,
+      "error": null
+    },
+    {
+      "function": "candidate",
+      "case": "directory_symlink",
+      "expected_accept": true,
+      "actual_accept": true,
+      "error": null
+    },
+    {
+      "function": "candidate",
+      "case": "leaf_escape",
+      "expected_accept": false,
+      "actual_accept": false,
+      "error": "AssertionError"
+    },
+    {
+      "function": "candidate",
+      "case": "dotdot_escape",
+      "expected_accept": false,
+      "actual_accept": false,
+      "error": "AssertionError"
+    },
+    {
+      "function": "candidate",
+      "case": "absolute_escape",
+      "expected_accept": false,
+      "actual_accept": false,
+      "error": "AssertionError"
+    },
+    {
+      "function": "candidate",
+      "case": "dangling_leaf",
+      "expected_accept": false,
+      "actual_accept": false,
+      "error": "FileNotFoundError"
+    },
+    {
+      "function": "_verify_uncached",
+      "case": "normal_dir",
+      "expected_accept": true,
+      "actual_accept": true,
+      "error": null
+    },
+    {
+      "function": "_verify_uncached",
+      "case": "directory_symlink",
+      "expected_accept": true,
+      "actual_accept": true,
+      "error": null
+    },
+    {
+      "function": "_verify_uncached",
+      "case": "leaf_escape",
+      "expected_accept": false,
+      "actual_accept": false,
+      "error": "AssertionError"
+    },
+    {
+      "function": "_verify_uncached",
+      "case": "dotdot_escape",
+      "expected_accept": false,
+      "actual_accept": false,
+      "error": "AssertionError"
+    },
+    {
+      "function": "_verify_uncached",
+      "case": "absolute_escape",
+      "expected_accept": false,
+      "actual_accept": false,
+      "error": "AssertionError"
+    },
+    {
+      "function": "_verify_uncached",
+      "case": "dangling_leaf",
+      "expected_accept": false,
+      "actual_accept": false,
+      "error": "FileNotFoundError"
+    }
+  ],
+  "score_calls": 0,
+  "models": 0,
+  "actual_run_or_queue_touched": false,
+  "temporary_files_removed_by_TemporaryDirectory": true,
+  "actual_consumer_not_run": true
+}

@@ -1,6 +1,6 @@
 # 第二主表：10%训练／完整测试
 
-训练10%＋完整测试已冻结：TRAIN13105 QA、完整TEST21454 QA、19任务、单轮828次优化器调用，seed42；manifest SHA为`02ef86674c22a9dbf7f0d406398615437f8406cff364415e14d54f5fdb5bfcb7`。双骨干SeqFT-LoRA已完整核验并填实际成绩、完整系数及保存态存储；总进度2/16，两组最终完整模型已耐久保存。其余基线按原队列运行，或已保存阶段checkpoint等待接续。未测资源保留未测，不填1%数值或估计。见[正式协议](PROTOCOL.md)及[首组完整证据](FIRST_COMPLETE_FINDINGS.md)。
+训练10%＋完整测试已冻结：TRAIN13105 QA、完整TEST21454 QA、19任务、单轮828次优化器调用，seed42；manifest SHA为`02ef86674c22a9dbf7f0d406398615437f8406cff364415e14d54f5fdb5bfcb7`。双骨干SeqFT-LoRA及LLaVA PaRSP已完整核验并填实际成绩、完整系数及保存态存储；总进度3/16，三组最终完整模型均已保存，PaRSP完整payload保留OLD持久盘。其余基线按原队列运行，或已保存阶段checkpoint等待接续。未测资源保留未测，不填1%数值或估计。见[正式协议](PROTOCOL.md)及[首组完整证据](FIRST_COMPLETE_FINDINGS.md)。
 
 Answer F1取原token_f1，0–100。五域列是S19最终域内QA平均；五域宏给五域等权，AP19给19个原生任务等权。本表覆盖两个backbone各八类基线，共16组合，与1%原表的18列逐列对齐，另保留完整参数量、CP大小、新习得补充和运行状态。新习得／金融错答不替代完整主表，BWT仅继承描述，不作为优化目标。空白表示没有完整核验结果，不是0分。
 
@@ -22,7 +22,7 @@ Answer F1取原token_f1，0–100。五域列是S19最终域内QA平均；五域
 | CL-MoE | 架构 | [CVPR 2025](https://openaccess.thecvf.com/content/CVPR2025/html/Huai_CL-MoE_Enhancing_Multimodal_Large_Language_Model_with_Dual_Momentum_Mixture-of-Experts_CVPR_2025_paper.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 正式运行 |
 | SMoLoRA | 架构 | [ICCV 2025](https://openaccess.thecvf.com/content/ICCV2025/html/Wang_SMoLoRA_Exploring_and_Defying_Dual_Catastrophic_Forgetting_in_Continual_Visual_ICCV_2025_paper.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 已接NEW原队列，等待原生BF16空卡 |
 | PASs-MoE | 架构（兼正则） | [ACL 2026](https://aclanthology.org/2026.acl-long.1474/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 正式运行 |
-| PaRSP | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.1244/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 阶段CP已保存并耐久归档；研究期间暂停，恢复许可已排好 |
+| PaRSP | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.1244/) | 76.399 | 55.291 | 64.854 | 25.728 | 39.601 | 52.375 | 52.526 | 25.734 | 0.214 | 2205.537 | 500.986 | 未测 | 未测 | 未测 | 0 | 893675552 | 5653.470 | 52.560 | 52.323 | 完整核验通过；最终CP保OLD；GPU未测 |
 | OSFT | 正则化 | [ICLR 2026](https://proceedings.iclr.cc/paper_files/paper/2026/hash/22620cccae29bbb3f18d226ea0320ff5-Abstract-Conference.html) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | S0完整CP已保存并耐久归档；已暂停让卡研究 |
 | SpaRTA | 正则化 | [ACL 2026](https://aclanthology.org/2026.acl-long.334/) |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | OLD排队 |
 | Ours | 自研方法 | 未发表 |  |  |  |  |  |  |  |  |  | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 |  | 未测 |  |  | 空，不自动运行探索配方 |
@@ -38,3 +38,5 @@ Answer F1取原token_f1，0–100。五域列是S19最终域内QA平均；五域
 所有结果须绑定本10% manifest、源码／环境、完整19阶段／74格、原评分与完整S19 checkpoint，才进入本表。原1%表、FOREVER历史和既有结果保持原样，不因本表新增而覆写。全量100%不属于此次授权。
 
 10% SeqFT资源列：原最终未折叠模型、同卡五条固定QA、每条32新token；GPU为五窗最大allocated峰，TTFT与解码速度为五窗中位数。计时包含同步观测开销，不是全TEST最坏峰或生产吞吐。[完整实测与核验](FINAL_RESOURCE_FINDINGS_20261027.md)。
+
+PaRSP完整19小类、终态证明、路径兼容核验来源与mixed-dtype参数统计见[本次完整记录](PARSP_COMPLETE_FINDINGS_20261030.md)。原生成／评分／训练设置不变；GPU推理指标没有测量，不用训练累计峰或其它比例代填。
