@@ -1,3 +1,11 @@
+# 2026-10-30最新：记录实测观测及是／否；原生生成前缀已唯一读出
+
+- 人类要求“记录下观测，以及是或否，不要只给命题”。README新增明确事实判定表；未验证不冒充否，局部支持不冒充普适。PaRSP保护预算／geometry／CE线维持关闭、0模型；100%可选未启动。1%／10%、五域19task与完整TEST设置不变，先观测、不设计新方法。
+- 真实question-only原生greedy前缀观测已完成：OLD summary/native_prefix_function_observation_20261030/path_compat_v1；同80历史TRAIN问题，PAS／CL原S19、原图dtype、最多32个实际新token，0gold输入／0CE／0F1／0训练；原三身份1911209/1911236/1922218均gone。CONTROL_COMPLETE f9a5f7...、终态收据976261...、SLOTcomplete/released。不是全TEST或完整长生成证明。
+- 唯一readout_v1已EXIT0+COMPLETE，RESULT 8e7e509b31501fdea20ebf1de35c0453f1648ee591b7b3bdfe92bb8b72213a93；不重消费/重生成。原81d默认检查因systemd transient unit已回收而拒绝、输出尚不存在；最小94855e兼容只在not-found用精确976终态及754内核身份事件与START/EXIT/CONTROL/SLOT全SHA闭合，不把默认0字段冒作退出证据；聚合内容未改。原NEW 0B写源配额故障、原81d及默认失败、最小patch全保留；实际用948源而非假称81d原样。
+- 原图基线与所有主表／QA／JSON／proof／最终CP保留。NEW此前因空间满原969129/969192/261406/969135均gone，不能沿旧PID称live；FullFT完整S10（0bf45b...）及S11.partial／0B故障终态保，SMo完整S15保，QwenPaRSP无CP需诚实fresh W0分支而非CP续训。FullFT旧S01..08已唯一退旧释放28,656,628,192B，durable manifest63479c...；不可重放。恢复实际见summary/storage_recovery_20261030/RECOVERY_STATUS_LATEST_20261030.md，不重放旧activate_once/no_retry原控制器。
+- OLD SpaRTA原生S14暂停完整CP8ba5...保，研究终态已闭合后同RUN恢复按38源+实际976唯一准入，实际worker1946673/start806193331与CPU1946636/start806193288已通过原native重载/RNG路径并进入S15 training；后续以真实身份为准。所有旧退旧清单均是历史不可重放，不拿全盘free代用户quota。低频事件跟进，不重复轮询。
+
 # 2026-10-30最新：关闭PaRSP细节线，回到“参数大而条件功能差异小”
 
 - 人类明确PaRSP保护预算不需要，先前“差异小”才重点。PaRSP geometry/CE实际一步、借卡、父控制/闭合helper全部关闭：0模型，BINDING/ADMISSION/CONTROL_STARTED从未创建。旧4a/db6/8fea/b385/b70及所有草稿审阅仅保历史，绝不自动恢复或用旧准入启动。关闭记录summary/parsp_update_geometry_ce_20261030/CLOSED_BY_HUMAN_20261030.json。

@@ -1,0 +1,41 @@
+--- 81d_original
++++ terminal_compat_v1
+@@ -33,14 +33,35 @@
+  start=read(S/'CONTROL_STARTED.json');c=read(S/'CONTROL_COMPLETE.json');slot=read(S/'SLOT.json')
+  if not c.get('released') or not slot.get('released') or slot.get('status')!='complete' or who(start['identity']['pid'])==start['identity']:return dict(status='WAITING')
+  assert slot['CONTROL_COMPLETE_sha256']==sha(S/'CONTROL_COMPLETE.json')
+- u=subprocess.run(['systemctl','--user','show',UNIT,'--property=MainPID,ExecMainPID,ExecMainStatus,Result'],capture_output=True,text=True,check=True);u=dict(x.split('=',1) for x in u.stdout.splitlines() if '=' in x)
+- assert u['MainPID']=='0' and u['ExecMainStatus']=='0' and u['Result']=='success' and int(u['ExecMainPID'])==start['identity']['pid']
++ u=subprocess.run(['systemctl','--user','show',UNIT,'--property=LoadState,MainPID,ExecMainPID,ExecMainStatus,Result'],capture_output=True,text=True,check=True);u=dict(x.split('=',1) for x in u.stdout.splitlines() if '=' in x)
++ extra=[]
++ if u.get('LoadState')=='not-found':
++  # Original transient unit was collected. Use ONLY the already reviewed terminal receipt,
++  # never interpret systemctl not-found default zero fields as a measured return code.
++  proofpath=S/'TERMINAL_CLOSED_FOR_BASELINE_RESUME_20261030.json';eventpath=S/'PARENT_PIDFD_TERMINAL_EVENT.json'
++  assert sha(proofpath)=='976261c80c5d66bdd72cb90364eed2456c05d4f190514fa0541f5c17689c437c'
++  assert sha(eventpath)=='754e1dfe171488c066d3c253caed3073bc9545dad58d9129a85c220f1b2ea661'
++  proof=read(proofpath);event=read(eventpath)
++  assert proof['complete'] and proof['controller_returncode']==0 and proof['worker_returncodes']=={m:0 for m in METHODS} and proof['all_original_process_identities_gone']
++  assert proof['unit']['MainPID']=='0' and proof['unit']['ExecMainStatus']=='0' and proof['unit']['Result']=='success' and proof['unit']['ActiveState']=='inactive'
++  assert event['kind']=='exact_parent_pidfd_terminal' and event['parent']==start['identity']
++  expected=[start['identity']]+[read(S/(m+'_STARTED.json'))['identity'] for m in METHODS]
++  assert proof['prefix_original_process_identities']==expected and all(who(x['pid'])!=x for x in expected)
++  expected_paths={str(S/n) for n in ['BINDING.json','CONTROL_STARTED.json','CONTROL_COMPLETE.json','SLOT.json','PARENT_PIDFD_TERMINAL_EVENT.json']+[m+n for m in METHODS for n in ('_STARTED.json','_EXIT.json')]}
++  assert {x['path'] for x in proof['prefix_terminal_source_records']}==expected_paths
++  for item in proof['prefix_terminal_source_records']:assert sha(item['path'])==item['sha256']
++  assert proof['prefix_released_slot_path']==str(S/'SLOT.json') and proof['prefix_released_slot_sha256']==sha(S/'SLOT.json')
++  assert proof['prefix_terminal_path']==str(S/'CONTROL_COMPLETE.json') and proof['prefix_terminal_sha256']==sha(S/'CONTROL_COMPLETE.json')
++  u['terminal_zero_returncode_evidence']='Reviewed976receipt;754kernel-parent-identity-event;current-unit-collected'
++  extra=[proofpath,eventpath]
++ else:
++  assert u['MainPID']=='0' and u['ExecMainStatus']=='0' and u['Result']=='success' and int(u['ExecMainPID'])==start['identity']['pid']
+  assert sha(S/'BINDING.json')==BSHA;b=read(S/'BINDING.json');assert b['admitted'] and start['binding_sha256']==BSHA
+  a=read(b['admission_path']);assert a['approved'] and a['binding_sha256']==BSHA and sha(S/'controller.py')==a['controller_sha256']
+  for n,h in b['scientific_sources'].items():assert sha(Path(b['observation_source_dir'])/n)==h
+  assert sha(b['protocol_path'])==b['protocol_sha256'] and sha(b['old_tf_c_path'])==RSHA
+  assert len(c['finished'])==2 and {v['method'] for v in c['finished']}==set(METHODS);finished={v['method']:v for v in c['finished']}
+- files=[S/n for n in names]+[S/'BINDING.json',Path(b['admission_path']),Path(b['old_tf_c_path']),Path(b['protocol_path'])];roots={}
++ files=[S/n for n in names]+[S/'BINDING.json',Path(b['admission_path']),Path(b['old_tf_c_path']),Path(b['protocol_path'])]+extra;roots={}
+  for m in METHODS:
+   st=read(S/(m+'_STARTED.json'));ex=read(S/(m+'_EXIT.json'));assert ex['identity']==st['identity'] and st['binding_sha256']==BSHA and ex['returncode']==0 and ex['identity_gone'] and who(ex['identity']['pid'])!=ex['identity']
+   o=Path(b['output_root'])/m;assert not (o/'FAILURE.json').exists();co=read(o/'COMPLETE.json');assert co['binding_sha256']==BSHA and co['RESULT_sha256']==sha(o/'RESULT.json')

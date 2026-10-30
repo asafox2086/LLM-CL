@@ -1,0 +1,103 @@
+{
+  "status": "RESULT_AND_SCOPED_VERDICTS_ACCEPTED",
+  "unix": 1793364145.7461011,
+  "reviewer": "literature_observation",
+  "RESULT_sha256": "8e7e509b31501fdea20ebf1de35c0453f1648ee591b7b3bdfe92bb8b72213a93",
+  "COMPLETE_sha256": "47eb46902fca5d25c279415076d38123a77e2b05db353ddf42ab1b35c837645d",
+  "README_sha256": "3a8ca7cc62a682ba708fbb1da4db0468cbaf89d95c33d2e895830ddcb9333e4e",
+  "actual_cells": {
+    "PASs_MoE": {
+      "prefill80": {
+        "oldTF": {
+          "R_over_U": 0.00011833256147911992,
+          "R_over_U_percent": 0.011833256147911992,
+          "R_over_base": 6.667661994352749e-09
+        },
+        "native_global": {
+          "R_over_U": 0.00011815811837596249,
+          "R_over_U_percent": 0.011815811837596248,
+          "R_over_base": 6.65783268250011e-09
+        }
+      },
+      "decode_common": {
+        "oldTF": {
+          "R_over_U": 7.066970832219679e-05,
+          "R_over_U_percent": 0.007066970832219679,
+          "R_over_base": 3.204445423921595e-09
+        },
+        "native_global": {
+          "R_over_U": 6.953718457423028e-05,
+          "R_over_U_percent": 0.0069537184574230285,
+          "R_over_base": 3.1530922964244785e-09
+        }
+      }
+    },
+    "CL_MoE": {
+      "prefill80": {
+        "oldTF": {
+          "R_over_U": 0.019194106392736564,
+          "R_over_U_percent": 1.9194106392736565,
+          "R_over_base": 8.654867811804471e-08
+        },
+        "native_global": {
+          "R_over_U": 0.019018139324328182,
+          "R_over_U_percent": 1.9018139324328183,
+          "R_over_base": 8.575522012362533e-08
+        }
+      },
+      "decode_common": {
+        "oldTF": {
+          "R_over_U": 0.03472215262567306,
+          "R_over_U_percent": 3.472215262567306,
+          "R_over_base": 9.02456163130386e-08
+        },
+        "native_global": {
+          "R_over_U": 0.034547700051259594,
+          "R_over_U_percent": 3.4547700051259596,
+          "R_over_base": 8.979220029747454e-08
+        }
+      }
+    }
+  },
+  "support": {
+    "common_decode_QA": 80,
+    "eligible_PAS": 80,
+    "eligible_CL": 80,
+    "each_domain_QA": 16,
+    "PAS_native_prediction_forwards": 717,
+    "CL_native_prediction_forwards": 752
+  },
+  "verdicts": [
+    {
+      "claim": "The PAS<CL conditional residual ordering exists only under gold teacherforcing and disappears on question-only native prefixes.",
+      "verdict": "NO",
+      "evidence": "PAS<CL for both fixedreferences, both prefill80/commondecode and allfive domainaggregates. OldTFreference was not refit; nativeglobal constant shared acrossphases/subsets."
+    },
+    {
+      "claim": "R/U changes in the same direction from prefill to decode for both models under the same reference.",
+      "verdict": "NO",
+      "evidence": "PAS R/U decreases, CL R/U increases for bothreferences. This is normalized R/U, not a statement about every absoluteoutputenergy or matchedtoken causalresponse."
+    },
+    {
+      "claim": "The finite prefix observation verifies negligible qualityloss, staticallyreplaceable CL, allCL generality,10pct, or full-length generation.",
+      "verdict": "NOT_VERIFIED",
+      "evidence": "Only original1pctLLaVAtwoS19models/same80historicalTRAIN/atmost32selectedtokens; ownnative trajectories differ. No prespecified negligibility threshold/noF1 interventions or generality proof."
+    }
+  ],
+  "checks": [
+    "ExistingRESULT/COMPLETE fullhash actualverified; no consumer or model rerun.",
+    "All8 reported global percentagecells checked from savedRstable/U; same80decode support,5domains16each,0negative residuals beyond recordscale.",
+    "No posthocthreshold, no F1/wholelayer/resource extrapolation, no claim to exclude allcontext effects or identify causal reason for parameterfunctionreversal.",
+    "PASstatic c55 fullTEST evidence remains separate from these two fixedmean references."
+  ],
+  "README_reviewed_excerpt": "447:\n448:在相同80条历史TRAIN问题上，只输入问题、不给标准答案，沿两个原模型各自的原生greedy轨迹测量。首步为prefill最后位置，解码为随后最多31个预测位置；两法共同解码支持均为80／80题。下表全部是局部差值平方／原适应增量平方，逐题先平均、再对题等权；168投影求能量和之比。\n449:\n450:| 原模型 | 旧TF全局均值：首步 | 旧TF全局均值：解码 | 原生全局均值：首步 | 原生全局均值：解码 |\n451:| --- | ---: | ---: | ---: | ---: |\n452:| PASs-MoE | 0.011833% | 0.007067% | 0.011816% | 0.006954% |\n453:| CL-MoE | 1.919411% | 3.472215% | 1.901814% | 3.454770% |\n454:\n455:| 对已观测事实的判断 | 是／否 | 结论范围 |\n456:| --- | --- | --- |\n457:| PAS新增参数更多、相对条件功能变化更小的排序，在真实生成前缀仍成立 | **是** | 两阶段、两套固定参照均复现；旧TF均值直接沿用，原生均值也只全局拟合一次，未按阶段／域重拟合。因此该排序不依赖输入标准答案才存在。 |\n458:| 两模型从首步到解码的相对残差比例变化方向相同 | **否** | PAS下降，CL上升，两参照一致。这里只比较各自原生轨迹的归一化比例，不是共同token上的因果干预，也不把比例变化等同绝对残差能量变化。 |\n459:\n460:相对基座投影输出的平方差比例为3.15×10⁻⁹至9.02×10⁻⁸，与上表分母不同。两者均为局部功能测量，不能推成F1等价、专家无用或可删参数比例。范围仍仅LLaVA、1%、两个S19模型、80历史TRAIN和最多32个生成token；10%及其它方法仍未验证。[完整原生观测、核验与边界](summary/native_prefix_function_observation_20261030/NATIVE_PREFIX_FINDINGS_20261030.md)\n461:\n462:<!-- NATIVE_PREFIX_VERDICTS_20261030_END -->",
+  "review_actions": {
+    "models": 0,
+    "consumers": 0,
+    "CP_payload_reads": 0,
+    "raw_QA_stream_reads": 0,
+    "new_scores": 0,
+    "source_edits": 0,
+    "README_edits": 0
+  }
+}
