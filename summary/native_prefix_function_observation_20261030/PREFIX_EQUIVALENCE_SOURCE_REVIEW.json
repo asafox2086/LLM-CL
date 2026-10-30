@@ -1,0 +1,43 @@
+{
+  "status": "SOURCE_LEVEL_PREFIX_EQUIVALENCE_ACCEPTED_WITH_STATED_PRECONDITIONS",
+  "unix": 1793356783.857277,
+  "reviewer": "literature_observation",
+  "runtime": {
+    "invocation_python": "/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python",
+    "actual_transformers_origin": "/data2/liyapeng_grp/program/LLMCL/.conda-env/lib/python3.10/site-packages/transformers/__init__.py",
+    "version": "4.46.3"
+  },
+  "read_sources_sha256": {
+    "generation/utils.py": "24e719be0942a06f1956cadd469a100a455012ea6f808cca894a3e94edb06bf3",
+    "generation/stopping_criteria.py": "534bdc18702e040c6e49b57625bee715dda7d0093174c49e23ff2bbed1b94782"
+  },
+  "source_locations": {
+    "_sample": "utils.py3122-3296; forward then original logits_processor3223, argmax3251, append3258, stoppingcriteria3262",
+    "original_max_length": "_prepare_generated_length1414-1462, cache length2077, ForcedEOS966-970",
+    "stopping_merge": "_get_stopping_criteria1072-1109 and _merge_criteria_processor_list1111-1130",
+    "OR_semantics": "stopping_criteria.py491-504",
+    "native_OneVision_bridge": "onevision_bridge.py85-94 passes both actual input_ids and inputs_embeds to language_model.generate"
+  },
+  "accepted_plan": "Keep original native generate configuration/kwargs and append a pure, distinct StoppingCriteria which is False before32 new tokens and True at32. No change to max_new_tokens/max_length, no forcedEOS, no altered cache or logits processing.",
+  "proof_scope": "For the original greedy loop and fixed forward/logits processing, induction on generated tokens: custom criterion is False for tokens1..31, and called only after selecting/appending token32, so the observed prefix is the same as the untruncated native call up to the earliest original stop or token32. This is source-level reasoning, not a model execution or a bitwise GPU reproducibility certificate.",
+  "required_conditions": [
+    "Assert actual loaded generation_config.get_generation_mode(None) is GREEDY_SEARCH; do_sampleFalse and num_beams1 alone do not exclude contrastive mode.",
+    "New criterion must be a distinct StoppingCriteria subclass, not another plain MaxLengthCriteria which the default type-duplicate check rejects.",
+    "Criterion has no RNG, model/config mutation, logits side effects, or eos_token_id attribute; return a per-sequence boolean tensor using actual initial input_ids length.",
+    "Preserve original do_sample/beam/native task max_new_tokens/EOS/pad/use_cache and every generation_config value; do not forceEOS at diagnostic boundary.",
+    "Original EOS/stop_strings/native cap remain OR conditions and can stop earlier.",
+    "If original max_time is nonnull, wall-clock termination depends on observation overhead; do not claim the same original stopping length.",
+    "Batch1 original request and native cached path;32 generated tokens means at most1prefill+31cached-decode forwards."
+  ],
+  "research_scope": "Question-only native-prefix function observation on original PAS/CL checkpoints,1pct/10pct mainline; not main-table generation protocol/F1 evaluation, not a new training method.",
+  "review_actions": {
+    "models": 0,
+    "Torch_execution": 0,
+    "checkpoint_reads": 0,
+    "QA_reads": 0,
+    "new_scores": 0,
+    "source_edits": 0,
+    "new_experiments_launched": 0
+  },
+  "initial_readonly_path_discovery_note": "The first candidate vision-env-only package glob found no package and stopped before imports or writes; importlib.find_spec identified the inherited conda-env source, which was then read once."
+}

@@ -1,0 +1,25 @@
+{
+  "status": "INTERFACE_CONTRACT_ACCEPTED_BEFORE_EXECUTION",
+  "reviewer": "observation_review",
+  "run_sha256": "05c256d5f8272c37909e0a29bcb01d79dac5a0412151785ccf80c8553c4afff0",
+  "interface_sources": {
+    "observe_qa.py": "1a18b6c8180a5f6407899306539fb24e3123b33ca0ff6d9c8591721aaee14643",
+    "native_hooks.py": "3e9d033b8dfd71c352ce1ef7cb4344dedd8a836e5048a7e0e647255a1c9e9b9c",
+    "gpu_statistics.py": "acb687fd3f794b5a284269c43c9a93b70b3d6c8b12dbc1ae51b8fd2875d64a28"
+  },
+  "protocol_sha256": "37aefb45b6a35640d8df923ec0e3a2a141be939532186ab2e14fea6289bc562f",
+  "old_tf_reference_sha256": "11ee3cff9c09534d67f35a09662b1131426e55d570cc92ab5ca3b42012b8673c",
+  "checked": [
+    "observe_qa keyword-only call signature matches worker line89",
+    "COMPLETE metadata keys new_F1/new_CE/new_scores/new_checkpoints/generation_decoder_forwards/question_feature_decoder_forwards/question_feature_cache_hit/qa_id_sha256/actual_prediction_positions/decode_eligible/moments_sha256/position_records_sha256 all produced",
+    "Old reference actual methods[method][layer] format matches worker scope ref extraction",
+    "moments_sha256 binds QA_PHASE_MOMENTS, position_records_sha256 separately binds PREDICTION_RECORDS; worker manifests distinguish them",
+    "worker torch.inference_mode outer context satisfies observer eval/inference precondition",
+    "feature passes remain before hooks enable; generation count80 per teacher, no0generation claim"
+  ],
+  "blocking_interface_findings": [],
+  "source_modified": false,
+  "new_models": 0,
+  "new_consumers": 0,
+  "new_scores": 0
+}

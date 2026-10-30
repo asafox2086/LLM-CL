@@ -1,0 +1,29 @@
+{
+  "status": "SOURCE_INTERFACE_ACCEPTED_NOT_RUNTIME_VALIDATED",
+  "unix": 1793359913.0070007,
+  "reviewer": "literature_observation",
+  "source_sha256": {
+    "native_hooks.py": "3e9d033b8dfd71c352ce1ef7cb4344dedd8a836e5048a7e0e647255a1c9e9b9c",
+    "observe_qa.py": "1a18b6c8180a5f6407899306539fb24e3123b33ca0ff6d9c8591721aaee14643",
+    "gpu_statistics.py": "acb687fd3f794b5a284269c43c9a93b70b3d6c8b12dbc1ae51b8fd2875d64a28"
+  },
+  "protocol_sha256": "37aefb45b6a35640d8df923ec0e3a2a141be939532186ab2e14fea6289bc562f",
+  "checks": [
+    "Pure distinct Stop32 preserves original greedy kwargs/config and requires actualGREEDY/max_timeNone; installedHF source proof80f845 is separate.",
+    "Question-only safe input with original input_batch/vision prepare and original CL prepare_row before statistical hooks; no gold tokenization or scoring.",
+    "Native prefill last position and cached decode L1, actual cache length/cacheposition increments verified; EOS first token means missing decode, not zero.",
+    "Actual softmax, effective CL anchor mixture, PAS scaling and expertB capture; actual output bitwise closure plus FP32 arithmetic bound, no gate renormalization or model intervention.",
+    "Selected detachedGPU fragments retained only perQA; unchanged QA-phase pooled moments plus selected_tokens are sufficient for planned QA-equal global references, at most336 momentrows perQA.",
+    "Two references fixed as oldTFglobal and one native pooled global, phase/domain/common-support never refit; no readout implemented/run.",
+    "Final protocol corrects per-step-moment prose to QA-phase pooled moments; interfaces unchanged by prose correction."
+  ],
+  "limits": [
+    "Source acceptance is not actual loaded-model/cache/closure success.",
+    "Finite same historicalTRAIN own-native-prefix observation, no F1/deployment-resource verification or full-length guarantee."
+  ],
+  "models": 0,
+  "consumers": 0,
+  "CP_payload_reads": 0,
+  "QA_reads": 0,
+  "source_edits": 0
+}
