@@ -1,0 +1,17 @@
+# 固定block12残差出口pilot最终独立源码审查
+
+接受这三个固定版本作为四臂研究探针的科学实现草稿：run.py 838a05c11f8b3ec6c2141c4dd45d4913f32b129829a977840c736e994e9ac2ed；probe.py d4c756a932a7c15dccad31d2296d9722df80716b5b00935b170764f00b321063；ridge.py b77350ac0df5557ac9496332fb65c79ca99bdc9dc549f8c57a0254abf49791bb。此审未运行模型、消费者、原QA分析或提交；源码可进入正式绑定/单次控制器审查，不等于实际GPU验证或启动许可。
+
+1. 原Qwen pre-norm block的skip由post_attention_layernorm前钩捕取，down输入/输出和block tuple[0]正确配对，实际skip+down逐位闭合须运行时通过。P-1:P+n为causal答案预测位置，含EOS，与构造输入长度一致。
+2. A全meanfold；B原Xt到Ydown；C原Xs到同Ydown；D同Xs到teacher blockout减student未归一skip。固定bias从目标减去，目标覆盖残差出口而非误当norm输入。只改一个existing down W，四臂同prior/同teacher Gram规则lambda/同FP16，每臂Xs和skip逐位相同校验构成有效控制。
+3. equal-QA G和rhs、prior-delta ridge正规方程、pre/postcast更新及正则目标/消减尺度证书正确。失败不jitter、不换lambda，不把理想线性拟合残差当实际FP16 GEMM误差。heldout测实际block误差、相对A和teacher block增量尺度，以及完整词表KL/top1，未使用F1选择。
+4. 原deepcopy冻结vision闭包缺口已修：显式恢复student自身bound PackedVision.forward，核__self__和无closure，wrapper/model/lm_head/visual/core/tower/projector/newline别名关系均运行时硬检；非替换参数与buffer逐值核相等，参数不与teacher共享storage，其他参数/缓冲区最终摘要保持。观察hooks在deepcopy后安装，不复制这批observer闭包。
+5. 固定80历史TRAIN，20预hash读出排除80/旧100；是teacher已见TRAIN中的拟合外样本，不称teacher未见泛化或无标签。没有TEST、生成、CE/F1、梯度optimizer或新CP。
+6. Temporary资源代码在torch device初始化后、native import与CP load前reset peak；结束synchronize后记录CUDA allocated/reserved、Linux CPU maxRSS和whole-worker wall，覆盖teacher+student+calibration+FP64求解/核对。正确标为临时探针开销，不当部署推理峰或加速证据。当前尚无任何实测数值；失败路径不保证完整资源报告，不能为失败虚填估计峰。
+7. 最新DRAFT binding source/protocol哈希吻合、admitted=false和GPU UUID占位阻止执行。现有METADATA_INSPECT_DRAFT仍绑定较早d35e...版本，不能声称它验证了最终90ea... binding；最终准入前以实际最终binding做只读metadata闭合并保留旧proof即可。真实OSFT完整阶段pause/worker gone/GPU3空及合法UUID必须由单次控制器实核；metadata通过不能代替这些事实。
+
+不恢复原CL四臂旧方案，不改科学设置或新增allocator。接受固定探针，后续仅审真实单次启动器/绑定，运行后再凭完整证据判断是否支持扩大；不以源码接受宣称方法有效。
+
+## 最终metadata已有证明的后续闭合
+
+追加只读复核SOURCE_FINALIZATION_METADATA.json：已绑定最终DRAFT binding90ea666d895457683c1f2b32e9ba0ca936b111ef95bc891d8c93caf21bfdec8c，两法均returncode0、metadata_validated=true、model_loaded=false。未重复运行metadata检查。原第7条关于METADATA_INSPECT_DRAFT的说明仅指旧历史proof；最终版本metadata已经由这个新proof闭合，不再是准入缺口。原METADATA_INSPECT保留为历史记录。该metadata闭合仍不等价于真实GPU模型验证或启动许可；实际空槽/暂停/身份及单次执行绑定保持原要求。
