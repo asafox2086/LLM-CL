@@ -1,3 +1,11 @@
+# 2026-10-30最新：关闭PaRSP细节线，回到“参数大而条件功能差异小”
+
+- 人类明确PaRSP保护预算不需要，先前“差异小”才重点。PaRSP geometry/CE实际一步、借卡、父控制/闭合helper全部关闭：0模型，BINDING/ADMISSION/CONTROL_STARTED从未创建。旧4a/db6/8fea/b385/b70及所有草稿审阅仅保历史，绝不自动恢复或用旧准入启动。关闭记录summary/parsp_update_geometry_ce_20261030/CLOSED_BY_HUMAN_20261030.json。
+- 实际取消闭合1793354362：SpaRTA worker1408250/start802712034、CPU1408233/start802712019仍live，completed12/active13 training；6ade原pause未消费，原字节独立归档后已撤回，0kill/0重启/0GPU信号，无需resume分支。OLD receipt3904c2ff...保留；CL3dc请求也已撤回，原S0继续。100%仍optional未启动，legacyS11..13三CP只inspect未删。
+- 主线只研究已训练条件专家的参数规模、实际输入条件功能偏离及其成因/适用边界，优先1%与10%；不急设计方法。PAS/CL目前仅LLaVA1%80历史TRAIN/168投影有完整局部M2，比例0.0104569%/2.9523363%；PAS完整静态F1仅降0.288pp，原五窗GPU少24.84–26.81%。这不是多数CL或10%已证明。
+- 重要辨识：joint/indep>1否定总体/五域负input耦合压小差异，不等于已证明路由方向没有低敏感对齐。PAS双专家零和空间仅1维；CL八专家有多维方向问题。现已唯一只读消费缓存C/H并核验：analysis/conditional_function_factorization_20261030.py最终49d7...、RESULT07983e55...，CL/PAS差值平方比282.3345=43.6507倍专家能量加权gate二阶变差×6.4680倍剩余实际归一敏感度；不是因果贡献率。原值/闭合/独审在summary/conditional_function_factorization_20261030，不重跑此消费者，不以中位数相乘归因。
+- 原图基线、final CP、全部主表/QA/JSON/proof保留；新研究不会暂停或重启继续中的基线。FullFT朴素1%原正式worker969192等既有进程按真实状态继续，原科学设置冻结。低频事件跟进，不重复轮询/旧消费者/已关探针。
+
 # 2026-10-30最新优先级：1%/10%为主，100%降为可选补充
 
 - 人类明确100%不关键，数据受限前提抽样合理；不需要用全量实验为抽样辩护。1%/10%冻结主设置不变，先找跨方法有价值的学习事实，不设计新方法。

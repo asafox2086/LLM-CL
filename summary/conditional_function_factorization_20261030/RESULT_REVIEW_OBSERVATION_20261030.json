@@ -1,0 +1,57 @@
+{
+  "status": "ACCEPTED_READ_ONLY_EXISTING_COMPLETE_RESULT",
+  "reviewer": "observation_review",
+  "source_sha256": "49d7b47b35115a8da7b021959ba8cb1e6853ec67319b62affaa7906debd9658a",
+  "input_sha256": "55e95fd9dde9a76b34aa02bdd12b507e03506feb2137a706ba31067c37da6ef1",
+  "RESULT_sha256": "07983e55fd16b12b264d73cf06fc12fe4456bb48a6a702f74c62c98e01e11f00",
+  "COMPLETE_sha256": "e959764f93620d581336726045e6e2ea5700443929fe3f5be11826e71a92c2a9",
+  "spot_checks": [
+    {
+      "method": "PASs_MoE",
+      "layer": "language_model.model.layers.0.mlp.down_proj",
+      "qa_count": 80,
+      "trace_I_and_J_closed": true
+    },
+    {
+      "method": "PASs_MoE",
+      "layer": "language_model.model.layers.2.mlp.down_proj",
+      "qa_count": 80,
+      "trace_I_and_J_closed": true
+    },
+    {
+      "method": "PASs_MoE",
+      "layer": "language_model.model.layers.9.self_attn.v_proj",
+      "qa_count": 80,
+      "trace_I_and_J_closed": true
+    },
+    {
+      "method": "CL_MoE",
+      "layer": "language_model.model.layers.0.mlp.down_proj",
+      "qa_count": 80,
+      "trace_I_and_J_closed": true
+    },
+    {
+      "method": "CL_MoE",
+      "layer": "language_model.model.layers.2.mlp.down_proj",
+      "qa_count": 80,
+      "trace_I_and_J_closed": true
+    },
+    {
+      "method": "CL_MoE",
+      "layer": "language_model.model.layers.9.self_attn.v_proj",
+      "qa_count": 80,
+      "trace_I_and_J_closed": true
+    }
+  ],
+  "interpretation": [
+    "CL/PAS local residual ratio282.3345 equals weighted gate-deviation ratio43.650677 times actual normalized sensitivity ratio6.468045; multiplicative description, not causal contribution",
+    "Gate-variance scale is a large descriptive factor, but not the sole explanation; remaining normalized difference6.47x",
+    "Both joint couplings exceed1; aggregate negative input coupling is unsupported, not proof that expert geometry or directional alignment is absent",
+    "T/U and J/I are not pure redundancy or pure direction; different models use their own native trajectories and expert counts",
+    "1% two-model historical TRAIN scope only; no10% universality or parameter-removal guarantee"
+  ],
+  "new_model_loads": 0,
+  "new_consumers_executed": 0,
+  "new_scores": 0,
+  "new_QA": 0
+}
