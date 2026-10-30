@@ -1,0 +1,9 @@
+# Proposed original CLI only; NOT executed
+# Root must replace GPU_SLOT by an actually admitted idle OLD card.
+LLMCL_ROOT=/data2/liyapeng_grp/program/LLMCL \
+LLMCL_HOST=old2080 LLMCL_BACKBONE=onevision CUDA_VISIBLE_DEVICES=GPU_SLOT \
+OMP_NUM_THREADS=8 MKL_NUM_THREADS=8 PYTHONUNBUFFERED=1 \
+/data2/liyapeng_grp/program/LLMCL/.vision-env/bin/python -u \
+/data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_checkpoint_20261027/run.py \
+--method PaRSP --condition full \
+--run-dir /data2/liyapeng_grp/program/LLMCL/exp/two_backbone_native_checkpoint_20261027/runs/onevision/full/PaRSP/training_full_20261030_first

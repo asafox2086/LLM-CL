@@ -1,0 +1,34 @@
+{
+  "status": "SCIENTIFIC_SOURCE_ACCEPTED_BEFORE_FIRST_MODEL",
+  "unix": 1793347781.5680506,
+  "reviewer": "literature_observation",
+  "inputs_sha256": {
+    "METADATA_INSPECT.json": "e5505a44cf21dcc2341fb5d005ec4f9e337a306b852703cb5797f37e49f9e0d3",
+    "BINDING_DRAFT.json": "862b9c21e15282d8845f6e9c17b096c8f35a8455569cf6132a99d90bff5b846a",
+    "PROTOCOL_DRAFT.md": "8fea3d67ad37c4088c4a81994c990a6f1003b3f48b8d4cde2185b92ffefde009",
+    "CE_ONLY_SOURCE_DIFF.patch": "d8bf8d47779446831c3496bf55134af64412c08a2b54ddfbecadd2a2c69d3c79"
+  },
+  "run_sha256": "4a80684bf0090a048ee40c69833a5d1b85949e06c72a5315fc27688c453b29a6",
+  "measure_sha256": "db6f3a373a6372569201eefabf2fae3a31c25ae90c88da64d64c07236d7ddc80",
+  "checks": [
+    "Entire CE-only diff and final source read against a1b original observer; original 16 backward/unscale/clip/native HostAdam/scheduler arithmetic unchanged.",
+    "Same first16 TRAIN and original begin_stage19 cap256/history96/S18 source; no new arm, full-gradient capture, TEST, generation, score or new checkpoint.",
+    "Per-micro prepare-entry RNG, prepared tensor bytes, forward-entry RNG, all registered buffers and module modes plus target length determine strict pairing; no replacement input or mode rescue.",
+    "After-step readout uses original train/grad-enabled/autocast/activation storage, one graph perQA without backward; separate16 forward counter, no further parameter version change and genuine poststep RNG restoration recorded.",
+    "Visual cache membership is expressly not restored; prepared-feature byte comparison is required for strict pairing.",
+    "Actual final metadata returned0 with zero models; previous a1b/db6/c38/774/910 artifacts preserved."
+  ],
+  "limits": [
+    "Metadata validation does not establish runtime success or strict-pair agreement.",
+    "CE change is finite sameTRAIN native-step observation, not proof that the three target updates or constraint leakage caused it.",
+    "One conditional replay cannot establish convergence, generalization, F1, all-stage behavior or a generic CL failure.",
+    "Actual external controller must bind final fingerprints, genuine original CL S0 paused checkpoint/gone worker, idle OLD2 UUID and a fresh one-shot admission before model execution."
+  ],
+  "review_actions": {
+    "models": 0,
+    "consumers": 0,
+    "checkpoint_payload_reads": 0,
+    "source_edits": 0,
+    "launches": 0
+  }
+}

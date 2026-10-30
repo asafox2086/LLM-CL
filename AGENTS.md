@@ -1,3 +1,15 @@
+# 2026-10-30最新：先高价值观测；授权LLaVA100%TRAIN与完整TEST
+
+- 人类再次强调先不设计方法，先找高价值、可复核学习事实；LoRA/正则化只是例子，不能强行找问题。必须正视不用LoRA/不扩展是否就绕过问题，不能以两专家个例冒称普适。baseline原方法原图，哪怕可合并也不替其优化。1%/10%冻结不变。
+- 人类已明确100%指“100%训练数据＋完整测试集”，不是100%参数；仅新增LLaVA full条件，不扩Qwen100。既有授权有效full TRAIN131018/TEST21454/19task/8197原一轮updates，原full131019中的唯一空gold SLAKE:1622/T04于2026-10-17已获人类排除；1%和10%本来不含它。19份TEST actualSHA均相同，TRAIN嵌套；42256图片只stat齐全非解码保证。DATA_EVIDENCE78894ff5...与protocol在summary/llava_pct100_observation_20261030。首批选择原PaRSP、OSFT，先PaRSP；未有100%模型/质量。固定epoch使样本和更新次数同时变，不能纯数据因果。
+- OLD原native_checkpoint full入口已按NEW现有25科学原字节运输到独立新目录，隔离full policy仅补old2080 full[0,1,2,3]；没有覆盖活跃1/10源或policy。SOURCE_READY凭据845fee32.../ea347e65.../edb12b9f...，原完整性入口检查通过。旧cfg.primary_score=rougeL是legacy标签，100%正式报告只用原token_f1/原metriclock，不能拿RougeL冒F1；未新建science runner/allocator，100%GPU/preflight未启动。
+- 关键FullFT朴素反证已真实启动：NEW原owner969129/start69022236/UID1004七锁全持有；GPU3 LLaVA1% FullFT worker969192/start69022278，wrapper969180/start69022271，原admission aa965/原3科学源/原W0无resume，尚初评无CP无完整F1，不能再称仅offer。NEW GPU2 Qwen1% PaRSP969135/start69022258也原生fresh；GPU1 SMo261406/start66873614保持。NEW0他人任务不碰。原QwenOSFT paused18/72a391仍保留无resume。
+- CPU原ff050 handoff在postCAS/pre-signal因缺os.pidfd_open失败，原错误全保留；有限0222 syscall434续接已唯一成功，0CAS重放/0GPU信号，donor261266及261265gone。不得重跑任一handoff/retention；实际闭合见NEW_BASELINE_RECOVERY/PAUSED_STATE_CPU_HANDOFF_ONCE/LIVE_CLOSURE.json。
+- 纯PaRSP真实step观测的最终版本为exp/summary parsp_update_geometry_ce_20261030：run4a80684bf0090a048ee40c69833a5d1b85949e06c72a5315fc27688c453b29a6、measuredb6f3a37...、protocol8fea、draft862b、metadatae550、独审6ea41a89...，父controller b385f4d6...已运输但尚未准入/模型。旧a1几何only版本始终未运行。唯一原begin19(localizer256)+首16QA/原Adam一次，额外同train+grad模式16前向pairedCE，无额外backward/step；strictfalse如实保留。原T19 TRAIN实际488（旧说明492仅口头/文案误差，manifest/hash/31updates一直正确）。原begin19真实777s+step21.7s只作7200期限参考。
+- OLD GPU2 CL worker1650061/start804287271及CPU1650035/start804287245仍S0，原PAUSE_REQUEST3dc091...已发布；只在全S0评估后原生保存S00/RNG/EXIT0让卡，resume从S1不重初评。已有唯一内核事件会话94632复用，没终态不新建/不分钟轮询。closure6175f2...未执行；CE父仅在真实pause+两PIDgone+OLD2 UUID idle后唯一admit/execute，不用旧父5a2或旧a1/旧SLOT。
+- 原四臂pilot已完整诊断/唯一读出，SUMMARY877eb612...；两teacher0、controller因tuple/list后发布错误原EXIT1保留，有限release及2708已唯一结束，不重放。D相对C的block/KL支持局部出口目标，但输入重配非统一有效、top1未同步提升；不自动新方法/24层扩展/普适成功。
+- 容量估计已更正：QwenPaRSP L28/1536/8960、112组FP32history9.784GB，不可用4group preflight6.219GB代表formal；S1主张量15.232GB/S2上界20.105GB、双CP主张量35.337GB+计划余量。NEW此前退Seq8/9+OSFT17六path17.642GB已完成不可重放；OLD旧legacySeq2..10九path39.868GB及NEW Seq10..15十二link27.380GB为另两已审新清单，实际STARTED/RECEIPT为准，不猜执行状态。final/当前CP/OLD PaRSP与OSFT18研究锚及全部QA/proof保留，不拿globalfree冒用户quota。
+
 # 2026-10-30最新人类口径：原图基线；先观测跨机制事实，暂不扩方法
 
 - 基线严格按原方法、原保存态与原推理图；用户明确哪怕可合并也不替OSFT/LoRA额外合并、物化或优化。原数字保留；旧fold证明为历史，不新开baseline优化。政策见summary/deployment_total_parameters_20261028/BENCHMARK_ORIGINAL_GRAPH_POLICY_20261030.md。

@@ -1,0 +1,19 @@
+{
+  "original_aux_path": "/dev/shm/llmcl-pct10-1084-zu7e3hb_/exp/two_backbone_pct10_native_checkpoint_20261027/runs/onevision/pct10/PaRSP/recovery_quota_fourth_S18_20261030/auxiliary/parsp_stage_19.json",
+  "original_aux_sha256": "6bbeb8ca7c00f41bd6088dae45509cbc5353551458b311d1b0397c149349fc23",
+  "native_begin_stage19_seconds": 777.356771226041,
+  "native_begin_localizer_QA": 256,
+  "original_first_step": {
+    "stage": 19,
+    "step": 1,
+    "seconds": 21.711140132509172,
+    "learning_rate_used": [
+      3e-05
+    ],
+    "warmup_updates": 0
+  },
+  "native_rng_functions": {
+    "rng": "201:def rng():\n202:    return {'python':random.getstate(),'numpy':np.random.get_state(),'cpu':torch.get_rng_state(),\n203:            'cuda':torch.cuda.get_rng_state_all()}",
+    "restore_rng": "206:def restore_rng(state):\n207:    random.setstate(state['python'])\n208:    np.random.set_state(state['numpy'])\n209:    torch.set_rng_state(state['cpu'])\n210:    torch.cuda.set_rng_state_all(state['cuda'])"
+  }
+}
