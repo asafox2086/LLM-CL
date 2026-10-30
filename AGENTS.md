@@ -1,3 +1,17 @@
+# 2026-10-30人类最新纠正：结论须指出专家的部署冗余，不包装“脱钩”概念
+
+- 新增专家模块本身没有问题，不能凭参数多就批评算法。外层结论改为：在已测两个模型的原动态隐藏输入上，主要适应增量能由固定专家组合近似承载；仅PAS有整模静态替代保接近F1／降低权重及GPU内存的正式证明。不是gate恒定、专家权重同质、训练专家无用或所有CL冗余的证明。
+- 人类要求论文级性质与明确证据，当前跨方法／1%与10%普适结论仍缺覆盖，不给现象换名字冒充机制。此前临时“脱钩”说法已从外层README撤下，按实际输出近似、整模干预和成本表述。正式设置不改，方法设计仍后置。
+- NEW已有两条真实恢复：SMo1401697/start70894838在GPU1完成strict CP15/RNG后已S16；FullFT1411303/start70936723在GPU3从原CP10恢复并已完成S11、评估S12。唯一CPU owner1401680/start70894816持原7锁，8db固定offer源仅inotify/pidfd，勿新起竞争owner或旧activate_once。QwenGPU2仍原W0初评prefix准备（597源待实际admission），无CP不得称续训；NEW0不碰。对应实际proof分别6cc267...及6e7503...，旧MD若尚未同步以这两实核为准。
+
+# 2026-10-30最新：请求内／间观测已完成，不能归纳统一请求间主导
+
+- 新唯一纯统计within_between_readout_v1已EXIT0／COMPLETE，原native80QA-phase矩，无新model／generation／PRED／QA正文／score。实际source9f4b464c26f1bdee8212271d495fa99509a175f49d70da1e1336fcfb801d5db8；RESULT2dcbcb0e8b1371c75621cf3caf9043da637741820ae9e511fb8070f23d9e95e2。不重放消费者，不另起同义分解。
+- 精确判定B>W：PAS否（W/B1.3261436），CL是（.8216110）；完整R=W+B+2dot，两个交叉项均非零，不称贡献率。cq是完整prefix后见均值且非H最优，不能据此否定所有请求级常量，更不能声称F1／10%普适。README实测表及是／否已写，原所有主表完整字节不变。
+- 原逐项closure_scale漏传播二次式消减误差，flags如实保留，不能声称所有证书通过；raw／stable及独审支持聚合W-B方向，详细数值见WITHIN_BETWEEN_FINDINGS_20261030.md。原source不改、不重跑。
+- 两机原raw95,929,756B均保留；Git发布仅gzip15,343,933B（65daa989...）和解压核SHAreceipt、源／协议／审阅，不纳95.9MB raw。原结果2dcb不删。PAS温度／logits代数闭合分支因缺成因辨识价值被否决，未新消费／模型；后续仍先找跨方法事实，不设计新方法。
+- 基线运行与恢复按summary/storage_recovery_20261030/RECOVERY_STATUS_LATEST_20261030.md及最新真实进程；旧PID／锁不代表live。已实核NEW GPU1/2/3空且free24253MiB（1793365564），0保留不碰，不能把分支准备误称模型已启动。用户授权退早期非final；QwenSeq17/18额外跨机保留条件已被明确撤销：正式proof只依S19，历史lineage已完成，准仅4精确link／2inode退旧并保S19全SHA与全部QA/proof，真实执行以新收据为准，勿重放旧archive或其它已退清单。
+
 # 2026-10-30最新：记录实测观测及是／否；原生生成前缀已唯一读出
 
 - 人类要求“记录下观测，以及是或否，不要只给命题”。README新增明确事实判定表；未验证不冒充否，局部支持不冒充普适。PaRSP保护预算／geometry／CE线维持关闭、0模型；100%可选未启动。1%／10%、五域19task与完整TEST设置不变，先观测、不设计新方法。

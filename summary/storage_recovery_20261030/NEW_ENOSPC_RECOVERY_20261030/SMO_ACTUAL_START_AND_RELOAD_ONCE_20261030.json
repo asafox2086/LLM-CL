@@ -1,0 +1,86 @@
+{
+  "unix": 1793366138.439841,
+  "owner_unit": "MainPID=1401679\nExecMainStatus=0\nActiveState=active\nSubState=running\n",
+  "records": [
+    {
+      "path": "/data1/liyapeng/program/LLMCL/summary/storage_recovery_20261030/NEW_ENOSPC_RECOVERY_20261030/INCREMENTAL_OWNER_V1/STARTED.json",
+      "sha256": "e1a15bb16f298d1518cc24cc1175602e0ec3bcd7f1c6a941baeda950aba7679b",
+      "metadata": {
+        "unix": 1793366057.3600643,
+        "owner_identity": {
+          "pid": 1401680,
+          "startticks": "70894816",
+          "uid": 1004,
+          "pgid": 1401680
+        },
+        "source_sha256": "8db06c9cf4c6b76ffeb500a742158b6103196296add6f56113c7bfd920187b86",
+        "original_seven_locks": [
+          "/data1/liyapeng/program/LLMCL/summary/two_backbone_native_cl_20261017_v2/baseline_pct01_capacity.lock",
+          "/data1/liyapeng/program/LLMCL/summary/two_backbone_native_cl_20261017_v2/hardware_queue.lock",
+          "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/.pipeline_new3090.lock",
+          "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_cl_20261017_v2/.pipeline_new3090_onevision.lock",
+          "/data1/liyapeng/program/LLMCL/summary/two_backbone_pct10_20261025/dispatch_new.lock",
+          "/data1/liyapeng/program/LLMCL/exp/two_backbone_pct10_native_checkpoint_20261027/.pipeline_new_pct10_onevision.lock",
+          "/data1/liyapeng/program/LLMCL/exp/two_backbone_pct10_native_checkpoint_20261027/.pipeline_new_pct10_qwen.lock"
+        ],
+        "fixed_offers": [
+          "SMoLoRA",
+          "PaRSP",
+          "FullFT_Seq"
+        ],
+        "no_retry": true,
+        "reserved_GPU0": true
+      }
+    },
+    {
+      "path": "/data1/liyapeng/program/LLMCL/summary/storage_recovery_20261030/NEW_ENOSPC_RECOVERY_20261030/INCREMENTAL_OWNER_V1/SMoLoRA_STARTED.json",
+      "sha256": "40033c223baf068e5595c8344a9ded07ebbde916b24287f9a60707b8036261f3",
+      "metadata": {
+        "unix": 1793366057.4347599,
+        "identity": {
+          "pid": 1401697,
+          "startticks": "70894838",
+          "uid": 1004,
+          "pgid": 1401697
+        },
+        "gpu": 1,
+        "run": "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_checkpoint_20261027/runs/onevision/pct01/SMoLoRA/recovery_enospc_20261030_S15_v4",
+        "command": [
+          "/data1/liyapeng/program/LLMCL/.vision-env/bin/python",
+          "-u",
+          "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_checkpoint_20261027/run.py",
+          "--method",
+          "SMoLoRA",
+          "--condition",
+          "pct01",
+          "--run-dir",
+          "/data1/liyapeng/program/LLMCL/exp/two_backbone_native_checkpoint_20261027/runs/onevision/pct01/SMoLoRA/recovery_enospc_20261030_S15_v4",
+          "--resume"
+        ],
+        "request_sha256": "0248d433275f7fd75d74f4654f827b1f72efc3c88f99c5ae8295c7bf84ab3da9"
+      }
+    }
+  ],
+  "owner_actual": {
+    "pid": 1401680,
+    "state": "S",
+    "startticks": "70894816",
+    "uid": 1004,
+    "pgid": 1401680,
+    "ppid": 1401679
+  },
+  "worker_actual": {
+    "pid": 1401697,
+    "state": "S",
+    "startticks": "70894838",
+    "uid": 1004,
+    "pgid": 1401697,
+    "ppid": 1401680
+  },
+  "native_phase": {
+    "status": "training",
+    "completed_stage": 15,
+    "active_stage": 16
+  },
+  "native_reload_scope": "A native training16 publication is after the original strict CP15 loader and RNG restoration; no separate reload probe or quality measurement."
+}

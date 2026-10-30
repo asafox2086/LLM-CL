@@ -1,0 +1,56 @@
+{
+  "review": "accepted_with_numerical_certificate_limitation",
+  "RESULT_sha256": "2dcbcb0e8b1371c75621cf3caf9043da637741820ae9e511fb8070f23d9e95e2",
+  "COMPLETE_sha256": "b36ed089b5b9372f762eaadc7812ff1a7a791a192faede336417810efad144f9",
+  "actual_full_RESULT_read": true,
+  "verdicts": {
+    "between_energy_exceeds_within_for_PAS": false,
+    "between_energy_exceeds_within_for_CL": true,
+    "same_ordering_across_methods": false,
+    "request_mean_almost_explains_all_conditioning": false,
+    "request_constant_deployability_proved": false
+  },
+  "totals": {
+    "PAS": {
+      "R": 0.002845135994321776,
+      "W": 0.0013930366844828032,
+      "B": 0.0010504418091866947,
+      "cross_twice": 0.00040165750065227873,
+      "W_over_B": 1.326143601958649
+    },
+    "CL": {
+      "R": 0.055166350617136095,
+      "W": 0.024415824393485663,
+      "B": 0.02971701151939557,
+      "cross_twice": 0.0010335147042548607,
+      "W_over_B": 0.8216110283347318
+    }
+  },
+  "numerical_limit": {
+    "global_closure_PAS": -8.673617379884035e-19,
+    "global_closure_CL": 0.0,
+    "stable_max_abs_local_closure_PAS": 8.673617379884035e-18,
+    "stable_max_abs_local_closure_CL": 9.107298248878237e-18,
+    "printed_scale_omits_quadratic_contraction_error_propagation": true,
+    "all_local_closure_certificates_passed": false,
+    "raw_over_printed_scale_PAS_CL": [
+      13382,
+      3499
+    ],
+    "stable_over_printed_scale_PAS_CL": [
+      3731,
+      271
+    ],
+    "negative_energy_beyond_saved_scale": 0,
+    "interpretation": "No claim of complete per-item numerical certification. Saved raw/stable differences and closure errors are far below the aggregate W-vs-B separation; directional aggregate verdict does not rely on asserting those certificates pass."
+  },
+  "limitations": [
+    "same80 historicalTRAIN own native prefixes <=32 positions, not10pct or allCL",
+    "cq uses all generated prefix positions, retrospective descriptive oracle not initial prompt reference",
+    "function cross term retained: W/B are not causal contributions or explained variance",
+    "not optimal conditional constant or lower bound",
+    "no intervention, F1, memory savings or training cause proved"
+  ],
+  "models_executed": 0,
+  "consumers_executed": 0
+}

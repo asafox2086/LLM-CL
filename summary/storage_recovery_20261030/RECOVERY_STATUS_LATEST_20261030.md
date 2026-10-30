@@ -10,9 +10,11 @@
 | OLD / 1 | LLaVA 10% SpaRTA | 已从原暂停14恢复；worker **1946673 / start806193331 / UID1084 / PGID1946673**，CPU1946636/start806193288，unit主包装1946635；实核原native training / completed14 / active15 | 原S14 2,011,680,367B / SHA8ba5a626336f4531539cd44efdfdf0bb5e8002ad0e17bb2c7abec9bcb6a662da；sameRUN原882源码 --resume，无新预检/重S0。原strictload与RNG恢复之后已进入15，并非额外GPU重载探针 |
 | OLD / 2 | LLaVA 10% CL | worker1650061 / start804287271 / UID1084，真实 live | 原正式RUN training_gpu2_20261030；无旧CE暂停请求 |
 | OLD / 3 | Qwen 10% PaRSP | worker1341844 / start802262974 / UID1084，真实 live | 最近独立资产检查已完整S2：19,548,056,668B / SHAef2028e0476b50359e2a386eb194ad79cb05a6ce262cdc9d6d884b70bf35591d。此为最后核过的资产，不据此断言之后没有新阶段 |
-| NEW / 1 | LLaVA 1% SMo | 原261406已gone，不是live | 原S15完整 / SHA166653b6f70783c4d05c11aca8dc23182f09f20b5e5e877db13b7fd00b145b6e；待原科学源恢复，尚未启动新worker |
+| NEW / 1 | LLaVA 1% SMo | **worker1401697 / start70894838 / UID1004 / PGID1401697**，实际原native training16 / completed15；原261406已gone | 原S15完整SHA166653b6f70783c4d05c11aca8dc23182f09f20b5e5e877db13b7fd00b145b6e为恢复origin；新branch recovery_enospc_20261030_S15_v4。原strict loader/RNG路径已实际通过，无新预检/重S0 |
 | NEW / 2 | Qwen 1% PaRSP | 原969135已gone，不是live | 原S0初评无checkpoint。下一次只能明确记原W0 fresh分支，不能冒称checkpoint续训；原初评/故障原件保 |
-| NEW / 3 | LLaVA 1% FullFT | 原969192与包装969180已gone；原EXIT/FAILURE均0B，SLOT仍旧running字段，不能作存活/退出码证明 | 原完整S10 3,582,078,532B / SHA0bf45b5fd68e48004d94c0ef747395ec3435d4268e9c9f11d2110248c72af516；S09及失败S11.partial保留。原9468入口虽有 --resume，但只允许真正native paused；本次ENOSPC crash不能伪称暂停。透明failure-recovery分支/入口兼容仍待源审与准入，未重原offer |
+| NEW / 3 | LLaVA 1% FullFT | **worker1411303 / start70936723 / UID1004 / PGID1411303**，父1401680；实际completed11 / evaluation12（1793366801） | 新branch formal_failure_recovery_S10_20261030由真实完整S10 SHA0bf45b5fd68e48004d94c0ef747395ec3435d4268e9c9f11d2110248c72af516恢复；original failed RUN/0B EXIT FAILURE/S11partial全保，旧969192/969180不live。643f adapter仅入口1个AST guard允许明确manual状态，逆变全原AST相等，原29科学源未改，不伪native pause/不重原offer |
+
+NEW当前唯一增量CPU owner为 **1401680/start70894816/UID1004/PGID1401680**，systemd包装1401679，source8db06c9cf4c6b76ffeb500a742158b6103196296add6f56113c7bfd920187b86；持原七锁，已启动SMo与FullFT。仅固定三offer，后继完整admission最后原子发布后才由同owner的inotify接入；子终态用pidfd，不另起竞争allocator。NEW0保留。SMo真实启动证据6cc267e9baee2daf75fe6da02b168a9b4fe2500fe9c81fa34446acda371d6ce6，FullFT真实恢复证据6e7503bdcd500d037dca2fdb096000c7e2e59c904424617904af4b86e0ceac11。
 
 NEW原CPU owner969129同样已gone；llmcl-two-backbone-native.service实核MainPID0 / ExecMainStatus1 / failed。两canonical队列JSON完整但旧training/PID字段已陈旧，不得直接称正在运行。证据：NEW `summary/storage_recovery_20261030/NEW_ENOSPC_REAL_IDENTITIES_AND_QUEUE_AFTER_RETIREMENT_20261030.json`，SHA b8dceed034a2eaca60ddb8af9b87bdc8b4ac300302f9c5220c4e519016ef2699。
 
@@ -38,9 +40,9 @@ NEW原CPU owner969129同样已gone；llmcl-two-backbone-native.service实核Main
 ## 正在做与尚未做
 
 - OLD Qwen S1-only退休已唯一完整成功：仅一个S1非final payload 15,411,559,868B实际gone；S2完整SHA前后ef2028e0476b50359e2a386eb194ad79cb05a6ce262cdc9d6d884b70bf35591d、所有其它CP与固定完成前缀不变，active/partial未触。原source97b916、同O STARTED/RECEIPT全保；原RECEIPT SHA1a2b417c3fbbdb416df7e2e8c25a7bc6502e3307c5358ca7f4e579bacf66e5b7。六原小件已NEW耐久 `OLD_QWEN_S01_AFTER_S02_ORIGINAL_DURABLE_20261030/DURABLE_MANIFEST.json` SHA30a3a1032159e004fddbf4fce71bda56ecb676e086dd47ce427f9833af913807。禁止重放；不把已retire的S1继续声称本地保留。
-- NEW Seq S17/S18→OLD两unique保数据归档：仅提案/source审通过，defaultinspect因OLD真实Qwen已进入S2而按预算门拒绝。原失败eea0304a229d92217a43101da3018d516d6d9311cedf5056d744fe31b68f17a2保留。**0CP copy / 0个NEW历史link移出**。不能自动降门或重原执行；未来若新预算审通过，仍需OLD完整SHA/fsync耐久后才能退NEW四link，并明确17/18不再NEW-local，恢复需原path/SHA/mtime，inode会改变；旧lineage不重跑。
+- NEW已完成QwenSeq S17/S18历史payload已按原人类许可直接退休：四精确links/两inode，共9,125,998,904B，RECEIPT `NEW_QWEN_SEQ_S17_S18_RETIREMENT_ONCE_20261030/RECEIPT.json` SHAd27fce82caeaff9a07f4e36cf2eefb369d5965a485663c8ff7baa8c734d84104；S19实际全SHA前后d3df...及所有quality/lineage/provenance/QA/65proof原件相同。此前要求额外OLD备份是actor过度保守的保留策略，已明确撤销；**不是归档、没有另份备份，不再声称17/18仍本地**。原qualityproof只依S19，17/18历史lineage已一次性完成，不重放。原archive默认预算失败eea030...与0copy事实保留，不是降门后重跑archive。
 - NEW只读readout源曾因ENOSPC写成0B，原错误须保；不能以空文件AST通过当源有效。源修复与唯一readout归observation_review负责。
-- NEW三个基线恢复尚未启动。SMo15、Qwen原W0 fresh优先准备原25源最小恢复；FullFT需要明确manual_failure_recovery/native_pause_occurred=false的独立控制适配审查，原failed RUN/0B/partial全保。不得重activate_once、旧no_retry offer或为恢复改训练/数据/生成设置。
+- NEW恢复实际已有两臂：SMo15→16和FullFT10→11均已严格加载并进入原科学循环，见上表。Qwen PaRSP无CP，仍待原W0 fresh分支（原初评完整T01..15与合法partial只按manifest-ID前缀兼容），未冒称checkpoint续训。其准备源597e41...正在审查/原raw UTF8前置核查，未发布PaRSP offer、未启动Qwen新worker。不得重activate_once、旧no_retry offer或为恢复改变训练/数据/生成设置。
 - 后续基线需用单一kernel阶段提交事件承接checkpoint增长，及时按原授权手工退已替代非final；保current、真正恢复origin锚、最终、全部小记录。不再把一张35GB瞬时free当成全程reserve，不能再次让FullFT历史CP累计10份填满盘。
 
 ## 容量口径与不变范围
@@ -48,3 +50,5 @@ NEW原CPU owner969129同样已gone；llmcl-two-backbone-native.service实核Main
 紧急退休后NEW physical当次为28,656,521,216B，账号quota当次688134676/1073741824 KiB；二者不可互换，也不是长期承诺。OLD S2已19.548GB、S1已15.412GB驻盘，预算不能把已占用完整/partial再当全额未来需求重复扣。大Qwen preflight只有局部fakehistory，不是正式CP或部署内存上界。
 
 PaRSP CE/geometry/保护预算研究全关闭，旧借卡请求撤回；100%仅可选准备、未启动。1%/10%设置、原方法部署形态冻结；不替LoRA/OSFT做merge/物化优化。README/AGENTS与主表只由root发布，本文件不增加科研结论或新质量数值。
+
+本次17/18退休后physical值仅见原receipt；后续FullFT已开始写新阶段，空间必须按事件与实际allocated滚动维护，不能用此历史值重复承诺。OLD Qwen S2→S3单路径退休237df750...已双审并由唯一actor启动，当前尚待原RECEIPT终态，禁止再起同O；它不会删除S3/current/partial/研究18/final19。
