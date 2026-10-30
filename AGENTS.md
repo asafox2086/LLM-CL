@@ -1,3 +1,12 @@
+# 2026-10-30：PAS完整确认已核验；域分解完成；下一块出口先导仍未启动
+
+- 人类允许保留故障后恢复核验一次：PAS原0B STARTED和配额故障已同目录归档，原verify只恢复一次EXIT0；VERIFIED SHA3f77fd3ad08933402d6f5abc1e8d13fba66946cc9bba9a81023a8a01d649c410，原RESULT f0608237...，不重放。NEW summary/pas_static_final_confirmation_20261029/FINITE_RECOVERY_20261030及FINAL_FINDINGS_20261030.md为证据。完整21454TEST/19task，五域宏46.331976584628（原PAS约46.619976，−0.288pp），AP19为46.002008427177；FWT/BWT缺测。总部署神经893675552/新增0/1704.550842MiB；同卡固定32token五窗最大allocated2166.100586MiB vs2959.415039，非全TEST峰。根README/1%MAIN新增PAS-static末态部署行，旧行和其它HTML表不变，不计作新完成训练基线。成本含原PAS训练+80历史TRAIN答案回访，geo与presence下降必须保留；不能称无损、普适、训练router无用或零新增独占。OLD/NEW最终CP保留，不下载Windows。
+- 域分解只消费已发布READOUT，唯一RESULT a4d801e70df755ad1991a51ca7aca28f58c2a9d2c0fba17a3bcc393b532f38ed；PAS/CL gate域内变差79.24%/70.66%，域均值残差仍保留全局均值参照72.83%/66.09%。函数W/B/C非正交，不能称解释率或最优表示下界；不重消费、不据此自动开domain路由。
+- 残差出口先导源码已准备，尚未模型准入或启动：exp/residual_exit_pilot_20261030；固定block12/index11，四臂A均值物化、B teacher输入拟合投影、C student输入同target、D student输入拟合完整block减自身unnormalizedskip，仅更新已有down.weight，λ共同固定，cal80/read20历史TRAIN、TEST0。两个原teacher临时CP已全SHA复制NEW tmpfs，OLD最终保留。source修复student frozen_vision deepcopy closure，实测别名/数值guards待模型真正构造；metadata通过不是模型成功，临时teacher+student+solve峰不是部署峰。不得称CrossMean/BRECQ原则首次，先观察再决定完整方法。
+- 六基线已实际运行（最新身份仍须实核）：OLD PaRSP1342300/start802265912、OSFT1342314/start802265921、QwenPaRSP1341844/start802262974、SpaRTA1408250/start802712034；NEW QwenOSFT261356/start66873512和LLaVASMo261406/start66873614。OLD SpaRTA fresh原W0，原reload gate已EXIT0，不能用诊断CP当S1。NEW OSFT S18边界PAUSE_REQUEST已发但未见暂停闭合，原pidfdwaiter22047复用，不重复poll/建waiter；未有真实EXIT0+pause_receipt+完整CP18+gone+GPU3idle前不能占槽。SMo/NEW0/其它UID不动。原CPU lockholder261266≠MainPID261265，FullFT post-probe handoff只是draft，必须先研究完成和原OSFT从S18恢复，再单CPU交接原owner；不放宽原24GiB/16000MiB gate。
+- OLD第二次4legacy payload退休已执行释放11429499199B，receipt summary/storage_recovery_20261030/OLD_FOUR_LEGACY_ORIGINAL_RECEIPT.json；先前OLD/NEW v7清理也已完成，禁止重放。当前/最终、QA与全部主表小记录保留，quota不等于全盘free。
+- 论文目标仍未完成；参数少约束指最终新增部署参数，不限制训练空间。TaskGradReuse关闭，五域19task/1%1313与10%13105TRAIN/full21454TEST冻结。继续找具体模型性质与可证伪控制，不以执行/预检通过当论文成功。
+
 # 2026-10-30：已有实际函数观测；五条基线恢复；唯一核验IO失败不重放
 
 - 最新主线是已完成的原模型联合函数观测，不是CL四臂方法。NEW `summary/router_function_moments_20261030_v2/{FINDINGS,READOUT,HANDOFF}`：binding fa32a3e584e5c8aaf030931928873be4a3f2761d744bd8656c40f00c88eeea90，READOUT SHA55e95fd9dde9a76b34aa02bdd12b507e03506feb2137a706ba31067c37da6ef1。PAS/CL各80历史TRAIN、全部168投影、原答案预测位置含EOS，原层输出bitwise/FP32舍入界通过，两进程EXIT0/gone；唯一readout已消费，不重跑模型/消费者。v1因inference_mode派发softmax而非_softmax漏gate，0完整QA失败，原记录保留；v2仅修接口，经16纯合成case与独立审阅后实际完成。

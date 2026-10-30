@@ -1,0 +1,932 @@
+{
+  "tasks": [
+    {
+      "task": 1,
+      "domain": "natural",
+      "count": 5000,
+      "AnswerF1": 70.66092961029351
+    },
+    {
+      "task": 2,
+      "domain": "medical",
+      "count": 228,
+      "AnswerF1": 73.6842105263158
+    },
+    {
+      "task": 3,
+      "domain": "medical",
+      "count": 375,
+      "AnswerF1": 41.733333333333285
+    },
+    {
+      "task": 4,
+      "domain": "medical",
+      "count": 507,
+      "AnswerF1": 32.868413637644416
+    },
+    {
+      "task": 5,
+      "domain": "medical",
+      "count": 124,
+      "AnswerF1": 46.1021505376344
+    },
+    {
+      "task": 6,
+      "domain": "medical",
+      "count": 311,
+      "AnswerF1": 50.79921864487782
+    },
+    {
+      "task": 7,
+      "domain": "medical",
+      "count": 89,
+      "AnswerF1": 51.68539325842696
+    },
+    {
+      "task": 8,
+      "domain": "medical",
+      "count": 116,
+      "AnswerF1": 46.4080459770115
+    },
+    {
+      "task": 9,
+      "domain": "medical",
+      "count": 12,
+      "AnswerF1": 19.562647754137114
+    },
+    {
+      "task": 10,
+      "domain": "medical",
+      "count": 65,
+      "AnswerF1": 79.5897435897436
+    },
+    {
+      "task": 11,
+      "domain": "medical",
+      "count": 267,
+      "AnswerF1": 24.093186889100103
+    },
+    {
+      "task": 12,
+      "domain": "geography",
+      "count": 100,
+      "AnswerF1": 44.0
+    },
+    {
+      "task": 13,
+      "domain": "geography",
+      "count": 2955,
+      "AnswerF1": 72.01353637901862
+    },
+    {
+      "task": 14,
+      "domain": "geography",
+      "count": 2947,
+      "AnswerF1": 20.597217509331525
+    },
+    {
+      "task": 15,
+      "domain": "geography",
+      "count": 4002,
+      "AnswerF1": 66.0919540229885
+    },
+    {
+      "task": 16,
+      "domain": "finance",
+      "count": 2233,
+      "AnswerF1": 25.281491780091937
+    },
+    {
+      "task": 17,
+      "domain": "traffic",
+      "count": 500,
+      "AnswerF1": 34.496279822470136
+    },
+    {
+      "task": 18,
+      "domain": "traffic",
+      "count": 1123,
+      "AnswerF1": 39.89589022623829
+    },
+    {
+      "task": 19,
+      "domain": "traffic",
+      "count": 500,
+      "AnswerF1": 34.4745166177063
+    }
+  ],
+  "domains": {
+    "natural": {
+      "count": 5000,
+      "AnswerF1": 70.66092961029351
+    },
+    "medical": {
+      "count": 2094,
+      "AnswerF1": 44.15177111681728
+    },
+    "geography": {
+      "count": 10004,
+      "AnswerF1": 54.218312674930026
+    },
+    "finance": {
+      "count": 2233,
+      "AnswerF1": 25.281491780091937
+    },
+    "traffic": {
+      "count": 2123,
+      "AnswerF1": 37.3473777410051
+    }
+  },
+  "domain_macro_final": 46.33197658462756,
+  "AP19": 46.002008427177046,
+  "metric": "existing raw Answer F1",
+  "score_field": "token_f1",
+  "TEST_QA": 21454,
+  "quality_generations": 21454,
+  "resource_generations": 5,
+  "new_scores": 21454,
+  "NLL_requests": 0,
+  "optimizer_updates": 0,
+  "backwards": 0,
+  "FWT": null,
+  "BWT": null,
+  "checkpoint_sha256": "246e876954f9aa71af4fcd0d9d9315060fbc745c642c81894acd970efb25f4a1",
+  "checkpoint_bytes": 1787572114,
+  "fold_digest": "3ea480aec723afb0d8660853c274312b9aab0580bc7674f96d35d6f7180c7683",
+  "outputs": {
+    "evaluations/stage_19/T01_test_predictions.jsonl": "8606bc3453d39f88cbd62d917924a8dd61fbb3b6a8223d57f7a0add0414f2aed",
+    "evaluations/stage_19/T02_test_predictions.jsonl": "127ffc1014268d666150b097a54d2da43f8a9939ed5d03c858c8c53ae7f1386c",
+    "evaluations/stage_19/T03_test_predictions.jsonl": "641eaa05576403116f04126cd8b2edc839c1ecc09e11fde2500aea5547b93ff7",
+    "evaluations/stage_19/T04_test_predictions.jsonl": "416a2618756868dee6c90a9b5d01fb48dd3c958d137bb47f7d3026d54d87b1fd",
+    "evaluations/stage_19/T05_test_predictions.jsonl": "91b51e6c68ad9708d61d70070c79be9f892e301e35da01311b8918677733c608",
+    "evaluations/stage_19/T06_test_predictions.jsonl": "1bd600b3cee90c10e14794eea619f270044a8bde44adbf6d482234d33248381a",
+    "evaluations/stage_19/T07_test_predictions.jsonl": "30d9b30ecbd9a54a67ab975e6e2ddd345ec2f78923c769127a4395ac2e010357",
+    "evaluations/stage_19/T08_test_predictions.jsonl": "073f29048d4a8fd72fdbea8e0f93314dc29e70b2b505b2d3c702d21cbc5c527e",
+    "evaluations/stage_19/T09_test_predictions.jsonl": "84f3bdb1febd10d9d51016b1c545853362e20bb8ea470c65698f136963dd10aa",
+    "evaluations/stage_19/T10_test_predictions.jsonl": "8878596e4ede5c981a7d4065ccd1a61e7e4a533138629c39aedd9cdeb193c362",
+    "evaluations/stage_19/T11_test_predictions.jsonl": "78c8b73677ce6966fb400fe4ca842aec367adfc3eea7af50d5d0ef98a99157c5",
+    "evaluations/stage_19/T12_test_predictions.jsonl": "28d974dad8f51b6c766681fb6321be3311b1e1c5e256cf4a54e41eefd1fd2cf4",
+    "evaluations/stage_19/T13_test_predictions.jsonl": "f0c577234a2ac6b74b505b4cfb8f2cda1380ea5c85b5d8613d4199c276b2a41c",
+    "evaluations/stage_19/T14_test_predictions.jsonl": "122e7f174f9d88d7352e31837aa35a6c5e45eb0ca5ad5a2ed10ef6fb04917f99",
+    "evaluations/stage_19/T15_test_predictions.jsonl": "18a866fa0b9daceda6f8ac0d3161827cf31520d31b8d70584f5dd76a4fc09542",
+    "evaluations/stage_19/T16_test_predictions.jsonl": "98288ff13bb9b259d8ef6975b6481ca942b10419774bc44eeed0d3505c4d06b2",
+    "evaluations/stage_19/T17_test_predictions.jsonl": "030380c11fc7826ee54c120841ab40c39a2cf68e6632c0397fb8ab8cc3503675",
+    "evaluations/stage_19/T18_test_predictions.jsonl": "7641e776ea821703af2e0edb0e8b697ae67c8eda393ec6b47b778efe5d888241",
+    "evaluations/stage_19/T19_test_predictions.jsonl": "2f6a9faa07624c9ab76d5a34a49f653a48f4c6575e6f7a01c09233203253fd09"
+  },
+  "reloaded": {
+    "layout": {
+      "weights": {
+        "coefficients": 893675552,
+        "bytes": 1787351104
+      },
+      "ordinary_buffers": {
+        "coefficients": 1529,
+        "bytes": 9032
+      },
+      "trainable": 0
+    },
+    "digest": "3ea480aec723afb0d8660853c274312b9aab0580bc7674f96d35d6f7180c7683",
+    "all_buffers_digest": "3025eeb317befc859c3b24ae3212713943fffafe59b5ce4863dc97de24a70c46",
+    "buffer_manifest": {
+      "vision_tower.vision_model.embeddings.position_ids": {
+        "shape": [
+          1,
+          729
+        ],
+        "dtype": "torch.int64",
+        "bytes": 5832
+      },
+      "language_model.model.layers.0.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.1.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.2.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.3.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.4.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.5.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.6.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.7.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.8.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.9.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.10.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.11.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.12.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.13.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.14.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.15.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.16.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.17.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.18.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.19.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.20.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.21.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.22.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.23.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      }
+    },
+    "parameter_alias_groups": [
+      [
+        "language_model.lm_head.weight",
+        "language_model.model.embed_tokens.weight"
+      ]
+    ],
+    "buffer_alias_groups": [],
+    "device": "cuda:0",
+    "functional_config_digest": "885ec7519189db424b911cc6c11e835284daf1cedcd275c25ae9ba8d020f9daa",
+    "generation_config_digest": "b44055c7c9efed87ef181b146c0f07fb4f954aa66dce382e1180259785212de6",
+    "language_generation_config_digest": "b44055c7c9efed87ef181b146c0f07fb4f954aa66dce382e1180259785212de6",
+    "language_attention_classes": [
+      "Qwen2SdpaAttention"
+    ],
+    "vision_attention_classes": [
+      "SiglipSdpaAttention"
+    ],
+    "response": null,
+    "generation_semantics": {
+      "outer": {
+        "hash_present": true,
+        "hash_matches_current": false
+      },
+      "language": {
+        "hash_present": true,
+        "hash_matches_current": false
+      }
+    },
+    "shared_generation_object": false,
+    "self_contained_meta_construction": true,
+    "all_buffers_explicitly_restored": true,
+    "strict_complete_reload": true,
+    "mixed_parameter_dtypes_preserved": true
+  },
+  "invariant": {
+    "layout": {
+      "weights": {
+        "coefficients": 893675552,
+        "bytes": 1787351104
+      },
+      "ordinary_buffers": {
+        "coefficients": 1529,
+        "bytes": 9032
+      },
+      "trainable": 0
+    },
+    "digest": "3ea480aec723afb0d8660853c274312b9aab0580bc7674f96d35d6f7180c7683",
+    "all_buffers_digest": "3025eeb317befc859c3b24ae3212713943fffafe59b5ce4863dc97de24a70c46",
+    "buffer_manifest": {
+      "vision_tower.vision_model.embeddings.position_ids": {
+        "shape": [
+          1,
+          729
+        ],
+        "dtype": "torch.int64",
+        "bytes": 5832
+      },
+      "language_model.model.layers.0.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.1.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.2.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.3.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.4.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.5.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.6.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.7.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.8.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.9.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.10.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.11.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.12.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.13.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.14.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.15.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.16.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.17.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.18.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.19.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.20.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.21.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.22.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.layers.23.self_attn.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      },
+      "language_model.model.rotary_emb.inv_freq": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "bytes": 128
+      }
+    },
+    "parameter_alias_groups": [
+      [
+        "language_model.lm_head.weight",
+        "language_model.model.embed_tokens.weight"
+      ]
+    ],
+    "buffer_alias_groups": [],
+    "device": "cuda:0",
+    "functional_config_digest": "885ec7519189db424b911cc6c11e835284daf1cedcd275c25ae9ba8d020f9daa",
+    "generation_config_digest": "b44055c7c9efed87ef181b146c0f07fb4f954aa66dce382e1180259785212de6",
+    "language_generation_config_digest": "b44055c7c9efed87ef181b146c0f07fb4f954aa66dce382e1180259785212de6",
+    "language_attention_classes": [
+      "Qwen2SdpaAttention"
+    ],
+    "vision_attention_classes": [
+      "SiglipSdpaAttention"
+    ],
+    "response": null,
+    "generation_semantics": {
+      "outer": {
+        "hash_present": true,
+        "hash_matches_current": false
+      },
+      "language": {
+        "hash_present": true,
+        "hash_matches_current": false
+      }
+    },
+    "shared_generation_object": false,
+    "complete_state_and_buffers_unchanged": true
+  },
+  "generation_before": {
+    "outer": {
+      "public": {
+        "max_length": 20,
+        "max_new_tokens": null,
+        "min_length": 0,
+        "min_new_tokens": null,
+        "early_stopping": false,
+        "max_time": null,
+        "stop_strings": null,
+        "do_sample": false,
+        "num_beams": 1,
+        "num_beam_groups": 1,
+        "penalty_alpha": null,
+        "dola_layers": null,
+        "use_cache": true,
+        "cache_implementation": null,
+        "cache_config": null,
+        "return_legacy_cache": null,
+        "temperature": 1.0,
+        "top_k": 50,
+        "top_p": 1.0,
+        "min_p": null,
+        "typical_p": 1.0,
+        "epsilon_cutoff": 0.0,
+        "eta_cutoff": 0.0,
+        "diversity_penalty": 0.0,
+        "repetition_penalty": 1.0,
+        "encoder_repetition_penalty": 1.0,
+        "length_penalty": 1.0,
+        "no_repeat_ngram_size": 0,
+        "bad_words_ids": null,
+        "force_words_ids": null,
+        "renormalize_logits": false,
+        "constraints": null,
+        "forced_bos_token_id": null,
+        "forced_eos_token_id": null,
+        "remove_invalid_values": false,
+        "exponential_decay_length_penalty": null,
+        "suppress_tokens": null,
+        "begin_suppress_tokens": null,
+        "forced_decoder_ids": null,
+        "sequence_bias": null,
+        "token_healing": false,
+        "guidance_scale": null,
+        "low_memory": null,
+        "watermarking_config": null,
+        "num_return_sequences": 1,
+        "output_attentions": false,
+        "output_hidden_states": false,
+        "output_scores": false,
+        "output_logits": null,
+        "return_dict_in_generate": false,
+        "pad_token_id": null,
+        "bos_token_id": 151643,
+        "eos_token_id": 151645,
+        "encoder_no_repeat_ngram_size": 0,
+        "decoder_start_token_id": null,
+        "is_assistant": false,
+        "num_assistant_tokens": 20,
+        "num_assistant_tokens_schedule": "constant",
+        "assistant_confidence_threshold": 0.4,
+        "prompt_lookup_num_tokens": null,
+        "max_matching_ngram_size": null,
+        "generation_kwargs": {},
+        "_from_model_config": true,
+        "transformers_version": "4.46.3"
+      },
+      "semantics": {
+        "hash_present": true,
+        "hash_matches_current": false
+      }
+    },
+    "language": {
+      "public": {
+        "max_length": 20,
+        "max_new_tokens": null,
+        "min_length": 0,
+        "min_new_tokens": null,
+        "early_stopping": false,
+        "max_time": null,
+        "stop_strings": null,
+        "do_sample": false,
+        "num_beams": 1,
+        "num_beam_groups": 1,
+        "penalty_alpha": null,
+        "dola_layers": null,
+        "use_cache": true,
+        "cache_implementation": null,
+        "cache_config": null,
+        "return_legacy_cache": null,
+        "temperature": 1.0,
+        "top_k": 50,
+        "top_p": 1.0,
+        "min_p": null,
+        "typical_p": 1.0,
+        "epsilon_cutoff": 0.0,
+        "eta_cutoff": 0.0,
+        "diversity_penalty": 0.0,
+        "repetition_penalty": 1.0,
+        "encoder_repetition_penalty": 1.0,
+        "length_penalty": 1.0,
+        "no_repeat_ngram_size": 0,
+        "bad_words_ids": null,
+        "force_words_ids": null,
+        "renormalize_logits": false,
+        "constraints": null,
+        "forced_bos_token_id": null,
+        "forced_eos_token_id": null,
+        "remove_invalid_values": false,
+        "exponential_decay_length_penalty": null,
+        "suppress_tokens": null,
+        "begin_suppress_tokens": null,
+        "forced_decoder_ids": null,
+        "sequence_bias": null,
+        "token_healing": false,
+        "guidance_scale": null,
+        "low_memory": null,
+        "watermarking_config": null,
+        "num_return_sequences": 1,
+        "output_attentions": false,
+        "output_hidden_states": false,
+        "output_scores": false,
+        "output_logits": null,
+        "return_dict_in_generate": false,
+        "pad_token_id": null,
+        "bos_token_id": 151643,
+        "eos_token_id": 151645,
+        "encoder_no_repeat_ngram_size": 0,
+        "decoder_start_token_id": null,
+        "is_assistant": false,
+        "num_assistant_tokens": 20,
+        "num_assistant_tokens_schedule": "constant",
+        "assistant_confidence_threshold": 0.4,
+        "prompt_lookup_num_tokens": null,
+        "max_matching_ngram_size": null,
+        "generation_kwargs": {},
+        "_from_model_config": true,
+        "transformers_version": "4.46.3"
+      },
+      "semantics": {
+        "hash_present": true,
+        "hash_matches_current": false
+      }
+    }
+  },
+  "generation_after": {
+    "outer": {
+      "public": {
+        "max_length": 20,
+        "max_new_tokens": null,
+        "min_length": 0,
+        "min_new_tokens": null,
+        "early_stopping": false,
+        "max_time": null,
+        "stop_strings": null,
+        "do_sample": false,
+        "num_beams": 1,
+        "num_beam_groups": 1,
+        "penalty_alpha": null,
+        "dola_layers": null,
+        "use_cache": true,
+        "cache_implementation": null,
+        "cache_config": null,
+        "return_legacy_cache": null,
+        "temperature": 1.0,
+        "top_k": 50,
+        "top_p": 1.0,
+        "min_p": null,
+        "typical_p": 1.0,
+        "epsilon_cutoff": 0.0,
+        "eta_cutoff": 0.0,
+        "diversity_penalty": 0.0,
+        "repetition_penalty": 1.0,
+        "encoder_repetition_penalty": 1.0,
+        "length_penalty": 1.0,
+        "no_repeat_ngram_size": 0,
+        "bad_words_ids": null,
+        "force_words_ids": null,
+        "renormalize_logits": false,
+        "constraints": null,
+        "forced_bos_token_id": null,
+        "forced_eos_token_id": null,
+        "remove_invalid_values": false,
+        "exponential_decay_length_penalty": null,
+        "suppress_tokens": null,
+        "begin_suppress_tokens": null,
+        "forced_decoder_ids": null,
+        "sequence_bias": null,
+        "token_healing": false,
+        "guidance_scale": null,
+        "low_memory": null,
+        "watermarking_config": null,
+        "num_return_sequences": 1,
+        "output_attentions": false,
+        "output_hidden_states": false,
+        "output_scores": false,
+        "output_logits": null,
+        "return_dict_in_generate": false,
+        "pad_token_id": null,
+        "bos_token_id": 151643,
+        "eos_token_id": 151645,
+        "encoder_no_repeat_ngram_size": 0,
+        "decoder_start_token_id": null,
+        "is_assistant": false,
+        "num_assistant_tokens": 20,
+        "num_assistant_tokens_schedule": "constant",
+        "assistant_confidence_threshold": 0.4,
+        "prompt_lookup_num_tokens": null,
+        "max_matching_ngram_size": null,
+        "generation_kwargs": {},
+        "_from_model_config": true,
+        "transformers_version": "4.46.3"
+      },
+      "semantics": {
+        "hash_present": true,
+        "hash_matches_current": false
+      }
+    },
+    "language": {
+      "public": {
+        "max_length": 20,
+        "max_new_tokens": null,
+        "min_length": 0,
+        "min_new_tokens": null,
+        "early_stopping": false,
+        "max_time": null,
+        "stop_strings": null,
+        "do_sample": false,
+        "num_beams": 1,
+        "num_beam_groups": 1,
+        "penalty_alpha": null,
+        "dola_layers": null,
+        "use_cache": true,
+        "cache_implementation": null,
+        "cache_config": null,
+        "return_legacy_cache": null,
+        "temperature": 1.0,
+        "top_k": 50,
+        "top_p": 1.0,
+        "min_p": null,
+        "typical_p": 1.0,
+        "epsilon_cutoff": 0.0,
+        "eta_cutoff": 0.0,
+        "diversity_penalty": 0.0,
+        "repetition_penalty": 1.0,
+        "encoder_repetition_penalty": 1.0,
+        "length_penalty": 1.0,
+        "no_repeat_ngram_size": 0,
+        "bad_words_ids": null,
+        "force_words_ids": null,
+        "renormalize_logits": false,
+        "constraints": null,
+        "forced_bos_token_id": null,
+        "forced_eos_token_id": null,
+        "remove_invalid_values": false,
+        "exponential_decay_length_penalty": null,
+        "suppress_tokens": null,
+        "begin_suppress_tokens": null,
+        "forced_decoder_ids": null,
+        "sequence_bias": null,
+        "token_healing": false,
+        "guidance_scale": null,
+        "low_memory": null,
+        "watermarking_config": null,
+        "num_return_sequences": 1,
+        "output_attentions": false,
+        "output_hidden_states": false,
+        "output_scores": false,
+        "output_logits": null,
+        "return_dict_in_generate": false,
+        "pad_token_id": null,
+        "bos_token_id": 151643,
+        "eos_token_id": 151645,
+        "encoder_no_repeat_ngram_size": 0,
+        "decoder_start_token_id": null,
+        "is_assistant": false,
+        "num_assistant_tokens": 20,
+        "num_assistant_tokens_schedule": "constant",
+        "assistant_confidence_threshold": 0.4,
+        "prompt_lookup_num_tokens": null,
+        "max_matching_ngram_size": null,
+        "generation_kwargs": {},
+        "_from_model_config": true,
+        "transformers_version": "4.46.3"
+      },
+      "semantics": {
+        "hash_present": true,
+        "hash_matches_current": false
+      }
+    }
+  }
+}
