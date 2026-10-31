@@ -1,3 +1,21 @@
+# 2026-10-31最新：已有PAS完整结果已配对，不重模型；七基线与两机CP保留器真实运行
+
+- 用户回复“有结果就不用做了”。PAS完整两套21454原输出已有，未重模型／生成／评分；唯一paired consumer5382已EXIT0/COMPLETE，RESULT2e32f500b399811784146f78a866d96fb232a4da871e79c1d667e652d7c0e8b6／COMPLETE1d700dae...。不重放该消费者。正文仅一份summary/pas_static_final_confirmation_20261029/OBSERVATION_PAS_FIXED_DYNAMIC_PAIRED_20261031.md。
+- 新事实：原F1相同19095/21454（89.00%），字符串同18723；静态高1104／动态高1255。交通F1变化1767/2123，静高882／动高885、正负抵消后静态+0.106773pp；遥感动态+1.519392pp。五域宏仍静态46.331976585／动态46.619976395（-0.287999811pp），QA池化-0.705066不能冒充宏。小宏差不证明逐题没作用；PAS含fold/dtype，不能当纯G因果／router训练失败／10%普适。
+- CL两失败attempt已仅metadata核完整task均0：无final predictions/scores，只有T01未终止partial。coverage41581b...保原incident，禁止拼接或当结果。根据用户“有结果不做”的条件，CL尚无结果仍需同设置完整确认；root已让audit仅发当前CL的native合作pause，到真正完整checkpoint+EXIT/gone后才新准入，当前未启动第三个模型。新proposal summary/cl_fixed_effective_gate_confirmation_after_retention_20261031/REVIEWABLE_PROPOSAL.json f322...，4科学源不变。研究结束须恢复CL，不停其它6基线，不新增方法／系数／评分。
+- 七基线恢复真实最新身份：OLD PAS2111743、Spa2486317/start810785646训练17、CL2489377/start810804752原W0+S0缓存、Qwen2486340/start810785702训练7；NEW SMo2410146/start75235258训练16、Qwen2410150/start75235262训练2、FullFT2412393/start75242052训练18，均已真过各自加载路径。旧owner1401680等gone，不再引用其旧live。FullFT新manual d9a6仅一Compare守卫，原9468训练/loader/RNG AST不变，native_pause=false。
+- 两机事件保留器d1dfbb1c...实际live：OLD2495208/start810840468/UID1084、NEW2424617/start75287493/UID1004，同unit llmcl-native-cp-submit-retainer-20261031.service。proof summary/storage_recovery_20261031/CP_RETENTION_ACTUAL_IDENTITIES_ONCE_20261031.json 5a039d4e...。仅7固定RUN、closed stage/latest/meta+producerSHA/stat一致后退更早.pt；保current19和全部小records，不删partial／不大hash／不poll／不改科学。持续保障避免重复挤满，不重放旧清理。
+- 本轮用户清理已实际退14个payload共76,428,273,262B（约76.4GB），current/final/主表完整保。Windows本地1644个旧操作py（119651860B）已列summary/local_cleanup_20261031/OBSOLETE_OPERATION_CODE_PLAN.json，但自动审批拒绝批量及缩小2个明确文件的删除；0本地代码删除，不可绕过或假称已清。科研目标尚未完成。
+
+# 2026-10-30最新人类要求：只保基线运行，完成当前固定／动态结论验证
+
+- 不再扩旁支统计、候选或报告链。当前只有一个科研整模对照；既有1%／10%19任务／完整TEST设置不变，训练／指标不改。旧故障不作算法反证。
+- 六基线已接回：OLD0 PAS2111743/start807309909原W0＋完整S0缓存进入S1；OLD1 Spa2094074/start807173202原CP16严格加载／RNG路径后进入S17；OLD3 Qwen2108863/start807289223原CP5严格加载／RNG路径后进入S6。三者UID1084/PGID同PID，真实proof bb71c0fb...；NEW最近实核1793373487 SMo1401697/start70894838、Qwen1434218/start71038706、FullFT1411303/start70936723及owner1401680均真实live。不拿旧7卡叙述当当前事实。
+- 唯一研究已实际启动：OLD2 worker2113773/start807321972/UID1084/PGID2113773，parent2113748/start807321935/PGID2113748；E/S均 cl_fixed_effective_gate_manual_confirmation_20261030。BINDING81835fc449da5a95d8f10b62e24f678806552721f9162859dd61baf28f14efa1、ADMISSION2c19ca27cd53dcd3ebd45c459b79cbd40257445f268c28767c1c99ab74b52531、parent515282de...。独立人工一次基础设施恢复，原故障永久保留不拼partial。run a383dec39bbbb174d1ed25864dad20124c37fa0b32f7b74f32b13a1e018cab4f只改OLD1→OLD2的4个GPU定位字面量，逆改逐字还原3a9c；其余3科学源及协议原字节。原CP8550/C11ee/bank/dtype/scale／生成／指标／全21454TEST完全不变，无训练／新c／fold／新臂，不称独立重复或择优。
+- 新实例一次只读实核1793375085父子均精确live、模型加载和5个原定义动态恒等控制通过（c41a模型证据／0e56控制证据），无FAILURE／无COMPLETE／无完整F1；只证明接口与当前执行。NEW S/INITIAL_LOAD_CONTROL_EVIDENCE_ONCE_20261030已耐久，不重跑控制或读partial质量。
+- 唯一真实父终态等待session68702，NEW S/PARENT_PIDFD_EVENT_STREAM_V2_20261030.jsonl先fsync，REG079bfca76644bc7dac9cbd613da27503b6298985a1cc31acfc170a18ec03c85f；复用，不建重复observer。V1等待器误留旧PGID2062389，曾生成假terminal385e98...，其输出自身已显示新父子仍live；NEW OBSERVER_V1_INVALIDATION保错误原件。V1不能当模型终态，观察器修正未重启或发信号给模型。
+- 完整模型真实EXIT0＋COMPLETE/RESULT＋原worker gone后，先查新output/verification_v1 marker，才执行新E/verify.py（原7aeb字节）--binding 新S/BINDING.json --execute唯一核验。不重score，不借旧PAS分数，报告19格／五域宏／AP19及动态高／固定高／F1tie与字符串相同。当前方法结论尚未证明、无该对照部署减重；不改主表质量。实际释放OLD2后baseline_audit立即按5759原fresh CLI接回CL（43份S0合法前缀保留），不得再停Spa等待分析。
+
 # 2026-10-30最新真实终态：CL固定G对照因quota失败，不能沿旧启动记录称live
 
 - 实核Unix1793372824，NEW summary/cl_fixed_effective_gate_necessity_20261030/QUOTA_RUNTIME_INCIDENT_ACTUAL_ONCE_20261030.json SHA d50a15b1f4a18062a9b7bacd1bda96fc101457ca5c022427c9637eb76ba3941b。原parent2062389与worker2062414均gone，unit MainPID0/failed/ExecMainStatus1，cgroup无人，OLD1 UUID匹配且compute空。WORKER.log多处实际Errno122；没有COMPLETE。worker数值rc未能记录，不能捏造为0或1；1只是unit父链真实状态。
