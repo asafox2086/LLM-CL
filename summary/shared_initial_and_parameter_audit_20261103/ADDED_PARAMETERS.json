@@ -1,0 +1,13 @@
+{
+  "definition": "S19 additional model Parameter scalar count relative to base; excludes optimizer/covariance buffers and dtype expansion",
+  "counts": {
+    "pct10/onevision/SeqFT-LoRA\uff08q/v-r8\uff09": 540672,
+    "pct10/qwen/SeqFT-LoRA\uff08q/v-r8\uff09": 1089536,
+    "pct10/qwen/PaRSP": 0,
+    "pct10/onevision/PaRSP": 0,
+    "pct10/onevision/SpaRTA": 10401792
+  },
+  "PaRSP_basis": "PaRSPMethod updates existing weights; adds no model Parameter",
+  "SpaRTA_basis": "frozen base + adapters/routers all trainable; S19 resource trainable_parameters10401792; byte delta41607168 FP32 agrees",
+  "SeqFT_basis": "existing complete saved-graph audits"
+}
