@@ -1,0 +1,32 @@
+{
+  "added": {
+    "onevision/CL_MoE": 37158912,
+    "onevision/OSFT": 97238016,
+    "onevision/PASs_MoE": 140771328,
+    "onevision/PaRSP": 0,
+    "onevision/SeqFT_LoRA": 540672,
+    "onevision/SpaRTA": 10401792,
+    "qwen/CL_MoE": 77930496,
+    "qwen/SeqFT_LoRA": 1089536,
+    "onevision/FOREVER": 540672
+  },
+  "OSFT": {
+    "weight_coefficients": 990913568,
+    "structural_buffers": [
+      "model.model.layers.0.self_attn.q_proj.U_high",
+      "model.model.layers.0.self_attn.q_proj.S_high",
+      "model.model.layers.0.self_attn.q_proj.V_high",
+      "model.model.layers.0.self_attn.k_proj.U_high",
+      "model.model.layers.0.self_attn.k_proj.S_high",
+      "model.model.layers.0.self_attn.k_proj.V_high"
+    ]
+  },
+  "qwen_cl_layout": "/data1/liyapeng/program/LLMCL/.deployment/qwen_cl_weight_storage_20261028/SAVED_GRAPH_METADATA.json",
+  "qwen_cl_layout_sha256": "286df288cdca7d2665cfd6ce0422661697cafd0d70267cbf391172ea1aec9d45",
+  "FOREVER": {
+    "total_parameters": 894216224,
+    "layout_sha256": "343f0ce9a2ad2698dc681632ec7e949e9039d8b0adc05d77f409bc442884e646",
+    "path": "/data2/liyapeng_grp/program/LLMCL/summary/parameter_completion_20261104/onevision_FOREVER.json"
+  },
+  "definition": "Net additional model weight coefficients versus base. Includes fixed structural SVD factors stored as buffers; excludes runtime caches, optimizer and covariance states. Parameters and structural factors deduplicated by storage views."
+}
