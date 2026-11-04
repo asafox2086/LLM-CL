@@ -1,0 +1,116 @@
+{
+  "result_sha256": "568b3fba2683e5f01989f813f14f656dfd45016854d57a43af5503ea4e42fcb3",
+  "exit_sha256": "5d5b336d01f08043cdf4281fe69e611ac7ad331dd1ab1c0d410717725a88fa97",
+  "source_sha256": "edb40f493502e2116182976696e3790ff72b11ea11cad86202e9fe80e50fc493",
+  "selection_sha256": "aed631a83d4221cb02ccd10c303041c1015e48ad393837bad0b2e39d87da79b2",
+  "pooled": {
+    "QA": 100,
+    "positions": 864,
+    "centered_logit_energy_ratio": 0.0012247836712481572,
+    "relative_centered_logit_L2": 0.034996909452809644,
+    "fixed_off_top1_changes": 175,
+    "dynamic_fixed_top1_changes": 10,
+    "gold_top1_counts": {
+      "off": 419,
+      "fixed": 472,
+      "dynamic": 472
+    },
+    "fixed_off_gold_margin_abs_QA_mean": 4.451432203650475,
+    "dynamic_fixed_gold_margin_abs_QA_mean": 0.09342106122523547,
+    "QA_with_dynamic_fixed_top1_change": 8,
+    "QA_with_fixed_off_top1_change": 96
+  },
+  "domains": {
+    "finance": {
+      "QA": 20,
+      "positions": 47,
+      "centered_logit_energy_ratio": 0.0012581432884296408,
+      "relative_centered_logit_L2": 0.035470315595292366,
+      "fixed_off_top1_changes": 24,
+      "dynamic_fixed_top1_changes": 0,
+      "gold_top1_counts": {
+        "off": 17,
+        "fixed": 25,
+        "dynamic": 25
+      },
+      "fixed_off_gold_margin_abs_QA_mean": 3.0820442736148834,
+      "dynamic_fixed_gold_margin_abs_QA_mean": 0.12249348945915699,
+      "QA_with_dynamic_fixed_top1_change": 0,
+      "QA_with_fixed_off_top1_change": 19
+    },
+    "geography": {
+      "QA": 20,
+      "positions": 43,
+      "centered_logit_energy_ratio": 0.0006030946707006522,
+      "relative_centered_logit_L2": 0.024557985884446066,
+      "fixed_off_top1_changes": 19,
+      "dynamic_fixed_top1_changes": 0,
+      "gold_top1_counts": {
+        "off": 21,
+        "fixed": 31,
+        "dynamic": 31
+      },
+      "fixed_off_gold_margin_abs_QA_mean": 3.4497395902872086,
+      "dynamic_fixed_gold_margin_abs_QA_mean": 0.11718750009313225,
+      "QA_with_dynamic_fixed_top1_change": 0,
+      "QA_with_fixed_off_top1_change": 19
+    },
+    "medical": {
+      "QA": 20,
+      "positions": 69,
+      "centered_logit_energy_ratio": 0.0005222491300987998,
+      "relative_centered_logit_L2": 0.02285277073133146,
+      "fixed_off_top1_changes": 30,
+      "dynamic_fixed_top1_changes": 1,
+      "gold_top1_counts": {
+        "off": 34,
+        "fixed": 37,
+        "dynamic": 38
+      },
+      "fixed_off_gold_margin_abs_QA_mean": 8.35027951002121,
+      "dynamic_fixed_gold_margin_abs_QA_mean": 0.12173828110098839,
+      "QA_with_dynamic_fixed_top1_change": 1,
+      "QA_with_fixed_off_top1_change": 19
+    },
+    "natural": {
+      "QA": 20,
+      "positions": 65,
+      "centered_logit_energy_ratio": 0.0005415399096212632,
+      "relative_centered_logit_L2": 0.023271010068780067,
+      "fixed_off_top1_changes": 23,
+      "dynamic_fixed_top1_changes": 0,
+      "gold_top1_counts": {
+        "off": 39,
+        "fixed": 49,
+        "dynamic": 49
+      },
+      "fixed_off_gold_margin_abs_QA_mean": 6.664379870891571,
+      "dynamic_fixed_gold_margin_abs_QA_mean": 0.06739257844164967,
+      "QA_with_dynamic_fixed_top1_change": 0,
+      "QA_with_fixed_off_top1_change": 20
+    },
+    "traffic": {
+      "QA": 20,
+      "positions": 640,
+      "centered_logit_energy_ratio": 0.0031411759139863583,
+      "relative_centered_logit_L2": 0.05604619446480161,
+      "fixed_off_top1_changes": 79,
+      "dynamic_fixed_top1_changes": 9,
+      "gold_top1_counts": {
+        "off": 308,
+        "fixed": 330,
+        "dynamic": 329
+      },
+      "fixed_off_gold_margin_abs_QA_mean": 0.7107177734375,
+      "dynamic_fixed_gold_margin_abs_QA_mean": 0.03829345703125,
+      "QA_with_dynamic_fixed_top1_change": 7,
+      "QA_with_fixed_off_top1_change": 19
+    }
+  },
+  "scope": "100 TEST QA; same fixed coefficients as complete TEST; paired gold-prefix diagnostic",
+  "limits": [
+    "teacher-forced sampled positions, not free-generation F1",
+    "does not identify training cause or establish full-TEST mediation",
+    "sample from existing TEST, not a new external test set"
+  ]
+}
