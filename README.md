@@ -46,7 +46,7 @@
 <tr><th>FOREVER</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
 <tr><th>CL-MoE</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
 <tr><th>SMoLoRA</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-<tr><th>PASs-MoE</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>PASs-MoE</th><td>68.633</td><td>60.102</td><td>26.876</td><td>32.247</td><td>34.344</td><td>27.608</td><td>24.719</td><td>17.805</td><td>0.000</td><td>40.000</td><td>15.513</td><td>30.556</td><td>4.199</td><td>73.536</td><td>18.554</td><td>84.259</td><td>60.936</td><td>26.436</td><td>30.824</td><td>41.372</td><td>36.329</td><td>37.700</td><td>44.852</td><td>140.771</td><td>140.771</td></tr>
 <tr><th>PaRSP</th><td>76.399</td><td>77.047</td><td>47.579</td><td>64.043</td><td>69.489</td><td>56.328</td><td>57.303</td><td>31.609</td><td>14.015</td><td>65.231</td><td>32.179</td><td>55.291</td><td>73.000</td><td>86.091</td><td>25.416</td><td>78.011</td><td>64.854</td><td>25.728</td><td>41.268</td><td>39.827</td><td>37.427</td><td>39.601</td><td>52.375</td><td>0.000</td><td>—</td></tr>
 <tr><th>OSFT</th><td>73.470</td><td>74.503</td><td>51.170</td><td>62.012</td><td>68.683</td><td>53.235</td><td>53.933</td><td>34.195</td><td>41.667</td><td>76.462</td><td>31.360</td><td>55.061</td><td>63.000</td><td>71.540</td><td>16.390</td><td>81.459</td><td>59.176</td><td>27.146</td><td>37.818</td><td>40.095</td><td>35.208</td><td>38.408</td><td>50.652</td><td>—</td><td>—</td></tr>
 <tr><th>SpaRTA</th><td>75.554</td><td>74.371</td><td>53.891</td><td>58.841</td><td>72.984</td><td>50.214</td><td>51.685</td><td>32.184</td><td>25.476</td><td>68.513</td><td>28.102</td><td>53.610</td><td>80.000</td><td>76.244</td><td>20.869</td><td>80.685</td><td>61.745</td><td>26.824</td><td>37.288</td><td>39.580</td><td>34.170</td><td>37.766</td><td>51.100</td><td>10.402</td><td>10.402</td></tr>
@@ -73,6 +73,9 @@ M表示百万参数，不是MB。S19可训练参数按训练末阶段requires_gr
 新增参数量按末态模型权重系数相对基座的净增量统计；OSFT包含作为buffer保存的固定SVD权重因子，不等于可训练参数量；不包含优化器、协方差等训练状态或精度转换增加的字节。未核验项保留“—”。[参数依据](summary/shared_initial_and_parameter_audit_20261103/ADDED_PARAMETERS.json)
 
 1%已有F1的9个基线组合，其新增参数与S19可训练参数已逐项补齐。[checkpoint统计依据](summary/parameter_completion_20261104/FINAL_ADDED_COUNTS.json)
+
+
+PASs-MoE 10% LLaVA最终S19完整测试已核验；重启前历史评估缺失，不代表完整历史指标已恢复。[末态依据](summary/baseline_reboot_20261102/PAS_FINAL19_VERIFIED.json)
 
 ## 观测结论
 
