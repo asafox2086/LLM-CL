@@ -1,0 +1,14 @@
+{
+  "adapter_sha256": "33946eddfc6424638ded0675ded68860273859c2f71993a6a60bd22556341be9",
+  "training_entry_sha256": "0e1f794ff1daf0694bdf960c3f89ccd4078764577db75271d8f78684282a39a9",
+  "facts": [
+    "fixed eight experts created at initialization",
+    "forward computes all eight expert updates and softmax-weighted sum",
+    "CL method provides no separate training_loss or extra_loss; original training entry uses answer_loss on combined output",
+    "top2 used in end_stage to set momentum merge, not sparse forward dispatch",
+    "inference effective gate is 0.5 token softmax plus 0.5 selected task mean gate"
+  ],
+  "interpretation": "no hard disjoint task assignment; shared answer objective is a plausible source of functional overlap",
+  "causality": "not proven: removing shared exposure or changing routing training has not been tested",
+  "scope": "source-bound implemented CL-MoE reproduction; not a claim about all MoE methods"
+}
