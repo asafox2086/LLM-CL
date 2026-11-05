@@ -10,7 +10,7 @@
 <tr><th>TextVQA</th><th>Mod.</th><th>Pos.</th><th>Organ</th><th>Size</th><th>Abn.</th><th>Qty.</th><th>Plane</th><th>Shape</th><th>Color</th><th>KG</th><th>Avg</th><th>R/U</th><th>Exist</th><th>Count</th><th>Compare</th><th>Avg</th><th>FinMME</th><th>T17</th><th>T18</th><th>T19</th><th>Avg</th></tr>
 </thead><tbody>
 <tr><th colspan="26">LLaVA-OneVision-Qwen2-0.5B-OV</th></tr>
-<tr><th>FullFT（朴素全量）</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>FullFT（朴素全量）</th><td>0.573</td><td>0.000</td><td>0.200</td><td>0.040</td><td>0.067</td><td>0.000</td><td>0.000</td><td>0.000</td><td>0.000</td><td>0.026</td><td>0.041</td><td>0.056</td><td>0.000</td><td>0.000</td><td>0.000</td><td>0.000</td><td>0.000</td><td>0.276</td><td>15.435</td><td>6.976</td><td>12.758</td><td>10.330</td><td>2.247</td><td>0.000</td><td>893.676</td></tr>
 <tr><th>SeqFT-LoRA（q/v-r8）</th><td>75.632</td><td>60.747</td><td>43.366</td><td>37.445</td><td>52.339</td><td>49.770</td><td>43.820</td><td>27.148</td><td>5.682</td><td>42.615</td><td>16.455</td><td>40.758</td><td>65.000</td><td>48.122</td><td>17.509</td><td>66.717</td><td>46.711</td><td>15.891</td><td>33.587</td><td>30.842</td><td>32.750</td><td>31.938</td><td>42.186</td><td>0.541</td><td>0.541</td></tr>
 <tr><th>FOREVER</th><td>64.486</td><td>66.199</td><td>32.646</td><td>51.645</td><td>49.597</td><td>53.223</td><td>43.820</td><td>61.022</td><td>14.881</td><td>72.821</td><td>16.579</td><td>46.103</td><td>78.000</td><td>75.770</td><td>4.140</td><td>65.467</td><td>50.570</td><td>9.623</td><td>30.016</td><td>33.662</td><td>36.067</td><td>33.370</td><td>40.830</td><td>0.541</td><td>0.541</td></tr>
 <tr><th>CL-MoE</th><td>74.657</td><td>62.026</td><td>42.636</td><td>34.270</td><td>44.892</td><td>52.726</td><td>47.191</td><td>27.443</td><td>14.015</td><td>49.077</td><td>22.227</td><td>41.139</td><td>73.000</td><td>57.597</td><td>18.256</td><td>67.316</td><td>50.050</td><td>14.914</td><td>34.330</td><td>31.592</td><td>35.297</td><td>33.110</td><td>42.774</td><td>37.159</td><td>37.159</td></tr>
@@ -78,6 +78,8 @@ M表示百万参数，不是MB。S19可训练参数按训练末阶段requires_gr
 PASs-MoE 10% LLaVA最终S19完整测试已核验；重启前历史评估缺失，不代表完整历史指标已恢复。[末态依据](summary/baseline_reboot_20261102/PAS_FINAL19_VERIFIED.json)
 
 CL-MoE 10% LLaVA末态已核验；历史S0缺失，未补造迁移指标。[末态依据](summary/baseline_reboot_20261102/CL_FINAL19_VERIFIED.json) · [参数依据](summary/baseline_reboot_20261102/CL_PCT10_PARAMETERS.json)
+
+FullFT 1% LLaVA报告实际S19 BF16末态输出；训练使用FP32参数/BF16 AMP。三次恢复来源及最终21454题已核对，进程在测试后的资源日志解析阶段失败。该行不代表完整历史迁移指标已核验，也未分离最终精度转换的影响。[末态分数](summary/fullft_final_20261105/FINAL_OUTPUT_CLOSURE.json) · [恢复审计](summary/fullft_final_20261105/S18_CONTINUATION_AUDIT.json) · [参数依据](summary/fullft_final_20261105/PARAMETERS.json)
 
 ## 观测结论
 
