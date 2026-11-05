@@ -44,7 +44,7 @@
 <tr><th>FullFT（朴素全量）</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
 <tr><th>SeqFT-LoRA（q/v-r8）</th><td>73.069</td><td>64.722</td><td>48.004</td><td>41.141</td><td>73.118</td><td>53.813</td><td>48.315</td><td>27.586</td><td>28.373</td><td>39.465</td><td>18.802</td><td>45.294</td><td>52.000</td><td>78.680</td><td>23.549</td><td>66.142</td><td>57.157</td><td>24.602</td><td>35.266</td><td>38.272</td><td>36.678</td><td>37.189</td><td>47.462</td><td>0.541</td><td>0.541</td></tr>
 <tr><th>FOREVER</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-<tr><th>CL-MoE</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th>CL-MoE</th><td>75.770</td><td>70.863</td><td>48.190</td><td>45.187</td><td>65.726</td><td>55.230</td><td>51.685</td><td>28.592</td><td>45.833</td><td>58.923</td><td>24.280</td><td>48.350</td><td>72.000</td><td>78.714</td><td>23.889</td><td>66.717</td><td>57.697</td><td>24.057</td><td>38.058</td><td>35.744</td><td>35.293</td><td>36.182</td><td>48.411</td><td>37.159</td><td>37.159</td></tr>
 <tr><th>SMoLoRA</th><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
 <tr><th>PASs-MoE</th><td>68.633</td><td>60.102</td><td>26.876</td><td>32.247</td><td>34.344</td><td>27.608</td><td>24.719</td><td>17.805</td><td>0.000</td><td>40.000</td><td>15.513</td><td>30.556</td><td>4.199</td><td>73.536</td><td>18.554</td><td>84.259</td><td>60.936</td><td>26.436</td><td>30.824</td><td>41.372</td><td>36.329</td><td>37.700</td><td>44.852</td><td>140.771</td><td>140.771</td></tr>
 <tr><th>PaRSP</th><td>76.399</td><td>77.047</td><td>47.579</td><td>64.043</td><td>69.489</td><td>56.328</td><td>57.303</td><td>31.609</td><td>14.015</td><td>65.231</td><td>32.179</td><td>55.291</td><td>73.000</td><td>86.091</td><td>25.416</td><td>78.011</td><td>64.854</td><td>25.728</td><td>41.268</td><td>39.827</td><td>37.427</td><td>39.601</td><td>52.375</td><td>0.000</td><td>—</td></tr>
@@ -76,6 +76,8 @@ M表示百万参数，不是MB。S19可训练参数按训练末阶段requires_gr
 
 
 PASs-MoE 10% LLaVA最终S19完整测试已核验；重启前历史评估缺失，不代表完整历史指标已恢复。[末态依据](summary/baseline_reboot_20261102/PAS_FINAL19_VERIFIED.json)
+
+CL-MoE 10% LLaVA末态已核验；历史S0缺失，未补造迁移指标。[末态依据](summary/baseline_reboot_20261102/CL_FINAL19_VERIFIED.json) · [参数依据](summary/baseline_reboot_20261102/CL_PCT10_PARAMETERS.json)
 
 ## 观测结论
 
