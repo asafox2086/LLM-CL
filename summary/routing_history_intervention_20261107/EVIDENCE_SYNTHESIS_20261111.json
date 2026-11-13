@@ -1,0 +1,56 @@
+{
+  "scope": "Synthesis of existing verified outputs; no new model or score. Official F1 primary.",
+  "raw_final_gain_gap": 1.754385964912288,
+  "initial_gain_gap": 0.43859649122806843,
+  "difference_in_gain_changes": 1.3157894736842195,
+  "completed_task_identity_pair": {
+    "source": "../routing_task_identity_20261109/VERIFIED_PAIRED.json; PAIRED_ANSWER_CHANGES_20261111.json",
+    "verified_pair_sha256": "69132abfd7803fe912c7e781b436efe50afe3b26d45d9eeed93b4651069f4a12",
+    "B_known_old_and_refreshed_prior_gain": 0.43859649122806843,
+    "D_known_old_and_refreshed_prior_gain": 0.0,
+    "B_answer_changes": "Old prior corrects SLAKE:13840 T2 to T1; refreshed prior corrects SLAKE:12997 T1 to T2. Each arm changes exactly one answer and no others.",
+    "D_answer_changes": "Both overrides leave all 228 predictions and all three per-item scores unchanged.",
+    "interpretation": "Correcting task identity is not sufficient to repair the cross-domain target-task result under these tested frozen-checkpoint interventions; it helps one content answer in the same-domain branch. Not a universal exclusion of routing errors."
+  },
+  "train_mean_fixed_reference_sensitivity": {
+    "source": "PAIRED_TERMINAL_VERIFIED_20261109.txt; analysis/routing_history_intervention_20261107.py pooled/calibrated_constant",
+    "construction": "Final-model gate means over each cell's 1280 TRAIN prompts, averaged across five equal-sized stages; no TEST labels or parameter updates; not an optimized best fixed policy.",
+    "B_constant_F1": 76.09649122807018,
+    "D_constant_F1": 70.83333333333333,
+    "B_dynamic_minus_constant": 0.43859649122806843,
+    "D_dynamic_minus_constant": 0.6578947368421098,
+    "interpretation": "The smaller cross-domain dynamic gain holds against uniform mixing, but not against this existing TRAIN-mean fixed reference. Do not generalize it to all fixed policies or infer that cross-domain training improves routing. This is arithmetic on existing verified results, not new scoring."
+  },
+  "final_dynamic_minus_best_global_single": {
+    "B": -0.2192982456140271,
+    "D": -0.43859649122806843
+  },
+  "final_best_global_single_minus_uniform": {
+    "B": 2.4122807017543835,
+    "D": 0.8771929824561369
+  },
+  "D_trajectory": {
+    "dynamic_change": -4.3859649122806985,
+    "single_path_oracle_change": -4.166666666666671,
+    "oracle_gap_change": 0.2192982456140271
+  },
+  "feasible_gate_fact": {
+    "interpretation": "Unit one-hot expert intervention lies outside original nondegenerate-prior gate family. Best-of-eight is external counterfactual reference, not attainable router oracle. Bounds alone do not prove this restriction causes the B/D gap.",
+    "source": "exp/two_backbone_native_cl_20261017_v2/clmoe_adapter.py",
+    "bounds": "0.5 p_i <= w_i <= 0.5 + 0.5 p_i",
+    "formula": "w_i = 0.5 g_i + 0.5 p_i",
+    "D_stage1_prior_mean_layer_max_upper_bound": 0.6017373952837217,
+    "source_sha256": "33946eddfc6424638ded0675ded68860273859c2f71993a6a60bd22556341be9",
+    "D_stage1_prior_global_upper_bound": 0.7260842174291611,
+    "uniform_feasibility": "To realize uniform w_i=1/8, g_i=1/4-p_i must be nonnegative. Observed stage1 p_max=0.452168 in D violates this, so at least one layer cannot realize uniform with the original prior.",
+    "fixed_intervention_source_sha256": "60323dba3c5145a3dcce44da585c5c917891a29e9f4a9260f86b6e16b1534f81"
+  },
+  "limits": [
+    "Single seed and one shared target task; 228 QA/161 images.",
+    "Only descriptive decomposition, not mediation percentages.",
+    "TEST-selected best global expert is not a deployable baseline.",
+    "Stage1 actual outputs differ despite same nominal training and initialization.",
+    "Image exposure differs and posterior alias normalization changes some mechanism estimates.",
+    "Cross-domain task-identity zero effect excludes output changes under tested overrides, not all counterfactual routing failures."
+  ]
+}
