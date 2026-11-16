@@ -1,0 +1,65 @@
+{
+  "table": [
+    {
+      "seed": 42,
+      "host": "NEW",
+      "B_dynamic": 76.53508771929825,
+      "D_dynamic": 71.49122807017544,
+      "B_uniform_gain": 1.973684210526315,
+      "D_uniform_gain": 0.43859649122806843,
+      "D_minus_B_uniform_gain": -1.5350877192982466,
+      "uniform_gain_percentile95": [
+        -4.430379746835443,
+        1.2658227848101267
+      ],
+      "D_minus_B_train_mean_gain": null,
+      "initial_control": "same phase1 checkpoint"
+    },
+    {
+      "seed": 43,
+      "host": "NEW",
+      "B_dynamic": 75.43859649122807,
+      "D_dynamic": 73.24561403508773,
+      "B_uniform_gain": -0.43859649122807015,
+      "D_uniform_gain": 1.9736842105263157,
+      "D_minus_B_uniform_gain": 2.412280701754386,
+      "uniform_gain_percentile95": [
+        0.0,
+        5.066079295154185
+      ],
+      "D_minus_B_train_mean_gain": 2.6315789473684212,
+      "initial_control": "same initialization, independent first-stage CUDA training"
+    },
+    {
+      "seed": 44,
+      "host": "OLD",
+      "B_dynamic": 76.53508771929825,
+      "D_dynamic": 72.36842105263158,
+      "B_uniform_gain": 0.21929824561403508,
+      "D_uniform_gain": 1.7543859649122806,
+      "D_minus_B_uniform_gain": 1.5350877192982457,
+      "uniform_gain_percentile95": [
+        -1.948051948051948,
+        5.0
+      ],
+      "D_minus_B_train_mean_gain": 1.5350877192982457,
+      "initial_control": "same initialization, independent first-stage CUDA training"
+    }
+  ],
+  "evidence_sha256": {
+    "summary/domain_image_control_20261110/VERIFIED_COMPARISON.json": "a50d8a65a9d0f0a089d27a74f951177f6e15f10ab341a1961d8a9ee20162f452",
+    "summary/medical_domain_replication_20261116/VERIFIED_seed43.json": "04c4eb053602784650570c1b67613ef9c29d9cc3de26033583b60e1b61331153",
+    "summary/medical_domain_replication_20261116/VERIFIED_seed44.json": "e05d8cb152246b99615c09696866eccbed4dc75ada2263394dc558964c244119",
+    "summary/medical_domain_replication_20261116/ANSWER_EFFECT_DECOMPOSITION.json": "a9d44215c609214b925f850493ad18d8e25f9868d8d3526d5530f3ecfe019444"
+  },
+  "complete_QA_per_arm": 228,
+  "training_QA_per_run": 1280,
+  "updates_per_run": 80,
+  "findings": [
+    "The seed42 negative dynamic-margin domain contrast was not replicated in either prespecified new training repetition",
+    "Cross-domain absolute dynamic F1 was lower in all three observed repetitions; this does not establish a reduction in the advantage of dynamic routing",
+    "No pooled training-seed confidence interval is claimed; training repetition is partly confounded with host, and seed42 alone used shared phase1 state",
+    "Answer readout separates narrow X-ray translation and letter-case changes; remaining changes are not a semantic accuracy metric"
+  ],
+  "next_inference_boundary": "No established stable domain-specific dynamic-gain failure to explain; data/update-budget and backbone causality remain untested"
+}
