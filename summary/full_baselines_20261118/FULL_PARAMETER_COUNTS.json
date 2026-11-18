@@ -1,0 +1,301 @@
+{
+  "condition": "full",
+  "units": "numbers of model coefficients",
+  "definition": "Architectural counts under the full-data run configuration. Persistent forward weights include frozen OSFT singular factors. Trainable counts at the final training stage exclude frozen SMoLoRA gates. PaRSP selects its trainable base weights on data and the count is pending. No full-data test results used.",
+  "models": {
+    "onevision": {
+      "FOREVER": {
+        "added": 540672,
+        "trainable": 540672
+      },
+      "FullFT": {
+        "added": 0,
+        "trainable": 893675552,
+        "core_sha256": "56f64d830b5343cbf40db801ef6451de4ae33bdc610da0f32dde3f580b53e5e1"
+      },
+      "SeqFT_LoRA": {
+        "added": 540672,
+        "trainable": 540672
+      },
+      "CL_MoE": {
+        "added": 37158912,
+        "trainable": 37158912
+      },
+      "SMoLoRA": {
+        "added": 72235008,
+        "trainable": 70993920
+      },
+      "PASs_MoE": {
+        "added": 140771328,
+        "trainable": 140771328
+      },
+      "OSFT": {
+        "added": 97238016,
+        "trainable": 113766144,
+        "fixed_factors": 341298432,
+        "replaced": 357826560,
+        "author_source": "ff67271a66cc6016854f3e1d5736f2931efa5f8feafb5eefbfa70a52105910b3"
+      },
+      "SpaRTA": {
+        "added": 10401792,
+        "trainable": 10401792,
+        "dual_rank_coefficients": 5498880,
+        "author_sources": {
+          "src/llamafactory/model/inject_data.py": "b9eb2f999898df975b30e091eb3b434ebbf225e7deade3afe6e013c439d0eb9b",
+          "patch/modeling_qwen2.py": "f8760fef97f8b300955fa5e93fb53ae678f4ee97058d38a7ebbed8937f795a37"
+        }
+      },
+      "PaRSP": {
+        "added": 0,
+        "trainable": null
+      }
+    },
+    "qwen": {
+      "FOREVER": {
+        "added": 1089536,
+        "trainable": 1089536
+      },
+      "FullFT": {
+        "added": 0,
+        "trainable": 2208985600,
+        "core_sha256": "56f64d830b5343cbf40db801ef6451de4ae33bdc610da0f32dde3f580b53e5e1"
+      },
+      "SeqFT_LoRA": {
+        "added": 1089536,
+        "trainable": 1089536
+      },
+      "CL_MoE": {
+        "added": 77930496,
+        "trainable": 77930496
+      },
+      "SMoLoRA": {
+        "added": 151345152,
+        "trainable": 149008384
+      },
+      "PASs_MoE": {
+        "added": 295436288,
+        "trainable": 295436288
+      },
+      "OSFT": {
+        "added": 334200832,
+        "trainable": 411099136,
+        "fixed_factors": 1233297408,
+        "replaced": 1310195712,
+        "author_source": "ff67271a66cc6016854f3e1d5736f2931efa5f8feafb5eefbfa70a52105910b3"
+      },
+      "SpaRTA": {
+        "added": 21346304,
+        "trainable": 21346304,
+        "dual_rank_coefficients": 11540480,
+        "author_sources": {
+          "src/llamafactory/model/inject_data.py": "b9eb2f999898df975b30e091eb3b434ebbf225e7deade3afe6e013c439d0eb9b",
+          "patch/modeling_qwen2.py": "f8760fef97f8b300955fa5e93fb53ae678f4ee97058d38a7ebbed8937f795a37"
+        }
+      },
+      "PaRSP": {
+        "added": 0,
+        "trainable": null
+      }
+    }
+  },
+  "evidence": [
+    {
+      "file": "PARAMETERS_onevision_forever.json",
+      "file_sha256": "37ad03392e78df4588334a97dae80c0d04464270a9e74bda80aacd9474f29348",
+      "backbone": "onevision",
+      "base": 893675552,
+      "safetensor_headers": {
+        "model.safetensors": "874dbcdff7fd946c2f1d74b0d46059e598b03bdc2b93853f65603360a984c5a5"
+      },
+      "config_sha256": "839a4fba0bd6949f0db22d4f840935cb0318f6ac28b29c9ce1a5b15735a4a740",
+      "manifest": "cf737555dab3646c9916dc63a66f1d52285eebbeed4aa414e807ae5b08a0d952",
+      "source_sha256": "dd8d19db4eb268d579fa5a82b65259c9985bc4023e9569b2e466f3f103a1bd66",
+      "counts": {
+        "FOREVER": {
+          "added": 540672,
+          "trainable": 540672
+        }
+      }
+    },
+    {
+      "file": "PARAMETERS_onevision_main.json",
+      "file_sha256": "d2064ae4b784424c3e05898c576c57d0a348e92fd98769aa1d7c08325175ec99",
+      "backbone": "onevision",
+      "base": 893675552,
+      "safetensor_headers": {
+        "model.safetensors": "874dbcdff7fd946c2f1d74b0d46059e598b03bdc2b93853f65603360a984c5a5"
+      },
+      "config_sha256": "839a4fba0bd6949f0db22d4f840935cb0318f6ac28b29c9ce1a5b15735a4a740",
+      "manifest": "cf737555dab3646c9916dc63a66f1d52285eebbeed4aa414e807ae5b08a0d952",
+      "source_sha256": "dd8d19db4eb268d579fa5a82b65259c9985bc4023e9569b2e466f3f103a1bd66",
+      "counts": {
+        "FullFT": {
+          "added": 0,
+          "trainable": 893675552,
+          "core_sha256": "56f64d830b5343cbf40db801ef6451de4ae33bdc610da0f32dde3f580b53e5e1"
+        },
+        "SeqFT_LoRA": {
+          "added": 540672,
+          "trainable": 540672
+        },
+        "CL_MoE": {
+          "added": 37158912,
+          "trainable": 37158912
+        },
+        "SMoLoRA": {
+          "added": 72235008,
+          "trainable": 70993920
+        },
+        "PASs_MoE": {
+          "added": 140771328,
+          "trainable": 140771328
+        },
+        "OSFT": {
+          "added": 97238016,
+          "trainable": 113766144,
+          "fixed_factors": 341298432,
+          "replaced": 357826560,
+          "author_source": "ff67271a66cc6016854f3e1d5736f2931efa5f8feafb5eefbfa70a52105910b3"
+        },
+        "SpaRTA": {
+          "added": 10401792,
+          "trainable": 10401792,
+          "dual_rank_coefficients": 5498880,
+          "author_sources": {
+            "src/llamafactory/model/inject_data.py": "b9eb2f999898df975b30e091eb3b434ebbf225e7deade3afe6e013c439d0eb9b",
+            "patch/modeling_qwen2.py": "f8760fef97f8b300955fa5e93fb53ae678f4ee97058d38a7ebbed8937f795a37"
+          }
+        },
+        "PaRSP": {
+          "added": 0,
+          "trainable": null
+        }
+      }
+    },
+    {
+      "file": "PARAMETERS_qwen_forever.json",
+      "file_sha256": "b661d066042447ca9dbc49030c345ae139b75ce5f49bd334fdfdc0a9bd5884b3",
+      "backbone": "qwen",
+      "base": 2208985600,
+      "safetensor_headers": {
+        "model-00001-of-00002.safetensors": "7c0fed2cf13bde1906b514199f0e352183b949d24cce47ec745ed4e4c2caca3c",
+        "model-00002-of-00002.safetensors": "7692718763e900aed935798025815d45789769dbcef80633a4430084d4baed95"
+      },
+      "config_sha256": "422adefa19e62dd175961cec85bc0400344fe5bf9b22bd1182e05aaae78556e0",
+      "manifest": "cf737555dab3646c9916dc63a66f1d52285eebbeed4aa414e807ae5b08a0d952",
+      "source_sha256": "dd8d19db4eb268d579fa5a82b65259c9985bc4023e9569b2e466f3f103a1bd66",
+      "counts": {
+        "FOREVER": {
+          "added": 1089536,
+          "trainable": 1089536
+        }
+      }
+    },
+    {
+      "file": "PARAMETERS_qwen_main.json",
+      "file_sha256": "d26342e13a08168b69f5f84a38094b7998592578707610837cf3d91fae87924e",
+      "backbone": "qwen",
+      "base": 2208985600,
+      "safetensor_headers": {
+        "model-00001-of-00002.safetensors": "7c0fed2cf13bde1906b514199f0e352183b949d24cce47ec745ed4e4c2caca3c",
+        "model-00002-of-00002.safetensors": "7692718763e900aed935798025815d45789769dbcef80633a4430084d4baed95"
+      },
+      "config_sha256": "422adefa19e62dd175961cec85bc0400344fe5bf9b22bd1182e05aaae78556e0",
+      "manifest": "cf737555dab3646c9916dc63a66f1d52285eebbeed4aa414e807ae5b08a0d952",
+      "source_sha256": "dd8d19db4eb268d579fa5a82b65259c9985bc4023e9569b2e466f3f103a1bd66",
+      "counts": {
+        "FullFT": {
+          "added": 0,
+          "trainable": 2208985600,
+          "core_sha256": "56f64d830b5343cbf40db801ef6451de4ae33bdc610da0f32dde3f580b53e5e1"
+        },
+        "SeqFT_LoRA": {
+          "added": 1089536,
+          "trainable": 1089536
+        },
+        "CL_MoE": {
+          "added": 77930496,
+          "trainable": 77930496
+        },
+        "SMoLoRA": {
+          "added": 151345152,
+          "trainable": 149008384
+        },
+        "PASs_MoE": {
+          "added": 295436288,
+          "trainable": 295436288
+        },
+        "OSFT": {
+          "added": 334200832,
+          "trainable": 411099136,
+          "fixed_factors": 1233297408,
+          "replaced": 1310195712,
+          "author_source": "ff67271a66cc6016854f3e1d5736f2931efa5f8feafb5eefbfa70a52105910b3"
+        },
+        "SpaRTA": {
+          "added": 21346304,
+          "trainable": 21346304,
+          "dual_rank_coefficients": 11540480,
+          "author_sources": {
+            "src/llamafactory/model/inject_data.py": "b9eb2f999898df975b30e091eb3b434ebbf225e7deade3afe6e013c439d0eb9b",
+            "patch/modeling_qwen2.py": "f8760fef97f8b300955fa5e93fb53ae678f4ee97058d38a7ebbed8937f795a37"
+          }
+        },
+        "PaRSP": {
+          "added": 0,
+          "trainable": null
+        }
+      }
+    }
+  ],
+  "independent_old_onevision": {
+    "file": "PARAMETERS_onevision_main.json",
+    "file_sha256": "dbadde798bd5b83f49e4c680958d9a2b09166ef11c57bbb39572c6afe2fa6607",
+    "backbone": "onevision",
+    "base": 893675552,
+    "safetensor_headers": {
+      "model.safetensors": "874dbcdff7fd946c2f1d74b0d46059e598b03bdc2b93853f65603360a984c5a5"
+    },
+    "config_sha256": "839a4fba0bd6949f0db22d4f840935cb0318f6ac28b29c9ce1a5b15735a4a740",
+    "manifest": "cf737555dab3646c9916dc63a66f1d52285eebbeed4aa414e807ae5b08a0d952",
+    "source_sha256": "dd8d19db4eb268d579fa5a82b65259c9985bc4023e9569b2e466f3f103a1bd66",
+    "counts": {
+      "SeqFT_LoRA": {
+        "added": 540672,
+        "trainable": 540672
+      },
+      "CL_MoE": {
+        "added": 37158912,
+        "trainable": 37158912
+      },
+      "SMoLoRA": {
+        "added": 72235008,
+        "trainable": 70993920
+      },
+      "PASs_MoE": {
+        "added": 140771328,
+        "trainable": 140771328
+      },
+      "OSFT": {
+        "added": 97238016,
+        "trainable": 113766144,
+        "fixed_factors": 341298432,
+        "replaced": 357826560,
+        "author_source": "ff67271a66cc6016854f3e1d5736f2931efa5f8feafb5eefbfa70a52105910b3"
+      },
+      "SpaRTA": {
+        "added": 10401792,
+        "trainable": 10401792,
+        "dual_rank_coefficients": 5498880,
+        "author_sources": {
+          "src/llamafactory/model/inject_data.py": "b9eb2f999898df975b30e091eb3b434ebbf225e7deade3afe6e013c439d0eb9b",
+          "patch/modeling_qwen2.py": "f8760fef97f8b300955fa5e93fb53ae678f4ee97058d38a7ebbed8937f795a37"
+        }
+      },
+      "PaRSP": {
+        "added": 0,
+        "trainable": null
+      }
+    }
+  }
+}
