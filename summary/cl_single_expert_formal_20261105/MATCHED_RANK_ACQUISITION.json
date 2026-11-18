@@ -1,0 +1,513 @@
+{
+  "study": "Matched total rank, OneVision 1%, identical full test QA at acquisition and after task 19. Eight minus one. Time differences describe changes during subsequent training, conditional on these two runs; later task identities and positions are confounded.",
+  "reference_sha256": "0de35f31dfe0cae1a1ee3c017da716dc708dc3b06f769f73b609f8ca9737e536",
+  "bootstrap": {
+    "seed": 20261119,
+    "draws": 5000,
+    "sampling": "shared connected components of image content within each domain, question-weighted domain means, equal-domain macro"
+  },
+  "readout": {
+    "finance": {
+      "eight_acq": 15.897333350545733,
+      "eight_end": 14.91388713820015,
+      "one_acq": 20.353784146887595,
+      "one_end": 19.390777840680247,
+      "gap_acq": -4.456450796341862,
+      "gap_acq_ci95": [
+        -6.068087026313368,
+        -2.8987886037302104
+      ],
+      "gap_end": -4.476890702480096,
+      "gap_end_ci95": [
+        -6.022249415898885,
+        -2.924323746812266
+      ],
+      "gap_change": -0.020439906138232544,
+      "gap_change_ci95": [
+        -1.1300581400707845,
+        1.145583611963873
+      ]
+    },
+    "geography": {
+      "eight_acq": 53.07876849260296,
+      "eight_end": 50.0499800079968,
+      "one_acq": 57.467013194722114,
+      "one_end": 41.01359456217513,
+      "gap_acq": -4.388244702119152,
+      "gap_acq_ci95": [
+        -5.225858518582437,
+        -3.606909458936902
+      ],
+      "gap_end": 9.036385445821672,
+      "gap_end_ci95": [
+        8.096741063694461,
+        9.994028570364032
+      ],
+      "gap_change": 13.424630147940825,
+      "gap_change_ci95": [
+        12.273832402207848,
+        14.577225184648219
+      ]
+    },
+    "medical": {
+      "eight_acq": 40.42853686387203,
+      "eight_end": 41.13942372724237,
+      "one_acq": 50.596640957003366,
+      "one_end": 45.12409618023073,
+      "gap_acq": -10.168104093131333,
+      "gap_acq_ci95": [
+        -12.5589147682745,
+        -7.728351022862578
+      ],
+      "gap_end": -3.984672452988363,
+      "gap_end_ci95": [
+        -5.761985016897356,
+        -2.1641296983753757
+      ],
+      "gap_change": 6.18343164014297,
+      "gap_change_ci95": [
+        3.945450156038355,
+        8.421644913201828
+      ]
+    },
+    "natural": {
+      "eight_acq": 74.96470492187564,
+      "eight_end": 74.6572639549994,
+      "one_acq": 73.20104466500703,
+      "one_end": 70.29807231725975,
+      "gap_acq": 1.7636602568686044,
+      "gap_acq_ci95": [
+        0.8755961365503626,
+        2.6156343001615636
+      ],
+      "gap_end": 4.359191637739642,
+      "gap_end_ci95": [
+        3.4654128955555352,
+        5.221861575711657
+      ],
+      "gap_change": 2.595531380871037,
+      "gap_change_ci95": [
+        1.7600970264147668,
+        3.4486596550275688
+      ]
+    },
+    "traffic": {
+      "eight_acq": 32.488267813186674,
+      "eight_end": 33.109542248966285,
+      "one_acq": 36.073194606284545,
+      "one_end": 35.98998945713495,
+      "gap_acq": -3.584926793097871,
+      "gap_acq_ci95": [
+        -3.9462774527715556,
+        -3.229678735185113
+      ],
+      "gap_end": -2.8804472081686683,
+      "gap_end_ci95": [
+        -3.2602829142824032,
+        -2.516410383592042
+      ],
+      "gap_change": 0.7044795849292029,
+      "gap_change_ci95": [
+        0.2905204123008712,
+        1.1115915299005263
+      ]
+    },
+    "macro": {
+      "eight_acq": 43.37152228841661,
+      "eight_end": 42.77401941548099,
+      "one_acq": 47.538335513980925,
+      "one_end": 42.363306071496154,
+      "gap_acq": -4.166813225564319,
+      "gap_acq_ci95": [
+        -4.7925494087664555,
+        -3.5428988788319256
+      ],
+      "gap_end": 0.4107133439848383,
+      "gap_end_ci95": [
+        -0.1389642214331504,
+        0.9724970166923155
+      ],
+      "gap_change": 4.577526569549157,
+      "gap_change_ci95": [
+        4.0012944045974415,
+        5.160561954146702
+      ]
+    }
+  },
+  "source_files": {
+    "one": {
+      "evaluations/stage_01/T01_test_predictions.jsonl": {
+        "prediction": "0cab874e41adafb2f95890e22ccd337f47c66973e5d391d4ba88913adf7e9d21",
+        "native_scores": "51c92cf0ea261da7a1732de7462617143ad368859a61b3230f2e92e1a46f2489",
+        "stage_record": "a4cb247bc7de33971adecfc605d97e08e880ea524bbab30fec077227bd8a3a5b"
+      },
+      "evaluations/stage_19/T01_test_predictions.jsonl": {
+        "prediction": "6c790e59fbc1c195a23343e84ab1b48ffa242d4fe446df7e24737b378f3e41ad",
+        "native_scores": "cfa83978280ee85704707e27ddb46a41e2a2c9f4298653fe010c116d73e0846f",
+        "stage_record": "ac10259854bbe3f12744ece91cd65ca9e8174325571f8d82a528b8745fa7c92a"
+      },
+      "evaluations/stage_02/T02_test_predictions.jsonl": {
+        "prediction": "722340491924d4ff6503613cd0a2408ed0d00e181ef9c67dd80639931920ac0f",
+        "native_scores": "9324cc37aad4b4c6d5cebb4cb6d9def4c648a40a3752ea181a2f712b4e0a9ea2",
+        "stage_record": "9550a7ca70229a3112a1a0ddb4a4db950da321c992562c1f9715be38492a5bf0"
+      },
+      "evaluations/stage_19/T02_test_predictions.jsonl": {
+        "prediction": "9574728eb9156a95c78d4ba2033e7bef3888cb10c897678823e598469d092aad",
+        "native_scores": "2b922231d0a213a06e83b550add5f66d96f37a454bcb96c7537e9a8b85a97781",
+        "stage_record": "ac10259854bbe3f12744ece91cd65ca9e8174325571f8d82a528b8745fa7c92a"
+      },
+      "evaluations/stage_03/T03_test_predictions.jsonl": {
+        "prediction": "7a58c7b5ac80be063681d0f7ec4b8c84db5da17b9f2b4e74cb69de5a5c3b5c38",
+        "native_scores": "caa51ed66af50f2f9c81d44cfca956f2b8cacd4f43fc03ac6d3622e4dca790ee",
+        "stage_record": "89f002ab32f786fc439c667bc23581d4f666c5d475e8ba8e618ac4c5514f2eda"
+      },
+      "evaluations/stage_19/T03_test_predictions.jsonl": {
+        "prediction": "157e8b2cf2fca1fd23d0ee0b54812e4c4655a090005ea62ea504f0dd1fb4fc0f",
+        "native_scores": "1a0f1cc00e53ebda0bfc94e21931e0e63f2e93366d2aed5b29a90142197985b1",
+        "stage_record": "ac10259854bbe3f12744ece91cd65ca9e8174325571f8d82a528b8745fa7c92a"
+      },
+      "evaluations/stage_04/T04_test_predictions.jsonl": {
+        "prediction": "a91fb4b6be0c8f18e5dbeaf3b53616b32ab09539b21ccfba43033eb5708800ff",
+        "native_scores": "99d0b1b7541981f16a4a511bd1a8321b8aea5b17e1785b7c507c9219e60705ca",
+        "stage_record": "9489af65b869795fb1ce26269f40fea5e1d27471da895fa079a9a1d6f0d3c049"
+      },
+      "evaluations/stage_19/T04_test_predictions.jsonl": {
+        "prediction": "0a0590e8939505dac94052901eef39fb25356c81234f8d89812b05ac219fbe44",
+        "native_scores": "2a5364324c3f5cf4b5d8b962bf778d9d7075cabeef20d37971b0d373187856ca",
+        "stage_record": "ac10259854bbe3f12744ece91cd65ca9e8174325571f8d82a528b8745fa7c92a"
+      },
+      "evaluations/stage_05/T05_test_predictions.jsonl": {
+        "prediction": "a5152ba1a8aae91253932dad358ce3ec6e78a3305cd79e146a8b3e8ccf52d8d5",
+        "native_scores": "56ee6b27b500d36de0974d0a59595400c8152b5a41c60371f6e556db6dde6c8b",
+        "stage_record": "6fdf7bfe5347f1ea0b0c0d5244545ccb34b8a82539f78692f5a376e96043a4df"
+      },
+      "evaluations/stage_19/T05_test_predictions.jsonl": {
+        "prediction": "96ba0ce3b3b9937f01f1bb482377372be498af1d2c10343ffd1e484840fc68ed",
+        "native_scores": "c5d807fd65edef3bf7da0d37df6918ddf9a20665a17df0553582d393e747a789",
+        "stage_record": "ac10259854bbe3f12744ece91cd65ca9e8174325571f8d82a528b8745fa7c92a"
+      },
+      "evaluations/stage_06/T06_test_predictions.jsonl": {
+        "prediction": "0240584af5a015e6a037c07ca998d7b8b24f2bbf73eb795b0ad1e24fdd0a2d83",
+        "native_scores": "d26fe23f5c320fd3f1c43c24f2b188e2cd23d1606b089a325f643cc56b9333bf",
+        "stage_record": "025f0099ee91cf577787293ee2dad168a9d2e1a7d5830ce4e96e975991062366"
+      },
+      "evaluations/stage_19/T06_test_predictions.jsonl": {
+        "prediction": "9e4309386d3b0f527c805f0292a20673090dc50b6d7d3338d237637284a5ec28",
+        "native_scores": "7e6d7538eb10d558aaa651db42a597af5a93007f17d75adea15708a0b0890ad0",
+        "stage_record": "ac10259854bbe3f12744ece91cd65ca9e8174325571f8d82a528b8745fa7c92a"
+      },
+      "evaluations/stage_07/T07_test_predictions.jsonl": {
+        "prediction": "cd421e0586c9499694da7a21829bf47a00929c540bde52f4b41370377c8de583",
+        "native_scores": "d94ef5286684275480909ee0b36a4d3de0b3ae7df38252d69ad7a21b96255c79",
+        "stage_record": "4098bd852bcddaf7161a937964561b53bb2cffe4001ff7b7ca1a1f715cf1c288"
+      },
+      "evaluations/stage_19/T07_test_predictions.jsonl": {
+        "prediction": "596e377a760178150f2e20a6b76a25f33a5353e78fdec42752498606d0590339",
+        "native_scores": "1953b32f26a1790d9ecfed415570036c87492e9d10c9e7ae5b7c8648fc5173d8",
+        "stage_record": "ac10259854bbe3f12744ece91cd65ca9e8174325571f8d82a528b8745fa7c92a"
+      },
+      "evaluations/stage_08/T08_test_predictions.jsonl": {
+        "prediction": "b9a3d20ea861d10e3afcf5f46b794d97c1a9fa52e37077525b0be9b23b5b7098",
+        "native_scores": "1747239d66103547a35b1da493b9f1f9d1591b060ecd8b6f00af7db7118a60ba",
+        "stage_record": "66e88267d4a5ae39990542d972e844f6bf1a9a20440287ff2427158077d6db6e"
+      },
+      "evaluations/stage_19/T08_test_predictions.jsonl": {
+        "prediction": "60fec114c432a432e168f2ed29efef176c61fa911e474e06bb2b850400a8611f",
+        "native_scores": "659eddce8c05f5e445511cea0e798d87b73cde8763ffce0bfba23be42e86b903",
+        "stage_record": "ac10259854bbe3f12744ece91cd65ca9e8174325571f8d82a528b8745fa7c92a"
+      },
+      "evaluations/stage_09/T09_test_predictions.jsonl": {
+        "prediction": "2ce4501becb3c77f03e8acd96dd9d7c0177a5250885bc2c2c73922bb6e90aea0",
+        "native_scores": "987938f967480ac276b831ba7d893b261455579277ba8e67ea05a0dc7f40470f",
+        "stage_record": "2dd23c946bceb2786cbd4e493495ab3d51cca312f499159b6ec4ceab7c6d3297"
+      },
+      "evaluations/stage_19/T09_test_predictions.jsonl": {
+        "prediction": "636eca322fbe4f8329e9c286f758057090c980a7cd0e4c5388612c7f4c4a97cb",
+        "native_scores": "19b85a1e09db73b891a3a3aef66cc89122dfd121ab976547461cfcb0a0f2a6ee",
+        "stage_record": "ac10259854bbe3f12744ece91cd65ca9e8174325571f8d82a528b8745fa7c92a"
+      },
+      "evaluations/stage_10/T10_test_predictions.jsonl": {
+        "prediction": "bae045edba319e934730eb818f23cae25e182b1074538dbe8021c3fa44755354",
+        "native_scores": "e87e7b968d70bb1d4d040a32dd218d6518938ea7c3aba7f096829cc7dd1cfc47",
+        "stage_record": "f3dd980633d3efa8d4db206ae9736ca9fc42065cc150b0a431b1f5294e81c8f0"
+      },
+      "evaluations/stage_19/T10_test_predictions.jsonl": {
+        "prediction": "c9c88295ea69092e4fc159c724cad213501820c3f941baf2a0bbd5a4c999f3d0",
+        "native_scores": "16a4b95f191a4650ad9d7a7787a389f5814a31e42d7cf238c0d1fba6eb51c571",
+        "stage_record": "ac10259854bbe3f12744ece91cd65ca9e8174325571f8d82a528b8745fa7c92a"
+      },
+      "evaluations/stage_11/T11_test_predictions.jsonl": {
+        "prediction": "8ec3634dbdc87557e46462b1dcd1915fdb30bd0ddd3061e33519af1b81829241",
+        "native_scores": "1043fbfa7ab07fbcd371d7b66d54c9e322dae44ae9cb30b062ee653c5c34b0a1",
+        "stage_record": "6440e5d6d30197bfb6547da4a694fd406f3d617bd292c030b363e33ccc7fb9a6"
+      },
+      "evaluations/stage_19/T11_test_predictions.jsonl": {
+        "prediction": "47f9f5a46a7bfe482862d3009c64beab705d6b726a26b5782b8ce50cc37df364",
+        "native_scores": "e414aec124d225071aa5ae8fae21154eb8f0a7de2c88af0819467cbfd20a757e",
+        "stage_record": "ac10259854bbe3f12744ece91cd65ca9e8174325571f8d82a528b8745fa7c92a"
+      },
+      "evaluations/stage_12/T12_test_predictions.jsonl": {
+        "prediction": "9c91e48817d4881f987134a8a5c757d7d4c70d3fd176e92ff2bae2e3ff4c8580",
+        "native_scores": "47798374136fabbff5bb20564db7888be7ef7f8cc97e116774243463e21a19c0",
+        "stage_record": "97b5a04365155e2222b1139e43995cae650b24ad2f7cfec9e4e4ff141b9ea3a0"
+      },
+      "evaluations/stage_19/T12_test_predictions.jsonl": {
+        "prediction": "cc05f1782b28ccf992a9d8f41b8c3b2d7ba62a83941e8eedf4c525734dcc8d41",
+        "native_scores": "47798374136fabbff5bb20564db7888be7ef7f8cc97e116774243463e21a19c0",
+        "stage_record": "ac10259854bbe3f12744ece91cd65ca9e8174325571f8d82a528b8745fa7c92a"
+      },
+      "evaluations/stage_13/T13_test_predictions.jsonl": {
+        "prediction": "4889b31b4a34d2dc33568e0d80bcce8caeddcc205e16167fbdb4f5729402eac7",
+        "native_scores": "4eb3936fb19074acfd4671e0aa6477e842aaaf708e9630dc4beb991062806101",
+        "stage_record": "457a6f98a83cd8fa57f899a71a57a8e3e7ad5d33d20ee25edee16886c0d1600a"
+      },
+      "evaluations/stage_19/T13_test_predictions.jsonl": {
+        "prediction": "9df60953e2f09a6487592f7bb3e70be4144dc772482f899fcd96a5147d0e5d21",
+        "native_scores": "0717fab5d022a058e8314f4979564a7323a66a1feb3e3fa251a4c2a967f22ece",
+        "stage_record": "ac10259854bbe3f12744ece91cd65ca9e8174325571f8d82a528b8745fa7c92a"
+      },
+      "evaluations/stage_14/T14_test_predictions.jsonl": {
+        "prediction": "dffeca9536711fb055f5e269cc9c18f9a9a86d7ab27b5af07069465195d4271f",
+        "native_scores": "395ac7f0d147093c66e198eec4f5e895eadf3e26d4e0c01c1f17b9b03a3ad037",
+        "stage_record": "fd1c9c856ebfdd4f20b7a5e269a34bd3e23c38f5503e79672656bd3774ad59d5"
+      },
+      "evaluations/stage_19/T14_test_predictions.jsonl": {
+        "prediction": "cafeecaf9e502a9f3090f52957b4c4dd841346f73a5e889ee7e59d0f0e986dc7",
+        "native_scores": "4b1459331811576121835e60a2464ec83b6796cfcb4412b300f9eefc0a341d83",
+        "stage_record": "ac10259854bbe3f12744ece91cd65ca9e8174325571f8d82a528b8745fa7c92a"
+      },
+      "evaluations/stage_15/T15_test_predictions.jsonl": {
+        "prediction": "89126e3073a6d022d0119ede43978cd371ed83cad274a215f2870bc2b47b5dc8",
+        "native_scores": "cd4e0f6be637a267ce58a3c107ec6f863ac09be7d03772fc0f6538cdcb26c119",
+        "stage_record": "4d64e2aea69202b8243c8bc3749662cfa6a268808dbcc8ca827c60e636b64b27"
+      },
+      "evaluations/stage_19/T15_test_predictions.jsonl": {
+        "prediction": "48e423417991de38a183e19945cbebad57ac7d05b697b6cc3c816edee6d8cd03",
+        "native_scores": "cd4e0f6be637a267ce58a3c107ec6f863ac09be7d03772fc0f6538cdcb26c119",
+        "stage_record": "ac10259854bbe3f12744ece91cd65ca9e8174325571f8d82a528b8745fa7c92a"
+      },
+      "evaluations/stage_16/T16_test_predictions.jsonl": {
+        "prediction": "a1e2a9c9b5a6d1e6825b39f0546c321b17f0648923dd1fbb7f4bf0c143ba2c43",
+        "native_scores": "df49861040b1a3fff17fa1f4c1bfc92a90af9b27c06adb92f6399bf34a3254c5",
+        "stage_record": "50458c3bb290472e573a20354090c5de2be5aa1e0fbd75a87c0bbdc5fb75ae01"
+      },
+      "evaluations/stage_19/T16_test_predictions.jsonl": {
+        "prediction": "69d82da9d630a0b4d5f0bf64ff4879145db755677b6701b3ecc77e5e574b1049",
+        "native_scores": "1557baa5fd7b1b8a27789f0c2d4f8068c1db1a1a594e5f4f41e8d8b5ea185737",
+        "stage_record": "ac10259854bbe3f12744ece91cd65ca9e8174325571f8d82a528b8745fa7c92a"
+      },
+      "evaluations/stage_17/T17_test_predictions.jsonl": {
+        "prediction": "39e9faf307dd7f4dc5c271bb184b9b15a04f422e11353c7dae7d27d32fdcd2cf",
+        "native_scores": "3ff481c95f8858d28f059d457015f7f37cf64c9d3b6f5131e7428df1cae8366c",
+        "stage_record": "ccd31b9055272bbc701ef4f7473c2e80f9343deacf67192013d5448539233a31"
+      },
+      "evaluations/stage_19/T17_test_predictions.jsonl": {
+        "prediction": "2ed952538d21bf7225ca0be6d70605d6acb2d6714660fe70040129ff22452d5d",
+        "native_scores": "5a1dcf348e2b0b354a30b77494e849d82a4c21bb345b3af1736aed2f5d65ad73",
+        "stage_record": "ac10259854bbe3f12744ece91cd65ca9e8174325571f8d82a528b8745fa7c92a"
+      },
+      "evaluations/stage_18/T18_test_predictions.jsonl": {
+        "prediction": "6066438a7c1cdeabd8a8036e364d865209ecd7ad2984ccd6f0989ac355ca717a",
+        "native_scores": "1331aa0031ffe1875e987bf743b6df5fc87f3fb1e3f3eb00a8cc01e4d9bcf21e",
+        "stage_record": "ab98ca30a121d481c408b2334d046c17ef3816896ce4752e5b6b1aca0c853bf0"
+      },
+      "evaluations/stage_19/T18_test_predictions.jsonl": {
+        "prediction": "4bd61e0c29bb65d69ef52f6a3f81ed507f1a24b15915c4cc9859fda53e7023c9",
+        "native_scores": "201464f4d3d436966409a806ca58974023ee3b1b81ec5a6bbadcd95a9fa5c269",
+        "stage_record": "ac10259854bbe3f12744ece91cd65ca9e8174325571f8d82a528b8745fa7c92a"
+      },
+      "evaluations/stage_19/T19_test_predictions.jsonl": {
+        "prediction": "aba47df129b567491c4440a340edc7116e45ba282d7ab1ae208a6ad4a02cbffc",
+        "native_scores": "ec01f698e0db5fe3cfd4d7b5a09c82924d1fbf5b9984afe9c028ed4e9df6e9a4",
+        "stage_record": "ac10259854bbe3f12744ece91cd65ca9e8174325571f8d82a528b8745fa7c92a"
+      }
+    },
+    "eight": {
+      "evaluations/stage_01/T01_test_predictions.jsonl": {
+        "prediction": "8a6c208b85aa36363c8f6b451cb7b87cfc4e56fa57211a0f95d6bbc5e15d1563",
+        "native_scores": "c86c4c6fbc826fe35bebb4656f56a6461e20945915be465bd438056861ad313f",
+        "stage_record": "16c61fe8c603aced2fcd076cc9396475bfb428fe3ca29c22c22fb76e9b698069"
+      },
+      "evaluations/stage_19/T01_test_predictions.jsonl": {
+        "prediction": "18f579122d7e898acc07d4f8b1ee63d9f74293c9e1f6e6a081cc374798a23b88",
+        "native_scores": "64485649e9bb453c7ba525371cf6ffe9d3ad05fa488ce9f4de4d5a04bfc7ca8d",
+        "stage_record": "9c6213fc342f951c1599234b4ffc0d7474cc00a39c7287a1e5dfa8863844d891"
+      },
+      "evaluations/stage_02/T02_test_predictions.jsonl": {
+        "prediction": "adf6600296091aa273f8b306f6629389d222f224a9adccd55d6fead63588ae83",
+        "native_scores": "1e39126a4fa34885dd8014a4f89329d6b4e5e47d92f55da877af6966280ea779",
+        "stage_record": "0819f98b851b933160a36f81445e42d923a0ac834a10465c2c7afb5afad81833"
+      },
+      "evaluations/stage_19/T02_test_predictions.jsonl": {
+        "prediction": "5e2be94d668c45e205057793eacb532fe017f59e915cbc1d576545eb7c76e87c",
+        "native_scores": "9054143f097ece4f4102eeced6ed44e129909b972b4be0a18633662fc4329179",
+        "stage_record": "9c6213fc342f951c1599234b4ffc0d7474cc00a39c7287a1e5dfa8863844d891"
+      },
+      "evaluations/stage_03/T03_test_predictions.jsonl": {
+        "prediction": "6a3e77a1c5a75772316963ea425a61b04d6af447f1ec1f58ebb0701dc36274a1",
+        "native_scores": "7bd279fad6219f26e23f9eb36c1af52f0692fdb424b690f3ab9961bad539fc65",
+        "stage_record": "c8139234ffedf2061a499761dd4aa51ff36aa1799d991c46d3ed727c7e634228"
+      },
+      "evaluations/stage_19/T03_test_predictions.jsonl": {
+        "prediction": "26a6b6f86e27e948708151663d27683ee8a02ec31e98b617233986feaa9769ee",
+        "native_scores": "4747a27464e8498450823ea6b7d2c519fdf7869c88606c9470a945f03e88e94b",
+        "stage_record": "9c6213fc342f951c1599234b4ffc0d7474cc00a39c7287a1e5dfa8863844d891"
+      },
+      "evaluations/stage_04/T04_test_predictions.jsonl": {
+        "prediction": "6cfef1aecc24808ce01eba1a5f0670a9fde3cdfd76ca5a6f0beec68a1b9227d0",
+        "native_scores": "4cd617e6a8e63aedb8440db5a8778bbcc0e83319a15738a96520c5a99505bcbd",
+        "stage_record": "ef8010f7ad461c775ab900ae761b8f1974cc10a6b70fd2df571e8611a7447763"
+      },
+      "evaluations/stage_19/T04_test_predictions.jsonl": {
+        "prediction": "c3b3e13dff89ab0ff868e2fd326bd16fa803bf490a7e39a8f0c7f0ab32c188f4",
+        "native_scores": "c4b2b0de9bf05dcb2b975a9542901bc6584563ca53276e70e307d85eafc39036",
+        "stage_record": "9c6213fc342f951c1599234b4ffc0d7474cc00a39c7287a1e5dfa8863844d891"
+      },
+      "evaluations/stage_05/T05_test_predictions.jsonl": {
+        "prediction": "c180f28ea458a30279ca0abe6f41bbb9656ef00967f7cb5a787360e96935c763",
+        "native_scores": "5e7467312defa0a1f98d6fb2233981965b2601d650428c198f80dedee6072799",
+        "stage_record": "419013279b9a32b447495a256999fcebba58ba74c7f5471ba52b74daf1cd393d"
+      },
+      "evaluations/stage_19/T05_test_predictions.jsonl": {
+        "prediction": "c0a154a16657a79f1be60c8e6c19ecc750316f81268fae9498234f0cc5c4378b",
+        "native_scores": "61d5a8ac5f9f97ba0720c86bfb9d694c6d07f2a208882a91213bcc3537ec110c",
+        "stage_record": "9c6213fc342f951c1599234b4ffc0d7474cc00a39c7287a1e5dfa8863844d891"
+      },
+      "evaluations/stage_06/T06_test_predictions.jsonl": {
+        "prediction": "adc546b04d52522bfbf8beb442189777fb5ea18dc896f52c12b33d0432a0d729",
+        "native_scores": "abdc5439d4061ed535e436d82b2a560b686e7b6960c1d0173618718115c9abae",
+        "stage_record": "c722db7c8cb33ebb513fdfbae127fc273bf731b77d8f41c03b865406dde1c00c"
+      },
+      "evaluations/stage_19/T06_test_predictions.jsonl": {
+        "prediction": "2960e7e65394596fff445d4a3c4647aab5370a1569b241d52248745320cdcb8d",
+        "native_scores": "6f2339800db9af1af3e2d884a7c2c36914e47e13ac31b55a8a34727128fc0e92",
+        "stage_record": "9c6213fc342f951c1599234b4ffc0d7474cc00a39c7287a1e5dfa8863844d891"
+      },
+      "evaluations/stage_07/T07_test_predictions.jsonl": {
+        "prediction": "9a6365c9d7803143f6e32dd93cca2079b94905d54b66b3516be1b96f9df88b2d",
+        "native_scores": "123bc8a4f5d020e27d64e0c8b593f519ccfa63ad1a903f5b37586e4cb6ecd4b2",
+        "stage_record": "c16bff867d80794f08cb341f77df3d91180925bc875d91ac293ee02c7e642c05"
+      },
+      "evaluations/stage_19/T07_test_predictions.jsonl": {
+        "prediction": "ce7a24f98c8b0ed7ee0c4e93a2c1a5749e0287bc25e1fca13c40776445760e1c",
+        "native_scores": "49f02aee8274f53f2f6ef643cd5830a95e5d6c3d5918cd5cbcf63a5f9dc577ac",
+        "stage_record": "9c6213fc342f951c1599234b4ffc0d7474cc00a39c7287a1e5dfa8863844d891"
+      },
+      "evaluations/stage_08/T08_test_predictions.jsonl": {
+        "prediction": "1cd64f4c0a71e3c2cabc02d83c3b8896fd92141a0a350334c03e2256b20d9319",
+        "native_scores": "576cf6fbafa266dc689a21c1f2b5522d95ec4538da0e8f8827860f532833ce5a",
+        "stage_record": "b74a74c6380faa06925b947e50d61ac3ae37209b2f56f98ea695ed033296da2b"
+      },
+      "evaluations/stage_19/T08_test_predictions.jsonl": {
+        "prediction": "d3819061094c070f4c84721660da2f1fcdc3e2ae889c5814dc0c111af3dbec2f",
+        "native_scores": "7a322dd7b4db2763846fa893539f4e28137ec846784eb1741fc67b11d530eb4a",
+        "stage_record": "9c6213fc342f951c1599234b4ffc0d7474cc00a39c7287a1e5dfa8863844d891"
+      },
+      "evaluations/stage_09/T09_test_predictions.jsonl": {
+        "prediction": "d447a5bcd2dabbd174f47c150bde15c2683132d842262368f4e60558f050f505",
+        "native_scores": "69a771072309c0bb82280c15a154a49830417b8814543f384fe6e7fca14b1515",
+        "stage_record": "00f30c2a6ff0345e627bd84e821b0394b66e3c883c78a3f287bf3c39b8615fc2"
+      },
+      "evaluations/stage_19/T09_test_predictions.jsonl": {
+        "prediction": "058d64a7a5cdd9abeb9dc5bf1b7e74f19d96798a0138a8c95647614faa1abb7c",
+        "native_scores": "bfc43a0731a0b6aa48da91058b0c9d4a32ae6f163e89dc7fb2c4d723a82c7103",
+        "stage_record": "9c6213fc342f951c1599234b4ffc0d7474cc00a39c7287a1e5dfa8863844d891"
+      },
+      "evaluations/stage_10/T10_test_predictions.jsonl": {
+        "prediction": "a40af9fd56f3070047d98d4c498416a24ec2701830b05d4b7f534db4475709f2",
+        "native_scores": "00d6247a17c0ac6d640ad063395394deaee8bb25f49be3bcdf39e573df322f58",
+        "stage_record": "9174e65c04d9ff65c8994bd2c12b24819e906da2da1eba6345157bd24c363361"
+      },
+      "evaluations/stage_19/T10_test_predictions.jsonl": {
+        "prediction": "b627ffc9b7d17aa0056e17e7990e2786f1c28241e494b6001507a9b94a595c5d",
+        "native_scores": "8a48472582bb595f5ef7a174a181f177af89c15aed2a5847f39041a6981cdf8b",
+        "stage_record": "9c6213fc342f951c1599234b4ffc0d7474cc00a39c7287a1e5dfa8863844d891"
+      },
+      "evaluations/stage_11/T11_test_predictions.jsonl": {
+        "prediction": "1fee7a044f6dbca9979e2ccd3810aff7a350741e3741417de3001ea93d838134",
+        "native_scores": "8cda863bf3e96897fb029963ebe52f15e299f8bbbd0d757a73e17d3cf8b1341f",
+        "stage_record": "74aa897d88ba93dbfcad1f9b039e35583b0aa9874b8a4eb1c19a219f25605a40"
+      },
+      "evaluations/stage_19/T11_test_predictions.jsonl": {
+        "prediction": "5a4bb346ac2161e48b6bb07fae24f60f9599746ca100336804bec0b23148d301",
+        "native_scores": "47c683ed9e9168a95f38006257645f49547608855594ba7947be47f2ecad0a45",
+        "stage_record": "9c6213fc342f951c1599234b4ffc0d7474cc00a39c7287a1e5dfa8863844d891"
+      },
+      "evaluations/stage_12/T12_test_predictions.jsonl": {
+        "prediction": "7693628ce50c7362a006ad37beda200b1ae9560648034fc10246c9b3adae34d0",
+        "native_scores": "aa9f4d11129e9563370c9a568c464c0a0732a5bb5ef05f2a9ebc9b06c1a22895",
+        "stage_record": "582647a80f4eb5d950b412767098fb7a61edaf7228dc440b05729eabd7e9f769"
+      },
+      "evaluations/stage_19/T12_test_predictions.jsonl": {
+        "prediction": "b3da5668454e32293b1faad759581acf6656a5237bfa4798be52cdce95531b12",
+        "native_scores": "f4c65994dc924943310ad268e28fa445dd893d6a6f33fd9ed31bc45c664fbb54",
+        "stage_record": "9c6213fc342f951c1599234b4ffc0d7474cc00a39c7287a1e5dfa8863844d891"
+      },
+      "evaluations/stage_13/T13_test_predictions.jsonl": {
+        "prediction": "d64218222b72bb0452432cefb2c437195aa410ae8ff014673bb9a2d2b165d765",
+        "native_scores": "5cb947012f1f96159489a102e0ab12c60d82f2135bba4f02281f72bdd60f5a97",
+        "stage_record": "5beaff7ae5816540ec1988642ffcaf56711264716f4f0f20b5d057334eb9d64b"
+      },
+      "evaluations/stage_19/T13_test_predictions.jsonl": {
+        "prediction": "bc9f4152b7ef29a3e29c0c9a77c312b94838d10e145bb7614ba98e4d08d92cd8",
+        "native_scores": "35d84e77397ceea5673bfbba0e27650c668c825ae2d34fa3a3387ceb018cbd2f",
+        "stage_record": "9c6213fc342f951c1599234b4ffc0d7474cc00a39c7287a1e5dfa8863844d891"
+      },
+      "evaluations/stage_14/T14_test_predictions.jsonl": {
+        "prediction": "f2c512076f8786a7e350565fb1e60629eb44a860793c08a87caf21a178a36ca1",
+        "native_scores": "5e5f1f2b2739d626c2d0a5e92eadd7ac5d3f0a52dfc5733905099ef204cd4f4b",
+        "stage_record": "1bc732a3e1dac1264fa0815cf6ba80feda4e074d66f8d805e22b63e7a2f94d2b"
+      },
+      "evaluations/stage_19/T14_test_predictions.jsonl": {
+        "prediction": "05e039d30b95be45f12837847f5f2625aebdef29992ee5add0ba6945bdb0be4a",
+        "native_scores": "ab218e44e91d6dd8d20e0576b4275d7e9e6185fa870939b5a5e25971bad6213e",
+        "stage_record": "9c6213fc342f951c1599234b4ffc0d7474cc00a39c7287a1e5dfa8863844d891"
+      },
+      "evaluations/stage_15/T15_test_predictions.jsonl": {
+        "prediction": "c1276818535061f77fecd83e460b58ac213cb0fb2530650cf2c105d66924c411",
+        "native_scores": "a1bbb2d92135d8805a0b29a52a4645a89468f1f7266d92271ba82671292c3bf4",
+        "stage_record": "8c5d96dc0e8e37d47b6c8e7b9e93d65ce8e603841a8d3709544e5a1ca924389b"
+      },
+      "evaluations/stage_19/T15_test_predictions.jsonl": {
+        "prediction": "74eb27fdfab363880d2fcd6b025d366d750680a6f9a815fb9ffce9b8c685a8d3",
+        "native_scores": "1e244f3d5dc66b809093f7917d9a3d65de9b59d92bdb9a63181da2959b215b0f",
+        "stage_record": "9c6213fc342f951c1599234b4ffc0d7474cc00a39c7287a1e5dfa8863844d891"
+      },
+      "evaluations/stage_16/T16_test_predictions.jsonl": {
+        "prediction": "f9946e7178782fa0f42992a2b6bb361918f9b9c190a9ae06c8854650425a7d6a",
+        "native_scores": "db88290afd14e81f44766d89a5ed4bf4375ab8823c4e79c17ef7a4d88e037be2",
+        "stage_record": "3b08b39bd38c4e58b10d507d0ec31f267748dd29489448863037f8a24346e405"
+      },
+      "evaluations/stage_19/T16_test_predictions.jsonl": {
+        "prediction": "45f4288d1ae2153058877d3330ff28dd5967078dbdf3dcd5360ab0713402165b",
+        "native_scores": "bc58698b618bbb782b7b4d6ddc8155aa4a546733ebaa3abba9fdc9a798bbe477",
+        "stage_record": "9c6213fc342f951c1599234b4ffc0d7474cc00a39c7287a1e5dfa8863844d891"
+      },
+      "evaluations/stage_17/T17_test_predictions.jsonl": {
+        "prediction": "74909b15ee0ba56375ea38f3d87be280a14dbf6f6e94c5a4d1a578dee89450a7",
+        "native_scores": "0fd1676e96f23f06dbe1aa4196c400194e9fff4f496814d6b01f2f7e5b8836e1",
+        "stage_record": "7a86617d5692fddf42daa4769fc33442d53665028ecd09c4793801962883c119"
+      },
+      "evaluations/stage_19/T17_test_predictions.jsonl": {
+        "prediction": "85f34c74c6cd8f2cebea73504d42b29d180c4f957f4d671c3c1dbc93385c746f",
+        "native_scores": "461602f34bb7cc96796255dd844cc99f8ca087c95efafac54065d904081f3729",
+        "stage_record": "9c6213fc342f951c1599234b4ffc0d7474cc00a39c7287a1e5dfa8863844d891"
+      },
+      "evaluations/stage_18/T18_test_predictions.jsonl": {
+        "prediction": "32ae30f8501e1c64730d4dbb88422ebede9a927c25b356edebe49f1a79641d9a",
+        "native_scores": "51900b0e70c32ec94eb9f115a013a06fcc14f1e30f7f9c140fc673dd10dee0c5",
+        "stage_record": "4000459b66ee737cc3aa7a23b097aa97ebbdbb6d4fe9ebb63f8e4f29e39a63a2"
+      },
+      "evaluations/stage_19/T18_test_predictions.jsonl": {
+        "prediction": "a0abbe5361115cd206ddc4f1ecb0c411febedc1d7a34fdf1638c9b08d421c2d4",
+        "native_scores": "9d55d5621cc795c3dede35ca58d0d9c928b80bd2f58f385843f2d4d49b5302d9",
+        "stage_record": "9c6213fc342f951c1599234b4ffc0d7474cc00a39c7287a1e5dfa8863844d891"
+      },
+      "evaluations/stage_19/T19_test_predictions.jsonl": {
+        "prediction": "f5d514a41031bc995fe355e8795b0ae31b83df9a0518f7e3285b001954ecd1ed",
+        "native_scores": "8304d512f40600dfa41a88700002f6f1611e45cd04763229d431b2652fe3fd3f",
+        "stage_record": "9c6213fc342f951c1599234b4ffc0d7474cc00a39c7287a1e5dfa8863844d891"
+      }
+    }
+  }
+}
