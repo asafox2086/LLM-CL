@@ -1,0 +1,186 @@
+{
+  "study": "Qwen2-VL historical 10% training. Same ordered 19 tasks, same GPU model, one training run per method. Ten medical tests contain 2,094 QA. Compare native token F1 just after each task versus at S19 on the identical question. Sum positive and negative changes separately before taking the medical-domain mean. The final contrast includes architecture, training and routing differences. It does not isolate domain switching.",
+  "paired_report_sha256": "40ee0ec6ac99ae1f02f1a66583b5483c2457dc77efe539f6192522e2689ff016",
+  "time_report_sha256": "809f5adf612796879f29d0726fe5ca6075af25a3abdf655bf99b946b2126d973",
+  "columns": "later_loss and later_gain within each task are sums of absolute negative and positive changes; divide by QA for mean contributions.",
+  "shared": {
+    "2": {
+      "label": "Modality",
+      "n": 228,
+      "at": 74.5833333333333,
+      "end": 68.29409048938136,
+      "later_loss": 2958.947368421051,
+      "later_gain": 1525
+    },
+    "3": {
+      "label": "Position",
+      "n": 375,
+      "at": 45.91984506721345,
+      "end": 40.8043477916419,
+      "later_loss": 5534.025764053627,
+      "later_gain": 3615.714285714285
+    },
+    "4": {
+      "label": "Organ",
+      "n": 507,
+      "at": 67.14097867944027,
+      "end": 41.26890203813282,
+      "later_loss": 15915.238095238095,
+      "later_gain": 2798.0952380952394
+    },
+    "5": {
+      "label": "Size",
+      "n": 124,
+      "at": 54.83870967741935,
+      "end": 63.70967741935484,
+      "later_loss": 450,
+      "later_gain": 1550
+    },
+    "6": {
+      "label": "Abnormality",
+      "n": 311,
+      "at": 57.62627972054269,
+      "end": 53.36613951100318,
+      "later_loss": 3929.4638694638707,
+      "later_gain": 2604.5602642971066
+    },
+    "7": {
+      "label": "Quantity",
+      "n": 89,
+      "at": 56.17977528089887,
+      "end": 49.438202247191015,
+      "later_loss": 1000,
+      "later_gain": 400
+    },
+    "8": {
+      "label": "Plane",
+      "n": 116,
+      "at": 45.40914066776136,
+      "end": 29.10509031198686,
+      "later_loss": 2338.8888888888882,
+      "later_gain": 447.6190476190475
+    },
+    "9": {
+      "label": "Shape",
+      "n": 12,
+      "at": 9.722222222222221,
+      "end": 12.5,
+      "later_loss": 0,
+      "later_gain": 33.33333333333334
+    },
+    "10": {
+      "label": "Color",
+      "n": 65,
+      "at": 63.94871794871794,
+      "end": 64.2051282051282,
+      "later_loss": 400,
+      "later_gain": 416.66666666666663
+    },
+    "11": {
+      "label": "KG",
+      "n": 267,
+      "at": 39.17868608612323,
+      "end": 24.935028510258693,
+      "later_loss": 5314.876972373215,
+      "later_gain": 1511.8203996173863
+    }
+  },
+  "eight": {
+    "2": {
+      "label": "Modality",
+      "n": 228,
+      "at": 76.09649122807015,
+      "end": 77.00292397660819,
+      "later_loss": 959.9999999999997,
+      "later_gain": 1166.6666666666665
+    },
+    "3": {
+      "label": "Position",
+      "n": 375,
+      "at": 45.653564213564174,
+      "end": 51.35555555555553,
+      "later_loss": 1651.5151515151513,
+      "later_gain": 3789.761904761906
+    },
+    "4": {
+      "label": "Organ",
+      "n": 507,
+      "at": 67.82098243636707,
+      "end": 46.0157790927022,
+      "later_loss": 13450.000000000004,
+      "later_gain": 2394.761904761905
+    },
+    "5": {
+      "label": "Size",
+      "n": 124,
+      "at": 56.854838709677416,
+      "end": 62.5,
+      "later_loss": 350,
+      "later_gain": 1050
+    },
+    "6": {
+      "label": "Abnormality",
+      "n": 311,
+      "at": 56.43299640507285,
+      "end": 54.58092517662662,
+      "later_loss": 3466.982987772462,
+      "later_gain": 2890.988835725678
+    },
+    "7": {
+      "label": "Quantity",
+      "n": 89,
+      "at": 59.550561797752806,
+      "end": 50.561797752808985,
+      "later_loss": 800,
+      "later_gain": 0
+    },
+    "8": {
+      "label": "Plane",
+      "n": 116,
+      "at": 54.59770114942529,
+      "end": 51.43678160919539,
+      "later_loss": 1083.3333333333333,
+      "later_gain": 716.6666666666666
+    },
+    "9": {
+      "label": "Shape",
+      "n": 12,
+      "at": 8.333333333333334,
+      "end": 20.833333333333332,
+      "later_loss": 0,
+      "later_gain": 150
+    },
+    "10": {
+      "label": "Color",
+      "n": 65,
+      "at": 69.33333333333334,
+      "end": 73.69230769230771,
+      "later_loss": 133.33333333333334,
+      "later_gain": 416.66666666666663
+    },
+    "11": {
+      "label": "KG",
+      "n": 267,
+      "at": 40.469341288682294,
+      "end": 31.7687403396375,
+      "later_loss": 3040.7183689560975,
+      "later_gain": 717.6579155611412
+    }
+  },
+  "summary": {
+    "shared": {
+      "n": 2094,
+      "acquisition": 56.346081145921005,
+      "final": 45.391624735655625,
+      "loss": 18.07136626477495,
+      "gain": 7.116909854509582
+    },
+    "eight": {
+      "n": 2094,
+      "acquisition": 57.54598886407856,
+      "final": 51.98595418685806,
+      "loss": 11.908253665191204,
+      "gain": 6.348218987970692
+    }
+  }
+}
