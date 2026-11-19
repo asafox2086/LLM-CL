@@ -1,0 +1,148 @@
+{
+  "models": {
+    "onevision": {
+      "backbone": "onevision",
+      "prior_sha256": "fa981aebbc7c24fbdf30fadafcfb85eddbe3a83df6d2cb9d78e0afb9b555159f",
+      "prediction_sha256": "6fbdc51e8b5c2b9f425c406edf4de0f65c3079cf36d86b3aaf3f1be4f447b6a8",
+      "source": "407a926a2ea0b5c18e249b8ef6e6ca9b4c58590cdea9af04223c5ec1e3c06796",
+      "forms": {
+        "the answer is": 622,
+        "bare": 1032,
+        "answer:": 1285,
+        "assistant": 11,
+        "unclassified": 4,
+        "response": 1
+      },
+      "regex": "(?:(?:answer:\\s*|the answer is\\s+|assistant\\s+|response\\s+))?(yes|no)",
+      "questions": 2955,
+      "native_full": 590,
+      "binary_correct_lower": 1859,
+      "binary_correct_upper": 1863,
+      "image_pairs": 3259,
+      "native_pair_full": 27,
+      "binary_pair_lower": 733,
+      "binary_pair_upper": 733,
+      "disclosure": "Exploratory answer-format check specified after inspecting baseline strings. Only complete unambiguous yes/no replies and four explicit wrappers are parsed. Unknowns are counted wrong for lower bounds, correct for upper bounds; published token F1 unchanged."
+    },
+    "qwen": {
+      "backbone": "qwen",
+      "prior_sha256": "20fab1710453431f886499f001ec5d537d487050f870662d3fd6491f62748fb3",
+      "prediction_sha256": "3248b015120feef0081de72ee0d4a62b166c1913f0e6b8c609831a69924cda6a",
+      "source": "407a926a2ea0b5c18e249b8ef6e6ca9b4c58590cdea9af04223c5ec1e3c06796",
+      "forms": {
+        "bare": 2892,
+        "unclassified": 63
+      },
+      "regex": "(?:(?:answer:\\s*|the answer is\\s+|assistant\\s+|response\\s+))?(yes|no)",
+      "questions": 2955,
+      "native_full": 1406,
+      "binary_correct_lower": 1406,
+      "binary_correct_upper": 1469,
+      "image_pairs": 3259,
+      "native_pair_full": 441,
+      "binary_pair_lower": 441,
+      "binary_pair_upper": 484,
+      "disclosure": "Exploratory answer-format check specified after inspecting baseline strings. Only complete unambiguous yes/no replies and four explicit wrappers are parsed. Unknowns are counted wrong for lower bounds, correct for upper bounds; published token F1 unchanged."
+    }
+  },
+  "references": {
+    "onevision": {
+      "backbone": "onevision",
+      "design": {
+        "question_image_label_order": "e2f365b75cde12ca74b600489782170f39495fff081291edc91c4a0ca32e4b28",
+        "questions": 542,
+        "input_images": 100,
+        "matched_prompts": 70,
+        "matched_rows": 1005,
+        "pairs": 3259
+      },
+      "test_sha256": "4ca421c2594f1d2a36b749d42526706cc6caca9af05f9908b85d08cf7c9218b4",
+      "pretrained": {
+        "task_questions": 2955,
+        "reference_counts": {
+          "yes": 2217,
+          "no": 738
+        },
+        "exactly_yes_no_answers": 1032,
+        "native_full_credit_questions": 590,
+        "native_both_full_pairs": 27,
+        "same_normalized_answer_pairs": 1373,
+        "distinct_normalized_answers": 9,
+        "matched_questions_full_credit": 172,
+        "both_full_rate_equal_prompt": 0.005035044320758607,
+        "predictions_sha256": "6fbdc51e8b5c2b9f425c406edf4de0f65c3079cf36d86b3aaf3f1be4f447b6a8"
+      },
+      "source": "40578e1d0a6575787a2f7c1bf630742158b427af9188a435adcf548fc11a1acc",
+      "stage0_reference_sha256": "1bc171b170bd88944d7843098bd96f6cbd388ccff6b5c6b162f9a44500735776"
+    },
+    "qwen": {
+      "backbone": "qwen",
+      "design": {
+        "question_image_label_order": "e2f365b75cde12ca74b600489782170f39495fff081291edc91c4a0ca32e4b28",
+        "questions": 542,
+        "input_images": 100,
+        "matched_prompts": 70,
+        "matched_rows": 1005,
+        "pairs": 3259
+      },
+      "test_sha256": "4ca421c2594f1d2a36b749d42526706cc6caca9af05f9908b85d08cf7c9218b4",
+      "pretrained": {
+        "task_questions": 2955,
+        "reference_counts": {
+          "yes": 2217,
+          "no": 738
+        },
+        "exactly_yes_no_answers": 2892,
+        "native_full_credit_questions": 1406,
+        "native_both_full_pairs": 441,
+        "same_normalized_answer_pairs": 2493,
+        "distinct_normalized_answers": 55,
+        "matched_questions_full_credit": 481,
+        "both_full_rate_equal_prompt": 0.12131811341999073,
+        "predictions_sha256": "3248b015120feef0081de72ee0d4a62b166c1913f0e6b8c609831a69924cda6a"
+      },
+      "source": "40578e1d0a6575787a2f7c1bf630742158b427af9188a435adcf548fc11a1acc",
+      "stage0_reference_sha256": "8b4c9e68ffd0cbbb7f7b7301f52ea87387697a80362ee213b2646a5ec37b73ce"
+    }
+  },
+  "onevision_archive_final": {
+    "pretrained": {
+      "mean_official_token_f1": 44.588832487310164,
+      "native_pair_full": 27,
+      "explicit_binary_pairs": 733,
+      "explicit_binary_questions": 1859,
+      "source": "6fbdc51e8b5c2b9f425c406edf4de0f65c3079cf36d86b3aaf3f1be4f447b6a8"
+    },
+    "shared": {
+      "mean_official_token_f1": 48.121827411167516,
+      "native_pair_full": 448,
+      "explicit_binary_pairs": 448,
+      "explicit_binary_questions": 1422,
+      "source": "b856d0629a5513129e9417ca4f20adeac410751b96cb9a88344774a343a187ab",
+      "pair_both": 191,
+      "pair_only_before": 542,
+      "pair_only_at_end": 257
+    },
+    "eight": {
+      "mean_official_token_f1": 57.59729272419628,
+      "native_pair_full": 647,
+      "explicit_binary_pairs": 647,
+      "explicit_binary_questions": 1702,
+      "source": "bc9f4152b7ef29a3e29c0c9a77c312b94838d10e145bb7614ba98e4d08d92cd8",
+      "pair_both": 292,
+      "pair_only_before": 441,
+      "pair_only_at_end": 355
+    },
+    "fixed": {
+      "mean_official_token_f1": 58.510998307952626,
+      "native_pair_full": 674,
+      "explicit_binary_pairs": 674,
+      "explicit_binary_questions": 1729,
+      "source": "79bffd5b2284f89f6e0c6ef9b365c8d23c1c89e144e2acdbc2db4f1fcec14691",
+      "pair_both": 303,
+      "pair_only_before": 430,
+      "pair_only_at_end": 371
+    }
+  },
+  "note": "All historical OneVision comparisons in this table are on the same 2080 Ti setup. Eight experts were trained with 1% data. Official token F1 is retained. Alternative result counts explicit correct yes/no decisions on identical recorded answer text; no new inference. All three trained models gave bare binary answers to all 2955 questions."
+}
