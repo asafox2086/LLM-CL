@@ -1,0 +1,221 @@
+{
+  "manifest": "9ed3798ab2b9aca66cda39530c94e69333706e2ec6bf1fbb9a2897ae023a6563",
+  "train": 129460,
+  "test": 21454,
+  "rule": "Index literal question strings to all training task IDs across the 19 tasks. Predict only a unique observed task, otherwise abstain. Apply before comparing with test task ID. No images, instructions, answers or model used as inputs; answer diversity is counted separately on traffic TRAIN only.",
+  "domains": {
+    "natural": {
+      "unseen": 3749,
+      "correct": 1251
+    },
+    "medical": {
+      "correct": 1955,
+      "unseen": 122,
+      "ambiguous": 17
+    },
+    "geography": {
+      "correct": 9289,
+      "unseen": 715
+    },
+    "finance": {
+      "unseen": 2196,
+      "correct": 37
+    },
+    "traffic": {
+      "correct": 2123
+    }
+  },
+  "tasks": {
+    "1": {
+      "domain": "natural",
+      "test": 5000,
+      "by_status": {
+        "unseen": 3749,
+        "correct": 1251
+      }
+    },
+    "2": {
+      "domain": "medical",
+      "test": 228,
+      "by_status": {
+        "correct": 228
+      }
+    },
+    "3": {
+      "domain": "medical",
+      "test": 375,
+      "by_status": {
+        "correct": 355,
+        "unseen": 20
+      }
+    },
+    "4": {
+      "domain": "medical",
+      "test": 507,
+      "by_status": {
+        "correct": 491,
+        "unseen": 15,
+        "ambiguous": 1
+      }
+    },
+    "5": {
+      "domain": "medical",
+      "test": 124,
+      "by_status": {
+        "correct": 105,
+        "unseen": 19
+      }
+    },
+    "6": {
+      "domain": "medical",
+      "test": 311,
+      "by_status": {
+        "correct": 269,
+        "unseen": 26,
+        "ambiguous": 16
+      }
+    },
+    "7": {
+      "domain": "medical",
+      "test": 89,
+      "by_status": {
+        "correct": 89
+      }
+    },
+    "8": {
+      "domain": "medical",
+      "test": 116,
+      "by_status": {
+        "correct": 116
+      }
+    },
+    "9": {
+      "domain": "medical",
+      "test": 12,
+      "by_status": {
+        "correct": 8,
+        "unseen": 4
+      }
+    },
+    "10": {
+      "domain": "medical",
+      "test": 65,
+      "by_status": {
+        "correct": 55,
+        "unseen": 10
+      }
+    },
+    "11": {
+      "domain": "medical",
+      "test": 267,
+      "by_status": {
+        "correct": 239,
+        "unseen": 28
+      }
+    },
+    "12": {
+      "domain": "geography",
+      "test": 100,
+      "by_status": {
+        "correct": 100
+      }
+    },
+    "13": {
+      "domain": "geography",
+      "test": 2955,
+      "by_status": {
+        "correct": 2801,
+        "unseen": 154
+      }
+    },
+    "14": {
+      "domain": "geography",
+      "test": 2947,
+      "by_status": {
+        "correct": 2751,
+        "unseen": 196
+      }
+    },
+    "15": {
+      "domain": "geography",
+      "test": 4002,
+      "by_status": {
+        "correct": 3637,
+        "unseen": 365
+      }
+    },
+    "16": {
+      "domain": "finance",
+      "test": 2233,
+      "by_status": {
+        "unseen": 2196,
+        "correct": 37
+      }
+    },
+    "17": {
+      "domain": "traffic",
+      "test": 500,
+      "by_status": {
+        "correct": 500
+      }
+    },
+    "18": {
+      "domain": "traffic",
+      "test": 1123,
+      "by_status": {
+        "correct": 1123
+      }
+    },
+    "19": {
+      "domain": "traffic",
+      "test": 500,
+      "by_status": {
+        "correct": 500
+      }
+    }
+  },
+  "traffic_train": {
+    "17": {
+      "number_of_train_questions": 1,
+      "train_count": 4879,
+      "train_answer_strings": 4878,
+      "train_strings": [
+        {
+          "text": "<image>\nThere is an image of traffic captured from the perspective of the ego car. Focus on objects influencing the ego car's driving behavior: vehicles (cars, trucks, buses, etc.), vulnerable road users (pedestrians, cyclists, motorcyclists), traffic signs (no parking, warning, directional, etc.), traffic lights (red, green, yellow), traffic cones, barriers, miscellaneous(debris, dustbin, animals, etc.). You must not discuss any objects beyond the seven categories above. Please describe each object's appearance, position, direction, and explain why it affects the ego car's behavior.",
+          "count": 4879,
+          "tasks_in_train": [
+            17
+          ]
+        }
+      ]
+    },
+    "18": {
+      "number_of_train_questions": 1,
+      "train_count": 10727,
+      "train_answer_strings": 10727,
+      "train_strings": [
+        {
+          "text": "<image>\nPlease describe the object inside the red rectangle in the image and explain why it affect ego car driving.",
+          "count": 10727,
+          "tasks_in_train": [
+            18
+          ]
+        }
+      ]
+    },
+    "19": {
+      "number_of_train_questions": 1,
+      "train_count": 4879,
+      "train_answer_strings": 4879,
+      "train_strings": [
+        {
+          "text": "<image>\nThere is an image of traffic captured from the perspective of the ego car. Focus on objects influencing the ego car's driving behavior: vehicles (cars, trucks, buses, etc.), vulnerable road users (pedestrians, cyclists, motorcyclists), traffic signs (no parking, warning, directional, etc.), traffic lights (red, green, yellow), traffic cones, barriers, miscellaneous(debris, dustbin, animals, etc.). You must not discuss any objects beyond the seven categories above. Please provide driving suggestions for the ego car based on the current scene.",
+          "count": 4879,
+          "tasks_in_train": [
+            19
+          ]
+        }
+      ]
+    }
+  }
+}
