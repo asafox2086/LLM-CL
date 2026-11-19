@@ -1,0 +1,147 @@
+{
+  "test_sha256": "4ca421c2594f1d2a36b749d42526706cc6caca9af05f9908b85d08cf7c9218b4",
+  "source": "cf0dc8d30743ffbda6c0d09781122a865f4d28932190a65d6e9ffb86c33d42d8",
+  "design": {
+    "question_image_label_order": "e2f365b75cde12ca74b600489782170f39495fff081291edc91c4a0ca32e4b28",
+    "questions": 542,
+    "input_images": 100,
+    "matched_prompts": 70,
+    "matched_rows": 1005,
+    "pairs": 3259
+  },
+  "results": {
+    "single_S13": {
+      "pairs": {
+        "correct": 613,
+        "reversed": 139,
+        "same_yes": 2022,
+        "same_no": 485
+      },
+      "prompt_equal_weight": {
+        "correct": 0.11690885714252505,
+        "reversed": 0.03979647631347665,
+        "same_yes": 0.6711994772403581,
+        "same_no": 0.17209518930363962
+      },
+      "prompts_predicting_constant": 39,
+      "prediction_sha256": "4889b31b4a34d2dc33568e0d80bcce8caeddcc205e16167fbdb4f5729402eac7"
+    },
+    "single_S19": {
+      "pairs": {
+        "correct": 0,
+        "reversed": 0,
+        "same_yes": 0,
+        "same_no": 3259
+      },
+      "prompt_equal_weight": {
+        "correct": 0,
+        "reversed": 0,
+        "same_yes": 0,
+        "same_no": 0.9999999999999983
+      },
+      "prompts_predicting_constant": 70,
+      "prediction_sha256": "9df60953e2f09a6487592f7bb3e70be4144dc772482f899fcd96a5147d0e5d21"
+    },
+    "shared_S13": {
+      "pairs": {
+        "correct": 49,
+        "reversed": 11,
+        "same_yes": 3199,
+        "same_no": 0
+      },
+      "prompt_equal_weight": {
+        "correct": 0.009675150519978106,
+        "reversed": 0.004720133667502088,
+        "same_yes": 0.9856047158125183,
+        "same_no": 0
+      },
+      "prompts_predicting_constant": 61,
+      "prediction_sha256": "497a1feaa059d628459520c1c0a5b3d40bbca42b5042e0d9fd782c32e7315495"
+    },
+    "shared_S19": {
+      "pairs": {
+        "correct": 448,
+        "reversed": 289,
+        "same_yes": 204,
+        "same_no": 2318
+      },
+      "prompt_equal_weight": {
+        "correct": 0.11332107816520066,
+        "reversed": 0.08470611668136599,
+        "same_yes": 0.09059000072066274,
+        "same_no": 0.7113828044327699
+      },
+      "prompts_predicting_constant": 30,
+      "prediction_sha256": "b856d0629a5513129e9417ca4f20adeac410751b96cb9a88344774a343a187ab"
+    },
+    "dynamic_S13": {
+      "pairs": {
+        "correct": 316,
+        "reversed": 148,
+        "same_yes": 2762,
+        "same_no": 33
+      },
+      "prompt_equal_weight": {
+        "correct": 0.09114023292423508,
+        "reversed": 0.043986380246007976,
+        "same_yes": 0.8459160328854681,
+        "same_no": 0.01895735394428774
+      },
+      "prompts_predicting_constant": 43,
+      "prediction_sha256": "d64218222b72bb0452432cefb2c437195aa410ae8ff014673bb9a2d2b165d765"
+    },
+    "dynamic_S19": {
+      "pairs": {
+        "correct": 647,
+        "reversed": 365,
+        "same_yes": 391,
+        "same_no": 1856
+      },
+      "prompt_equal_weight": {
+        "correct": 0.17806766155477874,
+        "reversed": 0.09228148512231303,
+        "same_yes": 0.17355153585233354,
+        "same_no": 0.5560993174705745
+      },
+      "prompts_predicting_constant": 23,
+      "prediction_sha256": "bc9f4152b7ef29a3e29c0c9a77c312b94838d10e145bb7614ba98e4d08d92cd8"
+    },
+    "fixed_S19": {
+      "pairs": {
+        "correct": 674,
+        "reversed": 384,
+        "same_yes": 441,
+        "same_no": 1760
+      },
+      "prompt_equal_weight": {
+        "correct": 0.18680692041621808,
+        "reversed": 0.09326665582261207,
+        "same_yes": 0.19041828334878033,
+        "same_no": 0.5295081404123895
+      },
+      "prompts_predicting_constant": 24,
+      "prediction_sha256": "79bffd5b2284f89f6e0c6ef9b365c8d23c1c89e144e2acdbc2db4f1fcec14691"
+    }
+  },
+  "both_images_correct_overlap": {
+    "dynamic_after__dynamic_final": {
+      "both": 77,
+      "only_first": 239,
+      "only_second": 570,
+      "neither": 2373
+    },
+    "dynamic_final__fixed_final": {
+      "both": 625,
+      "only_first": 22,
+      "only_second": 49,
+      "neither": 2563
+    },
+    "shared_after__shared_final": {
+      "both": 8,
+      "only_first": 41,
+      "only_second": 440,
+      "neither": 2770
+    }
+  },
+  "scope": "Archived OneVision 1%, 19 tasks. Each pair contains two distinct decoded RGB images under the same task instruction, empty context and exact question string; the two ground truths are yes/no. Eligible questions and images recur across pairs. Fractions are descriptive of this finite matched subset; not IID test draws, not randomized image counterfactuals. The single and eight models were trained on different GPU models."
+}
