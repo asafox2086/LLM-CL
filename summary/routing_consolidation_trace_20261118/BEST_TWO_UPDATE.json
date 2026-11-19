@@ -1,0 +1,258 @@
+{
+  "measure": "Retain exactly two whole expert updates per projection per stage. Score is the retained sum of squared Frobenius norms of the eight separate expert map changes. The best pair is selected retrospectively per projection, which gives the exact maximum for this criterion. Shared base and previous stage constituting the reference. No change to training, no output evaluation.",
+  "design": "OneVision, 168 projections; four transitions after the initial medical task, 256 QA and 16 updates per transition. B continues within medicine; D switches domains using equal counts. Seeds 42, 43, 44, paired within seed.",
+  "records": {
+    "42": {
+      "sha256": "472074c1f18d8aef8c0f3b59ad8686f9186f4753a95c2e1f72b0fc237519dc74",
+      "result": {
+        "seed": 42,
+        "source_sha256": "f0eff11ac31d24f5c4dd59e3b3dd835b0f67a54a3661dc9367409f33460ee814",
+        "input_sha256": "1906be2cb74fd45629263ee977265aad2bd24a34232538537bd94d53605be9df",
+        "cells": {
+          "B": {
+            "stages": [
+              {
+                "stage": 2,
+                "total": 1.2649442618762836,
+                "by_gate": 0.4625742043050915,
+                "best_two": 0.47436573865447684,
+                "top_two_overlap": 118
+              },
+              {
+                "stage": 3,
+                "total": 1.052852105148732,
+                "by_gate": 0.3170581835818774,
+                "best_two": 0.32886604567141553,
+                "top_two_overlap": 130
+              },
+              {
+                "stage": 4,
+                "total": 1.213294530631097,
+                "by_gate": 0.3311053901547669,
+                "best_two": 0.3518253156748616,
+                "top_two_overlap": 96
+              },
+              {
+                "stage": 5,
+                "total": 1.0861692096710278,
+                "by_gate": 0.3017701468097066,
+                "best_two": 0.3151674099897171,
+                "top_two_overlap": 106
+              }
+            ],
+            "by_gate_fraction": 0.3059190714878571,
+            "best_two_fraction": 0.31841925207058797,
+            "fractions_denominator": "sum of individual expert squared map changes",
+            "top_two_overlap": 450,
+            "selection_slots": 1344
+          },
+          "D": {
+            "stages": [
+              {
+                "stage": 2,
+                "total": 1.4220008703473277,
+                "by_gate": 0.6708218530710691,
+                "best_two": 0.6786568800869719,
+                "top_two_overlap": 149
+              },
+              {
+                "stage": 3,
+                "total": 1.1217649257447102,
+                "by_gate": 0.45924773769719024,
+                "best_two": 0.4713435685105693,
+                "top_two_overlap": 135
+              },
+              {
+                "stage": 4,
+                "total": 1.440025427498906,
+                "by_gate": 0.5346489305414094,
+                "best_two": 0.5492412909023937,
+                "top_two_overlap": 124
+              },
+              {
+                "stage": 5,
+                "total": 1.5769874423441999,
+                "by_gate": 0.462171392553561,
+                "best_two": 0.48233332812139046,
+                "top_two_overlap": 99
+              }
+            ],
+            "by_gate_fraction": 0.3824805915927523,
+            "best_two_fraction": 0.39231467365990813,
+            "fractions_denominator": "sum of individual expert squared map changes",
+            "top_two_overlap": 507,
+            "selection_slots": 1344
+          }
+        }
+      }
+    },
+    "43": {
+      "sha256": "691a3e034d534bb9407f24df36503304e0890aeaaeae8549833eff911db1f2e9",
+      "result": {
+        "seed": 43,
+        "source_sha256": "f0eff11ac31d24f5c4dd59e3b3dd835b0f67a54a3661dc9367409f33460ee814",
+        "input_sha256": "e8e7f9c4f2e9fb5a50f225d329946f6ac75c570e7830df04cd32826a1d7fdf09",
+        "cells": {
+          "B": {
+            "stages": [
+              {
+                "stage": 2,
+                "total": 1.2111302028694724,
+                "by_gate": 0.4024825580546213,
+                "best_two": 0.4155804612963057,
+                "top_two_overlap": 118
+              },
+              {
+                "stage": 3,
+                "total": 1.0490930492048631,
+                "by_gate": 0.31482850556742126,
+                "best_two": 0.3282074640754069,
+                "top_two_overlap": 99
+              },
+              {
+                "stage": 4,
+                "total": 1.310623136366313,
+                "by_gate": 0.4300794032903982,
+                "best_two": 0.44662500530828,
+                "top_two_overlap": 122
+              },
+              {
+                "stage": 5,
+                "total": 1.115470480302234,
+                "by_gate": 0.3258966293106219,
+                "best_two": 0.3404776175161126,
+                "top_two_overlap": 96
+              }
+            ],
+            "by_gate_fraction": 0.3143805972766575,
+            "best_two_fraction": 0.3266724361741187,
+            "fractions_denominator": "sum of individual expert squared map changes",
+            "top_two_overlap": 435,
+            "selection_slots": 1344
+          },
+          "D": {
+            "stages": [
+              {
+                "stage": 2,
+                "total": 1.437592375043782,
+                "by_gate": 0.681879167935987,
+                "best_two": 0.6886058823502226,
+                "top_two_overlap": 149
+              },
+              {
+                "stage": 3,
+                "total": 1.0319474770521897,
+                "by_gate": 0.39917329511324734,
+                "best_two": 0.4116318612058963,
+                "top_two_overlap": 112
+              },
+              {
+                "stage": 4,
+                "total": 1.403842190953642,
+                "by_gate": 0.4950838936693207,
+                "best_two": 0.5097384176033568,
+                "top_two_overlap": 124
+              },
+              {
+                "stage": 5,
+                "total": 1.6217901690147183,
+                "by_gate": 0.5077780775014666,
+                "best_two": 0.5225914946170348,
+                "top_two_overlap": 114
+              }
+            ],
+            "by_gate_fraction": 0.37922641071100704,
+            "best_two_fraction": 0.38808022268976056,
+            "fractions_denominator": "sum of individual expert squared map changes",
+            "top_two_overlap": 499,
+            "selection_slots": 1344
+          }
+        }
+      }
+    },
+    "44": {
+      "sha256": "ecc1f462fb1023bac9d7a6defb9eb20c73739c89759d09667d0eafd5c97665d3",
+      "result": {
+        "seed": 44,
+        "source_sha256": "f0eff11ac31d24f5c4dd59e3b3dd835b0f67a54a3661dc9367409f33460ee814",
+        "input_sha256": "4e1b8760c64b8fec47a9e9c84cb21c1a141e3f33d3642f7d4607859ae3189671",
+        "cells": {
+          "B": {
+            "stages": [
+              {
+                "stage": 2,
+                "total": 1.2528322973801946,
+                "by_gate": 0.4489152872480183,
+                "best_two": 0.45953627282022846,
+                "top_two_overlap": 116
+              },
+              {
+                "stage": 3,
+                "total": 1.0231748841233148,
+                "by_gate": 0.28442512284437205,
+                "best_two": 0.29699172121779155,
+                "top_two_overlap": 102
+              },
+              {
+                "stage": 4,
+                "total": 1.253929167843705,
+                "by_gate": 0.37374377917674984,
+                "best_two": 0.38942899555632604,
+                "top_two_overlap": 92
+              },
+              {
+                "stage": 5,
+                "total": 1.093019663578607,
+                "by_gate": 0.3022587271314293,
+                "best_two": 0.3151927814096276,
+                "top_two_overlap": 81
+              }
+            ],
+            "by_gate_fraction": 0.30485752242937975,
+            "best_two_fraction": 0.31606395711284885,
+            "fractions_denominator": "sum of individual expert squared map changes",
+            "top_two_overlap": 391,
+            "selection_slots": 1344
+          },
+          "D": {
+            "stages": [
+              {
+                "stage": 2,
+                "total": 1.3406546144996891,
+                "by_gate": 0.5904281787457728,
+                "best_two": 0.5986378391638217,
+                "top_two_overlap": 151
+              },
+              {
+                "stage": 3,
+                "total": 1.0536670904241818,
+                "by_gate": 0.39450754711166963,
+                "best_two": 0.40740080574751236,
+                "top_two_overlap": 114
+              },
+              {
+                "stage": 4,
+                "total": 1.4373425734843313,
+                "by_gate": 0.5344444843487609,
+                "best_two": 0.5479898650574998,
+                "top_two_overlap": 118
+              },
+              {
+                "stage": 5,
+                "total": 1.595414282281747,
+                "by_gate": 0.47737277017290647,
+                "best_two": 0.49413591982473554,
+                "top_two_overlap": 100
+              }
+            ],
+            "by_gate_fraction": 0.367924097292828,
+            "best_two_fraction": 0.3773972325790664,
+            "fractions_denominator": "sum of individual expert squared map changes",
+            "top_two_overlap": 483,
+            "selection_slots": 1344
+          }
+        }
+      }
+    }
+  }
+}
