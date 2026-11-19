@@ -32,6 +32,33 @@ def order_digest(rows, stage):
     return sha256("".join(i+"\n" for i in ordered).encode()).hexdigest()
 
 
+def freeze_ids(root, manifest, manifest_sha):
+    """Write the same frozen ID list and split lock consumed by every training port."""
+    parent = (root/PARENT).parent
+    parent_lock = json.loads((parent.parent/"split_lock.json").read_bytes())["conditions"]["full"]
+    original = (parent/"frozen_ids.json").read_bytes()
+    assert parent_lock["manifest_sha256"] == PARENT_SHA
+    assert sha256(original).hexdigest() == parent_lock["frozen_ids_sha256"]
+    original_ids = json.loads(original)
+    ids, files = {}, {}
+    for task in manifest["tasks"]:
+        for split, desc in task["files"].items():
+            key = task["task_id"]+"/"+split
+            data_ids = {json.loads(line)["id"] for line in source(root,desc)}
+            ids[key] = [i for i in original_ids[key] if i in data_ids]
+            assert len(ids[key]) == len(data_ids) == desc["count"]
+            if split == "test":
+                assert ids[key] == original_ids[key]
+            files[desc["path"]] = desc["sha256"]
+    serialized_ids = (json.dumps(ids,indent=2)+"\n").encode()
+    target = root/OUT
+    save(target/"frozen_ids.json",serialized_ids)
+    condition = dict(manifest_sha256=manifest_sha,frozen_ids_sha256=sha256(serialized_ids).hexdigest(),files=files)
+    lock = dict(experiment_id=manifest["experiment_id"],variant_id=manifest["variant_id"],
+                seed=42,method_independent=True,conditions={"full":condition})
+    save(target.parent/"split_lock.json",(json.dumps(lock,indent=2)+"\n").encode())
+
+
 def main(root):
     original = (root / PARENT).read_bytes()
     assert sha256(original).hexdigest() == PARENT_SHA
@@ -92,6 +119,7 @@ def main(root):
                   stages=counts)
     save(target/"audit.json", encode(report))
     save(target/"manifest.json", encoded)
+    freeze_ids(root,manifest,report["manifest_sha256"])
     print(json.dumps(report))
 
 
