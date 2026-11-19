@@ -1,0 +1,65 @@
+{
+  "host": "old2080",
+  "stage": 1,
+  "domain": "natural",
+  "dataset": {
+    "TextVQA": 34602
+  },
+  "updates": 512,
+  "qa": 8192,
+  "train_file_sha256": "656a0c72ada7e02c099845d70a234a736e8252dba80e17d6579d587ec113c22a",
+  "train_order_sha256": "8c18c070e93f480099811c7fde5d434479ad4c20e834ca5d5a0ea5fff23e8085",
+  "common_settings": {
+    "base_model": "/data2/liyapeng_grp/program/LLMCL/model/LLaVA-OneVision-Qwen2-0.5B-OV",
+    "gpu_name": "NVIDIA GeForce RTX 2080 Ti",
+    "torch_version": "2.6.0+cu118",
+    "image_area_cap": 401408,
+    "batch_size": 16,
+    "micro_batch_size": 1,
+    "seed": 42,
+    "model_dtype": "torch.float16",
+    "autocast_dtype": "torch.float16",
+    "visual_cache_limit_bytes": 134217728
+  },
+  "matched_per_update": [
+    "prompt_tokens",
+    "target_tokens",
+    "visual_cache_hits",
+    "visual_cache_misses",
+    "visual_cache_cpu_bytes",
+    "qa_seen"
+  ],
+  "methods": {
+    "CL_MoE": {
+      "config_sha256": "41da88f4d19e48ebc3acf688a28f6d7cc58cef392082def6bb256d5c14d3f3cf",
+      "run": "exp/full_only_20261118/runs/onevision/CL_MoE",
+      "updates_sha256": "097835da1cadd210b6eafdcafdd1e7d87fe3cec7bee3c39611f740cddd3139f3",
+      "seconds": 35085.62596994545,
+      "four_blocks_seconds": [
+        8794.2258641558,
+        8824.09301845706,
+        8772.045059926459,
+        8695.262027406134
+      ],
+      "prompt_tokens": 31934682,
+      "target_tokens": 32979,
+      "max_logged_peak_allocated_bytes": 7358080512
+    },
+    "SeqFT_LoRA": {
+      "config_sha256": "0dc9bc5a9fc2b2bf94dc2f5cf4a1135f46d8c4e77bb646e4224bd90c25e2f64e",
+      "run": "exp/image_disjoint_shared_20261119/runs/onevision/SeqFT_LoRA",
+      "updates_sha256": "f2dac7470172827b30eb2d311bab4340fe0d54303fe396e53bde6ddd6e1d4295",
+      "seconds": 5773.995323213283,
+      "four_blocks_seconds": [
+        1443.4289248021087,
+        1450.0283010236453,
+        1443.7058499702252,
+        1436.8322474173037
+      ],
+      "prompt_tokens": 31934682,
+      "target_tokens": 32979,
+      "max_logged_peak_allocated_bytes": 2505776128
+    }
+  },
+  "limitation": "First 512 updates of the first task, original per-update wall clock. Same hardware model on separate GPUs; machine load uncontrolled. Excludes stage-end work and evaluation; no final quality or isolated routing-cost estimate."
+}
