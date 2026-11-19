@@ -1,0 +1,141 @@
+{
+  "qwen": {
+    "backbone": "qwen",
+    "source_sha256": "c719680cdb0fd10cfd40da265ad03c87f6c67f8a6061db8d366cdaba405735ff",
+    "native": {
+      "methods.py": "e5bd8f51690b006274ed5adcfa4ef3b1a2c3b0f1d79476d948b71d1cfec41c5b",
+      "clmoe_adapter.py": "33946eddfc6424638ded0675ded68860273859c2f71993a6a60bd22556341be9",
+      "onevision_bridge.py": "f3b1dd38af3b58dbfa69073da698ea2bf39a3a11850fb1069a80e38d0e3669a9"
+    },
+    "headers": {
+      "model-00001-of-00002.safetensors": "7c0fed2cf13bde1906b514199f0e352183b949d24cce47ec745ed4e4c2caca3c",
+      "model-00002-of-00002.safetensors": "7692718763e900aed935798025815d45789769dbcef80633a4430084d4baed95"
+    },
+    "methods": {
+      "SeqLoRA": {
+        "projections": 56,
+        "calls": {
+          "A0": 56,
+          "B0": 56
+        },
+        "additional_macs_per_token": {
+          "A0": 688128,
+          "B0": 401408
+        },
+        "seven_base_projection_macs_per_token": 1310195712
+      },
+      "CL_MoE": {
+        "projections": 196,
+        "calls": {
+          "router": 196,
+          "A0": 196,
+          "B0": 196,
+          "A1": 196,
+          "B1": 196,
+          "A2": 196,
+          "B2": 196,
+          "A3": 196,
+          "B3": 196,
+          "A4": 196,
+          "B4": 196,
+          "A5": 196,
+          "B5": 196,
+          "A6": 196,
+          "B6": 196,
+          "A7": 196,
+          "B7": 196
+        },
+        "additional_macs_per_token": {
+          "router": 4071424,
+          "A0": 4071424,
+          "B0": 5160960,
+          "A1": 4071424,
+          "B1": 5160960,
+          "A2": 4071424,
+          "B2": 5160960,
+          "A3": 4071424,
+          "B3": 5160960,
+          "A4": 4071424,
+          "B4": 5160960,
+          "A5": 4071424,
+          "B5": 5160960,
+          "A6": 4071424,
+          "B6": 5160960,
+          "A7": 4071424,
+          "B7": 5160960
+        },
+        "seven_base_projection_macs_per_token": 1310195712
+      }
+    },
+    "interpretation": "Training-mode forward of each native projection on three synthetic CPU tokens, with one gate logit 10 and the other seven zero. Counts per decoder pass; MACs per token, one multiply-accumulate per weight. Attention scores, elementwise operations, backward, recomputation and device transfers are excluded."
+  },
+  "onevision": {
+    "backbone": "onevision",
+    "source_sha256": "c719680cdb0fd10cfd40da265ad03c87f6c67f8a6061db8d366cdaba405735ff",
+    "native": {
+      "methods.py": "e5bd8f51690b006274ed5adcfa4ef3b1a2c3b0f1d79476d948b71d1cfec41c5b",
+      "clmoe_adapter.py": "33946eddfc6424638ded0675ded68860273859c2f71993a6a60bd22556341be9",
+      "onevision_bridge.py": "f3b1dd38af3b58dbfa69073da698ea2bf39a3a11850fb1069a80e38d0e3669a9"
+    },
+    "headers": {
+      "model.safetensors": "874dbcdff7fd946c2f1d74b0d46059e598b03bdc2b93853f65603360a984c5a5"
+    },
+    "methods": {
+      "SeqLoRA": {
+        "projections": 48,
+        "calls": {
+          "A0": 48,
+          "B0": 48
+        },
+        "additional_macs_per_token": {
+          "A0": 344064,
+          "B0": 196608
+        },
+        "seven_base_projection_macs_per_token": 357826560
+      },
+      "CL_MoE": {
+        "projections": 168,
+        "calls": {
+          "router": 168,
+          "A0": 168,
+          "B0": 168,
+          "A1": 168,
+          "B1": 168,
+          "A2": 168,
+          "B2": 168,
+          "A3": 168,
+          "B3": 168,
+          "A4": 168,
+          "B4": 168,
+          "A5": 168,
+          "B5": 168,
+          "A6": 168,
+          "B6": 168,
+          "A7": 168,
+          "B7": 168
+        },
+        "additional_macs_per_token": {
+          "router": 1966080,
+          "A0": 1966080,
+          "B0": 2433024,
+          "A1": 1966080,
+          "B1": 2433024,
+          "A2": 1966080,
+          "B2": 2433024,
+          "A3": 1966080,
+          "B3": 2433024,
+          "A4": 1966080,
+          "B4": 2433024,
+          "A5": 1966080,
+          "B5": 2433024,
+          "A6": 1966080,
+          "B6": 2433024,
+          "A7": 1966080,
+          "B7": 2433024
+        },
+        "seven_base_projection_macs_per_token": 357826560
+      }
+    },
+    "interpretation": "Training-mode forward of each native projection on three synthetic CPU tokens, with one gate logit 10 and the other seven zero. Counts per decoder pass; MACs per token, one multiply-accumulate per weight. Attention scores, elementwise operations, backward, recomputation and device transfers are excluded."
+  }
+}
