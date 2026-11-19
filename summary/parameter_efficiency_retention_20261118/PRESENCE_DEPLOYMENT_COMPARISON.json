@@ -1,0 +1,99 @@
+{
+  "full": {
+    "protocol": "archive",
+    "ledger_sha256": [
+      "0e1065de3b38181ff60990fd68c95bfa8527000b0dea7353729663c4416a8ad0",
+      "8e51c8e4c3861b049d4bda88fb0f40bbb834bd95515088f04d4416759cf36af8"
+    ],
+    "manifest_sha256": "36993693bfdddb0c3143cc842edfb2b5572628726146263cc0c9207ed4281777",
+    "test_sha256": "4ca421c2594f1d2a36b749d42526706cc6caca9af05f9908b85d08cf7c9218b4",
+    "source": "e7a4872ed46f48a2b7c14bd776abc27f3c8bc4664988a2818e98002ca3519a82",
+    "prediction_sha256": {
+      "shared_S13": "497a1feaa059d628459520c1c0a5b3d40bbca42b5042e0d9fd782c32e7315495",
+      "shared_S19": "b856d0629a5513129e9417ca4f20adeac410751b96cb9a88344774a343a187ab",
+      "eight_S13": "d64218222b72bb0452432cefb2c437195aa410ae8ff014673bb9a2d2b165d765",
+      "eight_S19": "bc9f4152b7ef29a3e29c0c9a77c312b94838d10e145bb7614ba98e4d08d92cd8",
+      "fixed_S19": "79bffd5b2284f89f6e0c6ef9b365c8d23c1c89e144e2acdbc2db4f1fcec14691"
+    },
+    "reference_counts": {
+      "yes": 2217,
+      "no": 738
+    },
+    "reference_slash_prediction": {
+      "shared_S13": {
+        "yes/yes": 2188,
+        "no/yes": 724,
+        "yes/no": 29,
+        "no/no": 14
+      },
+      "shared_S19": {
+        "yes/yes": 802,
+        "no/no": 620,
+        "yes/no": 1415,
+        "no/yes": 118
+      },
+      "eight_S13": {
+        "yes/yes": 2101,
+        "no/yes": 630,
+        "yes/no": 116,
+        "no/no": 108
+      },
+      "eight_S19": {
+        "yes/yes": 1143,
+        "no/no": 559,
+        "yes/no": 1074,
+        "no/yes": 179
+      },
+      "fixed_S19": {
+        "yes/yes": 1180,
+        "no/no": 549,
+        "yes/no": 1037,
+        "no/yes": 189
+      }
+    },
+    "paired": {
+      "fixed_S19__eight_S19": {
+        "yes": {
+          "count": 2217,
+          "only_left_full": 38,
+          "only_right_full": 1,
+          "normalized_text_differences": 39
+        },
+        "no": {
+          "count": 738,
+          "only_left_full": 0,
+          "only_right_full": 10,
+          "normalized_text_differences": 10
+        }
+      },
+      "shared_S19__eight_S19": {
+        "yes": {
+          "count": 2217,
+          "only_left_full": 2,
+          "only_right_full": 343,
+          "normalized_text_differences": 345
+        },
+        "no": {
+          "count": 738,
+          "only_left_full": 61,
+          "only_right_full": 0,
+          "normalized_text_differences": 61
+        }
+      }
+    },
+    "scope": "Complete T13 presence test. Normalized answer text is lowercase with outer whitespace trimmed. Other strings are retained as a separate count; full-credit pairing uses native token F1."
+  },
+  "cohort_935": {
+    "n": 935,
+    "counts_shared_eight_fixed": [
+      544,
+      792,
+      816
+    ],
+    "fixed_only": 24,
+    "dynamic_only": 0,
+    "cohort_ids_sha256": "25a94d1f72b882b0f25cf9ad354558e5e6d949e68866d40bd752c33292cf927a"
+  },
+  "selection": "T13 reference yes, only eight had full credit immediately before T13, both rank-matched models full immediately after T13. Shared LoRA is evaluated on the same selected indices without demanding it acquired full credit.",
+  "single_reference": "summary/cl_single_expert_formal_20261105/MATCHED_RANK_PRESENCE_RETENTION.json"
+}
