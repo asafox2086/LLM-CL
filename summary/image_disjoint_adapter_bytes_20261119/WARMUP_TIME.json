@@ -1,0 +1,39 @@
+{
+  "estimand": "First complete schedule-defined warm-up of the natural task. Within each method sum the 64 logged main-update durations. Identical frozen batches, prompt and answer lengths verified per step. The CL-MoE stage is the unchanged stage 1 of its predecessor. Distinct physical GPUs and start times; concurrent load not controlled. Excludes setup, stage-end work, evaluation, and later updates; no F1 read.",
+  "backbone": "onevision",
+  "host": "old2080",
+  "gpu_model": "NVIDIA GeForce RTX 2080 Ti",
+  "warmup_steps": 64,
+  "questions": 1024,
+  "shared": {
+    "method": "SeqFT_LoRA",
+    "scope": "image_disjoint_shared_20261119",
+    "manifest": "a4a3110199c6558e7500f0fff4abd005545ae28d88e3fefa289d69548b659589",
+    "config_sha256": "0dc9bc5a9fc2b2bf94dc2f5cf4a1135f46d8c4e77bb646e4224bd90c25e2f64e",
+    "runner": "0e1f794ff1daf0694bdf960c3f89ccd4078764577db75271d8f78684282a39a9",
+    "batch_qa_id_sha256": "2ec9db8c4af8e21caaf3cb85318534a0a2e514afddc21bf6bb4add46e4e0f904",
+    "training_order": "8c18c070e93f480099811c7fde5d434479ad4c20e834ca5d5a0ea5fff23e8085",
+    "events_path": "exp/image_disjoint_shared_20261119/runs/onevision/SeqFT_LoRA/logs/events.jsonl",
+    "bound_64_event_lines_sha256": "5d21802eaf4395a9b678df38faafa3cb299a395ff6d28c59f0ac55fdcc6046a1",
+    "prompt_tokens": 4017747,
+    "target_tokens": 4169,
+    "update_seconds": 724.8047127560712,
+    "median_step_seconds": 11.247096511477139
+  },
+  "eight": {
+    "method": "CL_MoE",
+    "scope": "full_only_20261118",
+    "manifest": "cf737555dab3646c9916dc63a66f1d52285eebbeed4aa414e807ae5b08a0d952",
+    "config_sha256": "41da88f4d19e48ebc3acf688a28f6d7cc58cef392082def6bb256d5c14d3f3cf",
+    "runner": "0e1f794ff1daf0694bdf960c3f89ccd4078764577db75271d8f78684282a39a9",
+    "batch_qa_id_sha256": "2ec9db8c4af8e21caaf3cb85318534a0a2e514afddc21bf6bb4add46e4e0f904",
+    "training_order": "8c18c070e93f480099811c7fde5d434479ad4c20e834ca5d5a0ea5fff23e8085",
+    "events_path": "exp/full_only_20261118/runs/onevision/CL_MoE/logs/events.jsonl",
+    "bound_64_event_lines_sha256": "c8584a415fb5115eb39471f3ea2e752ff537a7a794767cccb5b7e3df1dfe8f49",
+    "prompt_tokens": 4017747,
+    "target_tokens": 4169,
+    "update_seconds": 4423.1712444389705,
+    "median_step_seconds": 68.95929032901768
+  },
+  "share_of_time": 0.16386539717794818
+}

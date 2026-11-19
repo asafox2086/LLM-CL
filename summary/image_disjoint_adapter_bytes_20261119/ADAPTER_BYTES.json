@@ -1,0 +1,258 @@
+{
+  "scope": "Full image-disjoint ports on both hosts. Named FP32 model parameters added to the base, before any merging or quantization. MB=1,000,000 bytes. Shape-derived, not serialized package sizes. No TEST outputs.",
+  "measurements": [
+    {
+      "file": "old2080_eight.json",
+      "sha256": "1ab1cc3a43e95201930d137083c1abf31e586ec78eee3c7605d4a8a013a5e962",
+      "measurement": {
+        "backbone": "onevision",
+        "arm": "eight",
+        "source": "36c4009f50f517617d4edee98fb00432616c9112ad520cd1d9d6f143b5998669",
+        "design": "5d0020c11382aff61284133ff5033f813cdddf9c82edfa65d14d792882864f5b",
+        "manifest": "a4a3110199c6558e7500f0fff4abd005545ae28d88e3fefa289d69548b659589",
+        "headers": {
+          "model.safetensors": "874dbcdff7fd946c2f1d74b0d46059e598b03bdc2b93853f65603360a984c5a5"
+        },
+        "method_sources": {
+          "methods.py": "e5bd8f51690b006274ed5adcfa4ef3b1a2c3b0f1d79476d948b71d1cfec41c5b",
+          "clmoe_adapter.py": "33946eddfc6424638ded0675ded68860273859c2f71993a6a60bd22556341be9",
+          "onevision_bridge.py": "f3b1dd38af3b58dbfa69073da698ea2bf39a3a11850fb1069a80e38d0e3669a9"
+        },
+        "projections": 168,
+        "coefficient_counts_by_projection": {
+          "q_proj": {
+            "factors": 2752512,
+            "router": 172032
+          },
+          "k_proj": {
+            "factors": 1572864,
+            "router": 172032
+          },
+          "v_proj": {
+            "factors": 1572864,
+            "router": 172032
+          },
+          "o_proj": {
+            "factors": 2752512,
+            "router": 172032
+          },
+          "gate_proj": {
+            "factors": 8847360,
+            "router": 172032
+          },
+          "up_proj": {
+            "factors": 8847360,
+            "router": 172032
+          },
+          "down_proj": {
+            "factors": 8847360,
+            "router": 933888
+          }
+        },
+        "rank": 64,
+        "factor_bytes": 140771328,
+        "router_bytes": 7864320,
+        "tensor_bytes": 148635648,
+        "dtype": "float32",
+        "components": "Added named model parameters, unmerged, original precision. Excludes frozen base, per-task runtime statistics, optimizer, serialization, and transport overhead."
+      }
+    },
+    {
+      "file": "old2080_one.json",
+      "sha256": "42dbf37faf42cf5bbff82d2a6f62bb3514e28c3a813dddc2f9028e3ef492bfa1",
+      "measurement": {
+        "backbone": "onevision",
+        "arm": "one",
+        "source": "36c4009f50f517617d4edee98fb00432616c9112ad520cd1d9d6f143b5998669",
+        "design": "264415e3257a4436f6b0ec8a6f16cd601f48b9d56fdd0c6479bb8063176a7952",
+        "manifest": "a4a3110199c6558e7500f0fff4abd005545ae28d88e3fefa289d69548b659589",
+        "headers": {
+          "model.safetensors": "874dbcdff7fd946c2f1d74b0d46059e598b03bdc2b93853f65603360a984c5a5"
+        },
+        "method_sources": {
+          "methods.py": "e5bd8f51690b006274ed5adcfa4ef3b1a2c3b0f1d79476d948b71d1cfec41c5b",
+          "clmoe_adapter.py": "0eafa79719dd82d9000b3051b16c999d7fffd9a9e85bb957dfefc8b6969f66c5",
+          "onevision_bridge.py": "f3b1dd38af3b58dbfa69073da698ea2bf39a3a11850fb1069a80e38d0e3669a9"
+        },
+        "projections": 168,
+        "coefficient_counts_by_projection": {
+          "q_proj": {
+            "factors": 2752512,
+            "router": 21504
+          },
+          "k_proj": {
+            "factors": 1572864,
+            "router": 21504
+          },
+          "v_proj": {
+            "factors": 1572864,
+            "router": 21504
+          },
+          "o_proj": {
+            "factors": 2752512,
+            "router": 21504
+          },
+          "gate_proj": {
+            "factors": 8847360,
+            "router": 21504
+          },
+          "up_proj": {
+            "factors": 8847360,
+            "router": 21504
+          },
+          "down_proj": {
+            "factors": 8847360,
+            "router": 116736
+          }
+        },
+        "rank": 64,
+        "factor_bytes": 140771328,
+        "router_bytes": 983040,
+        "tensor_bytes": 141754368,
+        "dtype": "float32",
+        "components": "Added named model parameters, unmerged, original precision. Excludes frozen base, per-task runtime statistics, optimizer, serialization, and transport overhead."
+      }
+    },
+    {
+      "file": "old2080_shared.json",
+      "sha256": "a429afd06945b40593c42c6fa33076fc8ebc128a5a1f6951b175d4cb56351b9d",
+      "measurement": {
+        "backbone": "onevision",
+        "arm": "shared",
+        "source": "36c4009f50f517617d4edee98fb00432616c9112ad520cd1d9d6f143b5998669",
+        "design": "5e9ac0699148d902c55dd2d467e7ce39c44b366925c75bb2d0498dc69044af6b",
+        "manifest": "a4a3110199c6558e7500f0fff4abd005545ae28d88e3fefa289d69548b659589",
+        "headers": {
+          "model.safetensors": "874dbcdff7fd946c2f1d74b0d46059e598b03bdc2b93853f65603360a984c5a5"
+        },
+        "method_sources": {
+          "methods.py": "e5bd8f51690b006274ed5adcfa4ef3b1a2c3b0f1d79476d948b71d1cfec41c5b",
+          "clmoe_adapter.py": "33946eddfc6424638ded0675ded68860273859c2f71993a6a60bd22556341be9",
+          "onevision_bridge.py": "f3b1dd38af3b58dbfa69073da698ea2bf39a3a11850fb1069a80e38d0e3669a9"
+        },
+        "projections": 48,
+        "coefficient_counts_by_projection": {
+          "q_proj": {
+            "factors": 344064
+          },
+          "v_proj": {
+            "factors": 196608
+          }
+        },
+        "rank": 8,
+        "factor_bytes": 2162688,
+        "router_bytes": 0,
+        "tensor_bytes": 2162688,
+        "dtype": "float32",
+        "components": "Added named model parameters, unmerged, original precision. Excludes frozen base, per-task runtime statistics, optimizer, serialization, and transport overhead."
+      }
+    },
+    {
+      "file": "new3090_eight.json",
+      "sha256": "6166bc8bd6b643fb6a4e308fa34ace8e3ed64b0c096924be435d3189eedfa22d",
+      "measurement": {
+        "backbone": "qwen",
+        "arm": "eight",
+        "source": "36c4009f50f517617d4edee98fb00432616c9112ad520cd1d9d6f143b5998669",
+        "design": "d7b229dd98acd6b5ad2f837c213cf7657d16c5c0bc82953b484936181d181559",
+        "manifest": "a4a3110199c6558e7500f0fff4abd005545ae28d88e3fefa289d69548b659589",
+        "headers": {
+          "model-00001-of-00002.safetensors": "7c0fed2cf13bde1906b514199f0e352183b949d24cce47ec745ed4e4c2caca3c",
+          "model-00002-of-00002.safetensors": "7692718763e900aed935798025815d45789769dbcef80633a4430084d4baed95"
+        },
+        "method_sources": {
+          "methods.py": "e5bd8f51690b006274ed5adcfa4ef3b1a2c3b0f1d79476d948b71d1cfec41c5b",
+          "clmoe_adapter.py": "33946eddfc6424638ded0675ded68860273859c2f71993a6a60bd22556341be9",
+          "onevision_bridge.py": "f3b1dd38af3b58dbfa69073da698ea2bf39a3a11850fb1069a80e38d0e3669a9"
+        },
+        "projections": 196,
+        "coefficient_counts_by_projection": {
+          "q_proj": {
+            "factors": 5505024,
+            "router": 344064
+          },
+          "k_proj": {
+            "factors": 3211264,
+            "router": 344064
+          },
+          "v_proj": {
+            "factors": 3211264,
+            "router": 344064
+          },
+          "o_proj": {
+            "factors": 5505024,
+            "router": 344064
+          },
+          "gate_proj": {
+            "factors": 18808832,
+            "router": 344064
+          },
+          "up_proj": {
+            "factors": 18808832,
+            "router": 344064
+          },
+          "down_proj": {
+            "factors": 18808832,
+            "router": 2007040
+          }
+        },
+        "rank": 64,
+        "factor_bytes": 295436288,
+        "router_bytes": 16285696,
+        "tensor_bytes": 311721984,
+        "dtype": "float32",
+        "components": "Added named model parameters, unmerged, original precision. Excludes frozen base, per-task runtime statistics, optimizer, serialization, and transport overhead."
+      }
+    },
+    {
+      "file": "new3090_shared.json",
+      "sha256": "9e1d3d3708d8e4838c5acf7c86f04acbc8215da3636818dea9cbd13f88592b06",
+      "measurement": {
+        "backbone": "qwen",
+        "arm": "shared",
+        "source": "36c4009f50f517617d4edee98fb00432616c9112ad520cd1d9d6f143b5998669",
+        "design": "af3a5c021a46656ef944f30e17eebfd5460abbca02ce7301fe169eaf18047299",
+        "manifest": "a4a3110199c6558e7500f0fff4abd005545ae28d88e3fefa289d69548b659589",
+        "headers": {
+          "model-00001-of-00002.safetensors": "7c0fed2cf13bde1906b514199f0e352183b949d24cce47ec745ed4e4c2caca3c",
+          "model-00002-of-00002.safetensors": "7692718763e900aed935798025815d45789769dbcef80633a4430084d4baed95"
+        },
+        "method_sources": {
+          "methods.py": "e5bd8f51690b006274ed5adcfa4ef3b1a2c3b0f1d79476d948b71d1cfec41c5b",
+          "clmoe_adapter.py": "33946eddfc6424638ded0675ded68860273859c2f71993a6a60bd22556341be9",
+          "onevision_bridge.py": "f3b1dd38af3b58dbfa69073da698ea2bf39a3a11850fb1069a80e38d0e3669a9"
+        },
+        "projections": 56,
+        "coefficient_counts_by_projection": {
+          "q_proj": {
+            "factors": 688128
+          },
+          "v_proj": {
+            "factors": 401408
+          }
+        },
+        "rank": 8,
+        "factor_bytes": 4358144,
+        "router_bytes": 0,
+        "tensor_bytes": 4358144,
+        "dtype": "float32",
+        "components": "Added named model parameters, unmerged, original precision. Excludes frozen base, per-task runtime statistics, optimizer, serialization, and transport overhead."
+      }
+    }
+  ],
+  "ratios": {
+    "onevision": {
+      "eight_vs_shared": 68.72727272727273,
+      "router_fraction": 0.05291005291005291,
+      "additional_projection_multiplier": 8.136363636363637,
+      "rank_multiplier": 8,
+      "one_fraction_saved": 0.04629629629629628
+    },
+    "qwen": {
+      "eight_vs_shared": 71.52631578947368,
+      "router_fraction": 0.05224429727740986,
+      "additional_projection_multiplier": 8.473684210526315,
+      "rank_multiplier": 8
+    }
+  }
+}
