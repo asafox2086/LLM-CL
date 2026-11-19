@@ -1,0 +1,49 @@
+{
+  "pct01": {
+    "budget": "pct01",
+    "layers": 168,
+    "base_projection_parameters": 357826560,
+    "base_projection_bytes_before": 715653120,
+    "base_projection_bytes_after": 715653120,
+    "totals": {
+      "nonzero": 357826560,
+      "rounded_to_base": 55502224,
+      "delta_sq": 0.35081053305503923,
+      "error_sq": 0.005480624275198329,
+      "rounded_to_base_sq": 0.001804894410025164
+    },
+    "rounded_to_base_pct": 15.510929093692766,
+    "relative_squared_error_pct": 1.5622747206220473,
+    "rounded_to_base_energy_pct": 0.5144926505789925,
+    "checkpoint": "8550fdeb886a0e942ee9038ab0aeae7e5933b943094ee3af40c0816df592ffa4",
+    "coefficients": "c8b27d7ef168c457442b4d91c4d30bad1fb7366372f91cc4aeb7ad86cfddebf9",
+    "spectrum_reference": "79a07c65f9cad3875ebe1895ff9662110ca0b42c8146d62384324d10582d27fd",
+    "source": "c326391cbe658b2428d965fc748e6b458d6bc4f23dc5f792226bfd60b8be4b93",
+    "scope": "Full fixed bank update added in FP64 and rounded once to original FP16. All original FP32 factors and fixed coefficients. Single inference model replaces 168 dense base projections; no separate bank. Tensor counts only. No device, activation or test-score measurement.",
+    "layer_report_sha256": "cb830252b13845da67a4974c15f1fc779007f62a47ff467b206af13dd8e2f4e3"
+  },
+  "pct10": {
+    "budget": "pct10",
+    "layers": 168,
+    "base_projection_parameters": 357826560,
+    "base_projection_bytes_before": 715653120,
+    "base_projection_bytes_after": 715653120,
+    "totals": {
+      "nonzero": 357826560,
+      "rounded_to_base": 20056230,
+      "delta_sq": 2.9663584355998056,
+      "error_sq": 0.0055556262530841016,
+      "rounded_to_base_sq": 0.0007525114535216203
+    },
+    "rounded_to_base_pct": 5.605014339908139,
+    "relative_squared_error_pct": 0.18728775951044968,
+    "rounded_to_base_energy_pct": 0.02536819032017823,
+    "checkpoint": "6dc5641370e04aaea6684c18f71189913e2cfa81ecef8303c4f5dc97952358cb",
+    "coefficients": "1c555bc61c46ab29caf520b0c4c81568042c4a13a6dc73d79b8ea67a9bbb1b0b",
+    "spectrum_reference": "ca3b888ce2aa1c3133669702f965d482abcd6f9d0edf8063f318d4be2d7f7d34",
+    "source": "f63d214c0b09b06e62709e9a3d1877f53f9d8ddf28142c489dfa2e106024409a",
+    "scope": "Full fixed bank update added in FP64 and rounded once to original FP16. All original FP32 factors and fixed coefficients. Single inference model replaces 168 dense base projections; no separate bank. Tensor counts only. No device, activation or test-score measurement.",
+    "layer_report_sha256": "e6229b5c436f9d6a7434a433aec4f18b677340d0a9bf47d93a9250427db78285"
+  },
+  "coefficient_handling": "pct01 reads original C32. 10% serialized calibration means require FP32 conversion as in inference. Final energy independently agrees with prior singular-value sum for every projection."
+}
