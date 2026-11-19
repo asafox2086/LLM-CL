@@ -1,0 +1,460 @@
+{
+  "rule": "Existing four explicit wrappers from the OneVision T13 diagnostic, used unchanged; all remaining tasks screened by ground-truth only; require unanimous yes/no references after lowercase & strip. Interpret corrections as sensitivity to these four wrappers, not a general semantic rescore. Unclassified predictions retain their original token F1. Domain totals include all questions, not just eligible ones. T13 denominator is part of the original geography domain for five-domain macro averaging.",
+  "onevision": {
+    "backbone": "onevision",
+    "report_sha256": "5bbd642e4e21dc36090bd4037bf5062efe0cf654c68992e36945ff179530ad55",
+    "macro": {
+      "base": 17.47831741591073,
+      "shared": 42.18590834698936,
+      "dynamic": 42.77401941548097,
+      "fixed": 42.689406686294305
+    },
+    "delta": {
+      "T13": {
+        "base": 1.0823670531787406,
+        "shared": 0,
+        "dynamic": 0,
+        "fixed": 0
+      },
+      "remaining_18": {
+        "base": 3.9046912679436296,
+        "shared": 0,
+        "dynamic": 0,
+        "fixed": 0
+      }
+    },
+    "groups": {
+      "natural": {
+        "n": 5000,
+        "eligible": 69,
+        "arms": {
+          "base": {
+            "raw_all": 193556.70244619934,
+            "raw_eligible": 2780,
+            "normalization_delta": 3620,
+            "wrappers": 66,
+            "correct_parsed": 64,
+            "unclassified": 2
+          },
+          "shared": {
+            "raw_all": 378159.0223421595,
+            "raw_eligible": 6400,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 64,
+            "unclassified": 1
+          },
+          "dynamic": {
+            "raw_all": 373286.31977499695,
+            "raw_eligible": 6400,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 64,
+            "unclassified": 1
+          },
+          "fixed": {
+            "raw_all": 373682.5246812018,
+            "raw_eligible": 6500,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 65,
+            "unclassified": 1
+          }
+        }
+      },
+      "medical": {
+        "n": 2094,
+        "eligible": 355,
+        "arms": {
+          "base": {
+            "raw_all": 26527.848691331063,
+            "raw_eligible": 7480,
+            "normalization_delta": 11220,
+            "wrappers": 328,
+            "correct_parsed": 187,
+            "unclassified": 27
+          },
+          "shared": {
+            "raw_all": 85346.58033209229,
+            "raw_eligible": 23300,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 233,
+            "unclassified": 19
+          },
+          "dynamic": {
+            "raw_all": 86145.95328484532,
+            "raw_eligible": 24000,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 240,
+            "unclassified": 0
+          },
+          "fixed": {
+            "raw_all": 87094.14716048427,
+            "raw_eligible": 24100,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 241,
+            "unclassified": 0
+          }
+        }
+      },
+      "geography": {
+        "n": 7049,
+        "eligible": 4002,
+        "arms": {
+          "base": {
+            "raw_all": 117906.66666666695,
+            "raw_eligible": 108633.33333333362,
+            "normalization_delta": 134466.66666666642,
+            "wrappers": 3772,
+            "correct_parsed": 2431,
+            "unclassified": 0
+          },
+          "shared": {
+            "raw_all": 325100,
+            "raw_eligible": 267000,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 2670,
+            "unclassified": 0
+          },
+          "dynamic": {
+            "raw_all": 330500,
+            "raw_eligible": 269400,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 2694,
+            "unclassified": 0
+          },
+          "fixed": {
+            "raw_all": 328900,
+            "raw_eligible": 269100,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 2691,
+            "unclassified": 0
+          }
+        }
+      },
+      "T13": {
+        "n": 2955,
+        "eligible": 2955,
+        "arms": {
+          "base": {
+            "raw_all": 131760.00000000154,
+            "raw_eligible": 131760.00000000154,
+            "normalization_delta": 54140.0000000006,
+            "wrappers": 1919,
+            "correct_parsed": 1859,
+            "unclassified": 4
+          },
+          "shared": {
+            "raw_all": 142200,
+            "raw_eligible": 142200,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 1422,
+            "unclassified": 0
+          },
+          "dynamic": {
+            "raw_all": 170200,
+            "raw_eligible": 170200,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 1702,
+            "unclassified": 0
+          },
+          "fixed": {
+            "raw_all": 172900,
+            "raw_eligible": 172900,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 1729,
+            "unclassified": 0
+          }
+        }
+      },
+      "finance": {
+        "n": 2233,
+        "eligible": 0,
+        "arms": {
+          "base": {
+            "raw_all": 13699.99480911245,
+            "raw_eligible": 0,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 0,
+            "unclassified": 0
+          },
+          "shared": {
+            "raw_all": 35484.09629247861,
+            "raw_eligible": 0,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 0,
+            "unclassified": 0
+          },
+          "dynamic": {
+            "raw_all": 33302.709979600935,
+            "raw_eligible": 0,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 0,
+            "unclassified": 0
+          },
+          "fixed": {
+            "raw_all": 32050.082556313904,
+            "raw_eligible": 0,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 0,
+            "unclassified": 0
+          }
+        }
+      },
+      "traffic": {
+        "n": 2123,
+        "eligible": 0,
+        "arms": {
+          "base": {
+            "raw_all": 10444.769850871637,
+            "raw_eligible": 0,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 0,
+            "unclassified": 0
+          },
+          "shared": {
+            "raw_all": 67804.30918236997,
+            "raw_eligible": 0,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 0,
+            "unclassified": 0
+          },
+          "dynamic": {
+            "raw_all": 70291.55819455539,
+            "raw_eligible": 0,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 0,
+            "unclassified": 0
+          },
+          "fixed": {
+            "raw_all": 69221.32498413451,
+            "raw_eligible": 0,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 0,
+            "unclassified": 0
+          }
+        }
+      }
+    }
+  },
+  "qwen": {
+    "backbone": "qwen",
+    "report_sha256": "2ec3ac68adea5f19ab955ab2100afdaa4ef6875fff656e83d0762c640e8e9ec3",
+    "macro": {
+      "base": 33.55638037417297,
+      "shared": 48.97235117665749,
+      "dynamic": 48.071713460037834
+    },
+    "delta": {
+      "T13": {
+        "base": 0,
+        "shared": 0,
+        "dynamic": 0
+      },
+      "remaining_18": {
+        "base": 0.0006664001066240173,
+        "shared": 0,
+        "dynamic": 0
+      }
+    },
+    "groups": {
+      "natural": {
+        "n": 5000,
+        "eligible": 69,
+        "arms": {
+          "base": {
+            "raw_all": 389901.183372614,
+            "raw_eligible": 6193.737373737374,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 61,
+            "unclassified": 6
+          },
+          "shared": {
+            "raw_all": 431560.0652125656,
+            "raw_eligible": 6600,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 66,
+            "unclassified": 1
+          },
+          "dynamic": {
+            "raw_all": 429102.8069153075,
+            "raw_eligible": 6700,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 67,
+            "unclassified": 0
+          }
+        }
+      },
+      "medical": {
+        "n": 2094,
+        "eligible": 355,
+        "arms": {
+          "base": {
+            "raw_all": 48144.62994583487,
+            "raw_eligible": 21046.308691308695,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 202,
+            "unclassified": 104
+          },
+          "shared": {
+            "raw_all": 99788.11484366882,
+            "raw_eligible": 25800,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 258,
+            "unclassified": 0
+          },
+          "dynamic": {
+            "raw_all": 99001.39891633429,
+            "raw_eligible": 25600,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 256,
+            "unclassified": 0
+          }
+        }
+      },
+      "geography": {
+        "n": 7049,
+        "eligible": 4002,
+        "arms": {
+          "base": {
+            "raw_all": 160867.16925574507,
+            "raw_eligible": 151509.28756376053,
+            "normalization_delta": 33.33333333333334,
+            "wrappers": 1,
+            "correct_parsed": 1298,
+            "unclassified": 2437
+          },
+          "shared": {
+            "raw_all": 319000,
+            "raw_eligible": 270200,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 2702,
+            "unclassified": 0
+          },
+          "dynamic": {
+            "raw_all": 336800,
+            "raw_eligible": 275300,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 2753,
+            "unclassified": 0
+          }
+        }
+      },
+      "T13": {
+        "n": 2955,
+        "eligible": 2955,
+        "arms": {
+          "base": {
+            "raw_all": 141271.56565656565,
+            "raw_eligible": 141271.56565656565,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 1406,
+            "unclassified": 63
+          },
+          "shared": {
+            "raw_all": 192300,
+            "raw_eligible": 192300,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 1923,
+            "unclassified": 0
+          },
+          "dynamic": {
+            "raw_all": 170200,
+            "raw_eligible": 170200,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 1702,
+            "unclassified": 0
+          }
+        }
+      },
+      "finance": {
+        "n": 2233,
+        "eligible": 0,
+        "arms": {
+          "base": {
+            "raw_all": 7177.746460170868,
+            "raw_eligible": 0,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 0,
+            "unclassified": 0
+          },
+          "shared": {
+            "raw_all": 59343.151260504164,
+            "raw_eligible": 0,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 0,
+            "unclassified": 0
+          },
+          "dynamic": {
+            "raw_all": 52602.072072072064,
+            "raw_eligible": 0,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 0,
+            "unclassified": 0
+          }
+        }
+      },
+      "traffic": {
+        "n": 2123,
+        "eligible": 0,
+        "arms": {
+          "base": {
+            "raw_all": 70894.97687532466,
+            "raw_eligible": 0,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 0,
+            "unclassified": 0
+          },
+          "shared": {
+            "raw_all": 70505.58327835903,
+            "raw_eligible": 0,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 0,
+            "unclassified": 0
+          },
+          "dynamic": {
+            "raw_all": 70107.80833056597,
+            "raw_eligible": 0,
+            "normalization_delta": 0,
+            "wrappers": 0,
+            "correct_parsed": 0,
+            "unclassified": 0
+          }
+        }
+      }
+    }
+  }
+}
