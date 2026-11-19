@@ -1,0 +1,171 @@
+{
+  "onevision": {
+    "backbone": "onevision",
+    "source_sha256": "c66aa3328ee59c28d6d0b17a762e6d30ed827d29db6d2af62d01987d5a4876a6",
+    "native": "33946eddfc6424638ded0675ded68860273859c2f71993a6a60bd22556341be9",
+    "single": "0eafa79719dd82d9000b3051b16c999d7fffd9a9e85bb957dfefc8b6969f66c5",
+    "author": "d1578188d8c03340da7449ed7c25967e2a08e957aacde3d21071970ed77cb195",
+    "headers": {
+      "model.safetensors": "874dbcdff7fd946c2f1d74b0d46059e598b03bdc2b93853f65603360a984c5a5"
+    },
+    "torch": "2.6.0+cu118",
+    "groups": [
+      {
+        "in_features": 896,
+        "out_features": 128,
+        "multiplicity": 48,
+        "per_token": {
+          "single64": {
+            "saved_bytes": 11524,
+            "dropout_output_bytes": 3584
+          },
+          "eight8": {
+            "saved_bytes": 65312,
+            "dropout_output_bytes": 28672
+          }
+        }
+      },
+      {
+        "in_features": 896,
+        "out_features": 896,
+        "multiplicity": 48,
+        "per_token": {
+          "single64": {
+            "saved_bytes": 14596,
+            "dropout_output_bytes": 3584
+          },
+          "eight8": {
+            "saved_bytes": 89888,
+            "dropout_output_bytes": 28672
+          }
+        }
+      },
+      {
+        "in_features": 4864,
+        "out_features": 896,
+        "multiplicity": 24,
+        "per_token": {
+          "single64": {
+            "saved_bytes": 62212,
+            "dropout_output_bytes": 19456
+          },
+          "eight8": {
+            "saved_bytes": 359712,
+            "dropout_output_bytes": 155648
+          }
+        }
+      },
+      {
+        "in_features": 896,
+        "out_features": 4864,
+        "multiplicity": 48,
+        "per_token": {
+          "single64": {
+            "saved_bytes": 30468,
+            "dropout_output_bytes": 3584
+          },
+          "eight8": {
+            "saved_bytes": 216864,
+            "dropout_output_bytes": 28672
+          }
+        }
+      }
+    ],
+    "totals": {
+      "single64": {
+        "saved_bytes": 4209312,
+        "dropout_output_bytes": 983040
+      },
+      "eight8": {
+        "saved_bytes": 26492160,
+        "dropout_output_bytes": 7864320
+      }
+    },
+    "meaning": "CPU eager autograd, synthetic FP16 input and native FP32 adapters, frozen base. Bytes per token summed across separate projection calls, deduplicated within each call. Excludes parameter storage. Includes tensors saved for input and parameter gradients. Not a device memory peak or a wall time attribution."
+  },
+  "qwen": {
+    "backbone": "qwen",
+    "source_sha256": "c66aa3328ee59c28d6d0b17a762e6d30ed827d29db6d2af62d01987d5a4876a6",
+    "native": "33946eddfc6424638ded0675ded68860273859c2f71993a6a60bd22556341be9",
+    "single": "0eafa79719dd82d9000b3051b16c999d7fffd9a9e85bb957dfefc8b6969f66c5",
+    "author": "d1578188d8c03340da7449ed7c25967e2a08e957aacde3d21071970ed77cb195",
+    "headers": {
+      "model-00001-of-00002.safetensors": "7c0fed2cf13bde1906b514199f0e352183b949d24cce47ec745ed4e4c2caca3c",
+      "model-00002-of-00002.safetensors": "7692718763e900aed935798025815d45789769dbcef80633a4430084d4baed95"
+    },
+    "torch": "2.6.0+cu118",
+    "groups": [
+      {
+        "in_features": 1536,
+        "out_features": 256,
+        "multiplicity": 56,
+        "per_token": {
+          "single64": {
+            "saved_bytes": 19716,
+            "dropout_output_bytes": 6144
+          },
+          "eight8": {
+            "saved_bytes": 112928,
+            "dropout_output_bytes": 49152
+          }
+        }
+      },
+      {
+        "in_features": 1536,
+        "out_features": 1536,
+        "multiplicity": 56,
+        "per_token": {
+          "single64": {
+            "saved_bytes": 24836,
+            "dropout_output_bytes": 6144
+          },
+          "eight8": {
+            "saved_bytes": 153888,
+            "dropout_output_bytes": 49152
+          }
+        }
+      },
+      {
+        "in_features": 8960,
+        "out_features": 1536,
+        "multiplicity": 28,
+        "per_token": {
+          "single64": {
+            "saved_bytes": 113924,
+            "dropout_output_bytes": 35840
+          },
+          "eight8": {
+            "saved_bytes": 658720,
+            "dropout_output_bytes": 286720
+          }
+        }
+      },
+      {
+        "in_features": 1536,
+        "out_features": 8960,
+        "multiplicity": 56,
+        "per_token": {
+          "single64": {
+            "saved_bytes": 54532,
+            "dropout_output_bytes": 6144
+          },
+          "eight8": {
+            "saved_bytes": 391456,
+            "dropout_output_bytes": 49152
+          }
+        }
+      }
+    ],
+    "totals": {
+      "single64": {
+        "saved_bytes": 8738576,
+        "dropout_output_bytes": 2035712
+      },
+      "eight8": {
+        "saved_bytes": 55307392,
+        "dropout_output_bytes": 16285696
+      }
+    },
+    "meaning": "CPU eager autograd, synthetic FP16 input and native FP32 adapters, frozen base. Bytes per token summed across separate projection calls, deduplicated within each call. Excludes parameter storage. Includes tensors saved for input and parameter gradients. Not a device memory peak or a wall time attribution."
+  }
+}
