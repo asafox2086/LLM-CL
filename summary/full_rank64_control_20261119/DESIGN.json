@@ -1,0 +1,33 @@
+{
+  "host": "old2080",
+  "backbone": "onevision",
+  "methods": [
+    "CL_MoE"
+  ],
+  "condition": "full",
+  "manifest": "data/FiveDomainCL/five_domain_native_cl_20261016_sparse_labeled_20261017/full/manifest.json",
+  "manifest_sha256": "cf737555dab3646c9916dc63a66f1d52285eebbeed4aa414e807ae5b08a0d952",
+  "train": 131018,
+  "test": 21454,
+  "updates": 8197,
+  "epochs": 1,
+  "seed": 42,
+  "policy_sha256": "73d3cb69e0a2ea60ca5f30a72906362bf64afdceb406ebd97496a6d48690a156",
+  "source_sha256": "9c7529c178932ec460e1350a85380ff0c659531c107cceaa062311bdcc2d72e3",
+  "early_evaluation": "all current-task TEST QA after training that task",
+  "final_evaluation": "all original TEST QA; macro is an unweighted mean of five domain QA means",
+  "fixed_reference": "One softmax output equals one on all inputs; native branch only.",
+  "checkpoints": "All 19 compact snapshots before TEST. Frozen pretrained base, tokenizer and original code required for reconstruction.",
+  "previous_full": "Prior OneVision run stopped in stage 1 without a usable stage checkpoint. Fresh training in an independent directory.",
+  "reference_driver": "c2d65255934dc2d01a2d59ae0a77acb76a53aa50f07a0c27e26aa367b6af1d39",
+  "worker_sha256": "03b8840cf7a34a8f8bd359477d9c7bfc2a65dde6389482b83b697c0c6c71cf9a",
+  "adapter_sha256": "0eafa79719dd82d9000b3051b16c999d7fffd9a9e85bb957dfefc8b6969f66c5",
+  "reference_adapter_sha256": "33946eddfc6424638ded0675ded68860273859c2f71993a6a60bd22556341be9",
+  "reference_run": "exp/full_only_20261118/runs/onevision/CL_MoE",
+  "experts": 1,
+  "rank_per_expert": 64,
+  "total_rank": 64,
+  "projections": 168,
+  "trainable_parameters": 35438592,
+  "comparison": "One rank-64 versus eight rank-8 experts at seed 42, same host and GPU model. Primary outcome is change in eight-minus-one macro F1 from task acquisition to sequence end. Use all five domains and matched image-cluster intervals. Expert partition, effective routing, and consolidation vary jointly."
+}
