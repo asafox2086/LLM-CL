@@ -1,0 +1,152 @@
+{
+  "backbone": "Qwen2-VL-2B-Instruct",
+  "method": "SeqFT-LoRA",
+  "train": 129460,
+  "updates": 8099,
+  "test": 21454,
+  "manifest_sha256": "9ed3798ab2b9aca66cda39530c94e69333706e2ec6bf1fbb9a2897ae023a6563",
+  "final_macro_f1": 48.573359324396264,
+  "domains": {
+    "natural": {
+      "test": 5000,
+      "acquisition_f1": 86.65828201554208,
+      "final_f1": 77.44323818964368,
+      "change": -9.21504382589839
+    },
+    "medical": {
+      "test": 2094,
+      "acquisition_f1": 71.37591467215334,
+      "final_f1": 35.9893651167733,
+      "change": -35.38654955538004
+    },
+    "geography": {
+      "test": 10004,
+      "acquisition_f1": 72.14114354258297,
+      "final_f1": 60.23403969065532,
+      "change": -11.907103851927639
+    },
+    "finance": {
+      "test": 2233,
+      "acquisition_f1": 37.66233766233766,
+      "final_f1": 31.47484699208837,
+      "change": -6.18749067024929
+    },
+    "traffic": {
+      "test": 2123,
+      "acquisition_f1": 41.516726887286865,
+      "final_f1": 37.72530663282066,
+      "change": -3.7914202544662006
+    }
+  },
+  "cost_seconds": {
+    "main_update_seconds": 60752.494627987035,
+    "end_stage_seconds": 11.875787258148193,
+    "stage_seconds": 60777.361192941666
+  },
+  "peak_main_update_allocated_bytes": 5509616640,
+  "receipt": {
+    "identity": {
+      "pid": 982965,
+      "startticks": "160275985",
+      "gpu": "0",
+      "unix": 1795135088.3535717
+    },
+    "exit": {
+      "pid": 982965,
+      "rc": 0,
+      "unix": 1795224412.849616
+    },
+    "config_sha256": "622d8c817adf93540ab9a9fb1f453a9ed80fb3bb4d7a5dd2b2ff743d213b8a8f",
+    "final": {
+      "stage": 19,
+      "path": "checkpoints/stage_19.pt",
+      "bytes": 4407684,
+      "sha256": "9a926ed60321e839df3f67f1dfee10af9c4ced2563950d8bd3e4bdbcb195a3e6",
+      "format": "trainable_parameters_and_CL_state",
+      "parameters": 1089536
+    },
+    "complete_sha256": "fdcda37ad7a7450893f10fa13c0c69822ac8bb8117ca276965c87739aff04198"
+  },
+  "timing_files": {
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA": [
+      "045fec7185db4a39d432bcbe6ab2521843582b561c67dad78a7c7e966a667bf9",
+      "47bb6f53246e0aefc50a23a35aaf613f23b5c743398416e510f4a0d83c54f5b7"
+    ]
+  },
+  "evaluations": {
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_01/T01_test_predictions.jsonl": "5835e3d3b36902d29da18afc14a5de5d7f0d8f54207d215b02b4d31bcd80cb2c",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_01/T01_test_predictions.scores.json": "cd4356a05fc743ac121d2a3e92a68ebf53b2a8e3d6077eb602225ab49dfebaf5",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T01_test_predictions.jsonl": "d407a464ee44caacb71d8056c39df7307bc660e60daa44e410d61877f1910e84",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T01_test_predictions.scores.json": "7d7245e166de5b8acba659a9223ebca8092f00b11c1475c24d73afcbe2651890",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_02/T02_test_predictions.jsonl": "1eb8a83c49ce1fb559fee1cc8c984620d3a555687e4a16d5204dc61ea80012e5",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_02/T02_test_predictions.scores.json": "ea848a1e5931c0198afc330517a92eddbb0878fc07cf6ab4992354defff0cd5c",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T02_test_predictions.jsonl": "01c4283938962f03b67dfb57d6cbd2da54eaa62f716f7ba81c9d90a0c403e183",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T02_test_predictions.scores.json": "b61d649ada048e53b695afe6174a3656037ac236b64979a71e4e195c77824a33",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_03/T03_test_predictions.jsonl": "6124d4be3e377806681f50f803377111e4fe02db3395df2da984b90b517dbbfb",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_03/T03_test_predictions.scores.json": "0d0da61d2e4ff82680790e82133873b83e8d44595f0e90773e2488d6a0a74424",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T03_test_predictions.jsonl": "4ae1cb49ed65895fac498bb878d9719129d1b6f43cfdf139ad858d2e2a2a0189",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T03_test_predictions.scores.json": "1e94c7c247b9bbc710fa39fc41b70d7ca6a825532ed43b250a610f345103696d",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_04/T04_test_predictions.jsonl": "61fc235b170b4ef8b532513f8b562e1f944934cdcddabbdb4254ac2689e05268",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_04/T04_test_predictions.scores.json": "f1cb538d00233248b056f774d0d04875e75fe8955f166ce16e9d22196931577c",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T04_test_predictions.jsonl": "8d77d33f0e7cdff2c218662b864b311b5ce964013dc1d546227dd5d76a78bbfd",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T04_test_predictions.scores.json": "1c50ab12d79b2813cc3e32eccfe94c045471eff587487d457787b918732202bd",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_05/T05_test_predictions.jsonl": "cd480b436328c15b2f7c7696fcd2583de39a39be439b9985f2b8bb5dff28c0d5",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_05/T05_test_predictions.scores.json": "63a8245b2e35c94f54cb783d28624c498ded5de177b9897649aa1720e742cca9",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T05_test_predictions.jsonl": "0d76009b47fbdb7d6f8cadf9c47ebc388ab0ac7e5b1a64a9132ac89347f22ff2",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T05_test_predictions.scores.json": "438fb4198ad03049a287ebd3613018a98f9d0b91753f81a5a73ba69676c3b157",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_06/T06_test_predictions.jsonl": "1b080ea36dc9406463b2fc0a1699aead0fcacd85ddc7f41597e89a41778f9955",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_06/T06_test_predictions.scores.json": "2db9cf96b8374f39436b0576321d176328c56f4a16acf8342ac776e0925b5856",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T06_test_predictions.jsonl": "d92561b4c0eb351b4f691658da9552fe9711bceb4ae5672effd245469abbc2d9",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T06_test_predictions.scores.json": "944bc2919bfe2f6d9d7b6b9f25f58637a086625a986bceda8e7896e929e8b179",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_07/T07_test_predictions.jsonl": "4ffd277dd4f39fee604ed50e15591eb6e11ddea8c7711e25419116a294a3e530",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_07/T07_test_predictions.scores.json": "b0a74463530c4734fdb514fa7222799a75cc68b5f42dbef6cd037d9548bcba6f",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T07_test_predictions.jsonl": "95436eeaf5cfc46e1bcabbca2d0d1f2148aaaa85b864f2805fbfe8f9222f05f8",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T07_test_predictions.scores.json": "d94ef5286684275480909ee0b36a4d3de0b3ae7df38252d69ad7a21b96255c79",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_08/T08_test_predictions.jsonl": "c482c9709e0af6e5f34c0e0527c3762af4312d6124d8eb1dd3c43732a0c65a61",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_08/T08_test_predictions.scores.json": "8fb213a3155eff0bb6da7dc20b7827c91bb1530bbe75f6f324158eacac24fa85",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T08_test_predictions.jsonl": "0004f8b1c89bcd3fe2144de92ca75d32773d5f798b7684222beb3ab9a73c9d5a",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T08_test_predictions.scores.json": "8dbd7834b45188d78ede7c307ce44d99bfd9564dd04e161e2c1316d858467ef2",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_09/T09_test_predictions.jsonl": "e80b800349c6d960d717f6fc57fd930877b49c0041b3d217d1f4146ae3668b82",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_09/T09_test_predictions.scores.json": "7352d1ba5d6295ca38701d0d358023f3e3db3cfbebfcccd7d5edeb1513662b94",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T09_test_predictions.jsonl": "28e00af00ee2ceabf1946fbd13e2e1859141ab58d42c417721972ec11c2ff7dd",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T09_test_predictions.scores.json": "2020bd388c58eb5f67ed0135aaf7bd04144b27c227c7b7d7950affa4512358c6",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_10/T10_test_predictions.jsonl": "05b5da80f5a78cfd6944be0a0b5100bd0292f204ca22223007fe1c71673da57e",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_10/T10_test_predictions.scores.json": "19c78b17d9424a52595266651685891df779e37c2206336d9a34a0c4435733f5",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T10_test_predictions.jsonl": "7dbdf63ff6d91e57a90116adcb5b9ce17161c913b74c05d46cafbab92e8bf14b",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T10_test_predictions.scores.json": "3698ced28599a636dbe5ab95313307e0f1294e01fa00ffc39840f23a58f7928e",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_11/T11_test_predictions.jsonl": "32dd2b864bf83acf44e83e1bbf077b84b1a8b66cb22be70cfe1fa6a5565dd398",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_11/T11_test_predictions.scores.json": "5a9e1cf26271791878c96f1ce2cab59ad39368f91ec973529a5692be476ed88c",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T11_test_predictions.jsonl": "1b9b9b10e01dbffefde39e70d321c0e18e2b2654f7166912b1d7e9fd3276dcd0",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T11_test_predictions.scores.json": "6fa58e8340ca03d5d653bca01366003f14f0eb552a9f6f85cbca383c09cc7591",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_12/T12_test_predictions.jsonl": "3bc1f5ed44d3c9470b8f758349251fe52d7840b03e9a9cdc6b177e8ce2249a09",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_12/T12_test_predictions.scores.json": "797519b50a4895ce8a25d2c633b26d0910eb8e594e968c7256cb7f3e0b7dab7b",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T12_test_predictions.jsonl": "830069533ddf9e9fd176c9b0de846d617faa7b037dd7e710ab7bd03e0eefc00c",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T12_test_predictions.scores.json": "97db8f315a1891362173d2a3b92a31fb3081a4b9bc431fa5397bfa47607c1dce",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_13/T13_test_predictions.jsonl": "a043ea3f6c1bb95831c80b8960841ebb253c658f5b945d300e967183252a725a",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_13/T13_test_predictions.scores.json": "1c77f295774deb9f723d88d0fb285d42fc122bd9bf68cc3b65be306730297252",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T13_test_predictions.jsonl": "535223badea1f327f12e3701a856418a331afb1255ebac62897b88cdb867cb6d",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T13_test_predictions.scores.json": "126a39bc7a37283846560bd11a67ee15925de9ceb32300c32d1da378847c2fb2",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_14/T14_test_predictions.jsonl": "2a9f4813cc3b57dc473ff01378e0a55dfa2c908cc3abd9f483fb88b5725d4d4e",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_14/T14_test_predictions.scores.json": "d69221c45d37fab7d227b03d41aca1a38bfa489484c0ab845c3d05d2831b3579",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T14_test_predictions.jsonl": "8732044cc178fa8bb3f506c2ad1b7cf7f12585384f03c9ece5e1a00058dced21",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T14_test_predictions.scores.json": "c8a05e8933659ec35a454fe196d089eeb00fa6e8323c2424c98f861bcce77553",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_15/T15_test_predictions.jsonl": "102e5c9e2306d11c6daaf6180a749fae5f096dd6f2106a91ae4f74dedb8d75b2",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_15/T15_test_predictions.scores.json": "df2d84441e225911e9e73e8c3bc1af67ac8946e8226340a3c6aa5d3ffc5c2060",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T15_test_predictions.jsonl": "0565fb074cbcaf15f87b1f3eb60d637cf0b474fd42a70e6c3d4a0ee383ec9007",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T15_test_predictions.scores.json": "b6cf1f981068d43d83ff8648aeca9ef3e62b2b9acf6b3c9f6022adf58a3a49cc",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_16/T16_test_predictions.jsonl": "1e505b5d754fac360cdc4b1b9ec253f51ebecef5e36579ae515f6eef8942f42d",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_16/T16_test_predictions.scores.json": "494f149a2d501810d47382b5d2e058aba85672c5053857ecdb9443b4f74886bb",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T16_test_predictions.jsonl": "998fe2de04abebedea3fd6b6b3a7157c2cd0ec77bcf812fa277458f4adc7bbcf",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T16_test_predictions.scores.json": "1238e6a4167fab86ac173b49b4e016c038ae2ea183fada733646f36130385e34",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_17/T17_test_predictions.jsonl": "d53b4fc3b4fcf5edb08f247668538327a51ee00d8073bc0668dcfcc23e6c7825",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_17/T17_test_predictions.scores.json": "191d4914d5c233b08679aa974d157fea0dc348f95b273d2b2fd2cf8b5cfdec3e",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T17_test_predictions.jsonl": "cc80073caab1b95af4dd480d321e3e61cefcbfabe81a598ed62430e167854709",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T17_test_predictions.scores.json": "a7eb870013d63043e0545e4c72c3f3ea4cfc90d5250a26719b45ddb64d653901",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_18/T18_test_predictions.jsonl": "ba866bfd638cba70541329096622fb510ac010e3fd8043de35cd6bfa664daf8a",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_18/T18_test_predictions.scores.json": "d1ec85af90f7202ed9089151b45a15d45c60e67840a10971aede4e3ee66b6b13",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T18_test_predictions.jsonl": "ab24d72c12fcfcc73cd69e0c566dfc7a7ebd5f54317d1dffacd1cad0b4fc2af0",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T18_test_predictions.scores.json": "5b66ec7066fcea24f0b7701601587b679d74f5db052d8ae996d9feee2b7da21e",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T19_test_predictions.jsonl": "a2b0673a3c0d7d3da81cf08749ac0ae455921d77db3d973efa244d310560d232",
+    "exp/rgb_clean_shared_20261119/runs/qwen/SeqFT_LoRA/evaluations/stage_19/T19_test_predictions.scores.json": "b585d236c28390bd6a450e806217ce340129de7b540d7676c584ea069e8abc42"
+  }
+}
